@@ -1,0 +1,1018 @@
+<div class="sheet-core">
+    <input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0">
+    <input class="sheet-toggle-npc-edit" name="attr_npc_options-flag" type="checkbox" hidden>
+    <label class="sheet-form-checkbox">
+        <input type="checkbox" name="attr_npc" value="1">
+        <span>NPC</span>
+    </label>
+    <div class="sheet-section-roll">
+        <input type="hidden" name="attr_rtype" class="sheet-roll-toggle">
+        <input type="hidden" name="attr_wtype" class="sheet-roll-toggle">
+        <div class="sheet-section-roll-whisper">
+            <label class="sheet-radio">
+                <input type="radio" name="attr_whispertoggle" value="" checked="checked">
+                <span title="@{whispertoggle}">Public</span>
+            </label>
+            <label class="sheet-radio">
+                <input type="radio" name="attr_whispertoggle" value="/w gm ">
+                <span title="@{whispertoggle}">To GM</span>
+            </label>
+        </div>
+    </div>
+    
+    <div class="sheet-section-npc">
+        <div class="sheet-checkbox-cog">
+            <input type="checkbox" name="attr_npc_options-flag" checked="checked">
+            <span class="sheet-toggle-icon"></span>
+        </div>
+        <input type="checkbox" name="attr_npc_options-flag" checked="checked" class="sheet-toggle" hidden>
+        <div class="sheet-toggle-checked sheet-section-npc-edit">
+            <div class="sheet-form sheet-form-sm">
+                <div class="sheet-form-header">NPC Options</div>
+                <div class="sheet-form-body">
+                    <div class="sheet-form-group">
+                        <label>Name</label>
+                        <input type="text" name="attr_npc_name">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>NPC Type</label>
+                        <input type="text" name="attr_npc_type">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Damage Reduction</label>
+                        <input type="text" name="attr_npc_dr">
+                        <label>Type</label>
+                        <input type="text" name="attr_npc_drtype" value="">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Hit Points</label>
+                        <input type="text" name="attr_hp_max">
+                        <label>Formula</label>
+                        <input type="text" name="attr_npc_hpformula">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Speed</label>
+                        <input type="text" name="attr_npc_speed">
+                    </div>
+                    <div class="sheet-form-fieldset sheet-form-fieldset-npc-attributes">
+                        <div class="sheet-form-fieldset-header">Attributes</div>
+                        <div class="sheet-form-fieldset-body">
+                            <div class="sheet-form-group">
+                                <label>Pwr</label>
+                                <input type="text" name="attr_power" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Agi</label>
+                                <input type="text" name="attr_agility" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Vit</label>
+                                <input type="text" name="attr_vitality" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Cul</label>
+                                <input type="text" name="attr_cultivation" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Qic</label>
+                                <input type="text" name="attr_qi_control" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Mtl</label>
+                                <input type="text" name="attr_mental_strength" value="1" class="sheet-text-center">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Damage Hyper Resistances</label>
+                        <input type="text" name="attr_npc_hyper_resistances">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Damage Resistances</label>
+                        <input type="text" name="attr_npc_resistances">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Damage Weakness</label>
+                        <input type="text" name="attr_npc_weakness">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Damage Hyper Weakness</label>
+                        <input type="text" name="attr_npc_hyper_weakness">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Senses</label>
+                        <input type="text" name="attr_npc_senses">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Level</label>
+                        <input type="text" name="attr_npc_level">
+                        <label>XP</label>
+                        <input type="text" name="attr_npc_xp">
+                    </div>
+                    <div class="sheet-form-group">
+                        <label class="sheet-form-checkbox">
+                            <input type="checkbox" name="attr_npcresponsesflag" value="1">
+                            <span>Has Responses</span>
+                        </label>
+                    </div>
+                    <div class="sheet-form-group">
+                        <label>Legendary Moves</label>
+                        <input type="text" name="attr_npc_legendary_moves" value="0">
+                    </div>
+                    <div class="sheet-form-fieldset">
+                        <div class="sheet-form-fieldset-header">General Options</div>
+                        <div class="sheet-form-fieldset-body">
+                            <div class="sheet-form-group">
+                                <label class="sheet-form-checkbox">
+                                    <input type="checkbox" name="attr_npc" value="1">
+                                    <span>NPC</span>
+                                </label>
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Whisper Rolls to GM</label>
+                                <select name="attr_wtype">
+                                    <option value="">Never Whisper Rolls</option>
+                                    <option value="@{whispertoggle}">Whisper Toggle</option>
+                                    <option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }">Query Whisper</option>
+                                    <option value="/w gm ">Always Whisper Rolls</option>
+                                </select>
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>Auto Damage Roll</label>
+                                <select name="attr_dtype">
+                                    <option value="pick">Don't Auto Roll Damage</option>
+                                    <option value="full">Auto Roll Damage</option>
+                                </select>
+                            </div>
+                            <div class="sheet-form-group">
+                                <label>NPC Name in Rolls</label>
+                                <select name="attr_npc_name_flag">
+                                    <option value="{{name=@{npc_name}}}">Show</option>
+                                    <option value="0">Hide</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-toggle-unchecked sheet-section-npc-display">
+            <div class="sheet-npc-header">
+                <div class="sheet-npc-header-name">
+                    <button type="roll" name="roll_npc_init" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Initiative}} {{r1=[[@{agility}d6+[[@{initiative_bonus}]][AGI] &{tracker}]]}} {{type=Initiative}}" class="sheet-btn-text">
+                        <span name="attr_npc_name"></span>
+                    </button>
+                </div>
+                <span name="attr_npc_type"></span>
+            </div>
+            <div class="sheet-npc-body">
+                <div class="sheet-npc-section sheet-npc-section-hp">
+                    <button type="roll" name="roll_npc_init" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Initiative}} {{r1=[[@{agility}d6+[[@{initiative_bonus}]][AGI] &{tracker}]]}} {{type=Initiative}}" class="sheet-btn-npc-initiative">
+                        <span>t</span>
+                        <span>INIT</span>
+                    </button>
+                    <div>
+                        <label>Damage Reduction</label>
+                        <span name="attr_npc_dr"></span>
+                        <input type="hidden" name="attr_npc_drtype" value="">
+                        <span name="attr_npc_drtype" class="sheet-display-brackets"></span>
+                    </div>
+                    <div>
+                        <label>Hit Points</label>
+                        <span name="attr_hp_max"></span>
+                        <button type="roll" name="roll_npc_hpformula" value="@{wtype}&{template:stat} {{type=Hit Points}} @{npc_name_flag} {{rname=Hit Points}} {{mod=@{npc_hpformula}}} {{r1=[[@{npc_hpformula}]]}} charname=@{character_name}" class="sheet-btn-inline">
+                            <span name="attr_npc_hpformula" class="sheet-display-brackets"></span>
+                        </button>
+                    </div>
+                    <div>
+                        <label>Speed</label>
+                        <span name="attr_npc_speed"></span>
+                    </div>
+                </div>
+                <div class="sheet-npc-section sheet-npc-section-abilities">
+                    <button type="roll" name="roll_npc_pwr" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Power}} {{r1=[[@{power}d6[PWR]]]}} @{rtype}+[[@{power}]][PWR]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                        <span class="sheet-btn-npc-ability-title">STR</span>
+                        <span name="attr_power" class="sheet-btn-npc-ability"></span>
+                    </button>
+                    <button type="roll" name="roll_npc_agi" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Agility}} {{r1=[[@{agility}d6[AGI]]]}} @{rtype}+[[@{agility}]][AGI]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                        <span class="sheet-btn-npc-ability-title">AGI</span>
+                        <span name="attr_agility" class="sheet-btn-npc-ability"></span>
+                    </button>
+                    <button type="roll" name="roll_npc_vit" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Vitality}} {{r1=[[@{vitality}d6[VIT]]]}} @{rtype}+[[@{vitality}]][VIT]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                        <span class="sheet-btn-npc-ability-title">VIT</span>
+                        <span name="attr_vitality" class="sheet-btn-npc-ability"></span>
+                    </button>
+                    <button type="roll" name="roll_npc_cul" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Cultivation}} {{r1=[[@{cultivation}d6[CUL]]]}} @{rtype}+[[@{cultivation}]][CUL]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                        <span class="sheet-btn-npc-ability-title">CUL</span>
+                        <span name="attr_cultivation" class="sheet-btn-npc-ability"></span>
+                    </button>
+                    <button type="roll" name="roll_npc_qic" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Qi Control}} {{r1=[[@{qi_control}d6[QIC]]]}} @{rtype}+[[@{qi_control}]][QIC]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                        <span class="sheet-btn-npc-ability-title">QIC</span>
+                        <span name="attr_qi_control" class="sheet-btn-npc-ability"></span>
+                    </button>
+                    <button type="roll" name="roll_npc_mtl" value="@{wtype}&{template:stat} @{npc_name_flag} {{rname=Mental Strength}} {{r1=[[@{mental_strength}d6[MTL]]]}} @{rtype}+[[@{mental_strength}]][MTL]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                        <span class="sheet-btn-npc-ability-title">MTL</span>
+                        <span name="attr_mental_strength" class="sheet-btn-npc-ability"></span>
+                    </button>
+                </div>
+                <div class="sheet-npc-section sheet-npc-section-details">
+                    <input type="hidden" name="attr_npc_hyper_resistances" class="sheet-field-toggle">
+                    <div>
+                        <label>Damage Hyper Resistances</label>
+                        <span name="attr_npc_hyper_resistances"></span>
+                    </div>
+                    <input type="hidden" name="attr_npc_resistances" class="sheet-field-toggle">
+                    <div>
+                        <label>Damage Resistances</label>
+                        <span name="attr_npc_resistances"></span>
+                    </div>
+                    <input type="hidden" name="attr_npc_weakness" class="sheet-field-toggle">
+                    <div>
+                        <label>Damage Weakness</label>
+                        <span name="attr_npc_weakness"></span>
+                    </div>
+                    <input type="hidden" name="attr_npc_hyper_weakness" class="sheet-field-toggle">
+                    <div>
+                        <label>Damage Weakness</label>
+                        <span name="attr_npc_hyper_weakness"></span>
+                    </div>
+                    <div>
+                        <label>Senses</label>
+                        <span name="attr_npc_senses"></span>
+                    </div>
+                    <div>
+                        <label>Level</label>
+                        <span name="attr_npc_level"></span>
+                        <span name="attr_npc_xp" class="sheet-display-brackets-xp"></span>
+                    </div>
+                </div>
+                <div class="sheet-container-well">
+                    <div class="sheet-container-panel sheet-npc-traits">
+                        <div class="sheet-container-header">Traits</div>
+                        <div class="sheet-container-body">
+                            <fieldset class="repeating_npctrait">
+                                <div class="sheet-fieldset-item sheet-fieldset-item-npctrait">
+                                    <div class="sheet-checkbox-cog">
+                                        <input type="checkbox" name="attr_npc_options-flag" checked="checked" value="on">
+                                        <span class="sheet-toggle-icon"></span>
+                                    </div>
+                                    <input type="checkbox" name="attr_npc_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                    <div class="sheet-toggle-checked">
+                                        <div class="sheet-form">
+                                            <div class="sheet-form-header">Edit Trait</div>
+                                            <div class="sheet-form-body">
+                                                <div class="sheet-form-group">
+                                                    <label>Name:</label>
+                                                    <input type="text" name="attr_name">
+                                                </div>
+                                                <div class="sheet-form-group">
+                                                    <label>Description:</label>
+                                                    <textarea name="attr_desc"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-toggle-unchecked">
+                                        <div class="sheet-npc-trait">
+                                            <div class="sheet-npc-trait-name">
+                                                <span name="attr_name"></span>
+                                            </div>
+                                            <div class="sheet-npc-trait-desc">
+                                                <span name="attr_desc"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <input type="hidden" name="attr_dflag" value="pick">
+                    <div class="sheet-container-panel sheet-npc-moves">
+                        <div class="sheet-container-header">Moves</div>
+                        <div class="sheet-container-body">
+                            <fieldset class="repeating_npcmove">
+                                <div class="sheet-fieldset-item sheet-fieldset-item-npcmove">
+                                    <div class="sheet-checkbox-cog">
+                                        <input type="checkbox" name="attr_npc_options-flag" checked="checked" value="on">
+                                        <span class="sheet-toggle-icon"></span>
+                                    </div>
+                                    <input type="checkbox" name="attr_npc_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                    <div class="sheet-toggle-checked">
+                                        <div class="sheet-form">
+                                            <div class="sheet-form-header">Edit Move</div>
+                                            <div class="sheet-form-body">
+                                                <div class="sheet-form-group">
+                                                    <label>Name:</label>
+                                                    <input type="text" name="attr_name">
+                                                    <label class="sheet-form-checkbox">
+                                                        <input type="checkbox" name="attr_attack_flag" value="on">
+                                                        <span>Attack</span>
+                                                    </label>
+                                                </div>
+                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                <div class="sheet-form-group sheet-toggle-checked">
+                                                    <div class="sheet-form-fieldset">
+                                                        <div class="sheet-form-fieldset-header">Attack</div>
+                                                        <div class="sheet-form-fieldset-body">
+                                                            <input type="hidden" name="attr_damage_flag">
+                                                            <div class="sheet-form-group">
+                                                                <label>Type:</label>
+                                                                <select name="attr_attack_type">
+                                                                    <option value="Melee">Melee</option>
+                                                                    <option value="Ranged">Ranged</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Range/Reach:</label>
+                                                                <input type="text" name="attr_attack_range">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>To Hit:</label>
+                                                                <input type="text" name="attr_attack_tohit" value="0">
+                                                                <label>Target:</label>
+                                                                <input type="text" name="attr_attack_target">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Damage 1:</label>
+                                                                <input type="text" name="attr_attack_damage">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_attack_damagetype">
+                                                                <input type="hidden" name="attr_attack_crit">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Damage 2:</label>
+                                                                <input type="text" name="attr_attack_damage2">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_attack_damagetype2">
+                                                                <input type="hidden" name="attr_attack_crit2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-form-group">
+                                                    <label>Description:</label>
+                                                    <select name="attr_show_desc">
+                                                        <option value="@{description}">Show</option>
+                                                        <option value=" ">Hide</option>
+                                                    </select>
+                                                </div>
+                                                <div class="sheet-form-group">
+                                                    <textarea name="attr_description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-toggle-unchecked">
+                                        <div class="sheet-npc-move">
+                                            <button type="roll" name="roll_npc_move" value="@{rollbase}" class="sheet-fieldset-item-npcmove-checked-roll sheet-btn-text">
+                                                <div class="sheet-fieldset-item-npcmove-checked-name">
+                                                    <span name="attr_name"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-fieldset-item-npcmove-checked-attack">
+                                                        <span name="attr_attack_type"></span><span> Weapon Attack: </span><span name="attr_attack_tohitrange"></span>
+                                                    </div>
+                                                    <div class="sheet-fieldset-item-npcmove-checked-onhit">
+                                                        <span>Hit: </span><span name="attr_attack_onhit"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-fieldset-item-npcmove-checked-description">
+                                                    <span name="attr_description"></span>
+                                                </div>
+                                            </button>
+                                            <input type="hidden" name="attr_rollbase">
+                                            <button type="roll" name="roll_npc_dmg" value="@{wtype}&{template:npcdmg} @{damage_flag} {{dmg1=[[@{attack_damage}]]}} {{dmg1type=@{attack_damagetype}}} {{dmg2=[[@{attack_damage2}]]}} {{dmg2type=@{attack_damagetype2}}}" class="sheet-hidden"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <input type="hidden" name="attr_npcresponsesflag" value="0" class="sheet-field-toggle">
+                    <div class="sheet-container-panel sheet-npc-responses">
+                        <div class="sheet-container-header">Responses</div>
+                        <div class="sheet-container-body">
+                            <fieldset class="repeating_npcresponses">
+                                <div class="sheet-fieldset-item sheet-fieldset-item-npcresponses">
+                                    <div class="sheet-checkbox-cog">
+                                        <input type="checkbox" name="attr_npc_options-flag" checked="checked" value="on">
+                                        <span class="sheet-toggle-icon"></span>
+                                    </div>
+                                    <input type="checkbox" name="attr_npc_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                    <div class="sheet-toggle-checked">
+                                        <div class="sheet-form">
+                                            <div class="sheet-form-header">Edit Response</div>
+                                            <div class="sheet-form-body">
+                                                <div class="sheet-form-group">
+                                                    <label>Name:</label>
+                                                    <input type="text" name="attr_name">
+                                                </div>
+                                                <div class="sheet-form-group">
+                                                    <label>Description:</label>
+                                                    <textarea name="attr_desc"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-toggle-unchecked">
+                                        <div class="sheet-npc-responses">
+                                            <button type="roll" name="roll_npc_move" value="@{wtype}&{template:npcmove} @{npc_name_flag} {{rname=@{name}}} {{description=@{desc}}} @{charname_output}" class="sheet-fieldset-item-npcmove-checked-roll sheet-btn-text">
+                                                <div class="sheet-npc-response-name">
+                                                    <span name="attr_name"></span>
+                                                </div>
+                                                <div class="sheet-npc-response-description">
+                                                    <span name="attr_desc"></span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <input type="hidden" name="attr_npc_legendary_moves" value="0" class="sheet-field-toggle">
+                    <div class="sheet-container-panel sheet-npc-legendary-moves">
+                        <div class="sheet-container-header">Legendary Moves</div>
+                        <div class="sheet-container-body">
+                            <input type="hidden" name="attr_npc_legendary_move_desc" class="sheet-field-toggle">
+                            <div class="sheet-npc-legendary-move-description">
+                                <span name="attr_npc_legendary_move_desc"></span>
+                            </div>
+                            <fieldset class="repeating_npcmove-l">
+                                <div class="sheet-fieldset-item sheet-fieldset-item-npcmove">
+                                    <div class="sheet-checkbox-cog">
+                                        <input type="checkbox" name="attr_npc_options-flag" checked="checked" value="on">
+                                        <span class="sheet-toggle-icon"></span>
+                                    </div>
+                                    <input type="checkbox" name="attr_npc_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                    <div class="sheet-toggle-checked">
+                                        <div class="sheet-form">
+                                            <div class="sheet-form-header">Edit Legendary Move</div>
+                                            <div class="sheet-form-body">
+                                                <div class="sheet-form-group">
+                                                    <label>Name:</label>
+                                                    <input type="text" name="attr_name">
+                                                    <label class="sheet-form-checkbox">
+                                                        <input type="checkbox" name="attr_attack_flag" value="on">
+                                                        <span>Attack</span>
+                                                    </label>
+                                                </div>
+                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                <div class="sheet-form-group sheet-toggle-checked">
+                                                    <div class="sheet-form-fieldset">
+                                                        <div class="sheet-form-fieldset-header">Attack</div>
+                                                        <div class="sheet-form-fieldset-body">
+                                                            <input type="hidden" name="attr_damage_flag">
+                                                            <div class="sheet-form-group">
+                                                                <label>Type:</label>
+                                                                <select name="attr_attack_type">
+                                                                    <option value="Melee">Melee</option>
+                                                                    <option value="Ranged">Ranged</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Range/Reach:</label>
+                                                                <input type="text" name="attr_attack_range">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>To Hit:</label>
+                                                                <input type="text" name="attr_attack_tohit" value="0">
+                                                                <label>Target:</label>
+                                                                <input type="text" name="attr_attack_target">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Damage 1:</label>
+                                                                <input type="text" name="attr_attack_damage">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_attack_damagetype">
+                                                                <input type="hidden" name="attr_attack_crit">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Damage 2:</label>
+                                                                <input type="text" name="attr_attack_damage2">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_attack_damagetype2">
+                                                                <input type="hidden" name="attr_attack_crit2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-form-group">
+                                                    <label>Description:</label>
+                                                    <select name="attr_show_desc">
+                                                        <option value="@{description}">Show</option>
+                                                        <option value=" ">Hide</option>
+                                                    </select>
+                                                </div>
+                                                <div class="sheet-form-group">
+                                                    <textarea name="attr_description"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-toggle-unchecked">
+                                        <div class="sheet-npc-legendary-moves">
+                                            <button type="roll" name="roll_npc_move" value="@{rollbase}" class="sheet-fieldset-item-npcmove-checked-roll sheet-btn-text">
+                                                <div class="sheet-fieldset-item-npcmove-checked-name">
+                                                    <span name="attr_name"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-fieldset-item-npcmove-checked-attack">
+                                                        <span name="attr_attack_type"></span><span> Weapon Attack: </span><span name="attr_attack_tohitrange"></span>
+                                                    </div>
+                                                    <div class="sheet-fieldset-item-npcmove-checked-onhit">
+                                                        <span>Hit: </span><span name="attr_attack_onhit"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-fieldset-item-npcmove-checked-description">
+                                                    <span name="attr_description"></span>
+                                                </div>
+                                            </button>
+                                            <input type="hidden" name="attr_rollbase">
+                                            <button type="roll" name="roll_npc_dmg" value="@{wtype}&{template:npcdmg} @{damage_flag} {{dmg1=[[@{attack_damage}]]}} {{dmg1type=@{attack_damagetype}}} {{dmg2=[[@{attack_damage2}]]}} {{dmg2type=@{attack_damagetype2}}}" class="sheet-hidden"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-section-npc-footer">
+            <p>Venator Ignis's JTTH Character Sheet</p>
+        </div>
+    </div>
+
+    <div class="sheet-section-pc">
+        <div class="sheet-section-pc-header"></div>
+        <div class="sheet-section-pc-body"></div>
+        <div class="sheet-section-pc-footer">
+            <p>Venator Ignis's JTTH Character Sheet</p>
+        </div>
+    </div>
+
+    <div class="sheet-variables">
+        <input type="hidden" name="attr_level" value="1">
+        <input type="hidden" name="attr_hitdie_final" value="">
+        <input type="hidden" name="attr_initiative_bonus" value="0">
+        <input type="hidden" name="attr_npc_legendary_move_desc" value="">
+        <input type="hidden" name="attr_global_damage_mod_roll" value="0">
+        <input type="hidden" name="attr_global_damage_mod_type" value="">
+        <input type="hidden" name="attr_global_attack_mod" value="">
+        <input type="hidden" name="attr_global_check_mod" value="">
+        <input type="hidden" name="attr_global_skill_mod" value="">
+        <input type="hidden" name="attr_power" value="0">
+        <input type="hidden" name="attr_agility" value="0">
+        <input type="hidden" name="attr_vitality" value="0">
+        <input type="hidden" name="attr_cultivation" value="0">
+        <input type="hidden" name="attr_qi_control" value="0">
+        <input type="hidden" name="attr_mental_strength" value="0">
+        <input type="hidden" name="attr_power_check_bonus" value="0">
+        <input type="hidden" name="attr_agility_check_bonus" value="0">
+        <input type="hidden" name="attr_vitality_check_bonus" value="0">
+        <input type="hidden" name="attr_cultivation_check_bonus" value="0">
+        <input type="hidden" name="attr_qi_control_check_bonus" value="0">
+        <input type="hidden" name="attr_mental_strength_check_bonus" value="0">
+        <input type='hidden' name='attr_acrobatics_bonus' value='0'>
+        <input type='hidden' name='attr_athletics_bonus' value='0'>
+        <input type='hidden' name='attr_charm_bonus' value='0'>
+        <input type='hidden' name='attr_deceit_bonus' value='0'>
+        <input type='hidden' name='attr_disguise_bonus' value='0'>
+        <input type='hidden' name='attr_fine_arts_bonus' value='0'>
+        <input type='hidden' name='attr_forgery_bonus' value='0'>
+        <input type='hidden' name='attr_history_bonus' value='0'>
+        <input type='hidden' name='attr_intuition_bonus' value='0'>
+        <input type='hidden' name='attr_intimidate_bonus' value='0'>
+        <input type='hidden' name='attr_investigate_bonus' value='0'>
+        <input type='hidden' name='attr_medicine_bonus' value='0'>
+        <input type='hidden' name='attr_navigation_bonus' value='0'>
+        <input type='hidden' name='attr_perception_bonus' value='0'>
+        <input type='hidden' name='attr_performance_bonus' value='0'>
+        <input type='hidden' name='attr_persuade_bonus' value='0'>
+        <input type='hidden' name='attr_sleight_of_hand_bonus' value='0'>
+        <input type='hidden' name='attr_stealth_bonus' value='0'>
+        <input type='hidden' name='attr_survival_bonus' value='0'>
+    </div>
+
+    <div class="sheet-rolltemplate">
+        <div class="sheet-rolltemplates">
+            <rolltemplate class="sheet-rolltemplate-atk">
+                <div class="container">
+                    <div class="result">
+                        <div class="adv">
+                            <span>{{r1}}{{#globalattack}} + {{globalattack}}{{/globalattack}}</span>
+                        </div>
+                        <div class="advspacer"></div>
+                        <div class="adv">
+                            <span>{{r2}}{{#globalattack}} + {{globalattack}}{{/globalattack}}</span>
+                        </div>
+                    </div>
+                    {{#range}}
+                        <div class="sublabel">
+                            <span>{{range}}</span>
+                        </div>
+                    {{/range}}
+                    <div class="label">
+                        {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                    </div>
+                    {{#charname}}
+                        <div class="charname">
+                            <span>{{charname}}</span>
+                        </div>
+                    {{/charname}}
+                </div>
+                {{#desc}}
+                    <div class="desc info">
+                        <span>
+                            <span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span>
+                        </span>
+                    </div>
+                {{/desc}}
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-atkdmg">
+                {{#attack}}
+                    <div class="container atk">
+                        <div class="result">
+                            <div class="adv">
+                                <span>{{r1}}{{#globalattack}} + {{globalattack}}{{/globalattack}}</span>
+                            </div>
+                            <div class="advspacer"></div>
+                            <div class="adv">
+                                <span>{{r2}}{{#globalattack}} + {{globalattack}}{{/globalattack}}</span>
+                            </div>
+                        </div>
+                        {{#range}}
+                            <div class="sublabel">
+                                <span>{{range}}</span>
+                            </div>
+                        {{/range}}
+                        <div class="label">
+                            <span>{{rname}}<span class="grey">, {{innate}}</span>{{/innate}}{{#attack}} <span>({{mod}})</span>{{/attack}}</span>
+                        </div>
+                        {{#charname}}
+                            <div class="charname">
+                                <span>{{charname}}</span>
+                            </div>
+                        {{/charname}}
+                    </div>
+                {{/attack}}
+                {{#desc}}
+                    <div class="desc info">
+                        <span>
+                            <span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span>
+                        </span>
+                    </div>
+                {{/desc}}
+                {{#globaldamage}}
+                    {{#^rollTotal() globaldamage 0}}
+                        <div class="desc">
+                            <span>
+                                {{globaldamage}}
+                                {{#attack}}
+                                    {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                {{/attack}}
+                            </span>
+                            <span class="sublabel">{{globaldamagetype}}</span>
+                        </div>
+                    {{/^rollTotal() globaldamage 0}}
+                {{/globaldamage}}
+                {{#damage}}
+                    <div class="container damagetemplate">
+                        <div class="result">
+                            {{#dmg1flag}}
+                                {{^dmg2flag}}
+                                    <div class="solo">
+                                        <span class="damage">
+                                            {{dmg1}}
+                                            {{#attack}}
+                                                {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                            {{/attack}}
+                                        </span>
+                                        <span class="sublabel">{{dmg1type}}</span>
+                                    </div>
+                                {{/dmg2flag}}
+                            {{/dmg1flag}}
+                            {{#dmg2flag}}
+                                {{^dmg1flag}}
+                                    <div class="solo">
+                                        <span class="damage">
+                                            {{dmg2}}
+                                            {{#attack}}
+                                                {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                            {{/attack}}
+                                        </span>
+                                        <span class="sublabel">{{dmg2type}}</span>
+                                    </div>
+                                {{/dmg1flag}}
+                            {{/dmg2flag}}
+                            {{#dmg1flag}}
+                                {{#dmg2flag}}
+                                    <div class="adv">
+                                        <span class="damage">
+                                            {{dmg1}}
+                                            {{#attack}}
+                                                {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                            {{/attack}}
+                                        </span>
+                                        <span class="sublabel">{{dmg1type}}</span>
+                                    </div>
+                                    <div class="advspacer"></div>
+                                    <div class="adv">
+                                        <span>
+                                            {{dmg2}}
+                                            {{#attack}}
+                                                {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                            {{/attack}}
+                                        </span>
+                                        <span class="sublabel">{{dmg2type}}</span>
+                                    </div>
+                                {{/dmg2flag}}
+                            {{/dmg1flag}}
+                        </div>
+                        {{^attack}}
+                            {{#range}}
+                                <div class="sublabel">
+                                    <span>{{range}}</span>
+                                </div>
+                            {{/range}}
+                            <div class="label">
+                                <span>{{rname}}</span><span class="grey">, {{innate}}</span>{{/innate}}
+                            </div>
+                            {{#charname}}
+                                <div class="charname">
+                                    <span>{{charname}}</span>
+                                </div>
+                            {{/charname}}
+                        {{/attack}}
+                    </div>
+                {{/damage}}
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-desc">
+                <div class="desc info">
+                    <span>
+                        <span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span>
+                    </span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-dmg">
+                {{^attack}}
+                    {{#desc}}
+                        <div class="desc info">
+                            <span>
+                                <span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span>
+                            </span>
+                        </div>
+                    {{/desc}}
+                {{/attack}}
+                {{#globaldamage}}
+                    {{#^rollTotal() globaldamage 0}}
+                        <div class="desc">
+                            <span>{{globaldamage}}</span>
+                            <span class="sublabel">{{globaldamagetype}}</span>
+                        </div>
+                    {{/^rollTotal() globaldamage 0}}
+                {{/globaldamage}}
+                <div class="container damagetemplate">
+                    <div class="result">
+                        {{#dmg1flag}}
+                            {{^dmg2flag}}
+                                <div class="solo">
+                                    <span class="damage">{{dmg1}}</span>
+                                    <span class="sublabel">{{dmg1type}}</span>
+                                </div>
+                            {{/dmg2flag}}
+                        {{/dmg1flag}}
+                        {{#dmg2flag}}
+                            {{^dmg1flag}}
+                                <div class="solo">
+                                    <span class="damage">{{dmg2}}</span>
+                                    <span class="sublabel">{{dmg2type}}</span>
+                                </div>
+                            {{/dmg1flag}}
+                        {{/dmg2flag}}
+                        {{#dmg1flag}}
+                            {{#dmg2flag}}
+                                <div class="adv">
+                                    <span class="damage">{{dmg1}}</span>
+                                    <span class="sublabel">{{dmg1type}}</span>
+                                </div>
+                                <div class="advspacer"></div>
+                                <div class="adv">
+                                    <span class="damage">{{dmg2}}</span>
+                                    <span class="sublabel">{{dmg2type}}</span>
+                                </div>
+                            {{/dmg2flag}}
+                        {{/dmg1flag}}
+                    </div>
+                    {{^attack}}
+                        {{#range}}
+                            <div class="sublabel" style="color: black;">
+                                <span>{{range}}</span>
+                            </div>
+                        {{/range}}
+                        <div class="label">
+                            <span>{{rname}}</span><span class="grey">, {{innate}}</span>{{/innate}}
+                        </div>
+                        {{#charname}}
+                            <div class="charname">
+                                <span>{{charname}}</span>
+                            </div>
+                        {{/charname}}
+                    {{/attack}}
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-npc">
+                <div class="row header">
+                    <span>{{rname}}</span>
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                <div class="arrow-right"></div>
+                <div class="row">
+                    <span class="italics">{{type}}: </span><span>{{r1}}</span><span> | </span><span>{{r2}}</span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-stat">
+                <div class="row header">
+                    <span>{{rname}}</span>
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                <div class="arrow-right"></div>
+                <div class="row">
+                    <span class="italics">{{type}}: </span><span>{{r1}}</span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-npcmove">
+                <div class="container">
+                    <div class="row header">
+                        <span>{{rname}}</span>
+                    </div>
+                    {{#name}}
+                        <div class="row subheader">
+                            <span class="italics">{{name}}</span>
+                        </div>
+                    {{/name}}
+                    <div class="arrow-right"></div>
+                    {{#attack}}
+                        <div class="row">
+                            <span class="italics">Attack: </span><span>{{r1}}</span><span> | </span><span>{{r2}}</span>
+                        </div>
+                    {{/attack}}
+                    {{#description}}
+                        <span class="desc">{{description}}</span>
+                    {{/description}}
+                </div>
+                {{#damage}}
+                    <div class="container dmgcontainer damagetemplate">
+                        <span class="italics">Damage: </span>
+                        <span>
+                            {{#dmg1flag}}
+                                {{dmg1}}
+                                {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                {{dmg1type}}
+                            {{/dmg1flag}}
+                            {{#dmg1flag}}{{#dmg2flag}}+{{/dmg2flag}}{{/dmg1flag}}
+                            {{#dmg2flag}}
+                                {{dmg2}}
+                                {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                                {{dmg2type}}
+                            {{/dmg2flag}}
+                        </span>
+                    </div>
+                {{/damage}}
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-npcatk">
+                <div class="row header">
+                    {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                <div class="arrow-right"></div>
+                <div class="row">
+                    {{#rollTotal() r1 r2}}{{#rollWasCrit() r1}}<span class="italics">{{typec}}: </span>{{/rollWasCrit() r1}}{{/rollTotal() r1 r2}}
+                    <span>{{r1}}</span><span> | </span><span>{{r2}}</span>
+                </div>
+                {{#description}}
+                    <div class="row">
+                        <span class="desc">{{description}}</span>
+                    </div>
+                {{/description}}
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-npcdmg">
+                <div class="container dmgcontainer damagetemplate">
+                    <span class="italics">Damage: </span>
+                    <span>
+                        {{#dmg1flag}}
+                            {{dmg1}}{{dmg1type}}
+                        {{/dmg1flag}}
+                        {{#dmg1flag}}{{#dmg2flag}}+{{/dmg2flag}}{{/dmg1flag}}
+                        {{#dmg2flag}}
+                            {{dmg2}}{{dmg2type}}
+                        {{/dmg2flag}}
+                    </span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-simple">
+                <div class="container">
+                    <div class="result">
+                        <div class="adv">
+                            <span>{{r1}}{{#global}} + {{global}}{{/global}}</span>
+                        </div>
+                        <div class="advspacer"></div>
+                        <div class="adv">
+                            <span>{{r2}}{{#global}} + {{global}}{{/global}}</span>
+                        </div>
+                    </div>
+                    <div class="label">
+                        <span>{{rname}}{{#mod}} <span>({{mod}})</span>{{/mod}}</span>
+                    </div>
+                    {{#charname}}
+                        <div class="charname">
+                            <span>{{charname}}</span>
+                        </div>
+                    {{/charname}}
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-technique">
+                <div class="container">
+                    <div class="title row">
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="italics row">
+                        <span>{{level}}</span>
+                    </div>
+                    <div class="spacer"></div>
+                    {{#executiontime}}
+                        <div class="row">
+                            <span class="bold">Execution Time:</span> <span>{{executiontime}}</span>
+                        </div>
+                    {{/executiontime}}
+                    {{#range}}
+                        <div class="row">
+                            <span class="bold">Range:</span> <span>{{range}}</span>
+                        </div>
+                    {{/range}}
+                    {{#target}}
+                        <div class="row">
+                            <span class="bold">Target:</span> <span>{{target}}</span>
+                        </div>
+                    {{/target}}
+                    {{#duration}}
+                        <div class="row">
+                            <span class="bold">Duration:</span> <span>{{duration}}</span>
+                        </div>
+                    {{/duration}}
+                    <div class="spacer"></div>
+                    {{#description}}
+                        <div class="row">
+                            <span class="description">{{description}}</span>
+                        </div>
+                    {{/description}}
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-traits">
+                <div class="row header">
+                    <span>{{name}}</span>
+                </div>
+                {{#source}}
+                <div class="row subheader">
+                    <span class="italics">{{#charname}}{{charname}} {{/charname}}{{source}}</span>
+                </div>
+                {{/source}}
+                {{#description}}
+                    <div class="row">
+                        <span class="desc">{{description}}</span>
+                    </div>
+                {{/description}}
+            </rolltemplate>
+        </div>
+    </div>
+
+    <script type="text/worker">
+
+    </script>
+</div>

@@ -1,0 +1,895 @@
+.charsheet .sheet-core {
+    color: black;
+    font-size: 13px;
+    line-height: 18px;
+    margin: 0;
+    overflow: visible;
+    padding: 0; 
+}
+
+.charsheet .sheet-core *,
+.charsheet .sheet-core *::after,
+.charsheet .sheet-core *::before {
+    box-sizing: border-box;
+}
+
+.charsheet .sheet-core input:hover,
+.charsheet .sheet-core input:focus,
+.charsheet .sheet-core textarea:hover,
+.charsheet .sheet-core textarea:focus {
+    background: #e5fffb;
+    outline: none;
+}
+
+.charsheet .sheet-core select:hover,
+.charsheet .sheet-core select:focus {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core select:hover option,
+.charsheet .sheet-core select:focus option {
+    background: white;
+}
+
+.charsheet .sheet-core label {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.charsheet .sheet-core button[type=roll] {
+    color: inherit;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.charsheet .sheet-core button[type=roll]:hover {
+    color: #b61037;
+}
+
+.charsheet .sheet-core button[type=roll]:focus {
+    color: #b61037;
+    outline: none;
+}
+
+.charsheet .sheet-core button[type=roll]::before {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image {
+    height: 14px;
+    overflow: hidden;
+    position: relative;
+    width: 14px;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox] {
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span,
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span {
+    background: gainsboro;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    background: #353535;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image span {
+    overflow: hidden;
+    padding: 2px;
+    background: white;
+    border-radius: 100%;
+    border: 1px solid #272727;
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100% !important;
+}
+
+.charsheet .sheet-core .sheet-section-roll {
+    margin: 0 auto;
+    width: 800px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -18px;
+    height: 18px;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label {
+    position: relative;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label:first-of-type span {
+    border-radius: 4px 0 0 4px;
+    border-left: 1px solid #b7b7b7;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label:last-of-type span {
+    border-radius: 0 4px 4px 0;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label span {
+    background: #dddddd;
+    padding: 1px 5px;
+    font-weight: bold;
+    border: 1px solid #b7b7b7;
+    border-left: 0;
+    color: #909090;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label input:checked ~ span {
+    background: #555555;
+    color: white;
+    border-color: #555555;
+}
+
+.charsheet .sheet-core .sheet-section-roll-whisper label input:not(:checked):hover ~ span {
+    color: black;
+}  
+
+.charsheet .sheet-core .sheet-roll-toggle[value*="whispertoggle"] + .sheet-section-roll-whisper {
+    display: flex;
+}
+
+  .charsheet .sheet-core .sheet-section-roll-whisper {
+    margin-left: 3px;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll {
+    width: 770px;
+    justify-content: space-between;
+    margin-bottom: 0;
+    height: auto;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll .sheet-section-roll-advantage,
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll .sheet-section-roll-whisper {
+      margin-bottom: 10px;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-toggle-npc-edit:checked ~ .sheet-section-pc .sheet-tab-content {
+    display: none !important;
+}
+  
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-footer p {
+    color: #cccccc;
+    font-size: 9px;
+    margin: 3px 0 0;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-footer p a {
+    color: inherit;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-footer p a:hover {
+    text-decoration: none;
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc .sheet-section-npc-footer p {
+    color: #cccccc;
+    font-size: 9px;
+    margin: 3px 0 0;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc .sheet-section-npc-footer p a {
+    color: inherit;
+}
+
+.charsheet .sheet-core .sheet-section-npc .sheet-section-npc-footer p a:hover {
+    text-decoration: none;
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc {
+    margin: 0 auto;
+    max-width: 770px;
+    position: relative;
+}
+
+.charsheet .sheet-core .sheet-section-pc {
+    margin: 0 auto;
+    width: 800px;
+}
+
+.charsheet .sheet-core .sheet-section-templates {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog {
+    display: inline-block;
+    height: 18px;
+    position: absolute;
+    right: 0;
+    width: 18px;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog input {
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span {
+    border: none;
+    color: #000000;
+    opacity: .5;
+    top: -2px;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span::before {
+    content: '2';
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog:hover span {
+    color: black;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog:hover input:checked ~ span {
+    opacity: 1;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog span {
+    align-items: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: 'Pictos';
+    font-size: 13px;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog span::before {
+    content: 'y';
+}
+
+.charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-checked {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-unchecked {
+    display: block;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-checked {
+    display: block;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-unchecked {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc[value="0"] ~ .sheet-section-npc {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc[value="0"] ~ .sheet-section-pc {
+    display: block;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-npc {
+    display: block;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-pc {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-field-toggle:not([value]) + *,
+.charsheet .sheet-core .sheet-field-toggle[value=""] + *,
+.charsheet .sheet-core .sheet-field-toggle[value="0"] + *,
+.charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
+    display: none !important;
+}
+
+.charsheet .sheet-core .sheet-field-untoggle[value="1"] + * {
+    display: none !important;
+}
+
+.charsheet .sheet-core .repcontainer {
+    flex-grow: 1;
+}
+
+.charsheet .sheet-core .repcontrol {
+    border-color: #cccccc;
+    border-top: 1px solid #cccccc;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.charsheet .sheet-core .repcontrol .btn {
+    background: none;
+    border-color: #cccccc;
+    border-width: 1px;
+    box-shadow: none;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.charsheet .sheet-core .repcontrol .btn:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header .sheet-npc-header-name {
+    padding-right: 20px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header > span {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header button {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: #555555;
+    display: block;
+    font-size: 24px;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header button span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header button:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section {
+    border-bottom: 2px solid #555555;
+    border-top: 2px solid #555555;
+    color: #555555;
+    line-height: 16px;
+    margin: 5px 0;
+    padding: 5px 0;
+    position: relative;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section + .sheet-npc-section {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section label {
+    color: inherit;
+    display: inline-block;
+    font-weight: bold;
+    width: auto;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section .sheet-btn-inline {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section .sheet-btn-inline:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities {
+    display: flex;
+    justify-content: space-between;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: inherit;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+    text-shadow: none;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-btn-npc-ability-title {
+    display: block;
+    font-weight: bold;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-value-negative[value="0"] + *::before {
+    content: "(+";
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-btn-npc-ability-mod::after {
+    content: ")";
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-btn-npc-ability-mod::before {
+    content: "(";
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button > :last-child::before {
+    content: "+";
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-saving-throws .sheet-field-toggle[value="1"] + button > :last-child::after,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills .sheet-field-toggle[value="1"] + button > :last-child::after {
+    content: ",";
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: inherit;
+    position: absolute;
+    right: 0;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative > :first-child {
+    display: block;
+    font-family: "dicefontd20";
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative > :last-child {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-saving-throws button {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-saving-throws button > :last-child::before {
+    content: "+";
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-panel-npc {
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    margin-top: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-panel-npc .sheet-panel-header {
+    background: none;
+    border-bottom: 2px solid #555555;
+    color: #555555;
+    font-size: 18px;
+    font-variant: small-caps;
+    font-weight: bold;
+    height: inherit;
+    line-height: inherit;
+    margin: 0px;
+    padding: 5px;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-panel-npc .sheet-panel-body {
+    padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves {
+    margin-top: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits .repitem:not(:last-of-type),
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type),
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type),
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type) {
+    border-bottom: 1px dotted #dddddd;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits {
+    margin-top: 0;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait {
+    font-size: 11px;
+    padding-right: 20px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-name {
+    font-weight: bold;
+    padding: 0 5px;
+    background: #dddddd;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-desc {
+    display: inline;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction .sheet-npc-reaction-name {
+    font-weight: bold;
+    padding: 0 5px;
+    background: #dddddd;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction .sheet-npc-reaction-description {
+    display: block;
+    white-space: normal;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-action {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-action button:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-action .sheet-fieldset-item-npcmove-checked-name {
+    background: #dddddd;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-action .sheet-fieldset-item-npcmove-checked-description {
+    white-space: normal;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-action {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-action button:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-action .sheet-fieldset-item-npcmove-checked-name {
+    background: #dddddd;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-action .sheet-fieldset-item-npcmove-checked-description {
+    white-space: normal;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-actions-description {
+    font-size: 11px;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    text-align: left;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name {
+    font-weight: bold;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-attack > :not(:last-child) {
+    font-style: italic;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-onhit > :first-child {
+    font-style: italic;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcmove-checked-roll {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    text-align: left;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcresponses-name {
+    font-weight: bold;
+}
+
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) + .sheet-toggle-npc-spells:checked ~ .sheet-section-npc .sheet-section-npc-footer {
+    display: none;
+}
+
+.charsheet .sheet-core .sheet-form {
+    border-radius: 6px;
+    border: 2px solid #555555;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.charsheet .sheet-core .sheet-form.sheet-form-borderless {
+    border-radius: 0;
+    border: 0;
+}
+
+.charsheet .sheet-core .sheet-form.sheet-form-borderless .sheet-form-body {
+    padding: 0;
+}
+
+.charsheet .sheet-core .sheet-form > :last-child {
+    margin-bottom: 0;
+}
+
+.charsheet .sheet-core .sheet-form input,
+.charsheet .sheet-core .sheet-form select,
+.charsheet .sheet-core .sheet-form textarea,
+.charsheet .sheet-core .sheet-form .uneditable-input {
+    box-sizing: border-box;
+    color: black;
+    font-size: 11px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 0;
+}
+
+.charsheet .sheet-core .sheet-form textarea {
+    min-height: 56px;
+    resize: vertical;
+}
+
+.charsheet .sheet-core .sheet-form label {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: inherit;
+    font-weight: bold;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+    padding-right: 5px;
+    white-space: nowrap;
+    width: auto;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-form select {
+    cursor: pointer;
+}
+
+.charsheet .sheet-core .sheet-form input {
+    border-bottom: 1px solid #dddddd;
+    border-left: 0;
+    border-radius: 0;
+    border-right: 0;
+    border-top: 0;
+    text-overflow: ellipsis;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-header {
+    background: #555555;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 13px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-body {
+    background: white;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group,
+.charsheet .sheet-core .sheet-form .sheet-form-group + *,
+.charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
+    margin-top: 4px;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-group {
+    display: flex;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-group > * + * {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-fieldset {
+    border-radius: 6px;
+    border: 2px solid rgba(126, 126, 126, 0.35);
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-fieldset .sheet-form-fieldset-header {
+    background: rgba(126, 126, 126, 0.35);
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 13px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-fieldset .sheet-form-fieldset-body {
+    padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-checkbox {
+    cursor: pointer;
+    display: flex;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-checkbox:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-checkbox input {
+    height: 16px;
+    width: auto;
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-checkbox input + span {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body .sheet-form-group {
+    align-items: center;
+    margin: 0;
+}
+
+.charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body .sheet-form-group input {
+    margin: 0;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name {
+    background: #dddddd;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0 5px;
+    width: 100%;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-description {
+    white-space: normal;
+}
+
+
+.charsheet .sheet-core .sheet-container-well {
+    min-height: 65px;
+    padding: 10px;
+    position: relative;
+    z-index: 0;
+}
+
+.charsheet .sheet-core .sheet-container-well::before {
+    border-image: url("https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5e%20Darker%20Dungeons/img/sheet-well-border.png") 96 314 96 314 fill stretch;
+    border-style: solid;
+    border-width: 32px 101px;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1; 
+}
+
+.charsheet .sheet-core .sheet-container-panel::before {
+    border-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5e%20Darker%20Dungeons/img/sheet-box-border.png) 50 50 50 50 fill stretch;
+    border-style: solid;
+    border-width: 15px 15px;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
