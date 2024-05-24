@@ -1548,9 +1548,9 @@
                         }
                         details += `\nDescription: ${description}`;
         
-                        var rollbase = `@{wtype}&{template:npcmove} {{rname=${name}}} ${atkFlag} `;
+                        var rollbase = "";
                         if (v.dtype === "full") {
-                            rollbase += `${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} `;
+                            rollbase = `@{wtype}&{template:npcmove} {{rname=${name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} `;
                             if (damage1) {
                                 rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                             }
@@ -1558,8 +1558,17 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else {
-                            rollbase += `{{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} `;
+                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{rname=[${name}](~repeating_npcmove_${id}_roll_dmg)}} {{type=[Attack](~repeating_npcmove_${id}_roll_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} {{description=@{show_desc}}}`;
                         }
+
+                        var dmgRollBase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                        if (damage1) {
+                            dmgRollBase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                        }
+                        if (damage2) {
+                            dmgRollBase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                        }
+        
                         rollbase += `{{description=@{show_desc}}}`;
         
                         update[`repeating_npcmove_${id}_attack_details`] = details;
@@ -1570,6 +1579,7 @@
                         }
                         update[`repeating_npcmove_${id}_attack_description`] = description;
                         update[`repeating_npcmove_${id}_rollbase`] = rollbase;
+                        update[`repeating_npcmove_${id}_roll_dmg`] = dmgRollBase;
         
                         setAttrs(update, { silent: true });
                     });
@@ -1673,5 +1683,5 @@
             return 0;
         };
         
-    </script>
+            </script>
 </div>
