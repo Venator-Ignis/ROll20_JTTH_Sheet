@@ -134,8 +134,16 @@ var update_npc_moves = function() {
                 details += `\nDescription: ${description}`;
 
                 update[`repeating_npcmove_${id}_attack_details`] = details;
+                update[`repeating_npcmove_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
+                update[`repeating_npcmove_${id}_attack_onhit`] = `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
+                if (damage2) {
+                    update[`repeating_npcmove_${id}_attack_onhit`] += ` + ${avgDamage2} (${damage2String}) ${damage2Type}`;
+                }
+                update[`repeating_npcmove_${id}_attack_description`] = description;
+
                 setAttrs(update, { silent: true });
             });
         });
     });
 };
+
