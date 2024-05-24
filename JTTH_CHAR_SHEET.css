@@ -167,7 +167,7 @@
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll {
-    width: 770px;
+    width: 577px;
     justify-content: space-between;
     margin-bottom: 0;
     height: auto;
@@ -216,7 +216,7 @@
 
 .charsheet .sheet-core .sheet-section-npc {
     margin: 0 auto;
-    max-width: 770px;
+    max-width: 577px;
     position: relative;
 }
 
@@ -286,22 +286,9 @@
     content: 'y';
 }
 
-.charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-checked {
-    display: none;
-}
-
 .charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-unchecked {
     display: block;
     width: 100%;
-}
-
-.charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-checked {
-    display: block;
-    width: 100%;
-}
-
-.charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-unchecked {
-    display: none;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc[value="0"] ~ .sheet-section-npc {
@@ -545,14 +532,14 @@
     padding: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves {
     margin-top: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits .repitem:not(:last-of-type),
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type) {
@@ -561,7 +548,7 @@
     margin-bottom: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features {
     margin-top: 0;
 }
 
@@ -580,6 +567,10 @@
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-desc {
     display: inline;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-desc span{
+    white-space: pre-wrap;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction {
@@ -822,7 +813,7 @@
 .charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body {
     display: grid;
     grid-column-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body .sheet-form-group {
@@ -835,7 +826,8 @@
     text-align: center;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses {
     font-size: 11px;
 }
 
@@ -903,7 +895,7 @@
     z-index: 0;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-traits,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves {
@@ -913,7 +905,7 @@
 .charsheet .sheet-core .sheet-container-panel .sheet-container-header {
     border-bottom: 2px solid #202020;
     color: #202020;
-    font-size: 8px;
+    font-size: 11px;
     font-weight: bold;
     line-height: 14px;
     margin-left: 2px;
@@ -931,4 +923,98 @@
     margin-bottom: 2px;
     overflow: hidden;
     padding: 5px 10px;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses .sheet-npc-response-name {
+    font-weight: bold;
+    padding: 0 5px;
+    background: #dddddd;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses .sheet-npc-response-description {
+    display: block;
+    white-space: normal;
+}
+
+.charsheet .sheet-core .sheet-display-brackets::before,
+.charsheet .sheet-core .sheet-display-brackets-xp::before{
+    content: "(";
+}
+
+.charsheet .sheet-core .sheet-display-brackets::after {
+    content: ")";
+}
+
+.charsheet .sheet-core .sheet-display-brackets-xp::after {
+    content: " XP)";
+}
+
+.charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-checked {
+    display: block;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-checked {
+    display: none; 
+}
+
+.charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-unchecked {
+    display: none;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol {
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    z-index: 2;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
+    background: rgba(126, 45, 64, 0.25);
+    border-radius: 6px;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn:not(:last-child) {
+    margin-left: 10px;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
+    box-sizing: border-box;
+    height: 18px;
+    line-height: 16px;
+    padding: 0;
+    text-align: center;
+    width: 36px;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
+    box-sizing: border-box;
+    height: 18px;
+    line-height: 16px;
+    padding: 0;
+    text-align: center;
+    width: 36px;
+}
+
+.charsheet .sheet-core .sheet-form-fieldset-npc-skills .sheet-form-fieldset-body {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+    grid-row-gap: 2.5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.charsheet .sheet-core .sheet-form-fieldset-npc-skills .sheet-form-fieldset-body .sheet-form-group {
+    margin: 0;
 }
