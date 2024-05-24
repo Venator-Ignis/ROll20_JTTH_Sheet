@@ -1,88 +1,62 @@
-on("attr_npc_acrobatics_base", "attr_npc_acrobatics_bonus", "attr_npc_athletics_base", "attr_npc_athletics_bonus", "attr_npc_charm_base", "attr_npc_charm_bonus", "attr_npc_deceit_base", "attr_npc_deceit_bonus", "attr_npc_disguise_base", "attr_npc_disguise_bonus", "attr_npc_fine_arts_base", "attr_npc_fine_arts_bonus", "attr_npc_forgery_base", "attr_npc_forgery_bonus", "attr_npc_history_base", "attr_npc_history_bonus", "attr_npc_intuition_base", "attr_npc_intuition_bonus", "attr_npc_intimidation_base", "attr_npc_intimidation_bonus", "attr_npc_investigation_base", "attr_npc_investigation_bonus", "attr_npc_medicine_base", "attr_npc_medicine_bonus", "attr_npc_navigation_base", "attr_npc_navigation_bonus", "attr_npc_perception_base", "attr_npc_perception_bonus", "attr_npc_performance_base", "attr_npc_performance_bonus", "attr_npc_persuade_base", "attr_npc_persuade_bonus", "attr_npc_sleight_of_hand_base", "attr_npc_sleight_of_hand_bonus", "attr_npc_stealth_base", "attr_npc_stealth_bonus", "attr_npc_survival_base", "attr_npc_survival_bonus", function(eventinfo) {
-    update_npc_skills();
+
+on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_sleight_of_hand_bonus change:npc_stealth_bonus change:npc_survival_bonus change:agility change:power change:mental_strength change:appearance change:qi_control", function(eventinfo) {
+    update_npc_skills()
 });
 
 var update_npc_skills = function() {
-    getAttrs(["attr_npc_acrobatics_base", "attr_npc_acrobatics_bonus", "attr_npc_athletics_base", "attr_npc_athletics_bonus", "attr_npc_charm_base", "attr_npc_charm_bonus", "attr_npc_deceit_base", "attr_npc_deceit_bonus", "attr_npc_disguise_base", "attr_npc_disguise_bonus", "attr_npc_fine_arts_base", "attr_npc_fine_arts_bonus", "attr_npc_forgery_base", "attr_npc_forgery_bonus", "attr_npc_history_base", "attr_npc_history_bonus", "attr_npc_intuition_base", "attr_npc_intuition_bonus", "attr_npc_intimidation_base", "attr_npc_intimidation_bonus", "attr_npc_investigation_base", "attr_npc_investigation_bonus", "attr_npc_medicine_base", "attr_npc_medicine_bonus", "attr_npc_navigation_base", "attr_npc_navigation_bonus", "attr_npc_perception_base", "attr_npc_perception_bonus", "attr_npc_performance_base", "attr_npc_performance_bonus", "attr_npc_persuade_base", "attr_npc_persuade_bonus", "attr_npc_sleight_of_hand_base", "attr_npc_sleight_of_hand_bonus", "attr_npc_stealth_base", "attr_npc_stealth_bonus", "attr_npc_survival_base"], "attr_npc_survival_bonus", function(v) {
-        var update = {};        
-        var acrobaticsBase = parseInt(v.attr_npc_acrobatics_base) || 0;
-        var acrobaticsBonus = parseInt(v.attr_npc_acrobatics_bonus) || 0;
-        update["npc_acrobatics"] = acrobaticsBase + acrobaticsBonus;
+    getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_sleight_of_hand_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+        var update = {};   
 
-        var athleticsBase = parseInt(v.attr_npc_athletics_base) || 0;
-        var athleticsBonus = parseInt(v.attr_npc_athletics_bonus) || 0;
-        update["npc_athletics"] = athleticsBase + athleticsBonus;
+        // Calculate base values
+        var agility = parseInt(v.agility) || 0;
+        var power = parseInt(v.power) || 0;
+        var mental_strength = parseInt(v.mental_strength) || 0;
+        var appearance = parseInt(v.appearance) || 0;
+        var qi_control = parseInt(v.qi_control) || 0;
 
-        var charmBase = parseInt(v.attr_npc_charm_base) || 0;
-        var charmBonus = parseInt(v.attr_npc_charm_bonus) || 0;
-        update["npc_charm"] = charmBase + charmBonus;
+        update["npc_acrobatics_roll"] = agility;
+        update["npc_athletics_roll"] = power;
+        update["npc_charm_roll"] = Math.round(mental_strength + appearance);
+        update["npc_deceit_roll"] = Math.round(mental_strength + appearance);
+        update["npc_disguise_roll"] = Math.round(mental_strength + appearance);
+        update["npc_fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
+        update["npc_forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
+        update["npc_history_roll"] = Math.round(qi_control / 2 + mental_strength / 2);
+        update["npc_intuition_roll"] = mental_strength;
+        update["npc_intimidation_roll"] = Math.round(power + appearance);
+        update["npc_investigation_roll"] = mental_strength;
+        update["npc_medicine_roll"] = Math.round(qi_control / 2 + mental_strength / 2);
+        update["npc_navigation_roll"] = Math.round(agility / 2 + mental_strength / 2);
+        update["npc_perception_roll"] = mental_strength;
+        update["npc_performance_roll"] = Math.round(agility + appearance);
+        update["npc_persuade_roll"] = Math.round(mental_strength + appearance);
+        update["npc_sleight_of_hand_roll"] = agility;
+        update["npc_stealth_roll"] = agility;
+        update["npc_survival_roll"] = Math.round(power / 2 + mental_strength / 2);
 
-        var deceitBase = parseInt(v.attr_npc_deceit_base) || 0;
-        var deceitBonus = parseInt(v.attr_npc_deceit_bonus) || 0;
-        update["npc_deceit"] = deceitBase + deceitBonus;
-
-        var disguiseBase = parseInt(v.attr_npc_disguise_base) || 0;
-        var disguiseBonus = parseInt(v.attr_npc_disguise_bonus) || 0;
-        update["npc_disguise"] = disguiseBase + disguiseBonus;
-
-        var fine_artsBase = parseInt(v.attr_npc_fine_arts_base) || 0;
-        var fine_artsBonus = parseInt(v.attr_npc_fine_arts_bonus) || 0;
-        update["npc_fine_arts"] = fine_artsBase + fine_artsBonus;
-
-        var forgeryBase = parseInt(v.attr_npc_forgery_base) || 0;
-        var forgeryBonus = parseInt(v.attr_npc_forgery_bonus) || 0;
-        update["npc_forgery"] = forgeryBase + forgeryBonus;
-
-        var historyBase = parseInt(v.attr_npc_history_base) || 0;
-        var historyBonus = parseInt(v.attr_npc_history_bonus) || 0;
-        update["npc_history"] = historyBase + historyBonus;
-
-        var intuitionBase = parseInt(v.attr_npc_intuition_base) || 0;
-        var intuitionBonus = parseInt(v.attr_npc_intuition_bonus) || 0;
-        update["npc_intuition"] = intuitionBase + intuitionBonus;
-
-        var intimidationBase = parseInt(v.attr_npc_intimidation_base) || 0;
-        var intimidationBonus = parseInt(v.attr_npc_intimidation_bonus) || 0;
-        update["npc_intimidation"] = intimidationBase + intimidationBonus;
-
-        var investigationBase = parseInt(v.attr_npc_investigation_base) || 0;
-        var investigationBonus = parseInt(v.attr_npc_investigation_bonus) || 0;
-        update["npc_investigation"] = investigationBase + investigationBonus;
-
-        var medicineBase = parseInt(v.attr_npc_medicine_base) || 0;
-        var medicineBonus = parseInt(v.attr_npc_medicine_bonus) || 0;
-        update["npc_medicine"] = medicineBase + medicineBonus;
-
-        var navigationBase = parseInt(v.attr_npc_navigation_base) || 0;
-        var navigationBonus = parseInt(v.attr_npc_navigation_bonus) || 0;
-        update["npc_navigation"] = navigationBase + navigationBonus;
-
-        var perceptionBase = parseInt(v.attr_npc_perception_base) || 0;
-        var perceptionBonus = parseInt(v.attr_npc_perception_bonus) || 0;
-        update["npc_perception"] = perceptionBase + perceptionBonus;
-
-        var performanceBase = parseInt(v.attr_npc_performance_base) || 0;
-        var performanceBonus = parseInt(v.attr_npc_performance_bonus) || 0;
-        update["npc_performance"] = performanceBase + performanceBonus;
-
-        var persuadeBase = parseInt(v.attr_npc_persuade_base) || 0;
-        var persuadeBonus = parseInt(v.attr_npc_persuade_bonus) || 0;
-        update["npc_persuade"] = persuadeBase + persuadeBonus;
-
-        var sleight_of_handBase = parseInt(v.attr_npc_sleight_of_hand_base) || 0;
-        var sleight_of_handBonus = parseInt(v.attr_npc_sleight_of_hand_bonus) || 0;
-        update["npc_sleight_of_hand"] = sleight_of_handBase + sleight_of_handBonus;
-
-        var stealthBase = parseInt(v.attr_npc_stealth_base) || 0;
-        var stealthBonus = parseInt(v.attr_npc_stealth_bonus) || 0;
-        update["npc_stealth"] = stealthBase + stealthBonus;
-
-        var survivalBase = parseInt(v.attr_npc_survival_base) || 0;
-        var survivalBonus = parseInt(v.attr_npc_survival_bonus) || 0;
-        update["npc_survival"] = survivalBase + survivalBonus;
+        // Calculate full rolls
+        update["npc_acrobatics"] = update["npc_acrobatics_roll"] + (parseInt(v.npc_acrobatics_bonus) ? `d6 + ${parseInt(v.npc_acrobatics_bonus)}` : 'd6');
+        update["npc_athletics"] = update["npc_athletics_roll"] + (parseInt(v.npc_athletics_bonus) ? `d6 + ${parseInt(v.npc_athletics_bonus)}` : 'd6');
+        update["npc_charm"] = update["npc_charm_roll"] + (parseInt(v.npc_charm_bonus) ? `d6 + ${parseInt(v.npc_charm_bonus)}` : 'd6');
+        update["npc_deceit"] = update["npc_deceit_roll"] + (parseInt(v.npc_deceit_bonus) ? `d6 + ${parseInt(v.npc_deceit_bonus)}` : 'd6');
+        update["npc_disguise"] = update["npc_disguise_roll"] + (parseInt(v.npc_disguise_bonus) ? `d6 + ${parseInt(v.npc_disguise_bonus)}` : 'd6');
+        update["npc_fine_arts"] = update["npc_fine_arts_roll"] + (parseInt(v.npc_fine_arts_bonus) ? `d6 + ${parseInt(v.npc_fine_arts_bonus)}` : 'd6');
+        update["npc_forgery"] = update["npc_forgery_roll"] + (parseInt(v.npc_forgery_bonus) ? `d6 + ${parseInt(v.npc_forgery_bonus)}` : 'd6');
+        update["npc_history"] = update["npc_history_roll"] + (parseInt(v.npc_history_bonus) ? `d6 + ${parseInt(v.npc_history_bonus)}` : 'd6');
+        update["npc_intuition"] = update["npc_intuition_roll"] + (parseInt(v.npc_intuition_bonus) ? `d6 + ${parseInt(v.npc_intuition_bonus)}` : 'd6');
+        update["npc_intimidation"] = update["npc_intimidation_roll"] + (parseInt(v.npc_intimidation_bonus) ? `d6 + ${parseInt(v.npc_intimidation_bonus)}` : 'd6');
+        update["npc_investigation"] = update["npc_investigation_roll"] + (parseInt(v.npc_investigation_bonus) ? `d6 + ${parseInt(v.npc_investigation_bonus)}` : 'd6');
+        update["npc_medicine"] = update["npc_medicine_roll"] + (parseInt(v.npc_medicine_bonus) ? `d6 + ${parseInt(v.npc_medicine_bonus)}` : 'd6');
+        update["npc_navigation"] = update["npc_navigation_roll"] + (parseInt(v.npc_navigation_bonus) ? `d6 + ${parseInt(v.npc_navigation_bonus)}` : 'd6');
+        update["npc_perception"] = update["npc_perception_roll"] + (parseInt(v.npc_perception_bonus) ? `d6 + ${parseInt(v.npc_perception_bonus)}` : 'd6');
+        update["npc_performance"] = update["npc_performance_roll"] + (parseInt(v.npc_performance_bonus) ? `d6 + ${parseInt(v.npc_performance_bonus)}` : 'd6');
+        update["npc_persuade"] = update["npc_persuade_roll"] + (parseInt(v.npc_persuade_bonus) ? `d6 + ${parseInt(v.npc_persuade_bonus)}` : 'd6');
+        update["npc_sleight_of_hand"] = update["npc_sleight_of_hand_roll"] + (parseInt(v.npc_sleight_of_hand_bonus) ? `d6 + ${parseInt(v.npc_sleight_of_hand_bonus)}` : 'd6');
+        update["npc_stealth"] = update["npc_stealth_roll"] + (parseInt(v.npc_stealth_bonus) ? `d6 + ${parseInt(v.npc_stealth_bonus)}` : 'd6');
+        update["npc_survival"] = update["npc_survival_roll"] + (parseInt(v.npc_survival_bonus) ? `d6 + ${parseInt(v.npc_survival_bonus)}` : 'd6');
 
         setAttrs(update, {
             silent: true
         });
     });
-};
+};        

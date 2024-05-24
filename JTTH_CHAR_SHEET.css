@@ -462,12 +462,16 @@
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button > :last-child::before {
-    content: "+";
+    content: "(";
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-saving-throws .sheet-field-toggle[value="1"] + button > :last-child::after,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button span:last-child{
+    border-radius: 5px;
+    background: #dddddd;
+}
+
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills .sheet-field-toggle[value="1"] + button > :last-child::after {
-    content: ",";
+    content: "),";
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative {
