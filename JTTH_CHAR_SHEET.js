@@ -9,6 +9,11 @@ on("change:repeating_npcmove:name change:repeating_npcmove:attack_flag change:re
     console.log("Updating Moves");
 });
 
+on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag change:repeating_npcmove-l:attack_type change:repeating_npcmove-l:attack_range change:repeating_npcmove-l:attack_tohit change:repeating_npcmove-l:attack_bonus change:repeating_npcmove-l:attack_damage change:repeating_npcmove-l:attack_damage1attribute change:repeating_npcmove-l:attack_damage1bonus change:repeating_npcmove-l:attack_damagetype change:repeating_npcmove-l:attack_damage2 change:repeating_npcmove-l:attack_damage2attribute change:repeating_npcmove-l:attack_damage2bonus change:repeating_npcmove-l:attack_damagetype2 change:repeating_npcmove-l:attack_description change:power change:agility change:vitality change:cultivation change:qi_control change:mental_strength", function(eventinfo) {
+    update_npc_legendary_moves();
+    console.log("Updating Legendary Moves");
+});
+
 var update_npc_skills = function() {
     getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_sleight_of_hand_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
         var update = {};   
@@ -120,11 +125,11 @@ var update_npc_moves = function() {
 
                 var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
                 var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
-                var avgDamage1 = Math.floor((parseInt(damage1.match(/\d+/)[0]) / 2) + 0.5 + damage1AttrValue + damage1Bonus);
+                var avgDamage1 = calculateAverageDamage(damage1) + damage1AttrValue + damage1Bonus;
 
                 var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
                 var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
-                var avgDamage2 = Math.floor((parseInt(damage2.match(/\d+/)[0]) / 2) + 0.5 + damage2AttrValue + damage2Bonus);
+                var avgDamage2 = calculateAverageDamage(damage2) + damage2AttrValue + damage2Bonus;
 
                 var details = `${attackType} Weapon Attack: ${toHitString}, Reach: ${attackRange}\n`;
                 details += `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
@@ -145,5 +150,96 @@ var update_npc_moves = function() {
             });
         });
     });
+};
+
+var update_npc_legendary_moves = function() {
+    getSectionIDs("repeating_npcmove-l", function(idarray) {
+        _.each(idarray, function(id) {
+            getAttrs([
+                `repeating_npcmove-l_${id}_name`,
+                `repeating_npcmove-l_${id}_attack_flag`,
+                `repeating_npcmove-l_${id}_attack_type`,
+                `repeating_npcmove-l_${id}_attack_range`,
+                `repeating_npcmove-l_${id}_attack_tohit`,
+                `repeating_npcmove-l_${id}_attack_bonus`,
+                `repeating_npcmove-l_${id}_attack_damage`,
+                `repeating_npcmove-l_${id}_attack_damage1attribute`,
+                `repeating_npcmove-l_${id}_attack_damage1bonus`,
+                `repeating_npcmove-l_${id}_attack_damagetype`,
+                `repeating_npcmove-l_${id}_attack_damage2`,
+                `repeating_npcmove-l_${id}_attack_damage2attribute`,
+                `repeating_npcmove-l_${id}_attack_damage2bonus`,
+                `repeating_npcmove-l_${id}_attack_damagetype2`,
+                `repeating_npcmove-l_${id}_description`,
+                "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength"
+            ], function(v) {
+                var update = {};
+
+                var name = v[`repeating_npcmove-l_${id}_name`];
+                var attackFlag = v[`repeating_npcmove-l_${id}_attack_flag`] === "on";
+                if (!attackFlag) {
+                    update[`repeating_npcmove-l_${id}_attack_details`] = "";
+                    setAttrs(update, { silent: true });
+                    return;
+                }
+
+                var attackType = v[`repeating_npcmove-l_${id}_attack_type`];
+                var attackRange = v[`repeating_npcmove-l_${id}_attack_range`];
+                var attackToHit = v[`repeating_npcmove-l_${id}_attack_tohit`];
+                var attackBonus = parseInt(v[`repeating_npcmove-l_${id}_attack_bonus`]) || 0;
+
+                var damage1 = v[`repeating_npcmove-l_${id}_attack_damage`];
+                var damage1Attribute = v[`repeating_npcmove-l_${id}_attack_damage1attribute`];
+                var damage1Bonus = parseInt(v[`repeating_npcmove-l_${id}_attack_damage1bonus`]) || 0;
+                var damage1Type = v[`repeating_npcmove-l_${id}_attack_damagetype`];
+
+                var damage2 = v[`repeating_npcmove-l_${id}_attack_damage2`];
+                var damage2Attribute = v[`repeating_npcmove-l_${id}_attack_damage2attribute`];
+                var damage2Bonus = parseInt(v[`repeating_npcmove-l_${id}_attack_damage2bonus`]) || 0;
+                var damage2Type = v[`repeating_npcmove-l_${id}_attack_damagetype2`];
+
+                var description = v[`repeating_npcmove-l_${id}_description`];
+
+                var toHitValue = parseInt(v[attackToHit.replace("@{", "").replace("}", "")]) || 0;
+                var toHitString = attackBonus !== 0 ? `${toHitValue} + ${attackBonus}` : `${toHitValue}`;
+
+                var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
+                var avgDamage1 = calculateAverageDamage(damage1) + damage1AttrValue + damage1Bonus;
+
+                var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
+                var avgDamage2 = calculateAverageDamage(damage2) + damage2AttrValue + damage2Bonus;
+
+                var details = `${attackType} Weapon Attack: ${toHitString}, Reach: ${attackRange}\n`;
+                details += `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
+                if (damage2) {
+                    details += ` + ${avgDamage2} (${damage2String}) ${damage2Type}`;
+                }
+                details += `\nDescription: ${description}`;
+
+                update[`repeating_npcmove-l_${id}_attack_details`] = details;
+                update[`repeating_npcmove-l_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
+                update[`repeating_npcmove-l_${id}_attack_onhit`] = `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
+                if (damage2) {
+                    update[`repeating_npcmove-l_${id}_attack_onhit`] += ` + ${avgDamage2} (${damage2String}) ${damage2Type}`;
+                }
+                update[`repeating_npcmove-l_${id}_attack_description`] = description;
+
+                setAttrs(update, { silent: true });
+            });
+        });
+    });
+};
+
+var calculateAverageDamage = function(damageString) {
+    var dicePattern = /(\d+)d(\d+)/;
+    var match = damageString.match(dicePattern);
+    if (match) {
+        var numberOfDice = parseInt(match[1]);
+        var sidesOfDice = parseInt(match[2]);
+        return numberOfDice * ((sidesOfDice / 2) + 0.5);
+    }
+    return 0;
 };
 
