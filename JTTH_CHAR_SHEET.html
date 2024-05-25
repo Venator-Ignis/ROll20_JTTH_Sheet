@@ -65,31 +65,31 @@
                         <div class="sheet-form-fieldset-body">
                             <div class="sheet-form-group">
                                 <label>Pwr</label>
-                                <input type="text" name="attr_power" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_power" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-form-group">
                                 <label>Agi</label>
-                                <input type="text" name="attr_agility" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_agility" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-form-group">
                                 <label>Vit</label>
-                                <input type="text" name="attr_vitality" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_vitality" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-form-group">
                                 <label>Cul</label>
-                                <input type="text" name="attr_cultivation" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_cultivation" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-form-group">
                                 <label>Qic</label>
-                                <input type="text" name="attr_qi_control" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_qi_control" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-form-group">
                                 <label>Mtl</label>
-                                <input type="text" name="attr_mental_strength" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_mental_strength" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-form-group">
                                 <label>App</label>
-                                <input type="text" name="attr_appearance" value="1" class="sheet-text-center">
+                                <input type="number" name="attr_appearance" value="1" class="sheet-text-center">
                             </div>
                         </div>
                     </div>
@@ -1566,16 +1566,18 @@
                             if (damage2) {
                                 rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                             }
+                        } else if (attackFlag) {
+                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                        } else if (damage1 || damage2) {
+                            rollbase = `@{wtype}&{template=npcdmg} ${damage_flag} `;
+                            if (damage1) {
+                                rollbase += `{{dmg1=[[@{attack_damage} + @{attack_damage1attribute} + @{damage1bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                            }
+                            if (damage2) {
+                                rollbase += `{{dmg2=[[@{attack_damage2} + @{attack_damage2attribute} + @{damage2bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                            }
                         } else {
-                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=@{show_desc}}}`;
-                        }
-        
-                        var dmgRollBase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
-                        if (damage1) {
-                            dmgRollBase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
-                        }
-                        if (damage2) {
-                            dmgRollBase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
+                            rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
                         }
         
                         update[`repeating_npcmove_${id}_attack_details`] = details;
@@ -1587,7 +1589,6 @@
                         update[`repeating_npcmove_${id}_attack_description`] = description;
                         update[`repeating_npcmove_${id}_rollbase`] = rollbase;
                         update[`repeating_npcmove_${id}_damage_flag`] = damage_flag;
-                        update[`repeating_npcmove_${id}_roll_dmg`] = dmgRollBase;
         
                         setAttrs(update, { silent: true });
                     });
