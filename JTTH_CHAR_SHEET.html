@@ -1567,7 +1567,7 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else {
-                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_attack_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=@{show_desc}}}`;
+                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=@{show_desc}}}`;
                         }
         
                         var dmgRollBase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
