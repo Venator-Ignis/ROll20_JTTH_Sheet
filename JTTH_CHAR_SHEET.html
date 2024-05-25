@@ -1569,8 +1569,6 @@
                             dmgRollBase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                         }
         
-                        rollbase += `{{description=@{show_desc}}}`;
-        
                         update[`repeating_npcmove_${id}_attack_details`] = details;
                         update[`repeating_npcmove_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
                         update[`repeating_npcmove_${id}_attack_onhit`] = `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;

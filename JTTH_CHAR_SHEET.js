@@ -161,9 +161,9 @@ var update_npc_moves = function() {
                 }
                 details += `\nDescription: ${description}`;
 
-                var rollbase = `@{wtype}&{template:npcmove} {{rname=${name}}} ${atkFlag} `;
+                var rollbase = "";
                 if (v.dtype === "full") {
-                    rollbase += `${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} `;
+                    rollbase = `@{wtype}&{template:npcmove} {{rname=${name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -171,17 +171,16 @@ var update_npc_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else {
-                    var damageLink = `~repeating_npcmove_${id}_roll_dmg`;
-                    rollbase += `{{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} `;
-                    rollbase += `{{attack_link=[Attack](${damageLink})}} `;
-                    if (damage1) {
-                        rollbase += `{{dmg1_link=[Damage 1](${damageLink})}} `;
-                    }
-                    if (damage2) {
-                        rollbase += `{{dmg2_link=[Damage 2](${damageLink})}} `;
-                    }
+                    rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{rname=[${name}](~repeating_npcmove_${id}_roll_dmg)}} {{type=[Attack](~repeating_npcmove_${id}_roll_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} {{description=@{show_desc}}}`;
                 }
-                rollbase += `{{description=@{show_desc}}}`;
+
+                var dmgRollBase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                if (damage1) {
+                    dmgRollBase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                }
+                if (damage2) {
+                    dmgRollBase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                }
 
                 update[`repeating_npcmove_${id}_attack_details`] = details;
                 update[`repeating_npcmove_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
@@ -191,6 +190,7 @@ var update_npc_moves = function() {
                 }
                 update[`repeating_npcmove_${id}_attack_description`] = description;
                 update[`repeating_npcmove_${id}_rollbase`] = rollbase;
+                update[`repeating_npcmove_${id}_roll_dmg`] = dmgRollBase;
 
                 setAttrs(update, { silent: true });
             });
