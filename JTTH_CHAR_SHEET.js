@@ -170,7 +170,7 @@ var update_npc_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else {
-                    rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{rname=@{name}}} {{type=[Attack]}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} {{description=@{show_desc}}}`;
+                    rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{rname=[@{name}](~repeating_attack_npc_dmg)}} {{type=[Attack]}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{r2=${attackRange}}} {{description=@{show_desc}}}`;
                 }
 
                 var dmgRollBase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
@@ -196,7 +196,6 @@ var update_npc_moves = function() {
         });
     });
 };
-
 
 
 var update_npc_legendary_moves = function() {
