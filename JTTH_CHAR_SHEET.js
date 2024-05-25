@@ -164,10 +164,10 @@ var update_npc_moves = function() {
                 if (v.dtype === "full") {
                     rollbase = `@{wtype}&{template:npcmove} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
                     if (damage1) {
-                        rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]]]]}} {{dmg1type=${damage1Type}}} `;
+                        rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                     }
                     if (damage2) {
-                        rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]]]]}} {{dmg2type=${damage2Type}}} `;
+                        rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else {
                     rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_attack_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=@{show_desc}}}`;
@@ -175,17 +175,17 @@ var update_npc_moves = function() {
 
                 var dmgRollBase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
                 if (damage1) {
-                    dmgRollBase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]]]]}} {{dmg1type=${damage1Type}}} `;
+                    dmgRollBase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                 }
                 if (damage2) {
-                    dmgRollBase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]]]]}} {{dmg2type=${damage2Type}}} `;
+                    dmgRollBase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                 }
 
                 update[`repeating_npcmove_${id}_attack_details`] = details;
                 update[`repeating_npcmove_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
-                update[`repeating_npcmove_${id}_attack_onhit`] = `Damage: ${avgDamage1} ([[${damage1String}]]) ${damage1Type}`;
+                update[`repeating_npcmove_${id}_attack_onhit`] = `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
                 if (damage2) {
-                    update[`repeating_npcmove_${id}_attack_onhit`] += ` + ${avgDamage2} ([[${damage2String}]]) ${damage2Type}`;
+                    update[`repeating_npcmove_${id}_attack_onhit`] += ` + ${avgDamage2} (${damage2String}) ${damage2Type}`;
                 }
                 update[`repeating_npcmove_${id}_attack_description`] = description;
                 update[`repeating_npcmove_${id}_rollbase`] = rollbase;
