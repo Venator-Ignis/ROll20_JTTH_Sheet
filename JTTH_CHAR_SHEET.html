@@ -1071,7 +1071,22 @@
                                     <div class="sheet-container-panel sheet-panel-combat">
                                         <div class="sheet-container-header">COMBAT</div>
                                         <div class="sheet-container-body">
-
+                                            <div class="sheet-container-box sheet-pc-initiative">
+                                                <div class="sheet-container-bar">
+                                                    <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{name_flag} {{rname=Initiative}} {{r1=[[@{agility}d6[AGI]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE</button>
+                                                    <span name="attr_initiative" title="@{initiative}"></span>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-container-box sheet-pc-defences">
+                                                <div class="sheet-defence-label">HYPER RESISTANCE</div>
+                                                <input class="sheet-defence" type="text" name="attr_hyper_resistances" title="@{hyper_resistances}">
+                                                <div class="sheet-defence-label">RESISTANCE</div>
+                                                <input class="sheet-defence" type="text" name="attr_resistances" title="@{resistances}">
+                                                <div class="sheet-defence-label">WEAKNESS</div>
+                                                <input class="sheet-defence" type="text" name="attr_weakness" title="@{weakness}">
+                                                <div class="sheet-defence-label">HYPER WEAKNESS</div>
+                                                <input class="sheet-defence" type="text" name="attr_hyper_weakness" title="@{hyper_weakness}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1696,6 +1711,7 @@
             update_npc_moves();
             update_npc_legendary_moves();
             update_skills();
+            update_initiative();
             console.log("Updating Everything");
         });
         
@@ -1788,7 +1804,7 @@
         
         var update_skills = function() {
             getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "sleight_of_hand_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
-                var update = {};   
+                var update = {};
         
                 // Calculate base values
                 var agility = parseInt(v.agility) || 0;
@@ -2086,6 +2102,20 @@
             });
         };
         
+        var update_initiative = function(){
+            getAttrs(["agility","initiative_bonus"], function(v){
+                var update = {};
+        
+                var agility = parseInt(v.agility) || 0;
+        
+                update["initiative"] = agility + (parseInt(v.agility) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
+        
+                setAttrs(update, {
+                    silent: true
+                });
+            });
+        };
+        
         var calculateAverageDamage = function(damageString) {
             var dicePattern = /(\d+)d(\d+)/;
             var match = damageString.match(dicePattern);
@@ -2096,5 +2126,5 @@
             }
             return 0;
         };
-    </script>
+        </script>
 </div>

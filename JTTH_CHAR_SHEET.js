@@ -4,6 +4,7 @@ on("change:agility change:power change:mental_strength change:appearance change:
     update_npc_moves();
     update_npc_legendary_moves();
     update_skills();
+    update_initiative();
     console.log("Updating Everything");
 });
 
@@ -96,7 +97,7 @@ var update_npc_skills = function() {
 
 var update_skills = function() {
     getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "sleight_of_hand_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
-        var update = {};   
+        var update = {};
 
         // Calculate base values
         var agility = parseInt(v.agility) || 0;
@@ -390,6 +391,20 @@ var update_npc_legendary_moves = function() {
 
                 setAttrs(update, { silent: true });
             });
+        });
+    });
+};
+
+var update_initiative = function(){
+    getAttrs(["agility","initiative_bonus"], function(v){
+        var update = {};
+
+        var agility = parseInt(v.agility) || 0;
+
+        update["initiative"] = agility + (parseInt(v.agility) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
+
+        setAttrs(update, {
+            silent: true
         });
     });
 };
