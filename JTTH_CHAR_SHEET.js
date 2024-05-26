@@ -1,21 +1,20 @@
-
 on("change:agility change:power change:mental_strength change:appearance change:qi_control", function(eventinfo) {
     update_npc_skills();
     update_npc_moves();
     update_npc_legendary_moves();
 });
 
-on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_sleight_of_hand_bonus change:npc_stealth_bonus change:npc_survival_bonus change:agility change:power change:mental_strength change:appearance change:qi_control", function(eventinfo) {
+on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_sleight_of_hand_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
     update_npc_skills();
     console.log("Updating Skills");
 });
 
-on("change:repeating_npcmove:name change:repeating_npcmove:attack_flag change:repeating_npcmove:attack_type change:repeating_npcmove:attack_range change:repeating_npcmove:attack_tohit change:repeating_npcmove:attack_bonus change:repeating_npcmove:attack_damage change:repeating_npcmove:attack_damage1attribute change:repeating_npcmove:attack_damage1bonus change:repeating_npcmove:attack_damagetype change:repeating_npcmove:attack_damage2 change:repeating_npcmove:attack_damage2attribute change:repeating_npcmove:attack_damage2bonus change:repeating_npcmove:attack_damagetype2 change:repeating_npcmove:description change:power change:agility change:vitality change:cultivation change:qi_control change:mental_strength", function(eventinfo) {
+on("change:repeating_npcmove:name change:repeating_npcmove:attack_flag change:repeating_npcmove:attack_type change:repeating_npcmove:attack_range change:repeating_npcmove:attack_tohit change:repeating_npcmove:attack_bonus change:repeating_npcmove:attack_damage change:repeating_npcmove:attack_damage1attribute change:repeating_npcmove:attack_damage1bonus change:repeating_npcmove:attack_damagetype change:repeating_npcmove:attack_damage2 change:repeating_npcmove:attack_damage2attribute change:repeating_npcmove:attack_damage2bonus change:repeating_npcmove:attack_damagetype2 change:repeating_npcmove:description", function(eventinfo) {
     update_npc_moves();
     console.log("Updating Moves");
 });
 
-on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag change:repeating_npcmove-l:attack_type change:repeating_npcmove-l:attack_range change:repeating_npcmove-l:attack_tohit change:repeating_npcmove-l:attack_bonus change:repeating_npcmove-l:attack_damage change:repeating_npcmove-l:attack_damage1attribute change:repeating_npcmove-l:attack_damage1bonus change:repeating_npcmove-l:attack_damagetype change:repeating_npcmove-l:attack_damage2 change:repeating_npcmove-l:attack_damage2attribute change:repeating_npcmove-l:attack_damage2bonus change:repeating_npcmove-l:attack_damagetype2 change:repeating_npcmove-l:description change:power change:agility change:vitality change:cultivation change:qi_control change:mental_strength", function(eventinfo) {
+on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag change:repeating_npcmove-l:attack_type change:repeating_npcmove-l:attack_range change:repeating_npcmove-l:attack_tohit change:repeating_npcmove-l:attack_bonus change:repeating_npcmove-l:attack_damage change:repeating_npcmove-l:attack_damage1attribute change:repeating_npcmove-l:attack_damage1bonus change:repeating_npcmove-l:attack_damagetype change:repeating_npcmove-l:attack_damage2 change:repeating_npcmove-l:attack_damage2attribute change:repeating_npcmove-l:attack_damage2bonus change:repeating_npcmove-l:attack_damagetype2 change:repeating_npcmove-l:description", function(eventinfo) {
     update_npc_legendary_moves();
     console.log("Updating Legendary Moves");
 });
@@ -172,12 +171,14 @@ var update_npc_moves = function() {
                 } else if (attackFlag) {
                     rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                 } else if (damage1 || damage2) {
-                    rollbase = `@{wtype}&{template=npcdmg} ${damage_flag} `;
+                    rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
                     if (damage1) {
-                        rollbase += `{{dmg1=[[@{attack_damage} + @{attack_damage1attribute} + @{damage1bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                        rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                        console.log(rollbase)
                     }
                     if (damage2) {
-                        rollbase += `{{dmg2=[[@{attack_damage2} + @{attack_damage2attribute} + @{damage2bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                        rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                        console.log(rollbase)
                     }
                 } else {
                     rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
