@@ -225,6 +225,66 @@
     width: 800px;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header{
+    width: 800px;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details{
+    height: 150px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details{
+    width: 650px;
+    margin-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image img{
+    height: 150px;
+    width: 150px;
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image::before {
+    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-box-border.png) 20 fill stretch;
+    border-style: solid;
+    border-width: 15px 15px;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    z-index: -1;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail{
+    height: 25px;
+    display: flex;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-label{
+    min-width: fit-content;
+    padding-right: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input{
+    width: 100%;
+    height: 25px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input{
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 1px solid grey;
+}
+
 .charsheet .sheet-core .sheet-section-templates {
     display: none;
 }
@@ -853,7 +913,7 @@
 }
 
 .charsheet .sheet-core .sheet-container-panel::before {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-box-border.png) 50 50 50 50 fill stretch;
+    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-box-border.png) 50 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -1138,4 +1198,99 @@
     padding: 5px;
     border-radius: 3px;
     margin-top: 5px;
+}
+
+.sheet-tabs {
+    position: relative;
+    width: 800px;
+}
+
+.sheet-tabs::after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.sheet-tabs .sheet-tab {
+    width: 800px;
+}
+
+.sheet-tabs .sheet-tab:nth-of-type(2) > input[type="radio"],
+.sheet-tabs .sheet-tab:nth-of-type(2) > .sheet-tab-label {
+    margin-left: 20%;
+}
+
+.sheet-tabs .sheet-tab:nth-of-type(3) > input[type="radio"],
+.sheet-tabs .sheet-tab:nth-of-type(3) > .sheet-tab-label {
+    margin-left: 40%;
+}
+
+.sheet-tabs .sheet-tab:nth-of-type(4) > input[type="radio"],
+.sheet-tabs .sheet-tab:nth-of-type(4) > .sheet-tab-label {
+    margin-left: 60%;
+}
+
+.sheet-tabs .sheet-tab:nth-of-type(5) > input[type="radio"],
+.sheet-tabs .sheet-tab:nth-of-type(5) > .sheet-tab-label {
+    margin-left: 80%;
+}
+
+.sheet-tabs .sheet-tab > input[type="radio"] {
+    height: 30px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 20%;
+    z-index: 1;
+}
+
+.sheet-tabs .sheet-tab > input[type="radio"]:hover ~ .sheet-tab-label {
+    background: #e5fffb;
+    border-bottom-color: #dbfff9;
+}
+
+.sheet-tabs .sheet-tab > .sheet-tab-label {
+    align-items: center;
+    background: #dddddd;
+    border-radius: 6px 6px 0 0;
+    border: 2px solid #dddddd;
+    color: #8a8a8a;
+    display: flex;
+    font-size: 11px;
+    font-variant: small-caps;
+    font-weight: bold;
+    height: 30px;
+    justify-content: center;
+    margin: 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    width: 20%;
+    border-left-color: white;
+    border-top-color: white;
+    border-right-color: white;
+    border-bottom-color: lightgrey;
+}
+
+.sheet-tabs .sheet-tab > input[type="radio"]:checked ~ .sheet-tab-label {
+    background: white;
+    border-color: #575757;
+    border-bottom-color: white;
+    color: black;
+}
+
+.sheet-tabs .sheet-tab > input[type="radio"]:checked {
+    cursor: auto;
+}
+
+.sheet-tabs .sheet-tab > input[type="radio"]:checked ~ .sheet-tab-content {
+    display: block;
+}
+
+.sheet-tabs .sheet-tab .sheet-tab-content {
+    display: none;
+    min-height: 847px;
+    padding-top: 35px;
+    width: 100%;
 }

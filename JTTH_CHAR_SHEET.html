@@ -1,10 +1,6 @@
 <div class="sheet-core">
-    <input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0">
+    <input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0" hidden>
     <input class="sheet-toggle-npc-edit" name="attr_npc_options-flag" type="checkbox" hidden>
-    <label class="sheet-form-checkbox">
-        <input type="checkbox" name="attr_npc" value="1">
-        <span>NPC</span>
-    </label>
     <div class="sheet-section-roll">
         <input type="hidden" name="attr_rtype" class="sheet-roll-toggle">
         <input type="hidden" name="attr_wtype" class="sheet-roll-toggle">
@@ -242,12 +238,6 @@
                                     <option value="0">Hide</option>
                                 </select>
                             </div>
-                        </div>
-                    </div>
-                    <div class="sheet-form-fieldset">
-                        <div class="sheet-form-fieldset-header">Talents</div>
-                        <div class="sheet-form-fieldset-body">
-
                         </div>
                     </div>
                 </div>
@@ -840,13 +830,113 @@
             </div>
         </div>
         <div class="sheet-section-npc-footer">
-            <p>Venator Ignis's JTTH Character Sheet</p>
+            <p>Venator Ignis's JTTH NPC Sheet</p>
         </div>
     </div>
 
     <div class="sheet-section-pc">
-        <div class="sheet-section-pc-header"></div>
-        <div class="sheet-section-pc-body"></div>
+        <div class="sheet-section-pc-header">
+            <div class="sheet-section-pc-header-character-image">
+                <img name="attr_character_avatar">
+            </div>
+            <div class="sheet-section-pc-header-character-details">
+                <div class="sheet-character-detail">
+                    <div class="sheet-character-detail-label label-name">Name:</div>
+                    <div class="sheet-character-detail-value value-name">
+                        <input type="text" name="attr_character_name">
+                    </div>
+                </div>
+                <div class="sheet-character-detail">
+                    <div class="sheet-character-detail-label label-level">Level:</div>
+                    <div class="sheet-character-detail-value value-level">
+                        <input type="number" name="attr_character_level">
+                    </div>
+                    <div class="sheet-character-detail-label label-path">Mortal Path:</div>
+                    <div class="sheet-character-detail-value value-path">
+                        <input type="text" name="attr_character_path">
+                    </div>
+                    <div class="sheet-character-detail-label label-subpath">Sub Path:</div>
+                    <div class="sheet-character-detail-value value-subpath">
+                        <input type="text" name="attr_character_subpath">
+                    </div>
+                </div>
+                <div class="sheet-character-detail">
+                    <div class="sheet-character-detail-label label-background">Background:</div>
+                    <div class="sheet-character-detail-value value-background">
+                        <input type="text" name="attr_character_background">
+                    </div>
+                </div>
+                <div class="sheet-character-detail">
+                    <div class="sheet-character-detail-label label-age">Age:</div>
+                    <div class="sheet-character-detail-value value-age">
+                        <input type="number" name="attr_character_age">
+                    </div>
+                    <div class="sheet-character-detail-label label-height">Height:</div>
+                    <div class="sheet-character-detail-value value-height">
+                        <input type="text" name="attr_character_height">
+                    </div>
+                    <div class="sheet-character-detail-label label-gender">Gender:</div>
+                    <div class="sheet-character-detail-value value-gender">
+                        <input type="text" name="attr_character_gender">
+                    </div>
+                </div>
+                <div class="sheet-character-detail">
+                    <div class="sheet-character-detail-label label-ancestry">Ancestry:</div>
+                    <div class="sheet-character-detail-value value-ancestry">
+                        <input type="text" name="attr_character_ancestry">
+                    </div>
+                    <div class="sheet-character-detail-label label-species">Species:</div>
+                    <div class="sheet-character-detail-value value-species">
+                        <input type="text" name="attr_character_species">
+                    </div>
+                </div>
+                <div class="sheet-character-detail">
+                    <div class="sheet-character-detail-label label-personality">Personality:</div>
+                    <div class="sheet-character-detail-value value-personality">
+                        <input type="text" name="attr_character_personality">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sheet-section-pc-body">
+            <div class="sheet-tabs">
+                <div class="sheet-tab sheet-tab-character">
+                    <input type="radio" name="attr_tab" value="character" checked="checked">
+                    <span class="sheet-tab-label">Character</span>
+                    <div class="sheet-tab-content">
+
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-features">
+                    <input type="radio" name="attr_tab" value="features">
+                    <span class="sheet-tab-label">Features</span>
+                    <div class="sheet-tab-content">
+
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-notes">
+                    <input type="radio" name="attr_tab" value="notes">
+                    <span class="sheet-tab-label">Notes</span>
+                    <div class="sheet-tab-content">
+
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-inventory">
+                    <input type="radio" name="attr_tab" value="inventory">
+                    <span class="sheet-tab-label">Inventory</span>
+                    <div class="sheet-tab-content">
+
+                    </div>
+                </div>
+                <div class="sheet-tab sheet-tab-options">
+                    <input type="radio" name="attr_tab" value="options">
+                    <span class="sheet-tab-label">Options</span>
+                    <div class="sheet-tab-content">
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="sheet-section-pc-footer">
             <p>Venator Ignis's JTTH Character Sheet</p>
         </div>
