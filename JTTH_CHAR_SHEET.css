@@ -333,6 +333,45 @@ input::-webkit-inner-spin-button {
     display: inline-grid;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns{
+    display: flex;
+    column-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column{
+    width: 50%;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well{
+    display: flex;
+    column-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well .sheet-container-panel{
+    width: 50%;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button{
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button > :last-child::before {
+    content: "(";
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child{
+    border-radius: 5px;
+    background: #dddddd;
+    float: right;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child::after {
+    content: ")";
+}
+
 .charsheet .sheet-core .sheet-section-templates {
     display: none;
 }
