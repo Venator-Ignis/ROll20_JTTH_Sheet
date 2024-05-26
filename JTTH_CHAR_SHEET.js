@@ -174,14 +174,20 @@ var update_npc_moves = function() {
                     rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
-                        console.log(rollbase)
                     }
                     if (damage2) {
                         rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
-                        console.log(rollbase)
                     }
                 } else {
                     rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
+                }
+
+                var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                if (damage1) {
+                    full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                }
+                if (damage2) {
+                    full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                 }
 
                 update[`repeating_npcmove_${id}_attack_details`] = details;
@@ -193,6 +199,7 @@ var update_npc_moves = function() {
                 update[`repeating_npcmove_${id}_attack_description`] = description;
                 update[`repeating_npcmove_${id}_rollbase`] = rollbase;
                 update[`repeating_npcmove_${id}_damage_flag`] = damage_flag;
+                update[`repeating_npcmove_${id}_full_damage`] = full_damage;
 
                 setAttrs(update, { silent: true });
             });
