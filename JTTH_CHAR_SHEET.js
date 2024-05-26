@@ -1,3 +1,4 @@
+
 on("change:agility change:power change:mental_strength change:appearance change:qi_control", function(eventinfo) {
     update_npc_skills();
     update_npc_moves();
@@ -290,7 +291,7 @@ var update_npc_legendary_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else if (attackFlag) {
-                    rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove-l_npc_dmg)}} {{type=[Attack](~repeating_npcmove-l_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                 } else if (damage1 || damage2) {
                     rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
                     if (damage1) {
