@@ -289,14 +289,48 @@
     display: flex;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:first-of-type{
+    margin-left: 0;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:last-of-type{
+    margin-right: 0;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
     background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-attribute-bg.png");
     background-size: 100% 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 15px auto 29px;
+    grid-template-rows: 55px 30px;
     height: 85px;
-    width: 75px; 
+    width: 94px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute input{
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute button{
+    background: none;
+    border: none;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute span{
+    text-align: center;
+    align-items: center;
+    display: inline-grid;
 }
 
 .charsheet .sheet-core .sheet-section-templates {

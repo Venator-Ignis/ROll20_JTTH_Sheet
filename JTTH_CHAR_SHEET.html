@@ -281,7 +281,7 @@
                 </div>
                 <div class="sheet-npc-section sheet-npc-section-abilities">
                     <button type="roll" name="roll_npc_pwr" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Power}} {{r1=[[@{power}d6[PWR]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
-                        <span class="sheet-btn-npc-ability-title">POW</span>
+                        <span class="sheet-btn-npc-ability-title">PWR</span>
                         <span name="attr_power" class="sheet-btn-npc-ability"></span>
                     </button>
                     <button type="roll" name="roll_npc_agi" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Agility}} {{r1=[[@{agility}d6[AGI]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
@@ -905,44 +905,44 @@
                     <div class="sheet-tab-content">
                         <div class="sheet-container-well sheet-well-attributes">
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[POW]+@{power_bonus}]]}}" class="sheet-btn-ability">
-                                    <span class="sheet-btn-ability-title">Power</span>
-                                </button>
                                 <input type="number" name="attr_power" value="1" class="sheet-text-center">
+                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[PWR]+@{power_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">PWR</span>
+                                </button>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}]]}}" class="sheet-btn-ability">
-                                    <span class="sheet-btn-ability-title">Agility</span>
-                                </button>
                                 <input type="number" name="attr_agility" value="1" class="sheet-text-center">
+                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">AGI</span>
+                                </button>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}]]}}" class="sheet-btn-ability">
-                                    <span class="sheet-btn-ability-title">Vitality</span>
-                                </button>
                                 <input type="number" name="attr_vitality" value="1" class="sheet-text-center">
+                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">VIT</span>
+                                </button>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}]]}}" class="sheet-btn-ability">
-                                    <span class="sheet-btn-ability-title">Cultivation</span>
-                                </button>
                                 <input type="number" name="attr_cultivation" value="1" class="sheet-text-center">
+                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">CUL</span>
+                                </button>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}]]}}" class="sheet-btn-ability">
-                                    <span class="sheet-btn-ability-title">Qi Control</span>
-                                </button>
                                 <input type="number" name="attr_qi_control" value="1" class="sheet-text-center">
-                            </div>
-                            <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MEN]+@{mental_strength_bonus}]]}}" class="sheet-btn-ability">
-                                    <span class="sheet-btn-ability-title">Mental Strength</span>
+                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">QIC</span>
                                 </button>
-                                <input type="number" name="attr_mental_strength" value="1" class="sheet-text-center">
                             </div>
                             <div class="sheet-container-attribute">
-                                <span class="sheet-btn-npc-ability-title">Appearance</span>
+                                <input type="number" name="attr_mental_strength" value="1" class="sheet-text-center">
+                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MTL]+@{mental_strength_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">MTL</span>
+                                </button>
+                            </div>
+                            <div class="sheet-container-attribute">
                                 <input type="number" name="attr_appearance" value="1" class="sheet-text-center">
+                                <span class="sheet-btn-npc-ability-title">APP</span>
                             </div>
                         </div>
                         <div class="sheet-container-well sheet-well-columns">
