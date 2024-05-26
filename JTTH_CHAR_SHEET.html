@@ -108,6 +108,10 @@
                                 <input type="text" name="attr_npc_deceit_bonus" value="0">
                             </div>
                             <div class="sheet-form-group">
+                                <label>Discretion</label>
+                                <input type="text" name="attr_npc_discretion_bonus" value="0">
+                            </div>
+                            <div class="sheet-form-group">
                                 <label>Disguise</label>
                                 <input type="text" name="attr_npc_disguise_bonus" value="0">
                             </div>
@@ -154,10 +158,6 @@
                             <div class="sheet-form-group">
                                 <label>Persuade</label>
                                 <input type="text" name="attr_npc_persuade_bonus" value="0">
-                            </div>
-                            <div class="sheet-form-group">
-                                <label>Sleight of Hand</label>
-                                <input type="text" name="attr_npc_sleight_of_hand_bonus" value="0">
                             </div>
                             <div class="sheet-form-group">
                                 <label>Stealth</label>
@@ -427,9 +427,9 @@
                         </span>
                         <span>
                             <input type="hidden" name="attr_npc_skill_flag" value="1" class="sheet-field-toggle">
-                            <button type="roll" name="roll_npc_sleight_of_hand" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Sleight of Hand}} {{mod=@{npc_sleight_of_hand}}} {{r1_roll=[[@{npc_sleight_of_hand}d6 + @{npc_sleight_of_hand_bonus}]]}} {{type=Skill}}">
-                                <span>Sleight of Hand</span>
-                                <span name="attr_npc_sleight_of_hand"></span>
+                            <button type="roll" name="roll_npc_discretion" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Discretion}} {{mod=@{npc_discretion}}} {{r1=[[@{npc_discretion_roll}d6 + @{npc_discretion_bonus}]]}} {{type=Skill}}">
+                                <span>Discretion</span>
+                                <span name="attr_npc_discretion"></span>
                             </button>
                         </span>
                         <span>
@@ -947,7 +947,7 @@
                         </div>
                         <div class="sheet-container-well sheet-well-columns">
                             <div class="sheet-column">
-                                <div class="sheet-container-well">
+                                <div class="sheet-container-well container-skill-combat">
                                     <div class="sheet-container-panel sheet-panel-skills">
                                         <div class="sheet-container-header">SKILLS</div>
                                         <div class="sheet-container-body">
@@ -973,6 +973,12 @@
                                                 <button type="roll" name="roll_deceit" value="@{wtype}&{template:simple} @{name_flag} {{rname=Deceit}} {{mod=@{deceit}}} {{r1=[[@{deceit_roll}d6 + @{deceit_bonus}]]}} {{type=Skill}}">
                                                     <span>Deceit</span>
                                                     <span name="attr_deceit"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_discretion" value="@{wtype}&{template:simple} @{name_flag} {{rname=Discretion}} {{mod=@{discretion}}} {{r1=[[@{discretion_roll}d6 + @{discretion_bonus}]]}} {{type=Skill}}">
+                                                    <span>Discretion</span>
+                                                    <span name="attr_discretion"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill">
@@ -1048,12 +1054,6 @@
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill">
-                                                <button type="roll" name="roll_sleight_of_hand" value="@{wtype}&{template:simple} @{name_flag} {{rname=Sleight of Hand}} {{mod=@{sleight_of_hand}}} {{r1_roll=[[@{sleight_of_hand}d6 + @{sleight_of_hand_bonus}]]}} {{type=Skill}}">
-                                                    <span>Sleight of Hand</span>
-                                                    <span name="attr_sleight_of_hand"></span>
-                                                </button>
-                                            </div>
-                                            <div class="sheet-pc-skill">
                                                 <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} @{name_flag} {{rname=Stealth}} {{mod=@{stealth}}} {{r1=[[@{stealth_roll}d6 + @{stealth_bonus}]]}} {{type=Skill}}">
                                                     <span>Stealth</span>
                                                     <span name="attr_stealth"></span>
@@ -1068,29 +1068,120 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="sheet-container-panel sheet-panel-combat">
-                                        <div class="sheet-container-header">COMBAT</div>
-                                        <div class="sheet-container-body">
-                                            <div class="sheet-container-box sheet-pc-initiative">
-                                                <div class="sheet-container-bar">
-                                                    <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{name_flag} {{rname=Initiative}} {{r1=[[@{agility}d6[AGI]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE</button>
-                                                    <span name="attr_initiative" title="@{initiative}"></span>
+                                    <div>
+                                        <div class="sheet-container-panel sheet-panel-hp">
+                                            <div class="sheet-container-header">HEALTH</div>
+                                            <div class="sheet-container-body">
+                                                <div class="sheet-container-box sheet-pc-health">
+                                                    <div class="sheet-box-body sheet-health">
+                                                        <input type="number" name="attr_hp_max" title="@{hp_max}" placeholder="MAXIMUM">
+                                                        <input type="number" name="attr_hp" title="@{hp}" placeholder="CURRENT">
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-container-box sheet-pc-health">
+                                                    <div class="sheet-box-body">
+                                                        <div class="sheet-box">
+                                                            <span>Dice</span>
+                                                        <input type="text" name="attr_hp_die" title="@{hp_die}">
+                                                        </div>
+                                                        <div class="sheet-box">
+                                                            <span>Temp</span>
+                                                            <input type="number" name="attr_hp_temp" title="@{hp_temp}">
+                                                        </div>
+                                                        <div class="sheet-box">
+                                                            <span>Regen</span>
+                                                            <input type="number" name="attr_hp_regen" title="@{hp_regen}">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="sheet-container-box sheet-pc-defences">
-                                                <div class="sheet-defence-label">HYPER RESISTANCE</div>
-                                                <input class="sheet-defence" type="text" name="attr_hyper_resistances" title="@{hyper_resistances}">
-                                                <div class="sheet-defence-label">RESISTANCE</div>
-                                                <input class="sheet-defence" type="text" name="attr_resistances" title="@{resistances}">
-                                                <div class="sheet-defence-label">WEAKNESS</div>
-                                                <input class="sheet-defence" type="text" name="attr_weakness" title="@{weakness}">
-                                                <div class="sheet-defence-label">HYPER WEAKNESS</div>
-                                                <input class="sheet-defence" type="text" name="attr_hyper_weakness" title="@{hyper_weakness}">
+                                        </div>
+                                        <div class="sheet-container-panel sheet-panel-combat">
+                                            <div class="sheet-container-header">COMBAT</div>
+                                            <div class="sheet-container-body">
+                                                <div class="sheet-container-box sheet-pc-initiative">
+                                                    <div class="sheet-container-bar">
+                                                        <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{name_flag} {{rname=Initiative}} {{r1=[[@{agility}d6[AGI]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE<span name="attr_initiative" title="@{initiative}"></span></button>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-container-box sheet-pc-defences">
+                                                    <div class="sheet-defence-label">HYPER RESISTANCE</div>
+                                                    <input class="sheet-defence" type="text" name="attr_hyper_resistances" title="@{hyper_resistances}">
+                                                    <div class="sheet-defence-label">RESISTANCE</div>
+                                                    <input class="sheet-defence" type="text" name="attr_resistances" title="@{resistances}">
+                                                    <div class="sheet-defence-label">WEAKNESS</div>
+                                                    <input class="sheet-defence" type="text" name="attr_weakness" title="@{weakness}">
+                                                    <div class="sheet-defence-label">HYPER WEAKNESS</div>
+                                                    <input class="sheet-defence" type="text" name="attr_hyper_weakness" title="@{hyper_weakness}">
+                                                </div>
+                                                <div class="sheet-container-box sheet-pc-evasion-durability">
+                                                    <div class="sheet-pc-evasion-group">
+                                                        <div class="sheet-pc-evasion-full">
+                                                            <input class="sheet-evasion-full" type="number" name="attr_evasion-full" title="@{evasion-full}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">EVA</div>
+                                                        </div>
+                                                        <div class="sheet-pc-evasion-base">
+                                                            <input class="sheet-evasion-base" type="number" name="attr_evasion-base" title="@{evasion-base}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">BASE</div>
+                                                        </div>
+                                                        <div class="sheet-pc-evasion-limit">
+                                                            <input class="sheet-evasion-limit" type="number" name="attr_evasion-limit" title="@{evasion-limit}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">LIMIT</div>
+                                                        </div>
+                                                        <div class="sheet-pc-evasion-bonus">
+                                                            <input class="sheet-evasion-bonus" type="number" name="attr_evasion-bonus" title="@{evasion-bonus}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">BONUS</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-pc-durability-group">
+                                                        <div class="sheet-pc-durability-full">
+                                                            <input class="sheet-durability-full" type="number" name="attr_durability-full" title="@{durability-full}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">DUR</div>
+                                                        </div>
+                                                        <div class="sheet-pc-durability-base">
+                                                            <input class="sheet-durability-base" type="number" name="attr_durability-base" title="@{durability-base}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">BASE</div>
+                                                        </div>
+                                                        <div class="sheet-pc-durability-limit">
+                                                            <input class="sheet-durability-limit" type="number" name="attr_durability-limit" title="@{durability-limit}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">LIMIT</div>
+                                                        </div>
+                                                        <div class="sheet-pc-durability-bonus">
+                                                            <input class="sheet-durability-bonus" type="number" name="attr_durability-bonus" title="@{durability-bonus}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">BONUS</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-pc-reduction-group">
+                                                        <div class="sheet-pc-reduction-full">
+                                                            <input class="sheet-reduction-full" type="number" name="attr_reduction-full" title="@{reduction-full}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">DR</div>
+                                                        </div>
+                                                        <div class="sheet-pc-reduction-base">
+                                                            <input class="sheet-reduction-base" type="number" name="attr_reduction-base" title="@{reduction-base}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">BASE</div>
+                                                        </div>
+                                                        <div class="sheet-pc-reduction-limit">
+                                                            <input class="sheet-reduction-limit" type="number" name="attr_reduction-limit" title="@{reduction-limit}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">LIMIT</div>
+                                                        </div>
+                                                        <div class="sheet-pc-reduction-bonus">
+                                                            <input class="sheet-reduction-bonus" type="number" name="attr_reduction-bonus" title="@{reduction-bonus}" placeholder="0">
+                                                            <div class="sheet-pc-defence-label">BONUS</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-pc-speed-group">
+                                                        <div class="sheet-pc-speed-movement"></div>
+                                                        <div class="sheet-pc-speed-swim"></div>
+                                                        <div class="sheet-pc-speed-climb"></div>
+                                                        <div class="sheet-pc-speed-fly"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="sheet-container-well">
+                                <div class="sheet-container-well container-attacks-responses">
                                     <div class="sheet-container-panel sheet-panel-attacks">
                                         <div class="sheet-container-header">ATTACKS</div>
                                         <div class="sheet-container-body">
@@ -1106,7 +1197,7 @@
                                 </div>
                             </div>
                             <div class="sheet-column">
-                                <div class="sheet-container-well">
+                                <div class="sheet-container-well container-traits-features">
                                     <div class="sheet-container-panel sheet-panel-traits">
                                         <div class="sheet-container-header">TRAITS</div>
                                         <div class="sheet-container-body">
@@ -1120,7 +1211,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="sheet-container-well">
+                                <div class="sheet-container-well container-resources">
                                     <div class="sheet-container-panel sheet-panel-resources">
                                         <div class="sheet-container-header">RESOURCES</div>
                                         <div class="sheet-container-body">
@@ -1197,6 +1288,7 @@
         <input type='hidden' name='attr_npc_athletics' value=''>
         <input type='hidden' name='attr_npc_charm' value=''>
         <input type='hidden' name='attr_npc_deceit' value=''>
+        <input type='hidden' name='attr_npc_discretion' value=''>
         <input type='hidden' name='attr_npc_disguise' value=''>
         <input type='hidden' name='attr_npc_fine_arts' value=''>
         <input type='hidden' name='attr_npc_forgery' value=''>
@@ -1209,7 +1301,6 @@
         <input type='hidden' name='attr_npc_perception' value=''>
         <input type='hidden' name='attr_npc_performance' value=''>
         <input type='hidden' name='attr_npc_persuade' value=''>
-        <input type='hidden' name='attr_npc_sleight_of_hand' value=''>
         <input type='hidden' name='attr_npc_stealth' value=''>
         <input type='hidden' name='attr_npc_survival' value=''>
         <!-- NPC SKILL ROLL -->
@@ -1217,6 +1308,7 @@
         <input type="hidden" name="attr_npc_athletics_roll" value="0">
         <input type="hidden" name="attr_npc_charm_roll" value="0">
         <input type="hidden" name="attr_npc_deceit_roll" value="0">
+        <input type="hidden" name="attr_npc_discretion" value="0">
         <input type="hidden" name="attr_npc_disguise_roll" value="0">
         <input type="hidden" name="attr_npc_fine_arts_roll" value="0">
         <input type="hidden" name="attr_npc_forgery_roll" value="0">
@@ -1229,7 +1321,6 @@
         <input type="hidden" name="attr_npc_perception_roll" value="0">
         <input type="hidden" name="attr_npc_performance_roll" value="0">
         <input type="hidden" name="attr_npc_persuade_roll" value="0">
-        <input type="hidden" name="attr_npc_sleight_of_hand_roll" value="0">
         <input type="hidden" name="attr_npc_stealth_roll" value="0">
         <input type="hidden" name="attr_npc_survival_roll" value="0">
         <!-- NPC SKILL BONUS -->
@@ -1237,6 +1328,7 @@
         <input type='hidden' name='attr_npc_athletics_bonus' value='0'>
         <input type='hidden' name='attr_npc_charm_bonus' value='0'>
         <input type='hidden' name='attr_npc_deceit_bonus' value='0'>
+        <input type='hidden' name='attr_npc_discretion_bonus' value='0'>
         <input type='hidden' name='attr_npc_disguise_bonus' value='0'>
         <input type='hidden' name='attr_npc_fine_arts_bonus' value='0'>
         <input type='hidden' name='attr_npc_forgery_bonus' value='0'>
@@ -1249,7 +1341,6 @@
         <input type='hidden' name='attr_npc_perception_bonus' value='0'>
         <input type='hidden' name='attr_npc_performance_bonus' value='0'>
         <input type='hidden' name='attr_npc_persuade_bonus' value='0'>
-        <input type='hidden' name='attr_npc_sleight_of_hand_bonus' value='0'>
         <input type='hidden' name='attr_npc_stealth_bonus' value='0'>
         <input type='hidden' name='attr_npc_survival_bonus' value='0'>
         <!-- PLAYER SKILL FULL -->
@@ -1257,6 +1348,7 @@
         <input type='hidden' name='attr_athletics' value='0'>
         <input type='hidden' name='attr_charm' value='0'>
         <input type='hidden' name='attr_deceit' value='0'>
+        <input type='hidden' name='attr_discretion' value='0'>
         <input type='hidden' name='attr_disguise' value='0'>
         <input type='hidden' name='attr_fine_arts' value='0'>
         <input type='hidden' name='attr_forgery' value='0'>
@@ -1269,7 +1361,6 @@
         <input type='hidden' name='attr_perception' value='0'>
         <input type='hidden' name='attr_performance' value='0'>
         <input type='hidden' name='attr_persuade' value='0'>
-        <input type='hidden' name='attr_sleight_of_hand' value='0'>
         <input type='hidden' name='attr_stealth' value='0'>
         <input type='hidden' name='attr_survival' value='0'>
         <!-- PLAYER SKILL ROLL -->
@@ -1277,6 +1368,7 @@
         <input type='hidden' name='attr_athletics_roll' value='0'>
         <input type='hidden' name='attr_charm_roll' value='0'>
         <input type='hidden' name='attr_deceit_roll' value='0'>
+        <input type='hidden' name='attr_discretion_roll' value='0'>
         <input type='hidden' name='attr_disguise_roll' value='0'>
         <input type='hidden' name='attr_fine_arts_roll' value='0'>
         <input type='hidden' name='attr_forgery_roll' value='0'>
@@ -1289,7 +1381,6 @@
         <input type='hidden' name='attr_perception_roll' value='0'>
         <input type='hidden' name='attr_performance_roll' value='0'>
         <input type='hidden' name='attr_persuade_roll' value='0'>
-        <input type='hidden' name='attr_sleight_of_hand_roll' value='0'>
         <input type='hidden' name='attr_stealth_roll' value='0'>
         <input type='hidden' name='attr_survival_roll' value='0'>
         <!-- PLAYER SKILL BONUS -->
@@ -1297,6 +1388,7 @@
         <input type='hidden' name='attr_athletics_bonus' value='0'>
         <input type='hidden' name='attr_charm_bonus' value='0'>
         <input type='hidden' name='attr_deceit_bonus' value='0'>
+        <input type='hidden' name='attr_discretion_bonus' value='0'>
         <input type='hidden' name='attr_disguise_bonus' value='0'>
         <input type='hidden' name='attr_fine_arts_bonus' value='0'>
         <input type='hidden' name='attr_forgery_bonus' value='0'>
@@ -1309,7 +1401,6 @@
         <input type='hidden' name='attr_perception_bonus' value='0'>
         <input type='hidden' name='attr_performance_bonus' value='0'>
         <input type='hidden' name='attr_persuade_bonus' value='0'>
-        <input type='hidden' name='attr_sleight_of_hand_bonus' value='0'>
         <input type='hidden' name='attr_stealth_bonus' value='0'>
         <input type='hidden' name='attr_survival_bonus' value='0'>
     </div>
@@ -1715,12 +1806,12 @@
             console.log("Updating Everything");
         });
         
-        on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:sleight_of_hand_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
+        on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
             update_skills();
             console.log("Updating PC Skills");
         });
         
-        on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_sleight_of_hand_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
+        on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
             update_npc_skills();
             console.log("Updating NPC Skills");
         });
@@ -1745,7 +1836,7 @@
         });
         
         var update_npc_skills = function() {
-            getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_sleight_of_hand_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+            getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_discretion_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
                 var update = {};   
         
                 // Calculate base values
@@ -1759,6 +1850,7 @@
                 update["npc_athletics_roll"] = power;
                 update["npc_charm_roll"] = Math.round(mental_strength + appearance);
                 update["npc_deceit_roll"] = Math.round(mental_strength + appearance);
+                update["npc_discretion_roll"] = agility;
                 update["npc_disguise_roll"] = Math.round(mental_strength + appearance);
                 update["npc_fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
                 update["npc_forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
@@ -1771,7 +1863,6 @@
                 update["npc_perception_roll"] = mental_strength;
                 update["npc_performance_roll"] = Math.round(agility + appearance);
                 update["npc_persuade_roll"] = Math.round(mental_strength + appearance);
-                update["npc_sleight_of_hand_roll"] = agility;
                 update["npc_stealth_roll"] = agility;
                 update["npc_survival_roll"] = Math.round(power / 2 + mental_strength / 2);
         
@@ -1780,6 +1871,7 @@
                 update["npc_athletics"] = update["npc_athletics_roll"] + (parseInt(v.npc_athletics_bonus) ? `d6 + ${parseInt(v.npc_athletics_bonus)}` : 'd6');
                 update["npc_charm"] = update["npc_charm_roll"] + (parseInt(v.npc_charm_bonus) ? `d6 + ${parseInt(v.npc_charm_bonus)}` : 'd6');
                 update["npc_deceit"] = update["npc_deceit_roll"] + (parseInt(v.npc_deceit_bonus) ? `d6 + ${parseInt(v.npc_deceit_bonus)}` : 'd6');
+                update["npc_discretion"] = update["npc_discretion_roll"] + (parseInt(v.npc_discretion_bonus) ? `d6 + ${parseInt(v.npc_discretion_bonus)}` : 'd6');
                 update["npc_disguise"] = update["npc_disguise_roll"] + (parseInt(v.npc_disguise_bonus) ? `d6 + ${parseInt(v.npc_disguise_bonus)}` : 'd6');
                 update["npc_fine_arts"] = update["npc_fine_arts_roll"] + (parseInt(v.npc_fine_arts_bonus) ? `d6 + ${parseInt(v.npc_fine_arts_bonus)}` : 'd6');
                 update["npc_forgery"] = update["npc_forgery_roll"] + (parseInt(v.npc_forgery_bonus) ? `d6 + ${parseInt(v.npc_forgery_bonus)}` : 'd6');
@@ -1792,7 +1884,6 @@
                 update["npc_perception"] = update["npc_perception_roll"] + (parseInt(v.npc_perception_bonus) ? `d6 + ${parseInt(v.npc_perception_bonus)}` : 'd6');
                 update["npc_performance"] = update["npc_performance_roll"] + (parseInt(v.npc_performance_bonus) ? `d6 + ${parseInt(v.npc_performance_bonus)}` : 'd6');
                 update["npc_persuade"] = update["npc_persuade_roll"] + (parseInt(v.npc_persuade_bonus) ? `d6 + ${parseInt(v.npc_persuade_bonus)}` : 'd6');
-                update["npc_sleight_of_hand"] = update["npc_sleight_of_hand_roll"] + (parseInt(v.npc_sleight_of_hand_bonus) ? `d6 + ${parseInt(v.npc_sleight_of_hand_bonus)}` : 'd6');
                 update["npc_stealth"] = update["npc_stealth_roll"] + (parseInt(v.npc_stealth_bonus) ? `d6 + ${parseInt(v.npc_stealth_bonus)}` : 'd6');
                 update["npc_survival"] = update["npc_survival_roll"] + (parseInt(v.npc_survival_bonus) ? `d6 + ${parseInt(v.npc_survival_bonus)}` : 'd6');
         
@@ -1803,7 +1894,7 @@
         };
         
         var update_skills = function() {
-            getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "sleight_of_hand_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+            getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
                 var update = {};
         
                 // Calculate base values
@@ -1817,6 +1908,7 @@
                 update["athletics_roll"] = power;
                 update["charm_roll"] = Math.round(mental_strength + appearance);
                 update["deceit_roll"] = Math.round(mental_strength + appearance);
+                update["discretion_roll"] = agility;
                 update["disguise_roll"] = Math.round(mental_strength + appearance);
                 update["fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
                 update["forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
@@ -1829,7 +1921,6 @@
                 update["perception_roll"] = mental_strength;
                 update["performance_roll"] = Math.round(agility + appearance);
                 update["persuade_roll"] = Math.round(mental_strength + appearance);
-                update["sleight_of_hand_roll"] = agility;
                 update["stealth_roll"] = agility;
                 update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
         
@@ -1850,7 +1941,7 @@
                 update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6');
                 update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6');
                 update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6');
-                update["sleight_of_hand"] = update["sleight_of_hand_roll"] + (parseInt(v.sleight_of_hand_bonus) ? `d6 + ${parseInt(v.sleight_of_hand_bonus)}` : 'd6');
+                update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6');
                 update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6');
                 update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6');
         
