@@ -285,6 +285,20 @@
     border-bottom: 1px solid grey;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes{
+    display: flex;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
+    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-attribute-bg.png");
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15px auto 29px;
+    height: 85px;
+    width: 75px; 
+}
+
 .charsheet .sheet-core .sheet-section-templates {
     display: none;
 }
@@ -1294,3 +1308,4 @@
     padding-top: 35px;
     width: 100%;
 }
+

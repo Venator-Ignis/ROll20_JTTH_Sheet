@@ -2,7 +2,6 @@
     <input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0" hidden>
     <input class="sheet-toggle-npc-edit" name="attr_npc_options-flag" type="checkbox" hidden>
     <div class="sheet-section-roll">
-        <input type="hidden" name="attr_rtype" class="sheet-roll-toggle">
         <input type="hidden" name="attr_wtype" class="sheet-roll-toggle">
         <div class="sheet-section-roll-whisper">
             <label class="sheet-radio">
@@ -281,27 +280,27 @@
                     </div>
                 </div>
                 <div class="sheet-npc-section sheet-npc-section-abilities">
-                    <button type="roll" name="roll_npc_pwr" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Power}} {{r1=[[@{power}d6[PWR]]]}} @{rtype}+[[@{power}]][PWR]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                    <button type="roll" name="roll_npc_pwr" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Power}} {{r1=[[@{power}d6[PWR]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
                         <span class="sheet-btn-npc-ability-title">POW</span>
                         <span name="attr_power" class="sheet-btn-npc-ability"></span>
                     </button>
-                    <button type="roll" name="roll_npc_agi" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Agility}} {{r1=[[@{agility}d6[AGI]]]}} @{rtype}+[[@{agility}]][AGI]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                    <button type="roll" name="roll_npc_agi" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Agility}} {{r1=[[@{agility}d6[AGI]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
                         <span class="sheet-btn-npc-ability-title">AGI</span>
                         <span name="attr_agility" class="sheet-btn-npc-ability"></span>
                     </button>
-                    <button type="roll" name="roll_npc_vit" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Vitality}} {{r1=[[@{vitality}d6[VIT]]]}} @{rtype}+[[@{vitality}]][VIT]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                    <button type="roll" name="roll_npc_vit" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Vitality}} {{r1=[[@{vitality}d6[VIT]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
                         <span class="sheet-btn-npc-ability-title">VIT</span>
                         <span name="attr_vitality" class="sheet-btn-npc-ability"></span>
                     </button>
-                    <button type="roll" name="roll_npc_cul" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Cultivation}} {{r1=[[@{cultivation}d6[CUL]]]}} @{rtype}+[[@{cultivation}]][CUL]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                    <button type="roll" name="roll_npc_cul" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Cultivation}} {{r1=[[@{cultivation}d6[CUL]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
                         <span class="sheet-btn-npc-ability-title">CUL</span>
                         <span name="attr_cultivation" class="sheet-btn-npc-ability"></span>
                     </button>
-                    <button type="roll" name="roll_npc_qic" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Qi Control}} {{r1=[[@{qi_control}d6[QIC]]]}} @{rtype}+[[@{qi_control}]][QIC]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                    <button type="roll" name="roll_npc_qic" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Qi Control}} {{r1=[[@{qi_control}d6[QIC]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
                         <span class="sheet-btn-npc-ability-title">QIC</span>
                         <span name="attr_qi_control" class="sheet-btn-npc-ability"></span>
                     </button>
-                    <button type="roll" name="roll_npc_mtl" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Mental Strength}} {{r1=[[@{mental_strength}d6[MTL]]]}} @{rtype}+[[@{mental_strength}]][MTL]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
+                    <button type="roll" name="roll_npc_mtl" value="@{wtype}&{template:npc} @{npc_name_flag} {{rname=Mental Strength}} {{r1=[[@{mental_strength}d6[MTL]]]}} {{type=Ability}}" class="sheet-btn-npc-ability">
                         <span class="sheet-btn-npc-ability-title">MTL</span>
                         <span name="attr_mental_strength" class="sheet-btn-npc-ability"></span>
                     </button>
@@ -904,7 +903,218 @@
                     <input type="radio" name="attr_tab" value="character" checked="checked">
                     <span class="sheet-tab-label">Character</span>
                     <div class="sheet-tab-content">
+                        <div class="sheet-container-well sheet-well-attributes">
+                            <div class="sheet-container-attribute">
+                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[POW]+@{power_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">Power</span>
+                                </button>
+                                <input type="number" name="attr_power" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-container-attribute">
+                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">Agility</span>
+                                </button>
+                                <input type="number" name="attr_agility" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-container-attribute">
+                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">Vitality</span>
+                                </button>
+                                <input type="number" name="attr_vitality" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-container-attribute">
+                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">Cultivation</span>
+                                </button>
+                                <input type="number" name="attr_cultivation" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-container-attribute">
+                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">Qi Control</span>
+                                </button>
+                                <input type="number" name="attr_qi_control" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-container-attribute">
+                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MEN]+@{mental_strength_bonus}]]}}" class="sheet-btn-ability">
+                                    <span class="sheet-btn-ability-title">Mental Strength</span>
+                                </button>
+                                <input type="number" name="attr_mental_strength" value="1" class="sheet-text-center">
+                            </div>
+                            <div class="sheet-container-attribute">
+                                <span class="sheet-btn-npc-ability-title">Appearance</span>
+                                <input type="number" name="attr_appearance" value="1" class="sheet-text-center">
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-well-columns">
+                            <div class="sheet-column">
+                                <div class="sheet-container-well">
+                                    <div class="sheet-container-panel sheet-panel-skills">
+                                        <div class="sheet-container-header">SKILLS</div>
+                                        <div class="sheet-container-body">
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_acrobatics" value="@{wtype}&{template:simple} @{name_flag} {{rname=Acrobatics}} {{mod=@{acrobatics}}} {{r1=[[@{acrobatics_roll}d6 + @{acrobatics_bonus}]]}} {{type=Skill}}">
+                                                    <span>Acrobatics</span>
+                                                    <span name="attr_acrobatics"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_athletics" value="@{wtype}&{template:simple} @{name_flag} {{rname=Athletics}} {{mod=@{athletics}}} {{r1=[[@{athletics_roll}d6 + @{athletics_bonus}]]}} {{type=Skill}}">
+                                                    <span>Athletics</span>
+                                                    <span name="attr_athletics"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_charm" value="@{wtype}&{template:simple} @{name_flag} {{rname=Charm}} {{mod=@{charm}}} {{r1=[[@{charm_roll}d6 + @{charm_bonus}]]}} {{type=Skill}}">
+                                                    <span>Charm</span>
+                                                    <span name="attr_charm"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_deceit" value="@{wtype}&{template:simple} @{name_flag} {{rname=Deceit}} {{mod=@{deceit}}} {{r1=[[@{deceit_roll}d6 + @{deceit_bonus}]]}} {{type=Skill}}">
+                                                    <span>Deceit</span>
+                                                    <span name="attr_deceit"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_disguise" value="@{wtype}&{template:simple} @{name_flag} {{rname=Disguise}} {{mod=@{disguise}}} {{r1=[[@{disguise_roll}d6 + @{disguise_bonus}]]}} {{type=Skill}}">
+                                                    <span>Disguise</span>
+                                                    <span name="attr_disguise"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_fine_arts" value="@{wtype}&{template:simple} @{name_flag} {{rname=Fine Arts}} {{mod=@{fine_arts}}} {{r1=[[@{_rollfine_arts}d6 + @{fine_arts_bonus}]]}} {{type=Skill}}">
+                                                    <span>Fine Arts</span>
+                                                    <span name="attr_fine_arts"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_forgery" value="@{wtype}&{template:simple} @{name_flag} {{rname=Forgery}} {{mod=@{forgery}}} {{r1=[[@{forgery_roll}d6 + @{forgery_bonus}]]}} {{type=Skill}}">
+                                                    <span>Forgery</span>
+                                                    <span name="attr_forgery"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_history" value="@{wtype}&{template:simple} @{name_flag} {{rname=History}} {{mod=@{history}}} {{r1=[[@{history_roll}d6 + @{history_bonus}]]}} {{type=Skill}}">
+                                                    <span>History</span>
+                                                    <span name="attr_history"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_intuition" value="@{wtype}&{template:simple} @{name_flag} {{rname=Intuition}} {{mod=@{intuition}}} {{r1=[[@{intuition_roll}d6 + @{intuition_bonus}]]}} {{type=Skill}}">
+                                                    <span>Intuition</span>
+                                                    <span name="attr_intuition"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_intimidation" value="@{wtype}&{template:simple} @{name_flag} {{rname=Intimidation}} {{mod=@{intimidation}}} {{r1=[[@{intimidation_roll}d6 + @{intimidation_bonus}]]}} {{type=Skill}}">
+                                                    <span>Intimidation</span>
+                                                    <span name="attr_intimidation"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_investigation" value="@{wtype}&{template:simple} @{name_flag} {{rname=Investigation}} {{mod=@{investigation}}} {{r1=[[@{investigation_roll}d6 + @{investigation_bonus}]]}} {{type=Skill}}">
+                                                    <span>Investigation</span>
+                                                    <span name="attr_investigation"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_medicine" value="@{wtype}&{template:simple} @{name_flag} {{rname=Medicine}} {{mod=@{medicine}}} {{r1=[[@{medicine_roll}d6 + @{medicine_bonus}]]}} {{type=Skill}}">
+                                                    <span>Medicine</span>
+                                                    <span name="attr_medicine"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_navigation" value="@{wtype}&{template:simple} @{name_flag} {{rname=Navigation}} {{mod=@{navigation}}} {{r1=[[@{navigation_roll}d6 + @{navigation_bonus}]]}} {{type=Skill}}">
+                                                    <span>Navigation</span>
+                                                    <span name="attr_navigation"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_perception" value="@{wtype}&{template:simple} @{name_flag} {{rname=Perception}} {{mod=@{perception}}} {{r1=[[@{perception_roll}d6 + @{perception_bonus}]]}} {{type=Skill}}">
+                                                    <span>Perception</span>
+                                                    <span name="attr_perception"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_performance" value="@{wtype}&{template:simple} @{name_flag} {{rname=Performance}} {{mod=@{performance}}} {{r1=[[@{performance_roll}d6 + @{performance_bonus}]]}} {{type=Skill}}">
+                                                    <span>Performance</span>
+                                                    <span name="attr_performance"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_persuade" value="@{wtype}&{template:simple} @{name_flag} {{rname=Persuade}} {{mod=@{persuade}}} {{r1=[[@{persuade_roll}d6 + @{persuade_bonus}]]}} {{type=Skill}}">
+                                                    <span>Persuade</span>
+                                                    <span name="attr_persuade"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_sleight_of_hand" value="@{wtype}&{template:simple} @{name_flag} {{rname=Sleight of Hand}} {{mod=@{sleight_of_hand}}} {{r1_roll=[[@{sleight_of_hand}d6 + @{sleight_of_hand_bonus}]]}} {{type=Skill}}">
+                                                    <span>Sleight of Hand</span>
+                                                    <span name="attr_sleight_of_hand"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} @{name_flag} {{rname=Stealth}} {{mod=@{stealth}}} {{r1=[[@{stealth_roll}d6 + @{stealth_bonus}]]}} {{type=Skill}}">
+                                                    <span>Stealth</span>
+                                                    <span name="attr_stealth"></span>
+                                                </button>
+                                            </div>
+                                            <div class="sheet-pc-skill">
+                                                <button type="roll" name="roll_survival" value="@{wtype}&{template:simple} @{name_flag} {{rname=Survival}} {{mod=@{survival}}} {{r1=[[@{survival_roll}d6 + @{survival_bonus}]]}} {{type=Skill}}">
+                                                    <span>Survival</span>
+                                                    <span name="attr_survival"></span>
+                                                </button>
+                                            </div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-combat">
+                                        <div class="sheet-container-header">COMBAT</div>
+                                        <div class="sheet-container-body">
 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sheet-container-well">
+                                    <div class="sheet-container-panel sheet-panel-attacks">
+                                        <div class="sheet-container-header">ATTACKS</div>
+                                        <div class="sheet-container-body">
+
+                                        </div>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-responses">
+                                        <div class="sheet-container-header">RESPONSES</div>
+                                        <div class="sheet-container-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-column">
+                                <div class="sheet-container-well">
+                                    <div class="sheet-cotnainer-panel sheet-panel-traits">
+                                        <div class="sheet-container-header">TRAITS</div>
+                                        <div class="sheet-container-body">
+
+                                        </div>
+                                    </div>
+                                    <div class="sheet-cotnainer-panel sheet-panel-features">
+                                        <div class="sheet-container-header">FEATURES</div>
+                                        <div class="sheet-container-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sheet-container-well">
+                                    <div class="sheet-cotnainer-panel sheet-panel-resources">
+                                        <div class="sheet-container-header">RESOURCES</div>
+                                        <div class="sheet-container-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="sheet-tab sheet-tab-features">
@@ -952,6 +1162,7 @@
         <input type="hidden" name="attr_global_attack_mod" value="">
         <input type="hidden" name="attr_global_check_mod" value="">
         <input type="hidden" name="attr_global_skill_mod" value="">
+        <input type="hidden" name="attr_name_flag" value="0">
         <!-- ATTRIBUTES -->
         <input type="hidden" name="attr_power" value="0">
         <input type="hidden" name="attr_agility" value="0">
@@ -960,12 +1171,12 @@
         <input type="hidden" name="attr_qi_control" value="0">
         <input type="hidden" name="attr_mental_strength" value="0">
         <!-- ATTRIBUTE BONUS -->
-        <input type="hidden" name="attr_power_check_bonus" value="0">
-        <input type="hidden" name="attr_agility_check_bonus" value="0">
-        <input type="hidden" name="attr_vitality_check_bonus" value="0">
-        <input type="hidden" name="attr_cultivation_check_bonus" value="0">
-        <input type="hidden" name="attr_qi_control_check_bonus" value="0">
-        <input type="hidden" name="attr_mental_strength_check_bonus" value="0">
+        <input type="hidden" name="attr_power_bonus" value="0">
+        <input type="hidden" name="attr_agility_bonus" value="0">
+        <input type="hidden" name="attr_vitality_bonus" value="0">
+        <input type="hidden" name="attr_cultivation_bonus" value="0">
+        <input type="hidden" name="attr_qi_control_bonus" value="0">
+        <input type="hidden" name="attr_mental_strength_bonus" value="0">
         <!-- NPC SKILL FULL -->
         <input type='hidden' name='attr_npc_acrobatics' value=''>
         <input type='hidden' name='attr_npc_athletics' value=''>
@@ -1319,6 +1530,20 @@
                 </div>
             </rolltemplate>
 
+            <rolltemplate class="sheet-rolltemplate-simple">
+                <div class="row header">
+                    <span>{{rname}}</span>
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                <div class="row">
+                    <span class="italics">{{type}}: </span><span>{{r1}}</span>
+                </div>
+            </rolltemplate>
+
             <rolltemplate class="sheet-rolltemplate-npc">
                 <div class="row header">
                     <span>{{rname}}</span>
@@ -1414,28 +1639,6 @@
                 </div>
             </rolltemplate>
 
-            <rolltemplate class="sheet-rolltemplate-simple">
-                <div class="container">
-                    <div class="result">
-                        <div class="adv">
-                            <span>{{r1}}{{#global}} + {{global}}{{/global}}</span>
-                        </div>
-                        <div class="advspacer"></div>
-                        <div class="adv">
-                            <span>{{r2}}{{#global}} + {{global}}{{/global}}</span>
-                        </div>
-                    </div>
-                    <div class="label">
-                        <span>{{rname}}{{#mod}} <span>({{mod}})</span>{{/mod}}</span>
-                    </div>
-                    {{#charname}}
-                        <div class="charname">
-                            <span>{{charname}}</span>
-                        </div>
-                    {{/charname}}
-                </div>
-            </rolltemplate>
-
             <rolltemplate class="sheet-rolltemplate-technique">
                 <div class="container">
                     <div class="title row">
@@ -1492,21 +1695,28 @@
             update_npc_skills();
             update_npc_moves();
             update_npc_legendary_moves();
+            update_skills();
+            console.log("Updating Everything");
+        });
+        
+        on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:sleight_of_hand_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
+            update_skills();
+            console.log("Updating PC Skills");
         });
         
         on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_sleight_of_hand_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
             update_npc_skills();
-            console.log("Updating Skills");
+            console.log("Updating NPC Skills");
         });
         
         on("change:repeating_npcmove:name change:repeating_npcmove:attack_flag change:repeating_npcmove:attack_type change:repeating_npcmove:attack_range change:repeating_npcmove:attack_tohit change:repeating_npcmove:attack_bonus change:repeating_npcmove:attack_damage change:repeating_npcmove:attack_damage1attribute change:repeating_npcmove:attack_damage1bonus change:repeating_npcmove:attack_damagetype change:repeating_npcmove:attack_damage2 change:repeating_npcmove:attack_damage2attribute change:repeating_npcmove:attack_damage2bonus change:repeating_npcmove:attack_damagetype2 change:repeating_npcmove:description", function(eventinfo) {
             update_npc_moves();
-            console.log("Updating Moves");
+            console.log("Updating NPC Moves");
         });
         
         on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag change:repeating_npcmove-l:attack_type change:repeating_npcmove-l:attack_range change:repeating_npcmove-l:attack_tohit change:repeating_npcmove-l:attack_bonus change:repeating_npcmove-l:attack_damage change:repeating_npcmove-l:attack_damage1attribute change:repeating_npcmove-l:attack_damage1bonus change:repeating_npcmove-l:attack_damagetype change:repeating_npcmove-l:attack_damage2 change:repeating_npcmove-l:attack_damage2attribute change:repeating_npcmove-l:attack_damage2bonus change:repeating_npcmove-l:attack_damagetype2 change:repeating_npcmove-l:description", function(eventinfo) {
             update_npc_legendary_moves();
-            console.log("Updating Legendary Moves");
+            console.log("Updating NPC Legendary Moves");
         });
         
         on("change:dtype", function(eventinfo) {
@@ -1569,6 +1779,64 @@
                 update["npc_sleight_of_hand"] = update["npc_sleight_of_hand_roll"] + (parseInt(v.npc_sleight_of_hand_bonus) ? `d6 + ${parseInt(v.npc_sleight_of_hand_bonus)}` : 'd6');
                 update["npc_stealth"] = update["npc_stealth_roll"] + (parseInt(v.npc_stealth_bonus) ? `d6 + ${parseInt(v.npc_stealth_bonus)}` : 'd6');
                 update["npc_survival"] = update["npc_survival_roll"] + (parseInt(v.npc_survival_bonus) ? `d6 + ${parseInt(v.npc_survival_bonus)}` : 'd6');
+        
+                setAttrs(update, {
+                    silent: true
+                });
+            });
+        };
+        
+        var update_skills = function() {
+            getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "sleight_of_hand_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+                var update = {};   
+        
+                // Calculate base values
+                var agility = parseInt(v.agility) || 0;
+                var power = parseInt(v.power) || 0;
+                var mental_strength = parseInt(v.mental_strength) || 0;
+                var appearance = parseInt(v.appearance) || 0;
+                var qi_control = parseInt(v.qi_control) || 0;
+        
+                update["acrobatics_roll"] = agility;
+                update["athletics_roll"] = power;
+                update["charm_roll"] = Math.round(mental_strength + appearance);
+                update["deceit_roll"] = Math.round(mental_strength + appearance);
+                update["disguise_roll"] = Math.round(mental_strength + appearance);
+                update["fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
+                update["forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
+                update["history_roll"] = Math.round(qi_control / 2 + mental_strength / 2);
+                update["intuition_roll"] = mental_strength;
+                update["intimidation_roll"] = Math.round(power + appearance);
+                update["investigation_roll"] = mental_strength;
+                update["medicine_roll"] = Math.round(qi_control / 2 + mental_strength / 2);
+                update["navigation_roll"] = Math.round(agility / 2 + mental_strength / 2);
+                update["perception_roll"] = mental_strength;
+                update["performance_roll"] = Math.round(agility + appearance);
+                update["persuade_roll"] = Math.round(mental_strength + appearance);
+                update["sleight_of_hand_roll"] = agility;
+                update["stealth_roll"] = agility;
+                update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
+        
+                // Calculate full rolls
+                update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6');
+                update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6');
+                update["charm"] = update["charm_roll"] + (parseInt(v.charm_bonus) ? `d6 + ${parseInt(v.charm_bonus)}` : 'd6');
+                update["deceit"] = update["deceit_roll"] + (parseInt(v.deceit_bonus) ? `d6 + ${parseInt(v.deceit_bonus)}` : 'd6');
+                update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6');
+                update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6');
+                update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6');
+                update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6');
+                update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6');
+                update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6');
+                update["investigation"] = update["investigation_roll"] + (parseInt(v.investigation_bonus) ? `d6 + ${parseInt(v.investigation_bonus)}` : 'd6');
+                update["medicine"] = update["medicine_roll"] + (parseInt(v.medicine_bonus) ? `d6 + ${parseInt(v.medicine_bonus)}` : 'd6');
+                update["navigation"] = update["navigation_roll"] + (parseInt(v.navigation_bonus) ? `d6 + ${parseInt(v.navigation_bonus)}` : 'd6');
+                update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6');
+                update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6');
+                update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6');
+                update["sleight_of_hand"] = update["sleight_of_hand_roll"] + (parseInt(v.sleight_of_hand_bonus) ? `d6 + ${parseInt(v.sleight_of_hand_bonus)}` : 'd6');
+                update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6');
+                update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6');
         
                 setAttrs(update, {
                     silent: true
