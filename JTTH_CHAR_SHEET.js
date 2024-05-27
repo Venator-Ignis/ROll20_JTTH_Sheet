@@ -5,15 +5,18 @@ on("change:agility change:power change:mental_strength change:appearance change:
     update_npc_legendary_moves();
     update_skills();
     update_initiative();
+    update_evasion();
+    update_durability();
+    update_reduction();
     console.log("Updating Everything");
 });
 
-on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:sleight_of_hand_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
+on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
     update_skills();
     console.log("Updating PC Skills");
 });
 
-on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_sleight_of_hand_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
+on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
     update_npc_skills();
     console.log("Updating NPC Skills");
 });
@@ -28,6 +31,21 @@ on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag chang
     console.log("Updating NPC Legendary Moves");
 });
 
+on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
+    update_evasion();
+    console.log("Updating PC Evasion");
+});
+
+on("change:durability-base change:durability-limit change:durability-bonus", function(eventinfo) {
+    update_durability();
+    console.log("Updating PC Durability");
+});
+
+on("change:reduction-base change:reduction-armour change:reduction-bonus", function(eventinfo) {
+    update_reduction();
+    console.log("Updating PC Damage Reduction");
+});
+
 on("change:dtype", function(eventinfo) {
     if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
         return;
@@ -38,7 +56,7 @@ on("change:dtype", function(eventinfo) {
 });
 
 var update_npc_skills = function() {
-    getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_sleight_of_hand_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+    getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_discretion_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
         var update = {};   
 
         // Calculate base values
@@ -52,6 +70,7 @@ var update_npc_skills = function() {
         update["npc_athletics_roll"] = power;
         update["npc_charm_roll"] = Math.round(mental_strength + appearance);
         update["npc_deceit_roll"] = Math.round(mental_strength + appearance);
+        update["npc_discretion_roll"] = agility;
         update["npc_disguise_roll"] = Math.round(mental_strength + appearance);
         update["npc_fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
         update["npc_forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
@@ -64,7 +83,6 @@ var update_npc_skills = function() {
         update["npc_perception_roll"] = mental_strength;
         update["npc_performance_roll"] = Math.round(agility + appearance);
         update["npc_persuade_roll"] = Math.round(mental_strength + appearance);
-        update["npc_sleight_of_hand_roll"] = agility;
         update["npc_stealth_roll"] = agility;
         update["npc_survival_roll"] = Math.round(power / 2 + mental_strength / 2);
 
@@ -73,6 +91,7 @@ var update_npc_skills = function() {
         update["npc_athletics"] = update["npc_athletics_roll"] + (parseInt(v.npc_athletics_bonus) ? `d6 + ${parseInt(v.npc_athletics_bonus)}` : 'd6');
         update["npc_charm"] = update["npc_charm_roll"] + (parseInt(v.npc_charm_bonus) ? `d6 + ${parseInt(v.npc_charm_bonus)}` : 'd6');
         update["npc_deceit"] = update["npc_deceit_roll"] + (parseInt(v.npc_deceit_bonus) ? `d6 + ${parseInt(v.npc_deceit_bonus)}` : 'd6');
+        update["npc_discretion"] = update["npc_discretion_roll"] + (parseInt(v.npc_discretion_bonus) ? `d6 + ${parseInt(v.npc_discretion_bonus)}` : 'd6');
         update["npc_disguise"] = update["npc_disguise_roll"] + (parseInt(v.npc_disguise_bonus) ? `d6 + ${parseInt(v.npc_disguise_bonus)}` : 'd6');
         update["npc_fine_arts"] = update["npc_fine_arts_roll"] + (parseInt(v.npc_fine_arts_bonus) ? `d6 + ${parseInt(v.npc_fine_arts_bonus)}` : 'd6');
         update["npc_forgery"] = update["npc_forgery_roll"] + (parseInt(v.npc_forgery_bonus) ? `d6 + ${parseInt(v.npc_forgery_bonus)}` : 'd6');
@@ -85,7 +104,6 @@ var update_npc_skills = function() {
         update["npc_perception"] = update["npc_perception_roll"] + (parseInt(v.npc_perception_bonus) ? `d6 + ${parseInt(v.npc_perception_bonus)}` : 'd6');
         update["npc_performance"] = update["npc_performance_roll"] + (parseInt(v.npc_performance_bonus) ? `d6 + ${parseInt(v.npc_performance_bonus)}` : 'd6');
         update["npc_persuade"] = update["npc_persuade_roll"] + (parseInt(v.npc_persuade_bonus) ? `d6 + ${parseInt(v.npc_persuade_bonus)}` : 'd6');
-        update["npc_sleight_of_hand"] = update["npc_sleight_of_hand_roll"] + (parseInt(v.npc_sleight_of_hand_bonus) ? `d6 + ${parseInt(v.npc_sleight_of_hand_bonus)}` : 'd6');
         update["npc_stealth"] = update["npc_stealth_roll"] + (parseInt(v.npc_stealth_bonus) ? `d6 + ${parseInt(v.npc_stealth_bonus)}` : 'd6');
         update["npc_survival"] = update["npc_survival_roll"] + (parseInt(v.npc_survival_bonus) ? `d6 + ${parseInt(v.npc_survival_bonus)}` : 'd6');
 
@@ -96,7 +114,7 @@ var update_npc_skills = function() {
 };
 
 var update_skills = function() {
-    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "sleight_of_hand_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
         var update = {};
 
         // Calculate base values
@@ -110,6 +128,7 @@ var update_skills = function() {
         update["athletics_roll"] = power;
         update["charm_roll"] = Math.round(mental_strength + appearance);
         update["deceit_roll"] = Math.round(mental_strength + appearance);
+        update["discretion_roll"] = agility;
         update["disguise_roll"] = Math.round(mental_strength + appearance);
         update["fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
         update["forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
@@ -122,7 +141,6 @@ var update_skills = function() {
         update["perception_roll"] = mental_strength;
         update["performance_roll"] = Math.round(agility + appearance);
         update["persuade_roll"] = Math.round(mental_strength + appearance);
-        update["sleight_of_hand_roll"] = agility;
         update["stealth_roll"] = agility;
         update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
 
@@ -143,7 +161,7 @@ var update_skills = function() {
         update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6');
         update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6');
         update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6');
-        update["sleight_of_hand"] = update["sleight_of_hand_roll"] + (parseInt(v.sleight_of_hand_bonus) ? `d6 + ${parseInt(v.sleight_of_hand_bonus)}` : 'd6');
+        update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6');
         update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6');
         update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6');
 
@@ -402,6 +420,59 @@ var update_initiative = function(){
         var agility = parseInt(v.agility) || 0;
 
         update["initiative"] = agility + (parseInt(v.agility) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
+
+        setAttrs(update, {
+            silent: true
+        });
+    });
+};
+
+var update_evasion = function() {
+    getAttrs(["evasion-base", "evasion-limit", "evasion-bonus", "agility"], function(v) {
+        var update = {};
+
+        var agility = parseInt(v.agility) || 0;
+        var base = parseInt(v["evasion-base"]) || 0;
+        var limit = parseInt(v["evasion-limit"]) || 0;
+        var bonus = parseInt(v["evasion-bonus"]) || 0;
+
+        if (agility < limit) {
+            update["evasion-full"] = base + agility + bonus;
+        } else {
+            update["evasion-full"] = base + limit + Math.floor((agility - limit) / 2) + bonus;
+        }
+
+        setAttrs(update, {
+            silent: true
+        });
+    });
+};
+
+var update_durability = function(){
+    getAttrs(["durability-base", "durability-limit", "durability-bonus", "power", "vitality", "mental_strength", "qi_control"], function(v) {
+        var update = {};
+
+        var base = parseInt(v["durability-base"]) || 0;
+        var limit = parseInt(v["durability-limit"]) || 0;
+        var bonus = parseInt(v["durability-bonus"]) || 0;
+
+        update["durability-full"] = base + bonus;
+
+        setAttrs(update, {
+            silent: true
+        });
+    });
+};
+
+var update_reduction = function(){
+    getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(v) {
+        var update = {};
+
+        var base = parseInt(v["reduction-base"]) || 0;
+        var armour = parseInt(v["reduction-armour"]) || 0;
+        var bonus = parseInt(v["reduction-bonus"]) || 0;
+
+        update["reduction-full"] = base + armour + bonus;
 
         setAttrs(update, {
             silent: true

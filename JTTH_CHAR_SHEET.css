@@ -338,13 +338,36 @@ input::-webkit-inner-spin-button {
     column-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column{
-    width: 50%;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column:first-of-type{
+    width: 485px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column:last-of-type{
+    width: 290px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-traits-features,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-traits-features .sheet-panel-traits{
+    min-height: 325px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources .sheet-panel-resources{
+    min-height: 325px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-attacks{
+    min-height: 235px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well{
     column-gap: 5px;
     row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks{
+    display: flex;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat{
@@ -371,14 +394,23 @@ input::-webkit-inner-spin-button {
     display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input{
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body input{
     width: 100%;
     text-align: center;
+    background: none;
+    border: none;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:first-of-type{
     line-height: 11px;
     padding: 0;
+    border-bottom: 1px solid black;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health-extra{
+    row-gap: 2px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:last-of-type{
@@ -395,20 +427,12 @@ input::-webkit-inner-spin-button {
     font-size: 9px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-container-panel{
-    width: 50%;
-}
-
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well .sheet-container-panel{
     width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills{
-    width: 700px !important;
-}
-
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill{
-    height: 18.6px;
+    height: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button{
@@ -474,16 +498,67 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-reduction-group,
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-speed-group{
     display: flex;
+    column-gap: 3px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-defence-label{
     font-size: 11px;
+    text-align: center;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span{
+    display: inline-grid;
+    width: 62px !important;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span,
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input{
     width: 100%;
     line-height: 11px;
     padding: 2px;
+    text-align: center;
+    border: none;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+}
+
+.sheet-core .sheet-section-pc .container-resources .sheet-resource-labels{
+    display:  flex;
+    width:  100%;
+}
+
+.sheet-core .sheet-section-pc .container-resources .sheet-resource-labels .sheet-resource-label {
+    width:  83px;
+    text-align:  center;
+}
+
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-form{
+    flex-direction: row;
+}
+
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name input{
+    background: none;
+}
+
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name,
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current,
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max,
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item input {
+    border:  none;
+    box-shadow:  none;
+    font-size:  10px;
+    height:  5mm;
+    margin:  0;
+    padding:  0;
+    width:  83px;
+    text-align: center;
+}
+
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current input,
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max input{
+    border-radius: 5px;
+    border-left: 1px dotted;
+    border-right: 1px dotted;
 }
 
 .charsheet .sheet-core .sheet-section-templates {
@@ -838,6 +913,44 @@ input::-webkit-inner-spin-button {
     white-space: pre-wrap;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-trait {
+    font-size: 11px;
+    padding-right: 20px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-name {
+    font-weight: bold;
+    padding: 0 5px;
+    background: #dddddd;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    min-width: 100%;
+    text-align: center;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-desc {
+    display: inline;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-desc span{
+    white-space: pre-wrap;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-name input{
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sheet-trait .toggle-trait[value="1"] ~ .sheet-trait-desc {
+    display: none !important;
+}
+
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction {
     font-size: 11px;
 }
@@ -1012,6 +1125,10 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-form .sheet-form-group {
     display: flex;
+}
+
+.charsheet .sheet-core .sheet-form .form-group-description{
+    flex-direction: column;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-group > * + * {
