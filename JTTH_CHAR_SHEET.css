@@ -4,7 +4,11 @@
     line-height: 18px;
     margin: 0;
     overflow: visible;
-    padding: 0; 
+    padding: 0;
+}
+
+.charsheet .sheet-core .sheet-hidden {
+    display: none !important;
 }
 
 .charsheet .sheet-core *,
@@ -1228,7 +1232,7 @@ input::-webkit-inner-spin-button {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: -1; 
+    z-index: -1;
 }
 
 .charsheet .sheet-core .sheet-container-panel::before {
@@ -1327,7 +1331,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-checked {
-    display: none; 
+    display: none;
 }
 
 .charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-unchecked {
@@ -1388,6 +1392,64 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
+.charsheet .sheet-core .sheet-panel-attacks .sheet-attack {
+    min-height:  5mm;
+    position:  relative;
+    width:  100%;
+}
+
+.charsheet .sheet-attack button {
+    background:  none;
+    border:  none;
+    box-shadow:  none;
+    display:  flex;
+    font-size:  11px;
+    margin:  0 !important;
+    padding:  0 !important;
+    width: 100%;
+}
+
+.charsheet .sheet-attack button span {
+    font-size:  10px;
+    height:  4mm;
+    margin-right:  5px;
+    overflow:  hidden;
+    text-overflow:  ellipsis;
+    width:  25%
+}
+
+.charsheet .sheet-attack button span:first-of-type {
+    border-radius:  3px;
+    font-weight:  bold;
+    text-shadow:  none;
+    text-transform:  uppercase;
+}
+
+.charsheet .sheet-attack button span:nth-of-type(2),
+.charsheet .sheet-attack button span:nth-of-type(3) {
+    font-weight:  bold;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-form .sheet-attack-desc {
+    display:  flex;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels {
+    display:  flex;
+    position:  relative;
+    font-size:  10px;
+    width:  100%;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-name,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-damage,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-hit,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-range {
+    min-width:  25%;
+    line-height: 11px;
+    text-align: center;
+}
+
 .sheet-rolltemplate-npc, .sheet-rolltemplate-npcmove, .sheet-rolltemplate-npcatk, .sheet-rolltemplate-npcdmg {
     font-family: 'Garamond', serif;
     border-radius: 5px;
@@ -1443,10 +1505,10 @@ input::-webkit-inner-spin-button {
 }
 
 .sheet-rolltemplate-npc .arrow-right, .sheet-rolltemplate-npcmove .arrow-right, .sheet-rolltemplate-npcatk .arrow-right, .sheet-rolltemplate-npcdmg .arrow-right {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent; 
+    border-bottom: 10px solid transparent;
     border-left: 10px solid #5A3E36;
     margin: 5px 0;
     float: right;
