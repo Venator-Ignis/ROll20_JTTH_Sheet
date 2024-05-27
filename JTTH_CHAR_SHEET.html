@@ -614,10 +614,6 @@
                                                 </div>
                                                 <div class="sheet-form-group">
                                                     <label>Description:</label>
-                                                    <select name="attr_show_desc">
-                                                        <option value="@{description}">Show</option>
-                                                        <option value=" ">Hide</option>
-                                                    </select>
                                                 </div>
                                                 <div class="sheet-form-group">
                                                     <textarea name="attr_description"></textarea>
@@ -791,10 +787,6 @@
                                                 </div>
                                                 <div class="sheet-form-group">
                                                     <label>Description:</label>
-                                                    <select name="attr_show_desc">
-                                                        <option value="@{description}">Show</option>
-                                                        <option value=" ">Hide</option>
-                                                    </select>
                                                 </div>
                                                 <div class="sheet-form-group">
                                                     <textarea name="attr_description"></textarea>
@@ -1200,13 +1192,121 @@
                                     <div class="sheet-container-panel sheet-panel-attacks">
                                         <div class="sheet-container-header">ATTACKS</div>
                                         <div class="sheet-container-body">
-                                            <div class="sheet-combat-labels">
-                                                <div class="sheet-combat-label combat-name">NAME</div>
-                                                <div class="sheet-combat-label combat-hit">HIT</div>
-                                                <div class="sheet-combat-label combat-range">RANGE</div>
-                                                <div class="sheet-combat-label combat-damage">DAMAGE</div>
-                                            </div>
-
+                                            <fieldset class="repeating_move">
+                                                <div class="sheet-fieldset-item sheet-fieldset-item-move">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked" value="on">
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Move</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label>Name:</label>
+                                                                    <input type="text" name="attr_name">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_attack_flag" value="on">
+                                                                        <span>Attack</span>
+                                                                    </label>
+                                                                </div>
+                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                                <div class="sheet-form-group sheet-toggle-checked">
+                                                                    <div class="sheet-form-fieldset">
+                                                                        <div class="sheet-form-fieldset-header">Attack</div>
+                                                                        <div class="sheet-form-fieldset-body">
+                                                                            <input type="hidden" name="attr_damage_flag">
+                                                                            <input type="hidden" name="attr_full_damage">
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Type:</label>
+                                                                                <select name="attr_attack_type">
+                                                                                    <option value="Melee">Melee</option>
+                                                                                    <option value="Ranged">Ranged</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Range/Reach:</label>
+                                                                                <input type="text" name="attr_attack_range">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>To Hit:</label>
+                                                                                <select name="attr_attack_tohit">
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_bonus">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Damage 1:</label>
+                                                                                <input type="text" name="attr_attack_damage">
+                                                                                <select name="attr_attack_damage1attribute">
+                                                                                    <option value="none">None</option>
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_damage1bonus">
+                                                                                <label>Type:</label>
+                                                                                <input type="text" name="attr_attack_damagetype">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Damage 2:</label>
+                                                                                <input type="text" name="attr_attack_damage2">
+                                                                                <select name="attr_attack_damage2attribute">
+                                                                                    <option value="none">None</option>
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_damage2bonus">
+                                                                                <label>Type:</label>
+                                                                                <input type="text" name="attr_attack_damagetype2">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Description:</label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <textarea name="attr_description"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-move">
+                                                            <button type="roll" name="roll_move" value="@{rollbase}" class="sheet-fieldset-item-move-checked-roll sheet-btn-text">
+                                                                <div class="sheet-fieldset-item-move-checked-name">
+                                                                    <span name="attr_name"></span>
+                                                                </div>
+                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                                <div class="sheet-toggle-checked">
+                                                                    <div class="sheet-fieldset-item-move-checked-attack">
+                                                                        <span name="attr_attack_hitdamage"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                            <input type="hidden" name="attr_rollbase">
+                                                            <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-hidden"></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
                                         </div>
                                     </div>
                                 </div>
@@ -1748,6 +1848,48 @@
                 {{/damage}}
             </rolltemplate>
 
+            <rolltemplate class="sheet-rolltemplate-move">
+                <div class="container">
+                    <div class="row header">
+                        <span>{{rname}}</span>
+                    </div>
+                    {{#name}}
+                        <div class="row subheader">
+                            <span class="italics">{{name}}</span>
+                        </div>
+                    {{/name}}
+                    {{#range}}
+                        <div class="sublabel">
+                            <span>{{range}}</span>
+                        </div>
+                    {{/range}}
+                    {{#attack}}
+                    <div class="row">
+                        <span class="italics">Attack: </span><span>{{r1}}</span><span> | </span><span>{{r2}}</span>
+                    </div>
+                    {{/attack}}
+                    {{#description}}
+                    <div class="row">
+                        <span class="desc">{{description}}</span>
+                    </div>
+                    {{/description}}
+                </div>
+                {{#damage}}
+                    <div class="container dmgcontainer damagetemplate">
+                        <span class="italics">Damage: </span>
+                        <span>
+                            {{#dmg1flag}}
+                                {{dmg1}}{{dmg1type}}
+                            {{/dmg1flag}}
+                            {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
+                            {{#dmg2flag}}
+                                {{dmg2}}{{dmg2type}}
+                            {{/dmg2flag}}
+                        </span>
+                    </div>
+                {{/damage}}
+            </rolltemplate>
+
             <rolltemplate class="sheet-rolltemplate-npcatk">
                 <div class="row header">
                     {{rname}}
@@ -1787,6 +1929,45 @@
                 </div>
             </rolltemplate>
 
+            <rolltemplate class="sheet-rolltemplate-pcatk">
+                <div class="row header">
+                    {{rname}}
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                {{#range}}
+                    <div class="sublabel">
+                        <span>{{range}}</span>
+                    </div>
+                {{/range}}
+                <div class="row">
+                    <span>{{r1}}</span><span> | </span><span>{{r2}}</span>
+                </div>
+                {{#description}}
+                    <div class="row">
+                        <span class="desc">{{description}}</span>
+                    </div>
+                {{/description}}
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-pcdmg">
+                <div class="container dmgcontainer damagetemplate">
+                    <span class="italics">Damage: </span>
+                    <span>
+                        {{#dmg1flag}}
+                            {{dmg1}}{{dmg1type}}
+                        {{/dmg1flag}}
+                        {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
+                        {{#dmg2flag}}
+                            {{dmg2}}{{dmg2type}}
+                        {{/dmg2flag}}
+                    </span>
+                </div>
+            </rolltemplate>
+
             <rolltemplate class="sheet-rolltemplate-features">
                 <div class="row header">
                     <span>{{name}}</span>
@@ -1806,53 +1987,59 @@
     </div>
 
     <script type="text/worker">
-        on("change:agility change:power change:mental_strength change:appearance change:qi_control", function(eventinfo) {
+        on("change:agility change:power change:vitality change:cultivation change:mental_strength change:appearance change:qi_control", function(eventinfo) {
             update_npc_skills();
             update_npc_moves();
             update_npc_legendary_moves();
             update_skills();
+            update_moves();
             update_initiative();
             update_evasion();
             update_durability();
             update_reduction();
             console.log("Updating Everything");
         });
-
+        
         on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
             update_skills();
             console.log("Updating PC Skills");
         });
-
+        
+        on("change:repeating_nmove:name change:repeating_move:attack_flag change:repeating_move:attack_type change:repeating_move:attack_range change:repeating_move:attack_tohit change:repeating_move:attack_bonus change:repeating_move:attack_damage change:repeating_move:attack_damage1attribute change:repeating_move:attack_damage1bonus change:repeating_move:attack_damagetype change:repeating_move:attack_damage2 change:repeating_move:attack_damage2attribute change:repeating_move:attack_damage2bonus change:repeating_move:attack_damagetype2 change:repeating_move:description", function(eventinfo) {
+            update_moves();
+            console.log("Updating PC Moves");
+        });
+        
         on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
             update_npc_skills();
             console.log("Updating NPC Skills");
         });
-
+        
         on("change:repeating_npcmove:name change:repeating_npcmove:attack_flag change:repeating_npcmove:attack_type change:repeating_npcmove:attack_range change:repeating_npcmove:attack_tohit change:repeating_npcmove:attack_bonus change:repeating_npcmove:attack_damage change:repeating_npcmove:attack_damage1attribute change:repeating_npcmove:attack_damage1bonus change:repeating_npcmove:attack_damagetype change:repeating_npcmove:attack_damage2 change:repeating_npcmove:attack_damage2attribute change:repeating_npcmove:attack_damage2bonus change:repeating_npcmove:attack_damagetype2 change:repeating_npcmove:description", function(eventinfo) {
             update_npc_moves();
             console.log("Updating NPC Moves");
         });
-
+        
         on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag change:repeating_npcmove-l:attack_type change:repeating_npcmove-l:attack_range change:repeating_npcmove-l:attack_tohit change:repeating_npcmove-l:attack_bonus change:repeating_npcmove-l:attack_damage change:repeating_npcmove-l:attack_damage1attribute change:repeating_npcmove-l:attack_damage1bonus change:repeating_npcmove-l:attack_damagetype change:repeating_npcmove-l:attack_damage2 change:repeating_npcmove-l:attack_damage2attribute change:repeating_npcmove-l:attack_damage2bonus change:repeating_npcmove-l:attack_damagetype2 change:repeating_npcmove-l:description", function(eventinfo) {
             update_npc_legendary_moves();
             console.log("Updating NPC Legendary Moves");
         });
-
+        
         on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
             update_evasion();
             console.log("Updating PC Evasion");
         });
-
+        
         on("change:durability-base change:durability-limit change:durability-bonus", function(eventinfo) {
             update_durability();
             console.log("Updating PC Durability");
         });
-
+        
         on("change:reduction-base change:reduction-armour change:reduction-bonus", function(eventinfo) {
             update_reduction();
             console.log("Updating PC Damage Reduction");
         });
-
+        
         on("change:dtype", function(eventinfo) {
             if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
                 return;
@@ -1861,18 +2048,18 @@
             update_npc_legendary_moves();
             console.log("Updating DType");
         });
-
+        
         var update_npc_skills = function() {
             getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_discretion_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
                 var update = {};   
-
+        
                 // Calculate base values
                 var agility = parseInt(v.agility) || 0;
                 var power = parseInt(v.power) || 0;
                 var mental_strength = parseInt(v.mental_strength) || 0;
                 var appearance = parseInt(v.appearance) || 0;
                 var qi_control = parseInt(v.qi_control) || 0;
-
+        
                 update["npc_acrobatics_roll"] = agility;
                 update["npc_athletics_roll"] = power;
                 update["npc_charm_roll"] = Math.round(mental_strength + appearance);
@@ -1892,7 +2079,7 @@
                 update["npc_persuade_roll"] = Math.round(mental_strength + appearance);
                 update["npc_stealth_roll"] = agility;
                 update["npc_survival_roll"] = Math.round(power / 2 + mental_strength / 2);
-
+        
                 // Calculate full rolls
                 update["npc_acrobatics"] = update["npc_acrobatics_roll"] + (parseInt(v.npc_acrobatics_bonus) ? `d6 + ${parseInt(v.npc_acrobatics_bonus)}` : 'd6');
                 update["npc_athletics"] = update["npc_athletics_roll"] + (parseInt(v.npc_athletics_bonus) ? `d6 + ${parseInt(v.npc_athletics_bonus)}` : 'd6');
@@ -1913,24 +2100,24 @@
                 update["npc_persuade"] = update["npc_persuade_roll"] + (parseInt(v.npc_persuade_bonus) ? `d6 + ${parseInt(v.npc_persuade_bonus)}` : 'd6');
                 update["npc_stealth"] = update["npc_stealth_roll"] + (parseInt(v.npc_stealth_bonus) ? `d6 + ${parseInt(v.npc_stealth_bonus)}` : 'd6');
                 update["npc_survival"] = update["npc_survival_roll"] + (parseInt(v.npc_survival_bonus) ? `d6 + ${parseInt(v.npc_survival_bonus)}` : 'd6');
-
+        
                 setAttrs(update, {
                     silent: true
                 });
             });
         };
-
+        
         var update_skills = function() {
             getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
                 var update = {};
-
+        
                 // Calculate base values
                 var agility = parseInt(v.agility) || 0;
                 var power = parseInt(v.power) || 0;
                 var mental_strength = parseInt(v.mental_strength) || 0;
                 var appearance = parseInt(v.appearance) || 0;
                 var qi_control = parseInt(v.qi_control) || 0;
-
+        
                 update["acrobatics_roll"] = agility;
                 update["athletics_roll"] = power;
                 update["charm_roll"] = Math.round(mental_strength + appearance);
@@ -1950,7 +2137,7 @@
                 update["persuade_roll"] = Math.round(mental_strength + appearance);
                 update["stealth_roll"] = agility;
                 update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
-
+        
                 // Calculate full rolls
                 update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6');
                 update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6');
@@ -1971,13 +2158,128 @@
                 update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6');
                 update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6');
                 update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6');
-
+        
                 setAttrs(update, {
                     silent: true
                 });
             });
         };
-
+        
+        var update_moves = function() {
+            getSectionIDs("repeating_move", function(idarray) {
+                _.each(idarray, function(id) {
+                    getAttrs([
+                        `repeating_move_${id}_name`,
+                        `repeating_move_${id}_attack_flag`,
+                        `repeating_move_${id}_attack_range`,
+                        `repeating_move_${id}_attack_tohit`,
+                        `repeating_move_${id}_attack_bonus`,
+                        `repeating_move_${id}_attack_damage`,
+                        `repeating_move_${id}_attack_damage1attribute`,
+                        `repeating_move_${id}_attack_damage1bonus`,
+                        `repeating_move_${id}_attack_damagetype`,
+                        `repeating_move_${id}_attack_damage2`,
+                        `repeating_move_${id}_attack_damage2attribute`,
+                        `repeating_move_${id}_attack_damage2bonus`,
+                        `repeating_move_${id}_attack_damagetype2`,
+                        `repeating_move_${id}_description`,
+                        "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
+                    ], function(v) {
+                        var update = {};
+        
+                        var attackFlag = v[`repeating_move_${id}_attack_flag`] === "on" ? 1 : 0;
+                        var atkFlag = (attackFlag === 1) ? "{{attack=1}}" : "";
+        
+                        var attackRange = v[`repeating_move_${id}_attack_range`];
+                        var attackToHit = v[`repeating_move_${id}_attack_tohit`].replace("@{", "").replace("}", "");
+                        var attackBonus = parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0;
+        
+                        var damage1 = v[`repeating_move_${id}_attack_damage`];
+                        var damage1Attribute = v[`repeating_move_${id}_attack_damage1attribute`];
+                        var damage1Bonus = parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0;
+                        var damage1Type = v[`repeating_move_${id}_attack_damagetype`];
+        
+                        var damage2 = v[`repeating_move_${id}_attack_damage2`];
+                        var damage2Attribute = v[`repeating_move_${id}_attack_damage2attribute`];
+                        var damage2Bonus = parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0;
+                        var damage2Type = v[`repeating_move_${id}_attack_damagetype2`];
+        
+                        var damage_flag = "";
+                        if (damage1 != "" || damage2 != "") {
+                            damage_flag = damage_flag + "{{damage=1}} ";
+                        }
+                        if (damage1 != "") {
+                            damage_flag = damage_flag + "{{dmg1flag=1}} ";
+                        }
+                        if (damage2 != "") {
+                            damage_flag = damage_flag + "{{dmg2flag=1}} ";
+                        }
+        
+                        var description = v[`repeating_move_${id}_description`];
+        
+                        var toHitValue = parseInt(v[attackToHit.replace("@{", "").replace("}", "")]) || 0;
+                        var toHitString = attackBonus !== 0 ? `${toHitValue} + ${attackBonus}` : `${toHitValue}`;
+        
+                        var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                        var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
+        
+                        var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                        var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
+        
+                        var details = `${toHitString}, Reach: ${attackRange}\n`;
+                        details += `Damage: (${damage1String}) ${damage1Type}`;
+                        if (damage2) {
+                            details += ` + (${damage2String}) ${damage2Type}`;
+                        }
+                        details += `\nDescription: ${description}`;
+        
+                        var rollbase = "";
+                        if (v.dtype === "full") {
+                            rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                            if (damage1) {
+                                rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
+                            }
+                            if (damage2) {
+                                rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
+                            }
+                        } else if (attackFlag) {
+                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_pc_dmg)}} {{type=[Attack](~repeating_move_pc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                        } else if (damage1 || damage2) {
+                            rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                            if (damage1) {
+                                rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                            }
+                            if (damage2) {
+                                rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                            }
+                        } else {
+                            rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
+                        }
+        
+                        var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                        if (damage1) {
+                            full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                        }
+                        if (damage2) {
+                            full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                        }
+        
+                        update[`repeating_move_${id}_attack_details`] = details;
+                        update[`repeating_move_${id}_attack_hitdamage`] = `Hit: ${toHitString}, (${attackRange}), Damage: (${damage1String}) ${damage1Type}`;
+                        if (damage2) {
+                            update[`repeating_move_${id}_attack_hitdamage`] += ` + (${damage2String}) ${damage2Type}`;
+                        }
+                        update[`repeating_move_${id}_attack_description`] = description;
+                        update[`repeating_move_${id}_rollbase`] = rollbase;
+                        update[`repeating_move_${id}_damage_flag`] = damage_flag;
+                        update[`repeating_move_${id}_full_damage`] = full_damage;
+        
+                        setAttrs(update, { silent: true });
+                    });
+                });
+            });
+        };
+        
         var update_npc_moves = function() {
             getSectionIDs("repeating_npcmove", function(idarray) {
                 _.each(idarray, function(id) {
@@ -1996,30 +2298,29 @@
                         `repeating_npcmove_${id}_attack_damage2attribute`,
                         `repeating_npcmove_${id}_attack_damage2bonus`,
                         `repeating_npcmove_${id}_attack_damagetype2`,
-                        `repeating_npcmove_${id}_show_desc`,
                         `repeating_npcmove_${id}_description`,
                         "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
                     ], function(v) {
                         var update = {};
-
+        
                         var attackFlag = v[`repeating_npcmove_${id}_attack_flag`] === "on" ? 1 : 0;
                         var atkFlag = (attackFlag === 1) ? "{{attack=1}}" : "";
-
+        
                         var attackType = v[`repeating_npcmove_${id}_attack_type`];
                         var attackRange = v[`repeating_npcmove_${id}_attack_range`];
                         var attackToHit = v[`repeating_npcmove_${id}_attack_tohit`].replace("@{", "").replace("}", "");
                         var attackBonus = parseInt(v[`repeating_npcmove_${id}_attack_bonus`]) || 0;
-
+        
                         var damage1 = v[`repeating_npcmove_${id}_attack_damage`];
                         var damage1Attribute = v[`repeating_npcmove_${id}_attack_damage1attribute`];
                         var damage1Bonus = parseInt(v[`repeating_npcmove_${id}_attack_damage1bonus`]) || 0;
                         var damage1Type = v[`repeating_npcmove_${id}_attack_damagetype`];
-
+        
                         var damage2 = v[`repeating_npcmove_${id}_attack_damage2`];
                         var damage2Attribute = v[`repeating_npcmove_${id}_attack_damage2attribute`];
                         var damage2Bonus = parseInt(v[`repeating_npcmove_${id}_attack_damage2bonus`]) || 0;
                         var damage2Type = v[`repeating_npcmove_${id}_attack_damagetype2`];
-
+        
                         var damage_flag = "";
                         if (damage1 != "" || damage2 != "") {
                             damage_flag = damage_flag + "{{damage=1}} ";
@@ -2030,27 +2331,27 @@
                         if (damage2 != "") {
                             damage_flag = damage_flag + "{{dmg2flag=1}} ";
                         }
-
+        
                         var description = v[`repeating_npcmove_${id}_description`];
-
+        
                         var toHitValue = parseInt(v[attackToHit.replace("@{", "").replace("}", "")]) || 0;
                         var toHitString = attackBonus !== 0 ? `${toHitValue} + ${attackBonus}` : `${toHitValue}`;
-
+        
                         var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
                         var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
                         var avgDamage1 = calculateAverageDamage(damage1) + damage1AttrValue + damage1Bonus;
-
+        
                         var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
                         var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
                         var avgDamage2 = calculateAverageDamage(damage2) + damage2AttrValue + damage2Bonus;
-
+        
                         var details = `${attackType} Weapon Attack: ${toHitString}, Reach: ${attackRange}\n`;
                         details += `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
                         if (damage2) {
                             details += ` + ${avgDamage2} (${damage2String}) ${damage2Type}`;
                         }
                         details += `\nDescription: ${description}`;
-
+        
                         var rollbase = "";
                         if (v.dtype === "full") {
                             rollbase = `@{wtype}&{template:npcmove} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
@@ -2073,7 +2374,7 @@
                         } else {
                             rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
                         }
-
+        
                         var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
                         if (damage1) {
                             full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
@@ -2081,7 +2382,7 @@
                         if (damage2) {
                             full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                         }
-
+        
                         update[`repeating_npcmove_${id}_attack_details`] = details;
                         update[`repeating_npcmove_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
                         update[`repeating_npcmove_${id}_attack_onhit`] = `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
@@ -2092,13 +2393,13 @@
                         update[`repeating_npcmove_${id}_rollbase`] = rollbase;
                         update[`repeating_npcmove_${id}_damage_flag`] = damage_flag;
                         update[`repeating_npcmove_${id}_full_damage`] = full_damage;
-
+        
                         setAttrs(update, { silent: true });
                     });
                 });
             });
         };
-
+        
         var update_npc_legendary_moves = function() {
             getSectionIDs("repeating_npcmove-l", function(idarray) {
                 _.each(idarray, function(id) {
@@ -2117,30 +2418,29 @@
                         `repeating_npcmove-l_${id}_attack_damage2attribute`,
                         `repeating_npcmove-l_${id}_attack_damage2bonus`,
                         `repeating_npcmove-l_${id}_attack_damagetype2`,
-                        `repeating_npcmove_${id}_show_desc`,
                         `repeating_npcmove-l_${id}_description`,
                         "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
                     ], function(v) {
                         var update = {};
-
+        
                         var attackFlag = v[`repeating_npcmove-l_${id}_attack_flag`] === "on" ? 1 : 0;
                         var atkFlag = (attackFlag === 1) ? "{{attack=1}}" : "";
-
+        
                         var attackType = v[`repeating_npcmove-l_${id}_attack_type`];
                         var attackRange = v[`repeating_npcmove-l_${id}_attack_range`];
                         var attackToHit = v[`repeating_npcmove-l_${id}_attack_tohit`].replace("@{", "").replace("}", "");
                         var attackBonus = parseInt(v[`repeating_npcmove-l_${id}_attack_bonus`]) || 0;
-
+        
                         var damage1 = v[`repeating_npcmove-l_${id}_attack_damage`];
                         var damage1Attribute = v[`repeating_npcmove-l_${id}_attack_damage1attribute`];
                         var damage1Bonus = parseInt(v[`repeating_npcmove-l_${id}_attack_damage1bonus`]) || 0;
                         var damage1Type = v[`repeating_npcmove-l_${id}_attack_damagetype`];
-
+        
                         var damage2 = v[`repeating_npcmove-l_${id}_attack_damage2`];
                         var damage2Attribute = v[`repeating_npcmove-l_${id}_attack_damage2attribute`];
                         var damage2Bonus = parseInt(v[`repeating_npcmove-l_${id}_attack_damage2bonus`]) || 0;
                         var damage2Type = v[`repeating_npcmove-l_${id}_attack_damagetype2`];
-
+        
                         var damage_flag = "";
                         if (damage1 != "" || damage2 != "") {
                             damage_flag = damage_flag + "{{damage=1}} ";
@@ -2151,27 +2451,27 @@
                         if (damage2 != "") {
                             damage_flag = damage_flag + "{{dmg2flag=1}} ";
                         }
-
+        
                         var description = v[`repeating_npcmove-l_${id}_description`];
-
+        
                         var toHitValue = parseInt(v[attackToHit.replace("@{", "").replace("}", "")]) || 0;
                         var toHitString = attackBonus !== 0 ? `${toHitValue} + ${attackBonus}` : `${toHitValue}`;
-
+        
                         var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
                         var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
                         var avgDamage1 = calculateAverageDamage(damage1) + damage1AttrValue + damage1Bonus;
-
+        
                         var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
                         var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
                         var avgDamage2 = calculateAverageDamage(damage2) + damage2AttrValue + damage2Bonus;
-
+        
                         var details = `${attackType} Weapon Attack: ${toHitString}, Reach: ${attackRange}\n`;
                         details += `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
                         if (damage2) {
                             details += ` + ${avgDamage2} (${damage2String}) ${damage2Type}`;
                         }
                         details += `\nDescription: ${description}`;
-
+        
                         var rollbase = "";
                         if (v.dtype === "full") {
                             rollbase = `@{wtype}&{template:npcmove} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
@@ -2194,7 +2494,7 @@
                         } else {
                             rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
                         }
-
+        
                         var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
                         if (damage1) {
                             full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
@@ -2202,7 +2502,7 @@
                         if (damage2) {
                             full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                         }
-
+        
                         update[`repeating_npcmove-l_${id}_attack_details`] = details;
                         update[`repeating_npcmove-l_${id}_attack_tohitrange`] = `To Hit: ${toHitString}, Range: ${attackRange}`;
                         update[`repeating_npcmove-l_${id}_attack_onhit`] = `Damage: ${avgDamage1} (${damage1String}) ${damage1Type}`;
@@ -2213,80 +2513,80 @@
                         update[`repeating_npcmove-l_${id}_rollbase`] = rollbase;
                         update[`repeating_npcmove-l_${id}_damage_flag`] = damage_flag;
                         update[`repeating_npcmove-l_${id}_full_damage`] = full_damage;
-
+        
                         setAttrs(update, { silent: true });
                     });
                 });
             });
         };
-
+        
         var update_initiative = function(){
             getAttrs(["agility","initiative_bonus"], function(v){
                 var update = {};
-
+        
                 var agility = parseInt(v.agility) || 0;
-
+        
                 update["initiative"] = agility + (parseInt(v.agility) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
-
+        
                 setAttrs(update, {
                     silent: true
                 });
             });
         };
-
+        
         var update_evasion = function() {
             getAttrs(["evasion-base", "evasion-limit", "evasion-bonus", "agility"], function(v) {
                 var update = {};
-
+        
                 var agility = parseInt(v.agility) || 0;
                 var base = parseInt(v["evasion-base"]) || 0;
                 var limit = parseInt(v["evasion-limit"]) || 0;
                 var bonus = parseInt(v["evasion-bonus"]) || 0;
-
+        
                 if (agility < limit) {
                     update["evasion-full"] = base + agility + bonus;
                 } else {
                     update["evasion-full"] = base + limit + Math.floor((agility - limit) / 2) + bonus;
                 }
-
+        
                 setAttrs(update, {
                     silent: true
                 });
             });
         };
-
+        
         var update_durability = function(){
             getAttrs(["durability-base", "durability-limit", "durability-bonus", "power", "vitality", "mental_strength", "qi_control"], function(v) {
                 var update = {};
-
+        
                 var base = parseInt(v["durability-base"]) || 0;
                 var limit = parseInt(v["durability-limit"]) || 0;
                 var bonus = parseInt(v["durability-bonus"]) || 0;
-
+        
                 update["durability-full"] = base + bonus;
-
+        
                 setAttrs(update, {
                     silent: true
                 });
             });
         };
-
+        
         var update_reduction = function(){
             getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(v) {
                 var update = {};
-
+        
                 var base = parseInt(v["reduction-base"]) || 0;
                 var armour = parseInt(v["reduction-armour"]) || 0;
                 var bonus = parseInt(v["reduction-bonus"]) || 0;
-
+        
                 update["reduction-full"] = base + armour + bonus;
-
+        
                 setAttrs(update, {
                     silent: true
                 });
             });
         };
-
+        
         var calculateAverageDamage = function(damageString) {
             var dicePattern = /(\d+)d(\d+)/;
             var match = damageString.match(dicePattern);

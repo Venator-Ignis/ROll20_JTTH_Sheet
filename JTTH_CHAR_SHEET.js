@@ -1,9 +1,10 @@
 
-on("change:agility change:power change:mental_strength change:appearance change:qi_control", function(eventinfo) {
+on("change:agility change:power change:vitality change:cultivation change:mental_strength change:appearance change:qi_control", function(eventinfo) {
     update_npc_skills();
     update_npc_moves();
     update_npc_legendary_moves();
     update_skills();
+    update_moves();
     update_initiative();
     update_evasion();
     update_durability();
@@ -14,6 +15,11 @@ on("change:agility change:power change:mental_strength change:appearance change:
 on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
     update_skills();
     console.log("Updating PC Skills");
+});
+
+on("change:repeating_nmove:name change:repeating_move:attack_flag change:repeating_move:attack_type change:repeating_move:attack_range change:repeating_move:attack_tohit change:repeating_move:attack_bonus change:repeating_move:attack_damage change:repeating_move:attack_damage1attribute change:repeating_move:attack_damage1bonus change:repeating_move:attack_damagetype change:repeating_move:attack_damage2 change:repeating_move:attack_damage2attribute change:repeating_move:attack_damage2bonus change:repeating_move:attack_damagetype2 change:repeating_move:description", function(eventinfo) {
+    update_moves();
+    console.log("Updating PC Moves");
 });
 
 on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
@@ -171,6 +177,121 @@ var update_skills = function() {
     });
 };
 
+var update_moves = function() {
+    getSectionIDs("repeating_move", function(idarray) {
+        _.each(idarray, function(id) {
+            getAttrs([
+                `repeating_move_${id}_name`,
+                `repeating_move_${id}_attack_flag`,
+                `repeating_move_${id}_attack_range`,
+                `repeating_move_${id}_attack_tohit`,
+                `repeating_move_${id}_attack_bonus`,
+                `repeating_move_${id}_attack_damage`,
+                `repeating_move_${id}_attack_damage1attribute`,
+                `repeating_move_${id}_attack_damage1bonus`,
+                `repeating_move_${id}_attack_damagetype`,
+                `repeating_move_${id}_attack_damage2`,
+                `repeating_move_${id}_attack_damage2attribute`,
+                `repeating_move_${id}_attack_damage2bonus`,
+                `repeating_move_${id}_attack_damagetype2`,
+                `repeating_move_${id}_description`,
+                "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
+            ], function(v) {
+                var update = {};
+
+                var attackFlag = v[`repeating_move_${id}_attack_flag`] === "on" ? 1 : 0;
+                var atkFlag = (attackFlag === 1) ? "{{attack=1}}" : "";
+
+                var attackRange = v[`repeating_move_${id}_attack_range`];
+                var attackToHit = v[`repeating_move_${id}_attack_tohit`].replace("@{", "").replace("}", "");
+                var attackBonus = parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0;
+
+                var damage1 = v[`repeating_move_${id}_attack_damage`];
+                var damage1Attribute = v[`repeating_move_${id}_attack_damage1attribute`];
+                var damage1Bonus = parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0;
+                var damage1Type = v[`repeating_move_${id}_attack_damagetype`];
+
+                var damage2 = v[`repeating_move_${id}_attack_damage2`];
+                var damage2Attribute = v[`repeating_move_${id}_attack_damage2attribute`];
+                var damage2Bonus = parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0;
+                var damage2Type = v[`repeating_move_${id}_attack_damagetype2`];
+
+                var damage_flag = "";
+                if (damage1 != "" || damage2 != "") {
+                    damage_flag = damage_flag + "{{damage=1}} ";
+                }
+                if (damage1 != "") {
+                    damage_flag = damage_flag + "{{dmg1flag=1}} ";
+                }
+                if (damage2 != "") {
+                    damage_flag = damage_flag + "{{dmg2flag=1}} ";
+                }
+
+                var description = v[`repeating_move_${id}_description`];
+
+                var toHitValue = parseInt(v[attackToHit.replace("@{", "").replace("}", "")]) || 0;
+                var toHitString = attackBonus !== 0 ? `${toHitValue} + ${attackBonus}` : `${toHitValue}`;
+
+                var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
+
+                var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
+
+                var details = `${toHitString}, Reach: ${attackRange}\n`;
+                details += `Damage: (${damage1String}) ${damage1Type}`;
+                if (damage2) {
+                    details += ` + (${damage2String}) ${damage2Type}`;
+                }
+                details += `\nDescription: ${description}`;
+
+                var rollbase = "";
+                if (v.dtype === "full") {
+                    rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                    if (damage1) {
+                        rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
+                    }
+                    if (damage2) {
+                        rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
+                    }
+                } else if (attackFlag) {
+                    rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_pc_dmg)}} {{type=[Attack](~repeating_move_pc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                } else if (damage1 || damage2) {
+                    rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                    if (damage1) {
+                        rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                    }
+                    if (damage2) {
+                        rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                    }
+                } else {
+                    rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
+                }
+
+                var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                if (damage1) {
+                    full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                }
+                if (damage2) {
+                    full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                }
+
+                update[`repeating_move_${id}_attack_details`] = details;
+                update[`repeating_move_${id}_attack_hitdamage`] = `Hit: ${toHitString}, (${attackRange}), Damage: (${damage1String}) ${damage1Type}`;
+                if (damage2) {
+                    update[`repeating_move_${id}_attack_hitdamage`] += ` + (${damage2String}) ${damage2Type}`;
+                }
+                update[`repeating_move_${id}_attack_description`] = description;
+                update[`repeating_move_${id}_rollbase`] = rollbase;
+                update[`repeating_move_${id}_damage_flag`] = damage_flag;
+                update[`repeating_move_${id}_full_damage`] = full_damage;
+
+                setAttrs(update, { silent: true });
+            });
+        });
+    });
+};
+
 var update_npc_moves = function() {
     getSectionIDs("repeating_npcmove", function(idarray) {
         _.each(idarray, function(id) {
@@ -189,7 +310,6 @@ var update_npc_moves = function() {
                 `repeating_npcmove_${id}_attack_damage2attribute`,
                 `repeating_npcmove_${id}_attack_damage2bonus`,
                 `repeating_npcmove_${id}_attack_damagetype2`,
-                `repeating_npcmove_${id}_show_desc`,
                 `repeating_npcmove_${id}_description`,
                 "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
             ], function(v) {
@@ -310,7 +430,6 @@ var update_npc_legendary_moves = function() {
                 `repeating_npcmove-l_${id}_attack_damage2attribute`,
                 `repeating_npcmove-l_${id}_attack_damage2bonus`,
                 `repeating_npcmove-l_${id}_attack_damagetype2`,
-                `repeating_npcmove_${id}_show_desc`,
                 `repeating_npcmove-l_${id}_description`,
                 "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
             ], function(v) {

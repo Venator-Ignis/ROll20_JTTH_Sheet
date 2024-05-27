@@ -880,14 +880,16 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves,
+.charsheet .sheet-core .sheet-section-pc .sheet-move {
     margin-top: 5px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type),
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type) {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type),
+.charsheet .sheet-core .sheet-section-pc .container-attacks .repitem:not(:last-of-type) {
     border-bottom: 1px dotted #dddddd;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -952,7 +954,7 @@ input::-webkit-inner-spin-button {
     left: 0;
 }
 
-.sheet-traifeaturet .toggle-feature[value="1"] ~ .sheet-feature-desc {
+.sheet-feature .toggle-feature[value="1"] ~ .sheet-feature-desc {
     display: none !important;
 }
 
@@ -1003,7 +1005,8 @@ input::-webkit-inner-spin-button {
     border-radius: 3px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll,
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll {
     background: none;
     border: 0;
     box-shadow: none;
@@ -1011,7 +1014,8 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name,
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-name {
     font-weight: bold;
 }
 
@@ -1023,7 +1027,15 @@ input::-webkit-inner-spin-button {
     font-style: italic;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcmove-checked-roll {
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-attack span {
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 445px;
+    display: flow;
+}
+
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcmove-checked-roll{
     background: none;
     border: 0;
     box-shadow: none;
@@ -1196,11 +1208,13 @@ input::-webkit-inner-spin-button {
     font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover,
+.charsheet .sheet-core .sheet-section-pc .sheet-move button:hover {
     background: #e5fffb;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name,
+.charsheet .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
     background: #dddddd;
     display: inline-block;
     border-radius: 3px;
@@ -1262,7 +1276,8 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves,
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves,
+.charsheet .sheet-core .sheet-section-pc .container-attacks {
     margin-top: 5px;
 }
 
