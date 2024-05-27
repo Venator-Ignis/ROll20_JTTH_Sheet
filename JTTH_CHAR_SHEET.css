@@ -346,8 +346,8 @@ input::-webkit-inner-spin-button {
     width: 290px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-traits-features,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-traits-features .sheet-panel-traits{
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features .sheet-panel-features{
     min-height: 325px;
 }
 
@@ -422,7 +422,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box input{
-    width: 50px;
+    width: 70px;
     padding: 0;
     font-size: 9px;
 }
@@ -462,6 +462,7 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative{
     text-align: -webkit-center;
+    background: #eeeeee;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative button{
@@ -913,12 +914,12 @@ input::-webkit-inner-spin-button {
     white-space: pre-wrap;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-trait {
+.charsheet .sheet-core .sheet-section-pc .sheet-feature {
     font-size: 11px;
     padding-right: 20px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-name {
+.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-name {
     font-weight: bold;
     padding: 0 5px;
     background: #dddddd;
@@ -929,15 +930,15 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-desc {
+.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-desc {
     display: inline;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-desc span{
+.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-desc span{
     white-space: pre-wrap;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-trait .sheet-trait-name input{
+.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-name input{
     appearance: none;
     width: 100%;
     height: 100%;
@@ -947,7 +948,7 @@ input::-webkit-inner-spin-button {
     left: 0;
 }
 
-.sheet-trait .toggle-trait[value="1"] ~ .sheet-trait-desc {
+.sheet-traifeaturet .toggle-feature[value="1"] ~ .sheet-feature-desc {
     display: none !important;
 }
 
