@@ -888,11 +888,14 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type),
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type),
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type),
-.charsheet .sheet-core .sheet-section-pc .container-attacks .repitem:not(:last-of-type) {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type){
     border-bottom: 1px dotted #dddddd;
     padding-bottom: 5px;
     margin-bottom: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .container-attacks .repitem:not(:last-of-type){
+    border-bottom: 1px dotted #dddddd;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features {
@@ -1014,6 +1017,13 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll{
+    display: inline-flex;
+    max-width: 430px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name,
 .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-name {
     font-weight: bold;
@@ -1027,12 +1037,23 @@ input::-webkit-inner-spin-button {
     font-style: italic;
 }
 
+
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-attack{
+    display: inline-block;
+    max-width: 430px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-attack span {
     font-style: italic;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 445px;
-    display: flow;
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcmove-checked-roll{
@@ -1213,13 +1234,16 @@ input::-webkit-inner-spin-button {
     background: #e5fffb;
 }
 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name{
+    width: 100%;
+}
+
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name,
 .charsheet .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
     background: #dddddd;
     display: inline-block;
     border-radius: 3px;
     padding: 0 5px;
-    width: 100%;
     text-align: center;
 }
 
