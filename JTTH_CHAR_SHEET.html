@@ -676,7 +676,7 @@
                                     </div>
                                     <div class="sheet-toggle-unchecked">
                                         <div class="sheet-npc-responses">
-                                            <button type="roll" name="roll_npc_move" value="@{wtype}&{template:npcmove} @{npc_name_flag} {{rname=@{name}}} {{description=@{desc}}} " class="sheet-fieldset-item-npcmove-checked-roll sheet-btn-text">
+                                            <button type="roll" name="roll_npc_move" value="@{wtype}&{template:move} @{npc_name_flag} {{rname=@{name}}} {{description=@{desc}}} " class="sheet-fieldset-item-npcmove-checked-roll sheet-btn-text">
                                                 <div class="sheet-npc-response-name">
                                                     <span name="attr_name"></span>
                                                 </div>
@@ -838,57 +838,57 @@
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-name">Name:</div>
                     <div class="sheet-character-detail-value value-name">
-                        <input type="text" name="attr_character_name">
+                        <input type="text" name="attr_character_name"title="@{character_name}">
                     </div>
                 </div>
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-level">Level:</div>
                     <div class="sheet-character-detail-value value-level">
-                        <input type="number" name="attr_character_level">
+                        <input type="number" name="attr_character_level"title="@{character_level}">
                     </div>
                     <div class="sheet-character-detail-label label-path">Mortal Path:</div>
                     <div class="sheet-character-detail-value value-path">
-                        <input type="text" name="attr_character_path">
+                        <input type="text" name="attr_character_path"title="@{character_path}">
                     </div>
                     <div class="sheet-character-detail-label label-subpath">Sub Path:</div>
                     <div class="sheet-character-detail-value value-subpath">
-                        <input type="text" name="attr_character_subpath">
+                        <input type="text" name="attr_character_subpath" title="@{character_subpath}">
                     </div>
                 </div>
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-background">Background:</div>
                     <div class="sheet-character-detail-value value-background">
-                        <input type="text" name="attr_character_background">
+                        <input type="text" name="attr_character_background" title="@{character_background}">
                     </div>
                 </div>
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-age">Age:</div>
                     <div class="sheet-character-detail-value value-age">
-                        <input type="number" name="attr_character_age">
+                        <input type="number" name="attr_character_age" title="@{character_age}">
                     </div>
                     <div class="sheet-character-detail-label label-height">Height:</div>
                     <div class="sheet-character-detail-value value-height">
-                        <input type="text" name="attr_character_height">
+                        <input type="text" name="attr_character_height" title="@{character_height}">
                     </div>
                     <div class="sheet-character-detail-label label-gender">Gender:</div>
                     <div class="sheet-character-detail-value value-gender">
-                        <input type="text" name="attr_character_gender">
+                        <input type="text" name="attr_character_gender" title="@{character_gender}">
                     </div>
                 </div>
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-ancestry">Ancestry:</div>
                     <div class="sheet-character-detail-value value-ancestry">
-                        <input type="text" name="attr_character_ancestry">
+                        <input type="text" name="attr_character_ancestry" title="@{character_ancestry}">
                     </div>
                     <div class="sheet-character-detail-label label-species">Species:</div>
                     <div class="sheet-character-detail-value value-species">
-                        <input type="text" name="attr_character_species">
+                        <input type="text" name="attr_character_species" title="@{character_species}">
                     </div>
                 </div>
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-personality">Personality:</div>
                     <div class="sheet-character-detail-value value-personality">
-                        <input type="text" name="attr_character_personality">
+                        <input type="text" name="attr_character_personality" title="@{character_personality}">
                     </div>
                 </div>
             </div>
@@ -1390,7 +1390,266 @@
                     <input type="radio" name="attr_tab" value="features">
                     <span class="sheet-tab-label">Features</span>
                     <div class="sheet-tab-content">
-
+                        <div class="sheet-container-well sheet-container-well-details">
+                            <div class="sheet-container-panel sheet-pc-details">
+                                <div class="sheet-container-header">Character Details</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-pc-detail">
+                                        <label>Age</label>
+                                        <select name="attr_character_age_detail" title="@{character_age_detail}">
+                                            <option value=""></option>
+                                            <option value="young_adult">Young adult</option>
+                                            <option value="early_middle">Early-mid age</option>
+                                            <option value="late_middle">Late-mid age</option>
+                                            <option value="old">Old</option>
+                                            <option value="very_old">Very old</option>
+                                        </select>
+                                        <input type="text" name="attr_character_age" title="@{character_age}">
+                                    </div>
+                                    <div class="sheet-pc-detail">
+                                        <label>Size</label>
+                                        <select name="attr_size" title="@{size}">
+                                            <option value="tiny">Tiny</option>
+                                            <option value="small">Small</option>
+                                            <option value="medium" selected>Medium</option>
+                                            <option value="large">Large</option>
+                                            <option value="huge">Huge</option>
+                                            <option value="gargantuan">Gargantuan</option>
+                                        </select>
+                                    </div>
+                                    <div class="sheet-pc-detail">
+                                        <label>Height</label>
+                                        <select name="attr_character_height_detail" title="@{character_height_detail}">
+                                            <option value=""></option>
+                                            <option value="very_short">Very short</option>
+                                            <option value="short">Short</option>
+                                            <option value="average">Average</option>
+                                            <option value="tall">Tall</option>
+                                            <option value="very_tall">Very tall</option>
+                                        </select>
+                                        <input type="text" name="attr_character_height" title="@{character_height}">
+                                    </div>
+                                    <div class="sheet-pc-detail">
+                                        <label>Weight</label>
+                                        <select name="attr_character_weight" title="@{character_weight}">
+                                            <option value=""></option>
+                                            <option value="very_thin">Very thin</option>
+                                            <option value="thin">Thin</option>
+                                            <option value="average">Average</option>
+                                            <option value="fat">Fat</option>
+                                            <option value="very_fat">Very fat</option>
+                                        </select>
+                                        <input type="text" name="attr_character_weight_detail" title="@{character_weight_detail}">
+                                    </div>
+                                    <div class="sheet-pc-detail sheet-pc-detail-feature">
+                                        <label>Feature</label>
+                                        <div class="sheet-pc-detail-column">
+                                            <input type="text" name="attr_character_feature_detail" title="@{character_feature_detail}">
+                                        </div>
+                                    </div>
+                                    <div class="sheet-pc-detail sheet-pc-detail-motivation">
+                                        <label>Motivation</label>
+                                        <div class="sheet-pc-detail-column">
+                                            <input type="text" name="attr_character_motivation_detail" title="@{character_motivation_detail}">
+                                        </div>
+                                    </div>
+                                    <div class="sheet-pc-detail sheet-pc-detail-habit">
+                                        <label>Habit</label>
+                                        <div class="sheet-pc-detail-column">
+                                            <select name="attr_character_habit" title="@{character_habit}">
+                                            <input type="text" name="attr_character_habit_detail" title="@{character_habit_detail}">
+                                        </div>
+                                    </div>
+                                    <div class="sheet-pc-detail">
+                                        <label>Family</label>
+                                        <select name="attr_character_family" title="@{character_family}">
+                                            <option value=""></option>
+                                            <option value="none">None</option>
+                                            <option value="small">Small</option>
+                                            <option value="average">Average</option>
+                                            <option value="large">Large</option>
+                                            <option value="disowned">Disowned</option>
+                                        </select>
+                                    </div>
+                                    <div class="sheet-pc-detail">
+                                        <label>Raised By</label>
+                                        <select name="attr_character_raised_by" title="@{character_raised_by}">
+                                            <option value=""></option>
+                                            <option value="natural_parents">Natural parent(s)</option>
+                                            <option value="close_family">Close family</option>
+                                            <option value="adopted">Adopted parent(s)</option>
+                                            <option value="institution">An institution</option>
+                                            <option value="yourself">Yourself</option>
+                                        </select>
+                                    </div>
+                                    <div class="sheet-pc-detail sheet-pc-detail-quest">
+                                        <label>Quest</label>
+                                        <textarea name="attr_character_quest" title="@{character_quest}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-gimmick">
+                                <div class="sheet-container-header">Gimmick</div>
+                                <div class="sheet-container-body">
+                                    <textarea name="attr_gimmick" title="@{gimmick}"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-value">
+                                <div class="sheet-container-header">Values</div>
+                                <div class="sheet-container-body">
+                                    <textarea name="attr_values" title="@{values}"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-conflict">
+                                <div class="sheet-container-header">Conflict</div>
+                                <div class="sheet-container-body">
+                                    <textarea name="attr_conflict" title="@{conflict}"></textarea>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-want">
+                                <div class="sheet-container-header">Want</div>
+                                <div class="sheet-container-body">
+                                    <textarea name="attr_want" title="@{want}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-container-well-memories">
+                            <div class="sheet-container-panel sheet-pc-memories">
+                                <div class="sheet-container-header">Memories & Events</div>
+                                <div class="sheet-container-body">
+                                    <fieldset class="repeating_memories">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked">
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Memory</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_memory_name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <textarea name="attr_memory_description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-memory">
+                                                    <span name="attr_memory_name"></span>
+                                                    <span name="attr_memory_description"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-notes">
+                                <div class="sheet-container-header">Additional Notes</div>
+                                <div class="sheet-container-body">
+                                    <fieldset class="repeating_notes">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked">
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Note</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_note_name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <textarea name="attr_note_description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-note">
+                                                    <span name="attr_note_name"></span>
+                                                    <span name="attr_note_description"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-container-well-features">
+                            <div class="sheet-container-panel sheet-pc-features">
+                                <div class="sheet-container-header">Features & Traits</div>
+                                <div class="sheet-container-body">
+                                    <fieldset class="repeating_traits">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked">
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Feature</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Source:</label>
+                                                            <select name="attr_source">
+                                                                <option selected="selected">Ancestral</option>
+                                                                <option>Mortal path</option>
+                                                                <option>Talent</option>
+                                                                <option>Background</option>
+                                                                <option>Other</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Source Type:</label>
+                                                            <input type="text" name="attr_source_type">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <textarea name="attr_description"></textarea>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input type="checkbox" name="attr_hide_details" value="1">
+                                                                <span>Hide Details</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-feature">
+                                                    <button type="roll" name="roll_output" value="@{wtype}&{template:features} {{name=@{name}}} {{source=@{source}: @{source_type}}} {{description=@{description}}}">
+                                                        <div class="sheet-pc-feature-name">
+                                                            <span name="attr_name"></span>
+                                                        </div>
+                                                        <input type="hidden" name="attr_hide_details" class="sheet-field-untoggle">
+                                                        <div class="sheet-pc-feature-details">
+                                                            <span class="sheet-pc-feature-source">
+                                                                <span name="attr_source"></span>
+                                                                <span name="attr_source_type"></span>
+                                                            </span>
+                                                            <span name="attr_description"></span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="sheet-tab sheet-tab-notes">
@@ -1570,38 +1829,82 @@
 
     <div class="sheet-rolltemplate">
         <div class="sheet-rolltemplates">
-            <rolltemplate class="sheet-rolltemplate-atk">
-                <div class="container">
-                    <div class="result">
-                        <div class="adv">
-                            <span>{{r1}}</span>
-                        </div>
-                        <div class="advspacer"></div>
-                        <div class="adv">
-                            <span>{{r2}}</span>
-                        </div>
+            <rolltemplate class="sheet-rolltemplate-desc">
+                <div class="desc info">
+                    <span>
+                        <span class="top"></span><span class="middle">{{description}}</span><span class="bottom"></span>
+                    </span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-simple">
+                <div class="row header">
+                    <span>{{rname}}</span>
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
                     </div>
+                {{/name}}
+                <div class="row">
+                    <span class="italics">{{type}}: </span><span>{{r1}}</span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-npc">
+                <div class="row header">
+                    <span>{{rname}}</span>
+                </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                <div class="row">
+                    <span class="italics">{{type}}: </span><span>{{r1}}</span>
+                </div>
+            </rolltemplate>
+
+            <rolltemplate class="sheet-rolltemplate-move">
+                <div class="container">
+                    <div class="row header">
+                        <span>{{rname}}</span>
+                    </div>
+                    {{#name}}
+                        <div class="row subheader">
+                            <span class="italics">{{name}}</span>
+                        </div>
+                    {{/name}}
                     {{#range}}
                         <div class="sublabel">
                             <span>{{range}}</span>
                         </div>
                     {{/range}}
-                    <div class="label">
-                        {{#rollTotal() r1 r2}}{{/rollTotal() r1 r2}}
+                    {{#attack}}
+                    <div class="row">
+                        <span class="italics">Attack: </span><span>{{r1}}</span><span> | </span><span>{{r2}}</span>
                     </div>
-                    {{#charname}}
-                        <div class="charname">
-                            <span>{{charname}}</span>
-                        </div>
-                    {{/charname}}
+                    {{/attack}}
+                    {{#description}}
+                    <div class="row">
+                        <span class="desc">{{description}}</span>
+                    </div>
+                    {{/description}}
                 </div>
-                {{#desc}}
-                    <div class="desc info">
+                {{#damage}}
+                    <div class="container dmgcontainer damagetemplate">
+                        <span class="italics">Damage: </span>
                         <span>
-                            <span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span>
+                            {{#dmg1flag}}
+                                {{dmg1}}{{dmg1type}}
+                            {{/dmg1flag}}
+                            {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
+                            {{#dmg2flag}}
+                                {{dmg2}}{{dmg2type}}
+                            {{/dmg2flag}}
                         </span>
                     </div>
-                {{/desc}}
+                {{/damage}}
             </rolltemplate>
 
             <rolltemplate class="sheet-rolltemplate-atkdmg">
@@ -1710,250 +2013,31 @@
                 {{/damage}}
             </rolltemplate>
 
-            <rolltemplate class="sheet-rolltemplate-desc">
-                <div class="desc info">
-                    <span>
-                        <span class="top"></span><span class="middle">{{description}}</span><span class="bottom"></span>
-                    </span>
+            <rolltemplate class="sheet-rolltemplate-atk">
+                <div class="row header">
+                    {{rname}}
                 </div>
+                {{#name}}
+                    <div class="row subheader">
+                        <span class="italics">{{name}}</span>
+                    </div>
+                {{/name}}
+                {{#range}}
+                    <div class="sublabel">
+                        <span>{{range}}</span>
+                    </div>
+                {{/range}}
+                <div class="row">
+                    <span>{{r1}}</span><span> | </span><span>{{r2}}</span>
+                </div>
+                {{#description}}
+                    <div class="row">
+                        <span class="desc">{{description}}</span>
+                    </div>
+                {{/description}}
             </rolltemplate>
 
             <rolltemplate class="sheet-rolltemplate-dmg">
-                {{^attack}}
-                    {{#desc}}
-                        <div class="desc info">
-                            <span>
-                                <span class="top"></span><span class="middle">{{desc}}</span><span class="bottom"></span>
-                            </span>
-                        </div>
-                    {{/desc}}
-                {{/attack}}
-                <div class="container damagetemplate">
-                    <div class="result">
-                        {{#dmg1flag}}
-                            {{^dmg2flag}}
-                                <div class="solo">
-                                    <span class="damage">{{dmg1}}</span>
-                                    <span class="sublabel">{{dmg1type}}</span>
-                                </div>
-                            {{/dmg2flag}}
-                        {{/dmg1flag}}
-                        {{#dmg2flag}}
-                            {{^dmg1flag}}
-                                <div class="solo">
-                                    <span class="damage">{{dmg2}}</span>
-                                    <span class="sublabel">{{dmg2type}}</span>
-                                </div>
-                            {{/dmg1flag}}
-                        {{/dmg2flag}}
-                        {{#dmg1flag}}
-                            {{#dmg2flag}}
-                                <div class="adv">
-                                    <span class="damage">{{dmg1}}</span>
-                                    <span class="sublabel">{{dmg1type}}</span>
-                                </div>
-                                <div class="advspacer"></div>
-                                <div class="adv">
-                                    <span class="damage">{{dmg2}}</span>
-                                    <span class="sublabel">{{dmg2type}}</span>
-                                </div>
-                            {{/dmg2flag}}
-                        {{/dmg1flag}}
-                    </div>
-                    {{^attack}}
-                        {{#range}}
-                            <div class="sublabel" style="color: black;">
-                                <span>{{range}}</span>
-                            </div>
-                        {{/range}}
-                        <div class="label">
-                            <span>{{rname}}</span>
-                        </div>
-                        {{#charname}}
-                            <div class="charname">
-                                <span>{{charname}}</span>
-                            </div>
-                        {{/charname}}
-                    {{/attack}}
-                </div>
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-simple">
-                <div class="row header">
-                    <span>{{rname}}</span>
-                </div>
-                {{#name}}
-                    <div class="row subheader">
-                        <span class="italics">{{name}}</span>
-                    </div>
-                {{/name}}
-                <div class="row">
-                    <span class="italics">{{type}}: </span><span>{{r1}}</span>
-                </div>
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-npc">
-                <div class="row header">
-                    <span>{{rname}}</span>
-                </div>
-                {{#name}}
-                    <div class="row subheader">
-                        <span class="italics">{{name}}</span>
-                    </div>
-                {{/name}}
-                <div class="row">
-                    <span class="italics">{{type}}: </span><span>{{r1}}</span>
-                </div>
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-npcmove">
-                <div class="container">
-                    <div class="row header">
-                        <span>{{rname}}</span>
-                    </div>
-                    {{#name}}
-                        <div class="row subheader">
-                            <span class="italics">{{name}}</span>
-                        </div>
-                    {{/name}}
-                    {{#range}}
-                        <div class="sublabel">
-                            <span>{{range}}</span>
-                        </div>
-                    {{/range}}
-                    {{#attack}}
-                    <div class="row">
-                        <span class="italics">Attack: </span><span>{{r1}}</span><span> | </span><span>{{r2}}</span>
-                    </div>
-                    {{/attack}}
-                    {{#description}}
-                    <div class="row">
-                        <span class="desc">{{description}}</span>
-                    </div>
-                    {{/description}}
-                </div>
-                {{#damage}}
-                    <div class="container dmgcontainer damagetemplate">
-                        <span class="italics">Damage: </span>
-                        <span>
-                            {{#dmg1flag}}
-                                {{dmg1}}{{dmg1type}}
-                            {{/dmg1flag}}
-                            {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
-                            {{#dmg2flag}}
-                                {{dmg2}}{{dmg2type}}
-                            {{/dmg2flag}}
-                        </span>
-                    </div>
-                {{/damage}}
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-move">
-                <div class="container">
-                    <div class="row header">
-                        <span>{{rname}}</span>
-                    </div>
-                    {{#name}}
-                        <div class="row subheader">
-                            <span class="italics">{{name}}</span>
-                        </div>
-                    {{/name}}
-                    {{#range}}
-                        <div class="sublabel">
-                            <span>{{range}}</span>
-                        </div>
-                    {{/range}}
-                    {{#attack}}
-                    <div class="row">
-                        <span class="italics">Attack: </span><span>{{r1}}</span><span> | </span><span>{{r2}}</span>
-                    </div>
-                    {{/attack}}
-                    {{#description}}
-                    <div class="row">
-                        <span class="desc">{{description}}</span>
-                    </div>
-                    {{/description}}
-                </div>
-                {{#damage}}
-                    <div class="container dmgcontainer damagetemplate">
-                        <span class="italics">Damage: </span>
-                        <span>
-                            {{#dmg1flag}}
-                                {{dmg1}}{{dmg1type}}
-                            {{/dmg1flag}}
-                            {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
-                            {{#dmg2flag}}
-                                {{dmg2}}{{dmg2type}}
-                            {{/dmg2flag}}
-                        </span>
-                    </div>
-                {{/damage}}
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-npcatk">
-                <div class="row header">
-                    {{rname}}
-                </div>
-                {{#name}}
-                    <div class="row subheader">
-                        <span class="italics">{{name}}</span>
-                    </div>
-                {{/name}}
-                {{#range}}
-                    <div class="sublabel">
-                        <span>{{range}}</span>
-                    </div>
-                {{/range}}
-                <div class="row">
-                    <span>{{r1}}</span><span> | </span><span>{{r2}}</span>
-                </div>
-                {{#description}}
-                    <div class="row">
-                        <span class="desc">{{description}}</span>
-                    </div>
-                {{/description}}
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-npcdmg">
-                <div class="container dmgcontainer damagetemplate">
-                    <span class="italics">Damage: </span>
-                    <span>
-                        {{#dmg1flag}}
-                            {{dmg1}}{{dmg1type}}
-                        {{/dmg1flag}}
-                        {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
-                        {{#dmg2flag}}
-                            {{dmg2}}{{dmg2type}}
-                        {{/dmg2flag}}
-                    </span>
-                </div>
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-pcatk">
-                <div class="row header">
-                    {{rname}}
-                </div>
-                {{#name}}
-                    <div class="row subheader">
-                        <span class="italics">{{name}}</span>
-                    </div>
-                {{/name}}
-                {{#range}}
-                    <div class="sublabel">
-                        <span>{{range}}</span>
-                    </div>
-                {{/range}}
-                <div class="row">
-                    <span>{{r1}}</span><span> | </span><span>{{r2}}</span>
-                </div>
-                {{#description}}
-                    <div class="row">
-                        <span class="desc">{{description}}</span>
-                    </div>
-                {{/description}}
-            </rolltemplate>
-
-            <rolltemplate class="sheet-rolltemplate-pcdmg">
                 <div class="container dmgcontainer damagetemplate">
                     <span class="italics">Damage: </span>
                     <span>
@@ -2045,6 +2129,7 @@
                 return;
             }
             update_npc_moves();
+            update_moves();
             update_npc_legendary_moves();
             console.log("Updating DType");
         });
@@ -2243,9 +2328,9 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else if (attackFlag) {
-                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_pc_dmg)}} {{type=[Attack](~repeating_move_pc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                            rollbase = `@{wtype}&{template:atk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_dmg)}} {{type=[Attack](~repeating_move_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                         } else if (damage1 || damage2) {
-                            rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                            rollbase = `@{wtype}&{template:dmg} ${damage_flag} `;
                             if (damage1) {
                                 rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                             }
@@ -2256,7 +2341,7 @@
                             rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
                         }
         
-                        var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                        var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
                         if (damage1) {
                             full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                         }
@@ -2354,7 +2439,7 @@
         
                         var rollbase = "";
                         if (v.dtype === "full") {
-                            rollbase = `@{wtype}&{template:npcmove} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                            rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
                             if (damage1) {
                                 rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                             }
@@ -2362,9 +2447,9 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else if (attackFlag) {
-                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                            rollbase = `@{wtype}&{template:atk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                         } else if (damage1 || damage2) {
-                            rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                            rollbase = `@{wtype}&{template:dmg} ${damage_flag} `;
                             if (damage1) {
                                 rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                             }
@@ -2372,10 +2457,10 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else {
-                            rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
+                            rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
                         }
         
-                        var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                        var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
                         if (damage1) {
                             full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                         }
@@ -2474,7 +2559,7 @@
         
                         var rollbase = "";
                         if (v.dtype === "full") {
-                            rollbase = `@{wtype}&{template:npcmove} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                            rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
                             if (damage1) {
                                 rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                             }
@@ -2482,9 +2567,9 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else if (attackFlag) {
-                            rollbase = `@{wtype}&{template:npcatk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove-l_npc_dmg)}} {{type=[Attack](~repeating_npcmove-l_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                            rollbase = `@{wtype}&{template:atk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove-l_npc_dmg)}} {{type=[Attack](~repeating_npcmove-l_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                         } else if (damage1 || damage2) {
-                            rollbase = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                            rollbase = `@{wtype}&{template:dmg} ${damage_flag} `;
                             if (damage1) {
                                 rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                             }
@@ -2492,10 +2577,10 @@
                                 rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                             }
                         } else {
-                            rollbase = `@{wtype}&{template:npcmove} {{rname=@{name}}} {{description=${description}}}`;
+                            rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
                         }
         
-                        var full_damage = `@{wtype}&{template:npcdmg} ${damage_flag} `;
+                        var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
                         if (damage1) {
                             full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                         }
