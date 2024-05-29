@@ -436,7 +436,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill{
-    height: 20px;
+    height: 21px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button{
@@ -469,10 +469,15 @@ input::-webkit-inner-spin-button {
     background: #eeeeee;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar{
+    width: 260px;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative button{
     background: none;
     border: none;
-    line-height: 11px;
+    height: 100%;
+    width: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar span::before{
@@ -1929,6 +1934,7 @@ input::-webkit-inner-spin-button {
     font-size: 8px;
     font-weight: bold;
     background: none;
+    text-overflow: ellipsis;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
@@ -1946,9 +1952,11 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-body input,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-body input,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-body input {
-    width: 40px;
+    width: 50px;
     padding-left: 0;
     padding-right: 0;
+    border: none;
+    text-overflow: ellipsis;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc {
@@ -1977,7 +1985,7 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory > input[type="radio"]:checked ~ .sheet-tab-content {
     display: grid;
-    grid-template-columns: auto 262.5px;
+    grid-template-columns: auto 300px;
     grid-template-rows: 85px 120px 110px auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
@@ -2403,4 +2411,42 @@ input::-webkit-inner-spin-button {
     border: 0;
     text-align: center;
     width: 100%;
+}
+
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body {
+    padding-bottom: 0;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 5px 10px 0;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body [type="text"],
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select {
+    border-color: rgba(255, 255, 255, 0);
+    flex-grow: 1;
+    line-height: 13px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    min-width: 0;
+    color: black;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body input,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span {
+    font-size: 24px;
 }
