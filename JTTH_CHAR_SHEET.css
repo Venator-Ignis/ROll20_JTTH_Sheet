@@ -357,7 +357,7 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources .sheet-panel-resources{
-    min-height: 325px;
+    min-height: 348px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks,
