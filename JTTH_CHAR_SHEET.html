@@ -1708,7 +1708,402 @@
                     <input type="radio" name="attr_tab" value="inventory">
                     <span class="sheet-tab-label">Inventory</span>
                     <div class="sheet-tab-content">
-
+                        <div class="sheet-container-well sheet-container-well-inventory-supplies">
+                            <div class="sheet-container-bar sheet-pc-rations">
+                                <div class="sheet-container-header">Rations</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_ration_1" title="@{ration_1}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_ration_2" title="@{ration_2}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_ration_3" title="@{ration_3}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_ration_4" title="@{ration_4}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_ration_5" title="@{ration_5}">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-pc-water">
+                                <div class="sheet-container-header">Waterskin</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_waterskin_1" title="@{waterskin_1}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_waterskin_2" title="@{waterskin_2}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_waterskin_3" title="@{waterskin_3}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_waterskin_4" title="@{waterskin_4}">
+                                        <span></span>
+                                    </div>
+                                    <div class="sheet-checkbox-image">
+                                        <input type="checkbox" name="attr_waterskin_5" title="@{waterskin_5}">
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-container-well-inventory-purse">
+                            <div class="sheet-container-bar sheet-pc-purse-cc">
+                                <div class="sheet-container-header">
+                                    <input type="text" name="attr_cc_title" title="@{cc_title}" value="COPPER">
+                                </div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_cc" title="@{cc}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-pc-purse-sc">
+                                <div class="sheet-container-header">
+                                    <input type="text" name="attr_sc_title" title="@{sc_title}" value="SILVER">
+                                </div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_sc" title="@{sc}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-pc-purse-gc">
+                                <div class="sheet-container-header">
+                                    <input type="text" name="attr_gc_title" title="@{gc_title}" value="GOLD">
+                                </div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_gc" title="@{gc}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-pc-purse-ss">
+                                <div class="sheet-container-header">
+                                    <input type="text" name="attr_ss_title" title="@{ss_title}" value="SPIRIT STONE">
+                                </div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_ss" title="@{ss}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-pc-purse-other1">
+                                <div class="sheet-container-header">
+                                    <input type="text" name="attr_currency1" title="@{currency1}">
+                                </div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_currency1_value" title="@{currency1_value}">
+                                </div>
+                            </div>
+                            <div class="sheet-container-bar sheet-pc-purse-other2">
+                                <div class="sheet-container-header">
+                                    <input type="text" name="attr_currency2" title="@{currency2}">
+                                </div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_currency2_value" title="@{currency2_value}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-container-well-inventory-encumberance">
+                            <input type="hidden" name="attr_use_inventory_slots" value="1" class="sheet-field-untoggle">
+                            <div class="sheet-container-box sheet-pc-weight">
+                                <div class="sheet-container-header">Weight</div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_weighttotal" title="@{weighttotal}">
+                                    <span>/</span>
+                                    <span name="attr_weightmaximum" title="@{weightmaximum}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <span>Current</span>
+                                    <span>Maximum</span>
+                                </div>
+                            </div>
+                            <input type="hidden" name="attr_use_inventory_slots" value="1" class="sheet-field-toggle">
+                            <div class="sheet-container-box sheet-pc-slots">
+                                <div class="sheet-container-header">Inventory Slots</div>
+                                <div class="sheet-container-body">
+                                    <input type="text" name="attr_slotstotal" title="@{slotstotal}">
+                                    <span>/</span>
+                                    <span name="attr_slotsmaximum" title="@{slotsmaximum}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <span>Current</span>
+                                    <span>Maximum</span>
+                                </div>
+                            </div>
+                            <div class="sheet-pc-carrying-status">
+                                <input type="hidden" class="sheet-pc-encumberance" name="attr_encumberance">
+                                <span class="sheet-pc-unencumbered">Unencumbered</span>
+                                <span class="sheet-pc-encumbered">Encumbered</span>
+                                <span class="sheet-pc-heavily">Heavily encumbered</span>
+                                <span class="sheet-pc-immobile">Immobile</span>
+                                <span class="sheet-pc-over">Over carrying capacity</span>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-container-well-inventory-general">
+                            <div class="sheet-container-panel sheet-pc-inventory-other">
+                                <div class="sheet-container-header">Other Items</div>
+                                <div class="sheet-container-body">
+                                    <fieldset class="repeating_otheritems">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Item</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_otheritem-name">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <textarea name="attr_otheritem-description"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-otheritem">
+                                                    <span name="attr_otheritem-name"></span><span name="attr_otheritem-description"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sheet-container-well sheet-container-well-inventory">
+                            <div class="sheet-container-panel sheet-pc-inventory">
+                                <div class="sheet-container-header">inventory & Holdings</div>
+                                <div class="sheet-container-body">
+                                    <input type="hidden" name="attr_use_inventory_slots" class="sheet-toggle-slots" value="1">
+                                    <input type="hidden" name="attr_armorwarningflag" class="sheet-field-toggle">
+                                    <div class="sheet-alert-warning">
+                                        WARNING: Multiple sets of armor or shields are currently equipped and your AC is not correctly calculated.
+                                    </div>
+                                    <fieldset class="repeating_inventory">
+                                        <div class="sheet-fieldset-item">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked">
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form sheet-form-item">
+                                                    <div class="sheet-form-header">Edit Item</div>
+                                                    <div class="sheet-form-body">
+                                                        <input type="hidden" name="attr_equipped">
+                                                        <input type="hidden" name="attr_carried">
+                                                        <input type="hidden" name="attr_inventorysubflag">
+                                                        <input type="hidden" name="attr_itemattackid">
+                                                        <input type="hidden" name="attr_itemresourceid">
+                                                        <div class="sheet-item-contents">
+                                                            <div class="sheet-form-group">
+                                                                <label>Name:</label>
+                                                                <input type="text" name="attr_itemname">
+                                                            </div>
+                                                            <input type="checkbox" name="attr_itemcontainer" value="1" class="sheet-toggle" hidden>
+                                                            <div class="sheet-toggle-unchecked">
+                                                                <div class="sheet-form-group">
+                                                                    <label>Quantity</label>
+                                                                    <input type="text" name="attr_itemcount" value="1">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Weight:</label>
+                                                                    <input type="text" name="attr_itemweight">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_itemweightfixed" value="1">
+                                                                        <span>Fixed (Ignore quantity)</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Size:</label>
+                                                                    <select name="attr_itemsize">
+                                                                        <option value="0.2">Tiny (0.2 slots)</option>
+                                                                        <option value="1" selected>Small (1 slot)</option>
+                                                                        <option value="2">Medium (2 slots)</option>
+                                                                        <option value="3">Large (3 slots)</option>
+                                                                        <option value="6">X-Large (6 slots)</option>
+                                                                        <option value="9">XX-Large (9 slots)</option>
+                                                                        <option value="12">XXX-Large (12 slots)</option>
+                                                                        <option value="15">XXXX-Large (15 slots)</option>
+                                                                        <option value="18">XXXXX-Large (18 slots)</option>
+                                                                    </select>
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_itemslotsfixed" value="1">
+                                                                        <span>Fixed (Ignore quantity)</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group sheet-item-columns-2">
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Notches:</label>
+                                                                        <input type="text" name="attr_itemnotches" value="0">
+                                                                    </div>
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Quality:</label>
+                                                                        <select name="attr_itemquality">
+                                                                            <option value="" selected="selected"></option>
+                                                                            <option value="pristine">Pristine</option>
+                                                                            <option value="worn">Worn</option>
+                                                                            <option value="wellworn">Well-worn</option>
+                                                                            <option value="scarred">Scarred</option>
+                                                                            <option value="broken">Broken</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Properties:</label>
+                                                                    <input type="text" name="attr_itemproperties">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Modifiers:</label>
+                                                                    <input type="text" name="attr_itemmodifiers">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Description:</label>
+                                                                    <textarea name="attr_itemcontent"></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sheet-toggle-checked">
+                                                                <div class="sheet-item-columns-2">
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Type:</label>
+                                                                        <select name="attr_itemcontainer_type">
+                                                                            <option value="bag" selected="selected">Bag</option>
+                                                                            <option value="belt">Belt</option>
+                                                                            <option value="pouch">Pouch</option>
+                                                                            <option value="quiver">Quiver</option>
+                                                                            <option value="sheath">Sheath</option>
+                                                                            <option value="stash">Stash</option>
+                                                                            <option value="property">Property</option>
+                                                                            <option value="vehicle">Vehicle</option>
+                                                                            <option value="worn">Worn</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="sheet-form-group">
+                                                                        <label>Max. Capacity (Slots):</label>
+                                                                        <input type="text" name="attr_itemcontainer_slots" value="3">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Inventory Slots Modifier:</label>
+                                                                    <input type="text" name="attr_itemcontainer_slots_modifier">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sheet-item-options">
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_equipped" value="1" checked="checked">
+                                                                    <span>Equipped</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_carried" value="1" checked="checked">
+                                                                    <span>Carried</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_itemcontainer" value="1">
+                                                                    <span>Container</span>
+                                                                </label>
+                                                            </div>
+                                                            <input type="checkbox" name="attr_itemcontainer" value="1" class="sheet-toggle" hidden>
+                                                            <div class="sheet-toggle-unchecked">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_useasresource" value="1">
+                                                                        <span>Use as a Resource</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_hasattack" value="1">
+                                                                        <span>Has an Attack</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <input type="checkbox" name="attr_itemcontainer" value="1" class="sheet-toggle" hidden>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-pc-item">
+                                                        <div class="sheet-pc-item-header">
+                                                            <span>Item Name</span>
+                                                            <span>Quantity</span>
+                                                            <span>Weight</span>
+                                                            <span>Slots</span>
+                                                            <span>Notches</span>
+                                                        </div>
+                                                        <div class="sheet-pc-item-content">
+                                                            <span class="sheet-pc-item-name">
+                                                                <input type="hidden" name="attr_equipped" value="1" class="sheet-field-toggle">
+                                                                <span class="sheet-pc-item-equipped"><strong>E</strong></span>
+                                                                <input type="hidden" name="attr_carried" value="1" class="sheet-field-toggle">
+                                                                <span class="sheet-pc-item-carried"><strong>C</strong></span>
+                                                                <span name="attr_itemname"></span>
+                                                            </span>
+                                                            <span class="sheet-pc-item-quantity">
+                                                                <input type="text" name="attr_itemcount">
+                                                            </span>
+                                                            <span class="sheet-pc-item-weight">
+                                                                <input type="text" name="attr_itemweight">
+                                                                <span name="attr_itemweight"></span>
+                                                            </span>
+                                                            <span class="sheet-pc-item-slots">
+                                                                <input type="text" name="attr_itemsize">
+                                                            </span>
+                                                            <span class="sheet-pc-item-notches">
+                                                                <input type="text" name="attr_itemnotches">
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-pc-inventory-container">
+                                                        <input type="hidden" name="attr_equipped" value="1" class="sheet-field-toggle">
+                                                        <span class="sheet-pc-item-equipped"><strong>E</strong></span>
+                                                        <input type="hidden" name="attr_carried" value="1" class="sheet-field-toggle">
+                                                        <span class="sheet-pc-item-carried"><strong>C</strong></span>
+                                                        <span name="attr_itemname"></span>
+                                                        <span class="sheet-pc-inventory-container-slots">
+                                                            (
+                                                            <span name="attr_itemcontainer_type"></span>
+                                                            <input type="hidden" name="attr_itemcontainer_slots" class="sheet-field-toggle">
+                                                            <span>· capacity <span name="attr_itemcontainer_slots"></span></span>
+                                                            <input type="hidden" name="attr_itemcontainer_slots_modifier" class="sheet-field-toggle">
+                                                            <span>· extra slots <span name="attr_itemcontainer_slots_modifier"></span></span>
+                                                            )
+                                                        </span>
+                                                    </div>
+                                                    <div class="sheet-pc-inventory-container-footer">
+                                                        <span>Item Name</span>
+                                                        <span>Quantity</span>
+                                                        <span>Weight</span>
+                                                        <span>Slots</span>
+                                                        <span>Notches</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="sheet-tab sheet-tab-options">
