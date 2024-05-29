@@ -1,4 +1,15 @@
 
+['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
+    on(`change:${attr}_base change:${attr}_bonus`, function() {
+        update_attr(`${attr}`);
+    });
+    on(`change:${attr}`, function() {
+        update_mod(`${attr}`);
+    });
+    console.log("Updating Attribute");
+    console.log("Updating Attribute Modified Value");
+});
+
 on("change:agility change:power change:vitality change:cultivation change:mental_strength change:appearance change:qi_control", function(eventinfo) {
     update_npc_skills();
     update_npc_moves();
@@ -9,6 +20,7 @@ on("change:agility change:power change:vitality change:cultivation change:mental
     update_evasion();
     update_durability();
     update_reduction();
+    update_weight();
     console.log("Updating Everything");
 });
 
@@ -37,6 +49,24 @@ on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag chang
     console.log("Updating NPC Legendary Moves");
 });
 
+on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod change:use_inventory_slots change:inventory_slots_mod change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots_modifier", function() {
+    update_weight();
+});
+
+on("change:repeating_inventory:itemmodifiers change:repeating_inventory:equipped change:repeating_inventory:carried", function(eventinfo) {
+    if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
+        return;
+    }
+    var itemid = eventinfo.sourceAttribute.substring(20, 40);
+    getAttrs(["repeating_inventory_" + itemid + "_itemmodifiers"], function(v) {
+        if (v["repeating_inventory_" + itemid + "_itemmodifiers"]) {
+            check_itemmodifiers(v["repeating_inventory_" + itemid + "_itemmodifiers"], eventinfo.previousValue);
+        } else {
+            check_itemmodifiers("", eventinfo.previousValue);
+        };
+    });
+});
+
 on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
     update_evasion();
     console.log("Updating PC Evasion");
@@ -61,6 +91,29 @@ on("change:dtype", function(eventinfo) {
     update_npc_legendary_moves();
     console.log("Updating DType");
 });
+
+on("remove:repeating_inventory", function(eventinfo) {
+    var itemid = eventinfo.sourceAttribute.substring(20, 40);
+
+    if (eventinfo.removedInfo && eventinfo.removedInfo["repeating_inventory_" + itemid + "_itemmodifiers"]) {
+        check_itemmodifiers(eventinfo.removedInfo["repeating_inventory_" + itemid + "_itemmodifiers"]);
+    }
+
+    update_weight();
+    console.log("Updating Weight");
+});
+
+let toInt = function(value) {
+    return (value && !isNaN(value)) ? parseInt(value) : 0;
+};
+
+let clamp = function(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+};
+
+let isDefined = function(value) {
+    return value !== null && typeof(value) !== 'undefined';
+};
 
 var update_npc_skills = function() {
     getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_discretion_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
@@ -629,7 +682,6 @@ var update_weight = function() {
             weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer_slots_modifier");
         });
         getAttrs(weight_attrs, function(v) {
-            currencyOther = isNaN(parseInt(v.currency_value, 10)) === false ? parseInt(v.currency_value, 10) : 0;
             var slots_modifier = 0;
 
             _.each(idarray, function(currentID, i) {
@@ -642,23 +694,23 @@ var update_weight = function() {
                                 if (["+", "-"].indexOf(v[field_id]) > -1) {
                                     var operator = v[field_id].substring(0, 1);
                                     var value = v[field_id].substring(1);
-                                    if (isNaN(parseInt(value, 10)) === false) {
+                                    if (isNaN(parseInt(value, 0)) === false) {
                                         if (operator == "+") {
-                                            slots_modifier += parseInt(value, 10);
+                                            slots_modifier += parseInt(value, 0);
                                         } else if (operator == "-") {
-                                            slots_modifier -= parseInt(value, 10);
+                                            slots_modifier -= parseInt(value, 0);
                                         }
                                     }
                                 } else {
-                                    if (isNaN(parseInt(v[field_id], 10)) === false) {
-                                        slots_modifier += parseInt(v[field_id], 10);
+                                    if (isNaN(parseInt(v[field_id], 0)) === false) {
+                                        slots_modifier += parseInt(v[field_id], 0);
                                     }
                                 }
                             }
                         }
                     } else {
                         // UPDATE WEIGHT
-                        if (v["repeating_inventory_" + currentID + "_itemweight"] && isNaN(parseInt(v["repeating_inventory_" + currentID + "_itemweight"], 10)) === false) {
+                        if (v["repeating_inventory_" + currentID + "_itemweight"] && isNaN(parseInt(v["repeating_inventory_" + currentID + "_itemweight"], 0)) === false) {
                             if (v["repeating_inventory_" + currentID + "_itemweightfixed"] == 1) {
                                 wtotal += parseFloat(v["repeating_inventory_" + currentID + "_itemweight"]);
                             } else {
@@ -667,7 +719,7 @@ var update_weight = function() {
                             }
                         }
                         // UPDATE SLOTS
-                        if (v["repeating_inventory_" + currentID + "_itemsize"] && isNaN(parseInt(v["repeating_inventory_" + currentID + "_itemsize"], 10)) === false) {
+                        if (v["repeating_inventory_" + currentID + "_itemsize"] && isNaN(parseInt(v["repeating_inventory_" + currentID + "_itemsize"], 0)) === false) {
                             if (v["repeating_inventory_" + currentID + "_itemslotsfixed"] == 1) {
                                 stotal += parseFloat(v["repeating_inventory_" + currentID + "_itemsize"]);
                             } else {
@@ -679,80 +731,61 @@ var update_weight = function() {
                 }
             });
 
-            // CAP TOTALS AT 2 DECIMAL PLACES
             wtotal = Math.round(wtotal * 100) / 100;
             stotal = Math.round(stotal * 100) / 100;
 
             update["weighttotal"] = wtotal;
             update["slotstotal"] = stotal;
 
-            if (v["use_inventory_slots"] == 1) {
+            var size_slots = 18;
+            size_slots += parseInt(v.power);
 
-                var size_slots = 18;
-                size_slots += parseInt(v.power, 10);
-
-                if (v.inventory_slots_mod) {
-                    var operator = v.inventory_slots_mod.substring(0, 1);
-                    var value = v.inventory_slots_mod.substring(1);
-                    if (["*", "x", "+", "-"].indexOf(operator) > -1 && isNaN(parseInt(value, 10)) === false) {
-                        if (operator == "*" || operator == "x") {
-                            size_slots *= parseInt(value, 10);
-                        } else if (operator == "+") {
-                            size_slots += parseInt(value, 10);
-                        } else if (operator == "-") {
-                            size_slots -= parseInt(value, 10);
-                        }
+            if (v.inventory_slots_mod) {
+                var operator = v.inventory_slots_mod.substring(0, 1);
+                var value = v.inventory_slots_mod.substring(1);
+                if (["*", "x", "+", "-"].indexOf(operator) > -1 && isNaN(parseInt(value, 0)) === false) {
+                    if (operator == "*" || operator == "x") {
+                        size_slots *= parseInt(value, 0);
+                    } else if (operator == "+") {
+                        size_slots += parseInt(value, 0);
+                    } else if (operator == "-") {
+                        size_slots -= parseInt(value, 0);
                     }
                 }
+            }
 
-                size_slots += slots_modifier;
-
-                update["slotsmaximum"] = size_slots;
-                if (stotal > size_slots) {
-                    update["encumberance"] = "OVER CARRYING CAPACITY";
-                } else {
-                    update["encumberance"] = " ";
+            size_slots += slots_modifier;
+            
+            var str_base = parseInt(v.power);
+            var size_multiplier = 1;
+            var str = str_base * size_multiplier;
+            if (v.carrying_capacity_mod) {
+                var operator = v.carrying_capacity_mod.substring(0, 1);
+                var value = v.carrying_capacity_mod.substring(1);
+                if (["*", "x", "+", "-"].indexOf(operator) > -1 && isNaN(parseInt(value, 0)) === false) {
+                    if (operator == "*" || operator == "x") {
+                        str *= parseInt(value, 0);
+                    } else if (operator == "+") {
+                        str += parseInt(value, 0);
+                    } else if (operator == "-") {
+                        str -= parseInt(value, 0);
+                    }
                 }
+            }
 
+            update["slotsmaximum"] = size_slots;
+            update["weightmaximum"] = str * 15;
+
+            if (stotal > size_slots) {
+                update["encumberance"] = "OVER CARRYING CAPACITY";
+            } else if (wtotal > str * 15) {
+                update["encumberance"] = "IMMOBILE";
+            } else if (wtotal > str * 12) {
+                update["encumberance"] = "HEAVILY ENCUMBERED";
+            } else if (wtotal > str * 8) {
+                update["encumberance"] = "ENCUMBERED";
             } else {
-
-                var str_base = parseInt(v.power, 10);
-                var size_multiplier = 1;
-                var str = str_base * size_multiplier;
-                if (v.carrying_capacity_mod) {
-                    var operator = v.carrying_capacity_mod.substring(0, 1);
-                    var value = v.carrying_capacity_mod.substring(1);
-                    if (["*", "x", "+", "-"].indexOf(operator) > -1 && isNaN(parseInt(value, 10)) === false) {
-                        if (operator == "*" || operator == "x") {
-                            str *= parseInt(value, 10);
-                        } else if (operator == "+") {
-                            str += parseInt(value, 10);
-                        } else if (operator == "-") {
-                            str -= parseInt(value, 10);
-                        }
-                    }
-                }
-
-                update["weightmaximum"] = str * 15;
-                if (!v.encumberance_setting || v.encumberance_setting === "off") {
-                    if (wtotal > str * 15) {
-                        update["encumberance"] = "OVER CARRYING CAPACITY";
-                    } else {
-                        update["encumberance"] = " ";
-                    }
-                } else if (v.encumberance_setting === "on") {
-                    if (wtotal > str * 15) {
-                        update["encumberance"] = "IMMOBILE";
-                    } else if (wtotal > str * 10) {
-                        update["encumberance"] = "HEAVILY ENCUMBERED";
-                    } else if (wtotal > str * 5) {
-                        update["encumberance"] = "ENCUMBERED";
-                    } else {
-                        update["encumberance"] = " ";
-                    }
-                } else {
-                    update["encumberance"] = " ";
-                }
+                update["encumberance"] = " ";
             }
 
             setAttrs(update, {
@@ -762,3 +795,79 @@ var update_weight = function() {
     });
 };
 
+var check_itemmodifiers = function(modifiers, previousValue) {
+    var mods = modifiers.toLowerCase().split(",");
+    if (previousValue) {
+        prevmods = previousValue.toLowerCase().split(",");
+        mods = _.union(mods, prevmods);
+    };
+    _.each(mods, function(mod) {
+        if (mod.indexOf("power") > -1) {
+            update_attr("power");
+        };
+        if (mod.indexOf("agility") > -1) {
+            update_attr("agility");
+        };
+        if (mod.indexOf("vitality") > -1) {
+            update_attr("vitality");
+        };
+        if (mod.indexOf("cultivation") > -1) {
+            update_attr("cultivation");
+        };
+        if (mod.indexOf("qi_control") > -1) {
+            update_attr("qi_control");
+        };
+        if (mod.indexOf("mental_strength") > -1) {
+            update_attr("mental_strength");
+        };
+    });
+};
+
+var update_attr = function(attr) {
+    var update = {};
+    var attr_fields = [attr + "_base", attr + "_bonus"];
+    getSectionIDs("repeating_inventory", function(idarray) {
+        _.each(idarray, function(currentID, i) {
+            attr_fields.push("repeating_inventory_" + currentID + "_equipped");
+            attr_fields.push("repeating_inventory_" + currentID + "_itemmodifiers");
+        });
+        getAttrs(attr_fields, function(v) {
+            var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 0)) ? parseInt(v[attr + "_base"], 0) : 0;
+            var bonus = v[attr + "_bonus"] && !isNaN(parseInt(v[attr + "_bonus"], 0)) ? parseInt(v[attr + "_bonus"], 0) : 0;
+            var item_base = 0;
+            var item_bonus = 0;
+            _.each(idarray, function(currentID) {
+                if ((!v["repeating_inventory_" + currentID + "_equipped"] || v["repeating_inventory_" + currentID + "_equipped"] === "1") && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf(attr > -1)) {
+                    var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
+                    _.each(mods, function(mod) {
+                        if (mod.indexOf(attr) > -1 && mod.indexOf("save") === -1) {
+                            if (mod.indexOf(":") > -1) {
+                                var new_base = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 0)) ? parseInt(mod.replace(/[^0-9]/g, ""), 0) : false;
+                                item_base = new_base && new_base > item_base ? new_base : item_base;
+                            } else if (mod.indexOf("-") > -1) {
+                                var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 0)) ? parseInt(mod.replace(/[^0-9]/g, ""), 0) : false;
+                                item_bonus = new_mod ? item_bonus - new_mod : item_bonus;
+                            } else {
+                                var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 0)) ? parseInt(mod.replace(/[^0-9]/g, ""), 0) : false;
+                                item_bonus = new_mod ? item_bonus + new_mod : item_bonus;
+                            }
+                        };
+                    });
+                }
+            });
+
+            base = base > item_base ? base : item_base;
+            update[attr] = base + bonus + item_bonus;
+            setAttrs(update);
+        });
+    });
+};
+
+var update_mod = function(attr) {
+    getAttrs([attr], function(v) {
+        var finalattr = v[attr] && isNaN(v[attr]) === false ? parseInt(v[attr], 0) : 0;
+        var update = {};
+        update[attr + "_mod"] = finalattr;
+        setAttrs(update);
+    });
+};

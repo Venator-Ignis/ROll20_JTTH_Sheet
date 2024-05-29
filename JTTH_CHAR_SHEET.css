@@ -289,18 +289,22 @@
     border-bottom: 1px solid grey;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes{
     display: flex;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute:first-of-type,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:first-of-type{
     margin-left: 0;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute:last-of-type,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:last-of-type{
     margin-right: 0;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
     background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-attribute-bg.png");
     background-size: 100% 100%;
@@ -313,6 +317,7 @@
     margin-right: 10px;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute input,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute input{
     width: 100%;
     background: none;
@@ -326,15 +331,22 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute button,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute button{
     background: none;
     border: none;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute span,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute span{
     text-align: center;
     align-items: center;
     display: inline-grid;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-panel .sheet-container-body{
+    display: flex;
+    flex-direction: row;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns{
@@ -1986,7 +1998,7 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory > input[type="radio"]:checked ~ .sheet-tab-content {
     display: grid;
     grid-template-columns: auto 300px;
-    grid-template-rows: 85px 120px 110px auto;
+    grid-template-rows: 85px 120px 180px auto;
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     grid-template-areas: "inventory supplies"
@@ -2414,7 +2426,8 @@ input::-webkit-inner-spin-button {
 }
 
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-header + .sheet-container-body {
     padding-bottom: 0;
 }
 
@@ -2425,7 +2438,8 @@ input::-webkit-inner-spin-button {
     padding-top: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -2434,7 +2448,9 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body [type="text"],
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select ,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body [type="text"],
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body select {
     border-color: rgba(255, 255, 255, 0);
     flex-grow: 1;
     line-height: 13px;
@@ -2447,6 +2463,8 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body input,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body span {
     font-size: 24px;
 }
