@@ -2464,7 +2464,7 @@ input::-webkit-inner-spin-button {
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     grid-template-areas: 
-    "talents talents general"
+    ". . general"
     "talents talents skills"
     "attributes attributes skills";
     grid-template-columns: repeat(3, 1fr);
@@ -2588,9 +2588,9 @@ input::-webkit-inner-spin-button {
 #ancestry_none[value="1"] ~ .value-species .character_ancestry_none,
 #ancestry_angelic_echo[value="1"] ~ .value-species .character_ancestry_angelic_echo,
 #ancestry_beastmen[value="1"] ~ .value-species .character_ancestry_beastmen,
-#ancestry_demi_human[value="1"] ~ .value-species .character_ancestry_demi_human,
-#ancestry_demonic_beast[value="1"] ~ .value-species .character_ancestry_demonic_beast,
-#ancestry_divine_beast[value="1"] ~ .value-species .character_ancestry_divine_beast,
+#ancestry_demi_humans[value="1"] ~ .value-species .character_ancestry_demi_human,
+#ancestry_demonic_beasts[value="1"] ~ .value-species .character_ancestry_demonic_beast,
+#ancestry_divine_beasts[value="1"] ~ .value-species .character_ancestry_divine_beast,
 #ancestry_draconian[value="1"] ~ .value-species .character_ancestry_draconian,
 #ancestry_elemental_born[value="1"] ~ .value-species .character_ancestry_elemental_born,
 #ancestry_fallen[value="1"] ~ .value-species .character_ancestry_fallen,
@@ -2600,7 +2600,7 @@ input::-webkit-inner-spin-button {
 #ancestry_merfolk[value="1"] ~ .value-species .character_ancestry_merfolk,
 #ancestry_mirotide[value="1"] ~ .value-species .character_ancestry_mirotide,
 #ancestry_parasyte[value="1"] ~ .value-species .character_ancestry_parasyte,
-#ancestry_sporling[value="1"] ~ .value-species .character_ancestry_sporling,
+#ancestry_sporlings[value="1"] ~ .value-species .character_ancestry_sporling,
 #ancestry_slime_kin[value="1"] ~ .value-species .character_ancestry_slime_kin,
 #ancestry_tiko[value="1"] ~ .value-species .character_ancestry_tiko,
 #ancestry_yokai[value="1"] ~ .value-species .character_ancestry_yokai,

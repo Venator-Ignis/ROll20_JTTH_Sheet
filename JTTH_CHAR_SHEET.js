@@ -1,4 +1,250 @@
 
+const ancestrySpeeds = {
+    'None' : 0,
+    'Angelic Echo' : 4,
+    'Beastmen' : 8,
+    'Demi-humans' : 7,
+    'Demonic Beasts' : 10,
+    'Divine Beasts' : 10,
+    'Draconian' : 6,
+    'Elemental Born' : 6,
+    'Fallen' : 6,
+    'Human' : 6,
+    'Insectoid' : 7,
+    'Living Golem' : 7,
+    'Merfolk' : 4,
+    'Mirotide' : 6,
+    'Parasyte' : 4,
+    'Sporlings' : 4,
+    'Slime-kin' : 4,
+    'Tiko' : 7,
+    'Yokai' : 6,
+    'Vampire' : 8,
+    'Varkari' : 8
+};
+
+const speciesAdjustments = {
+    'None' :{},
+    'Angelic Echo' :{
+        'None': { fly: 8 }
+    },
+    'Beastmen' :{
+        'None' : {},
+        'Avian (Eagle)' : { fly : 6 },
+        'Avian (Owl)' : { fly : 6 },
+        'Avian (Peacock)' : { fly : 4 },
+        'Avian (Raven)' : { fly : 5 },
+        'Bovine (Ankole-Watusi)' : {},
+        'Bovine (Bison)' : {},
+        'Bovine (Gaur)' : {},
+        'Bovine (Water Buffalo)' : {},
+        'Bovine (Yak)' : {},
+        'Canine (Arctic Fox)' : {},
+        'Canine (Arctic Wolf)' : {},
+        'Canine (Gray Wolf)' : {},
+        'Canine (Hyena)' : {},
+        'Canine (Jackal)' : {},
+        'Canine (Red Fox)' : {},
+        'Cervine (Elk)' : {},
+        'Cervine (Moose)' : {},
+        'Cervine (Reindeer)' : {},
+        'Feline (Bobcat)' : {},
+        'Feline (Cheetah)' : {},
+        'Feline (Jaguar)' : {},
+        'Feline (Leopard)' : {},
+        'Feline (Lion)' : {},
+        'Feline (Lynx)' : {},
+        'Feline (Ocelot)' : {},
+        'Feline (Tiger)' : {},
+        'Reptilian (Alligator)' : { swim: 10 },
+        'Reptilian (Chameleon)' : {},
+        'Reptilian (Crocodile)' : { swim: 8 },
+        'Reptilian (Komodo Dragon)' : {},
+        'Reptilian (Lizard)' : {},
+        'Reptilian (Turtle)' : {},
+        'Rodent (Beaver)' : {},
+        'Rodent (Capybara)' : {},
+        'Rodent (Mouse)' : {},
+        'Rodent (Porcupine)' : {},
+        'Rodent (Rat)' : {},
+        'Rodent (Squirrel)' : {},
+        'Simian (Baboon)' : { climb: 9 },
+        'Simian (Chimpanzee)' : { climb: 9 },
+        'Simian (Gorilla)' : {},
+        'Simian (Macaque)' : { climb: 8 },
+        'Simian (Mandrill)' : {},
+        'Simian (Orangutan)' : { climb: 8 },
+        'Simian (Spider Monkey)' : { climb: 8 },
+        'Ursine (Black Bear)' : {},
+        'Ursine (Brown Bear)' : {},
+        'Ursine (Panda Bear)' : {},
+        'Ursine (Polar Bear)' : {},
+    },
+    'Demi-humans' :{
+        'Avian (Eagle)' : { fly : 5 },
+        'Avian (Owl)' : { fly : 5 },
+        'Avian (Peacock)' : {},
+        'Avian (Raven)' : {},
+        'Bovine (Ankole-Watusi)' : {},
+        'Bovine (Bison)' : {},
+        'Bovine (Gaur)' : {},
+        'Bovine (Water Buffalo)' : {},
+        'Bovine (Yak)' : {},
+        'Canine (Arctic Fox)' : {},
+        'Canine (Arctic Wolf)' : {},
+        'Canine (Gray Wolf)' : {},
+        'Canine (Hyena)' : {},
+        'Canine (Jackal)' : {},
+        'Canine (Red Fox)' : {},
+        'Cervine (Elk)' : {},
+        'Cervine (Moose)' : {},
+        'Cervine (Reindeer)' : {},
+        'Feline (Bobcat)' : {},
+        'Feline (Cheetah)' : {},
+        'Feline (Jaguar)' : {},
+        'Feline (Leopard)' : {},
+        'Feline (Lion)' : {},
+        'Feline (Lynx)' : {},
+        'Feline (Ocelot)' : {},
+        'Feline (Tiger)' : {},
+        'Reptilian (Alligator)' : { swim: 7 },
+        'Reptilian (Chameleon)' : {},
+        'Reptilian (Crocodile)' : { swim: 7 },
+        'Reptilian (Komodo Dragon)' : {},
+        'Reptilian (Lizard)' : {},
+        'Reptilian (Turtle)' : {},
+        'Rodent (Beaver)' : {},
+        'Rodent (Capybara)' : {},
+        'Rodent (Mouse)' : {},
+        'Rodent (Porcupine)' : {},
+        'Rodent (Rat)' : {},
+        'Rodent (Squirrel)' : {},
+        'Simian (Baboon)' : { climb: 6 },
+        'Simian (Chimpanzee)' : { climb: 6 },
+        'Simian (Gorilla)' : {},
+        'Simian (Macaque)' : { climb: 6 },
+        'Simian (Mandrill)' : {},
+        'Simian (Orangutan)' : { climb: 6 },
+        'Simian (Spider Monkey)' : { climb: 6 },
+        'Ursine (Black Bear)' : {},
+        'Ursine (Brown Bear)' : {},
+        'Ursine (Panda Bear)' : {},
+        'Ursine (Polar Bear)' : {},
+    },
+    'Demonic Beasts' :{
+        'World Serpent' : {},
+        'Phantom Wolf' : {},
+        'Abyssal Wyvern' : {},
+    },
+    'Divine Beasts' :{
+        'Celestial Gryphon' : { fly: 6 },
+        'Astral Tiger ' : {},
+        'Divine Crane' : {fly: 15},
+    },
+    'Draconian' :{
+        'Flameheart (Flame Claw)' : {},
+        'Flameheart (Inferno Breath)' : {},
+        'Flameheart (Ember Shield)' : {},
+        'Giantrock (Stone Fist)' : {},
+        'Giantrock (Lava Breath)' : {},
+        'Giantrock (Rock Hide)' : {},
+        'Trailfinder (Sharp Claws)' : {},
+        'Trailfinder (Keen Senses)' : {},
+        'Trailfinder (Swift Stride)' : {},
+        'RazorWings (Bladed Wings)' : { fly: 6 },
+        'RazorWings (Spike Barrage)' : {},
+        'RazorWings (Blade Armour)' : {},
+        'Oceancrest (Water Mastery)' : {},
+        'Oceancrest (Electric Surge)' : {},
+        'Oceancrest (Tidal Force)' : {},
+        'VeilShadows (Shadowclaw)' : {},
+        'VeilShadows (Eyes of the Night)' : {},
+        'VeilShadows (Etheral Step)' : {},
+        'Boltstrike (Thunderclaw)' : {},
+        'Boltstrike (Storm Breath)' : {},
+        'Boltstrike (Lightning Speed)' : {},
+    },
+    'Elemental Born' :{
+        'Fire-born' : {},
+        'Water-born' : {},
+        'Earth-born' : {},
+        'Storm-born' : {},
+        'Ice-born' : {},
+        'Plant-born' : {},
+        'Metal-born' : {},
+    },
+    'Fallen' :{
+        'The Damning' : {movement: 8},
+        'The Everlasting' : {movement: 6},
+        'The Scorching' : {movement: 8},
+        'The Stalking' : {movement: 7},
+        'The Undying' : {movement: 6},
+    },
+    'Human' :{},
+    'Insectoid' :{
+        'Formicidae' : {},
+        'Coleoptera' : {fly: 4},
+        'Lepidoptera' : {fly: 8},
+        'Mantodea' : {},
+        'Odonata' : {fly: 8},
+        'Blattodea' : {},
+        'Orthoptera' : {},
+        'Hymenoptera' : {},
+    },
+    'Living Golem' :{
+        'Ironclad Colossus' : {},
+        'Clockwork Artificer' : {},
+    },
+    'Merfolk' :{
+        'None': { swim: 12 },
+        'Bog Water Fin': { swim: 12 },
+        'Deep Water Fin': { swim: 12 },
+        'Fresh Water Fin': { swim: 12 },
+        'Lake Water Fin': { swim: 12 },
+        'River Water Fin': { swim: 12 },
+        'Salt Water Fin': { swim: 12 }
+    },
+    'Nirotide' :{},
+    'Parasyte' :{},
+    'Sporlings' :{},
+    'Slime-kin' :{},
+    'Tiko' :{},
+    'Yokai' :{
+        'Atatsu' : {},
+        'Baku' : {},
+        'Hososhi' : {},
+        'Jorogumo' : {},
+        'Kagutsuchi' : {},
+        'Kappa' : {},
+        'Karasu' : {fly: 7},
+        'Kejoro' : {},
+        'Kijimuna' : {},
+        'Kitsune' : {},
+        'Kijo ' : {},
+        'Kodama' : {},
+        'Nekomata' : {},
+        'Nue' : {},
+        'Nure-Onna' : {},
+        'Oni (Blue)' : {},
+        'Oni (Green)' : {movement: 10},
+        'Oni (Red)' : {},
+        'Raiju' : {},
+        'Tanuki' : {},
+        'Tengu' : {fly: 10},
+        'Tsuchigumo' : {},
+        'Wani' : {swim: 6},
+        'Yamauba' : {},
+        'Yuki-onna' : {},
+    },
+    'Vampire' :{
+        'Celeris Vampire' : {},
+        'Fortis Vampire' : {},
+        'Qi Sangui Vampire' : {},
+        'Sanguine Vampire' : {},
+    },
+    'Varkari' :{}
+};
+
 ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
     on(`change:${attr}_base change:${attr}_bonus`, function() {
         update_attr(`${attr}`);
@@ -8,6 +254,34 @@
     });
     console.log("Updating Attribute");
     console.log("Updating Attribute Modified Value");
+});
+
+on('change:character_ancestry change:character_species', function(eventInfo) {
+    getAttrs(["character_ancestry", "character_species"], function(v) {
+        var update = {};
+
+        let ancestry = v.character_ancestry;
+        let species = v.character_species || 'Default';
+
+        let baseSpeed = ancestrySpeeds[ancestry] || 6;
+        let adjustments = speciesAdjustments[ancestry] && speciesAdjustments[ancestry][species] || {};
+
+        let movement = adjustments.movement || baseSpeed;
+        let swim = adjustments.swim || Math.round(movement / 2);
+        let climb = adjustments.climb || Math.round(movement / 2);
+        let fly = adjustments.fly || 0;
+
+        update["movement"] = movement;
+        update["swim"] = swim;
+        update["climb"] = climb;
+        update["fly"] = fly;
+
+        console.log("Updating Character Movement Speed")
+        
+        setAttrs(update, {
+            silent: true
+        });
+    });
 });
 
 on("change:agility change:power change:vitality change:cultivation change:mental_strength change:appearance change:qi_control", function(eventinfo) {
@@ -131,9 +405,9 @@ on('change:character_ancestry', function() {
             ancestry_none: '0',
             ancestry_angelic_echo: '0',
             ancestry_beastmen: '0',
-            ancestry_demi_human: '0',
-            ancestry_demonic_beast: '0',
-            ancestry_divine_beast: '0',
+            ancestry_demi_humans: '0',
+            ancestry_demonic_beasts: '0',
+            ancestry_divine_beasts: '0',
             ancestry_draconian: '0',
             ancestry_elemental_born: '0',
             ancestry_fallen: '0',
@@ -143,7 +417,7 @@ on('change:character_ancestry', function() {
             ancestry_merfolk: '0',
             ancestry_mirotide: '0',
             ancestry_parasyte: '0',
-            ancestry_sporling: '0',
+            ancestry_sporlings: '0',
             ancestry_slime_kin: '0',
             ancestry_tiko: '0',
             ancestry_yokai: '0',
@@ -752,7 +1026,6 @@ var update_weight = function() {
                         // GET SLOTS MODIFIER IF EQUIPPED
                         if (v["repeating_inventory_" + currentID + "_equipped"] == 1) {
                             var slotsID = "repeating_inventory_" + currentID + "_itemcontainer_slots";
-                            console.log("itemcontainer_slots: ", slotsID)
                             containerslots = parseInt(v[slotsID], 0);
                             var field_id = "repeating_inventory_" + currentID + "_itemcontainer_slots_modifier";
                             if (v[field_id]) {
