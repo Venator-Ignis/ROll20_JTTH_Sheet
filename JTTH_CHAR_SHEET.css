@@ -254,7 +254,7 @@
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image::before {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-box-border.png) 20 fill stretch;
+    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 20 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -308,7 +308,7 @@
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
-    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-attribute-bg.png");
+    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-attribute-bg.png");
     background-size: 100% 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -1266,7 +1266,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-container-well::before {
-    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-well-border.png") 100 300 100 300 fill stretch;
+    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-well-border.png") 100 300 100 300 fill stretch;
     border-style: solid;
     border-width: 32px 101px;
     box-sizing: border-box;
@@ -1281,7 +1281,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-container-panel::before {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-box-border.png) 50 fill stretch;
+    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 fill stretch;
     border-style: solid;
     border-width: 15px 15px;
     box-sizing: border-box;
@@ -2353,7 +2353,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-container-bar::before {
-    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-bar-border.png") 103 103 103 103 fill stretch;
+    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png") 103 103 103 103 fill stretch;
     border-style: solid;
     border-width: 30px 30px 0;
     box-sizing: border-box;
@@ -2391,7 +2391,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-header::after {
-    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-bar-spacer.png");
+    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png");
     background-size: 100% 100%;
     content: '';
     display: inline-block;
