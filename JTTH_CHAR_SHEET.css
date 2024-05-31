@@ -277,9 +277,15 @@
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input{
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input,
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select{
     width: 100%;
     height: 25px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select{
+    padding: 0;
+    margin: 0;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input{
@@ -2458,19 +2464,11 @@ input::-webkit-inner-spin-button {
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     grid-template-areas: 
-    "path ancestry general"
-   "talents talents skills"
-   "attributes attributes skills";
+    "talents talents general"
+    "talents talents skills"
+    "attributes attributes skills";
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-path{
-    grid-area: path;
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-ancestry{
-    grid-area: ancestry;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-general{
@@ -2506,26 +2504,6 @@ input::-webkit-inner-spin-button {
     color: inherit;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_none,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_bioforged,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_demonic_arts,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_monk,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_ronin,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_samurai,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_wanderer{
-    display: none;
-}
-
-#path_none[value="1"] ~ .sheet-form-group .character_path_none,
-#path_bioforged[value="1"] ~ .sheet-form-group .character_path_bioforged,
-#path_demonic_arts[value="1"] ~ .sheet-form-group .character_path_demonic_arts,
-#path_monk[value="1"] ~ .sheet-form-group .character_path_monk,
-#path_ronin[value="1"] ~ .sheet-form-group .character_path_ronin,
-#path_samurai[value="1"] ~ .sheet-form-group .character_path_samurai,
-#path_wanderer[value="1"] ~ .sheet-form-group .character_path_wanderer {
-    display: block;
-}
-
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .talents_group{
     flex-direction: column;
 }
@@ -2535,11 +2513,6 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents{
     display: grid;
     grid-template-columns: repeat(4, 123px);
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .character_talent_trained_actor{
-    display: grid;
-    grid-template-columns: repeat(5, 100px);
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group,
@@ -2565,6 +2538,75 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-rolltemplate {
     display: none;
+}
+
+
+.charsheet .sheet-core .sheet-section-pc .character_path_none,
+.charsheet .sheet-core .sheet-section-pc .character_path_bioforged,
+.charsheet .sheet-core .sheet-section-pc .character_path_demonic_arts,
+.charsheet .sheet-core .sheet-section-pc .character_path_monk,
+.charsheet .sheet-core .sheet-section-pc .character_path_ronin,
+.charsheet .sheet-core .sheet-section-pc .character_path_samurai,
+.charsheet .sheet-core .sheet-section-pc .character_path_wanderer{
+    display: none;
+}
+
+#path_none[value="1"] ~ .value-subpath .character_path_none,
+#path_bioforged[value="1"] ~ .value-subpath .character_path_bioforged,
+#path_demonic_arts[value="1"] ~ .value-subpath .character_path_demonic_arts,
+#path_monk[value="1"] ~ .value-subpath .character_path_monk,
+#path_ronin[value="1"] ~ .value-subpath .character_path_ronin,
+#path_samurai[value="1"] ~ .value-subpath .character_path_samurai,
+#path_wanderer[value="1"] ~ .value-subpath .character_path_wanderer {
+    display: block;
+}
+
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_none,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_angelic_echo,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_beastmen,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_demi_human,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_demonic_beast,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_divine_beast,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_draconian,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_elemental_born,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_fallen,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_human,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_insectoid,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_living_golem,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_merfolk,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_mirotide,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_parasyte,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_sporling,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_slime_kin,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_tiko,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_yokai,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_vampire,
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_varkari{
+    display: none;
+}
+
+#ancestry_none[value="1"] ~ .value-species .character_ancestry_none,
+#ancestry_angelic_echo[value="1"] ~ .value-species .character_ancestry_angelic_echo,
+#ancestry_beastmen[value="1"] ~ .value-species .character_ancestry_beastmen,
+#ancestry_demi_human[value="1"] ~ .value-species .character_ancestry_demi_human,
+#ancestry_demonic_beast[value="1"] ~ .value-species .character_ancestry_demonic_beast,
+#ancestry_divine_beast[value="1"] ~ .value-species .character_ancestry_divine_beast,
+#ancestry_draconian[value="1"] ~ .value-species .character_ancestry_draconian,
+#ancestry_elemental_born[value="1"] ~ .value-species .character_ancestry_elemental_born,
+#ancestry_fallen[value="1"] ~ .value-species .character_ancestry_fallen,
+#ancestry_human[value="1"] ~ .value-species .character_ancestry_human,
+#ancestry_insectoid[value="1"] ~ .value-species .character_ancestry_insectoid,
+#ancestry_living_golem[value="1"] ~ .value-species .character_ancestry_living_golem,
+#ancestry_merfolk[value="1"] ~ .value-species .character_ancestry_merfolk,
+#ancestry_mirotide[value="1"] ~ .value-species .character_ancestry_mirotide,
+#ancestry_parasyte[value="1"] ~ .value-species .character_ancestry_parasyte,
+#ancestry_sporling[value="1"] ~ .value-species .character_ancestry_sporling,
+#ancestry_slime_kin[value="1"] ~ .value-species .character_ancestry_slime_kin,
+#ancestry_tiko[value="1"] ~ .value-species .character_ancestry_tiko,
+#ancestry_yokai[value="1"] ~ .value-species .character_ancestry_yokai,
+#ancestry_vampire[value="1"] ~ .value-species .character_ancestry_vampire,
+#ancestry_varkari[value="1"] ~ .value-species .character_ancestry_varkari {
+    display: block;
 }
 
 .charsheet .sheet-rolltemplate .sheet-rolltemplate-desc,

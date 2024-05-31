@@ -855,11 +855,83 @@
                     </div>
                     <div class="sheet-character-detail-label label-path">Mortal Path:</div>
                     <div class="sheet-character-detail-value value-path">
-                        <input type="text" name="attr_character_path"title="@{character_path}">
+                        <select name="attr_character_path" title="@{character_path}">
+                            <option value="None">Choose a Path</option>
+                            <option value="Bioforged">Bioforged</option>
+                            <option value="Demonic Arts">Demonic Arts</option>
+                            <option value="Monk">Monk</option>
+                            <option value="Onmyoji">Onmyoji</option>
+                            <option value="Ronin">Ronin</option>
+                            <option value="Samurai">Samurai</option>
+                            <option value="Wanderer">Wanderer</option>
+                        </select>
                     </div>
+                    <input type="hidden" name="attr_path_none" id="path_none" value="1">
+                    <input type="hidden" name="attr_path_bioforged" id="path_bioforged" value="0">
+                    <input type="hidden" name="attr_path_demonic_arts" id="path_demonic_arts" value="0">
+                    <input type="hidden" name="attr_path_monk" id="path_monk" value="0">
+                    <input type="hidden" name="attr_path_ronin" id="path_ronin" value="0">
+                    <input type="hidden" name="attr_path_samurai" id="path_samurai" value="0">
+                    <input type="hidden" name="attr_path_wanderer" id="path_wanderer" value="0">
                     <div class="sheet-character-detail-label label-subpath">Sub Path:</div>
                     <div class="sheet-character-detail-value value-subpath">
-                        <input type="text" name="attr_character_subpath" title="@{character_subpath}">
+                        <select class="character_path_none" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="None">Choose a Path</option>
+                        </select>
+                        <select class="character_path_bioforged" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="">Choose a Path</option>
+                            <option value="Alchemic">Alchemic</option>
+                            <option value="Arachnean">Arachnean</option>
+                            <option value="Bastion">Bastion</option>
+                            <option value="Bladekin">Bladekin</option>
+                            <option value="Echoic">Echoic</option>
+                            <option value="Phytomental">Phytomental</option>
+                            <option value="Tracker">Tracker</option>
+                        </select>
+                        <select class="character_path_demonic_arts" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="">Choose a Path</option>
+                            <option value="Nightshade">Nightshade</option>
+                            <option value="Soul Siphoner">Soul Siphoner</option>
+                            <option value="Shadow Walker">Shadow Walker</option>
+                            <option value="Blood Binder">Blood Binder</option>
+                            <option value="Way of the Flesh">Way of the Flesh</option>
+                        </select>
+                        <select class="character_path_monk" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="">Choose a Path</option>
+                            <option value="Dragon Warrior">Dragon Warrior</option>
+                            <option value="Harmony">Harmony</option>
+                            <option value="Iron Fist">Iron Fist</option>
+                            <option value="Open Palm">Open Palm</option>
+                            <option value="Silver String">Silver String</option>
+                            <option value="Tao Touch">Tao Touch</option>
+                        </select>
+                        <select class="character_path_ronin" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="">Choose a Path</option>
+                            <option value="Battfield Ghost">Battfield Ghost</option>
+                            <option value="Blade of Vengeance">Blade of Vengeance</option>
+                            <option value="Bladedancer">Bladedancer</option>
+                            <option value="Corrupted Blade">Corrupted Blade</option>
+                            <option value="Lone Wolf">Lone Wolf</option>
+                            <option value="The Archer">The Archer</option>
+                        </select>
+                        <select class="character_path_samurai" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="">Choose a Path</option>
+                            <option value="Emperor Shield">Emperor Shield</option>
+                            <option value="Moonlight Warrior">Moonlight Warrior</option>
+                            <option value="Rising Sun">Rising Sun</option>
+                            <option value="Steel Blossom">Steel Blossom</option>
+                        </select>
+                        <select class="character_path_wanderer" name="attr_character_subpath" title="@{character_subpath}">
+                            <option value="">Choose a Path</option>
+                            <option value="Axe">Axe</option>
+                            <option value="Chain">Chain</option>
+                            <option value="Hammer">Hammer</option>
+                            <option value="Shield">Shield</option>
+                            <option value="Spear">Spear</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Whip">Whip</option>
+                            <option value="Wild Runner">Wild Runner</option>
+                        </select>
                     </div>
                 </div>
                 <div class="sheet-character-detail">
@@ -885,11 +957,305 @@
                 <div class="sheet-character-detail">
                     <div class="sheet-character-detail-label label-ancestry">Ancestry:</div>
                     <div class="sheet-character-detail-value value-ancestry">
-                        <input type="text" name="attr_character_ancestry" title="@{character_ancestry}">
+                        <select name="attr_character_ancestry" title="@{character_ancestry}">
+                            <option value="None">Choose an Ancestry</option>
+                            <option value="Angelic Echo">Angelic Echo</option>
+                            <option value="Beastmen">Beastmen</option>
+                            <option value="Demi-humans">Demi-humans</option>
+                            <option value="Demonic Beasts">Demonic Beasts</option>
+                            <option value="Divine Beasts">Divine Beasts</option>
+                            <option value="Draconian">Draconian</option>
+                            <option value="Elemental Born">Elemental Born</option>
+                            <option value="Fallen">Fallen</option>
+                            <option value="Human">Human</option>
+                            <option value="Insectoid">Insectoid</option>
+                            <option value="Living Golem">Living Golem</option>
+                            <option value="Merfolk">Merfolk</option>
+                            <option value="Mirotide">Mirotide</option>
+                            <option value="Parasyte">Parasyte</option>
+                            <option value="Sporlings">Sporlings</option>
+                            <option value="Slime-kin">Slime-kin</option>
+                            <option value="Tiko">Tiko</option>
+                            <option value="Yokai">Yokai</option>
+                            <option value="Vampire">Vampire</option>
+                            <option value="Varkari">Varkari</option>
+                        </select>
                     </div>
+                    <input type="hidden" name="attr_ancestry_none" id="ancestry_none" value="1">
+                    <input type="hidden" name="attr_ancestry_angelic_echo" id="ancestry_angelic_echo" value="0">
+                    <input type="hidden" name="attr_ancestry_beastmen" id="ancestry_beastmen" value="0">
+                    <input type="hidden" name="attr_ancestry_demi_humans" id="ancestry_demi_humans" value="0">
+                    <input type="hidden" name="attr_ancestry_demonic_beasts" id="ancestry_demonic_beasts" value="0">
+                    <input type="hidden" name="attr_ancestry_divine_beasts" id="ancestry_divine_beasts" value="0">
+                    <input type="hidden" name="attr_ancestry_draconian" id="ancestry_draconian" value="0">
+                    <input type="hidden" name="attr_ancestry_elemental_born" id="ancestry_elemental_born" value="0">
+                    <input type="hidden" name="attr_ancestry_fallen" id="ancestry_fallen" value="0">
+                    <input type="hidden" name="attr_ancestry_human" id="ancestry_human" value="0">
+                    <input type="hidden" name="attr_ancestry_insectoid" id="ancestry_insectoid" value="0">
+                    <input type="hidden" name="attr_ancestry_living_golem" id="ancestry_living_golem" value="0">
+                    <input type="hidden" name="attr_ancestry_merfolk" id="ancestry_merfolk" value="0">
+                    <input type="hidden" name="attr_ancestry_mirotide" id="ancestry_mirotide" value="0">
+                    <input type="hidden" name="attr_ancestry_parasyte" id="ancestry_parasyte" value="0">
+                    <input type="hidden" name="attr_ancestry_sporlings" id="ancestry_sporlings" value="0">
+                    <input type="hidden" name="attr_ancestry_slime_kin" id="ancestry_slime_kin" value="0">
+                    <input type="hidden" name="attr_ancestry_tiko" id="ancestry_tiko" value="0">
+                    <input type="hidden" name="attr_ancestry_yokai" id="ancestry_yokai" value="0">
+                    <input type="hidden" name="attr_ancestry_vampire" id="ancestry_vampire" value="0">
+                    <input type="hidden" name="attr_ancestry_varkari" id="ancestry_varkari" value="0">
                     <div class="sheet-character-detail-label label-species">Species:</div>
                     <div class="sheet-character-detail-value value-species">
-                        <input type="text" name="attr_character_species" title="@{character_species}">
+                        <select class="character_ancestry_none" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose an Ancestry</option>
+                        </select>
+                        <select class="character_ancestry_angelic_echo" name="attr_character_species" title="@{character_species}">
+                            <option value="None">None</option>
+                        </select>
+                        <select class="character_ancestry_beastmen" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose an Ancestry</option>
+                            <option value="Avian (Eagle)">Avian (Eagle)</option>
+                            <option value="Avian (Owl)">Avian (Owl)</option>
+                            <option value="Avian (Peacock)">Avian (Peacock)</option>
+                            <option value="Avian (Raven)">Avian (Raven)</option>
+                            <option value="Bovine (Ankole-Watusi)">Bovine (Ankole-Watusi)</option>
+                            <option value="Bovine (Bison)">Bovine (Bison)</option>
+                            <option value="Bovine (Gaur)">Bovine (Gaur)</option>
+                            <option value="Bovine (Water Buffalo)">Bovine (Water Buffalo)</option>
+                            <option value="Bovine (Yak)">Bovine (Yak)</option>
+                            <option value="Canine (Arctic Fox)">Canine (Arctic Fox)</option>
+                            <option value="Canine (Arctic Wolf)">Canine (Arctic Wolf)</option>
+                            <option value="Canine (Gray Wolf)">Canine (Gray Wolf)</option>
+                            <option value="Canine (Hyena)">Canine (Hyena)</option>
+                            <option value="Canine (Jackal)">Canine (Jackal)</option>
+                            <option value="Canine (Red Fox)">Canine (Red Fox)</option>
+                            <option value="Cervine (Elk)">Cervine (Elk)</option>
+                            <option value="Cervine (Moose)">Cervine (Moose)</option>
+                            <option value="Cervine (Reindeer)">Cervine (Reindeer)</option>
+                            <option value="Feline (Bobcat)">Feline (Bobcat)</option>
+                            <option value="Feline (Cheetah)">Feline (Cheetah)</option>
+                            <option value="Feline (Jaguar)">Feline (Jaguar)</option>
+                            <option value="Feline (Leopard)">Feline (Leopard)</option>
+                            <option value="Feline (Lion)">Feline (Lion)</option>
+                            <option value="Feline (Lynx)">Feline (Lynx)</option>
+                            <option value="Feline (Ocelot)">Feline (Ocelot)</option>
+                            <option value="Feline (Tiger)">Feline (Tiger)</option>
+                            <option value="Reptilian (Alligator)">Reptilian (Alligator)</option>
+                            <option value="Reptilian (Chameleon)">Reptilian (Chameleon)</option>
+                            <option value="Reptilian (Crocodile)">Reptilian (Crocodile)</option>
+                            <option value="Reptilian (Komodo Dragon)">Reptilian (Komodo Dragon)</option>
+                            <option value="Reptilian (Lizard)">Reptilian (Lizard)</option>
+                            <option value="Reptilian (Turtle)">Reptilian (Turtle)</option>
+                            <option value="Rodent (Beaver)">Rodent (Beaver)</option>
+                            <option value="Rodent (Capybara)">Rodent (Capybara)</option>
+                            <option value="Rodent (Mouse)">Rodent (Mouse)</option>
+                            <option value="Rodent (Porcupine)">Rodent (Porcupine)</option>
+                            <option value="Rodent (Rat)">Rodent (Rat)</option>
+                            <option value="Rodent (Squirrel)">Rodent (Squirrel)</option>
+                            <option value="Simian (Baboon)">Simian (Baboon)</option>
+                            <option value="Simian (Chimpanzee)">Simian (Chimpanzee)</option>
+                            <option value="Simian (Gorilla)">Simian (Gorilla)</option>
+                            <option value="Simian (Macaque)">Simian (Macaque)</option>
+                            <option value="Simian (Mandrill)">Simian (Mandrill)</option>
+                            <option value="Simian (Orangutan)">Simian (Orangutan)</option>
+                            <option value="Simian (Spider Monkey)">Simian (Spider Monkey)</option>
+                            <option value="Ursine (Black Bear)">Ursine (Black Bear)</option>
+                            <option value="Ursine (Brown Bear)">Ursine (Brown Bear)</option>
+                            <option value="Ursine (Panda Bear)">Ursine (Panda Bear)</option>
+                            <option value="Ursine (Polar Bear)">Ursine (Polar Bear)</option>
+                        </select>
+                        <select class="character_ancestry_demi_human" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Avian (Eagle)">Avian (Eagle)</option>
+                            <option value="Avian (Owl)">Avian (Owl)</option>
+                            <option value="Avian (Peacock)">Avian (Peacock)</option>
+                            <option value="Avian (Raven)">Avian (Raven)</option>
+                            <option value="Bovine (Ankole-Watusi)">Bovine (Ankole-Watusi)</option>
+                            <option value="Bovine (Bison)">Bovine (Bison)</option>
+                            <option value="Bovine (Gaur)">Bovine (Gaur)</option>
+                            <option value="Bovine (Water Buffalo)">Bovine (Water Buffalo)</option>
+                            <option value="Bovine (Yak)">Bovine (Yak)</option>
+                            <option value="Canine (Arctic Fox)">Canine (Arctic Fox)</option>
+                            <option value="Canine (Arctic Wolf)">Canine (Arctic Wolf)</option>
+                            <option value="Canine (Gray Wolf)">Canine (Gray Wolf)</option>
+                            <option value="Canine (Hyena)">Canine (Hyena)</option>
+                            <option value="Canine (Jackal)">Canine (Jackal)</option>
+                            <option value="Canine (Red Fox)">Canine (Red Fox)</option>
+                            <option value="Cervine (Elk)">Cervine (Elk)</option>
+                            <option value="Cervine (Moose)">Cervine (Moose)</option>
+                            <option value="Cervine (Reindeer)">Cervine (Reindeer)</option>
+                            <option value="Feline (Bobcat)">Feline (Bobcat)</option>
+                            <option value="Feline (Cheetah)">Feline (Cheetah)</option>
+                            <option value="Feline (Jaguar)">Feline (Jaguar)</option>
+                            <option value="Feline (Leopard)">Feline (Leopard)</option>
+                            <option value="Feline (Lion)">Feline (Lion)</option>
+                            <option value="Feline (Lynx)">Feline (Lynx)</option>
+                            <option value="Feline (Ocelot)">Feline (Ocelot)</option>
+                            <option value="Feline (Tiger)">Feline (Tiger)</option>
+                            <option value="Reptilian (Alligator)">Reptilian (Alligator)</option>
+                            <option value="Reptilian (Chameleon)">Reptilian (Chameleon)</option>
+                            <option value="Reptilian (Crocodile)">Reptilian (Crocodile)</option>
+                            <option value="Reptilian (Komodo Dragon)">Reptilian (Komodo Dragon)</option>
+                            <option value="Reptilian (Lizard)">Reptilian (Lizard)</option>
+                            <option value="Reptilian (Turtle)">Reptilian (Turtle)</option>
+                            <option value="Rodent (Beaver)">Rodent (Beaver)</option>
+                            <option value="Rodent (Capybara)">Rodent (Capybara)</option>
+                            <option value="Rodent (Mouse)">Rodent (Mouse)</option>
+                            <option value="Rodent (Porcupine)">Rodent (Porcupine)</option>
+                            <option value="Rodent (Rat)">Rodent (Rat)</option>
+                            <option value="Rodent (Squirrel)">Rodent (Squirrel)</option>
+                            <option value="Simian (Baboon)">Simian (Baboon)</option>
+                            <option value="Simian (Chimpanzee)">Simian (Chimpanzee)</option>
+                            <option value="Simian (Gorilla)">Simian (Gorilla)</option>
+                            <option value="Simian (Macaque)">Simian (Macaque)</option>
+                            <option value="Simian (Mandrill)">Simian (Mandrill)</option>
+                            <option value="Simian (Orangutan)">Simian (Orangutan)</option>
+                            <option value="Simian (Spider Monkey)">Simian (Spider Monkey)</option>
+                            <option value="Ursine (Black Bear)">Ursine (Black Bear)</option>
+                            <option value="Ursine (Brown Bear)">Ursine (Brown Bear)</option>
+                            <option value="Ursine (Panda Bear)">Ursine (Panda Bear)</option>
+                            <option value="Ursine (Polar Bear)">Ursine (Polar Bear)</option>
+                        </select>
+                        <select class="character_ancestry_demonic_beast" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="World Serpent">World Serpent</option>
+                            <option value="Phantom Wolf">Phantom Wolf</option>
+                            <option value="Abyssal Wyvern">Abyssal Wyvern</option>
+                        </select>
+                        <select class="character_ancestry_divine_beast" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Celestial Gryphon">Celestial Gryphon</option>
+                            <option value="Astral Tiger ">Astral Tiger </option>
+                            <option value="Divine Crane">Divine Crane</option>
+                        </select>
+                        <select class="character_ancestry_draconian" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Flameheart (Flame Claw)">Flameheart (Flame Claw)</option>
+                            <option value="Flameheart (Inferno Breath)">Flameheart (Inferno Breath)</option>
+                            <option value="Flameheart (Ember Shield)">Flameheart (Ember Shield)</option>
+                            <option value="Giantrock (Stone Fist)">Giantrock (Stone Fist)</option>
+                            <option value="Giantrock (Lava Breath)">Giantrock (Lava Breath)</option>
+                            <option value="Giantrock (Rock Hide)">Giantrock (Rock Hide)</option>
+                            <option value="Trailfinder (Sharp Claws)">Trailfinder (Sharp Claws)</option>
+                            <option value="Trailfinder (Keen Senses)">Trailfinder (Keen Senses)</option>
+                            <option value="Trailfinder (Swift Stride)">Trailfinder (Swift Stride)</option>
+                            <option value="RazorWings (Bladed Wings)">RazorWings (Bladed Wings)</option>
+                            <option value="RazorWings (Spike Barrage)">RazorWings (Spike Barrage)</option>
+                            <option value="RazorWings (Blade Armour)">RazorWings (Blade Armour)</option>
+                            <option value="Oceancrest (Water Mastery)">Oceancrest (Water Mastery)</option>
+                            <option value="Oceancrest (Electric Surge)">Oceancrest (Electric Surge)</option>
+                            <option value="Oceancrest (Tidal Force)">Oceancrest (Tidal Force)</option>
+                            <option value="VeilShadows (Shadowclaw)">VeilShadows (Shadowclaw)</option>
+                            <option value="VeilShadows (Eyes of the Night)">VeilShadows (Eyes of the Night)</option>
+                            <option value="VeilShadows (Etheral Step)">VeilShadows (Etheral Step)</option>
+                            <option value="Boltstrike (Thunderclaw)">Boltstrike (Thunderclaw)</option>
+                            <option value="Boltstrike (Storm Breath)">Boltstrike (Storm Breath)</option>
+                            <option value="Boltstrike (Lightning Speed)">Boltstrike (Lightning Speed)</option>
+                        </select>
+                        <select class="character_ancestry_elemental_born" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Fire-born">Fire-born</option>
+                            <option value="Water-born">Water-born</option>
+                            <option value="Earth-born">Earth-born</option>
+                            <option value="Storm-born">Storm-born</option>
+                            <option value="Ice-born">Ice-born</option>
+                            <option value="Plant-born">Plant-born</option>
+                            <option value="Metal-born">Metal-born</option>
+                        </select>
+                        <select class="character_ancestry_fallen" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="The Damning">The Damning</option>
+                            <option value="The Everlasting">The Everlasting</option>
+                            <option value="The Scorching">The Scorching</option>
+                            <option value="The Stalking">The Stalking</option>
+                            <option value="The Undying">The Undying</option>
+                        </select>
+                        <select class="character_ancestry_human" name="attr_character_species" title="@{character_species}">
+                            <option value="None">None</option>
+                        </select>
+                        <select class="character_ancestry_insectoid" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Formicidae">Formicidae</option>
+                            <option value="Coleoptera">Coleoptera</option>
+                            <option value="Lepidoptera">Lepidoptera</option>
+                            <option value="Mantodea">Mantodea</option>
+                            <option value="Odonata">Odonata</option>
+                            <option value="Blattodea">Blattodea</option>
+                            <option value="Orthoptera">Orthoptera</option>
+                            <option value="Hymenoptera">Hymenoptera</option>
+                        </select>
+                        <select class="character_ancestry_living_golem" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Ironclad Colossus">Ironclad Colossus</option>
+                            <option value="Clockwork Artificer">Clockwork Artificer</option>
+                        </select>
+                        <select class="character_ancestry_merfolk" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Bog Water Fin">Bog Water Fin</option>
+                            <option value="Deep Water Fin">Deep Water Fin</option>
+                            <option value="Fresh Water Fin">Fresh Water Fin</option>
+                            <option value="Lake Water Fin">Lake Water Fin</option>
+                            <option value="River Water Fin">River Water Fin</option>
+                            <option value="Salt Water Fin">Salt Water Fin</option>
+                        </select>
+                        <select class="character_ancestry_mirotide" name="attr_character_species" title="@{character_species}">
+                            <option value="None">None</option>
+                        </select>
+                        <select class="character_ancestry_parasyte" name="attr_character_species" title="@{character_species}">
+                            <option value="None">None</option>
+                        </select>
+                        <select class="character_ancestry_sporling" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Luminales">Luminales</option>
+                            <option value="Stone-moss">Stone-moss</option>
+                            <option value="Chromaflora">Chromaflora</option>
+                            <option value="Gloomstalkers">Gloomstalkers</option>
+                        </select>
+                        <select class="character_ancestry_slime_kin" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Crystalline Slimekin">Crystalline Slimekin</option>
+                            <option value="Luminous Slimekin">Luminous Slimekin</option>
+                            <option value="Molten Slimekin">Molten Slimekin</option>
+                            <option value="Toxic Slimekin">Toxic Slimekin</option>
+                            <option value="Shadow Slimekin">Shadow Slimekin</option>
+                        </select>
+                        <select class="character_ancestry_tiko" name="attr_character_species" title="@{character_species}">
+                            <option value="None">None</option>
+                        </select>
+                        <select class="character_ancestry_yokai" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Atatsu">Atatsu</option>
+                            <option value="Baku">Baku</option>
+                            <option value="Hososhi">Hososhi</option>
+                            <option value="Jorogumo">Jorogumo</option>
+                            <option value="Kagutsuchi">Kagutsuchi</option>
+                            <option value="Kappa">Kappa</option>
+                            <option value="Karasu">Karasu</option>
+                            <option value="Kejoro">Kejoro</option>
+                            <option value="Kijimuna">Kijimuna</option>
+                            <option value="Kitsune">Kitsune</option>
+                            <option value="Kijo ">Kijo </option>
+                            <option value="Kodama">Kodama</option>
+                            <option value="Nekomata">Nekomata</option>
+                            <option value="Nue">Nue</option>
+                            <option value="Nure-Onna">Nure-Onna</option>
+                            <option value="Oni">Oni</option>
+                            <option value="Raiju">Raiju</option>
+                            <option value="Tanuki">Tanuki</option>
+                            <option value="Tengu">Tengu</option>
+                            <option value="Tsuchigumo">Tsuchigumo</option>
+                            <option value="Wani">Wani</option>
+                            <option value="Yamauba">Yamauba</option>
+                            <option value="Yuki-onna">Yuki-onna</option>
+                        </select>
+                        <select class="character_ancestry_vampire" name="attr_character_species" title="@{character_species}">
+                            <option value="None">Choose a Species</option>
+                            <option value="Celeris Vampire">Celeris Vampire</option>
+                            <option value="Fortis Vampire">Fortis Vampire</option>
+                            <option value="Qi Sangui Vampire">Qi Sangui Vampire</option>
+                            <option value="Sanguine Vampire">Sanguine Vampire</option>
+                        </select>
+                        <select class="character_ancestry_varkari" name="attr_character_species" title="@{character_species}">
+                            <option value="None">None</option>
+                        </select>
                     </div>
                 </div>
                 <div class="sheet-character-detail">
@@ -2103,108 +2469,6 @@
                     <span class="sheet-tab-label">Options</span>
                     <div class="sheet-tab-content">
                         <div class="sheet-container-well sheet-pc-options">
-                            <div class="sheet-container-panel sheet-pc-option-path">
-                                <div class="sheet-container-header">MORTAL PATH OPTIONS</div>
-                                <div class="sheet-container-body">
-                                    <div class="sheet-form sheet-form-borderless">
-                                        <div class="sheet-form-body">
-                                            <div class="sheet-form-group">
-                                                <label>Mortal Path</label>
-                                                <select name="attr_character_path" title="@{character_path}">
-                                                    <option value="None">Choose a Path</option>
-                                                    <option value="Bioforged">Bioforged</option>
-                                                    <option value="Demonic Arts">Demonic Arts</option>
-                                                    <option value="Monk">Monk</option>
-                                                    <option value="Onmyoji">Onmyoji</option>
-                                                    <option value="Ronin">Ronin</option>
-                                                    <option value="Samurai">Samurai</option>
-                                                    <option value="Wanderer">Wanderer</option>
-                                                </select>
-                                            </div>
-                                            <input type="hidden" name="attr_path_none" id="path_none" value="1">
-                                            <input type="hidden" name="attr_path_bioforged" id="path_bioforged" value="0">
-                                            <input type="hidden" name="attr_path_demonic_arts" id="path_demonic_arts" value="0">
-                                            <input type="hidden" name="attr_path_monk" id="path_monk" value="0">
-                                            <input type="hidden" name="attr_path_ronin" id="path_ronin" value="0">
-                                            <input type="hidden" name="attr_path_samurai" id="path_samurai" value="0">
-                                            <input type="hidden" name="attr_path_wanderer" id="path_wanderer" value="0">
-                                            <div class="sheet-form-group">
-                                                <label>Subpath</label>
-                                                <select class="character_path_none" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="None">Choose a Path</option>
-                                                </select>
-                                                <select class="character_path_bioforged" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="">Choose a Path</option>
-                                                    <option value="Alchemic">Alchemic</option>
-                                                    <option value="Arachnean">Arachnean</option>
-                                                    <option value="Bastion">Bastion</option>
-                                                    <option value="Bladekin">Bladekin</option>
-                                                    <option value="Echoic">Echoic</option>
-                                                    <option value="Phytomental">Phytomental</option>
-                                                    <option value="Tracker">Tracker</option>
-                                                </select>
-                                                <select class="character_path_demonic_arts" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="">Choose a Path</option>
-                                                    <option value="Nightshade">Nightshade</option>
-                                                    <option value="Soul Siphoner">Soul Siphoner</option>
-                                                    <option value="Shadow Walker">Shadow Walker</option>
-                                                    <option value="Blood Binder">Blood Binder</option>
-                                                    <option value="Way of the Flesh">Way of the Flesh</option>
-                                                </select>
-                                                <select class="character_path_monk" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="">Choose a Path</option>
-                                                    <option value="Dragon Warrior">Dragon Warrior</option>
-                                                    <option value="Harmony">Harmony</option>
-                                                    <option value="Iron Fist">Iron Fist</option>
-                                                    <option value="Open Palm">Open Palm</option>
-                                                    <option value="Silver String">Silver String</option>
-                                                    <option value="Tao Touch">Tao Touch</option>
-                                                </select>
-                                                <select class="character_path_ronin" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="">Choose a Path</option>
-                                                    <option value="Battfield Ghost">Battfield Ghost</option>
-                                                    <option value="Blade of Vengeance">Blade of Vengeance</option>
-                                                    <option value="Bladedancer">Bladedancer</option>
-                                                    <option value="Corrupted Blade">Corrupted Blade</option>
-                                                    <option value="Lone Wolf">Lone Wolf</option>
-                                                    <option value="The Archer">The Archer</option>
-                                                </select>
-                                                <select class="character_path_samurai" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="">Choose a Path</option>
-                                                    <option value="Emperor Shield">Emperor Shield</option>
-                                                    <option value="Moonlight Warrior">Moonlight Warrior</option>
-                                                    <option value="Rising Sun">Rising Sun</option>
-                                                    <option value="Steel Blossom">Steel Blossom</option>
-                                                </select>
-                                                <select class="character_path_wanderer" name="attr_character_subpath" title="@{character_subpath}">
-                                                    <option value="">Choose a Path</option>
-                                                    <option value="Axe">Axe</option>
-                                                    <option value="Chain">Chain</option>
-                                                    <option value="Hammer">Hammer</option>
-                                                    <option value="Shield">Shield</option>
-                                                    <option value="Spear">Spear</option>
-                                                    <option value="Staff">Staff</option>
-                                                    <option value="Whip">Whip</option>
-                                                    <option value="Wild Runner">Wild Runner</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sheet-container-panel sheet-pc-option-ancestry">
-                                <div class="sheet-container-header">ANCESTRY OPTIONS</div>
-                                <div class="sheet-container-body">
-                                    <div class="sheet-form sheet-form-borderless">
-                                        <div class="sheet-form-body">
-                                            <div class="sheet-form-group">
-                                                <label></label>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="sheet-container-panel sheet-pc-option-general">
                                 <div class="sheet-container-header">GENERAL OPTIONS</div>
                                 <div class="sheet-container-body">
@@ -3051,6 +3315,41 @@
                 setAttrs(updates);
             });
             console.log("Updating Mortal Path");
+        });
+        
+        on('change:character_ancestry', function() {
+            getAttrs(['character_ancestry'], function(values) {
+                const ancestry = values.character_ancestry.toLowerCase().replace(' ', '_').replace('-', '_');
+                const updates = {
+                    ancestry_none: '0',
+                    ancestry_angelic_echo: '0',
+                    ancestry_beastmen: '0',
+                    ancestry_demi_human: '0',
+                    ancestry_demonic_beast: '0',
+                    ancestry_divine_beast: '0',
+                    ancestry_draconian: '0',
+                    ancestry_elemental_born: '0',
+                    ancestry_fallen: '0',
+                    ancestry_human: '0',
+                    ancestry_insectoid: '0',
+                    ancestry_living_golem: '0',
+                    ancestry_merfolk: '0',
+                    ancestry_mirotide: '0',
+                    ancestry_parasyte: '0',
+                    ancestry_sporling: '0',
+                    ancestry_slime_kin: '0',
+                    ancestry_tiko: '0',
+                    ancestry_yokai: '0',
+                    ancestry_vampire: '0',
+                    ancestry_varkari: '0'
+                };
+                if (ancestry) {
+                    updates[`ancestry_${ancestry}`] = '1';
+                    updates["character_species"] = "None";
+                }
+                setAttrs(updates);
+            });
+            console.log("Updating Ancestry");
         });
         
         let toInt = function(value) {

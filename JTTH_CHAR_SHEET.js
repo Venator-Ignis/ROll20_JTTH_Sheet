@@ -124,6 +124,41 @@ on('change:character_path', function() {
     console.log("Updating Mortal Path");
 });
 
+on('change:character_ancestry', function() {
+    getAttrs(['character_ancestry'], function(values) {
+        const ancestry = values.character_ancestry.toLowerCase().replace(' ', '_').replace('-', '_');
+        const updates = {
+            ancestry_none: '0',
+            ancestry_angelic_echo: '0',
+            ancestry_beastmen: '0',
+            ancestry_demi_human: '0',
+            ancestry_demonic_beast: '0',
+            ancestry_divine_beast: '0',
+            ancestry_draconian: '0',
+            ancestry_elemental_born: '0',
+            ancestry_fallen: '0',
+            ancestry_human: '0',
+            ancestry_insectoid: '0',
+            ancestry_living_golem: '0',
+            ancestry_merfolk: '0',
+            ancestry_mirotide: '0',
+            ancestry_parasyte: '0',
+            ancestry_sporling: '0',
+            ancestry_slime_kin: '0',
+            ancestry_tiko: '0',
+            ancestry_yokai: '0',
+            ancestry_vampire: '0',
+            ancestry_varkari: '0'
+        };
+        if (ancestry) {
+            updates[`ancestry_${ancestry}`] = '1';
+            updates["character_species"] = "None";
+        }
+        setAttrs(updates);
+    });
+    console.log("Updating Ancestry");
+});
+
 let toInt = function(value) {
     return (value && !isNaN(value)) ? parseInt(value) : 0;
 };
