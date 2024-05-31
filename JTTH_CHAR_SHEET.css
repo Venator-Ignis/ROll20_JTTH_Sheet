@@ -166,8 +166,9 @@
     display: flex;
 }
 
-  .charsheet .sheet-core .sheet-section-roll-whisper {
+.charsheet .sheet-core .sheet-section-roll-whisper {
     margin-left: 3px;
+    display: flex;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll {
@@ -177,7 +178,6 @@
     height: auto;
 }
 
-.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll .sheet-section-roll-advantage,
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll .sheet-section-roll-whisper {
     margin-bottom: 10px;
 }
@@ -289,22 +289,18 @@
     border-bottom: 1px solid grey;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes{
     display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute:first-of-type,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:first-of-type{
     margin-left: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute:last-of-type,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:last-of-type{
     margin-right: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
     background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/sheet-attribute-bg.png");
     background-size: 100% 100%;
@@ -317,7 +313,6 @@
     margin-right: 10px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute input,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute input{
     width: 100%;
     background: none;
@@ -331,22 +326,15 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute button,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute button{
     background: none;
     border: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-attribute span,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute span{
     text-align: center;
     align-items: center;
     display: inline-grid;
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-options .sheet-well-attributes .sheet-container-panel .sheet-container-body{
-    display: flex;
-    flex-direction: row;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns{
@@ -448,7 +436,7 @@ input::-webkit-inner-spin-button {
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill{
-    height: 21px;
+    height: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button{
@@ -581,10 +569,6 @@ input::-webkit-inner-spin-button {
     border-radius: 5px;
     border-left: 1px dotted;
     border-right: 1px dotted;
-}
-
-.charsheet .sheet-core .sheet-section-templates {
-    display: none;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog {
@@ -2467,4 +2451,132 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body input,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body span {
     font-size: 24px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options {
+    display: grid;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: 
+    "path ancestry general"
+   "talents talents skills"
+   "attributes attributes skills";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-path{
+    grid-area: path;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-ancestry{
+    grid-area: ancestry;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-general{
+    grid-area: general;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents{
+    grid-area: talents;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-skills{
+    grid-area: skills;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-attributes{
+    grid-area: attributes;
+}
+
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options label {
+    color: black;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-form-fieldset {
+    border-color: lightgrey;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-form-fieldset .sheet-form-fieldset-header {
+    background-color: lightgrey;
+    color: inherit;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_none,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_bioforged,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_demonic_arts,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_monk,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_ronin,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_samurai,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .character_path_wanderer{
+    display: none;
+}
+
+#path_none[value="1"] ~ .sheet-form-group .character_path_none,
+#path_bioforged[value="1"] ~ .sheet-form-group .character_path_bioforged,
+#path_demonic_arts[value="1"] ~ .sheet-form-group .character_path_demonic_arts,
+#path_monk[value="1"] ~ .sheet-form-group .character_path_monk,
+#path_ronin[value="1"] ~ .sheet-form-group .character_path_ronin,
+#path_samurai[value="1"] ~ .sheet-form-group .character_path_samurai,
+#path_wanderer[value="1"] ~ .sheet-form-group .character_path_wanderer {
+    display: block;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .talents_group{
+    flex-direction: column;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level1_talents,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level13_talents,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents{
+    display: grid;
+    grid-template-columns: repeat(4, 123px);
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .character_talent_trained_actor{
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup{
+    display: flex;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group input,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup input{
+    width: 12px;
+    height: 12px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group label,
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup label{
+    font-size: 11px
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-attributes .sheet-attribute-options{
+    display: flex;
+    flex-direction: row;
+}
+
+.charsheet .sheet-core .sheet-rolltemplate {
+    display: none;
+}
+
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-desc,
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-simple,
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-move,
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-atkdmg,
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-atk,
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-dmg,
+.charsheet .sheet-rolltemplate .sheet-rolltemplate-features{
+    width: 189px;
+    background: url(http://i.imgur.com/53WSdhx.png) top left;
+    background-size: 189px 100%;
+    background-repeat: no-repeat;
+    color: black;
 }

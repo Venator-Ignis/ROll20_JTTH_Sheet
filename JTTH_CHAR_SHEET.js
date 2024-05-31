@@ -24,7 +24,7 @@ on("change:agility change:power change:vitality change:cultivation change:mental
     console.log("Updating Everything");
 });
 
-on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
+on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:grapple_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
     update_skills();
     console.log("Updating PC Skills");
 });
@@ -34,7 +34,7 @@ on("change:repeating_nmove:name change:repeating_move:attack_flag change:repeati
     console.log("Updating PC Moves");
 });
 
-on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
+on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_grapple_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
     update_npc_skills();
     console.log("Updating NPC Skills");
 });
@@ -49,7 +49,7 @@ on("change:repeating_npcmove-l:name change:repeating_npcmove-l:attack_flag chang
     console.log("Updating NPC Legendary Moves");
 });
 
-on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod change:use_inventory_slots change:inventory_slots_mod change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots_modifier", function() {
+on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod change:use_inventory_slots change:inventory_slots_mod change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier", function() {
     update_weight();
 });
 
@@ -103,6 +103,27 @@ on("remove:repeating_inventory", function(eventinfo) {
     console.log("Updating Weight");
 });
 
+on('change:character_path', function() {
+    getAttrs(['character_path'], function(values) {
+        const path = values.character_path.toLowerCase().replace(' ', '_');
+        const updates = {
+            path_none: '0',
+            path_bioforged: '0',
+            path_demonic_arts: '0',
+            path_monk: '0',
+            path_ronin: '0',
+            path_samurai: '0',
+            path_wanderer: '0'
+        };
+        if (path) {
+            updates[`path_${path}`] = '1';
+            updates["character_subpath"] = "None";
+        }
+        setAttrs(updates);
+    });
+    console.log("Updating Mortal Path");
+});
+
 let toInt = function(value) {
     return (value && !isNaN(value)) ? parseInt(value) : 0;
 };
@@ -116,7 +137,7 @@ let isDefined = function(value) {
 };
 
 var update_npc_skills = function() {
-    getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_discretion_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+    getAttrs(["npc_acrobatics_bonus", "npc_athletics_bonus", "npc_charm_bonus", "npc_deceit_bonus", "npc_disguise_bonus", "npc_fine_arts_bonus", "npc_forgery_bonus", "npc_grapple_bonus", "npc_history_bonus", "npc_intuition_bonus", "npc_intimidation_bonus", "npc_investigation_bonus", "npc_medicine_bonus", "npc_navigation_bonus", "npc_perception_bonus", "npc_performance_bonus", "npc_persuade_bonus", "npc_discretion_bonus", "npc_stealth_bonus", "npc_survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
         var update = {};   
 
         // Calculate base values
@@ -134,6 +155,7 @@ var update_npc_skills = function() {
         update["npc_disguise_roll"] = Math.round(mental_strength + appearance);
         update["npc_fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
         update["npc_forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
+        update["npc_grapple_roll"] = power;
         update["npc_history_roll"] = Math.round(qi_control / 2 + mental_strength / 2);
         update["npc_intuition_roll"] = mental_strength;
         update["npc_intimidation_roll"] = Math.round(power + appearance);
@@ -155,6 +177,7 @@ var update_npc_skills = function() {
         update["npc_disguise"] = update["npc_disguise_roll"] + (parseInt(v.npc_disguise_bonus) ? `d6 + ${parseInt(v.npc_disguise_bonus)}` : 'd6');
         update["npc_fine_arts"] = update["npc_fine_arts_roll"] + (parseInt(v.npc_fine_arts_bonus) ? `d6 + ${parseInt(v.npc_fine_arts_bonus)}` : 'd6');
         update["npc_forgery"] = update["npc_forgery_roll"] + (parseInt(v.npc_forgery_bonus) ? `d6 + ${parseInt(v.npc_forgery_bonus)}` : 'd6');
+        update["npc_grapple"] = update["npc_grapple_roll"] + (parseInt(v.npc_grapple_bonus) ? `d6 + ${parseInt(v.npc_grapple_bonus)}` : 'd6');
         update["npc_history"] = update["npc_history_roll"] + (parseInt(v.npc_history_bonus) ? `d6 + ${parseInt(v.npc_history_bonus)}` : 'd6');
         update["npc_intuition"] = update["npc_intuition_roll"] + (parseInt(v.npc_intuition_bonus) ? `d6 + ${parseInt(v.npc_intuition_bonus)}` : 'd6');
         update["npc_intimidation"] = update["npc_intimidation_roll"] + (parseInt(v.npc_intimidation_bonus) ? `d6 + ${parseInt(v.npc_intimidation_bonus)}` : 'd6');
@@ -174,7 +197,7 @@ var update_npc_skills = function() {
 };
 
 var update_skills = function() {
-    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {
+    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {        
         var update = {};
 
         // Calculate base values
@@ -192,6 +215,7 @@ var update_skills = function() {
         update["disguise_roll"] = Math.round(mental_strength + appearance);
         update["fine_arts_roll"] = Math.round(agility / 2 + mental_strength / 2);
         update["forgery_roll"] = Math.round(agility / 2 + mental_strength / 2);
+        update["grapple_roll"] = power;
         update["history_roll"] = Math.round(qi_control / 2 + mental_strength / 2);
         update["intuition_roll"] = mental_strength;
         update["intimidation_roll"] = Math.round(power + appearance);
@@ -212,6 +236,7 @@ var update_skills = function() {
         update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6');
         update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6');
         update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6');
+        update["grapple"] = update["grapple_roll"] + (parseInt(v.grapple_bonus) ? `d6 + ${parseInt(v.grapple_bonus)}` : 'd6');
         update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6');
         update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6');
         update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6');
@@ -301,7 +326,7 @@ var update_moves = function() {
 
                 var rollbase = "";
                 if (v.dtype === "full") {
-                    rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                    rollbase = `@{wtype}&{template:move} @{charname_output} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -309,9 +334,9 @@ var update_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else if (attackFlag) {
-                    rollbase = `@{wtype}&{template:atk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_dmg)}} {{type=[Attack](~repeating_move_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:atk} @{charname_output} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_dmg)}} {{type=[Attack](~repeating_move_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                 } else if (damage1 || damage2) {
-                    rollbase = `@{wtype}&{template:dmg} ${damage_flag} `;
+                    rollbase = `@{wtype}&{template:dmg} @{charname_output} ${damage_flag} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -319,7 +344,7 @@ var update_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else {
-                    rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:move} @{charname_output} {{rname=@{name}}} {{description=${description}}}`;
                 }
 
                 var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
@@ -420,7 +445,7 @@ var update_npc_moves = function() {
 
                 var rollbase = "";
                 if (v.dtype === "full") {
-                    rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                    rollbase = `@{wtype}&{template:move} @{charname_output} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -428,9 +453,9 @@ var update_npc_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else if (attackFlag) {
-                    rollbase = `@{wtype}&{template:atk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:atk} @{charname_output} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove_npc_dmg)}} {{type=[Attack](~repeating_npcmove_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                 } else if (damage1 || damage2) {
-                    rollbase = `@{wtype}&{template:dmg} ${damage_flag} `;
+                    rollbase = `@{wtype}&{template:dmg} @{charname_output} ${damage_flag} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -438,7 +463,7 @@ var update_npc_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else {
-                    rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:move} @{charname_output} {{rname=@{name}}} {{description=${description}}}`;
                 }
 
                 var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
@@ -540,7 +565,7 @@ var update_npc_legendary_moves = function() {
 
                 var rollbase = "";
                 if (v.dtype === "full") {
-                    rollbase = `@{wtype}&{template:move} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                    rollbase = `@{wtype}&{template:move} @{charname_output} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -548,9 +573,9 @@ var update_npc_legendary_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else if (attackFlag) {
-                    rollbase = `@{wtype}&{template:atk} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove-l_npc_dmg)}} {{type=[Attack](~repeating_npcmove-l_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:atk} @{charname_output} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_npcmove-l_npc_dmg)}} {{type=[Attack](~repeating_npcmove-l_npc_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
                 } else if (damage1 || damage2) {
-                    rollbase = `@{wtype}&{template:dmg} ${damage_flag} `;
+                    rollbase = `@{wtype}&{template:dmg} @{charname_output} ${damage_flag} `;
                     if (damage1) {
                         rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                     }
@@ -558,7 +583,7 @@ var update_npc_legendary_moves = function() {
                         rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                     }
                 } else {
-                    rollbase = `@{wtype}&{template:move} {{rname=@{name}}} {{description=${description}}}`;
+                    rollbase = `@{wtype}&{template:move} @{charname_output} {{rname=@{name}}} {{description=${description}}}`;
                 }
 
                 var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
@@ -679,16 +704,21 @@ var update_weight = function() {
             weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer");
             weight_attrs.push("repeating_inventory_" + currentID + "_itemweightfixed");
             weight_attrs.push("repeating_inventory_" + currentID + "_itemslotsfixed");
+            weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer_slots");
             weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer_slots_modifier");
         });
         getAttrs(weight_attrs, function(v) {
             var slots_modifier = 0;
+            var containerslots = 0;
 
             _.each(idarray, function(currentID, i) {
                 if (v["repeating_inventory_" + currentID + "_equipped"] == 1 || v["repeating_inventory_" + currentID + "_carried"] == 1) {
                     if (v["repeating_inventory_" + currentID + "_itemcontainer"] == 1) {
                         // GET SLOTS MODIFIER IF EQUIPPED
                         if (v["repeating_inventory_" + currentID + "_equipped"] == 1) {
+                            var slotsID = "repeating_inventory_" + currentID + "_itemcontainer_slots";
+                            console.log("itemcontainer_slots: ", slotsID)
+                            containerslots = parseInt(v[slotsID], 0);
                             var field_id = "repeating_inventory_" + currentID + "_itemcontainer_slots_modifier";
                             if (v[field_id]) {
                                 if (["+", "-"].indexOf(v[field_id]) > -1) {
@@ -738,7 +768,7 @@ var update_weight = function() {
             update["slotstotal"] = stotal;
 
             var size_slots = 18;
-            size_slots += parseInt(v.power);
+            size_slots += parseInt(v.power) + parseInt(containerslots);
 
             if (v.inventory_slots_mod) {
                 var operator = v.inventory_slots_mod.substring(0, 1);
@@ -774,15 +804,15 @@ var update_weight = function() {
             }
 
             update["slotsmaximum"] = size_slots;
-            update["weightmaximum"] = str * 15;
+            update["weightmaximum"] = str * 30;
 
             if (stotal > size_slots) {
                 update["encumberance"] = "OVER CARRYING CAPACITY";
-            } else if (wtotal > str * 15) {
+            } else if (wtotal > str * 30) {
                 update["encumberance"] = "IMMOBILE";
-            } else if (wtotal > str * 12) {
+            } else if (wtotal > str * 22) {
                 update["encumberance"] = "HEAVILY ENCUMBERED";
-            } else if (wtotal > str * 8) {
+            } else if (wtotal > str * 15) {
                 update["encumberance"] = "ENCUMBERED";
             } else {
                 update["encumberance"] = " ";
