@@ -3218,6 +3218,30 @@
             'Varkari' : 8
         };
         
+        const ancestryHPDie = {
+            'None' : "1d8",
+            'Angelic Echo' : "1d6",
+            'Beastmen' : "1d10",
+            'Demi-humans' : "1d8",
+            'Demonic Beasts' : "1d12",
+            'Divine Beasts' : "1d12",
+            'Draconian' : "1d8",
+            'Elemental Born' : "1d7",
+            'Fallen' : "1d6",
+            'Human' : "1d6",
+            'Insectoid' : "1d7",
+            'Living Golem' : "1d8",
+            'Merfolk' : "1d8",
+            'Mirotide' : "1d8",
+            'Parasyte' : "1d6",
+            'Sporlings' : "1d8",
+            'Slime-kin' : "1d6",
+            'Tiko' : "1d7",
+            'Yokai' : "1d8",
+            'Vampire' : "1d8",
+            'Varkari' :"1d10"
+        }
+        
         const speciesAdjustments = {
             'None' :{},
             'Angelic Echo' :{
@@ -3452,12 +3476,13 @@
         });
         
         on('change:character_ancestry change:character_species', function(eventInfo) {
-            getAttrs(["character_ancestry", "character_species"], function(v) {
+            getAttrs(["character_ancestry", "character_species", "hp_die"], function(v) {
                 var update = {};
         
                 let ancestry = v.character_ancestry;
                 let species = v.character_species || 'Default';
         
+                let baseHP = ancestryHPDie[ancestry] || "1d8";
                 let baseSpeed = ancestrySpeeds[ancestry] || 6;
                 let adjustments = speciesAdjustments[ancestry] && speciesAdjustments[ancestry][species] || {};
         
@@ -3470,6 +3495,7 @@
                 update["swim"] = swim;
                 update["climb"] = climb;
                 update["fly"] = fly;
+                update["hp_die"] = baseHP;
         
                 console.log("Updating Character Movement Speed")
                 
