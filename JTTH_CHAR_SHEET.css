@@ -1591,6 +1591,10 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
+.sheet-tabs .sheet-tab-options .sheet-tab-content{
+    min-height: 483px;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features > input[type="radio"]:checked ~ .sheet-tab-content {
     display: grid;
     grid-template-columns: auto 262.5px;
@@ -2464,19 +2468,14 @@ input::-webkit-inner-spin-button {
     grid-column-gap: 5px;
     grid-row-gap: 5px;
     grid-template-areas: 
-    ". . general"
-    "talents talents skills"
-    "attributes attributes skills";
+    "attributes skills general"
+    "attributes skills .";
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto 1fr;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-general{
     grid-area: general;
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents{
-    grid-area: talents;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-skills{
@@ -2486,7 +2485,6 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-attributes{
     grid-area: attributes;
 }
-
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options label {
     color: black;
@@ -2512,7 +2510,7 @@ input::-webkit-inner-spin-button {
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level13_talents,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents{
     display: grid;
-    grid-template-columns: repeat(4, 123px);
+    grid-template-columns: repeat(3, 164px);
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group,
@@ -2531,15 +2529,9 @@ input::-webkit-inner-spin-button {
     font-size: 11px
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-attributes .sheet-attribute-options{
-    display: flex;
-    flex-direction: row;
-}
-
 .charsheet .sheet-core .sheet-rolltemplate {
     display: none;
 }
-
 
 .charsheet .sheet-core .sheet-section-pc .character_path_none,
 .charsheet .sheet-core .sheet-section-pc .character_path_bioforged,

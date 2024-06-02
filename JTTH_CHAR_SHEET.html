@@ -1547,19 +1547,19 @@
                                                     </div>
                                                     <div class="sheet-pc-speed-group">
                                                         <div class="sheet-pc-speed-movement">
-                                                            <span class="sheet-movement-movement" type="number" name="attr_movement" title="@{movement}">0</span>
+                                                            <input class="sheet-movement-movement" type="number" name="attr_movement" title="@{movement}"placeholder="0">
                                                             <div class="sheet-pc-defence-label">SPEED</div>
                                                         </div>
                                                         <div class="sheet-pc-speed-swim">
-                                                            <span class="sheet-movement-swim" type="number" name="attr_swim" title="@{swim}">0</span>
+                                                            <input class="sheet-movement-swim" type="number" name="attr_swim" title="@{swim}"placeholder="0">
                                                             <div class="sheet-pc-defence-label">SWIM</div>
                                                         </div>
                                                         <div class="sheet-pc-speed-climb">
-                                                            <span class="sheet-movement-climb" type="number" name="attr_climb" title="@{climb}">0</span>
+                                                            <input class="sheet-movement-climb" type="number" name="attr_climb" title="@{climb}"placeholder="0">
                                                             <div class="sheet-pc-defence-label">CLIMB</div>
                                                         </div>
                                                         <div class="sheet-pc-speed-fly">
-                                                            <span class="sheet-movement-fly" type="number" name="attr_fly" title="@{fly}">0</span>
+                                                            <input class="sheet-movement-fly" type="number" name="attr_fly" title="@{fly}"placeholder="0">
                                                             <div class="sheet-pc-defence-label">FLY</div>
                                                         </div>
                                                     </div>
@@ -2488,24 +2488,6 @@
                                                 </label>
                                             </div>
                                             <div class="sheet-form-group">
-                                                <label class="sheet-form-checkbox" title="@{global_skill_mod_flag}">
-                                                    <input type="checkbox" name="attr_global_skill_mod_flag" value="1">
-                                                    <span>Show Global Skill Modifier Field</span>
-                                                </label>
-                                            </div>
-                                            <div class="sheet-form-group">
-                                                <label class="sheet-form-checkbox" title="@{global_attack_mod_flag}">
-                                                    <input type="checkbox" name="attr_global_attack_mod_flag" value="1">
-                                                    <span>Show Global Attack Modifier Field</span>
-                                                </label>
-                                            </div>
-                                            <div class="sheet-form-group">
-                                                <label class="sheet-form-checkbox" title="@{global_damage_mod_flag}">
-                                                    <input type="checkbox" name="attr_global_damage_mod_flag" value="1">
-                                                    <span>Show Global Damage Modifier Field</span>
-                                                </label>
-                                            </div>
-                                            <div class="sheet-form-group">
                                                 <label>Whisper Rolls to GM:</label>
                                                 <select name="attr_wtype" title="@{wtype}">
                                                     <option value="">Never Whisper Rolls</option>
@@ -2532,181 +2514,9 @@
                                                 <label>Carrying Capacity Modifier:</label>
                                                 <input type="text" name="attr_carrying_capacity_mod" placeholder="*2/+2/-2" title="@{carrying_capacity_mod}">
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sheet-container-panel sheet-pc-option-talents">
-                                <div class="sheet-container-header">TALENT SELECTION</div>
-                                <div class="sheet-container-body">
-                                    <div class="sheet-form sheet-form-borderless">
-                                        <div class="sheet-form-body">
-                                            <div class="sheet-form-group talents_group">
-                                                <label>Level 1 Talents</label>
-                                                <div class="sheet_level1_talents">
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_acrobat" value="0">
-                                                        <label>Acrobat</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_athlete">
-                                                        <label>Athlete</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_charming_presence" value="0">
-                                                        <label>Charming Presence</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_eagle_eye" value="0">
-                                                        <label>Eagle Eye</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_elemental_resistance" value="0">
-                                                        <label>Elemental Resistance</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_Force_of_nature" value="0">
-                                                        <label>Force of Nature</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_gifted_healer" value="0">
-                                                        <label>Gifted Healer</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_hounds_nose" value="0">
-                                                        <label>Hounds Nose</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_iron_stomach" value="0">
-                                                        <label>Iron Stomach</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_iron_will" value="0">
-                                                        <label>Iron Will</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_lightning_reflexes" value="0">
-                                                        <label>Lightning Reflexes</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_masterful_craftsman" value="0">
-                                                        <label>Masterful Craftsman</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_natural_born_actor" value="0">
-                                                        <label>Natural Born Actor</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_natural_empath" value="0">
-                                                        <label>Natural Empath</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_quick_reflexes" value="0">
-                                                        <label>Quick Reflexes</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_quick_study" value="0">
-                                                        <label>Quick Study</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_rapid_growth" value="0">
-                                                        <label>Rapid Growth</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_resilient_mind" value="0">
-                                                        <label>Resilient Mind</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_sticky_fingers" value="0">
-                                                        <label>Sticky Fingers</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_trained_actor" value="0">
-                                                        <label>Trained Actor</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="sheet-form-group talents_group">
-                                                <label>Level 13 Talents</label>
-                                                <div class="sheet_level13_talents">
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_combat_recovery" value="0">
-                                                        <label>Combat Recovery</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_cruel_striker" value="0">
-                                                        <label>Cruel Striker</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_demonic_flames" value="0">
-                                                        <label>Demonic Flames</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_dual_wielder" value="0">
-                                                        <label>Dual Wielder</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_elemental_affinity" value="0">
-                                                        <label>Elemental Affinity</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_inner_harmony" value="0">
-                                                        <label>Inner Harmony</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_mind_reader" value="0">
-                                                        <label>Mind Reader</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_perfected_memory" value="0">
-                                                        <label>Perfected Memory</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_quickened_healing" value="0">
-                                                        <label>Quickened Healing</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_ravager" value="0">
-                                                        <label>Ravager</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_shadow_step" value="0">
-                                                        <label>Shadow Step</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_thick_of_the_fight" value="0">
-                                                        <label>Thick of the Fight</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="sheet-form-group talents_group">
-                                                <label>Level 20 Talents</label>
-                                                <div class="sheet_level20_talents">
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_arms_of_titans" value="0">
-                                                        <label>Arms of Titans</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_flash_recall" value="0">
-                                                        <label>Flash Recall</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_gift_of_the_dragon" value="0">
-                                                        <label>Gift of the Dragon</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_heavens_rage" value="0">
-                                                        <label>Heavens Rage</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_sacrificial_vitality" value="0">
-                                                        <label>Sacrificial Vitality</label>
-                                                    </div>
-                                                    <div class="sheet_talentgroup">
-                                                        <input type="checkbox" name="attr_talent_second_chance" value="0">
-                                                        <label>Second Chance</label>
-                                                    </div>
-                                                </div>
+                                            <div class="sheet-form-group">
+                                                <label>Initiative Bonus:</label>
+                                                <input type="text" name="attr_initiative_bonus" title="@{initiative_bonus}">
                                             </div>
                                         </div>
                                     </div>
@@ -2889,11 +2699,6 @@
         <input type="hidden" name="attr_hitdie_final" value="">
         <input type="hidden" name="attr_initiative_bonus" value="0">
         <input type="hidden" name="attr_npc_legendary_move_desc" value="">
-        <input type="hidden" name="attr_global_damage_mod_roll" value="0">
-        <input type="hidden" name="attr_global_damage_mod_type" value="">
-        <input type="hidden" name="attr_global_attack_mod" value="">
-        <input type="hidden" name="attr_global_check_mod" value="">
-        <input type="hidden" name="attr_global_skill_mod" value="">
         <input type="hidden" name="attr_name_flag" value="0">
         <!-- ATTRIBUTES -->
         <input type="hidden" name="attr_power" value="0">
@@ -3194,30 +2999,6 @@
     </div>
 
     <script type="text/worker">
-        const ancestrySpeeds = {
-            'None' : 0,
-            'Angelic Echo' : 4,
-            'Beastmen' : 8,
-            'Demi-humans' : 7,
-            'Demonic Beasts' : 10,
-            'Divine Beasts' : 10,
-            'Draconian' : 6,
-            'Elemental Born' : 6,
-            'Fallen' : 6,
-            'Human' : 6,
-            'Insectoid' : 7,
-            'Living Golem' : 7,
-            'Merfolk' : 4,
-            'Mirotide' : 6,
-            'Parasyte' : 4,
-            'Sporlings' : 4,
-            'Slime-kin' : 4,
-            'Tiko' : 7,
-            'Yokai' : 6,
-            'Vampire' : 8,
-            'Varkari' : 8
-        };
-        
         const ancestryHPDie = {
             'None' : "1d8",
             'Angelic Echo' : "1d6",
@@ -3480,24 +3261,12 @@
                 var update = {};
         
                 let ancestry = v.character_ancestry;
-                let species = v.character_species || 'Default';
         
                 let baseHP = ancestryHPDie[ancestry] || "1d8";
-                let baseSpeed = ancestrySpeeds[ancestry] || 6;
-                let adjustments = speciesAdjustments[ancestry] && speciesAdjustments[ancestry][species] || {};
         
-                let movement = adjustments.movement || baseSpeed;
-                let swim = adjustments.swim || Math.round(movement / 2);
-                let climb = adjustments.climb || Math.round(movement / 2);
-                let fly = adjustments.fly || 0;
-        
-                update["movement"] = movement;
-                update["swim"] = swim;
-                update["climb"] = climb;
-                update["fly"] = fly;
                 update["hp_die"] = baseHP;
         
-                console.log("Updating Character Movement Speed")
+                console.log("Updating Character Hit Die")
                 
                 setAttrs(update, {
                     silent: true
@@ -3598,6 +3367,10 @@
         on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
             update_evasion();
             console.log("Updating PC Evasion");
+        });
+        
+        on("change:initiative_bonus", function(eventInfo){
+            update_initiative();
         });
         
         on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_grapple_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
@@ -3749,7 +3522,7 @@
         
                 var agility = parseInt(v.agility) || 0;
         
-                update["initiative"] = agility + (parseInt(v.agility) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
+                update["initiative"] = agility + (parseInt(v.initiative_bonus) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
         
                 setAttrs(update, {
                     silent: true

@@ -1,28 +1,4 @@
 
-const ancestrySpeeds = {
-    'None' : 0,
-    'Angelic Echo' : 4,
-    'Beastmen' : 8,
-    'Demi-humans' : 7,
-    'Demonic Beasts' : 10,
-    'Divine Beasts' : 10,
-    'Draconian' : 6,
-    'Elemental Born' : 6,
-    'Fallen' : 6,
-    'Human' : 6,
-    'Insectoid' : 7,
-    'Living Golem' : 7,
-    'Merfolk' : 4,
-    'Mirotide' : 6,
-    'Parasyte' : 4,
-    'Sporlings' : 4,
-    'Slime-kin' : 4,
-    'Tiko' : 7,
-    'Yokai' : 6,
-    'Vampire' : 8,
-    'Varkari' : 8
-};
-
 const ancestryHPDie = {
     'None' : "1d8",
     'Angelic Echo' : "1d6",
@@ -285,24 +261,12 @@ on('change:character_ancestry change:character_species', function(eventInfo) {
         var update = {};
 
         let ancestry = v.character_ancestry;
-        let species = v.character_species || 'Default';
 
         let baseHP = ancestryHPDie[ancestry] || "1d8";
-        let baseSpeed = ancestrySpeeds[ancestry] || 6;
-        let adjustments = speciesAdjustments[ancestry] && speciesAdjustments[ancestry][species] || {};
 
-        let movement = adjustments.movement || baseSpeed;
-        let swim = adjustments.swim || Math.round(movement / 2);
-        let climb = adjustments.climb || Math.round(movement / 2);
-        let fly = adjustments.fly || 0;
-
-        update["movement"] = movement;
-        update["swim"] = swim;
-        update["climb"] = climb;
-        update["fly"] = fly;
         update["hp_die"] = baseHP;
 
-        console.log("Updating Character Movement Speed")
+        console.log("Updating Character Hit Die")
         
         setAttrs(update, {
             silent: true
@@ -403,6 +367,10 @@ on("change:durability-base change:durability-limit change:durability-bonus", fun
 on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
     update_evasion();
     console.log("Updating PC Evasion");
+});
+
+on("change:initiative_bonus", function(eventInfo){
+    update_initiative();
 });
 
 on("change:npc_acrobatics_bonus change:npc_athletics_bonus change:npc_charm_bonus change:npc_deceit_bonus change:npc_disguise_bonus change:npc_fine_arts_bonus change:npc_forgery_bonus change:npc_grapple_bonus change:npc_history_bonus change:npc_intuition_bonus change:npc_intimidation_bonus change:npc_investigation_bonus change:npc_medicine_bonus change:npc_navigation_bonus change:npc_perception_bonus change:npc_performance_bonus change:npc_persuade_bonus change:npc_discretion_bonus change:npc_stealth_bonus change:npc_survival_bonus", function(eventinfo) {
@@ -554,7 +522,7 @@ var update_initiative = function(){
 
         var agility = parseInt(v.agility) || 0;
 
-        update["initiative"] = agility + (parseInt(v.agility) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
+        update["initiative"] = agility + (parseInt(v.initiative_bonus) ? `d6 + ${parseInt(v.initiative_bonus)}` : 'd6');
 
         setAttrs(update, {
             silent: true
