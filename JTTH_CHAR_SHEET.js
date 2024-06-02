@@ -531,10 +531,13 @@ var update_initiative = function(){
 };
 
 var update_mod = function(attr) {
-    getAttrs([attr], function(v) {
+    getAttrs([attr, "character_level"], function(v) {
         var finalattr = v[attr] && isNaN(v[attr]) === false ? parseInt(v[attr], 0) : 0;
+        var level = parseInt(v.character_level) || 0;
+        var finaldc = finalattr * ( 3.5 + Math.floor( level / 7 ) )
         var update = {};
         update[attr + "_mod"] = finalattr;
+        update[attr + "_dc"] = finaldc;
         setAttrs(update);
     });
 };

@@ -312,11 +312,15 @@
     background-size: 100% 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 55px 30px;
+    grid-template-rows: 10px 55px 20px;
     height: 85px;
     width: 94px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute .sheet-attribute-mod{
+    font-size: 24px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute input{

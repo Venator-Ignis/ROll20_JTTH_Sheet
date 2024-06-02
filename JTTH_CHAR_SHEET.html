@@ -1276,44 +1276,50 @@
                     <div class="sheet-tab-content">
                         <div class="sheet-container-well sheet-well-attributes">
                             <div class="sheet-container-attribute">
-                                <span name="attr_power_mod" title="@{power_mod}">0</span>
                                 <button type="roll" name="roll_power" value="@{wtype}&{template:simple} @{charname_output} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[PWR]+@{power_bonus}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">PWR</span>
                                 </button>
+                                <span class="sheet-attribute-mod" name="attr_power_mod" title="@{power_mod}">0</span>
+                                <span class="sheet-btn-ability-title" name="attr_power_dc" title="@{power_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <span name="attr_agility_mod" title="@{agility_mod}">0</span>
                                 <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">AGI</span>
                                 </button>
+                                <span class="sheet-attribute-mod" name="attr_agility_mod" title="@{agility_mod}">0</span>
+                                <span class="sheet-btn-ability-title" name="attr_agility_dc" title="@{agility_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <span name="attr_vitality_mod" title="@{vitality_mod}">0</span>
                                 <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} @{charname_output} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">VIT</span>
                                 </button>
+                                <span class="sheet-attribute-mod" name="attr_vitality_mod" title="@{vitality_mod}">0</span>
+                                <span class="sheet-btn-ability-title" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <span name="attr_cultivation_mod" title="@{cultivation_mod}">0</span>
                                 <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">CUL</span>
                                 </button>
+                                <span class="sheet-attribute-mod" name="attr_cultivation_mod" title="@{cultivation_mod}">0</span>
+                                <span class="sheet-btn-ability-title" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <span name="attr_qi_control_mod" title="@{qi_control_mod}">0</span>
                                 <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} @{charname_output} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">QIC</span>
                                 </button>
+                                <span class="sheet-attribute-mod" name="attr_qi_control_mod" title="@{qi_control_mod}">0</span>
+                                <span class="sheet-btn-ability-title" name="attr_qi_control_dc" title="@{qi_control_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <span name="attr_mental_strength_mod" title="@{mental_strength_mod}">0</span>
                                 <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} @{charname_output} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MTL]+@{mental_strength_bonus}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">MTL</span>
                                 </button>
+                                <span class="sheet-attribute-mod" name="attr_mental_strength_mod" title="@{mental_strength_mod}">0</span>
+                                <span class="sheet-btn-ability-title" name="attr_mental_strength_dc" title="@{mental_strength_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <span name="attr_appearance_mod" title="@{appearance_mod}">0</span>
                                 <span class="sheet-btn-npc-ability-title">APP</span>
+                                <span class="sheet-attribute-mod" name="attr_appearance_mod" title="@{appearance_mod}">0</span>
                             </div>
                         </div>
                         <div class="sheet-container-well sheet-well-columns">
@@ -3531,11 +3537,16 @@
         };
         
         var update_mod = function(attr) {
-            getAttrs([attr], function(v) {
+            getAttrs([attr, "character_level"], function(v) {
                 var finalattr = v[attr] && isNaN(v[attr]) === false ? parseInt(v[attr], 0) : 0;
+                var level = parseInt(v.character_level) || 0;
+                var finaldc = finalattr * ( 3.5 + Math.floor( level / 7 ) )
                 var update = {};
                 update[attr + "_mod"] = finalattr;
+                update[attr + "_dc"] = finaldc;
                 setAttrs(update);
+                console.log("Updating Modified Attribute")
+                console.log("Updating Skill DC")
             });
         };
         
