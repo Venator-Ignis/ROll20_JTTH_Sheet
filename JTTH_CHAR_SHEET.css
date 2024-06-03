@@ -314,9 +314,9 @@
     grid-template-columns: 1fr;
     grid-template-rows: 20px 45px 20px;
     height: 85px;
-    width: 94px;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 100px;
+    margin-left: 7px;
+    margin-right: 6px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute .sheet-attribute-mod{
