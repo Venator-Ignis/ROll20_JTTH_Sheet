@@ -1,4 +1,4 @@
-<div class="sheet-core">
+atk<div class="sheet-core">
     <input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0" hidden>
     <input class="sheet-toggle-npc-edit" name="attr_npc_options-flag" type="checkbox" hidden>
     <div class="sheet-section-roll">
@@ -2655,7 +2655,7 @@
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div class="sheet-container-header">ATTRIBUTE BONUS</div>
+                                                    <div class="sheet-container-header">ATTRIBUTE CHECK BONUS</div>
                                                     <div class="sheet-form-group">
                                                         <label>Power:</label>
                                                         <input type="number" name="attr_power_bonus" title="@{power_bonus}" value="0">
@@ -2850,156 +2850,151 @@
 
     <div class="sheet-rolltemplates">
         <rolltemplate class="sheet-rolltemplate-atk">
-            <div class="container">
-                <div class="container-header">
-                    <span>{{rname}}</span>
-                    {{#range}}
-                        <div class="container-subheader">
+            <div class="sheet-container">
+                <div class="sheet-container-header">
+                    <div class="sheet-row">
+                        <span>{{rname}}</span>|
+                        {{#range}}
                             <span>{{range}}</span>
-                        </div>
-                    {{/range}}
+                        {{/range}}
+                    </div>
                 </div>
-                <div class="container-body">
+                <div class="sheet-container-body">
                     {{#attack}}
-                        <div class="row">
+                        <div class="sheet-row">
                             <span class="italics">Attack:</span>
                             <span>{{r1}}</span>
                         </div>
                     {{/attack}}
                 </div>
-                <div class="container-footer">
+                <div class="sheet-container-footer">
                     {{#description}}
                         <span class="desc">{{description}}</span>
                     {{/description}}
                     {{#charname}}
-                    <span class="italics">{{charname}}</span>
+                        <span class="italics">{{charname}}</span>
                     {{/charname}}
                 </div>
             </div>
         </rolltemplate>
         
         <rolltemplate class="sheet-rolltemplate-desc">
-            <div class="container">
-                <div class="container-body">
-                    {{description}}
+            <div class="sheet-container">
+                <div class="sheet-container-body">
+                    <span>{{description}}</span>
                 </div>
-                {{#charname}}
-                    <div class="container-footer">
+                <div class="sheet-container-footer">
+                    {{#charname}}
                         <span class="italics">{{charname}}</span>
-                    </div>
-                {{/charname}}
-            </div>  
+                    {{/charname}}
+                </div>
+            </div>
         </rolltemplate>
         
         <rolltemplate class="sheet-rolltemplate-dmg">
-            <div class="container">
-                <div class="container-header">
-                    <span>{{rname}}</span>
-                </div>
-                <div class="container-body">
+            <div class="sheet-container">
+                <div class="sheet-container-body">
                     <span class="italics">Damage: </span>
                     <span>
                         {{#dmg1flag}}
-                            {{dmg1}}{{dmg1type}}
+                            {{dmg1}}({{dmg1type}})
                         {{/dmg1flag}}
                         {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
                         {{#dmg2flag}}
-                            {{dmg2}}{{dmg2type}}
+                            {{dmg2}}({{dmg2type}})
                         {{/dmg2flag}}
                     </span>
                 </div>
-                {{#charname}}
-                    <div class="container-footer">
+                <div class="sheet-container-footer">
+                    {{#charname}}
                         <span class="italics">{{charname}}</span>
-                    </div>
-                {{/charname}}
-            </div>  
+                    {{/charname}}
+                </div>
+            </div>
         </rolltemplate>
         
         <rolltemplate class="sheet-rolltemplate-features">
-            <div class="container">
-                <div class="container-header">
-                    <span>{{name}}</span>
-                    {{#source}}
-                        <div class="container-subheader">
-                            <span class="italics">
-                                {{source}}: ({{source_type}})
-                            </span>
-                        </div>
-                    {{/source}}
-                </div>
-                <div class="container-body">
-                    {{description}}
-                </div>
-                {{#charname}}
-                    <div class="container-footer">
-                        <span class="italics">{{charname}}</span>
+            <div class="sheet-container">
+                <div class="sheet-container-header">
+                    <div class="sheet-row">
+                        <span>{{rname}}</span>|
+                        {{#source}}
+                            <span>{{source}}: ({{source_type}})</span>
+                        {{/source}}
                     </div>
-                {{/charname}}
-            </div>  
+                </div>
+                <div class="sheet-container-body">
+                    <span>{{description}}</span>
+                </div>
+                <div class="sheet-container-footer">
+                    {{#charname}}
+                        <span class="italics">{{charname}}</span>
+                    {{/charname}}
+                </div>
+            </div>
         </rolltemplate>
         
         <rolltemplate class="sheet-rolltemplate-move">
-            <div class="container">
-                <div class="container-header">
-                    <span>{{rname}}</span>
-                    {{#range}}
-                        <div class="container-subheader">
+            <div class="sheet-container">
+                <div class="sheet-container-header">
+                    <div class="sheet-row">
+                        <span>{{rname}}</span>|
+                        {{#range}}
                             <span>{{range}}</span>
-                        </div>
-                    {{/range}}
+                        {{/range}}
+                    </div>
                 </div>
-                <div class="container-body">
+                <div class="sheet-container-body">
                     {{#attack}}
-                        <div class="row">
+                        <div class="sheet-row">
                             <span class="italics">Attack:</span>
                             <span>{{r1}}</span>
                         </div>
                     {{/attack}}
                     {{#damage}}
-                        <div class="dmgcontainer row">
+                        <div class="sheet-container-body row">
                             <span class="italics">Damage: </span>
                             <span>
                                 {{#dmg1flag}}
-                                    {{dmg1}}{{dmg1type}}
+                                    {{dmg1}}({{dmg1type}})
                                 {{/dmg1flag}}
                                 {{#dmg1flag}}{{#dmg2flag}} + {{/dmg2flag}}{{/dmg1flag}}
                                 {{#dmg2flag}}
-                                    {{dmg2}}{{dmg2type}}
+                                    {{dmg2}}({{dmg2type}})
                                 {{/dmg2flag}}
                             </span>
                         </div>
                     {{/damage}}
                 </div>
-                <div class="container-footer">
+                <div class="sheet-container-footer">
                     {{#description}}
                         <span class="desc">{{description}}</span>
                     {{/description}}
                     {{#charname}}
-                    <span class="italics">{{charname}}</span>
+                        <span class="italics">{{charname}}</span>
                     {{/charname}}
                 </div>
             </div>
         </rolltemplate>
         
         <rolltemplate class="sheet-rolltemplate-simple">
-            <div class="container">
-                <div class="container-header">
-                    <div class="row">
-                        <span>{{rname}}</span>
+            <div class="sheet-container">
+                <div class="sheet-container-header">
+                    <div class="sheet-row">
+                        <span>{{rname}}</span>|
                         {{#type}}
                             <span>{{type}}</span>
                         {{/type}}
                     </div>
                 </div>
-                <div class="container-body">
-                    {{r1}}
+                <div class="sheet-container-body">
+                    <span>{{r1}}</span>
                 </div>
-                {{#charname}}
-                    <div class="container-footer">
+                <div class="sheet-container-footer">
+                    {{#charname}}
                         <span class="italics">{{charname}}</span>
-                    </div>
-                {{/charname}}
+                    {{/charname}}
+                </div>
             </div>
         </rolltemplate>
     </div>
@@ -3335,6 +3330,12 @@
             });
             console.log("Updating Mortal Path");
         });
+
+        on('change:character_level', function(eventInfo){
+            ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
+                update_mod(`${attr}`);
+            });
+        });
         
         on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:grapple_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
             update_skills();
@@ -3447,7 +3448,7 @@
         
         var update_attr = function(attr) {
             var update = {};
-            var attr_fields = [attr + "_base", attr + "_bonus"];
+            var attr_fields = [attr + "_base"];
             getSectionIDs("repeating_inventory", function(idarray) {
                 _.each(idarray, function(currentID, i) {
                     attr_fields.push("repeating_inventory_" + currentID + "_equipped");
@@ -3455,7 +3456,6 @@
                 });
                 getAttrs(attr_fields, function(v) {
                     var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 0)) ? parseInt(v[attr + "_base"], 0) : 0;
-                    var bonus = v[attr + "_bonus"] && !isNaN(parseInt(v[attr + "_bonus"], 0)) ? parseInt(v[attr + "_bonus"], 0) : 0;
                     var item_base = 0;
                     var item_bonus = 0;
                     _.each(idarray, function(currentID) {
@@ -3479,7 +3479,7 @@
                     });
         
                     base = base > item_base ? base : item_base;
-                    update[attr] = base + bonus + item_bonus;
+                    update[attr] = base + item_bonus;
                     setAttrs(update);
                 });
             });
@@ -3545,8 +3545,6 @@
                 update[attr + "_mod"] = finalattr;
                 update[attr + "_dc"] = finaldc;
                 setAttrs(update);
-                console.log("Updating Modified Attribute")
-                console.log("Updating Skill DC")
             });
         };
         

@@ -1079,7 +1079,7 @@ input::-webkit-inner-spin-button {
     font-weight: bold;
 }
 
-.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) + .sheet-toggle-npc-spells:checked ~ .sheet-section-npc .sheet-section-npc-footer {
+.charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-npc .sheet-section-npc-footer {
     display: none;
 }
 
@@ -2605,16 +2605,144 @@ input::-webkit-inner-spin-button {
     display: block;
 }
 
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-desc,
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-simple,
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-move,
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-atkdmg,
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-atk,
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-dmg,
-.charsheet .sheet-rolltemplate .sheet-rolltemplate-features{
-    width: 189px;
-    background: url(http://i.imgur.com/53WSdhx.png) top left;
-    background-size: 189px 100%;
-    background-repeat: no-repeat;
+.sheet-rolltemplate-atk,
+.sheet-rolltemplate-desc,
+.sheet-rolltemplate-dmg,
+.sheet-rolltemplate-features,
+.sheet-rolltemplate-move,
+.sheet-rolltemplate-simple {
+    width: 230px;
+    text-align: center;
+}
+
+.sheet-rolltemplate-atk .sheet-container,
+.sheet-rolltemplate-desc .sheet-container,
+.sheet-rolltemplate-dmg .sheet-container,
+.sheet-rolltemplate-features .sheet-container,
+.sheet-rolltemplate-move .sheet-container,
+.sheet-rolltemplate-simple .sheet-container{
+    width: 230px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header,
+.sheet-rolltemplate-features .sheet-container .sheet-container-header,
+.sheet-rolltemplate-move .sheet-container .sheet-container-header,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header{
+    width: 230px;
+    background: #dddddd;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #999999;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row a[href^="~"]{
+    background: #999999;
     color: black;
+    border: #5a5a5a;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .inlinerollresult,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .inlinerollresult,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .inlinerollresult,
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .inlinerollresult,
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .inlinerollresult,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .inlinerollresult{
+    background: none;
+    border: none;
+    padding: 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 1.1em;
+} 
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body,
+.sheet-rolltemplate-features .sheet-container .sheet-container-body,
+.sheet-rolltemplate-move .sheet-container .sheet-container-body,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body {
+    width: 230px;
+    text-align: center;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .sheet-row,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .sheet-row,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .sheet-row,
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .sheet-row,
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .sheet-row,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .sheet-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .italics,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .italics,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .italics,
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .italics,
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .italics,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .italics {
+    font-style: italic;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .desc,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .desc,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .desc,
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .desc,
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .desc,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .desc {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-features .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-move .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-footer{
+    width: 184px;
+    background: #dddddd;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #999999;
+    margin: 0 23px 0 23px;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row,
+.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row,
+.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row{
+    display: flex;
+}
+
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row span,
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row span,
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row span,
+.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row span,
+.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row span,
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row span{
+    width: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sheet-rolltemplate-atk .sheet-container a[href^="~"]{
+    background: none;
+    color: black;
+    padding: 5px;
+    display: inline-block;
+    border: none;
+    line-height: 9px;
 }

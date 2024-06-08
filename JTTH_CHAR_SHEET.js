@@ -330,6 +330,12 @@ on('change:character_path', function() {
     console.log("Updating Mortal Path");
 });
 
+on('change:character_level', function(eventInfo){
+    ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
+        update_mod(`${attr}`);
+    });
+});
+
 on("change:acrobatics_bonus change:athletics_bonus change:charm_bonus change:deceit_bonus change:disguise_bonus change:fine_arts_bonus change:forgery_bonus change:grapple_bonus change:history_bonus change:intuition_bonus change:intimidation_bonus change:investigation_bonus change:medicine_bonus change:navigation_bonus change:perception_bonus change:performance_bonus change:persuade_bonus change:discretion_bonus change:stealth_bonus change:survival_bonus", function(eventinfo) {
     update_skills();
     console.log("Updating PC Skills");
@@ -441,7 +447,7 @@ let toInt = function(value) {
 
 var update_attr = function(attr) {
     var update = {};
-    var attr_fields = [attr + "_base", attr + "_bonus"];
+    var attr_fields = [attr + "_base"];
     getSectionIDs("repeating_inventory", function(idarray) {
         _.each(idarray, function(currentID, i) {
             attr_fields.push("repeating_inventory_" + currentID + "_equipped");
@@ -449,7 +455,6 @@ var update_attr = function(attr) {
         });
         getAttrs(attr_fields, function(v) {
             var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 0)) ? parseInt(v[attr + "_base"], 0) : 0;
-            var bonus = v[attr + "_bonus"] && !isNaN(parseInt(v[attr + "_bonus"], 0)) ? parseInt(v[attr + "_bonus"], 0) : 0;
             var item_base = 0;
             var item_bonus = 0;
             _.each(idarray, function(currentID) {
@@ -473,7 +478,7 @@ var update_attr = function(attr) {
             });
 
             base = base > item_base ? base : item_base;
-            update[attr] = base + bonus + item_bonus;
+            update[attr] = base + item_bonus;
             setAttrs(update);
         });
     });
