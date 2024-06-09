@@ -245,6 +245,20 @@ const speciesAdjustments = {
     'Varkari' :{}
 };
 
+var global_fields = ["global_attribute_mod", "global_dc_mod", "global_skill_mod", "global_attack_mod", "global_damage_mod"];
+
+global_fields.forEach(field => {
+    on(`change:${field}`, function() {
+        ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength'].forEach(attr => {
+            update_attr(`${attr}`);
+            update_mod(`${attr}`);
+        });
+        update_skills();
+        update_moves();
+        console.log("Updated for global modifiers change");
+    });
+});
+
 ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
     on(`change:${attr}_base change:${attr}_bonus`, function() {
         update_attr(`${attr}`);
@@ -447,13 +461,13 @@ let toInt = function(value) {
 
 var update_attr = function(attr) {
     var update = {};
-    var attr_fields = [attr + "_base"];
+    var attr_fields = [attr + "_base", "attr_global_attribute_mod"];
     getSectionIDs("repeating_inventory", function(idarray) {
         _.each(idarray, function(currentID, i) {
             attr_fields.push("repeating_inventory_" + currentID + "_equipped");
             attr_fields.push("repeating_inventory_" + currentID + "_itemmodifiers");
         });
-        getAttrs(attr_fields, function(v) {
+        getAttrs(attr_fields.concat(global_fields), function(v) {
             var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 0)) ? parseInt(v[attr + "_base"], 0) : 0;
             var item_base = 0;
             var item_bonus = 0;
@@ -477,8 +491,9 @@ var update_attr = function(attr) {
                 }
             });
 
+            var global_attribute_mod = parseInt(v.global_attribute_mod) || 0;
             base = base > item_base ? base : item_base;
-            update[attr] = base + item_bonus;
+            update[attr] = base + item_bonus + global_attribute_mod;
             setAttrs(update);
         });
     });
@@ -536,10 +551,11 @@ var update_initiative = function(){
 };
 
 var update_mod = function(attr) {
-    getAttrs([attr, "character_level"], function(v) {
+    getAttrs([attr, "character_level", "global_dc_mod", "global_attribute_mod"], function(v) {
         var finalattr = v[attr] && isNaN(v[attr]) === false ? parseInt(v[attr], 0) : 0;
         var level = parseInt(v.character_level) || 0;
-        var finaldc = finalattr * ( 3.5 + Math.floor( level / 7 ) )
+        var global_dc_mod = parseInt(v.global_dc_mod) || 0;
+        var finaldc = Math.floor(finalattr * (3.5 + Math.floor(level / 7))) + global_dc_mod;
         var update = {};
         update[attr + "_mod"] = finalattr;
         update[attr + "_dc"] = finaldc;
@@ -565,7 +581,7 @@ var update_moves = function() {
                 `repeating_move_${id}_attack_damage2bonus`,
                 `repeating_move_${id}_attack_damagetype2`,
                 `repeating_move_${id}_description`,
-                "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
+                "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype", "global_attack_mod", "global_damage_mod"
             ], function(v) {
                 var update = {};
 
@@ -574,16 +590,16 @@ var update_moves = function() {
 
                 var attackRange = v[`repeating_move_${id}_attack_range`];
                 var attackToHit = v[`repeating_move_${id}_attack_tohit`].replace("@{", "").replace("}", "");
-                var attackBonus = parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0;
+                var attackBonus = (parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0) + (parseInt(v.global_attack_mod) || 0);
 
                 var damage1 = v[`repeating_move_${id}_attack_damage`];
                 var damage1Attribute = v[`repeating_move_${id}_attack_damage1attribute`];
-                var damage1Bonus = parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0;
+                var damage1Bonus = (parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
                 var damage1Type = v[`repeating_move_${id}_attack_damagetype`];
 
                 var damage2 = v[`repeating_move_${id}_attack_damage2`];
                 var damage2Attribute = v[`repeating_move_${id}_attack_damage2attribute`];
-                var damage2Bonus = parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0;
+                var damage2Bonus = (parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
                 var damage2Type = v[`repeating_move_${id}_attack_damagetype2`];
 
                 var damage_flag = "";
@@ -979,7 +995,7 @@ var update_reduction = function(){
 };
 
 var update_skills = function() {
-    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {        
+    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control", "global_skill_mod"], function(v) {
         var update = {};
 
         // Calculate base values
@@ -988,6 +1004,7 @@ var update_skills = function() {
         var mental_strength = parseInt(v.mental_strength) || 0;
         var appearance = parseInt(v.appearance) || 0;
         var qi_control = parseInt(v.qi_control) || 0;
+        var global_skill_mod = parseInt(v.global_skill_mod) || 0;
 
         update["acrobatics_roll"] = agility;
         update["athletics_roll"] = power;
@@ -1011,26 +1028,26 @@ var update_skills = function() {
         update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
 
         // Calculate full rolls
-        update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6');
-        update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6');
-        update["charm"] = update["charm_roll"] + (parseInt(v.charm_bonus) ? `d6 + ${parseInt(v.charm_bonus)}` : 'd6');
-        update["deceit"] = update["deceit_roll"] + (parseInt(v.deceit_bonus) ? `d6 + ${parseInt(v.deceit_bonus)}` : 'd6');
-        update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6');
-        update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6');
-        update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6');
-        update["grapple"] = update["grapple_roll"] + (parseInt(v.grapple_bonus) ? `d6 + ${parseInt(v.grapple_bonus)}` : 'd6');
-        update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6');
-        update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6');
-        update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6');
-        update["investigation"] = update["investigation_roll"] + (parseInt(v.investigation_bonus) ? `d6 + ${parseInt(v.investigation_bonus)}` : 'd6');
-        update["medicine"] = update["medicine_roll"] + (parseInt(v.medicine_bonus) ? `d6 + ${parseInt(v.medicine_bonus)}` : 'd6');
-        update["navigation"] = update["navigation_roll"] + (parseInt(v.navigation_bonus) ? `d6 + ${parseInt(v.navigation_bonus)}` : 'd6');
-        update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6');
-        update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6');
-        update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6');
-        update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6');
-        update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6');
-        update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6');
+        update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["charm"] = update["charm_roll"] + (parseInt(v.charm_bonus) ? `d6 + ${parseInt(v.charm_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["deceit"] = update["deceit_roll"] + (parseInt(v.deceit_bonus) ? `d6 + ${parseInt(v.deceit_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["grapple"] = update["grapple_roll"] + (parseInt(v.grapple_bonus) ? `d6 + ${parseInt(v.grapple_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["investigation"] = update["investigation_roll"] + (parseInt(v.investigation_bonus) ? `d6 + ${parseInt(v.investigation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["medicine"] = update["medicine_roll"] + (parseInt(v.medicine_bonus) ? `d6 + ${parseInt(v.medicine_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["navigation"] = update["navigation_roll"] + (parseInt(v.navigation_bonus) ? `d6 + ${parseInt(v.navigation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
 
         setAttrs(update, {
             silent: true

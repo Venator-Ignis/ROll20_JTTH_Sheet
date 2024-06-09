@@ -1,4 +1,4 @@
-atk<div class="sheet-core">
+<div class="sheet-core">
     <input class="sheet-toggle-npc" name="attr_npc" type="hidden" value="0" hidden>
     <input class="sheet-toggle-npc-edit" name="attr_npc_options-flag" type="checkbox" hidden>
     <div class="sheet-section-roll">
@@ -1276,42 +1276,42 @@ atk<div class="sheet-core">
                     <div class="sheet-tab-content">
                         <div class="sheet-container-well sheet-well-attributes">
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} @{charname_output} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[PWR]+@{power_bonus}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} @{charname_output} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[PWR]+@{power_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">PWR</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_power_mod" title="@{power_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_power_dc" title="@{power_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">AGI</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_agility_mod" title="@{agility_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_agility_dc" title="@{agility_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} @{charname_output} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} @{charname_output} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">VIT</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_vitality_mod" title="@{vitality_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">CUL</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_cultivation_mod" title="@{cultivation_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} @{charname_output} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} @{charname_output} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">QIC</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_qi_control_mod" title="@{qi_control_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_qi_control_dc" title="@{qi_control_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} @{charname_output} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MTL]+@{mental_strength_bonus}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} @{charname_output} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MTL]+@{mental_strength_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">MTL</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_mental_strength_mod" title="@{mental_strength_mod}">0</span>
@@ -1329,121 +1329,121 @@ atk<div class="sheet-core">
                                         <div class="sheet-container-header">SKILLS</div>
                                         <div class="sheet-container-body">
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_acrobatics" value="@{wtype}&{template:simple} @{charname_output} {{rname=Acrobatics}} {{mod=@{acrobatics}}} {{r1=[[@{acrobatics_roll}d6 + @{acrobatics_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_acrobatics" value="@{wtype}&{template:simple} @{charname_output} {{rname=Acrobatics}} {{mod=@{acrobatics}}} {{r1=[[@{acrobatics_roll}d6 + @{acrobatics_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Acrobatics</span>
                                                     <span name="attr_acrobatics"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_athletics" value="@{wtype}&{template:simple} @{charname_output} {{rname=Athletics}} {{mod=@{athletics}}} {{r1=[[@{athletics_roll}d6 + @{athletics_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_athletics" value="@{wtype}&{template:simple} @{charname_output} {{rname=Athletics}} {{mod=@{athletics}}} {{r1=[[@{athletics_roll}d6 + @{athletics_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Athletics</span>
                                                     <span name="attr_athletics"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_charm" value="@{wtype}&{template:simple} @{charname_output} {{rname=Charm}} {{mod=@{charm}}} {{r1=[[@{charm_roll}d6 + @{charm_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_charm" value="@{wtype}&{template:simple} @{charname_output} {{rname=Charm}} {{mod=@{charm}}} {{r1=[[@{charm_roll}d6 + @{charm_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Charm</span>
                                                     <span name="attr_charm"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_deceit" value="@{wtype}&{template:simple} @{charname_output} {{rname=Deceit}} {{mod=@{deceit}}} {{r1=[[@{deceit_roll}d6 + @{deceit_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_deceit" value="@{wtype}&{template:simple} @{charname_output} {{rname=Deceit}} {{mod=@{deceit}}} {{r1=[[@{deceit_roll}d6 + @{deceit_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Deceit</span>
                                                     <span name="attr_deceit"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_discretion" value="@{wtype}&{template:simple} @{charname_output} {{rname=Discretion}} {{mod=@{discretion}}} {{r1=[[@{discretion_roll}d6 + @{discretion_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_discretion" value="@{wtype}&{template:simple} @{charname_output} {{rname=Discretion}} {{mod=@{discretion}}} {{r1=[[@{discretion_roll}d6 + @{discretion_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Discretion</span>
                                                     <span name="attr_discretion"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_disguise" value="@{wtype}&{template:simple} @{charname_output} {{rname=Disguise}} {{mod=@{disguise}}} {{r1=[[@{disguise_roll}d6 + @{disguise_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_disguise" value="@{wtype}&{template:simple} @{charname_output} {{rname=Disguise}} {{mod=@{disguise}}} {{r1=[[@{disguise_roll}d6 + @{disguise_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Disguise</span>
                                                     <span name="attr_disguise"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_fine_arts" value="@{wtype}&{template:simple} @{charname_output} {{rname=Fine Arts}} {{mod=@{fine_arts}}} {{r1=[[@{_rollfine_arts}d6 + @{fine_arts_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_fine_arts" value="@{wtype}&{template:simple} @{charname_output} {{rname=Fine Arts}} {{mod=@{fine_arts}}} {{r1=[[@{_rollfine_arts}d6 + @{fine_arts_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Fine Arts</span>
                                                     <span name="attr_fine_arts"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_forgery" value="@{wtype}&{template:simple} @{charname_output} {{rname=Forgery}} {{mod=@{forgery}}} {{r1=[[@{forgery_roll}d6 + @{forgery_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_forgery" value="@{wtype}&{template:simple} @{charname_output} {{rname=Forgery}} {{mod=@{forgery}}} {{r1=[[@{forgery_roll}d6 + @{forgery_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Forgery</span>
                                                     <span name="attr_forgery"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_grapple" value="@{wtype}&{template:simple} @{charname_output} {{rname=Grapple}} {{mod=@{grapple}}} {{r1=[[@{grapple_roll}d6 + @{grapple_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_grapple" value="@{wtype}&{template:simple} @{charname_output} {{rname=Grapple}} {{mod=@{grapple}}} {{r1=[[@{grapple_roll}d6 + @{grapple_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Grapple</span>
                                                     <span name="attr_grapple"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_history" value="@{wtype}&{template:simple} @{charname_output} {{rname=History}} {{mod=@{history}}} {{r1=[[@{history_roll}d6 + @{history_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_history" value="@{wtype}&{template:simple} @{charname_output} {{rname=History}} {{mod=@{history}}} {{r1=[[@{history_roll}d6 + @{history_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>History</span>
                                                     <span name="attr_history"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_intuition" value="@{wtype}&{template:simple} @{charname_output} {{rname=Intuition}} {{mod=@{intuition}}} {{r1=[[@{intuition_roll}d6 + @{intuition_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_intuition" value="@{wtype}&{template:simple} @{charname_output} {{rname=Intuition}} {{mod=@{intuition}}} {{r1=[[@{intuition_roll}d6 + @{intuition_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Intuition</span>
                                                     <span name="attr_intuition"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_intimidation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Intimidation}} {{mod=@{intimidation}}} {{r1=[[@{intimidation_roll}d6 + @{intimidation_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_intimidation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Intimidation}} {{mod=@{intimidation}}} {{r1=[[@{intimidation_roll}d6 + @{intimidation_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Intimidation</span>
                                                     <span name="attr_intimidation"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_investigation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Investigation}} {{mod=@{investigation}}} {{r1=[[@{investigation_roll}d6 + @{investigation_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_investigation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Investigation}} {{mod=@{investigation}}} {{r1=[[@{investigation_roll}d6 + @{investigation_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Investigation</span>
                                                     <span name="attr_investigation"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_medicine" value="@{wtype}&{template:simple} @{charname_output} {{rname=Medicine}} {{mod=@{medicine}}} {{r1=[[@{medicine_roll}d6 + @{medicine_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_medicine" value="@{wtype}&{template:simple} @{charname_output} {{rname=Medicine}} {{mod=@{medicine}}} {{r1=[[@{medicine_roll}d6 + @{medicine_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Medicine</span>
                                                     <span name="attr_medicine"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_navigation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Navigation}} {{mod=@{navigation}}} {{r1=[[@{navigation_roll}d6 + @{navigation_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_navigation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Navigation}} {{mod=@{navigation}}} {{r1=[[@{navigation_roll}d6 + @{navigation_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Navigation</span>
                                                     <span name="attr_navigation"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_perception" value="@{wtype}&{template:simple} @{charname_output} {{rname=Perception}} {{mod=@{perception}}} {{r1=[[@{perception_roll}d6 + @{perception_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_perception" value="@{wtype}&{template:simple} @{charname_output} {{rname=Perception}} {{mod=@{perception}}} {{r1=[[@{perception_roll}d6 + @{perception_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Perception</span>
                                                     <span name="attr_perception"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_performance" value="@{wtype}&{template:simple} @{charname_output} {{rname=Performance}} {{mod=@{performance}}} {{r1=[[@{performance_roll}d6 + @{performance_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_performance" value="@{wtype}&{template:simple} @{charname_output} {{rname=Performance}} {{mod=@{performance}}} {{r1=[[@{performance_roll}d6 + @{performance_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Performance</span>
                                                     <span name="attr_performance"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_persuade" value="@{wtype}&{template:simple} @{charname_output} {{rname=Persuade}} {{mod=@{persuade}}} {{r1=[[@{persuade_roll}d6 + @{persuade_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_persuade" value="@{wtype}&{template:simple} @{charname_output} {{rname=Persuade}} {{mod=@{persuade}}} {{r1=[[@{persuade_roll}d6 + @{persuade_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Persuade</span>
                                                     <span name="attr_persuade"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} @{charname_output} {{rname=Stealth}} {{mod=@{stealth}}} {{r1=[[@{stealth_roll}d6 + @{stealth_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_stealth" value="@{wtype}&{template:simple} @{charname_output} {{rname=Stealth}} {{mod=@{stealth}}} {{r1=[[@{stealth_roll}d6 + @{stealth_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Stealth</span>
                                                     <span name="attr_stealth"></span>
                                                 </button>
                                             </div>
                                             <div class="sheet-pc-skill"> 
-                                                <button type="roll" name="roll_survival" value="@{wtype}&{template:simple} @{charname_output} {{rname=Survival}} {{mod=@{survival}}} {{r1=[[@{survival_roll}d6 + @{survival_bonus}]]}} {{type=Skill}}">
+                                                <button type="roll" name="roll_survival" value="@{wtype}&{template:simple} @{charname_output} {{rname=Survival}} {{mod=@{survival}}} {{r1=[[@{survival_roll}d6 + @{survival_bonus}[BONUS]+@{global_skill_mod}[GLOBAL]]]}} {{type=Skill}}">
                                                     <span>Survival</span>
                                                     <span name="attr_survival"></span>
                                                 </button>
@@ -1688,7 +1688,9 @@ atk<div class="sheet-core">
                                                                 </div>
                                                             </button>
                                                             <input type="hidden" name="attr_rollbase">
-                                                            <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-hidden"></button>
+                                                            <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-btn-text">
+                                                                Roll Damage
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2690,6 +2692,35 @@ atk<div class="sheet-core">
                                     </div>
                                 </div>
                             </div>
+                            <div class="sheet-container-panel sheet-pc-option-global">
+                                <div class="sheet-container-header">GLOBAL MODIFIERS</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-form-group">
+                                                <label>Global Attribute Modifier:</label>
+                                                <input type="text" name="attr_global_attribute_mod" title="@{global_attribute_mod}">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Global DC Modifier:</label>
+                                                <input type="text" name="attr_global_dc_mod" title="@{global_dc_mod}">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Global Skill Modifier:</label>
+                                                <input type="text" name="attr_global_skill_mod" title="@{global_skill_mod}">
+                                            </div>
+                                            <div class="sheet-form-group option-global-fieldset">
+                                                <label>Global Attack Modifiers:</label>
+                                                <input type="text" name="attr_global_attack_mod" title="@{global_attack_mod}">
+                                            </div>
+                                            <div class="sheet-form-group option-global-fieldset">
+                                                <label>Global Damage Modifiers:</label>
+                                                <input type="text" name="attr_global_damage_mod" title="@{global_damage_mod}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3246,6 +3277,20 @@ atk<div class="sheet-core">
             'Varkari' :{}
         };
         
+        var global_fields = ["global_attribute_mod", "global_dc_mod", "global_skill_mod", "global_attack_mod", "global_damage_mod"];
+        
+        global_fields.forEach(field => {
+            on(`change:${field}`, function() {
+                ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength'].forEach(attr => {
+                    update_attr(`${attr}`);
+                    update_mod(`${attr}`);
+                });
+                update_skills();
+                update_moves();
+                console.log("Updated for global modifiers change");
+            });
+        });
+        
         ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
             on(`change:${attr}_base change:${attr}_bonus`, function() {
                 update_attr(`${attr}`);
@@ -3330,7 +3375,7 @@ atk<div class="sheet-core">
             });
             console.log("Updating Mortal Path");
         });
-
+        
         on('change:character_level', function(eventInfo){
             ['power', 'agility', 'vitality', 'cultivation', 'qi_control', 'mental_strength', 'appearance'].forEach(attr => {
                 update_mod(`${attr}`);
@@ -3448,13 +3493,13 @@ atk<div class="sheet-core">
         
         var update_attr = function(attr) {
             var update = {};
-            var attr_fields = [attr + "_base"];
+            var attr_fields = [attr + "_base", "attr_global_attribute_mod"];
             getSectionIDs("repeating_inventory", function(idarray) {
                 _.each(idarray, function(currentID, i) {
                     attr_fields.push("repeating_inventory_" + currentID + "_equipped");
                     attr_fields.push("repeating_inventory_" + currentID + "_itemmodifiers");
                 });
-                getAttrs(attr_fields, function(v) {
+                getAttrs(attr_fields.concat(global_fields), function(v) {
                     var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 0)) ? parseInt(v[attr + "_base"], 0) : 0;
                     var item_base = 0;
                     var item_bonus = 0;
@@ -3478,8 +3523,9 @@ atk<div class="sheet-core">
                         }
                     });
         
+                    var global_attribute_mod = parseInt(v.global_attribute_mod) || 0;
                     base = base > item_base ? base : item_base;
-                    update[attr] = base + item_bonus;
+                    update[attr] = base + item_bonus + global_attribute_mod;
                     setAttrs(update);
                 });
             });
@@ -3537,10 +3583,11 @@ atk<div class="sheet-core">
         };
         
         var update_mod = function(attr) {
-            getAttrs([attr, "character_level"], function(v) {
+            getAttrs([attr, "character_level", "global_dc_mod", "global_attribute_mod"], function(v) {
                 var finalattr = v[attr] && isNaN(v[attr]) === false ? parseInt(v[attr], 0) : 0;
                 var level = parseInt(v.character_level) || 0;
-                var finaldc = finalattr * ( 3.5 + Math.floor( level / 7 ) )
+                var global_dc_mod = parseInt(v.global_dc_mod) || 0;
+                var finaldc = Math.floor(finalattr * (3.5 + Math.floor(level / 7))) + global_dc_mod;
                 var update = {};
                 update[attr + "_mod"] = finalattr;
                 update[attr + "_dc"] = finaldc;
@@ -3566,7 +3613,7 @@ atk<div class="sheet-core">
                         `repeating_move_${id}_attack_damage2bonus`,
                         `repeating_move_${id}_attack_damagetype2`,
                         `repeating_move_${id}_description`,
-                        "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype"
+                        "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype", "global_attack_mod", "global_damage_mod"
                     ], function(v) {
                         var update = {};
         
@@ -3575,16 +3622,16 @@ atk<div class="sheet-core">
         
                         var attackRange = v[`repeating_move_${id}_attack_range`];
                         var attackToHit = v[`repeating_move_${id}_attack_tohit`].replace("@{", "").replace("}", "");
-                        var attackBonus = parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0;
+                        var attackBonus = (parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0) + (parseInt(v.global_attack_mod) || 0);
         
                         var damage1 = v[`repeating_move_${id}_attack_damage`];
                         var damage1Attribute = v[`repeating_move_${id}_attack_damage1attribute`];
-                        var damage1Bonus = parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0;
+                        var damage1Bonus = (parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
                         var damage1Type = v[`repeating_move_${id}_attack_damagetype`];
         
                         var damage2 = v[`repeating_move_${id}_attack_damage2`];
                         var damage2Attribute = v[`repeating_move_${id}_attack_damage2attribute`];
-                        var damage2Bonus = parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0;
+                        var damage2Bonus = (parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
                         var damage2Type = v[`repeating_move_${id}_attack_damagetype2`];
         
                         var damage_flag = "";
@@ -3980,7 +4027,7 @@ atk<div class="sheet-core">
         };
         
         var update_skills = function() {
-            getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control"], function(v) {        
+            getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control", "global_skill_mod"], function(v) {
                 var update = {};
         
                 // Calculate base values
@@ -3989,6 +4036,7 @@ atk<div class="sheet-core">
                 var mental_strength = parseInt(v.mental_strength) || 0;
                 var appearance = parseInt(v.appearance) || 0;
                 var qi_control = parseInt(v.qi_control) || 0;
+                var global_skill_mod = parseInt(v.global_skill_mod) || 0;
         
                 update["acrobatics_roll"] = agility;
                 update["athletics_roll"] = power;
@@ -4012,26 +4060,26 @@ atk<div class="sheet-core">
                 update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
         
                 // Calculate full rolls
-                update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6');
-                update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6');
-                update["charm"] = update["charm_roll"] + (parseInt(v.charm_bonus) ? `d6 + ${parseInt(v.charm_bonus)}` : 'd6');
-                update["deceit"] = update["deceit_roll"] + (parseInt(v.deceit_bonus) ? `d6 + ${parseInt(v.deceit_bonus)}` : 'd6');
-                update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6');
-                update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6');
-                update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6');
-                update["grapple"] = update["grapple_roll"] + (parseInt(v.grapple_bonus) ? `d6 + ${parseInt(v.grapple_bonus)}` : 'd6');
-                update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6');
-                update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6');
-                update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6');
-                update["investigation"] = update["investigation_roll"] + (parseInt(v.investigation_bonus) ? `d6 + ${parseInt(v.investigation_bonus)}` : 'd6');
-                update["medicine"] = update["medicine_roll"] + (parseInt(v.medicine_bonus) ? `d6 + ${parseInt(v.medicine_bonus)}` : 'd6');
-                update["navigation"] = update["navigation_roll"] + (parseInt(v.navigation_bonus) ? `d6 + ${parseInt(v.navigation_bonus)}` : 'd6');
-                update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6');
-                update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6');
-                update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6');
-                update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6');
-                update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6');
-                update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6');
+                update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["charm"] = update["charm_roll"] + (parseInt(v.charm_bonus) ? `d6 + ${parseInt(v.charm_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["deceit"] = update["deceit_roll"] + (parseInt(v.deceit_bonus) ? `d6 + ${parseInt(v.deceit_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["grapple"] = update["grapple_roll"] + (parseInt(v.grapple_bonus) ? `d6 + ${parseInt(v.grapple_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["investigation"] = update["investigation_roll"] + (parseInt(v.investigation_bonus) ? `d6 + ${parseInt(v.investigation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["medicine"] = update["medicine_roll"] + (parseInt(v.medicine_bonus) ? `d6 + ${parseInt(v.medicine_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["navigation"] = update["navigation_roll"] + (parseInt(v.navigation_bonus) ? `d6 + ${parseInt(v.navigation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+                update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
         
                 setAttrs(update, {
                     silent: true
