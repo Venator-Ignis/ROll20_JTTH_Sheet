@@ -1028,26 +1028,26 @@ var update_skills = function() {
         update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
 
         // Calculate full rolls
-        update["acrobatics"] = update["acrobatics_roll"] + (parseInt(v.acrobatics_bonus) ? `d6 + ${parseInt(v.acrobatics_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["athletics"] = update["athletics_roll"] + (parseInt(v.athletics_bonus) ? `d6 + ${parseInt(v.athletics_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["charm"] = update["charm_roll"] + (parseInt(v.charm_bonus) ? `d6 + ${parseInt(v.charm_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["deceit"] = update["deceit_roll"] + (parseInt(v.deceit_bonus) ? `d6 + ${parseInt(v.deceit_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["disguise"] = update["disguise_roll"] + (parseInt(v.disguise_bonus) ? `d6 + ${parseInt(v.disguise_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["fine_arts"] = update["fine_arts_roll"] + (parseInt(v.fine_arts_bonus) ? `d6 + ${parseInt(v.fine_arts_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["forgery"] = update["forgery_roll"] + (parseInt(v.forgery_bonus) ? `d6 + ${parseInt(v.forgery_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["grapple"] = update["grapple_roll"] + (parseInt(v.grapple_bonus) ? `d6 + ${parseInt(v.grapple_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["history"] = update["history_roll"] + (parseInt(v.history_bonus) ? `d6 + ${parseInt(v.history_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["intuition"] = update["intuition_roll"] + (parseInt(v.intuition_bonus) ? `d6 + ${parseInt(v.intuition_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["intimidation"] = update["intimidation_roll"] + (parseInt(v.intimidation_bonus) ? `d6 + ${parseInt(v.intimidation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["investigation"] = update["investigation_roll"] + (parseInt(v.investigation_bonus) ? `d6 + ${parseInt(v.investigation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["medicine"] = update["medicine_roll"] + (parseInt(v.medicine_bonus) ? `d6 + ${parseInt(v.medicine_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["navigation"] = update["navigation_roll"] + (parseInt(v.navigation_bonus) ? `d6 + ${parseInt(v.navigation_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["perception"] = update["perception_roll"] + (parseInt(v.perception_bonus) ? `d6 + ${parseInt(v.perception_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["performance"] = update["performance_roll"] + (parseInt(v.performance_bonus) ? `d6 + ${parseInt(v.performance_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["persuade"] = update["persuade_roll"] + (parseInt(v.persuade_bonus) ? `d6 + ${parseInt(v.persuade_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["discretion"] = update["discretion_roll"] + (parseInt(v.discretion_bonus) ? `d6 + ${parseInt(v.discretion_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["stealth"] = update["stealth_roll"] + (parseInt(v.stealth_bonus) ? `d6 + ${parseInt(v.stealth_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
-        update["survival"] = update["survival_roll"] + (parseInt(v.survival_bonus) ? `d6 + ${parseInt(v.survival_bonus)}` : 'd6') + (parseInt(v.global_skill_mod) ? ` + ${parseInt(v.global_skill_mod)}` : '');
+        update["acrobatics"] = update["acrobatics_roll"] + (v.acrobatics_bonus ? `d6 + ${v.acrobatics_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["athletics"] = update["athletics_roll"] + (v.athletics_bonus ? `d6 + ${v.athletics_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["charm"] = update["charm_roll"] + (v.charm_bonus ? `d6 + ${v.charm_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["deceit"] = update["deceit_roll"] + (v.deceit_bonus ? `d6 + ${v.deceit_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["disguise"] = update["disguise_roll"] + (v.disguise_bonus ? `d6 + ${v.disguise_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["fine_arts"] = update["fine_arts_roll"] + (v.fine_arts_bonus ? `d6 + ${v.fine_arts_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["forgery"] = update["forgery_roll"] + (v.forgery_bonus ? `d6 + ${v.forgery_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["grapple"] = update["grapple_roll"] + (v.grapple_bonus ? `d6 + ${v.grapple_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["history"] = update["history_roll"] + (v.history_bonus ? `d6 + ${v.history_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["intuition"] = update["intuition_roll"] + (v.intuition_bonus ? `d6 + ${v.intuition_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["intimidation"] = update["intimidation_roll"] + (v.intimidation_bonus ? `d6 + ${v.intimidation_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["investigation"] = update["investigation_roll"] + (v.investigation_bonus ? `d6 + ${v.investigation_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["medicine"] = update["medicine_roll"] + (v.medicine_bonus ? `d6 + ${v.medicine_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["navigation"] = update["navigation_roll"] + (v.navigation_bonus ? `d6 + ${v.navigation_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["perception"] = update["perception_roll"] + (v.perception_bonus ? `d6 + ${v.perception_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["performance"] = update["performance_roll"] + (v.performance_bonus ? `d6 + ${v.performance_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["persuade"] = update["persuade_roll"] + (v.persuade_bonus ? `d6 + ${v.persuade_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["discretion"] = update["discretion_roll"] + (v.discretion_bonus ? `d6 + ${v.discretion_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["stealth"] = update["stealth_roll"] + (v.stealth_bonus ? `d6 + ${v.stealth_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["survival"] = update["survival_roll"] + (v.survival_bonus ? `d6 + ${v.survival_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
 
         setAttrs(update, {
             silent: true

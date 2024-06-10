@@ -464,6 +464,9 @@ input::-webkit-inner-spin-button {
     border-radius: 5px;
     background: #dddddd;
     float: right;
+    max-width: 89px;
+    overflow: auto;
+    text-overflow: ellipsis;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child::after {
