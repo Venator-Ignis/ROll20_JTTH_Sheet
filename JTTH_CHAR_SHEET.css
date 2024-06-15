@@ -3093,40 +3093,21 @@ input::-webkit-inner-spin-button {
     border-color: black;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container,
-.sheet-rolltemplate-darkmode .sheet-container,
-.sheet-rolltemplate-darkmode .sheet-container,
-.sheet-rolltemplate-darkmode .sheet-container,
-.sheet-rolltemplate-darkmode .sheet-container,
 .sheet-rolltemplate-darkmode .sheet-container{
     background: black;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
 .sheet-rolltemplate-darkmode .sheet-container .sheet-container-header{
     background: #444444;
     border: 1px solid #222222;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
 .sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"]{
     background: #222222;
     color: black;
     border: black;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
 .sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer{
     background: #444444;
     border: 1px solid #222222;
