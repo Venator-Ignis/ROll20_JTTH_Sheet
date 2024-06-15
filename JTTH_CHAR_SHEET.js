@@ -263,7 +263,7 @@ global_fields.forEach(field => {
     on(`change:${attr}_base change:${attr}_bonus`, function() {
         update_attr(`${attr}`);
     });
-    on(`change:${attr}`, function() {
+    on(`change:${attr} change:${attr}_dc_bonus`, function() {
         update_mod(`${attr}`);
     });
     console.log("Updating Attribute");
@@ -551,11 +551,12 @@ var update_initiative = function(){
 };
 
 var update_mod = function(attr) {
-    getAttrs([attr, "character_level", "global_dc_mod", "global_attribute_mod"], function(v) {
-        var finalattr = v[attr] && isNaN(v[attr]) === false ? parseInt(v[attr], 0) : 0;
-        var level = parseInt(v.character_level) || 0;
-        var global_dc_mod = parseInt(v.global_dc_mod) || 0;
-        var finaldc = Math.floor(finalattr * (3.5 + Math.floor(level / 7))) + global_dc_mod;
+    getAttrs([attr, "character_level", "global_dc_mod", "global_attribute_mod", attr + "_dc_bonus"], function(v) {
+        var finalattr = v[attr] && !isNaN(parseInt(v[attr])) ? parseInt(v[attr], 10) : 0;
+        var level = !isNaN(parseInt(v.character_level)) ? parseInt(v.character_level, 10) : 0;
+        var global_dc_mod = !isNaN(parseInt(v.global_dc_mod)) ? parseInt(v.global_dc_mod, 10) : 0;
+        var attr_dc_bonus = !isNaN(parseInt(v[attr + "_dc_bonus"])) ? parseInt(v[attr + "_dc_bonus"], 10) : 0;
+        var finaldc = Math.floor(finalattr * (3.5 + Math.floor(level / 7))) + global_dc_mod + attr_dc_bonus;
         var update = {};
         update[attr + "_mod"] = finalattr;
         update[attr + "_dc"] = finaldc;
@@ -995,7 +996,19 @@ var update_reduction = function(){
 };
 
 var update_skills = function() {
-    getAttrs(["acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", "stealth_bonus", "survival_bonus", "agility", "power", "mental_strength", "appearance", "qi_control", "global_skill_mod"], function(v) {
+    getAttrs([
+        "acrobatics_bonus", "athletics_bonus", "charm_bonus", "deceit_bonus", "disguise_bonus", 
+        "fine_arts_bonus", "forgery_bonus", "grapple_bonus", "history_bonus", "intuition_bonus", 
+        "intimidation_bonus", "investigation_bonus", "medicine_bonus", "navigation_bonus", 
+        "perception_bonus", "performance_bonus", "persuade_bonus", "discretion_bonus", 
+        "stealth_bonus", "survival_bonus", "acrobatics_item_bonus", "athletics_item_bonus", 
+        "charm_item_bonus", "deceit_item_bonus", "disguise_item_bonus", "fine_arts_item_bonus", 
+        "forgery_item_bonus", "grapple_item_bonus", "history_item_bonus", "intuition_item_bonus", 
+        "intimidation_item_bonus", "investigation_item_bonus", "medicine_item_bonus", 
+        "navigation_item_bonus", "perception_item_bonus", "performance_item_bonus", 
+        "persuade_item_bonus", "discretion_item_bonus", "stealth_item_bonus", "survival_item_bonus", 
+        "agility", "power", "mental_strength", "appearance", "qi_control", "global_skill_mod"
+    ], function(v) {
         var update = {};
 
         // Calculate base values
@@ -1006,6 +1019,73 @@ var update_skills = function() {
         var qi_control = parseInt(v.qi_control) || 0;
         var global_skill_mod = parseInt(v.global_skill_mod) || 0;
 
+        // Skill Item bonuses
+        var acrobatics_item_bonus = parseInt(v.acrobatics_item_bonus) || 0;
+        var athletics_item_bonus = parseInt(v.athletics_item_bonus) || 0;
+        var charm_item_bonus = parseInt(v.charm_item_bonus) || 0;
+        var deceit_item_bonus = parseInt(v.deceit_item_bonus) || 0;
+        var disguise_item_bonus = parseInt(v.disguise_item_bonus) || 0;
+        var fine_arts_item_bonus = parseInt(v.fine_arts_item_bonus) || 0;
+        var forgery_item_bonus = parseInt(v.forgery_item_bonus) || 0;
+        var grapple_item_bonus = parseInt(v.grapple_item_bonus) || 0;
+        var history_item_bonus = parseInt(v.history_item_bonus) || 0;
+        var intuition_item_bonus = parseInt(v.intuition_item_bonus) || 0;
+        var intimidation_item_bonus = parseInt(v.intimidation_item_bonus) || 0;
+        var investigation_item_bonus = parseInt(v.investigation_item_bonus) || 0;
+        var medicine_item_bonus = parseInt(v.medicine_item_bonus) || 0;
+        var navigation_item_bonus = parseInt(v.navigation_item_bonus) || 0;
+        var perception_item_bonus = parseInt(v.perception_item_bonus) || 0;
+        var performance_item_bonus = parseInt(v.performance_item_bonus) || 0;
+        var persuade_item_bonus = parseInt(v.persuade_item_bonus) || 0;
+        var discretion_item_bonus = parseInt(v.discretion_item_bonus) || 0;
+        var stealth_item_bonus = parseInt(v.stealth_item_bonus) || 0;
+        var survival_item_bonus = parseInt(v.survival_item_bonus) || 0;
+
+        // Skill bonuses
+        var acrobatics_bonus = (parseInt(v.acrobatics_bonus) || 0) + acrobatics_item_bonus;
+        var athletics_bonus = (parseInt(v.athletics_bonus) || 0) + athletics_item_bonus;
+        var charm_bonus = (parseInt(v.charm_bonus) || 0) + charm_item_bonus;
+        var deceit_bonus = (parseInt(v.deceit_bonus) || 0) + deceit_item_bonus;
+        var disguise_bonus = (parseInt(v.disguise_bonus) || 0) + disguise_item_bonus;
+        var fine_arts_bonus = (parseInt(v.fine_arts_bonus) || 0) + fine_arts_item_bonus;
+        var forgery_bonus = (parseInt(v.forgery_bonus) || 0) + forgery_item_bonus;
+        var grapple_bonus = (parseInt(v.grapple_bonus) || 0) + grapple_item_bonus;
+        var history_bonus = (parseInt(v.history_bonus) || 0) + history_item_bonus;
+        var intuition_bonus = (parseInt(v.intuition_bonus) || 0) + intuition_item_bonus;
+        var intimidation_bonus = (parseInt(v.intimidation_bonus) || 0) + intimidation_item_bonus;
+        var investigation_bonus = (parseInt(v.investigation_bonus) || 0) + investigation_item_bonus;
+        var medicine_bonus = (parseInt(v.medicine_bonus) || 0) + medicine_item_bonus;
+        var navigation_bonus = (parseInt(v.navigation_bonus) || 0) + navigation_item_bonus;
+        var perception_bonus = (parseInt(v.perception_bonus) || 0) + perception_item_bonus;
+        var performance_bonus = (parseInt(v.performance_bonus) || 0) + performance_item_bonus;
+        var persuade_bonus = (parseInt(v.persuade_bonus) || 0) + persuade_item_bonus;
+        var discretion_bonus = (parseInt(v.discretion_bonus) || 0) + discretion_item_bonus;
+        var stealth_bonus = (parseInt(v.stealth_bonus) || 0) + stealth_item_bonus;
+        var survival_bonus = (parseInt(v.survival_bonus) || 0) + survival_item_bonus;
+
+        // Skill Item bonuses
+        var acrobatics_item_bonus = parseInt(v.acrobatics_item_bonus) || 0;
+        var athletics_item_bonus = parseInt(v.athletics_item_bonus) || 0;
+        var charm_item_bonus = parseInt(v.charm_item_bonus) || 0;
+        var deceit_item_bonus = parseInt(v.deceit_item_bonus) || 0;
+        var disguise_item_bonus = parseInt(v.disguise_item_bonus) || 0;
+        var fine_arts_item_bonus = parseInt(v.fine_arts_item_bonus) || 0;
+        var forgery_item_bonus = parseInt(v.forgery_item_bonus) || 0;
+        var grapple_item_bonus = parseInt(v.grapple_item_bonus) || 0;
+        var history_item_bonus = parseInt(v.history_item_bonus) || 0;
+        var intuition_item_bonus = parseInt(v.intuition_item_bonus) || 0;
+        var intimidation_item_bonus = parseInt(v.intimidation_item_bonus) || 0;
+        var investigation_item_bonus = parseInt(v.investigation_item_bonus) || 0;
+        var medicine_item_bonus = parseInt(v.medicine_item_bonus) || 0;
+        var navigation_item_bonus = parseInt(v.navigation_item_bonus) || 0;
+        var perception_item_bonus = parseInt(v.perception_item_bonus) || 0;
+        var performance_item_bonus = parseInt(v.performance_item_bonus) || 0;
+        var persuade_item_bonus = parseInt(v.persuade_item_bonus) || 0;
+        var discretion_item_bonus = parseInt(v.discretion_item_bonus) || 0;
+        var stealth_item_bonus = parseInt(v.stealth_item_bonus) || 0;
+        var survival_item_bonus = parseInt(v.survival_item_bonus) || 0;
+
+        // Calculate base rolls
         update["acrobatics_roll"] = agility;
         update["athletics_roll"] = power;
         update["charm_roll"] = Math.round(mental_strength + appearance);
@@ -1028,26 +1108,26 @@ var update_skills = function() {
         update["survival_roll"] = Math.round(power / 2 + mental_strength / 2);
 
         // Calculate full rolls
-        update["acrobatics"] = update["acrobatics_roll"] + (v.acrobatics_bonus ? `d6 + ${v.acrobatics_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["athletics"] = update["athletics_roll"] + (v.athletics_bonus ? `d6 + ${v.athletics_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["charm"] = update["charm_roll"] + (v.charm_bonus ? `d6 + ${v.charm_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["deceit"] = update["deceit_roll"] + (v.deceit_bonus ? `d6 + ${v.deceit_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["disguise"] = update["disguise_roll"] + (v.disguise_bonus ? `d6 + ${v.disguise_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["fine_arts"] = update["fine_arts_roll"] + (v.fine_arts_bonus ? `d6 + ${v.fine_arts_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["forgery"] = update["forgery_roll"] + (v.forgery_bonus ? `d6 + ${v.forgery_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["grapple"] = update["grapple_roll"] + (v.grapple_bonus ? `d6 + ${v.grapple_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["history"] = update["history_roll"] + (v.history_bonus ? `d6 + ${v.history_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["intuition"] = update["intuition_roll"] + (v.intuition_bonus ? `d6 + ${v.intuition_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["intimidation"] = update["intimidation_roll"] + (v.intimidation_bonus ? `d6 + ${v.intimidation_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["investigation"] = update["investigation_roll"] + (v.investigation_bonus ? `d6 + ${v.investigation_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["medicine"] = update["medicine_roll"] + (v.medicine_bonus ? `d6 + ${v.medicine_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["navigation"] = update["navigation_roll"] + (v.navigation_bonus ? `d6 + ${v.navigation_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["perception"] = update["perception_roll"] + (v.perception_bonus ? `d6 + ${v.perception_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["performance"] = update["performance_roll"] + (v.performance_bonus ? `d6 + ${v.performance_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["persuade"] = update["persuade_roll"] + (v.persuade_bonus ? `d6 + ${v.persuade_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["discretion"] = update["discretion_roll"] + (v.discretion_bonus ? `d6 + ${v.discretion_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["stealth"] = update["stealth_roll"] + (v.stealth_bonus ? `d6 + ${v.stealth_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
-        update["survival"] = update["survival_roll"] + (v.survival_bonus ? `d6 + ${v.survival_bonus}` : 'd6') + (v.global_skill_mod ? ` + ${v.global_skill_mod}` : '');
+        update["acrobatics"] = update["acrobatics_roll"] + (acrobatics_bonus ? `d6 + ${acrobatics_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["athletics"] = update["athletics_roll"] + (athletics_bonus ? `d6 + ${athletics_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["charm"] = update["charm_roll"] + (charm_bonus ? `d6 + ${charm_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["deceit"] = update["deceit_roll"] + (deceit_bonus ? `d6 + ${deceit_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["disguise"] = update["disguise_roll"] + (disguise_bonus ? `d6 + ${disguise_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["fine_arts"] = update["fine_arts_roll"] + (fine_arts_bonus ? `d6 + ${fine_arts_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["forgery"] = update["forgery_roll"] + (forgery_bonus ? `d6 + ${forgery_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["grapple"] = update["grapple_roll"] + (grapple_bonus ? `d6 + ${grapple_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["history"] = update["history_roll"] + (history_bonus ? `d6 + ${history_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["intuition"] = update["intuition_roll"] + (intuition_bonus ? `d6 + ${intuition_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["intimidation"] = update["intimidation_roll"] + (intimidation_bonus ? `d6 + ${intimidation_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["investigation"] = update["investigation_roll"] + (investigation_bonus ? `d6 + ${investigation_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["medicine"] = update["medicine_roll"] + (medicine_bonus ? `d6 + ${medicine_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["navigation"] = update["navigation_roll"] + (navigation_bonus ? `d6 + ${navigation_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["perception"] = update["perception_roll"] + (perception_bonus ? `d6 + ${perception_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["performance"] = update["performance_roll"] + (performance_bonus ? `d6 + ${performance_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["persuade"] = update["persuade_roll"] + (persuade_bonus ? `d6 + ${persuade_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["discretion"] = update["discretion_roll"] + (discretion_bonus ? `d6 + ${discretion_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["stealth"] = update["stealth_roll"] + (stealth_bonus ? `d6 + ${stealth_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
+        update["survival"] = update["survival_roll"] + (survival_bonus ? `d6 + ${survival_bonus}` : 'd6') + (global_skill_mod ? ` + ${global_skill_mod}` : '');
 
         setAttrs(update, {
             silent: true
@@ -1152,24 +1232,28 @@ var update_weight = function() {
             size_slots += slots_modifier;
             
             var str_base = parseInt(v.power);
-            var size_multiplier = 1;
-            var str = str_base * size_multiplier;
+            var str = str_base;
+            var weight_maximum = str * 30;
+            var weight_mod = weight_maximum;
+
             if (v.carrying_capacity_mod) {
                 var operator = v.carrying_capacity_mod.substring(0, 1);
-                var value = v.carrying_capacity_mod.substring(1);
-                if (["*", "x", "+", "-"].indexOf(operator) > -1 && isNaN(parseInt(value, 0)) === false) {
+                var value = parseInt(v.carrying_capacity_mod.substring(1), 10);
+                if (["*", "x", "+", "-", "/"].indexOf(operator) > -1 && !isNaN(value)) {
                     if (operator == "*" || operator == "x") {
-                        str *= parseInt(value, 0);
+                        weight_mod *= value;
                     } else if (operator == "+") {
-                        str += parseInt(value, 0);
+                        weight_mod += value;
                     } else if (operator == "-") {
-                        str -= parseInt(value, 0);
+                        weight_mod -= value;
+                    } else if (operator == "/") {
+                        weight_mod /= value;
                     }
                 }
             }
 
+            update["weightmaximum"] = weight_mod;
             update["slotsmaximum"] = size_slots;
-            update["weightmaximum"] = str * 30;
 
             if (stotal > size_slots) {
                 update["encumberance"] = "OVER CARRYING CAPACITY";
@@ -1191,12 +1275,14 @@ var update_weight = function() {
 };
 
 var check_itemmodifiers = function(modifiers, previousValue) {
+    var update = {};
     var mods = modifiers.toLowerCase().split(",");
     if (previousValue) {
         prevmods = previousValue.toLowerCase().split(",");
         mods = _.union(mods, prevmods);
     };
     _.each(mods, function(mod) {
+        var item_bonus = parseInt(mod.match(/[\+\-]?\d+/)) || 0;
         if (mod.indexOf("power") > -1) {
             update_attr("power");
         };
@@ -1215,6 +1301,90 @@ var check_itemmodifiers = function(modifiers, previousValue) {
         if (mod.indexOf("mental_strength") > -1) {
             update_attr("mental_strength");
         };
+        if (mod.indexOf("acrobatics") > -1) {
+            update["acrobatics_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("athletics") > -1) {
+            update["athletics_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("charm") > -1) {
+            update["charm_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("deceit") > -1) {
+            update["deceit_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("disguise") > -1) {
+            update["disguise_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("fine_arts") > -1) {
+            update["fine_arts_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("forgery") > -1) {
+            update["forgery_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("grapple") > -1) {
+            update["grapple_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("history") > -1) {
+            update["history_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("intuition") > -1) {
+            update["intuition_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("intimidation") > -1) {
+            update["intimidation_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("investigation") > -1) {
+            update["investigation_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("medicine") > -1) {
+            update["medicine_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("navigation") > -1) {
+            update["navigation_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("perception") > -1) {
+            update["perception_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("performance") > -1) {
+            update["performance_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("persuade") > -1) {
+            update["persuade_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("discretion") > -1) {
+            update["discretion_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("stealth") > -1) {
+            update["stealth_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+        if (mod.indexOf("survival") > -1) {
+            update["survival_item_bonus"] = parseInt(item_bonus)
+            update_skills();
+        };
+    });
+
+    setAttrs(update, {
+        silent: true
     });
 };
 
