@@ -3502,9 +3502,9 @@
         
                             var attackBonus = baseAttackBonus;
                             if (advantageBonus === 2.00) {
-                                attackBonus = Math.max(attackToHitValue, minBonus);
+                                attackBonus += Math.max(attackToHitValue, minBonus);
                             } else if (advantageBonus > 0) {
-                                attackBonus = Math.max(Math.floor(attackToHitValue * advantageBonus), minBonus);
+                                attackBonus += Math.max(Math.floor(attackToHitValue * advantageBonus), minBonus);
                             }
         
                             var damage1 = v[`repeating_move_${id}_attack_damage`];
