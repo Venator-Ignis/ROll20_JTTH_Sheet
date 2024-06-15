@@ -429,7 +429,40 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks,
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-attacks{
-    min-height: 235px;
+    min-height: 190px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-advantage{
+    min-height: 0px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-advantage .sheet-container-body{
+    display: flex;
+    flex-direction: row;
+}
+
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar{
+    width: 25%;
+    align-content: center;
+}
+
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar span{
+    line-height: 15px;
+}
+
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar > input[type="radio"]{
+    height: 30px;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar > input[type="radio"]:checked {
+    cursor: auto;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well{
@@ -439,6 +472,7 @@ input::-webkit-inner-spin-button {
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks{
     display: flex;
+    flex-direction: column;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat{
@@ -2060,6 +2094,10 @@ input::-webkit-inner-spin-button {
     padding: 0 20px;
 }
 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+    background: #730d25;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details {
     text-align: left;
     white-space: normal;
@@ -2139,7 +2177,6 @@ input::-webkit-inner-spin-button {
     min-height: 210px;
 }
 
-
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-alert-warning {
     background: #7e2d40;
     font-size: 9px;
@@ -2147,6 +2184,10 @@ input::-webkit-inner-spin-button {
     margin-bottom: 4px;
     color: white;
     border-radius: 3px;
+}
+
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-alert-warning {
+    background: #730d25;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header,
@@ -2342,6 +2383,10 @@ input::-webkit-inner-spin-button {
     border-radius: 100%;
 }
 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item-equipped {
+    background: #730d25;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item-carried {
     background: #dddddd;
     color: black;
@@ -2439,6 +2484,10 @@ input::-webkit-inner-spin-button {
     padding: 0 5px;
 }
 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container {
+    background: #730d25;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container .sheet-pc-inventory-container-slots {
     opacity: .75;
 }
@@ -2464,6 +2513,10 @@ input::-webkit-inner-spin-button {
     background: none;
     border: 1px solid #dddddd;
     color: #7e2d40;
+}
+
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+    color: #730d25;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-item-columns-2 {
@@ -3038,4 +3091,43 @@ input::-webkit-inner-spin-button {
     background-color: #333333 !important;
     color: #e6e6e6 !important;
     border-color: black;
+}
+
+.sheet-rolltemplate-darkmode .sheet-container,
+.sheet-rolltemplate-darkmode .sheet-container,
+.sheet-rolltemplate-darkmode .sheet-container,
+.sheet-rolltemplate-darkmode .sheet-container,
+.sheet-rolltemplate-darkmode .sheet-container,
+.sheet-rolltemplate-darkmode .sheet-container{
+    background: black;
+}
+
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header{
+    background: #444444;
+    border: 1px solid #222222;
+}
+
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"],
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"]{
+    background: #222222;
+    color: black;
+    border: black;
+}
+
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer,
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer{
+    background: #444444;
+    border: 1px solid #222222;
 }

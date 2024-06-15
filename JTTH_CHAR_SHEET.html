@@ -1575,6 +1575,26 @@
                                     </div>
                                 </div>
                                 <div class="sheet-container-well container-attacks">
+                                    <div class="sheet-container-panel sheet-panel-advantage">
+                                        <div class="sheet-container-body">
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
+                                                <span class="sheet-advantage-label">NONE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="ta">
+                                                <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="ea">
+                                                <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="aa">
+                                                <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="sheet-container-panel sheet-panel-attacks">
                                         <div class="sheet-container-header">ATTACKS</div>
                                         <div class="sheet-container-body">
@@ -3103,228 +3123,6 @@
             'Varkari' :"1d10"
         }
         
-        const speciesAdjustments = {
-            'None' :{},
-            'Angelic Echo' :{
-                'None': { fly: 8 }
-            },
-            'Beastmen' :{
-                'None' : {},
-                'Avian (Eagle)' : { fly : 6 },
-                'Avian (Owl)' : { fly : 6 },
-                'Avian (Peacock)' : { fly : 4 },
-                'Avian (Raven)' : { fly : 5 },
-                'Bovine (Ankole-Watusi)' : {},
-                'Bovine (Bison)' : {},
-                'Bovine (Gaur)' : {},
-                'Bovine (Water Buffalo)' : {},
-                'Bovine (Yak)' : {},
-                'Canine (Arctic Fox)' : {},
-                'Canine (Arctic Wolf)' : {},
-                'Canine (Gray Wolf)' : {},
-                'Canine (Hyena)' : {},
-                'Canine (Jackal)' : {},
-                'Canine (Red Fox)' : {},
-                'Cervine (Elk)' : {},
-                'Cervine (Moose)' : {},
-                'Cervine (Reindeer)' : {},
-                'Feline (Bobcat)' : {},
-                'Feline (Cheetah)' : {},
-                'Feline (Jaguar)' : {},
-                'Feline (Leopard)' : {},
-                'Feline (Lion)' : {},
-                'Feline (Lynx)' : {},
-                'Feline (Ocelot)' : {},
-                'Feline (Tiger)' : {},
-                'Reptilian (Alligator)' : { swim: 10 },
-                'Reptilian (Chameleon)' : {},
-                'Reptilian (Crocodile)' : { swim: 8 },
-                'Reptilian (Komodo Dragon)' : {},
-                'Reptilian (Lizard)' : {},
-                'Reptilian (Turtle)' : {},
-                'Rodent (Beaver)' : {},
-                'Rodent (Capybara)' : {},
-                'Rodent (Mouse)' : {},
-                'Rodent (Porcupine)' : {},
-                'Rodent (Rat)' : {},
-                'Rodent (Squirrel)' : {},
-                'Simian (Baboon)' : { climb: 9 },
-                'Simian (Chimpanzee)' : { climb: 9 },
-                'Simian (Gorilla)' : {},
-                'Simian (Macaque)' : { climb: 8 },
-                'Simian (Mandrill)' : {},
-                'Simian (Orangutan)' : { climb: 8 },
-                'Simian (Spider Monkey)' : { climb: 8 },
-                'Ursine (Black Bear)' : {},
-                'Ursine (Brown Bear)' : {},
-                'Ursine (Panda Bear)' : {},
-                'Ursine (Polar Bear)' : {},
-            },
-            'Demi-humans' :{
-                'Avian (Eagle)' : { fly : 5 },
-                'Avian (Owl)' : { fly : 5 },
-                'Avian (Peacock)' : {},
-                'Avian (Raven)' : {},
-                'Bovine (Ankole-Watusi)' : {},
-                'Bovine (Bison)' : {},
-                'Bovine (Gaur)' : {},
-                'Bovine (Water Buffalo)' : {},
-                'Bovine (Yak)' : {},
-                'Canine (Arctic Fox)' : {},
-                'Canine (Arctic Wolf)' : {},
-                'Canine (Gray Wolf)' : {},
-                'Canine (Hyena)' : {},
-                'Canine (Jackal)' : {},
-                'Canine (Red Fox)' : {},
-                'Cervine (Elk)' : {},
-                'Cervine (Moose)' : {},
-                'Cervine (Reindeer)' : {},
-                'Feline (Bobcat)' : {},
-                'Feline (Cheetah)' : {},
-                'Feline (Jaguar)' : {},
-                'Feline (Leopard)' : {},
-                'Feline (Lion)' : {},
-                'Feline (Lynx)' : {},
-                'Feline (Ocelot)' : {},
-                'Feline (Tiger)' : {},
-                'Reptilian (Alligator)' : { swim: 7 },
-                'Reptilian (Chameleon)' : {},
-                'Reptilian (Crocodile)' : { swim: 7 },
-                'Reptilian (Komodo Dragon)' : {},
-                'Reptilian (Lizard)' : {},
-                'Reptilian (Turtle)' : {},
-                'Rodent (Beaver)' : {},
-                'Rodent (Capybara)' : {},
-                'Rodent (Mouse)' : {},
-                'Rodent (Porcupine)' : {},
-                'Rodent (Rat)' : {},
-                'Rodent (Squirrel)' : {},
-                'Simian (Baboon)' : { climb: 6 },
-                'Simian (Chimpanzee)' : { climb: 6 },
-                'Simian (Gorilla)' : {},
-                'Simian (Macaque)' : { climb: 6 },
-                'Simian (Mandrill)' : {},
-                'Simian (Orangutan)' : { climb: 6 },
-                'Simian (Spider Monkey)' : { climb: 6 },
-                'Ursine (Black Bear)' : {},
-                'Ursine (Brown Bear)' : {},
-                'Ursine (Panda Bear)' : {},
-                'Ursine (Polar Bear)' : {},
-            },
-            'Demonic Beasts' :{
-                'World Serpent' : {},
-                'Phantom Wolf' : {},
-                'Abyssal Wyvern' : {},
-            },
-            'Divine Beasts' :{
-                'Celestial Gryphon' : { fly: 6 },
-                'Astral Tiger ' : {},
-                'Divine Crane' : {fly: 15},
-            },
-            'Draconian' :{
-                'Flameheart (Flame Claw)' : {},
-                'Flameheart (Inferno Breath)' : {},
-                'Flameheart (Ember Shield)' : {},
-                'Giantrock (Stone Fist)' : {},
-                'Giantrock (Lava Breath)' : {},
-                'Giantrock (Rock Hide)' : {},
-                'Trailfinder (Sharp Claws)' : {},
-                'Trailfinder (Keen Senses)' : {},
-                'Trailfinder (Swift Stride)' : {},
-                'RazorWings (Bladed Wings)' : { fly: 6 },
-                'RazorWings (Spike Barrage)' : {},
-                'RazorWings (Blade Armour)' : {},
-                'Oceancrest (Water Mastery)' : {},
-                'Oceancrest (Electric Surge)' : {},
-                'Oceancrest (Tidal Force)' : {},
-                'VeilShadows (Shadowclaw)' : {},
-                'VeilShadows (Eyes of the Night)' : {},
-                'VeilShadows (Etheral Step)' : {},
-                'Boltstrike (Thunderclaw)' : {},
-                'Boltstrike (Storm Breath)' : {},
-                'Boltstrike (Lightning Speed)' : {},
-            },
-            'Elemental Born' :{
-                'Fire-born' : {},
-                'Water-born' : {},
-                'Earth-born' : {},
-                'Storm-born' : {},
-                'Ice-born' : {},
-                'Plant-born' : {},
-                'Metal-born' : {},
-            },
-            'Fallen' :{
-                'The Damning' : {movement: 8},
-                'The Everlasting' : {movement: 6},
-                'The Scorching' : {movement: 8},
-                'The Stalking' : {movement: 7},
-                'The Undying' : {movement: 6},
-            },
-            'Human' :{},
-            'Insectoid' :{
-                'Formicidae' : {},
-                'Coleoptera' : {fly: 4},
-                'Lepidoptera' : {fly: 8},
-                'Mantodea' : {},
-                'Odonata' : {fly: 8},
-                'Blattodea' : {},
-                'Orthoptera' : {},
-                'Hymenoptera' : {},
-            },
-            'Living Golem' :{
-                'Ironclad Colossus' : {},
-                'Clockwork Artificer' : {},
-            },
-            'Merfolk' :{
-                'None': { swim: 12 },
-                'Bog Water Fin': { swim: 12 },
-                'Deep Water Fin': { swim: 12 },
-                'Fresh Water Fin': { swim: 12 },
-                'Lake Water Fin': { swim: 12 },
-                'River Water Fin': { swim: 12 },
-                'Salt Water Fin': { swim: 12 }
-            },
-            'Nirotide' :{},
-            'Parasyte' :{},
-            'Sporlings' :{},
-            'Slime-kin' :{},
-            'Tiko' :{},
-            'Yokai' :{
-                'Atatsu' : {},
-                'Baku' : {},
-                'Hososhi' : {},
-                'Jorogumo' : {},
-                'Kagutsuchi' : {},
-                'Kappa' : {},
-                'Karasu' : {fly: 7},
-                'Kejoro' : {},
-                'Kijimuna' : {},
-                'Kitsune' : {},
-                'Kijo ' : {},
-                'Kodama' : {},
-                'Nekomata' : {},
-                'Nue' : {},
-                'Nure-Onna' : {},
-                'Oni (Blue)' : {},
-                'Oni (Green)' : {movement: 10},
-                'Oni (Red)' : {},
-                'Raiju' : {},
-                'Tanuki' : {},
-                'Tengu' : {fly: 10},
-                'Tsuchigumo' : {},
-                'Wani' : {swim: 6},
-                'Yamauba' : {},
-                'Yuki-onna' : {},
-            },
-            'Vampire' :{
-                'Celeris Vampire' : {},
-                'Fortis Vampire' : {},
-                'Qi Sangui Vampire' : {},
-                'Sanguine Vampire' : {},
-            },
-            'Varkari' :{}
-        };
-        
         var global_fields = ["global_attribute_mod", "global_dc_mod", "global_skill_mod", "global_attack_mod", "global_damage_mod"];
         
         global_fields.forEach(field => {
@@ -3348,6 +3146,11 @@
             });
             console.log("Updating Attribute");
             console.log("Updating Attribute Modified Value");
+        });
+        
+        on('change:tactical_advantage', function(eventInfo) {
+            update_moves();
+            console.log("Updating Advantage");
         });
         
         on('change:character_ancestry change:character_species', function(eventInfo) {
@@ -3646,114 +3449,145 @@
         
         var update_moves = function() {
             getSectionIDs("repeating_move", function(idarray) {
-                _.each(idarray, function(id) {
-                    getAttrs([
-                        `repeating_move_${id}_name`,
-                        `repeating_move_${id}_attack_flag`,
-                        `repeating_move_${id}_attack_range`,
-                        `repeating_move_${id}_attack_tohit`,
-                        `repeating_move_${id}_attack_bonus`,
-                        `repeating_move_${id}_attack_damage`,
-                        `repeating_move_${id}_attack_damage1attribute`,
-                        `repeating_move_${id}_attack_damage1bonus`,
-                        `repeating_move_${id}_attack_damagetype`,
-                        `repeating_move_${id}_attack_damage2`,
-                        `repeating_move_${id}_attack_damage2attribute`,
-                        `repeating_move_${id}_attack_damage2bonus`,
-                        `repeating_move_${id}_attack_damagetype2`,
-                        `repeating_move_${id}_description`,
-                        "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype", "global_attack_mod", "global_damage_mod"
-                    ], function(v) {
-                        var update = {};
+                getAttrs(["tactical_advantage"], function(attrs) {
+                    var tacticalAdvantage = attrs.tactical_advantage || "none";
+                    var advantageBonus = 0;
+                    var minBonus = 0;
         
-                        var attackFlag = v[`repeating_move_${id}_attack_flag`] === "on" ? 1 : 0;
-                        var atkFlag = (attackFlag === 1) ? "{{attack=1}}" : "";
+                    switch (tacticalAdvantage) {
+                        case "ta":
+                            advantageBonus = 0.20;
+                            minBonus = 2;
+                            break;
+                        case "ea":
+                            advantageBonus = 0.40;
+                            minBonus = 4;
+                            break;
+                        case "aa":
+                            advantageBonus = 2.00;
+                            minBonus = 6;
+                            break;
+                        default:
+                            advantageBonus = 0;
+                            minBonus = 0;
+                    }
         
-                        var attackRange = v[`repeating_move_${id}_attack_range`];
-                        var attackToHit = v[`repeating_move_${id}_attack_tohit`].replace("@{", "").replace("}", "");
-                        var attackBonus = (parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0) + (parseInt(v.global_attack_mod) || 0);
+                    _.each(idarray, function(id) {
+                        getAttrs([
+                            `repeating_move_${id}_name`,
+                            `repeating_move_${id}_attack_flag`,
+                            `repeating_move_${id}_attack_range`,
+                            `repeating_move_${id}_attack_tohit`,
+                            `repeating_move_${id}_attack_bonus`,
+                            `repeating_move_${id}_attack_damage`,
+                            `repeating_move_${id}_attack_damage1attribute`,
+                            `repeating_move_${id}_attack_damage1bonus`,
+                            `repeating_move_${id}_attack_damagetype`,
+                            `repeating_move_${id}_attack_damage2`,
+                            `repeating_move_${id}_attack_damage2attribute`,
+                            `repeating_move_${id}_attack_damage2bonus`,
+                            `repeating_move_${id}_attack_damagetype2`,
+                            `repeating_move_${id}_description`,
+                            "power", "agility", "vitality", "cultivation", "qi_control", "mental_strength", "dtype", "global_attack_mod", "global_damage_mod"
+                        ], function(v) {
+                            var update = {};
         
-                        var damage1 = v[`repeating_move_${id}_attack_damage`];
-                        var damage1Attribute = v[`repeating_move_${id}_attack_damage1attribute`];
-                        var damage1Bonus = (parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
-                        var damage1Type = v[`repeating_move_${id}_attack_damagetype`];
+                            var attackFlag = v[`repeating_move_${id}_attack_flag`] === "on" ? 1 : 0;
+                            var atkFlag = (attackFlag === 1) ? "{{attack=1}}" : "";
         
-                        var damage2 = v[`repeating_move_${id}_attack_damage2`];
-                        var damage2Attribute = v[`repeating_move_${id}_attack_damage2attribute`];
-                        var damage2Bonus = (parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
-                        var damage2Type = v[`repeating_move_${id}_attack_damagetype2`];
+                            var attackRange = v[`repeating_move_${id}_attack_range`];
+                            var attackToHit = v[`repeating_move_${id}_attack_tohit`].replace("@{", "").replace("}", "");
+                            var baseAttackBonus = (parseInt(v[`repeating_move_${id}_attack_bonus`]) || 0) + (parseInt(v.global_attack_mod) || 0);
+                            var attackToHitValue = parseInt(v[attackToHit]) || 0;
         
-                        var damage_flag = "";
-                        if (damage1 != "" || damage2 != "") {
-                            damage_flag = damage_flag + "{{damage=1}} ";
-                        }
-                        if (damage1 != "") {
-                            damage_flag = damage_flag + "{{dmg1flag=1}} ";
-                        }
-                        if (damage2 != "") {
-                            damage_flag = damage_flag + "{{dmg2flag=1}} ";
-                        }
+                            var attackBonus = baseAttackBonus;
+                            if (advantageBonus === 2.00) {
+                                attackBonus = Math.max(attackToHitValue, minBonus);
+                            } else if (advantageBonus > 0) {
+                                attackBonus = Math.max(Math.floor(attackToHitValue * advantageBonus), minBonus);
+                            }
         
-                        var description = v[`repeating_move_${id}_description`];
+                            var damage1 = v[`repeating_move_${id}_attack_damage`];
+                            var damage1Attribute = v[`repeating_move_${id}_attack_damage1attribute`];
+                            var damage1Bonus = (parseInt(v[`repeating_move_${id}_attack_damage1bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
+                            var damage1Type = v[`repeating_move_${id}_attack_damagetype`];
         
-                        var toHitValue = parseInt(v[attackToHit.replace("@{", "").replace("}", "")]) || 0;
-                        var toHitString = attackBonus !== 0 ? `${toHitValue} + ${attackBonus}` : `${toHitValue}`;
+                            var damage2 = v[`repeating_move_${id}_attack_damage2`];
+                            var damage2Attribute = v[`repeating_move_${id}_attack_damage2attribute`];
+                            var damage2Bonus = (parseInt(v[`repeating_move_${id}_attack_damage2bonus`]) || 0) + (parseInt(v.global_damage_mod) || 0);
+                            var damage2Type = v[`repeating_move_${id}_attack_damagetype2`];
         
-                        var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
-                        var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
+                            var damage_flag = "";
+                            if (damage1 != "" || damage2 != "") {
+                                damage_flag = damage_flag + "{{damage=1}} ";
+                            }
+                            if (damage1 != "") {
+                                damage_flag = damage_flag + "{{dmg1flag=1}} ";
+                            }
+                            if (damage2 != "") {
+                                damage_flag = damage_flag + "{{dmg2flag=1}} ";
+                            }
         
-                        var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
-                        var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
+                            var description = v[`repeating_move_${id}_description`];
         
-                        var details = `${toHitString}, Reach: ${attackRange}\n`;
-                        details += `Damage: (${damage1String}) ${damage1Type}`;
-                        if (damage2) {
-                            details += ` + (${damage2String}) ${damage2Type}`;
-                        }
-                        details += `\nDescription: ${description}`;
+                            var toHitString = attackBonus !== 0 ? `${attackToHitValue} + ${attackBonus}` : `${attackToHitValue}`;
         
-                        var rollbase = "";
-                        if (v.dtype === "full") {
-                            rollbase = `@{wtype}&{template:move} @{charname_output} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                            var damage1AttrValue = damage1Attribute !== "none" ? (parseInt(v[damage1Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                            var damage1String = `${damage1} + ${damage1AttrValue} + ${damage1Bonus}`;
+        
+                            var damage2AttrValue = damage2Attribute !== "none" ? (parseInt(v[damage2Attribute.replace("@{", "").replace("}", "")]) || 0) : 0;
+                            var damage2String = `${damage2} + ${damage2AttrValue} + ${damage2Bonus}`;
+        
+                            var details = `${toHitString}, Reach: ${attackRange}\n`;
+                            details += `Damage: (${damage1String}) ${damage1Type}`;
+                            if (damage2) {
+                                details += ` + (${damage2String}) ${damage2Type}`;
+                            }
+                            details += `\nDescription: ${description}`;
+        
+                            var rollbase = "";
+                            if (v.dtype === "full") {
+                                rollbase = `@{wtype}&{template:move} @{charname_output} {{range=${attackRange}}} {{rname=@{name}}} ${atkFlag} ${damage_flag} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} `;
+                                if (damage1) {
+                                    rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
+                                }
+                                if (damage2) {
+                                    rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
+                                }
+                            } else if (attackFlag) {
+                                rollbase = `@{wtype}&{template:atk} @{charname_output} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_dmg)}} {{type=[Attack](~repeating_move_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
+                            } else if (damage1 || damage2) {
+                                rollbase = `@{wtype}&{template:dmg} @{charname_output} ${damage_flag} `;
+                                if (damage1) {
+                                    rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
+                                }
+                                if (damage2) {
+                                    rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                                }
+                            } else {
+                                rollbase = `@{wtype}&{template:move} @{charname_output} {{rname=@{name}}} {{description=${description}}}`;
+                            }
+        
+                            var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
                             if (damage1) {
-                                rollbase += `{{dmg1=[[@{attack_damage} + [[${damage1AttrValue}]] + [[${damage1Bonus}]] ]]}} {{dmg1type=${damage1Type}}} `;
+                                full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
                             }
                             if (damage2) {
-                                rollbase += `{{dmg2=[[@{attack_damage2} + [[${damage2AttrValue}]] + [[${damage2Bonus}]] ]]}} {{dmg2type=${damage2Type}}} `;
+                                full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
                             }
-                        } else if (attackFlag) {
-                            rollbase = `@{wtype}&{template:atk} @{charname_output} ${atkFlag} ${damage_flag} {{range=${attackRange}}} {{rname=[@{name}](~repeating_move_dmg)}} {{type=[Attack](~repeating_move_dmg)}} {{r1=[[@{${attackToHit}}+${attackBonus}]]}} {{description=${description}}}`;
-                        } else if (damage1 || damage2) {
-                            rollbase = `@{wtype}&{template:dmg} @{charname_output} ${damage_flag} `;
-                            if (damage1) {
-                                rollbase += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
-                            }
+        
+                            update[`repeating_move_${id}_attack_details`] = details;
+                            update[`repeating_move_${id}_attack_hitdamage`] = `Hit: ${toHitString}, (${attackRange}), Damage: (${damage1String}) ${damage1Type}`;
                             if (damage2) {
-                                rollbase += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
+                                update[`repeating_move_${id}_attack_hitdamage`] += ` + (${damage2String}) ${damage2Type}`;
                             }
-                        } else {
-                            rollbase = `@{wtype}&{template:move} @{charname_output} {{rname=@{name}}} {{description=${description}}}`;
-                        }
+                            update[`repeating_move_${id}_attack_description`] = description;
+                            update[`repeating_move_${id}_rollbase`] = rollbase;
+                            update[`repeating_move_${id}_damage_flag`] = damage_flag;
+                            update[`repeating_move_${id}_full_damage`] = full_damage;
         
-                        var full_damage = `@{wtype}&{template:dmg} ${damage_flag} `;
-                        if (damage1) {
-                            full_damage += `{{dmg1=[[@{attack_damage} + ${damage1AttrValue} + ${damage1Bonus}]]}} {{dmg1type=${damage1Type}}} `;
-                        }
-                        if (damage2) {
-                            full_damage += `{{dmg2=[[@{attack_damage2} + ${damage2AttrValue} + ${damage2Bonus}]]}} {{dmg2type=${damage2Type}}} `;
-                        }
-        
-                        update[`repeating_move_${id}_attack_details`] = details;
-                        update[`repeating_move_${id}_attack_hitdamage`] = `Hit: ${toHitString}, (${attackRange}), Damage: (${damage1String}) ${damage1Type}`;
-                        if (damage2) {
-                            update[`repeating_move_${id}_attack_hitdamage`] += ` + (${damage2String}) ${damage2Type}`;
-                        }
-                        update[`repeating_move_${id}_attack_description`] = description;
-                        update[`repeating_move_${id}_rollbase`] = rollbase;
-                        update[`repeating_move_${id}_damage_flag`] = damage_flag;
-                        update[`repeating_move_${id}_full_damage`] = full_damage;
-        
-                        setAttrs(update, { silent: true });
+                            setAttrs(update, { silent: true });
+                        });
                     });
                 });
             });
