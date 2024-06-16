@@ -1873,7 +1873,8 @@ input::-webkit-inner-spin-button {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
-    grid-template-areas: "memories notes";
+    grid-template-areas: "skills memories"
+    "skills notes";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-container-well-features {
@@ -2054,21 +2055,29 @@ input::-webkit-inner-spin-button {
     grid-area: features;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls{
+    grid-area: skills;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-checkbox-cog:hover span {
     color: white;
     opacity: 1;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .repitem + .repitem,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .repitem + .repitem {
     margin-top: 5px;
     padding-top: 5px;
     border-top: 1px dotted #dddddd;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature {
     font-size: 11px;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool button,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button {
     background: none;
     border: 0;
@@ -2085,6 +2094,7 @@ input::-webkit-inner-spin-button {
     background: #4b5553;
 }
 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool,
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
     background: #7e2d40;
     color: white;
@@ -2094,8 +2104,17 @@ input::-webkit-inner-spin-button {
     padding: 0 20px;
 }
 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool,
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
     background: #730d25;
+}
+
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before{
+    content: "(";
+}
+
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after{
+    content: ")";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details {

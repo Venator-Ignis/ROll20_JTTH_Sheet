@@ -1008,10 +1008,13 @@
                             <option value="None">Choose an Ancestry</option>
                         </select>
                         <select class="character_ancestry_angelic_echo" name="attr_character_species" title="@{character_species}">
-                            <option value="None">None</option>
+                            <option value="None">Choose a Species</option>
+                            <option value="Echo of Hope">Echo of Hope</option>
+                            <option value="Echo of Order">Echo of Order</option>
+                            <option value="Echo of Wrath">Echo of Wrath</option>
                         </select>
                         <select class="character_ancestry_beastmen" name="attr_character_species" title="@{character_species}">
-                            <option value="None">Choose an Ancestry</option>
+                            <option value="None">Choose a Species</option>
                             <option value="Avian (Eagle)">Avian (Eagle)</option>
                             <option value="Avian (Owl)">Avian (Owl)</option>
                             <option value="Avian (Peacock)">Avian (Peacock)</option>
@@ -1276,42 +1279,42 @@
                     <div class="sheet-tab-content">
                         <div class="sheet-container-well sheet-well-attributes">
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} @{charname_output} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[PWR]+@{power_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_power" value="@{wtype}&{template:simple} @{charname_output} {{rname=Power}} {{type=Attribute}} {{r1=[[@{power}d6[PWR]+@{power_bonus}[BONUS]+@{global_attribute_mod}[GLOBAL]]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">PWR</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_power_mod" title="@{power_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_power_dc" title="@{power_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{type=Attribute}} {{r1=[[@{agility}d6[AGI]+@{agility_bonus}[BONUS]+@{global_attribute_mod}[GLOBAL]]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">AGI</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_agility_mod" title="@{agility_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_agility_dc" title="@{agility_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} @{charname_output} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_vitality" value="@{wtype}&{template:simple} @{charname_output} {{rname=Vitality}} {{type=Attribute}} {{r1=[[@{vitality}d6[VIT]+@{vitality_bonus}[BONUS]+@{global_attribute_mod}[GLOBAL]]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">VIT</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_vitality_mod" title="@{vitality_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_cultivation" value="@{wtype}&{template:simple} @{charname_output} {{rname=Cultivation}} {{type=Attribute}} {{r1=[[@{cultivation}d6[CUL]+@{cultivation_bonus}[BONUS]+@{global_attribute_mod}[GLOBAL]]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">CUL</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_cultivation_mod" title="@{cultivation_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} @{charname_output} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_qi_control" value="@{wtype}&{template:simple} @{charname_output} {{rname=Qi Control}} {{type=Attribute}} {{r1=[[@{qi_control}d6[QIC]+@{qi_control_bonus}[BONUS]+@{global_attribute_mod}[GLOBAL]]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">QIC</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_qi_control_mod" title="@{qi_control_mod}">0</span>
                                 <span class="sheet-btn-ability-title" name="attr_qi_control_dc" title="@{qi_control_dc}">0</span>
                             </div>
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} @{charname_output} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MTL]+@{mental_strength_bonus}+@{global_attribute_mod}]]}}" class="sheet-btn-ability">
+                                <button type="roll" name="roll_mental_strength" value="@{wtype}&{template:simple} @{charname_output} {{rname=Mental Strength}} {{type=Attribute}} {{r1=[[@{mental_strength}d6[MTL]+@{mental_strength_bonus}[BONUS]+@{global_attribute_mod}[GLOBAL]]]}}" class="sheet-btn-ability">
                                     <span class="sheet-btn-ability-title">MTL</span>
                                 </button>
                                 <span class="sheet-attribute-mod" name="attr_mental_strength_mod" title="@{mental_strength_mod}">0</span>
@@ -1779,10 +1782,10 @@
                                                             <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource Name">
                                                         </div>
                                                         <div class="sheet-item-resource-current">
-                                                            <input class="sheet-resource-current" type="number" name="attr_resource_current" title="@{resource_current}" placeholder="0">
+                                                            <input class="sheet-resource-current" type="text" name="attr_resource_current" title="@{resource_current}" placeholder="0">
                                                         </div>
                                                         <div class="sheet-item-resource-max">
-                                                            <input class="sheet-resource-max" type="number" name="attr_resource_max" title="@{resource_max}" placeholder="0">
+                                                            <input class="sheet-resource-max" type="text" name="attr_resource_max" title="@{resource_max}" placeholder="0">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1861,11 +1864,16 @@
                                             <input type="text" name="attr_character_motivation_detail" title="@{character_motivation_detail}">
                                         </div>
                                     </div>
-                                    <div class="sheet-pc-detail sheet-pc-detail-habit">
+                                    <div class="sheet-pc-detail">
                                         <label>Habit</label>
                                         <div class="sheet-pc-detail-column">
-                                            <select name="attr_character_habit" title="@{character_habit}">
                                             <input type="text" name="attr_character_habit_detail" title="@{character_habit_detail}">
+                                        </div>
+                                    </div>
+                                    <div class="sheet-pc-detail">
+                                        <label>Bloodline</label>
+                                        <div class="sheet-pc-detail-column">
+                                            <input type="text" name="attr_character_bloodline_detail" title="@{character_bloodline_detail}">
                                         </div>
                                     </div>
                                     <div class="sheet-pc-detail">
@@ -1922,6 +1930,47 @@
                             </div>
                         </div>
                         <div class="sheet-container-well sheet-container-well-memories">
+                            <div class="sheet-container-panel sheet-pc-custom-rolls">
+                                <div class="sheet-container-header">Tools & Custom Skills</div>
+                                <div class="sheet-container-body">
+                                    <fieldset class="repeating_tool">
+                                        <div class="sheet-fieldset-item sheet-fieldset-item-tool">
+                                            <div class="sheet-checkbox-cog">
+                                                <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Custom Roll</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input type="text" name="attr_toolname">
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Roll:</label>
+                                                            <input type="text" name="attr_tool_roll" title="@{tool_roll}" value="0">
+                                                            <label>Mods:</label>
+                                                            <input type="text" name="attr_tool_mod" title="@{tool_mod}" value="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-tool">
+                                                    <button type="roll" name="roll_roll" value="@{wtype}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{mod=@{tool_mod}}} {{r1=[[@{tool_roll} + @{tool_mod}[BONUS]]]}} {{type=Custom}}">
+                                                        <span name="attr_toolname"></span>
+                                                        <span name="attr_tool_roll"></span>
+                                                        <span>+</span>
+                                                        <span name="attr_tool_mod"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
                             <div class="sheet-container-panel sheet-pc-memories">
                                 <div class="sheet-container-header">Memories & Events</div>
                                 <div class="sheet-container-body">
