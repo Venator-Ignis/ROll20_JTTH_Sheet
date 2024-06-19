@@ -3123,7 +3123,7 @@ input::-webkit-inner-spin-button {
 
 .sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"]{
     background: #222222;
-    color: black;
+    color: white;
     border: black;
 }
 
