@@ -1,3113 +1,2815 @@
 .charsheet .sheet-core {
-    color: black;
-    font-size: 13px;
-    line-height: 18px;
-    margin: 0;
-    overflow: visible;
-    padding: 0;
+  color: black;
+  font-size: 13px;
+  line-height: 18px;
+  margin: 0;
+  overflow: visible;
+  padding: 0;
 }
 
 .charsheet .sheet-core .sheet-hidden {
-    display: none !important;
+  display: none;
 }
 
-.charsheet .sheet-core *,
-.charsheet .sheet-core *::after,
-.charsheet .sheet-core *::before {
-    box-sizing: border-box;
+.charsheet .sheet-core *, .charsheet .sheet-core *::after, .charsheet .sheet-core *::before {
+  box-sizing: border-box;
 }
 
-.charsheet .sheet-core input:hover,
-.charsheet .sheet-core input:focus,
-.charsheet .sheet-core textarea:hover,
-.charsheet .sheet-core textarea:focus {
-    background: #e5fffb;
-    outline: none;
+.charsheet .sheet-core input:hover, .charsheet .sheet-core input:focus, .charsheet .sheet-core textarea:hover, .charsheet .sheet-core textarea:focus {
+  background: #e5fffb;
+  outline: none;
 }
 
-.sheet-darkmode .sheet-core input:hover,
-.sheet-darkmode .sheet-core input:focus,
-.sheet-darkmode .sheet-core textarea:hover,
-.sheet-darkmode .sheet-core textarea:focus {
-    background: #4b5553;
+.sheet-darkmode .sheet-core input:hover, .sheet-darkmode .sheet-core input:focus, .sheet-darkmode .sheet-core textarea:hover, .sheet-darkmode .sheet-core textarea:focus {
+  background: #4b5553;
 }
 
-.charsheet .sheet-core select:hover,
-.charsheet .sheet-core select:focus {
-    background: #e5fffb;
+.charsheet .sheet-core select:hover, .charsheet .sheet-core select:focus {
+  background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core select:hover,
-.sheet-darkmode .sheet-core select:focus {
-    background: #4b5553;
+.sheet-darkmode .sheet-core select:hover, .sheet-darkmode .sheet-core select:focus {
+  background: #4b5553;
 }
 
-.charsheet .sheet-core select:hover option,
-.charsheet .sheet-core select:focus option {
-    background: white;
+.charsheet .sheet-core select:hover option, .charsheet .sheet-core select:focus option {
+  background: white;
 }
 
-.sheet-darkmode .sheet-core select:hover option,
-.sheet-darkmode .sheet-core select:focus option {
-    background: #4b5553;
+.sheet-darkmode .sheet-core select:hover option, .sheet-darkmode .sheet-core select:focus option {
+  background: #4b5553;
 }
 
 .charsheet .sheet-core label {
-    margin: 0;
-    padding: 0;
-    font-size: inherit;
-    font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .charsheet .sheet-core button[type=roll] {
-    color: inherit;
-    font-size: inherit;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
+  color: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
 }
 
 .charsheet .sheet-core button[type=roll]:hover {
-    color: #b61037;
+  color: #b61037;
 }
 
 .charsheet .sheet-core button[type=roll]:focus {
-    color: #b61037;
-    outline: none;
+  color: #b61037;
+  outline: none;
 }
 
 .charsheet .sheet-core button[type=roll]::before {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-checkbox-image {
-    height: 14px;
-    overflow: hidden;
-    position: relative;
-    width: 14px;
+  height: 14px;
+  overflow: hidden;
+  position: relative;
+  width: 14px;
 }
 
 .charsheet .sheet-core .sheet-checkbox-image [type=checkbox] {
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
-.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span,
-.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
-    background: #e5fffb;
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span, .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
+  background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span,
-.sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
-    background: #4b5553;
+.sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span, .sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
+  background: #4b5553;
 }
-
-
 
 .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span {
-    background: gainsboro;
+  background: gainsboro;
 }
 
 .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after {
-    content: '';
-    display: block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100%;
-    background: #353535;
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  background: #353535;
 }
 
 .charsheet .sheet-core .sheet-checkbox-image span {
-    overflow: hidden;
-    padding: 2px;
-    background: white;
-    border-radius: 100%;
-    border: 1px solid #272727;
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100% !important;
+  overflow: hidden;
+  padding: 2px;
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #272727;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-roll {
-    margin: 0 auto;
-    width: 800px;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: -18px;
-    height: 18px;
+  margin: 0 auto;
+  width: 800px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -18px;
+  height: 18px;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label {
-    position: relative;
+  position: relative;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label:first-of-type span {
-    border-radius: 4px 0 0 4px;
-    border-left: 1px solid #b7b7b7;
+  border-radius: 4px 0 0 4px;
+  border-left: 1px solid #b7b7b7;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label:last-of-type span {
-    border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label span {
-    background: #dddddd;
-    padding: 1px 5px;
-    font-weight: bold;
-    border: 1px solid #b7b7b7;
-    border-left: 0;
-    color: #909090;
+  background: #ddd;
+  padding: 1px 5px;
+  font-weight: bold;
+  border: 1px solid #b7b7b7;
+  border-left: 0;
+  color: #909090;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label input:checked ~ span {
-    background: #555555;
-    color: white;
-    border-color: #555555;
+  background: #555;
+  color: white;
+  border-color: #555;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper label input:not(:checked):hover ~ span {
-    color: black;
-}  
+  color: black;
+}
 
 .charsheet .sheet-core .sheet-roll-toggle[value*="whispertoggle"] + .sheet-section-roll-whisper {
-    display: flex;
+  display: flex;
 }
 
 .charsheet .sheet-core .sheet-section-roll-whisper {
-    margin-left: 3px;
-    display: flex;
+  margin-left: 3px;
+  display: flex;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll {
-    width: 577px;
-    justify-content: space-between;
-    margin-bottom: 0;
-    height: auto;
+  width: 577px;
+  justify-content: space-between;
+  margin-bottom: 0;
+  height: auto;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-roll .sheet-section-roll-whisper {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-toggle-npc-edit:checked ~ .sheet-section-pc .sheet-tab-content {
-    display: none !important;
+  display: none;
 }
-  
+
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-footer p {
-    color: #cccccc;
-    font-size: 9px;
-    margin: 3px 0 0;
-    text-align: center;
+  color: #ccc;
+  font-size: 9px;
+  margin: 3px 0 0;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-footer p a {
-    color: inherit;
+  color: inherit;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-footer p a:hover {
-    text-decoration: none;
-    background: #e5fffb;
+  text-decoration: none;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-section-pc-footer p a:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc .sheet-section-npc-footer p {
-    color: #cccccc;
-    font-size: 9px;
-    margin: 3px 0 0;
-    text-align: center;
+  color: #ccc;
+  font-size: 9px;
+  margin: 3px 0 0;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-npc .sheet-section-npc-footer p a {
-    color: inherit;
+  color: inherit;
 }
 
 .charsheet .sheet-core .sheet-section-npc .sheet-section-npc-footer p a:hover {
-    text-decoration: none;
-    background: #e5fffb;
+  text-decoration: none;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc .sheet-section-npc-footer p a:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc {
-    margin: 0 auto;
-    max-width: 577px;
-    position: relative;
+  margin: 0 auto;
+  max-width: 577px;
+  position: relative;
 }
 
 .charsheet .sheet-core .sheet-section-pc {
-    margin: 0 auto;
-    width: 800px;
+  margin: 0 auto;
+  width: 800px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header{
-    width: 800px;
-    display: flex;
-    margin-bottom: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header {
+  width: 800px;
+  display: flex;
+  margin-bottom: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details{
-    height: 150px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details {
+  height: 150px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details{
-    width: 650px;
-    margin-left: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details {
+  width: 650px;
+  margin-left: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image img{
-    height: 150px;
-    width: 150px;
-    max-height: 150px;
-    max-width: 150px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image img {
+  height: 150px;
+  width: 150px;
+  max-height: 150px;
+  max-width: 150px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail{
-    height: 25px;
-    display: flex;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail {
+  height: 25px;
+  display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-label{
-    min-width: fit-content;
-    padding-right: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-label {
+  min-width: fit-content;
+  padding-right: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select{
-    width: 100%;
-    height: 25px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select {
+  width: 100%;
+  height: 25px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select{
-    padding: 0;
-    margin: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select {
+  padding: 0;
+  margin: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input{
-    border: none;
-    height: 25px;
-    line-height: 25px;
-    border-bottom: 1px solid grey;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input {
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  border-bottom: 1px solid grey;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes{
-    display: flex;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes {
+  display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:first-of-type{
-    margin-left: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:first-of-type {
+  margin-left: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:last-of-type{
-    margin-right: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute:last-of-type {
+  margin-right: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
-    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-attribute-border.png");
-    background-size: 100% 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 20px 45px 20px;
-    height: 85px;
-    width: 100px;
-    margin-left: 7px;
-    margin-right: 6px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute {
+  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-attribute-border.png);
+  background-size: 100% 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20px 45px 20px;
+  height: 85px;
+  width: 100px;
+  margin-left: 7px;
+  margin-right: 6px;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute{
-    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-attributes-border.png");
-    background-size: 100% 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 20px 45px 20px;
-    height: 85px;
-    width: 100px;
-    margin-left: 7px;
-    margin-right: 6px;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute {
+  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-attributes-border.png);
+  background-size: 100% 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20px 45px 20px;
+  height: 85px;
+  width: 100px;
+  margin-left: 7px;
+  margin-right: 6px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute .sheet-attribute-mod{
-    font-size: 24px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute .sheet-attribute-mod {
+  font-size: 24px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute input{
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: center;
-    vertical-align: middle;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute input {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute button {
+  background: none;
+  border: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute button{
-    background: none;
-    border: none;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute span {
+  text-align: center;
+  align-items: center;
+  display: inline-grid;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-attributes .sheet-container-attribute span{
-    text-align: center;
-    align-items: center;
-    display: inline-grid;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns {
+  display: flex;
+  column-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns{
-    display: flex;
-    column-gap: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column:first-of-type {
+  width: 485px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column:first-of-type{
-    width: 485px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column:last-of-type {
+  width: 290px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column:last-of-type{
-    width: 290px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features .sheet-panel-features {
+  min-height: 325px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features .sheet-panel-features{
-    min-height: 325px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources .sheet-panel-resources {
+  min-height: 348px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources .sheet-panel-resources{
-    min-height: 348px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-attacks {
+  min-height: 190px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-attacks{
-    min-height: 190px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-advantage {
+  min-height: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-advantage{
-    min-height: 0px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-advantage .sheet-container-body {
+  display: flex;
+  flex-direction: row;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-advantage .sheet-container-body{
-    display: flex;
-    flex-direction: row;
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar {
+  width: 25%;
+  align-content: center;
 }
 
-.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar{
-    width: 25%;
-    align-content: center;
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar span {
+  line-height: 15px;
 }
 
-.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar span{
-    line-height: 15px;
-}
-
-.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar > input[type="radio"]{
-    height: 30px;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    z-index: 1;
+.charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar > input[type="radio"] {
+  height: 30px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .charsheet .container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar > input[type="radio"]:checked {
-    cursor: auto;
+  cursor: auto;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well{
-    column-gap: 5px;
-    row-gap: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well {
+  column-gap: 5px;
+  row-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks{
-    display: flex;
-    flex-direction: column;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks {
+  display: flex;
+  flex-direction: column;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat{
-    display: flex;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat {
+  display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body{
-    column-gap: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body {
+  column-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health,
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body{
-    flex-direction: column;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body {
+  flex-direction: column;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box {
-    display: flex;
+  display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body input{
-    width: 100%;
-    text-align: center;
-    background: none;
-    border: none;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body input {
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:first-of-type{
-    line-height: 11px;
-    padding: 0;
-    border-bottom: 1px solid black;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:first-of-type {
+  line-height: 11px;
+  padding: 0;
+  border-bottom: 1px solid black;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health-extra{
-    row-gap: 2px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health-extra {
+  row-gap: 2px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:last-of-type{
-    height: 100%;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:last-of-type {
+  height: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box span{
-    width: 100%;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box span {
+  width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box input{
-    width: 70px;
-    padding: 0;
-    font-size: 9px;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box input {
+  width: 70px;
+  padding: 0;
+  font-size: 9px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well .sheet-container-panel{
-    width: 100%;
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .sheet-container-well .sheet-container-panel {
+  width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill{
-    height: 20px;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill {
+  height: 20px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button{
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button > :last-child::before {
-    content: "(";
+  content: "(";
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child{
-    border-radius: 5px;
-    background: #dddddd;
-    float: right;
-    max-width: 89px;
-    overflow: auto;
-    text-overflow: ellipsis;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child {
+  border-radius: 5px;
+  background: #ddd;
+  float: right;
+  max-width: 89px;
+  overflow: auto;
+  text-overflow: ellipsis;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child{
-    background: #444444;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child {
+  background: #444;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-panel-skills .sheet-pc-skill button span:last-child::after {
-    content: ")";
+  content: ")";
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-container-body{
-    row-gap: 5px;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-container-body {
+  row-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative{
-    text-align: -webkit-center;
-    background: #eeeeee;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative {
+  text-align: -webkit-center;
+  background: #eee;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar{
-    width: 260px;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar {
+  width: 260px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative button{
-    background: none;
-    border: none;
-    height: 100%;
-    width: 100%;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative button {
+  background: none;
+  border: none;
+  height: 100%;
+  width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar span::before{
-    content: "(";
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar span::before {
+  content: "(";
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar span::after{
-    content: ")";
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-initiative .sheet-container-bar span::after {
+  content: ")";
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences{
-    font-size: 11px;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences {
+  font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences .sheet-defence-label,
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences input{
-    text-align: center;
-    line-height: 12px;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences .sheet-defence-label, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences input {
+  text-align: center;
+  line-height: 12px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences input{
-    width: 100%;
-    padding: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences input {
+  width: 100%;
+  padding: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-evasion-group,
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-durability-group,
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-reduction-group,
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-speed-group{
-    display: flex;
-    column-gap: 3px;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-evasion-group, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-durability-group, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-reduction-group, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-speed-group {
+  display: flex;
+  column-gap: 3px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-defence-label{
-    font-size: 11px;
-    text-align: center;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-defence-label {
+  font-size: 11px;
+  text-align: center;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span{
-    display: inline-grid;
-    width: 62px !important;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span {
+  display: inline-grid;
+  width: 62px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span,
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input{
-    width: 100%;
-    line-height: 11px;
-    padding: 2px;
-    text-align: center;
-    border: none;
-    border-left: 1px dotted black;
-    border-right: 1px dotted black;
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input {
+  width: 100%;
+  line-height: 11px;
+  padding: 2px;
+  text-align: center;
+  border: none;
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input{
-    border-left: 1px dotted grey;
-    border-right: 1px dotted grey;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input {
+  border-left: 1px dotted grey;
+  border-right: 1px dotted grey;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-resource-labels{
-    display:  flex;
-    width:  100%;
+.sheet-core .sheet-section-pc .container-resources .sheet-resource-labels {
+  display: flex;
+  width: 100%;
 }
 
 .sheet-core .sheet-section-pc .container-resources .sheet-resource-labels .sheet-resource-label {
-    width:  83px;
-    text-align:  center;
+  width: 83px;
+  text-align: center;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-form{
-    flex-direction: row;
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-form {
+  flex-direction: row;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name input{
-    background: none;
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name input {
+  background: none;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name,
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current,
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max,
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item input {
-    border:  none;
-    box-shadow:  none;
-    font-size:  10px;
-    height:  5mm;
-    margin:  0;
-    padding:  0;
-    width:  83px;
-    text-align: center;
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item input {
+  border: none;
+  box-shadow: none;
+  font-size: 10px;
+  height: 5mm;
+  margin: 0;
+  padding: 0;
+  width: 83px;
+  text-align: center;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current input,
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max input{
-    border-radius: 5px;
-    border-left: 1px dotted;
-    border-right: 1px dotted;
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current input, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max input {
+  border-radius: 5px;
+  border-left: 1px dotted;
+  border-right: 1px dotted;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog {
-    display: inline-block;
-    height: 18px;
-    position: absolute;
-    right: 0;
-    width: 18px;
+  display: inline-block;
+  height: 18px;
+  position: absolute;
+  right: 0;
+  width: 18px;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog input {
-    height: 100%;
-    margin: 0;
-    opacity: 0;
-    position: relative;
-    width: 100%;
-    z-index: 1;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  position: relative;
+  width: 100%;
+  z-index: 1;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span {
-    border: none;
-    color: #000000;
-    opacity: .5;
-    top: -2px;
+  border: none;
+  color: #000;
+  opacity: 0.5;
+  top: -2px;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span::before {
-    content: '2';
+  content: "2";
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog:hover span {
-    color: black;
+  color: black;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog:hover input:checked ~ span {
-    opacity: 1;
+  opacity: 1;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog span {
-    align-items: center;
-    border-radius: 50%;
-    box-sizing: border-box;
-    color: #000000;
-    display: flex;
-    font-family: 'Pictos';
-    font-size: 13px;
-    height: 100%;
-    justify-content: center;
-    left: 0;
-    opacity: .5;
-    position: absolute;
-    top: 0;
-    width: 100%;
+  align-items: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  color: #000;
+  display: flex;
+  font-family: "Pictos";
+  font-size: 13px;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog span::before {
-    content: 'y';
+  content: "y";
 }
 
 .charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-unchecked {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc[value="0"] ~ .sheet-section-npc {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc[value="0"] ~ .sheet-section-pc {
-    display: block;
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-npc {
-    display: block;
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-pc {
-    display: none;
+  display: none;
 }
 
-.charsheet .sheet-core .sheet-field-toggle:not([value]) + *,
-.charsheet .sheet-core .sheet-field-toggle[value=""] + *,
-.charsheet .sheet-core .sheet-field-toggle[value="0"] + *,
-.charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
-    display: none !important;
+.charsheet .sheet-core .sheet-field-toggle:not([value]) + *, .charsheet .sheet-core .sheet-field-toggle[value=""] + *, .charsheet .sheet-core .sheet-field-toggle[value="0"] + *, .charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-field-untoggle[value="1"] + * {
-    display: none !important;
+  display: none;
 }
 
 .charsheet .sheet-core .repcontainer {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .charsheet .sheet-core .repcontrol {
-    border-color: #cccccc;
-    border-top: 1px solid #cccccc;
-    padding-top: 5px;
-    margin-top: 5px;
+  border-color: #ccc;
+  border-top: 1px solid #ccc;
+  padding-top: 5px;
+  margin-top: 5px;
 }
 
 .charsheet .sheet-core .repcontrol .btn {
-    background: none;
-    border-color: #cccccc;
-    border-width: 1px;
-    box-shadow: none;
-    font-size: 9px;
-    font-weight: bold;
-    padding: 0 5px;
+  background: none;
+  border-color: #ccc;
+  border-width: 1px;
+  box-shadow: none;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 0 5px;
 }
 
 .charsheet .sheet-core .repcontrol .btn:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .repcontrol .btn {
-    border-color: #e6e6e6;
-    color: #e6e6e6;
+  border-color: #e6e6e6;
+  color: #e6e6e6;
 }
 
 .sheet-darkmode .sheet-core .repcontrol .btn:hover {
-    background: #333333;
+  background: #333;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header .sheet-npc-header-name {
-    padding-right: 20px;
+  padding-right: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header > span {
-    font-size: 12px;
-    font-style: italic;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header button {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: #555555;
-    display: block;
-    font-size: 24px;
-    font-variant: small-caps;
-    font-weight: bold;
-    margin-bottom: 5px;
-    padding: 0;
-    width: 100%;
-    text-align: left;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: #555;
+  display: block;
+  font-size: 24px;
+  font-variant: small-caps;
+  font-weight: bold;
+  margin-bottom: 5px;
+  padding: 0;
+  width: 100%;
+  text-align: left;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header button span {
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-header button:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-header button:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section {
-    border-bottom: 2px solid #555555;
-    border-top: 2px solid #555555;
-    color: #555555;
-    line-height: 16px;
-    margin: 5px 0;
-    padding: 5px 0;
-    position: relative;
+  border-bottom: 2px solid #555;
+  border-top: 2px solid #555;
+  color: #555;
+  line-height: 16px;
+  margin: 5px 0;
+  padding: 5px 0;
+  position: relative;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section + .sheet-npc-section {
-    border-top: 0;
-    padding-top: 0;
+  border-top: 0;
+  padding-top: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section label {
-    color: inherit;
-    display: inline-block;
-    font-weight: bold;
-    width: auto;
+  color: inherit;
+  display: inline-block;
+  font-weight: bold;
+  width: auto;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section .sheet-btn-inline {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    margin: 0;
-    padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section .sheet-btn-inline:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-section .sheet-btn-inline:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: inherit;
-    flex-grow: 1;
-    margin: 0;
-    padding: 0;
-    text-shadow: none;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: inherit;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  text-shadow: none;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-btn-npc-ability-title {
-    display: block;
-    font-weight: bold;
+  display: block;
+  font-weight: bold;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-value-negative[value="0"] + *::before {
-    content: "(+";
+  content: "(+";
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-btn-npc-ability-mod::after {
-    content: ")";
+  content: ")";
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-abilities .sheet-btn-npc-ability .sheet-btn-npc-ability-mod::before {
-    content: "(";
+  content: "(";
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: inherit;
-    margin: 0;
-    padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button > :last-child::before {
-    content: "(";
+  content: "(";
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button span:last-child{
-    border-radius: 5px;
-    background: #dddddd;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills button span:last-child {
+  border-radius: 5px;
+  background: #ddd;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-skills .sheet-field-toggle[value="1"] + button > :last-child::after {
-    content: "),";
+  content: "),";
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: inherit;
-    position: absolute;
-    right: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: inherit;
+  position: absolute;
+  right: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative > :first-child {
-    display: block;
-    font-family: "dicefontd20";
-    font-size: 16px;
-    font-weight: bold;
+  display: block;
+  font-family: "dicefontd20";
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-btn-npc-initiative > :last-child {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-saving-throws button {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    color: inherit;
-    margin: 0;
-    padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-section-saving-throws button > :last-child::before {
-    content: "+";
+  content: "+";
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-panel-npc {
-    border-radius: 4px;
-    border: 1px solid #cccccc;
-    margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-panel-npc .sheet-panel-header {
-    background: none;
-    border-bottom: 2px solid #555555;
-    color: #555555;
-    font-size: 18px;
-    font-variant: small-caps;
-    font-weight: bold;
-    height: inherit;
-    line-height: inherit;
-    margin: 0px;
-    padding: 5px;
-    text-align: left;
-    text-transform: capitalize;
+  background: none;
+  border-bottom: 2px solid #555;
+  color: #555;
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+  height: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  text-transform: capitalize;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-panel-npc .sheet-panel-body {
-    padding: 5px;
+  padding: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves,
-.charsheet .sheet-core .sheet-section-pc .sheet-move {
-    margin-top: 5px;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves, .charsheet .sheet-core .sheet-section-pc .sheet-move {
+  margin-top: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type),
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type),
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type),
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type){
-    border-bottom: 1px dotted #dddddd;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type), .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type), .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type), .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type) {
+  border-bottom: 1px dotted #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .container-attacks .repitem:not(:last-of-type){
-    border-bottom: 1px dotted #dddddd;
+.charsheet .sheet-core .sheet-section-pc .container-attacks .repitem:not(:last-of-type) {
+  border-bottom: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait {
-    font-size: 11px;
-    padding-right: 20px;
+  font-size: 11px;
+  padding-right: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-name {
-    font-weight: bold;
-    padding: 0 5px;
-    background: #dddddd;
-    border-radius: 3px;
-    display: inline-block;
+  font-weight: bold;
+  padding: 0 5px;
+  background: #ddd;
+  border-radius: 3px;
+  display: inline-block;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-desc {
-    display: inline;
+  display: inline;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-desc span{
-    white-space: pre-wrap;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-trait .sheet-npc-trait-desc span {
+  white-space: pre-wrap;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-feature {
-    font-size: 11px;
-    padding-right: 20px;
+  font-size: 11px;
+  padding-right: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-name {
-    font-weight: bold;
-    padding: 0 5px;
-    background: #dddddd;
-    border-radius: 3px;
-    display: inline-block;
-    position: relative;
-    min-width: 100%;
-    text-align: center;
+  font-weight: bold;
+  padding: 0 5px;
+  background: #ddd;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  text-align: center;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-name {
-    background: #444444;
+  background: #444;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-desc {
-    display: inline;
+  display: inline;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-desc span{
-    white-space: pre-wrap;
+.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-desc span {
+  white-space: pre-wrap;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-name input{
-    appearance: none;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-feature .sheet-feature-name input {
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .sheet-feature .toggle-feature[value="1"] ~ .sheet-feature-desc {
-    display: none !important;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction .sheet-npc-reaction-name {
-    font-weight: bold;
-    padding: 0 5px;
-    background: #dddddd;
-    border-radius: 3px;
-    display: block;
-    text-align: center;
+  font-weight: bold;
+  padding: 0 5px;
+  background: #ddd;
+  border-radius: 3px;
+  display: block;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reaction .sheet-npc-reaction-description {
-    display: block;
-    white-space: normal;
+  display: block;
+  white-space: normal;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves button:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves button:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .sheet-fieldset-item-npcmove-checked-name {
-    background: #dddddd;
-    display: inline-block;
-    border-radius: 3px;
-    padding: 0 5px;
-    width: 100%;
-    text-align: center;
+  background: #ddd;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0 5px;
+  width: 100%;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .sheet-fieldset-item-npcmove-checked-description {
-    white-space: normal;
+  white-space: normal;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves-description {
-    font-size: 11px;
-    padding: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
+  font-size: 11px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll,
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll, .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  text-align: left;
+  width: 100%;
+}
+
 .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    text-align: left;
-    width: 100%;
+  display: inline-flex;
+  max-width: 430px;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll{
-    display: inline-flex;
-    max-width: 430px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name,
-.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-name {
-    font-weight: bold;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name, .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-name {
+  font-weight: bold;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-attack > :not(:last-child) {
-    font-style: italic;
+  font-style: italic;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-onhit > :first-child {
-    font-style: italic;
+  font-style: italic;
 }
 
-
-.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-attack{
-    display: inline-block;
-    max-width: 430px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    vertical-align: top;
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-attack {
+  display: inline-block;
+  max-width: 430px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: top;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-attack span {
-    font-style: italic;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-    display: inline-block;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  display: inline-block;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcmove-checked-roll{
-    background: none;
-    border: 0;
-    box-shadow: none;
-    text-align: left;
-    width: 100%;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcmove-checked-roll {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  text-align: left;
+  width: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcresponses .sheet-fieldset-item-npcresponses-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .charsheet .sheet-core .sheet-toggle-npc:not([value="0"]) ~ .sheet-section-npc .sheet-section-npc-footer {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-form {
-    border-radius: 6px;
-    border: 2px solid #555555;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  border-radius: 6px;
+  border: 2px solid #555;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .charsheet .sheet-core .sheet-form.sheet-form-borderless {
-    border-radius: 0;
-    border: 0;
+  border-radius: 0;
+  border: 0;
 }
 
 .charsheet .sheet-core .sheet-form.sheet-form-borderless .sheet-form-body {
-    padding: 0;
+  padding: 0;
 }
 
 .charsheet .sheet-core .sheet-form > :last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-.charsheet .sheet-core .sheet-form input,
-.charsheet .sheet-core .sheet-form select,
-.charsheet .sheet-core .sheet-form textarea,
-.charsheet .sheet-core .sheet-form .uneditable-input {
-    box-sizing: border-box;
-    color: black;
-    font-size: 11px;
-    height: 16px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-width: 0;
+.charsheet .sheet-core .sheet-form input, .charsheet .sheet-core .sheet-form select, .charsheet .sheet-core .sheet-form textarea, .charsheet .sheet-core .sheet-form .uneditable-input {
+  box-sizing: border-box;
+  color: black;
+  font-size: 11px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 0;
 }
 
-
-.sheet-darkmode textarea{
-    background-color: #333333;
-    color: #e6e6e6;
+.sheet-darkmode textarea {
+  background-color: #333;
+  color: #e6e6e6;
 }
 
-.sheet-darkmode .sheet-core .sheet-form input,
-.sheet-darkmode .sheet-core .sheet-form select,
-.sheet-darkmode .sheet-core .sheet-form textarea,
-.sheet-darkmode .sheet-core .sheet-form .uneditable-input {
-    background-color: #3f3f3f;
-    color: #e6e6e6;
+.sheet-darkmode .sheet-core .sheet-form input, .sheet-darkmode .sheet-core .sheet-form select, .sheet-darkmode .sheet-core .sheet-form textarea, .sheet-darkmode .sheet-core .sheet-form .uneditable-input {
+  background-color: #3f3f3f;
+  color: #e6e6e6;
 }
 
 .charsheet .sheet-core .sheet-form textarea {
-    min-height: 56px;
-    resize: vertical;
+  min-height: 56px;
+  resize: vertical;
 }
 
 .charsheet .sheet-core .sheet-form label {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: inherit;
-    font-weight: bold;
-    line-height: 16px;
-    margin: 0;
-    padding: 0;
-    padding-right: 5px;
-    white-space: nowrap;
-    width: auto;
-    font-size: 9px;
-    text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  padding-right: 5px;
+  white-space: nowrap;
+  width: auto;
+  font-size: 9px;
+  text-transform: uppercase;
 }
 
 .sheet-darkmode .sheet-core .sheet-form label {
-    color: rgba(230, 230, 230);
+  color: rgba(230, 230, 230);
 }
 
 .charsheet .sheet-core .sheet-form select {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .charsheet .sheet-core .sheet-form input {
-    border-bottom: 1px solid #dddddd;
-    border-left: 0;
-    border-radius: 0;
-    border-right: 0;
-    border-top: 0;
-    text-overflow: ellipsis;
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
+  border-top: 0;
+  text-overflow: ellipsis;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-header {
-    background: #555555;
-    color: white;
-    font-size: 9px;
-    font-weight: bold;
-    line-height: 13px;
-    text-align: center;
-    text-transform: uppercase;
+  background: #555;
+  color: white;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 13px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-body {
-    background: white;
-    flex-grow: 1;
-    padding: 5px;
+  background: white;
+  flex-grow: 1;
+  padding: 5px;
 }
 
-.sheet-darkmode .sheet-core .sheet-form .sheet-form-body{
-    background: #333333;
+.sheet-darkmode .sheet-core .sheet-form .sheet-form-body {
+  background: #333;
 }
 
-.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group,
-.charsheet .sheet-core .sheet-form .sheet-form-group + *,
-.charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
-    margin-top: 4px;
+.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group, .charsheet .sheet-core .sheet-form .sheet-form-group + *, .charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
+  margin-top: 4px;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-group {
-    display: flex;
+  display: flex;
 }
 
-.charsheet .sheet-core .sheet-form .form-group-description{
-    flex-direction: column;
+.charsheet .sheet-core .sheet-form .form-group-description {
+  flex-direction: column;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-group > * + * {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-fieldset {
-    border-radius: 6px;
-    border: 2px solid rgba(126, 126, 126, 0.35);
+  border-radius: 6px;
+  border: 2px solid rgba(126, 126, 126, 0.35);
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-fieldset .sheet-form-fieldset-header {
-    background: rgba(126, 126, 126, 0.35);
-    font-size: 9px;
-    font-weight: bold;
-    line-height: 13px;
-    text-align: center;
-    text-transform: uppercase;
+  background: rgba(126, 126, 126, 0.35);
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 13px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-fieldset .sheet-form-fieldset-body {
-    padding: 5px;
+  padding: 5px;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-checkbox {
-    cursor: pointer;
-    display: flex;
+  cursor: pointer;
+  display: flex;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-checkbox:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-checkbox input {
-    height: 16px;
-    width: auto;
+  height: 16px;
+  width: auto;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-checkbox input + span {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body {
-    display: grid;
-    grid-column-gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body .sheet-form-group {
-    align-items: center;
-    margin: 0;
+  align-items: center;
+  margin: 0;
 }
 
 .charsheet .sheet-core .sheet-form-fieldset-npc-attributes .sheet-form-fieldset-body .sheet-form-group input {
-    margin: 0;
-    text-align: center;
+  margin: 0;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses {
-    font-size: 11px;
+  font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover,
-.charsheet .sheet-core .sheet-section-pc .sheet-move button:hover {
-    background: #e5fffb;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover, .charsheet .sheet-core .sheet-section-pc .sheet-move button:hover {
+  background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-move button:hover {
-    background: #4b5553;
+.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-move button:hover {
+  background: #4b5553;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name{
-    width: 100%;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name {
+  width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name,
-.charsheet .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
-    background: #dddddd;
-    display: inline-block;
-    border-radius: 3px;
-    padding: 0 5px;
-    text-align: center;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name, .charsheet .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
+  background: #ddd;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0 5px;
+  text-align: center;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
-    background: #444444;
+.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
+  background: #444;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-move button:last-of-type{
-    background: #444444;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-move button:last-of-type {
+  background: #444;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-move button:last-of-type{
-    width: 100%;
-    height: 15px;
-    text-align: center;
-    border: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+.charsheet .sheet-core .sheet-section-pc .sheet-move button:last-of-type {
+  width: 100%;
+  height: 15px;
+  text-align: center;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-description {
-    white-space: normal;
+  white-space: normal;
 }
 
 .charsheet .sheet-core .sheet-container-well {
-    min-height: 65px;
-    padding: 10px;
-    position: relative;
-    z-index: 0;
+  min-height: 65px;
+  padding: 10px;
+  position: relative;
+  z-index: 0;
 }
 
 .charsheet .sheet-core .sheet-container-well::after {
-    content: "";
-    border-image-source: url(https://app.roll20.net/images/dndstyling/vitals.svg);
-    border-image-slice: 7% 40% fill;
-    border-style: solid;
-    border-color: transparent;
-    box-sizing: border-box;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -2;
-    border-image-width: 25px 100px;
+  content: "";
+  border-image-source: url(https://app.roll20.net/images/dndstyling/vitals.svg);
+  border-image-slice: 7% 40% fill;
+  border-style: solid;
+  border-color: transparent;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  border-image-width: 25px 100px;
 }
 
 .sheet-darkmode .sheet-core .sheet-container-well::after {
-    content: "";
-    border-image-source: url(https://storage.googleapis.com/char-sheet-app-images-6e101411/D%26D5e/images/darkmode/vitals_dm.svg);
-    border-image-slice: 7% 40% fill;
-    border-style: solid;
-    border-color: transparent;
-    box-sizing: border-box;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -2;
-    border-image-width: 25px 100px;
+  content: "";
+  border-image-source: url(https://storage.googleapis.com/char-sheet-app-images-6e101411/D%26D5e/images/darkmode/vitals_dm.svg);
+  border-image-slice: 7% 40% fill;
+  border-style: solid;
+  border-color: transparent;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  border-image-width: 25px 100px;
 }
 
 .charsheet .sheet-core .sheet-container-panel::after {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 fill stretch;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 15px 15px;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -2;
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 15px 15px;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
 }
 
 .sheet-darkmode .sheet-core .sheet-container-panel::after {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-box-border.png) 50 fill stretch;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 15px 15px;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -2;
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-box-border.png) 50 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 15px 15px;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
 }
 
 .charsheet .sheet-core .sheet-container-panel {
-    display: flex;
-    flex-direction: column;
-    min-height: 65px;
-    min-width: 0;
-    position: relative;
-    z-index: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 65px;
+  min-width: 0;
+  position: relative;
+  z-index: 0;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses,
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves,
-.charsheet .sheet-core .sheet-section-pc .container-attacks {
-    margin-top: 5px;
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves, .charsheet .sheet-core .sheet-section-pc .container-attacks {
+  margin-top: 5px;
 }
 
-.charsheet .sheet-core .sheet-container-panel .sheet-container-bar,
-.charsheet .sheet-core .sheet-container-panel .sheet-container-header{
-    color: #202020;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
+.charsheet .sheet-core .sheet-container-panel .sheet-container-bar, .charsheet .sheet-core .sheet-container-panel .sheet-container-header {
+  color: #202020;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-bar,
-.sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-header{
-    color: #e6e6e6;
+.sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-bar, .sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-header {
+  color: #e6e6e6;
 }
 
-.charsheet .sheet-core .sheet-container-panel .sheet-container-bar{
-    line-height: 11px;
-    display: table-cell;
+.charsheet .sheet-core .sheet-container-panel .sheet-container-bar {
+  line-height: 11px;
+  display: table-cell;
 }
 
 .charsheet .sheet-core .sheet-container-panel .sheet-container-header {
-    border-bottom: 2px solid #202020;
-    line-height: 14px;
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-top: 4px;
-    text-transform: uppercase;
+  border-bottom: 2px solid #202020;
+  line-height: 14px;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 4px;
+  text-transform: uppercase;
 }
 
 .charsheet .sheet-core .sheet-container-panel .sheet-container-body {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-bottom: 2px;
-    overflow: hidden;
-    padding: 5px 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: 2px;
+  overflow: hidden;
+  padding: 5px 10px;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses .sheet-npc-response-name {
-    font-weight: bold;
-    padding: 0 5px;
-    background: #dddddd;
-    border-radius: 3px;
-    display: block;
-    text-align: center;
+  font-weight: bold;
+  padding: 0 5px;
+  background: #ddd;
+  border-radius: 3px;
+  display: block;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses .sheet-npc-response-description {
-    display: block;
-    white-space: normal;
+  display: block;
+  white-space: normal;
 }
 
-.charsheet .sheet-core .sheet-display-brackets::before,
-.charsheet .sheet-core .sheet-display-brackets-xp::before{
-    content: "(";
+.charsheet .sheet-core .sheet-display-brackets::before, .charsheet .sheet-core .sheet-display-brackets-xp::before {
+  content: "(";
 }
 
 .charsheet .sheet-core .sheet-display-brackets::after {
-    content: ")";
+  content: ")";
 }
 
 .charsheet .sheet-core .sheet-display-brackets-xp::after {
-    content: " XP)";
+  content: " XP)";
 }
 
 .charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-checked {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-checked {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-unchecked {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol {
-    align-items: center;
-    border-bottom: 2px solid transparent;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    z-index: 2;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  z-index: 2;
 }
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
-    background: rgba(126, 45, 64, 0.25);
-    border-radius: 6px;
-    content: '';
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    z-index: -1;
+  background: rgba(126, 45, 64, 0.25);
+  border-radius: 6px;
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
 }
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn:not(:last-child) {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
-    box-sizing: border-box;
-    height: 18px;
-    line-height: 16px;
-    padding: 0;
-    text-align: center;
-    width: 36px;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
-    box-sizing: border-box;
-    height: 18px;
-    line-height: 16px;
-    padding: 0;
-    text-align: center;
-    width: 36px;
+  box-sizing: border-box;
+  height: 18px;
+  line-height: 16px;
+  padding: 0;
+  text-align: center;
+  width: 36px;
 }
 
 .charsheet .sheet-core .sheet-form-fieldset-npc-skills .sheet-form-fieldset-body {
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 10px;
-    grid-row-gap: 2.5px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+  grid-row-gap: 2.5px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .charsheet .sheet-core .sheet-form-fieldset-npc-skills .sheet-form-fieldset-body .sheet-form-group {
-    margin: 0;
+  margin: 0;
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-attack {
-    min-height:  5mm;
-    position:  relative;
-    width:  100%;
+  min-height: 5mm;
+  position: relative;
+  width: 100%;
 }
 
 .charsheet .sheet-attack button {
-    background:  none;
-    border:  none;
-    box-shadow:  none;
-    display:  flex;
-    font-size:  11px;
-    margin:  0 !important;
-    padding:  0 !important;
-    width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .charsheet .sheet-attack button span {
-    font-size:  10px;
-    height:  4mm;
-    margin-right:  5px;
-    overflow:  hidden;
-    text-overflow:  ellipsis;
-    width:  25%
+  font-size: 10px;
+  height: 4mm;
+  margin-right: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 25%;
 }
 
 .charsheet .sheet-attack button span:first-of-type {
-    border-radius:  3px;
-    font-weight:  bold;
-    text-shadow:  none;
-    text-transform:  uppercase;
+  border-radius: 3px;
+  font-weight: bold;
+  text-shadow: none;
+  text-transform: uppercase;
 }
 
-.charsheet .sheet-attack button span:nth-of-type(2),
-.charsheet .sheet-attack button span:nth-of-type(3) {
-    font-weight:  bold;
+.charsheet .sheet-attack button span:nth-of-type(2), .charsheet .sheet-attack button span:nth-of-type(3) {
+  font-weight: bold;
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-form .sheet-attack-desc {
-    display:  flex;
+  display: flex;
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels {
-    display:  flex;
-    position:  relative;
-    font-size:  10px;
-    width:  100%;
+  display: flex;
+  position: relative;
+  font-size: 10px;
+  width: 100%;
 }
 
-.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-name,
-.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-damage,
-.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-hit,
-.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-range {
-    min-width:  25%;
-    line-height: 11px;
-    text-align: center;
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-name, .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-damage, .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-hit, .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-range {
+  min-width: 25%;
+  line-height: 11px;
+  text-align: center;
 }
 
 .sheet-tabs {
-    position: relative;
-    width: 800px;
+  position: relative;
+  width: 800px;
 }
 
 .sheet-tabs::after {
-    clear: both;
-    content: '';
-    display: block;
+  clear: both;
+  content: "";
+  display: block;
 }
 
 .sheet-tabs .sheet-tab {
-    width: 800px;
+  width: 800px;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(2) > input[type="radio"],
-.sheet-tabs .sheet-tab:nth-of-type(2) > .sheet-tab-label {
-    margin-left: 20%;
-} 
-
-.sheet-tabs .sheet-tab:nth-of-type(3) > input[type="radio"],
-.sheet-tabs .sheet-tab:nth-of-type(3) > .sheet-tab-label {
-    margin-left: 40%;
+.sheet-tabs .sheet-tab:nth-of-type(2) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(2) > .sheet-tab-label {
+  margin-left: 20%;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(4) > input[type="radio"],
-.sheet-tabs .sheet-tab:nth-of-type(4) > .sheet-tab-label {
-    margin-left: 60%;
+.sheet-tabs .sheet-tab:nth-of-type(3) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(3) > .sheet-tab-label {
+  margin-left: 40%;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(5) > input[type="radio"],
-.sheet-tabs .sheet-tab:nth-of-type(5) > .sheet-tab-label {
-    margin-left: 80%;
+.sheet-tabs .sheet-tab:nth-of-type(4) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(4) > .sheet-tab-label {
+  margin-left: 60%;
+}
+
+.sheet-tabs .sheet-tab:nth-of-type(5) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(5) > .sheet-tab-label {
+  margin-left: 80%;
 }
 
 .sheet-tabs .sheet-tab > input[type="radio"] {
-    height: 30px;
-    margin: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 20%;
-    z-index: 1;
+  height: 30px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 20%;
+  z-index: 1;
 }
 
 .sheet-tabs .sheet-tab > input[type="radio"]:hover ~ .sheet-tab-label {
-    background: #e5fffb;
-    border-bottom-color: #dbfff9;
+  background: #e5fffb;
+  border-bottom-color: #dbfff9;
 }
 
 .sheet-darkmode .sheet-tabs .sheet-tab > input[type="radio"]:hover ~ .sheet-tab-label {
-    background: #677270;
-    border-bottom-color: #5e6e6c;
+  background: #677270;
+  border-bottom-color: #5e6e6c;
 }
 
 .sheet-tabs .sheet-tab > .sheet-tab-label {
-    align-items: center;
-    background: #dddddd;
-    border-radius: 6px 6px 0 0;
-    border: 2px solid #dddddd;
-    color: #8a8a8a;
-    display: flex;
-    font-size: 11px;
-    font-variant: small-caps;
-    font-weight: bold;
-    height: 30px;
-    justify-content: center;
-    margin: 0;
-    position: absolute;
-    text-transform: uppercase;
-    top: 0;
-    width: 20%;
-    border-left-color: white;
-    border-top-color: white;
-    border-right-color: white;
-    border-bottom-color: lightgrey;
+  align-items: center;
+  background: #ddd;
+  border-radius: 6px 6px 0 0;
+  border: 2px solid #ddd;
+  color: #8a8a8a;
+  display: flex;
+  font-size: 11px;
+  font-variant: small-caps;
+  font-weight: bold;
+  height: 30px;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+  width: 20%;
+  border-left-color: white;
+  border-top-color: white;
+  border-right-color: white;
+  border-bottom-color: lightgrey;
 }
 
-.sheet-darkmode .sheet-tabs .sheet-tab > .sheet-tab-label{
-    background: #333333;
-    border: 2px solid #444444;
-    color: #e6e6e6;
-    border-left-color: black;
-    border-top-color: black;
-    border-right-color: black;
-    border-bottom-color: #333333;
+.sheet-darkmode .sheet-tabs .sheet-tab > .sheet-tab-label {
+  background: #333;
+  border: 2px solid #444;
+  color: #e6e6e6;
+  border-left-color: black;
+  border-top-color: black;
+  border-right-color: black;
+  border-bottom-color: #333;
 }
 
 .sheet-tabs .sheet-tab > input[type="radio"]:checked ~ .sheet-tab-label {
-    background: white;
-    border-color: #575757;
-    border-bottom-color: white;
-    color: black;
+  background: white;
+  border-color: #575757;
+  border-bottom-color: white;
+  color: black;
 }
 
-.sheet-darkmode .sheet-tabs .sheet-tab > input[type="radio"]:checked ~ .sheet-tab-label{
-    background: #444444;
-    border-color: black;
-    border-bottom-color: #333333;
-    color: #e6e6e6;
+.sheet-darkmode .sheet-tabs .sheet-tab > input[type="radio"]:checked ~ .sheet-tab-label {
+  background: #444;
+  border-color: black;
+  border-bottom-color: #333;
+  color: #e6e6e6;
 }
 
 .sheet-tabs .sheet-tab > input[type="radio"]:checked {
-    cursor: auto;
+  cursor: auto;
 }
 
 .sheet-tabs .sheet-tab > input[type="radio"]:checked ~ .sheet-tab-content {
-    display: block;
+  display: block;
 }
 
 .sheet-tabs .sheet-tab .sheet-tab-content {
-    display: none;
-    min-height: 847px;
-    padding-top: 35px;
-    width: 100%;
+  display: none;
+  min-height: 847px;
+  padding-top: 35px;
+  width: 100%;
 }
 
-.sheet-tabs .sheet-tab-options .sheet-tab-content{
-    min-height: 483px;
+.sheet-tabs .sheet-tab-options .sheet-tab-content {
+  min-height: 483px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features > input[type="radio"]:checked ~ .sheet-tab-content {
-    display: grid;
-    grid-template-columns: auto 262.5px;
-    grid-template-rows: 355px auto;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    grid-template-areas: "details features"
-    "memories features";
+  display: grid;
+  grid-template-columns: auto 262.5px;
+  grid-template-rows: 355px auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "details features" "memories features";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-container-well-details {
-    grid-area: details;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    grid-template-areas: "details gimmick"
-    "details value"
-    "details conflict"
-    "details want";
+  grid-area: details;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "details gimmick" "details value" "details conflict" "details want";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-container-well-memories {
-    grid-area: memories;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    grid-template-areas: "skills memories"
-    "skills notes";
+  grid-area: memories;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "skills memories" "skills notes";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-container-well-features {
-    grid-area: features;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    grid-template-areas: "features";
+  grid-area: features;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "features";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details {
-    grid-area: details;
+  grid-area: details;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail {
-    display: flex;
-    height: 20px;
+  display: flex;
+  height: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail:not(:last-of-type) {
-    margin-bottom: 3px;
+  margin-bottom: 3px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail * + * {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail label,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
-    font-size: 11px;
-    height: 20px;
-    padding: 0;
-    line-height: 20px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
+  font-size: 11px;
+  height: 20px;
+  padding: 0;
+  line-height: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input {
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    padding: 0 4px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  padding: 0 4px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
-    cursor: pointer;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
+  cursor: pointer;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
-    width: 100%;
-    min-width: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
+  width: 100%;
+  min-width: 0;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail label {
-    white-space: nowrap;
-    font-size: 9px;
-    background: #dddddd;
-    border-radius: 3px;
-    width: 60px;
-    font-weight: bold;
-    display: inline-block;
-    flex-grow: 1;
-    flex-shrink: 0;
-    text-align: center;
+  white-space: nowrap;
+  font-size: 9px;
+  background: #ddd;
+  border-radius: 3px;
+  width: 60px;
+  font-weight: bold;
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail label {
-    color: #e6e6e6;
-    background: #333333;
+  color: #e6e6e6;
+  background: #333;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-column {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-column * {
-    margin: 0;
-    flex-shrink: 0;
+  margin: 0;
+  flex-shrink: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature {
-    height: auto;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature {
+  height: auto;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit label,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation label,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature label {
-    height: 100%;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature label {
+  height: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-quest {
-    height: 75px;
+  height: 75px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-quest label {
-    height: 100%;
+  height: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-quest textarea {
-    height: 100%;
-    font-size: 11px;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-radius: 0;
-    resize: none;
-    padding: 0 4px;
-    line-height: 13px;
+  height: 100%;
+  font-size: 11px;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  resize: none;
+  padding: 0 4px;
+  line-height: 13px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-gimmick {
-    grid-area: gimmick;
+  grid-area: gimmick;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-value {
-    grid-area: value;
+  grid-area: value;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-conflict {
-    grid-area: conflict;
+  grid-area: conflict;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-want {
-    grid-area: want;
+  grid-area: want;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-memories {
-    grid-area: memories;
+  grid-area: memories;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-memories .repitem + .repitem {
-    margin-top: 5px;
-    padding-top: 5px;
-    border-top: 1px dotted #dddddd;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-memories .sheet-pc-memory {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-memories .sheet-pc-memory span:first-of-type {
-    font-weight: bold;
-    background: #dddddd;
-    padding: 3px 5px;
-    border-radius: 3px;
+  font-weight: bold;
+  background: #ddd;
+  padding: 3px 5px;
+  border-radius: 3px;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-memories .sheet-pc-memory span:first-of-type {
-    background: #666666;
+  background: #666;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-gimmick textarea,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-value textarea,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-conflict textarea,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-want textarea {
-    flex-grow: 1;
-    min-height: 39px;
-    font-size: 11px;
-    border: 0;
-    padding: 0;
-    resize: none;
-    margin: 0;
-    height: auto;
-    line-height: 13px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-gimmick textarea, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-value textarea, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-conflict textarea, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-want textarea {
+  flex-grow: 1;
+  min-height: 39px;
+  font-size: 11px;
+  border: 0;
+  padding: 0;
+  resize: none;
+  margin: 0;
+  height: auto;
+  line-height: 13px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features {
-    grid-area: features;
+  grid-area: features;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls{
-    grid-area: skills;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls {
+  grid-area: skills;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-checkbox-cog:hover span {
-    color: white;
-    opacity: 1;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-checkbox-cog:hover span {
+  color: white;
+  opacity: 1;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .repitem + .repitem,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .repitem + .repitem {
-    margin-top: 5px;
-    padding-top: 5px;
-    border-top: 1px dotted #dddddd;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .repitem + .repitem, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .repitem + .repitem {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted #ddd;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature {
-    font-size: 11px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature {
+  font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool button,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button {
-    background: none;
-    border: 0;
-    box-shadow: none;
-    width: 100%;
-    text-shadow: none;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool button, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  width: 100%;
+  text-shadow: none;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button:hover {
-    background: #e5fffb;
+  background: #e5fffb;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button:hover {
-    background: #4b5553;
+  background: #4b5553;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
-    background: #7e2d40;
-    color: white;
-    border-radius: 3px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 20px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+  background: #7e2d40;
+  color: white;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 20px;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
-    background: #730d25;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+  background: #730d25;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before{
-    content: "(";
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before {
+  content: "(";
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after{
-    content: ")";
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after {
+  content: ")";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details {
-    text-align: left;
-    white-space: normal;
-    line-height: 1.3;
-    margin-top: 5px;
-    font-size: 9px;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.3;
+  margin-top: 5px;
+  font-size: 9px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
-    opacity: .5;
+  opacity: 0.5;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source::before {
-    content: "(";
+  content: "(";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source::after {
-    content: ")";
+  content: ")";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-notes {
-    grid-area: notes;
+  grid-area: notes;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-notes .repitem + .repitem {
-    margin-top: 5px;
-    padding-top: 5px;
-    border-top: 1px dotted #dddddd;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-notes .sheet-pc-note {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-notes .sheet-pc-note span:first-of-type {
-    font-weight: bold;
-    background: #dddddd;
-    padding: 3px 5px;
-    border-radius: 3px;
+  font-weight: bold;
+  background: #ddd;
+  padding: 3px 5px;
+  border-radius: 3px;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-notes .sheet-pc-note span:first-of-type {
-    background: #666666;
+  background: #666;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes{
-    display: grid;
-    grid-template-columns: 285px 485px;
-    grid-column-gap: 10px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes {
+  display: grid;
+  grid-template-columns: 285px 485px;
+  grid-column-gap: 10px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .sheet-container-header input{
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: center;
-    font-weight: bold;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .sheet-container-header input {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: center;
+  font-weight: bold;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .sheet-container-body textarea{
-    resize: vertical;
-    min-height: 100px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .sheet-container-body textarea {
+  resize: vertical;
+  min-height: 100px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col1,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col2{
-    row-gap: 5px;
-    display: flex;
-    flex-direction: column;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col1, .charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col2 {
+  row-gap: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col1 .sheet-container-body textarea{
-    min-height: 342px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col1 .sheet-container-body textarea {
+  min-height: 342px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col2 .sheet-container-body textarea{
-    min-height: 210px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col2 .sheet-container-body textarea {
+  min-height: 210px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-alert-warning {
-    background: #7e2d40;
-    font-size: 9px;
-    text-align: center;
-    margin-bottom: 4px;
-    color: white;
-    border-radius: 3px;
+  background: #7e2d40;
+  font-size: 9px;
+  text-align: center;
+  margin-bottom: 4px;
+  color: white;
+  border-radius: 3px;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-alert-warning {
-    background: #730d25;
+  background: #730d25;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header {
-    padding: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header {
+  padding: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input {
-    text-align: center;
-    width: 100%;
-    border: 0;
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 8px;
-    font-weight: bold;
-    background: none;
-    text-overflow: ellipsis;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input {
+  text-align: center;
+  width: 100%;
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 8px;
+  font-weight: bold;
+  background: none;
+  text-overflow: ellipsis;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
-    background: #e5fffb;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+  background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
-    background: #4b5553;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+  background: #4b5553;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-body input {
-    width: 50px;
-    padding-left: 0;
-    padding-right: 0;
-    border: none;
-    text-overflow: ellipsis;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-body input {
+  width: 50px;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  text-overflow: ellipsis;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc {
-    grid-area: cc;
+  grid-area: cc;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc {
-    grid-area: sc;
+  grid-area: sc;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc {
-    grid-area: gc;
+  grid-area: gc;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-pp {
-    grid-area: ss;
+  grid-area: ss;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 {
-    grid-area: other1;
+  grid-area: other1;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 {
-    grid-area: other2;
+  grid-area: other2;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory > input[type="radio"]:checked ~ .sheet-tab-content {
-    display: grid;
-    grid-template-columns: auto 300px;
-    grid-template-rows: 85px 120px 180px auto;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    grid-template-areas: "inventory supplies"
-    "inventory purse"
-    "inventory encumberance"
-    "inventory general";
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-template-rows: 85px 120px 180px auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "inventory supplies" "inventory purse" "inventory encumberance" "inventory general";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory {
-    grid-area: inventory;
-    display: grid;
+  grid-area: inventory;
+  display: grid;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-supplies {
-    grid-area: supplies;
-    display: grid;
-    grid-template-rows: repeat(2, 30px);
-    grid-row-gap: 5px;
-    grid-template-areas: "rations"
-    "water";
+  grid-area: supplies;
+  display: grid;
+  grid-template-rows: repeat(2, 30px);
+  grid-row-gap: 5px;
+  grid-template-areas: "rations" "water";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-purse {
-    grid-area: purse;
-    display: grid;
-    grid-template-rows: repeat(3, 30px);
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 5px;
-    grid-column-gap: 5px;
-    grid-template-areas: "cc ss"
-    "sc other1"
-    "gc other2"
-    ". .";
+  grid-area: purse;
+  display: grid;
+  grid-template-rows: repeat(3, 30px);
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+  grid-template-areas: "cc ss" "sc other1" "gc other2" ". .";
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-encumberance {
-    grid-area: encumberance;
-    display: grid;
-    grid-template-rows: 65px auto;
-    grid-row-gap: 5px;
+  grid-area: encumberance;
+  display: grid;
+  grid-template-rows: 65px auto;
+  grid-row-gap: 5px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-general {
-    grid-area: general;
-    display: grid;
-    grid-template-rows: auto;
-    grid-row-gap: 5px;
+  grid-area: general;
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: 5px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-otheritem {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-otheritem span:first-of-type {
-    font-weight: bold;
-    background: #dddddd;
-    padding: 3px 5px;
-    margin-right: 3px;
-    border-radius: 3px;
+  font-weight: bold;
+  background: #ddd;
+  padding: 3px 5px;
+  margin-right: 3px;
+  border-radius: 3px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-rations {
-    grid-area: rations;
+  grid-area: rations;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-water {
-    grid-area: water;
+  grid-area: water;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container-footer {
-    font-size: 7px;
-    display: flex;
-    text-transform: uppercase;
-    opacity: 1;
-    line-height: 1;
-    margin-top: 0;
-    background: #dddddd;
-    padding: 3px 5px;
-    padding-right: 20px;
-    border-radius: 0 0 4px 4px;
+  font-size: 7px;
+  display: flex;
+  text-transform: uppercase;
+  opacity: 1;
+  line-height: 1;
+  margin-top: 0;
+  background: #ddd;
+  padding: 3px 5px;
+  padding-right: 20px;
+  border-radius: 0 0 4px 4px;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container-footer {
-    background: #666666;
+  background: #666;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container-footer span:first-of-type {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container-footer span:not(:first-of-type) {
-    width: 50px;
-    margin-left: 1px;
-    text-align: center;
+  width: 50px;
+  margin-left: 1px;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item-equipped {
-    background: #7e2d40;
-    color: white;
-    display: inline-block;
-    height: 14px;
-    width: 14px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
+  background: #7e2d40;
+  color: white;
+  height: 14px;
+  width: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item-equipped {
-    background: #730d25;
+  background: #730d25;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item-carried {
-    background: #dddddd;
-    color: black;
-    display: inline-block;
-    height: 14px;
-    width: 14px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
+  background: #ddd;
+  color: black;
+  height: 14px;
+  width: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory [name="attr_equipped"][value="1"] ~ .sheet-pc-item-carried {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
-    display: inline-flex !important;
-    background: none;
-    border: 1px solid #dddddd;
-    color: white;
+  display: inline-flex;
+  background: none;
+  border: 1px solid #ddd;
+  color: white;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item {
-    font-size: 11px;
-    padding-right: 20px;
+  font-size: 11px;
+  padding-right: 20px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-header {
-    font-size: 7px;
-    display: flex;
-    text-transform: uppercase;
-    opacity: 1;
-    line-height: 1;
-    margin-top: 0;
-    padding: 0 0 3px;
-    color: #b1b1b1;
+  font-size: 7px;
+  display: flex;
+  text-transform: uppercase;
+  opacity: 1;
+  line-height: 1;
+  margin-top: 0;
+  padding: 0 0 3px;
+  color: #b1b1b1;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-header span:first-of-type {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-header span:not(:first-of-type) {
-    width: 50px;
-    margin-left: 1px;
-    text-align: center;
+  width: 50px;
+  margin-left: 1px;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-content {
-    display: flex;
-    border-radius: 3px;
+  display: flex;
+  border-radius: 3px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-content input {
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    border: none;
-    padding: 0;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item:hover {
-    background: #f2f2f2;
+  background: #f2f2f2;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item:hover {
-    background: #505050;
+  background: #505050;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-name {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-quantity,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-notches,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-weight,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-slots {
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    height: 20px;
-    display: inline-block;
-    flex-grow: 0;
-    width: 50px;
-    text-align: center;
-    margin-left: 1px;
-    display: flex;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-quantity, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-notches, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-weight, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-slots {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  height: 20px;
+  flex-grow: 0;
+  width: 50px;
+  text-align: center;
+  margin-left: 1px;
+  display: flex;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container {
-    background: #7e2d40;
-    color: white;
-    font-size: 11px;
-    border-radius: 4px 4px 0 0;
-    padding: 0 5px;
+  background: #7e2d40;
+  color: white;
+  font-size: 11px;
+  border-radius: 4px 4px 0 0;
+  padding: 0 5px;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container {
-    background: #730d25;
+  background: #730d25;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container .sheet-pc-inventory-container-slots {
-    opacity: .75;
+  opacity: 0.75;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container .sheet-pc-item-equipped {
-    background: none;
-    border: 1px solid #dddddd;
-    color: white;
+  background: none;
+  border: 1px solid #ddd;
+  color: white;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container .sheet-pc-item-carried {
-    background: none;
-    border: 1px solid #dddddd;
-    color: white;
+  background: none;
+  border: 1px solid #ddd;
+  color: white;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="1"] ~ .sheet-pc-item-carried {
-    display: none;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
-    display: inline-flex !important;
-    background: none;
-    border: 1px solid #dddddd;
-    color: #7e2d40;
+  display: inline-flex;
+  background: none;
+  border: 1px solid #ddd;
+  color: #7e2d40;
 }
 
 .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
-    color: #730d25;
+  color: #730d25;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-item-columns-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-item-columns-2 > .sheet-form-group {
-    margin: 0;
+  margin: 0;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-form-body {
-    display: grid;
-    grid-template-columns: auto 115px;
-    grid-column-gap: 10px;
+  display: grid;
+  grid-template-columns: auto 115px;
+  grid-column-gap: 10px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-unchecked,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-checked {
-    margin-top: 4px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-unchecked, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-checked {
+  margin-top: 4px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span {
-    display: block;
-    border-radius: 3px;
-    text-align: center;
-    font-size: 9px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: white;
-    line-height: 20px;
+  display: block;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  line-height: 20px;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span{
-    color: black;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span {
+  color: black;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-unencumbered {
-    background: #b4cf01;
+  background: #b4cf01;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-immobile, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-over {
-    background: #cf4601;
-    display: none;
+  background: #cf4601;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-encumbered {
-    background: #cfb401;
-    display: none;
+  background: #cfb401;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-heavily {
-    background: #cf7d01;
-    display: none;
+  background: #cf7d01;
+  display: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-unencumbered,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-unencumbered,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-unencumbered,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-unencumbered {
-    display: none;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-unencumbered, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-unencumbered, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-unencumbered, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-unencumbered {
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-immobile {
-    display: block;
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-heavily {
-    display: block;
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-encumbered {
-    display: block;
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-over {
-    display: block;
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-pc-inventory-other .repitem + .repitem {
-    margin-top: 5px;
-    padding-top: 5px;
-    border-top: 1px dotted #dddddd;
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted #ddd;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-body,
-.charsheet .sheet-core .sheet-pc-weight .sheet-container-body {
-    display: flex;
-    flex-direction: row;
-    padding-top: 0;
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body, .charsheet .sheet-core .sheet-pc-weight .sheet-container-body {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span,
-.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
-    align-items: center;
-    color: #dddddd;
-    display: flex;
-    font-size: 24px;
-    justify-content: center;
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span, .charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
+  align-items: center;
+  color: #ddd;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
-.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
-    width: 100%;
-    color: black;
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2), .charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+  width: 100%;
+  color: black;
 }
 
-.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
-.sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
-    color: white;
+.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2), .sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+  color: white;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer,
-.charsheet .sheet-core .sheet-pc-weight .sheet-container-footer {
-    display: flex;
-    padding-left: 10px;
-    padding-right: 10px;
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer, .charsheet .sheet-core .sheet-pc-weight .sheet-container-footer {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer span,
-.charsheet .sheet-core .sheet-pc-weight .sheet-container-footer span {
-    flex-grow: 1;
-    text-align: center;
-    width: 100%;
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer span, .charsheet .sheet-core .sheet-pc-weight .sheet-container-footer span {
+  flex-grow: 1;
+  text-align: center;
+  width: 100%;
 }
 
 .charsheet .sheet-core .repitem:not(:first-of-type) .sheet-pc-item .sheet-pc-item-header {
-    display: none;
+  display: none;
 }
 
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(4),
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(4),
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-slots {
-    display: none;
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(4), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(4), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-slots {
+  display: none;
 }
 
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(3),
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(3),
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-weight {
-    display: none;
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(3), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(3), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-weight {
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-container-bar {
-    display: flex;
-    height: 30px;
-    position: relative;
-    z-index: 0;
+  display: flex;
+  height: 30px;
+  position: relative;
+  z-index: 0;
 }
 
 .charsheet .sheet-core .sheet-container-bar::after {
-    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png") 103 103 103 103 fill stretch;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 30px 30px 0;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -2;
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
 }
 
 .sheet-darkmode .sheet-core .sheet-container-bar::after {
-    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-bar-border.png") 103 103 103 103 fill stretch;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 30px 30px 0;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -2;
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-bar-border.png) 103 103 103 103 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
 }
 
 .charsheet .sheet-core .sheet-container-bar.sheet-container-bar-left {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .charsheet .sheet-core .sheet-container-bar.sheet-container-bar-left .sheet-container-header::after {
-    left: -12px;
-    right: auto;
-    transform: scaleX(-1);
+  left: -12px;
+  right: auto;
+  transform: scalex(-1);
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-header {
-    align-items: center;
-    align-self: stretch;
-    display: flex;
-    flex-grow: 1;
-    font-size: 8px;
-    font-weight: bold;
-    justify-content: center;
-    position: relative;
-    text-transform: uppercase;
-    vertical-align: middle;
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-grow: 1;
+  font-size: 8px;
+  font-weight: bold;
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-header::after {
-    background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png");
-    background-size: 100% 100%;
-    content: '';
-    display: inline-block;
-    height: 30px;
-    position: absolute;
-    right: -14px;
-    width: 19px;
+  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png);
+  background-size: 100% 100%;
+  content: "";
+  display: inline-block;
+  height: 30px;
+  position: absolute;
+  right: -14px;
+  width: 19px;
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-body {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 0 10px 0 12px;
-    text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px 0 12px;
+  text-align: center;
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-body [type="text"] {
-    border: 0;
-    text-align: center;
-    width: 100%;
+  border: 0;
+  text-align: center;
+  width: 100%;
 }
 
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-header + .sheet-container-body {
-    padding-bottom: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-header + .sheet-container-body {
+  padding-bottom: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
-    display: flex;
-    flex-direction: row;
-    padding-top: 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0;
+  box-sizing: border-box;
+  flex-grow: 1;
+  padding: 5px 10px 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    padding: 5px 10px 0;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body [type="text"], .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body [type="text"], .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body select {
+  border-color: rgba(255, 255, 255, 0);
+  flex-grow: 1;
+  line-height: 13px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  min-width: 0;
+  color: black;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body [type="text"],
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select ,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body [type="text"],
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body select {
-    border-color: rgba(255, 255, 255, 0);
-    flex-grow: 1;
-    line-height: 13px;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-    min-width: 0;
-    color: black;
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body span {
-    font-size: 24px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body span {
+  font-size: 24px;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options {
-    display: grid;
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    grid-template-areas: 
-    "attributes skills general"
-    "attributes skills global";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 1fr;
+  display: grid;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "attributes skills general" "attributes skills global";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-general{
-    grid-area: general;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-general {
+  grid-area: general;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-skills{
-    grid-area: skills;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-skills {
+  grid-area: skills;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-attributes{
-    grid-area: attributes;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-attributes {
+  grid-area: attributes;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-global{
-    grid-area: global;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-global {
+  grid-area: global;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options label {
-    color: black;
-    font-size: 11px;
-    font-weight: normal;
-    text-transform: none;
+  color: black;
+  font-size: 11px;
+  font-weight: normal;
+  text-transform: none;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options label{
-    color: #e6e6e6;
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options label {
+  color: #e6e6e6;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-form-fieldset {
-    border-color: lightgrey;
+  border-color: lightgrey;
 }
 
 .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-form-fieldset .sheet-form-fieldset-header {
-    background-color: lightgrey;
-    color: inherit;
+  background-color: lightgrey;
+  color: inherit;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .talents_group{
-    flex-direction: column;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .talents_group {
+  flex-direction: column;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level1_talents,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level13_talents,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents{
-    display: grid;
-    grid-template-columns: repeat(3, 164px);
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level1_talents, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level13_talents, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents {
+  display: grid;
+  grid-template-columns: repeat(3, 164px);
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup{
-    display: flex;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup {
+  display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group input,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup input{
-    width: 12px;
-    height: 12px;
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup input {
+  width: 12px;
+  height: 12px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group label,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup label{
-    font-size: 11px
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup label {
+  font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-rolltemplate {
-    display: none;
+  display: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .character_path_none,
-.charsheet .sheet-core .sheet-section-pc .character_path_bioforged,
-.charsheet .sheet-core .sheet-section-pc .character_path_demonic_arts,
-.charsheet .sheet-core .sheet-section-pc .character_path_monk,
-.charsheet .sheet-core .sheet-section-pc .character_path_ronin,
-.charsheet .sheet-core .sheet-section-pc .character_path_samurai,
-.charsheet .sheet-core .sheet-section-pc .character_path_wanderer{
-    display: none;
+.charsheet .sheet-core .sheet-section-pc .character_path_none, .charsheet .sheet-core .sheet-section-pc .character_path_bioforged, .charsheet .sheet-core .sheet-section-pc .character_path_demonic_arts, .charsheet .sheet-core .sheet-section-pc .character_path_monk, .charsheet .sheet-core .sheet-section-pc .character_path_ronin, .charsheet .sheet-core .sheet-section-pc .character_path_samurai, .charsheet .sheet-core .sheet-section-pc .character_path_wanderer {
+  display: none;
+}
+#path_none[value="1"] ~ .value-subpath .character_path_none, #path_bioforged[value="1"] ~ .value-subpath .character_path_bioforged, #path_demonic_arts[value="1"] ~ .value-subpath .character_path_demonic_arts, #path_monk[value="1"] ~ .value-subpath .character_path_monk, #path_ronin[value="1"] ~ .value-subpath .character_path_ronin, #path_samurai[value="1"] ~ .value-subpath .character_path_samurai, #path_wanderer[value="1"] ~ .value-subpath .character_path_wanderer {
+  display: block;
 }
 
-#path_none[value="1"] ~ .value-subpath .character_path_none,
-#path_bioforged[value="1"] ~ .value-subpath .character_path_bioforged,
-#path_demonic_arts[value="1"] ~ .value-subpath .character_path_demonic_arts,
-#path_monk[value="1"] ~ .value-subpath .character_path_monk,
-#path_ronin[value="1"] ~ .value-subpath .character_path_ronin,
-#path_samurai[value="1"] ~ .value-subpath .character_path_samurai,
-#path_wanderer[value="1"] ~ .value-subpath .character_path_wanderer {
-    display: block;
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_none, .charsheet .sheet-core .sheet-section-pc .character_ancestry_angelic_echo, .charsheet .sheet-core .sheet-section-pc .character_ancestry_beastmen, .charsheet .sheet-core .sheet-section-pc .character_ancestry_demi_human, .charsheet .sheet-core .sheet-section-pc .character_ancestry_demonic_beast, .charsheet .sheet-core .sheet-section-pc .character_ancestry_divine_beast, .charsheet .sheet-core .sheet-section-pc .character_ancestry_draconian, .charsheet .sheet-core .sheet-section-pc .character_ancestry_elemental_born, .charsheet .sheet-core .sheet-section-pc .character_ancestry_fallen, .charsheet .sheet-core .sheet-section-pc .character_ancestry_human, .charsheet .sheet-core .sheet-section-pc .character_ancestry_insectoid, .charsheet .sheet-core .sheet-section-pc .character_ancestry_living_golem, .charsheet .sheet-core .sheet-section-pc .character_ancestry_merfolk, .charsheet .sheet-core .sheet-section-pc .character_ancestry_mirotide, .charsheet .sheet-core .sheet-section-pc .character_ancestry_parasyte, .charsheet .sheet-core .sheet-section-pc .character_ancestry_sporling, .charsheet .sheet-core .sheet-section-pc .character_ancestry_slime_kin, .charsheet .sheet-core .sheet-section-pc .character_ancestry_tiko, .charsheet .sheet-core .sheet-section-pc .character_ancestry_yokai, .charsheet .sheet-core .sheet-section-pc .character_ancestry_vampire, .charsheet .sheet-core .sheet-section-pc .character_ancestry_varkari {
+  display: none;
+}
+#ancestry_none[value="1"] ~ .value-species .character_ancestry_none, #ancestry_angelic_echo[value="1"] ~ .value-species .character_ancestry_angelic_echo, #ancestry_beastmen[value="1"] ~ .value-species .character_ancestry_beastmen, #ancestry_demi_humans[value="1"] ~ .value-species .character_ancestry_demi_human, #ancestry_demonic_beasts[value="1"] ~ .value-species .character_ancestry_demonic_beast, #ancestry_divine_beasts[value="1"] ~ .value-species .character_ancestry_divine_beast, #ancestry_draconian[value="1"] ~ .value-species .character_ancestry_draconian, #ancestry_elemental_born[value="1"] ~ .value-species .character_ancestry_elemental_born, #ancestry_fallen[value="1"] ~ .value-species .character_ancestry_fallen, #ancestry_human[value="1"] ~ .value-species .character_ancestry_human, #ancestry_insectoid[value="1"] ~ .value-species .character_ancestry_insectoid, #ancestry_living_golem[value="1"] ~ .value-species .character_ancestry_living_golem, #ancestry_merfolk[value="1"] ~ .value-species .character_ancestry_merfolk, #ancestry_mirotide[value="1"] ~ .value-species .character_ancestry_mirotide, #ancestry_parasyte[value="1"] ~ .value-species .character_ancestry_parasyte, #ancestry_sporlings[value="1"] ~ .value-species .character_ancestry_sporling, #ancestry_slime_kin[value="1"] ~ .value-species .character_ancestry_slime_kin, #ancestry_tiko[value="1"] ~ .value-species .character_ancestry_tiko, #ancestry_yokai[value="1"] ~ .value-species .character_ancestry_yokai, #ancestry_vampire[value="1"] ~ .value-species .character_ancestry_vampire, #ancestry_varkari[value="1"] ~ .value-species .character_ancestry_varkari {
+  display: block;
 }
 
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_none,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_angelic_echo,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_beastmen,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_demi_human,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_demonic_beast,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_divine_beast,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_draconian,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_elemental_born,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_fallen,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_human,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_insectoid,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_living_golem,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_merfolk,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_mirotide,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_parasyte,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_sporling,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_slime_kin,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_tiko,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_yokai,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_vampire,
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_varkari{
-    display: none;
+.sheet-rolltemplate-atk, .sheet-rolltemplate-desc, .sheet-rolltemplate-dmg, .sheet-rolltemplate-features, .sheet-rolltemplate-move, .sheet-rolltemplate-simple {
+  width: 230px;
+  text-align: center;
 }
 
-#ancestry_none[value="1"] ~ .value-species .character_ancestry_none,
-#ancestry_angelic_echo[value="1"] ~ .value-species .character_ancestry_angelic_echo,
-#ancestry_beastmen[value="1"] ~ .value-species .character_ancestry_beastmen,
-#ancestry_demi_humans[value="1"] ~ .value-species .character_ancestry_demi_human,
-#ancestry_demonic_beasts[value="1"] ~ .value-species .character_ancestry_demonic_beast,
-#ancestry_divine_beasts[value="1"] ~ .value-species .character_ancestry_divine_beast,
-#ancestry_draconian[value="1"] ~ .value-species .character_ancestry_draconian,
-#ancestry_elemental_born[value="1"] ~ .value-species .character_ancestry_elemental_born,
-#ancestry_fallen[value="1"] ~ .value-species .character_ancestry_fallen,
-#ancestry_human[value="1"] ~ .value-species .character_ancestry_human,
-#ancestry_insectoid[value="1"] ~ .value-species .character_ancestry_insectoid,
-#ancestry_living_golem[value="1"] ~ .value-species .character_ancestry_living_golem,
-#ancestry_merfolk[value="1"] ~ .value-species .character_ancestry_merfolk,
-#ancestry_mirotide[value="1"] ~ .value-species .character_ancestry_mirotide,
-#ancestry_parasyte[value="1"] ~ .value-species .character_ancestry_parasyte,
-#ancestry_sporlings[value="1"] ~ .value-species .character_ancestry_sporling,
-#ancestry_slime_kin[value="1"] ~ .value-species .character_ancestry_slime_kin,
-#ancestry_tiko[value="1"] ~ .value-species .character_ancestry_tiko,
-#ancestry_yokai[value="1"] ~ .value-species .character_ancestry_yokai,
-#ancestry_vampire[value="1"] ~ .value-species .character_ancestry_vampire,
-#ancestry_varkari[value="1"] ~ .value-species .character_ancestry_varkari {
-    display: block;
+.sheet-rolltemplate-atk .sheet-container, .sheet-rolltemplate-desc .sheet-container, .sheet-rolltemplate-dmg .sheet-container, .sheet-rolltemplate-features .sheet-container, .sheet-rolltemplate-move .sheet-container, .sheet-rolltemplate-simple .sheet-container {
+  width: 230px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 3px;
 }
 
-.sheet-rolltemplate-atk,
-.sheet-rolltemplate-desc,
-.sheet-rolltemplate-dmg,
-.sheet-rolltemplate-features,
-.sheet-rolltemplate-move,
-.sheet-rolltemplate-simple {
-    width: 230px;
-    text-align: center;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header, .sheet-rolltemplate-desc .sheet-container .sheet-container-header, .sheet-rolltemplate-dmg .sheet-container .sheet-container-header, .sheet-rolltemplate-features .sheet-container .sheet-container-header, .sheet-rolltemplate-move .sheet-container .sheet-container-header, .sheet-rolltemplate-simple .sheet-container .sheet-container-header {
+  width: 230px;
+  background: #ddd;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid #999;
 }
 
-.sheet-rolltemplate-atk .sheet-container,
-.sheet-rolltemplate-desc .sheet-container,
-.sheet-rolltemplate-dmg .sheet-container,
-.sheet-rolltemplate-features .sheet-container,
-.sheet-rolltemplate-move .sheet-container,
-.sheet-rolltemplate-simple .sheet-container{
-    width: 230px;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 3px;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row a[href^="~"] {
+  background: #999;
+  color: black;
+  border: #5a5a5a;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-header,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-header,
-.sheet-rolltemplate-features .sheet-container .sheet-container-header,
-.sheet-rolltemplate-move .sheet-container .sheet-container-header,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-header{
-    width: 230px;
-    background: #dddddd;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border: 1px solid #999999;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-features .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-move .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .inlinerollresult {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: bold;
+  cursor: help;
+  font-size: 1.1em;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row a[href^="~"],
-.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row a[href^="~"]{
-    background: #999999;
-    color: black;
-    border: #5a5a5a;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body, .sheet-rolltemplate-desc .sheet-container .sheet-container-body, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body, .sheet-rolltemplate-features .sheet-container .sheet-container-body, .sheet-rolltemplate-move .sheet-container .sheet-container-body, .sheet-rolltemplate-simple .sheet-container .sheet-container-body {
+  width: 230px;
+  text-align: center;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .inlinerollresult,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-body .inlinerollresult,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .inlinerollresult,
-.sheet-rolltemplate-features .sheet-container .sheet-container-body .inlinerollresult,
-.sheet-rolltemplate-move .sheet-container .sheet-container-body .inlinerollresult,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-body .inlinerollresult{
-    background: none;
-    border: none;
-    padding: 0px;
-    font-weight: bold;
-    cursor: help;
-    font-size: 1.1em;
-} 
-
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-body,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-body,
-.sheet-rolltemplate-features .sheet-container .sheet-container-body,
-.sheet-rolltemplate-move .sheet-container .sheet-container-body,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-body {
-    width: 230px;
-    text-align: center;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-features .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-move .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .sheet-row {
+  display: flex;
+  justify-content: space-between;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .sheet-row,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-body .sheet-row,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .sheet-row,
-.sheet-rolltemplate-features .sheet-container .sheet-container-body .sheet-row,
-.sheet-rolltemplate-move .sheet-container .sheet-container-body .sheet-row,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-body .sheet-row {
-    display: flex;
-    justify-content: space-between;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-features .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-move .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .italics {
+  font-style: italic;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .italics,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-body .italics,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .italics,
-.sheet-rolltemplate-features .sheet-container .sheet-container-body .italics,
-.sheet-rolltemplate-move .sheet-container .sheet-container-body .italics,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-body .italics {
-    font-style: italic;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-features .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-move .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .desc {
+  margin-top: 5px;
+  font-weight: bold;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .desc,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-body .desc,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .desc,
-.sheet-rolltemplate-features .sheet-container .sheet-container-body .desc,
-.sheet-rolltemplate-move .sheet-container .sheet-container-body .desc,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-body .desc {
-    margin-top: 5px;
-    font-weight: bold;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-footer, .sheet-rolltemplate-desc .sheet-container .sheet-container-footer, .sheet-rolltemplate-features .sheet-container .sheet-container-footer, .sheet-rolltemplate-move .sheet-container .sheet-container-footer, .sheet-rolltemplate-simple .sheet-container .sheet-container-footer {
+  width: 184px;
+  background: #ddd;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid #999;
+  margin: 0 23px 0 23px;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-features .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-move .sheet-container .sheet-container-footer,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-footer{
-    width: 184px;
-    background: #dddddd;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 1px solid #999999;
-    margin: 0 23px 0 23px;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row {
+  display: flex;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row,
-.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row,
-.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row{
-    display: flex;
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row span {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row span,
-.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row span,
-.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row span,
-.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row span,
-.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row span,
-.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row span{
-    width: 50%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+.sheet-rolltemplate-atk .sheet-container a[href^="~"] {
+  background: none;
+  color: black;
+  padding: 5px;
+  display: inline-block;
+  border: none;
+  line-height: 9px;
 }
 
-.sheet-rolltemplate-atk .sheet-container a[href^="~"]{
-    background: none;
-    color: black;
-    padding: 5px;
-    display: inline-block;
-    border: none;
-    line-height: 9px;
+.sheet-darkmode .sheetform {
+  background-color: #1f1f1f;
+  color: #e6e6e6;
 }
 
-.sheet-darkmode .sheetform{
-    background-color: #1f1f1f !important;
-    color: #e6e6e6 !important;
+.sheet-darkmode .sheet-core {
+  color: #e6e6e6;
 }
 
-.sheet-darkmode .sheet-core{
-    color: #e6e6e6 !important;
+.sheet-darkmode select, .sheet-darkmode input {
+  background-color: #333;
+  color: #e6e6e6;
+  border-color: black;
 }
 
-.sheet-darkmode select,
-.sheet-darkmode input{
-    background-color: #333333 !important;
-    color: #e6e6e6 !important;
-    border-color: black;
+.sheet-rolltemplate-darkmode .sheet-container {
+  background: black;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container{
-    background: black;
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header {
+  background: #444;
+  border: 1px solid #222;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header{
-    background: #444444;
-    border: 1px solid #222222;
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"] {
+  background: #222;
+  color: white;
+  border: black;
 }
 
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-header .sheet-row a[href^="~"]{
-    background: #222222;
-    color: white;
-    border: black;
-}
-
-.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer{
-    background: #444444;
-    border: 1px solid #222222;
+.sheet-rolltemplate-darkmode .sheet-container .sheet-container-footer {
+  background: #444;
+  border: 1px solid #222;
 }
