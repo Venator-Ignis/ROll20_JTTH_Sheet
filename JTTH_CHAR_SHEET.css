@@ -11,32 +11,44 @@
   display: none;
 }
 
-.charsheet .sheet-core *, .charsheet .sheet-core *::after, .charsheet .sheet-core *::before {
+.charsheet .sheet-core *, 
+.charsheet .sheet-core *::after, 
+.charsheet .sheet-core *::before {
   box-sizing: border-box;
 }
 
-.charsheet .sheet-core input:hover, .charsheet .sheet-core input:focus, .charsheet .sheet-core textarea:hover, .charsheet .sheet-core textarea:focus {
+.charsheet .sheet-core input:hover, 
+.charsheet .sheet-core input:focus, 
+.charsheet .sheet-core textarea:hover, 
+.charsheet .sheet-core textarea:focus {
   background: #e5fffb;
   outline: none;
 }
 
-.sheet-darkmode .sheet-core input:hover, .sheet-darkmode .sheet-core input:focus, .sheet-darkmode .sheet-core textarea:hover, .sheet-darkmode .sheet-core textarea:focus {
+.sheet-darkmode .sheet-core input:hover, 
+.sheet-darkmode .sheet-core input:focus, 
+.sheet-darkmode .sheet-core textarea:hover, 
+.sheet-darkmode .sheet-core textarea:focus {
   background: #4b5553;
 }
 
-.charsheet .sheet-core select:hover, .charsheet .sheet-core select:focus {
+.charsheet .sheet-core select:hover, 
+.charsheet .sheet-core select:focus {
   background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core select:hover, .sheet-darkmode .sheet-core select:focus {
+.sheet-darkmode .sheet-core select:hover, 
+.sheet-darkmode .sheet-core select:focus {
   background: #4b5553;
 }
 
-.charsheet .sheet-core select:hover option, .charsheet .sheet-core select:focus option {
+.charsheet .sheet-core select:hover option, 
+.charsheet .sheet-core select:focus option {
   background: white;
 }
 
-.sheet-darkmode .sheet-core select:hover option, .sheet-darkmode .sheet-core select:focus option {
+.sheet-darkmode .sheet-core select:hover option, 
+.sheet-darkmode .sheet-core select:focus option {
   background: #4b5553;
 }
 
@@ -85,11 +97,13 @@
   z-index: 1;
 }
 
-.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span, .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span, 
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
   background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span, .sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
+.sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:hover ~ span, 
+.sheet-darkmode .sheet-core .sheet-checkbox-image [type=checkbox]:focus ~ span {
   background: #4b5553;
 }
 
@@ -251,7 +265,8 @@
   margin-bottom: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details {
   height: 150px;
 }
 
@@ -260,7 +275,8 @@
   margin-left: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image img {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image img {
   height: 150px;
   width: 150px;
   max-height: 150px;
@@ -277,7 +293,9 @@
   padding-right: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail .sheet-character-detail-value select {
   width: 100%;
   height: 25px;
 }
@@ -369,15 +387,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: 290px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features .sheet-panel-features {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-features .sheet-panel-features {
   min-height: 325px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources .sheet-panel-resources {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-resources .sheet-panel-resources {
   min-height: 348px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-attacks {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-attacks .sheet-panel-attacks {
   min-height: 190px;
 }
 
@@ -432,7 +453,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   column-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health, .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body {
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health, 
+.charsheet .sheet-core .sheet-section-pc .sheet-section-pc-body .sheet-tab-character .sheet-well-columns .sheet-column .container-skill-combat .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -547,7 +570,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences .sheet-defence-label, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences input {
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences .sheet-defence-label, 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-defences input {
   text-align: center;
   line-height: 12px;
 }
@@ -557,7 +581,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   padding: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-evasion-group, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-durability-group, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-reduction-group, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-speed-group {
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-evasion-group, 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-durability-group, 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-reduction-group, 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability .sheet-pc-speed-group {
   display: flex;
   column-gap: 3px;
 }
@@ -572,7 +599,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: 62px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span, .charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input {
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span, 
+.charsheet .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input {
   width: 100%;
   line-height: 11px;
   padding: 2px;
@@ -582,7 +610,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   border-right: 1px dotted black;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input {
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability span, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-panel-combat .sheet-pc-evasion-durability input {
   border-left: 1px dotted grey;
   border-right: 1px dotted grey;
 }
@@ -605,7 +634,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: none;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item input {
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-name, 
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current, 
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max, 
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item input {
   border: none;
   box-shadow: none;
   font-size: 10px;
@@ -616,7 +648,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current input, .sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max input {
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-current input, 
+.sheet-core .sheet-section-pc .container-resources .sheet-fieldset-item .sheet-item-resource-max input {
   border-radius: 5px;
   border-left: 1px dotted;
   border-right: 1px dotted;
@@ -700,7 +733,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   display: none;
 }
 
-.charsheet .sheet-core .sheet-field-toggle:not([value]) + *, .charsheet .sheet-core .sheet-field-toggle[value=""] + *, .charsheet .sheet-core .sheet-field-toggle[value="0"] + *, .charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
+.charsheet .sheet-core .sheet-field-toggle:not([value]) + *, 
+.charsheet .sheet-core .sheet-field-toggle[value=""] + *, 
+.charsheet .sheet-core .sheet-field-toggle[value="0"] + *, 
+.charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
   display: none;
 }
 
@@ -955,11 +991,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   padding: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves, .charsheet .sheet-core .sheet-section-pc .sheet-move {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features, 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move, 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions, 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves, 
+.charsheet .sheet-core .sheet-section-pc .sheet-move {
   margin-top: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type), .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type), .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type), .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type) {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features .repitem:not(:last-of-type), 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves .repitem:not(:last-of-type), 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-reactions .repitem:not(:last-of-type), 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves .repitem:not(:last-of-type) {
   border-bottom: 1px dotted #ddd;
   padding-bottom: 5px;
   margin-bottom: 5px;
@@ -1087,7 +1130,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   border-radius: 3px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll, .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-roll, 
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-roll {
   background: none;
   border: 0;
   box-shadow: none;
@@ -1102,7 +1146,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   white-space: nowrap;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name, .charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-name {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-fieldset-item-npcmove .sheet-fieldset-item-npcmove-checked-name, 
+.charsheet .sheet-core .sheet-section-pc .sheet-fieldset-item-move .sheet-fieldset-item-move-checked-name {
   font-weight: bold;
 }
 
@@ -1169,7 +1214,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   margin-bottom: 0;
 }
 
-.charsheet .sheet-core .sheet-form input, .charsheet .sheet-core .sheet-form select, .charsheet .sheet-core .sheet-form textarea, .charsheet .sheet-core .sheet-form .uneditable-input {
+.charsheet .sheet-core .sheet-form input, 
+.charsheet .sheet-core .sheet-form select, 
+.charsheet .sheet-core .sheet-form textarea, 
+.charsheet .sheet-core .sheet-form .uneditable-input {
   box-sizing: border-box;
   color: black;
   font-size: 11px;
@@ -1185,7 +1233,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   color: #e6e6e6;
 }
 
-.sheet-darkmode .sheet-core .sheet-form input, .sheet-darkmode .sheet-core .sheet-form select, .sheet-darkmode .sheet-core .sheet-form textarea, .sheet-darkmode .sheet-core .sheet-form .uneditable-input {
+.sheet-darkmode .sheet-core .sheet-form input, 
+.sheet-darkmode .sheet-core .sheet-form select, 
+.sheet-darkmode .sheet-core .sheet-form textarea, 
+.sheet-darkmode .sheet-core .sheet-form .uneditable-input {
   background-color: #3f3f3f;
   color: #e6e6e6;
 }
@@ -1245,7 +1296,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: #333;
 }
 
-.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group, .charsheet .sheet-core .sheet-form .sheet-form-group + *, .charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
+.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group, 
+.charsheet .sheet-core .sheet-form .sheet-form-group + *, 
+.charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
   margin-top: 4px;
 }
 
@@ -1317,11 +1370,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover, .charsheet .sheet-core .sheet-section-pc .sheet-move button:hover {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover, 
+.charsheet .sheet-core .sheet-section-pc .sheet-move button:hover {
   background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-move button:hover {
+.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move button:hover, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-move button:hover {
   background: #4b5553;
 }
 
@@ -1329,7 +1384,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name, .charsheet .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name, 
+.charsheet .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
   background: #ddd;
   display: inline-block;
   border-radius: 3px;
@@ -1337,7 +1393,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
+.sheet-darkmode .sheet-core .sheet-section-npc-display .sheet-npc-move .sheet-fieldset-item-npcmove-checked-name, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-move .sheet-fieldset-item-move-checked-name {
   background: #444;
 }
 
@@ -1440,18 +1497,24 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   z-index: 0;
 }
 
-.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses, .charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves, .charsheet .sheet-core .sheet-section-pc .container-attacks {
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-features, 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-moves, 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-responses, 
+.charsheet .sheet-core .sheet-section-npc-display .sheet-npc-legendary-moves, 
+.charsheet .sheet-core .sheet-section-pc .container-attacks {
   margin-top: 5px;
 }
 
-.charsheet .sheet-core .sheet-container-panel .sheet-container-bar, .charsheet .sheet-core .sheet-container-panel .sheet-container-header {
+.charsheet .sheet-core .sheet-container-panel .sheet-container-bar, 
+.charsheet .sheet-core .sheet-container-panel .sheet-container-header {
   color: #202020;
   font-size: 11px;
   font-weight: bold;
   text-align: center;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-bar, .sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-header {
+.sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-bar, 
+.sheet-darkmode .sheet-core .sheet-container-panel .sheet-container-header {
   color: #e6e6e6;
 }
 
@@ -1493,7 +1556,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   white-space: normal;
 }
 
-.charsheet .sheet-core .sheet-display-brackets::before, .charsheet .sheet-core .sheet-display-brackets-xp::before {
+.charsheet .sheet-core .sheet-display-brackets::before, 
+.charsheet .sheet-core .sheet-display-brackets-xp::before {
   content: "(";
 }
 
@@ -1596,7 +1660,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   text-transform: uppercase;
 }
 
-.charsheet .sheet-attack button span:nth-of-type(2), .charsheet .sheet-attack button span:nth-of-type(3) {
+.charsheet .sheet-attack button span:nth-of-type(2), 
+.charsheet .sheet-attack button span:nth-of-type(3) {
   font-weight: bold;
 }
 
@@ -1611,7 +1676,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-name, .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-damage, .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-hit, .charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-range {
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-name, 
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-damage, 
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-hit, 
+.charsheet .sheet-core .sheet-panel-attacks .sheet-combat-labels .combat-range {
   min-width: 25%;
   line-height: 11px;
   text-align: center;
@@ -1632,19 +1700,23 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: 800px;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(2) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(2) > .sheet-tab-label {
+.sheet-tabs .sheet-tab:nth-of-type(2) > input[type="radio"], 
+.sheet-tabs .sheet-tab:nth-of-type(2) > .sheet-tab-label {
   margin-left: 20%;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(3) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(3) > .sheet-tab-label {
+.sheet-tabs .sheet-tab:nth-of-type(3) > input[type="radio"], 
+.sheet-tabs .sheet-tab:nth-of-type(3) > .sheet-tab-label {
   margin-left: 40%;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(4) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(4) > .sheet-tab-label {
+.sheet-tabs .sheet-tab:nth-of-type(4) > input[type="radio"], 
+.sheet-tabs .sheet-tab:nth-of-type(4) > .sheet-tab-label {
   margin-left: 60%;
 }
 
-.sheet-tabs .sheet-tab:nth-of-type(5) > input[type="radio"], .sheet-tabs .sheet-tab:nth-of-type(5) > .sheet-tab-label {
+.sheet-tabs .sheet-tab:nth-of-type(5) > input[type="radio"], 
+.sheet-tabs .sheet-tab:nth-of-type(5) > .sheet-tab-label {
   margin-left: 80%;
 }
 
@@ -1788,7 +1860,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   margin-left: 5px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail label, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
   font-size: 11px;
   height: 20px;
   padding: 0;
@@ -1811,7 +1885,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   border-radius: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail select {
   width: 100%;
   min-width: 0;
 }
@@ -1845,11 +1920,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   flex-shrink: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature {
   height: auto;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature label {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit label, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation label, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature label {
   height: 100%;
 }
 
@@ -1914,7 +1993,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: #666;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-gimmick textarea, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-value textarea, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-conflict textarea, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-want textarea {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-gimmick textarea, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-value textarea, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-conflict textarea, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-want textarea {
   flex-grow: 1;
   min-height: 39px;
   font-size: 11px;
@@ -1934,22 +2016,26 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   grid-area: skills;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-checkbox-cog:hover span {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-checkbox-cog:hover span {
   color: white;
   opacity: 1;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .repitem + .repitem, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .repitem + .repitem {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .repitem + .repitem, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
   border-top: 1px dotted #ddd;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature {
   font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool button, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool button, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature button {
   background: none;
   border: 0;
   box-shadow: none;
@@ -1965,7 +2051,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: #4b5553;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
   background: #7e2d40;
   color: white;
   border-radius: 3px;
@@ -1974,7 +2061,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   padding: 0 20px;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-custom-rolls .sheet-pc-tool, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
   background: #730d25;
 }
 
@@ -2050,7 +2138,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   min-height: 100px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col1, .charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col2 {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col1, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-notes .sheet-pc-notes .col2 {
   row-gap: 5px;
   display: flex;
   flex-direction: column;
@@ -2077,11 +2166,21 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: #730d25;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header {
   padding: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input {
   text-align: center;
   width: 100%;
   border: 0;
@@ -2093,15 +2192,30 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   text-overflow: ellipsis;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
   background: #e5fffb;
 }
 
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover, .sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-header input:hover, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-header input:hover, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-header input:hover, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-header input:hover, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover, 
+.sheet-darkmode .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
   background: #4b5553;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-body input {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-cc .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-sc .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-gc .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-ss .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other1 .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-purse-other2 .sheet-container-body input {
   width: 50px;
   padding-left: 0;
   padding-right: 0;
@@ -2314,7 +2428,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   flex-grow: 1;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-quantity, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-notches, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-weight, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-slots {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-quantity, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-notches, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-weight, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-item .sheet-pc-item-slots {
   border: 1px solid #ccc;
   border-radius: 3px;
   height: 20px;
@@ -2384,7 +2501,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   grid-column-gap: 10px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-unchecked, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-checked {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-unchecked, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-form-item .sheet-toggle-checked {
   margin-top: 4px;
 }
 
@@ -2407,7 +2525,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   background: #b4cf01;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-immobile, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-over {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-immobile, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-carrying-status span.sheet-pc-over {
   background: #cf4601;
   display: none;
 }
@@ -2422,7 +2541,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   display: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-unencumbered, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-unencumbered, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-unencumbered, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-unencumbered {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-unencumbered, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-unencumbered, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-unencumbered, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-unencumbered {
   display: none;
 }
 
@@ -2448,13 +2570,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   border-top: 1px dotted #ddd;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-body, .charsheet .sheet-core .sheet-pc-weight .sheet-container-body {
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body, 
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body {
   display: flex;
   flex-direction: row;
   padding-top: 0;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span, .charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span, 
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
   align-items: center;
   color: #ddd;
   display: flex;
@@ -2462,22 +2586,26 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   justify-content: center;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2), .charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2), 
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
   width: 100%;
   color: black;
 }
 
-.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2), .sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2), 
+.sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
   color: white;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer, .charsheet .sheet-core .sheet-pc-weight .sheet-container-footer {
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer, 
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-footer {
   display: flex;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer span, .charsheet .sheet-core .sheet-pc-weight .sheet-container-footer span {
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer span, 
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-footer span {
   flex-grow: 1;
   text-align: center;
   width: 100%;
@@ -2487,11 +2615,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   display: none;
 }
 
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(4), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(4), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-slots {
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(4), 
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(4), 
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-slots {
   display: none;
 }
 
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(3), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(3), .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-weight {
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(3), 
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(3), 
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-weight {
   display: none;
 }
 
@@ -2582,11 +2714,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   width: 100%;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-header + .sheet-container-body {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-header + .sheet-container-body {
   padding-bottom: 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body {
   display: flex;
   flex-direction: row;
   padding-top: 0;
@@ -2595,7 +2729,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   padding: 5px 10px 0;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body [type="text"], .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body [type="text"], .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body select {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body [type="text"], 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body select, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body [type="text"], 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body select {
   border-color: rgba(255, 255, 255, 0);
   flex-grow: 1;
   line-height: 13px;
@@ -2607,7 +2744,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   color: black;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body span {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-slots .sheet-container-body span, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-pc-weight .sheet-container-body span {
   font-size: 24px;
 }
 
@@ -2660,21 +2800,26 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   flex-direction: column;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level1_talents, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level13_talents, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level1_talents, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level13_talents, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_level20_talents {
   display: grid;
   grid-template-columns: repeat(3, 164px);
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup {
   display: flex;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group input, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup input {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group input, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup input {
   width: 12px;
   height: 12px;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group label, .charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup label {
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talent_option_group label, 
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-options .sheet-pc-options .sheet-pc-option-talents .sheet_talentgroup label {
   font-size: 11px;
 }
 
@@ -2682,33 +2827,74 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   display: none;
 }
 
-.charsheet .sheet-core .sheet-section-pc .character_path_none, .charsheet .sheet-core .sheet-section-pc .character_path_bioforged, .charsheet .sheet-core .sheet-section-pc .character_path_demonic_arts, .charsheet .sheet-core .sheet-section-pc .character_path_monk, .charsheet .sheet-core .sheet-section-pc .character_path_ronin, .charsheet .sheet-core .sheet-section-pc .character_path_samurai, .charsheet .sheet-core .sheet-section-pc .character_path_wanderer {
+.charsheet .sheet-core .sheet-section-pc .character_path_none, 
+.charsheet .sheet-core .sheet-section-pc .character_path_bioforged, 
+.charsheet .sheet-core .sheet-section-pc .character_path_demonic_arts, 
+.charsheet .sheet-core .sheet-section-pc .character_path_monk, 
+.charsheet .sheet-core .sheet-section-pc .character_path_ronin, 
+.charsheet .sheet-core .sheet-section-pc .character_path_samurai, 
+.charsheet .sheet-core .sheet-section-pc .character_path_wanderer {
   display: none;
 }
 #path_none[value="1"] ~ .value-subpath .character_path_none, #path_bioforged[value="1"] ~ .value-subpath .character_path_bioforged, #path_demonic_arts[value="1"] ~ .value-subpath .character_path_demonic_arts, #path_monk[value="1"] ~ .value-subpath .character_path_monk, #path_ronin[value="1"] ~ .value-subpath .character_path_ronin, #path_samurai[value="1"] ~ .value-subpath .character_path_samurai, #path_wanderer[value="1"] ~ .value-subpath .character_path_wanderer {
   display: block;
 }
 
-.charsheet .sheet-core .sheet-section-pc .character_ancestry_none, .charsheet .sheet-core .sheet-section-pc .character_ancestry_angelic_echo, .charsheet .sheet-core .sheet-section-pc .character_ancestry_beastmen, .charsheet .sheet-core .sheet-section-pc .character_ancestry_demi_human, .charsheet .sheet-core .sheet-section-pc .character_ancestry_demonic_beast, .charsheet .sheet-core .sheet-section-pc .character_ancestry_divine_beast, .charsheet .sheet-core .sheet-section-pc .character_ancestry_draconian, .charsheet .sheet-core .sheet-section-pc .character_ancestry_elemental_born, .charsheet .sheet-core .sheet-section-pc .character_ancestry_fallen, .charsheet .sheet-core .sheet-section-pc .character_ancestry_human, .charsheet .sheet-core .sheet-section-pc .character_ancestry_insectoid, .charsheet .sheet-core .sheet-section-pc .character_ancestry_living_golem, .charsheet .sheet-core .sheet-section-pc .character_ancestry_merfolk, .charsheet .sheet-core .sheet-section-pc .character_ancestry_mirotide, .charsheet .sheet-core .sheet-section-pc .character_ancestry_parasyte, .charsheet .sheet-core .sheet-section-pc .character_ancestry_sporling, .charsheet .sheet-core .sheet-section-pc .character_ancestry_slime_kin, .charsheet .sheet-core .sheet-section-pc .character_ancestry_tiko, .charsheet .sheet-core .sheet-section-pc .character_ancestry_yokai, .charsheet .sheet-core .sheet-section-pc .character_ancestry_vampire, .charsheet .sheet-core .sheet-section-pc .character_ancestry_varkari {
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_none, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_angelic_echo, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_beastmen, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_demi_human, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_demonic_beast, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_divine_beast, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_draconian, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_elemental_born, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_fallen, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_human, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_insectoid, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_living_golem, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_merfolk, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_mirotide, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_parasyte, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_sporling, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_slime_kin, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_tiko, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_yokai, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_vampire, 
+.charsheet .sheet-core .sheet-section-pc .character_ancestry_varkari {
   display: none;
 }
 #ancestry_none[value="1"] ~ .value-species .character_ancestry_none, #ancestry_angelic_echo[value="1"] ~ .value-species .character_ancestry_angelic_echo, #ancestry_beastmen[value="1"] ~ .value-species .character_ancestry_beastmen, #ancestry_demi_humans[value="1"] ~ .value-species .character_ancestry_demi_human, #ancestry_demonic_beasts[value="1"] ~ .value-species .character_ancestry_demonic_beast, #ancestry_divine_beasts[value="1"] ~ .value-species .character_ancestry_divine_beast, #ancestry_draconian[value="1"] ~ .value-species .character_ancestry_draconian, #ancestry_elemental_born[value="1"] ~ .value-species .character_ancestry_elemental_born, #ancestry_fallen[value="1"] ~ .value-species .character_ancestry_fallen, #ancestry_human[value="1"] ~ .value-species .character_ancestry_human, #ancestry_insectoid[value="1"] ~ .value-species .character_ancestry_insectoid, #ancestry_living_golem[value="1"] ~ .value-species .character_ancestry_living_golem, #ancestry_merfolk[value="1"] ~ .value-species .character_ancestry_merfolk, #ancestry_mirotide[value="1"] ~ .value-species .character_ancestry_mirotide, #ancestry_parasyte[value="1"] ~ .value-species .character_ancestry_parasyte, #ancestry_sporlings[value="1"] ~ .value-species .character_ancestry_sporling, #ancestry_slime_kin[value="1"] ~ .value-species .character_ancestry_slime_kin, #ancestry_tiko[value="1"] ~ .value-species .character_ancestry_tiko, #ancestry_yokai[value="1"] ~ .value-species .character_ancestry_yokai, #ancestry_vampire[value="1"] ~ .value-species .character_ancestry_vampire, #ancestry_varkari[value="1"] ~ .value-species .character_ancestry_varkari {
   display: block;
 }
 
-.sheet-rolltemplate-atk, .sheet-rolltemplate-desc, .sheet-rolltemplate-dmg, .sheet-rolltemplate-features, .sheet-rolltemplate-move, .sheet-rolltemplate-simple {
+.sheet-rolltemplate-atk, 
+.sheet-rolltemplate-desc, 
+.sheet-rolltemplate-dmg, 
+.sheet-rolltemplate-features, 
+.sheet-rolltemplate-move, 
+.sheet-rolltemplate-simple {
   width: 230px;
   text-align: center;
 }
 
-.sheet-rolltemplate-atk .sheet-container, .sheet-rolltemplate-desc .sheet-container, .sheet-rolltemplate-dmg .sheet-container, .sheet-rolltemplate-features .sheet-container, .sheet-rolltemplate-move .sheet-container, .sheet-rolltemplate-simple .sheet-container {
+.sheet-rolltemplate-atk .sheet-container, 
+.sheet-rolltemplate-desc .sheet-container, 
+.sheet-rolltemplate-dmg .sheet-container, 
+.sheet-rolltemplate-features .sheet-container, 
+.sheet-rolltemplate-move .sheet-container, 
+.sheet-rolltemplate-simple .sheet-container {
   width: 230px;
   background: #fff;
   border-radius: 10px;
   padding: 3px;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header, .sheet-rolltemplate-desc .sheet-container .sheet-container-header, .sheet-rolltemplate-dmg .sheet-container .sheet-container-header, .sheet-rolltemplate-features .sheet-container .sheet-container-header, .sheet-rolltemplate-move .sheet-container .sheet-container-header, .sheet-rolltemplate-simple .sheet-container .sheet-container-header {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-header, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-header, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header {
   width: 230px;
   background: #ddd;
   border-top-left-radius: 10px;
@@ -2716,13 +2902,23 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   border: 1px solid #999;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row a[href^="~"], .sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row a[href^="~"] {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row a[href^="~"], 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row a[href^="~"], 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row a[href^="~"], 
+.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row a[href^="~"], 
+.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row a[href^="~"], 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row a[href^="~"] {
   background: #999;
   color: black;
   border: #5a5a5a;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-features .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-move .sheet-container .sheet-container-body .inlinerollresult, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .inlinerollresult {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .inlinerollresult, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .inlinerollresult, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .inlinerollresult, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .inlinerollresult, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .inlinerollresult, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .inlinerollresult {
   background: none;
   border: none;
   padding: 0;
@@ -2731,26 +2927,50 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   font-size: 1.1em;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body, .sheet-rolltemplate-desc .sheet-container .sheet-container-body, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body, .sheet-rolltemplate-features .sheet-container .sheet-container-body, .sheet-rolltemplate-move .sheet-container .sheet-container-body, .sheet-rolltemplate-simple .sheet-container .sheet-container-body {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-body, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-body, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body {
   width: 230px;
   text-align: center;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-features .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-move .sheet-container .sheet-container-body .sheet-row, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .sheet-row {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .sheet-row, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .sheet-row, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .sheet-row, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .sheet-row, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .sheet-row, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .sheet-row {
   display: flex;
   justify-content: space-between;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-features .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-move .sheet-container .sheet-container-body .italics, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .italics {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .italics, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .italics, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .italics, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .italics, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .italics, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .italics {
   font-style: italic;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-desc .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-dmg .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-features .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-move .sheet-container .sheet-container-body .desc, .sheet-rolltemplate-simple .sheet-container .sheet-container-body .desc {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-body .desc, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-body .desc, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-body .desc, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-body .desc, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-body .desc, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-body .desc {
   margin-top: 5px;
   font-weight: bold;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-footer, .sheet-rolltemplate-desc .sheet-container .sheet-container-footer, .sheet-rolltemplate-features .sheet-container .sheet-container-footer, .sheet-rolltemplate-move .sheet-container .sheet-container-footer, .sheet-rolltemplate-simple .sheet-container .sheet-container-footer {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-footer, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-footer, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-footer, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-footer, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-footer {
   width: 184px;
   background: #ddd;
   border-bottom-left-radius: 10px;
@@ -2759,11 +2979,21 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   margin: 0 23px 0 23px;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row, .sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row {
   display: flex;
 }
 
-.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row span, .sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row span {
+.sheet-rolltemplate-atk .sheet-container .sheet-container-header .sheet-row span, 
+.sheet-rolltemplate-desc .sheet-container .sheet-container-header .sheet-row span, 
+.sheet-rolltemplate-dmg .sheet-container .sheet-container-header .sheet-row span, 
+.sheet-rolltemplate-features .sheet-container .sheet-container-header .sheet-row span, 
+.sheet-rolltemplate-move .sheet-container .sheet-container-header .sheet-row span, 
+.sheet-rolltemplate-simple .sheet-container .sheet-container-header .sheet-row span {
   width: 50%;
   text-align: center;
   display: flex;
@@ -2788,7 +3018,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   color: #e6e6e6;
 }
 
-.sheet-darkmode select, .sheet-darkmode input {
+.sheet-darkmode select, 
+.sheet-darkmode input {
   background-color: #333;
   color: #e6e6e6;
   border-color: black;
