@@ -285,32 +285,6 @@
     max-width: 150px;
 }
 
-.sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image::before {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 20 fill stretch;
-    border-style: solid;
-    border-width: 15px 15px;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 150px;
-    width: 150px;
-    position: absolute;
-    z-index: -1;
-}
-
-.sheet-darkmode .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-image::before {
-    border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-box-border.png) 20 fill stretch;
-    border-style: solid;
-    border-width: 15px 15px;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 150px;
-    width: 150px;
-    position: absolute;
-    z-index: -1;
-}
-
 .charsheet .sheet-core .sheet-section-pc .sheet-section-pc-header .sheet-section-pc-header-character-details .sheet-character-detail{
     height: 25px;
     display: flex;
@@ -1457,39 +1431,42 @@ input::-webkit-inner-spin-button {
     z-index: 0;
 }
 
-.charsheet .sheet-core .sheet-container-well::before {
-    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-well-border.png") 100 300 100 300 fill stretch;
+.charsheet .sheet-core .sheet-container-well::after {
+    content: "";
+    border-image-source: url(https://app.roll20.net/images/dndstyling/vitals.svg);
+    border-image-slice: 7% 40% fill;
     border-style: solid;
-    border-width: 32px 101px;
+    border-color: transparent;
     box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
     position: absolute;
+    left: 0;
     top: 0;
+    height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
+    border-image-width: 25px 100px;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-well::before {
-    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-well-border.png") 100 300 100 300 fill stretch;
+.sheet-darkmode .sheet-core .sheet-container-well::after {
+    content: "";
+    border-image-source: url(https://storage.googleapis.com/char-sheet-app-images-6e101411/D%26D5e/images/darkmode/vitals_dm.svg);
+    border-image-slice: 7% 40% fill;
     border-style: solid;
-    border-width: 32px 101px;
+    border-color: transparent;
     box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 100%;
-    left: 0;
     position: absolute;
+    left: 0;
     top: 0;
+    height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
+    border-image-width: 25px 100px;
 }
 
-.charsheet .sheet-core .sheet-container-panel::before {
+.charsheet .sheet-core .sheet-container-panel::after {
     border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 fill stretch;
     border-style: solid;
+    border-color: transparent;
     border-width: 15px 15px;
     box-sizing: border-box;
     content: '';
@@ -1499,12 +1476,13 @@ input::-webkit-inner-spin-button {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-panel::before {
+.sheet-darkmode .sheet-core .sheet-container-panel::after {
     border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-box-border.png) 50 fill stretch;
     border-style: solid;
+    border-color: transparent;
     border-width: 15px 15px;
     box-sizing: border-box;
     content: '';
@@ -1514,7 +1492,7 @@ input::-webkit-inner-spin-button {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
 }
 
 .charsheet .sheet-core .sheet-container-panel {
@@ -2686,9 +2664,10 @@ input::-webkit-inner-spin-button {
     z-index: 0;
 }
 
-.charsheet .sheet-core .sheet-container-bar::before {
+.charsheet .sheet-core .sheet-container-bar::after {
     border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png") 103 103 103 103 fill stretch;
     border-style: solid;
+    border-color: transparent;
     border-width: 30px 30px 0;
     box-sizing: border-box;
     content: '';
@@ -2698,12 +2677,13 @@ input::-webkit-inner-spin-button {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-bar::before {
+.sheet-darkmode .sheet-core .sheet-container-bar::after {
     border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-dark-bar-border.png") 103 103 103 103 fill stretch;
     border-style: solid;
+    border-color: transparent;
     border-width: 30px 30px 0;
     box-sizing: border-box;
     content: '';
@@ -2713,7 +2693,7 @@ input::-webkit-inner-spin-button {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
 }
 
 .charsheet .sheet-core .sheet-container-bar.sheet-container-bar-left {
