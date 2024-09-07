@@ -68,58 +68,99 @@
                     <div class="sheet-page-content">
                         <div class="sheet-container-well sheet-well-attributes">
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_power" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Power}} {{roll1=[[ @{power}d6[power] + @{power_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">POWER</span>
-                                </button>
-                                <input class="baseattr" type="number" name="attr_power_base" title="@{power}" value="0">
-                                <input type="hidden" name="attr_power" value="0">
-                                <span class="finalattr" name="attr_power"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_power_dc" title="@{power_dc}">0</span>
+                                <div class="sheet-container-header">
+                                    <button type="roll" name="roll_power" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Power}} {{roll1=[[ @{power}d6[power] + @{power_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">POWER</span>
+                                    </button>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_power" title="@{power}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_power_base" title="@{power_base}" value="0">
+                                    <input type="hidden" name="attr_power" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_power_dc" title="@{power_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_agility" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Agility}} {{roll1=[[ @{agility}d6[agility] + @{agility_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">AGILITY</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_agility_base" title="@{agility}" value="0">
-                                <input type="hidden" name="attr_agility" value="0">
-                                <span class="finalattr" name="attr_agility"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_agility_dc" title="@{agility_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_agility" title="@{agility}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_agility_base" title="@{agility_base}" value="0">
+                                    <input type="hidden" name="attr_agility" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_agility_dc" title="@{agility_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_vitality" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Vitality}} {{roll1=[[ @{vitality}d6[vitality] + @{vitality_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">VITALITY</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_vitality_base" title="@{vitality}" value="0">
-                                <input type="hidden" name="attr_vitality" value="0">
-                                <span class="finalattr" name="attr_vitality"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_vitality" title="@{vitality}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_vitality_base" title="@{vitality_base}" value="0">
+                                    <input type="hidden" name="attr_vitality" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_cultivation" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Cultivation}} {{roll1=[[ @{cultivation}d6[cultivation] + @{cultivation_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">CULTIVATION</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_cultivation_base" title="@{cultivation}" value="0">
-                                <input type="hidden" name="attr_cultivation" value="0">
-                                <span class="finalattr" name="attr_cultivation"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_cultivation" title="@{cultivation}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_cultivation_base" title="@{cultivation_base}" value="0">
+                                    <input type="hidden" name="attr_cultivation" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_qicontrol" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Qicontrol}} {{roll1=[[ @{qicontrol}d6[qicontrol] + @{qicontrol_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">QI CONTROL</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_qicontrol_base" title="@{qicontrol}" value="0">
-                                <input type="hidden" name="attr_qicontrol" value="0">
-                                <span class="finalattr" name="attr_qicontrol"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_qicontrol_dc" title="@{qicontrol_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_qicontrol" title="@{qicontrol}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_qicontrol_base" title="@{qicontrol_base}" value="0">
+                                    <input type="hidden" name="attr_qicontrol" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_qicontrol_dc" title="@{qicontrol_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_mental" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Mental}} {{roll1=[[ @{mental}d6[mental] + @{mental_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">MENTAL</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_mental_base" title="@{mental}" value="0">
-                                <input type="hidden" name="attr_mental" value="0">
-                                <span class="finalattr" name="attr_mental"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_mental_dc" title="@{mental_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_mental" title="@{mental}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_mental_base" title="@{mental_base}" value="0">
+                                    <input type="hidden" name="attr_mental" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_mental_dc" title="@{mental_dc}">0</span>
+                                </div>
                             </div>
                         </div>
                         <div class="sheet-container-columns">
@@ -165,7 +206,7 @@
                                         </div>
                                         <div class="sheet-skill">
                                             <button type="roll" name="roll_fine_arts" value="@{wtype}&{template:simple} @{character_name_output} {{rollname=Fine_arts}} {{roll1=@{fine_arts_roll}d6 + @{fine_arts_bonus}[BONUS] + @{global_skill_bonus}[GLOBAL]]]}}">
-                                                <span>Fine_arts</span>
+                                                <span>Fine Arts</span>
                                                 <span name="attr_fine_arts"></span>
                                             </button>
                                         </div>
@@ -337,8 +378,12 @@
                                             <span class="label">TEMPORARY HIT POINTS</span>
                                         </div>
                                         <div>
-                                            <input type="number" name="attr_hit_die" title="@{hit_die}">
-                                            <span class="label">HIT DIE</span>
+                                            <div class="sheet-container-box hp">
+                                                <div class="sheet-box">
+                                                    <span>Hit Die</span>
+                                                    <input type="text" name="attr_hit_die" title="@{hit_die}" placeholder="d10">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -429,158 +474,158 @@
 
                                     </div>
                                 </div>
-                            </div>
-                            <div class="sheet-container-attacks">
-                                <div class="sheet-container-panel sheet-panel-advantage">
-                                    <div class="sheet-container-body">
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
-                                            <span class="sheet-advantage-label">NONE</span>
-                                        </div>
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="ta">
-                                            <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
-                                        </div>
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="ea">
-                                            <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
-                                        </div>
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="aa">
-                                            <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
+                                <div class="sheet-container-attacks">
+                                    <div class="sheet-container-panel sheet-panel-advantage">
+                                        <div class="sheet-container-body">
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
+                                                <span class="sheet-advantage-label">NONE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="ta">
+                                                <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="ea">
+                                                <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="aa">
+                                                <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="sheet-container-panel sheet-panel-bonuses">
-                                    <span class="label">ATTACK MODIFIERS</span>
-                                    <fieldset class="repeating_attack_mod">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
-                                    </fieldset>
-                                    <span class="label">DAMAGE MODIFIERS</span>
-                                    <fieldset class="repeating_damage_mod">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
-                                    </fieldset>
-                                </div>
-                                <div class="sheet-container-panel sheet-panel-attacks">
-                                    <div class="sheet-container-header">ATTACKS</div>
-                                    <div class="sheet-container-body">
-                                        <fieldset class="repeating_mortal_move">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-move">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked" value="on">
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Move</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <label>Name:</label>
-                                                                <input type="text" name="attr_name">
-                                                                <label class="sheet-form-checkbox">
-                                                                    <input type="checkbox" name="attr_attack_flag" value="on">
-                                                                    <span>Attack</span>
-                                                                </label>
-                                                            </div>
-                                                            <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
-                                                            <div class="sheet-form-group sheet-toggle-checked">
-                                                                <div class="sheet-form-fieldset">
-                                                                    <div class="sheet-form-fieldset-header">Attack</div>
-                                                                    <div class="sheet-form-fieldset-body">
-                                                                        <input type="hidden" name="attr_damage_flag">
-                                                                        <input type="hidden" name="attr_full_damage">
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Type:</label>
-                                                                            <select name="attr_attack_type">
-                                                                                <option value="Melee">Melee</option>
-                                                                                <option value="Ranged">Ranged</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Range/Reach:</label>
-                                                                            <input type="text" name="attr_attack_range">
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>To Hit:</label>
-                                                                            <select name="attr_attack_tohit">
-                                                                                <option value="@{power}">Power</option>
-                                                                                <option value="@{agility}">Agility</option>
-                                                                                <option value="@{vitality}">Vitality</option>
-                                                                                <option value="@{cultivation}">Cultivation</option>
-                                                                                <option value="@{qi_control}">Qi Control</option>
-                                                                                <option value="@{mental_strength}">Mental Strength</option>
-                                                                            </select>
-                                                                            <label>Bonus:</label>
-                                                                            <input type="text" name="attr_attack_bonus">
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Damage 1:</label>
-                                                                            <input type="text" name="attr_attack_damage">
-                                                                            <select name="attr_attack_damage1attribute">
-                                                                                <option value="none">None</option>
-                                                                                <option value="@{power}">Power</option>
-                                                                                <option value="@{agility}">Agility</option>
-                                                                                <option value="@{vitality}">Vitality</option>
-                                                                                <option value="@{cultivation}">Cultivation</option>
-                                                                                <option value="@{qi_control}">Qi Control</option>
-                                                                                <option value="@{mental_strength}">Mental Strength</option>
-                                                                            </select>
-                                                                            <label>Bonus:</label>
-                                                                            <input type="text" name="attr_attack_damage1bonus">
-                                                                            <label>Type:</label>
-                                                                            <input type="text" name="attr_attack_damagetype">
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Damage 2:</label>
-                                                                            <input type="text" name="attr_attack_damage2">
-                                                                            <select name="attr_attack_damage2attribute">
-                                                                                <option value="none">None</option>
-                                                                                <option value="@{power}">Power</option>
-                                                                                <option value="@{agility}">Agility</option>
-                                                                                <option value="@{vitality}">Vitality</option>
-                                                                                <option value="@{cultivation}">Cultivation</option>
-                                                                                <option value="@{qi_control}">Qi Control</option>
-                                                                                <option value="@{mental_strength}">Mental Strength</option>
-                                                                            </select>
-                                                                            <label>Bonus:</label>
-                                                                            <input type="text" name="attr_attack_damage2bonus">
-                                                                            <label>Type:</label>
-                                                                            <input type="text" name="attr_attack_damagetype2">
+                                    <div class="sheet-container-panel sheet-panel-bonuses">
+                                        <span class="label">ATTACK MODIFIERS</span>
+                                        <fieldset class="repeating_attack_mod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
+                                        </fieldset>
+                                        <span class="label">DAMAGE MODIFIERS</span>
+                                        <fieldset class="repeating_damage_mod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-attacks">
+                                        <div class="sheet-container-header">ATTACKS</div>
+                                        <div class="sheet-container-body">
+                                            <fieldset class="repeating_mortal_move">
+                                                <div class="sheet-fieldset-item sheet-fieldset-item-move">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked" value="on">
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Move</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label>Name:</label>
+                                                                    <input type="text" name="attr_name">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_attack_flag" value="on">
+                                                                        <span>Attack</span>
+                                                                    </label>
+                                                                </div>
+                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                                <div class="sheet-form-group sheet-toggle-checked">
+                                                                    <div class="sheet-form-fieldset">
+                                                                        <div class="sheet-form-fieldset-header">Attack</div>
+                                                                        <div class="sheet-form-fieldset-body">
+                                                                            <input type="hidden" name="attr_damage_flag">
+                                                                            <input type="hidden" name="attr_full_damage">
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Type:</label>
+                                                                                <select name="attr_attack_type">
+                                                                                    <option value="Melee">Melee</option>
+                                                                                    <option value="Ranged">Ranged</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Range/Reach:</label>
+                                                                                <input type="text" name="attr_attack_range">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>To Hit:</label>
+                                                                                <select name="attr_attack_tohit">
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_bonus">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Damage 1:</label>
+                                                                                <input type="text" name="attr_attack_damage">
+                                                                                <select name="attr_attack_damage1attribute">
+                                                                                    <option value="none">None</option>
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_damage1bonus">
+                                                                                <label>Type:</label>
+                                                                                <input type="text" name="attr_attack_damagetype">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Damage 2:</label>
+                                                                                <input type="text" name="attr_attack_damage2">
+                                                                                <select name="attr_attack_damage2attribute">
+                                                                                    <option value="none">None</option>
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_damage2bonus">
+                                                                                <label>Type:</label>
+                                                                                <input type="text" name="attr_attack_damagetype2">
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Description:</label>
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <textarea name="attr_description"></textarea>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Description:</label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <textarea name="attr_description"></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-move">
-                                                        <button type="roll" name="roll_move" value="@{rollbase}" class="sheet-fieldset-item-move-checked-roll sheet-btn-text">
-                                                            <div class="sheet-fieldset-item-move-checked-name">
-                                                                <span name="attr_name"></span>
-                                                            </div>
-                                                            <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
-                                                            <div class="sheet-toggle-checked">
-                                                                <div class="sheet-fieldset-item-move-checked-attack">
-                                                                    <span name="attr_attack_hitdamage"></span>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-move">
+                                                            <button type="roll" name="roll_move" value="@{rollbase}" class="sheet-fieldset-item-move-checked-roll sheet-btn-text">
+                                                                <div class="sheet-fieldset-item-move-checked-name">
+                                                                    <span name="attr_name"></span>
                                                                 </div>
-                                                            </div>
-                                                        </button>
-                                                        <input type="hidden" name="attr_rollbase">
-                                                        <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-btn-text">
-                                                            Roll Damage
-                                                        </button>
+                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                                <div class="sheet-toggle-checked">
+                                                                    <div class="sheet-fieldset-item-move-checked-attack">
+                                                                        <span name="attr_attack_hitdamage"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                            <input type="hidden" name="attr_rollbase">
+                                                            <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-btn-text">
+                                                                Roll Damage
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </fieldset>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -674,58 +719,99 @@
                     <div class="sheet-page-content">
                         <div class="sheet-container-well sheet-well-attributes">
                             <div class="sheet-container-attribute">
-                                <button type="roll" name="roll_power" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Power}} {{roll1=[[ @{power}d6[power] + @{power_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">POWER</span>
-                                </button>
-                                <input class="baseattr" type="number" name="attr_power_base" title="@{power}" value="0">
-                                <input type="hidden" name="attr_power" value="0">
-                                <span class="finalattr" name="attr_power"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_power_dc" title="@{power_dc}">0</span>
+                                <div class="sheet-container-header">
+                                    <button type="roll" name="roll_power" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Power}} {{roll1=[[ @{power}d6[power] + @{power_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">POWER</span>
+                                    </button>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_power" title="@{power}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_power_base" title="@{power_base}" value="0">
+                                    <input type="hidden" name="attr_power" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_power_dc" title="@{power_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_agility" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Agility}} {{roll1=[[ @{agility}d6[agility] + @{agility_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">AGILITY</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_agility_base" title="@{agility}" value="0">
-                                <input type="hidden" name="attr_agility" value="0">
-                                <span class="finalattr" name="attr_agility"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_agility_dc" title="@{agility_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_agility" title="@{agility}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_agility_base" title="@{agility_base}" value="0">
+                                    <input type="hidden" name="attr_agility" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_agility_dc" title="@{agility_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_vitality" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Vitality}} {{roll1=[[ @{vitality}d6[vitality] + @{vitality_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">VITALITY</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_vitality_base" title="@{vitality}" value="0">
-                                <input type="hidden" name="attr_vitality" value="0">
-                                <span class="finalattr" name="attr_vitality"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_vitality" title="@{vitality}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_vitality_base" title="@{vitality_base}" value="0">
+                                    <input type="hidden" name="attr_vitality" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_cultivation" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Cultivation}} {{roll1=[[ @{cultivation}d6[cultivation] + @{cultivation_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">CULTIVATION</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_cultivation_base" title="@{cultivation}" value="0">
-                                <input type="hidden" name="attr_cultivation" value="0">
-                                <span class="finalattr" name="attr_cultivation"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_cultivation" title="@{cultivation}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_cultivation_base" title="@{cultivation_base}" value="0">
+                                    <input type="hidden" name="attr_cultivation" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_qicontrol" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Qicontrol}} {{roll1=[[ @{qicontrol}d6[qicontrol] + @{qicontrol_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                     <span class="sheet-button-attribute-title">QI CONTROL</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_qicontrol_base" title="@{qicontrol}" value="0">
-                                <input type="hidden" name="attr_qicontrol" value="0">
-                                <span class="finalattr" name="attr_qicontrol"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_qicontrol_dc" title="@{qicontrol_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_qicontrol" title="@{qicontrol}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_qicontrol_base" title="@{qicontrol_base}" value="0">
+                                    <input type="hidden" name="attr_qicontrol" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_qicontrol_dc" title="@{qicontrol_dc}">0</span>
+                                </div>
                             </div>
                             <div class="sheet-container-attribute">
+                                <div class="sheet-container-header">
+
                                 <button type="roll" name="roll_mental" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Mental}} {{roll1=[[ @{mental}d6[mental] + @{mental_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">MENTAL STRENGTH</span>
+                                    <span class="sheet-button-attribute-title">MENTAL</span>
                                 </button>
-                                <input class="baseattr" type="number" name="attr_mental_base" title="@{mental}" value="0">
-                                <input type="hidden" name="attr_mental" value="0">
-                                <span class="finalattr" name="attr_mental"></span>
-                                <span class="sheet-button-attribute-dc" name="attr_mental_dc" title="@{mental_dc}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
+                                    <span class="finalattr" name="attr_mental" title="@{mental}"></span>
+                                </div>
+                                <div class="sheet-container-footer">
+                                    <input class="baseattr" type="number" name="attr_mental_base" title="@{mental_base}" value="0">
+                                    <input type="hidden" name="attr_mental" value="0">
+                                    <span class="sheet-button-attribute-dc" name="attr_mental_dc" title="@{mental_dc}">0</span>
+                                </div>
                             </div>
                         </div>
                         <div class="sheet-container-columns">
@@ -771,7 +857,7 @@
                                         </div>
                                         <div class="sheet-skill">
                                             <button type="roll" name="roll_fine_arts" value="@{wtype}&{template:simple} @{character_name_output} {{rollname=Fine_arts}} {{roll1=@{fine_arts_roll}d6 + @{fine_arts_bonus}[BONUS] + @{global_skill_bonus}[GLOBAL]]]}}">
-                                                <span>Fine_arts</span>
+                                                <span>Fine Arts</span>
                                                 <span name="attr_fine_arts"></span>
                                             </button>
                                         </div>
@@ -894,7 +980,7 @@
                                     </div>
                                 </div>
                                 <div class="sheet-container-profession">
-                                    <div class="sheet-container-header">PROFESSION</div>
+                                    <div class="sheet-container-header">PROFESSIONS</div>
                                     <div class="sheet-container-body">
                                         <div class="top">
                                             <span class="label">PROFESSION</span>
@@ -960,7 +1046,6 @@
                                                     <input type="number" name="attr_realm_multi" title="@{realm_multi}" placeholder="1">
                                                 </div>
                                             </div>
-                                            <div class="sheet-container-box hp"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -1058,158 +1143,158 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="sheet-container-attacks">
-                                <div class="sheet-container-panel sheet-panel-advantage">
-                                    <div class="sheet-container-body">
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
-                                            <span class="sheet-advantage-label">NONE</span>
-                                        </div>
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="ta">
-                                            <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
-                                        </div>
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="ea">
-                                            <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
-                                        </div>
-                                        <div class="sheet-container-bar">
-                                            <input type="radio" name="attr_tactical_advantage" value="aa">
-                                            <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
+                                <div class="sheet-container-attacks">
+                                    <div class="sheet-container-panel sheet-panel-advantage">
+                                        <div class="sheet-container-body">
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
+                                                <span class="sheet-advantage-label">NONE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="ta">
+                                                <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="ea">
+                                                <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
+                                            </div>
+                                            <div class="sheet-container-bar">
+                                                <input type="radio" name="attr_tactical_advantage" value="aa">
+                                                <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="sheet-container-panel sheet-panel-bonuses">
-                                    <span class="label">ATTACK MODIFIERS</span>
-                                    <fieldset class="repeating_attack_mod">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
-                                    </fieldset>
-                                    <span class="label">DAMAGE MODIFIERS</span>
-                                    <fieldset class="repeating_damage_mod">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
-                                    </fieldset>
-                                </div>
-                                <div class="sheet-container-panel sheet-panel-attacks">
-                                    <div class="sheet-container-header">ATTACKS</div>
-                                    <div class="sheet-container-body">
-                                        <fieldset class="repeating_cultivator_move">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-move">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked" value="on">
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Move</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <label>Name:</label>
-                                                                <input type="text" name="attr_name">
-                                                                <label class="sheet-form-checkbox">
-                                                                    <input type="checkbox" name="attr_attack_flag" value="on">
-                                                                    <span>Attack</span>
-                                                                </label>
-                                                            </div>
-                                                            <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
-                                                            <div class="sheet-form-group sheet-toggle-checked">
-                                                                <div class="sheet-form-fieldset">
-                                                                    <div class="sheet-form-fieldset-header">Attack</div>
-                                                                    <div class="sheet-form-fieldset-body">
-                                                                        <input type="hidden" name="attr_damage_flag">
-                                                                        <input type="hidden" name="attr_full_damage">
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Type:</label>
-                                                                            <select name="attr_attack_type">
-                                                                                <option value="Melee">Melee</option>
-                                                                                <option value="Ranged">Ranged</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Range/Reach:</label>
-                                                                            <input type="text" name="attr_attack_range">
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>To Hit:</label>
-                                                                            <select name="attr_attack_tohit">
-                                                                                <option value="@{power}">Power</option>
-                                                                                <option value="@{agility}">Agility</option>
-                                                                                <option value="@{vitality}">Vitality</option>
-                                                                                <option value="@{cultivation}">Cultivation</option>
-                                                                                <option value="@{qi_control}">Qi Control</option>
-                                                                                <option value="@{mental_strength}">Mental Strength</option>
-                                                                            </select>
-                                                                            <label>Bonus:</label>
-                                                                            <input type="text" name="attr_attack_bonus">
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Damage 1:</label>
-                                                                            <input type="text" name="attr_attack_damage">
-                                                                            <select name="attr_attack_damage1attribute">
-                                                                                <option value="none">None</option>
-                                                                                <option value="@{power}">Power</option>
-                                                                                <option value="@{agility}">Agility</option>
-                                                                                <option value="@{vitality}">Vitality</option>
-                                                                                <option value="@{cultivation}">Cultivation</option>
-                                                                                <option value="@{qi_control}">Qi Control</option>
-                                                                                <option value="@{mental_strength}">Mental Strength</option>
-                                                                            </select>
-                                                                            <label>Bonus:</label>
-                                                                            <input type="text" name="attr_attack_damage1bonus">
-                                                                            <label>Type:</label>
-                                                                            <input type="text" name="attr_attack_damagetype">
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Damage 2:</label>
-                                                                            <input type="text" name="attr_attack_damage2">
-                                                                            <select name="attr_attack_damage2attribute">
-                                                                                <option value="none">None</option>
-                                                                                <option value="@{power}">Power</option>
-                                                                                <option value="@{agility}">Agility</option>
-                                                                                <option value="@{vitality}">Vitality</option>
-                                                                                <option value="@{cultivation}">Cultivation</option>
-                                                                                <option value="@{qi_control}">Qi Control</option>
-                                                                                <option value="@{mental_strength}">Mental Strength</option>
-                                                                            </select>
-                                                                            <label>Bonus:</label>
-                                                                            <input type="text" name="attr_attack_damage2bonus">
-                                                                            <label>Type:</label>
-                                                                            <input type="text" name="attr_attack_damagetype2">
+                                    <div class="sheet-container-panel sheet-panel-bonuses">
+                                        <span class="label">ATTACK MODIFIERS</span>
+                                        <fieldset class="repeating_attack_mod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
+                                        </fieldset>
+                                        <span class="label">DAMAGE MODIFIERS</span>
+                                        <fieldset class="repeating_damage_mod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-attacks">
+                                        <div class="sheet-container-header">ATTACKS</div>
+                                        <div class="sheet-container-body">
+                                            <fieldset class="repeating_cultivator_move">
+                                                <div class="sheet-fieldset-item sheet-fieldset-item-move">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked" value="on">
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Move</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label>Name:</label>
+                                                                    <input type="text" name="attr_name">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_attack_flag" value="on">
+                                                                        <span>Attack</span>
+                                                                    </label>
+                                                                </div>
+                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                                <div class="sheet-form-group sheet-toggle-checked">
+                                                                    <div class="sheet-form-fieldset">
+                                                                        <div class="sheet-form-fieldset-header">Attack</div>
+                                                                        <div class="sheet-form-fieldset-body">
+                                                                            <input type="hidden" name="attr_damage_flag">
+                                                                            <input type="hidden" name="attr_full_damage">
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Type:</label>
+                                                                                <select name="attr_attack_type">
+                                                                                    <option value="Melee">Melee</option>
+                                                                                    <option value="Ranged">Ranged</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Range/Reach:</label>
+                                                                                <input type="text" name="attr_attack_range">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>To Hit:</label>
+                                                                                <select name="attr_attack_tohit">
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_bonus">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Damage 1:</label>
+                                                                                <input type="text" name="attr_attack_damage">
+                                                                                <select name="attr_attack_damage1attribute">
+                                                                                    <option value="none">None</option>
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_damage1bonus">
+                                                                                <label>Type:</label>
+                                                                                <input type="text" name="attr_attack_damagetype">
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Damage 2:</label>
+                                                                                <input type="text" name="attr_attack_damage2">
+                                                                                <select name="attr_attack_damage2attribute">
+                                                                                    <option value="none">None</option>
+                                                                                    <option value="@{power}">Power</option>
+                                                                                    <option value="@{agility}">Agility</option>
+                                                                                    <option value="@{vitality}">Vitality</option>
+                                                                                    <option value="@{cultivation}">Cultivation</option>
+                                                                                    <option value="@{qi_control}">Qi Control</option>
+                                                                                    <option value="@{mental_strength}">Mental Strength</option>
+                                                                                </select>
+                                                                                <label>Bonus:</label>
+                                                                                <input type="text" name="attr_attack_damage2bonus">
+                                                                                <label>Type:</label>
+                                                                                <input type="text" name="attr_attack_damagetype2">
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Description:</label>
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <textarea name="attr_description"></textarea>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Description:</label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <textarea name="attr_description"></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-move">
-                                                        <button type="roll" name="roll_move" value="@{rollbase}" class="sheet-fieldset-item-move-checked-roll sheet-btn-text">
-                                                            <div class="sheet-fieldset-item-move-checked-name">
-                                                                <span name="attr_name"></span>
-                                                            </div>
-                                                            <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
-                                                            <div class="sheet-toggle-checked">
-                                                                <div class="sheet-fieldset-item-move-checked-attack">
-                                                                    <span name="attr_attack_hitdamage"></span>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-move">
+                                                            <button type="roll" name="roll_move" value="@{rollbase}" class="sheet-fieldset-item-move-checked-roll sheet-btn-text">
+                                                                <div class="sheet-fieldset-item-move-checked-name">
+                                                                    <span name="attr_name"></span>
                                                                 </div>
-                                                            </div>
-                                                        </button>
-                                                        <input type="hidden" name="attr_rollbase">
-                                                        <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-btn-text">
-                                                            Roll Damage
-                                                        </button>
+                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
+                                                                <div class="sheet-toggle-checked">
+                                                                    <div class="sheet-fieldset-item-move-checked-attack">
+                                                                        <span name="attr_attack_hitdamage"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                            <input type="hidden" name="attr_rollbase">
+                                                            <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-btn-text">
+                                                                Roll Damage
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </fieldset>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

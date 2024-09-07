@@ -7,6 +7,16 @@
     padding: 0;
 }
 
+.sheet-core button[type=roll]:before{
+    content: none !important;
+}
+
+.sheet-core input[type=number]::-webkit-inner-spin-button, 
+.sheet-core input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
 .sheet-darkmode .sheet-core{
     background-color: #1f1f1f;
     color: white;
@@ -228,11 +238,11 @@
 
 .sheet-darkmode .sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute,
 .sheet-darkmode .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute{
-    background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5e%20Darker%20Dungeons/img/sheet-box-border.png);
+    background-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png);
     width: 134px;
     border: 0;
     margin: 0 !important;
-    margin-top: 20px !important;
+    margin-top: 35px !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
@@ -245,11 +255,11 @@
 
 .sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute,
 .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute{
-    background: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/5e%20Darker%20Dungeons/img/sheet-box-border.png);
+    background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png);
     width: 134px;
     border: 0;
     margin: 0 !important;
-    margin-top: 20px !important;
+    margin-top: 35px !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
@@ -318,4 +328,120 @@
 .sheet-core .sheet-section-roll-whisper {
     margin-left: 3px;
     display: flex;
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-header button {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    font-size: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-body {
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center; 
+    height: 50px;
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer {
+    padding: 5px 22px 5px; 
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer input {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    border-radius: 10%; 
+    overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer input:hover, 
+.sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
+    background: #e5fffb; 
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer input:hover ~ span, 
+.sheet-core .sheet-container-attribute .sheet-container-footer input:focus ~ span {
+    display: none; 
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer span {
+    display: block;
+    margin-top: -18px;
+    text-align: center;
+    background: white;
+    border-radius: 10%;
+    position: relative;
+    font-weight: bold; 
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer span:hover {
+    display: none; 
+}
+
+.sheet-core .sheet-button-attribute-title{
+    font-size: 10px;
+}
+
+.sheet-darkmode .sheet-core .sheet-button-attribute-title,
+.sheet-darkmode .sheet-core .sheet-detail-value{
+    color: white;
+}
+
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns{
+    display: flex;
+    flex-direction: row;
+}
+
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col1,
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col3{
+    width: 225px;
+}
+
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col2{
+    width: 350px;
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill{
+    height: 20px;
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button{
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button > :last-child::before {
+    content: "(";
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child{
+    border-radius: 5px;
+    background: #dddddd;
+    float: right;
+    max-width: 89px;
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+.sheet-darkmode .sheet-core .sheet-container-skills .sheet-skill button span:last-child{
+    background: #444444;
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child::after {
+    content: ")";
 }
