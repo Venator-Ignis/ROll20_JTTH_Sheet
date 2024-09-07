@@ -219,6 +219,7 @@
 
 .sheet-pages .sheet-page .sheet-page-content {
     display: none;
+    padding-top: 35px;
 }
 
 .sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes,
@@ -242,7 +243,6 @@
     width: 134px;
     border: 0;
     margin: 0 !important;
-    margin-top: 35px !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
@@ -259,7 +259,6 @@
     width: 134px;
     border: 0;
     margin: 0 !important;
-    margin-top: 35px !important;
     background-position: top center !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;
@@ -444,4 +443,692 @@
 
 .charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child::after {
     content: ")";
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio > input[type="radio"]:checked ~ .sheet-page-content {
+    display: grid;
+    grid-template-columns: auto 262.5px;
+    grid-template-rows: 355px auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "details features"
+    "memories features";
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-details {
+    grid-area: details;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "details gimmick"
+    "details value"
+    "details conflict"
+    "details want";
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-memories {
+    grid-area: memories;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "skills memories"
+    "skills notes";
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-features {
+    grid-area: features;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "features";
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details {
+    grid-area: details;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail {
+    display: flex;
+    height: 20px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail:not(:last-of-type) {
+    margin-bottom: 3px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail * + * {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+    font-size: 11px;
+    height: 20px;
+    padding: 0;
+    line-height: 20px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 0 4px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+    cursor: pointer;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+    width: 100%;
+    min-width: 0;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+    white-space: nowrap;
+    font-size: 9px;
+    background: #dddddd;
+    border-radius: 3px;
+    width: 60px;
+    font-weight: bold;
+    display: inline-block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+    color: #e6e6e6;
+    background: #333333;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column * {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature {
+    height: auto;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit label,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation label,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature label {
+    height: 100%;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-quest {
+    height: 75px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-quest label {
+    height: 100%;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-quest textarea {
+    height: 100%;
+    font-size: 11px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    resize: none;
+    padding: 0 4px;
+    line-height: 13px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-gimmick {
+    grid-area: gimmick;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-value {
+    grid-area: value;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-conflict {
+    grid-area: conflict;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-want {
+    grid-area: want;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories {
+    grid-area: memories;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dotted #dddddd;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+    font-weight: bold;
+    background: #dddddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+    background: #666666;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-gimmick textarea,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-value textarea,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-conflict textarea,
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-want textarea {
+    flex-grow: 1;
+    min-height: 39px;
+    font-size: 11px;
+    border: 0;
+    padding: 0;
+    resize: none;
+    margin: 0;
+    height: auto;
+    line-height: 13px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-container-well-details {
+    grid-area: details;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "details gimmick"
+    "details value"
+    "details conflict"
+    "details want";
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-container-well-memories {
+    grid-area: memories;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "skills memories"
+    "skills notes";
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-container-well-features {
+    grid-area: features;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    grid-template-areas: "features";
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details {
+    grid-area: details;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail {
+    display: flex;
+    height: 20px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail:not(:last-of-type) {
+    margin-bottom: 3px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail * + * {
+    margin-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+    font-size: 11px;
+    height: 20px;
+    padding: 0;
+    line-height: 20px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 0 4px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+    cursor: pointer;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+    width: 100%;
+    min-width: 0;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+    white-space: nowrap;
+    font-size: 9px;
+    background: #dddddd;
+    border-radius: 3px;
+    width: 60px;
+    font-weight: bold;
+    display: inline-block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+    color: #e6e6e6;
+    background: #333333;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column * {
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature {
+    height: auto;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit label,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation label,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature label {
+    height: 100%;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-quest {
+    height: 75px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-quest label {
+    height: 100%;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-quest textarea {
+    height: 100%;
+    font-size: 11px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    resize: none;
+    padding: 0 4px;
+    line-height: 13px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-gimmick {
+    grid-area: gimmick;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-value {
+    grid-area: value;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-conflict {
+    grid-area: conflict;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-want {
+    grid-area: want;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-memories {
+    grid-area: memories;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dotted #dddddd;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+    font-weight: bold;
+    background: #dddddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+    background: #666666;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-gimmick textarea,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-value textarea,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-conflict textarea,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-want textarea {
+    flex-grow: 1;
+    min-height: 39px;
+    font-size: 11px;
+    border: 0;
+    padding: 0;
+    resize: none;
+    margin: 0;
+    height: auto;
+    line-height: 13px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features {
+    grid-area: features;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls{
+    grid-area: skills;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-checkbox-cog:hover span {
+    color: white;
+    opacity: 1;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .repitem + .repitem,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .repitem + .repitem {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dotted #dddddd;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    width: 100%;
+    text-shadow: none;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button:hover {
+    background: #e5fffb;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button:hover {
+    background: #4b5553;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+    background: #7e2d40;
+    color: white;
+    border-radius: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 20px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+    background: #730d25;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before{
+    content: "(";
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after{
+    content: ")";
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details {
+    text-align: left;
+    white-space: normal;
+    line-height: 1.3;
+    margin-top: 5px;
+    font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
+    opacity: .5;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source::before {
+    content: "(";
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source::after {
+    content: ")";
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes {
+    grid-area: notes;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .repitem + .repitem {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dotted #dddddd;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note {
+    font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
+    font-weight: bold;
+    background: #dddddd;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
+    background: #666666;
+}
+
+.charsheet .sheet-container-panel {
+display: flex;
+flex-direction: column;
+min-height: 65px;
+min-width: 0;
+position: relative;
+z-index: 0;
+}
+
+.charsheet .sheet-container-panel::before {
+    border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png") 50 50 50 50 fill stretch;
+    border-style: solid;
+    border-width: 15px 15px;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.charsheet .sheet-container-panel .sheet-container-header {
+    border-bottom: 2px solid #202020;
+    color: #202020;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 14px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 4px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.charsheet .sheet-container-panel .sheet-container-body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 2px;
+    overflow: hidden;
+    padding: 5px 10px;
+}
+
+.charsheet .sheet-container-panel .sheet-container-body .sheet-container-body-header {
+    text-transform: uppercase;
+    display: flex;
+    color: #bab8b8;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 10px;
+    margin-bottom: 2px;
+    display: none;
+}
+
+.charsheet .sheet-container-panel .sheet-container-body .sheet-container-body-header span {
+    width: 100%;
+}
+
+.charsheet .sheet-container-panel .sheet-form-inline {
+    border: 0;
+    margin-left: -5px;
+    margin-right: -5px;
+    border-radius: 0;
+}
+
+.charsheet .sheet-container-panel .sheet-form-inline:not(:first-child) {
+    margin-top: 5px;
+}
+
+.charsheet .sheet-container-panel .sheet-form-inline > .sheet-form-header {
+    background: #dddddd;
+    color: inherit;
+    font-size: 9px;
+    line-height: 14px;
+}
+
+.charsheet .sheet-container-panel .sheet-form-inline > .sheet-form-body {
+    padding-bottom: 0;
+}
+
+.charsheet .sheet-core fieldset {
+    position: relative;
+}
+
+.charsheet .sheet-core .repcontainer {
+    flex-grow: 1;
+}
+
+.charsheet .sheet-core .repcontrol {
+    border-color: #cccccc;
+    border-top: 1px solid #cccccc;
+    padding-top: 5px;
+    margin-top: 5px;
+}
+
+.charsheet .sheet-core .repcontrol .btn {
+    background: none;
+    border-color: #cccccc;
+    border-width: 1px;
+    box-shadow: none;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.charsheet .sheet-core .repcontrol .btn:hover {
+    background: #e5fffb;
+}
+
+.charsheet .sheet-core .repitem:not(:first-of-type) {
+    border-color: #cccccc;
+}
+
+.charsheet .sheet-core .repitem:not(:last-of-type) {
+    margin-bottom: 2px;
+}
+
+.charsheet .sheet-core .repcontainer.editmode + .repcontrol .repcontrol_edit {
+    background: #cf0101;
+    border-color: #cf0101;
+    color: white;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol {
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    z-index: 2;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
+    background: rgba(126, 45, 64, 0.25);
+    border-radius: 6px;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
+    box-sizing: border-box;
+    height: 18px;
+    line-height: 16px;
+    padding: 0;
+    text-align: center;
+    width: 36px;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn:not(:last-child) {
+    margin-left: 10px;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .sheet-fieldset-item {
+    opacity: 0.25;
+}
+
+.charsheet .sheet-core .sheet-fieldset-item {
+    display: flex;
+    flex-direction: column;
+    min-height: 18px;
+}
+
+.charsheet .sheet-core .sheet-fieldset-item > :last-child {
+    margin-bottom: 0;
 }
