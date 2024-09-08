@@ -916,6 +916,7 @@
   flex-direction: column;
   min-height: 65px;
   min-width: 0;
+  height: 100%;
   position: relative;
   z-index: 0;
 }
@@ -1300,9 +1301,8 @@
   height: 100%;
 }
 
-
 .charsheet .sheet-main-footer p {
-  color: #cccccc;
+  color: #ccc;
   font-size: 9px;
   margin: 3px 0 0;
   text-align: center;
@@ -1346,8 +1346,8 @@
 
 .charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .col1 .sheet-pc-notes-two .sheet-container-body textarea{
   min-height: 255px;
+  height: 100%;
 }
-
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-alert-warning {
   background: #7e2d40;
@@ -1412,7 +1412,7 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-body input,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-body input,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-body input {
-  width: 50px;
+  width: 65px;
   padding-left: 0;
   padding-right: 0;
   border: none;
@@ -1443,10 +1443,10 @@
   grid-area: other2;
 }
 
-.charsheet .sheet-core .sheet-page-inventory > input[type="radio"]:checked ~ .sheet-tab-content {
+.charsheet .sheet-core .sheet-page-inventory > input[type="radio"]:checked ~ .sheet-page-content {
   display: grid;
   grid-template-columns: auto 300px;
-  grid-template-rows: 85px 120px 180px auto;
+  grid-template-rows: 65px 100px 170px auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   grid-template-areas: "inventory supplies"
@@ -1489,20 +1489,13 @@
   grid-row-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-general {
-  grid-area: general;
-  display: grid;
-  grid-template-rows: auto;
-  grid-row-gap: 5px;
-}
-
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem {
   font-size: 11px;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem span:first-of-type {
   font-weight: bold;
-  background: #dddddd;
+  background: #ddd;
   padding: 3px 5px;
   margin-right: 3px;
   border-radius: 3px;
@@ -1523,14 +1516,14 @@
   opacity: 1;
   line-height: 1;
   margin-top: 0;
-  background: #dddddd;
+  background: #ddd;
   padding: 3px 5px;
   padding-right: 20px;
   border-radius: 0 0 4px 4px;
 }
 
 .sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer {
-  background: #666666;
+  background: #666;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer span:first-of-type {
@@ -1560,7 +1553,7 @@
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-carried {
-  background: #dddddd;
+  background: #ddd;
   color: black;
   display: inline-block;
   height: 14px;
@@ -1578,7 +1571,7 @@
 .charsheet .sheet-core .sheet-page-inventory [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
   display: inline-flex !important;
   background: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   color: white;
 }
 
@@ -1637,7 +1630,7 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-notches,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-weight,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-slots {
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   border-radius: 3px;
   height: 20px;
   display: inline-block;
@@ -1666,13 +1659,13 @@
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-equipped {
   background: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   color: white;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-carried {
   background: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   color: white;
 }
 
@@ -1683,7 +1676,7 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
   display: inline-flex !important;
   background: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   color: #7e2d40;
 }
 
@@ -1810,4 +1803,228 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body input,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body span {
     font-size: 24px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-encumberance {
+  grid-area: encumberance;
+  display: grid;
+  grid-template-rows: 65px auto;
+  grid-row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-general {
+  grid-area: general;
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-purse {
+  grid-area: purse;
+  display: grid;
+  grid-template-rows: repeat(3, 30px);
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+  grid-template-areas: "cc ss"
+  "sc other1"
+  "gc other2"
+  ". .";
+}
+
+.charsheet .sheet-core .sheet-section-pc .sheet-tab-inventory .sheet-container-well-inventory-supplies {
+  grid-area: supplies;
+  display: grid;
+  grid-template-rows: repeat(2, 30px);
+  grid-row-gap: 5px;
+  grid-template-areas: "rations"
+  "water";
+}
+
+.charsheet .sheet-core .sheet-pc-inventory-other .repitem + .repitem {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted #ddd;
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body,
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body {
+  display: flex;
+  flex-direction: row;
+  padding-top: 0;
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span,
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
+  align-items: center;
+  color: #ddd;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+  width: 100%;
+  color: black;
+}
+
+.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
+.sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+  color: white;
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer,
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-footer {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-footer span,
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-footer span {
+  flex-grow: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.charsheet .sheet-core .repitem:not(:first-of-type) .sheet-pc-item .sheet-pc-item-header {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(4),
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(4),
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-slots {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(3){
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-container-bar {
+  display: flex;
+  height: 30px;
+  position: relative;
+  z-index: 0;
+}
+
+.charsheet .sheet-core .sheet-container-bar::after {
+  border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png") 103 103 103 103 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.sheet-darkmode .sheet-core .sheet-container-bar::after {
+  border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-bar-border.png") 103 103 103 103 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.charsheet .sheet-core .sheet-container-bar.sheet-container-bar-left {
+  flex-direction: row-reverse;
+}
+
+.charsheet .sheet-core .sheet-container-bar.sheet-container-bar-left .sheet-container-header::after {
+  left: -12px;
+  right: auto;
+  transform: scaleX(-1);
+}
+
+.charsheet .sheet-core .sheet-container-bar .sheet-container-header {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-grow: 1;
+  font-size: 8px;
+  font-weight: bold;
+  justify-content: center;
+  position: relative;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.charsheet .sheet-core .sheet-container-bar .sheet-container-header::after {
+  background: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png");
+  background-size: 100% 100%;
+  content: '';
+  display: inline-block;
+  height: 30px;
+  position: absolute;
+  right: -14px;
+  width: 19px;
+}
+
+.charsheet .sheet-core .sheet-container-bar .sheet-container-body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px 0 12px;
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-container-bar .sheet-container-body [type="text"] {
+  border: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox] {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image {
+  height: 14px;
+  overflow: hidden;
+  position: relative;
+  width: 14px;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image span {
+  overflow: hidden;
+  padding: 2px;
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #272727;
+  display: block;
+  height: 7px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 7px;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  background: #353535;
 }
