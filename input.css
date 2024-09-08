@@ -7,17 +7,16 @@
   padding: 0;
 }
 
-.sheet-core button[type=roll]:before{
+.sheet-core button[type=roll]:before {
   content: none !important;
 }
 
-.sheet-core input[type=number]::-webkit-inner-spin-button, 
-.sheet-core input[type=number]::-webkit-outer-spin-button{
-  -webkit-appearance: none; 
-  margin: 0; 
+.sheet-core input[type=number]::-webkit-inner-spin-button, .sheet-core input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-.sheet-darkmode .sheet-core{
+.sheet-darkmode .sheet-core {
   background-color: #1f1f1f;
   color: white;
 }
@@ -26,43 +25,38 @@
   width: 800px;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header{
+.sheet-core .sheet-section-main .sheet-main-header {
   width: 800px;
   display: flex;
   margin-bottom: 5px;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-avatar,
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-avatar, .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details {
   height: 125px;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details {
   width: 675px;
   display: grid;
-  grid-template-areas: 'name name name'
-  'ancestry ancestry ancestry'
-  'mortal mortal level'
-  'cultivator cultivator realm';
+  grid-template-areas: "name name name" "ancestry ancestry ancestry" "mortal mortal level" "cultivator cultivator realm";
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail {
   display: flex;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-label{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-label {
   min-width: fit-content;
   font-size: 13px;
   align-content: space-around;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value,
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value, .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
   width: 100%;
   height: 25px;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
   margin-left: 2px;
   background: none;
   border: none;
@@ -70,32 +64,35 @@
   font-weight: 600;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-name{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-name {
   grid-area: name;
 }
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-ancestry_species{
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-ancestry_species {
   grid-area: ancestry;
 }
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-mortal-path{
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-mortal-path {
   grid-area: mortal;
 }
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-mortal-level{
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-mortal-level {
   grid-area: level;
 }
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-cultivator-path{
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-cultivator-path {
   grid-area: cultivator;
 }
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-cultivator-realm{
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-cultivator-realm {
   grid-area: realm;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-mortal-level,
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-cultivator-realm{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-mortal-level, .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail-cultivator-realm {
   margin-left: 5px;
 }
 
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-avatar,
-.sheet-core .sheet-section-main .sheet-main-header .sheet-header-avatar img{
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-avatar, .sheet-core .sheet-section-main .sheet-main-header .sheet-header-avatar img {
   width: 125px;
   max-width: 125px;
   height: 125px;
@@ -109,7 +106,7 @@
 
 .sheet-pages::after {
   clear: both;
-  content: '';
+  content: "";
   display: block;
 }
 
@@ -117,28 +114,23 @@
   width: 800px;
 }
 
-.sheet-pages .sheet-page:nth-of-type(2) > input[type="radio"],
-.sheet-pages .sheet-page:nth-of-type(2) > .sheet-page-label {
+.sheet-pages .sheet-page:nth-of-type(2) > input[type="radio"], .sheet-pages .sheet-page:nth-of-type(2) > .sheet-page-label {
   margin-left: 16.667%;
-} 
+}
 
-.sheet-pages .sheet-page:nth-of-type(3) > input[type="radio"],
-.sheet-pages .sheet-page:nth-of-type(3) > .sheet-page-label {
+.sheet-pages .sheet-page:nth-of-type(3) > input[type="radio"], .sheet-pages .sheet-page:nth-of-type(3) > .sheet-page-label {
   margin-left: 33.334%;
 }
 
-.sheet-pages .sheet-page:nth-of-type(4) > input[type="radio"],
-.sheet-pages .sheet-page:nth-of-type(4) > .sheet-page-label {
+.sheet-pages .sheet-page:nth-of-type(4) > input[type="radio"], .sheet-pages .sheet-page:nth-of-type(4) > .sheet-page-label {
   margin-left: 50%;
 }
 
-.sheet-pages .sheet-page:nth-of-type(5) > input[type="radio"],
-.sheet-pages .sheet-page:nth-of-type(5) > .sheet-page-label {
+.sheet-pages .sheet-page:nth-of-type(5) > input[type="radio"], .sheet-pages .sheet-page:nth-of-type(5) > .sheet-page-label {
   margin-left: 66.668%;
 }
 
-.sheet-pages .sheet-page:nth-of-type(6) > input[type="radio"],
-.sheet-pages .sheet-page:nth-of-type(6) > .sheet-page-label {
+.sheet-pages .sheet-page:nth-of-type(6) > input[type="radio"], .sheet-pages .sheet-page:nth-of-type(6) > .sheet-page-label {
   margin-left: 83.335%;
 }
 
@@ -164,9 +156,9 @@
 
 .sheet-pages .sheet-page > .sheet-page-label {
   align-items: center;
-  background: #dddddd;
+  background: #ddd;
   border-radius: 6px 6px 0 0;
-  border: 2px solid #dddddd;
+  border: 2px solid #ddd;
   color: #8a8a8a;
   display: flex;
   font-size: 11px;
@@ -185,14 +177,14 @@
   border-bottom-color: lightgrey;
 }
 
-.sheet-darkmode .sheet-pages .sheet-page > .sheet-page-label{
-  background: #333333;
-  border: 2px solid #444444;
+.sheet-darkmode .sheet-pages .sheet-page > .sheet-page-label {
+  background: #333;
+  border: 2px solid #444;
   color: #e6e6e6;
   border-left-color: black;
   border-top-color: black;
   border-right-color: black;
-  border-bottom-color: #333333;
+  border-bottom-color: #333;
 }
 
 .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label {
@@ -202,10 +194,10 @@
   color: black;
 }
 
-.sheet-darkmode .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label{
-  background: #444444;
+.sheet-darkmode .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label {
+  background: #444;
   border-color: black;
-  border-bottom-color: #333333;
+  border-bottom-color: #333;
   color: #e6e6e6;
 }
 
@@ -223,30 +215,26 @@
   min-height: 850px;
 }
 
-.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes,
-.sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes{
+.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes, .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes {
   display: flex;
 }
 
-.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute:first-of-type,
-.sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute:first-of-type{
+.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute:first-of-type, .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute:first-of-type {
   margin-left: 0;
 }
 
-.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute:last-of-type,
-.sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute:last-of-type{
+.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute:last-of-type, .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute:last-of-type {
   margin-left: 0;
 }
 
-.sheet-darkmode .sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute,
-.sheet-darkmode .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute{
+.sheet-darkmode .sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute, .sheet-darkmode .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
   background-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png);
   width: 134px;
   border: 0;
-  margin: 0 !important;
-  background-position: top center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
+  margin: 0;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
   border-radius: 5px;
   position: relative;
   padding-bottom: 10px;
@@ -254,22 +242,20 @@
   text-align: center;
 }
 
-.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute,
-.sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute{
+.sheet-core .sheet-pages .sheet-page-mortal .sheet-page-content .sheet-well-attributes .sheet-container-attribute, .sheet-core .sheet-pages .sheet-page-cultivator .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
   background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png);
   width: 134px;
   border: 0;
-  margin: 0 !important;
-  background-position: top center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
+  margin: 0;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
   border-radius: 5px;
   position: relative;
   padding-bottom: 10px;
   height: 85px;
   text-align: center;
 }
-
 
 .sheet-core .sheet-section-roll {
   margin: 0 auto;
@@ -294,7 +280,7 @@
 }
 
 .sheet-core .sheet-section-roll-whisper label span {
-  background: #dddddd;
+  background: #ddd;
   padding: 1px 5px;
   font-weight: bold;
   border: 1px solid #b7b7b7;
@@ -312,14 +298,14 @@
 }
 
 .sheet-core .sheet-section-roll-whisper label input:checked ~ span {
-  background: #555555;
+  background: #555;
   color: white;
-  border-color: #555555;
+  border-color: #555;
 }
 
 .sheet-core .sheet-section-roll-whisper label input:not(:checked):hover ~ span {
   color: black;
-}  
+}
 
 .sheet-core .sheet-roll-toggle[value*="whispertoggle"] + .sheet-section-roll-whisper {
   display: flex;
@@ -343,12 +329,12 @@
   display: flex;
   font-size: 30px;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   height: 50px;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer {
-  padding: 5px 22px 5px; 
+  padding: 5px 22px 5px;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer input {
@@ -359,20 +345,18 @@
   padding: 0;
   text-align: center;
   width: 100%;
-  border-radius: 10%; 
+  border-radius: 10%;
   overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.sheet-core .sheet-container-attribute .sheet-container-footer input:hover, 
-.sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
-  background: #e5fffb; 
+.sheet-core .sheet-container-attribute .sheet-container-footer input:hover, .sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
+  background: #e5fffb;
 }
 
-.sheet-core .sheet-container-attribute .sheet-container-footer input:hover ~ span, 
-.sheet-core .sheet-container-attribute .sheet-container-footer input:focus ~ span {
-  display: none; 
+.sheet-core .sheet-container-attribute .sheet-container-footer input:hover ~ span, .sheet-core .sheet-container-attribute .sheet-container-footer input:focus ~ span {
+  display: none;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer span {
@@ -382,41 +366,39 @@
   background: white;
   border-radius: 10%;
   position: relative;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer span:hover {
-  display: none; 
+  display: none;
 }
 
-.sheet-core .sheet-button-attribute-title{
+.sheet-core .sheet-button-attribute-title {
   font-size: 10px;
 }
 
-.sheet-darkmode .sheet-core .sheet-button-attribute-title,
-.sheet-darkmode .sheet-core .sheet-detail-value{
+.sheet-darkmode .sheet-core .sheet-button-attribute-title, .sheet-darkmode .sheet-core .sheet-detail-value {
   color: white;
 }
 
-.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns{
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns {
   display: flex;
   flex-direction: row;
 }
 
-.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col1,
-.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col3{
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col1, .sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col3 {
   width: 225px;
 }
 
-.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col2{
+.sheet-pages .sheet-page .sheet-page-content .sheet-container-columns .col2 {
   width: 350px;
 }
 
-.charsheet .sheet-core .sheet-container-skills .sheet-skill{
+.charsheet .sheet-core .sheet-container-skills .sheet-skill {
   height: 20px;
 }
 
-.charsheet .sheet-core .sheet-container-skills .sheet-skill button{
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button {
   background: none;
   border: none;
   width: 100%;
@@ -429,17 +411,17 @@
   content: "(";
 }
 
-.charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child{
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
   border-radius: 5px;
-  background: #dddddd;
+  background: #ddd;
   float: right;
   max-width: 89px;
   overflow: auto;
   text-overflow: ellipsis;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-skills .sheet-skill button span:last-child{
-  background: #444444;
+.sheet-darkmode .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
+  background: #444;
 }
 
 .charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child::after {
@@ -452,8 +434,7 @@
   grid-template-rows: 355px auto;
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "details features"
-  "memories features";
+  grid-template-areas: "details features" "memories features";
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-details {
@@ -463,10 +444,7 @@
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "details gimmick"
-  "details value"
-  "details conflict"
-  "details want";
+  grid-template-areas: "details gimmick" "details value" "details conflict" "details want";
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-memories {
@@ -475,8 +453,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "skills memories"
-  "skills notes";
+  grid-template-areas: "skills memories" "skills notes";
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-features {
@@ -505,9 +482,7 @@
   margin-left: 5px;
 }
 
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
   font-size: 11px;
   height: 20px;
   padding: 0;
@@ -530,8 +505,7 @@
   border-radius: 0;
 }
 
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
   width: 100%;
   min-width: 0;
   height: 100%;
@@ -540,7 +514,7 @@
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
   white-space: nowrap;
   font-size: 9px;
-  background: #dddddd;
+  background: #ddd;
   border-radius: 3px;
   width: 60px;
   font-weight: bold;
@@ -552,7 +526,7 @@
 
 .sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
   color: #e6e6e6;
-  background: #333333;
+  background: #333;
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column {
@@ -566,15 +540,11 @@
   flex-shrink: 0;
 }
 
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature {
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature {
   height: auto;
 }
 
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit label,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation label,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature label {
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit label, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation label, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature label {
   height: 100%;
 }
 
@@ -621,7 +591,7 @@
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #dddddd;
+  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory {
@@ -630,19 +600,16 @@
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
   font-weight: bold;
-  background: #dddddd;
+  background: #ddd;
   padding: 3px 5px;
   border-radius: 3px;
 }
 
 .sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
-  background: #666666;
+  background: #666;
 }
 
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-gimmick textarea,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-value textarea,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-conflict textarea,
-.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-want textarea {
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-gimmick textarea, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-value textarea, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-conflict textarea, .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-want textarea {
   flex-grow: 1;
   min-height: 39px;
   font-size: 11px;
@@ -661,10 +628,7 @@
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "details gimmick"
-  "details value"
-  "details conflict"
-  "details want";
+  grid-template-areas: "details gimmick" "details value" "details conflict" "details want";
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-container-well-memories {
@@ -673,8 +637,7 @@
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
-  grid-template-areas: "skills memories"
-  "skills notes";
+  grid-template-areas: "skills memories" "skills notes";
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-container-well-features {
@@ -703,9 +666,7 @@
   margin-left: 5px;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
   font-size: 11px;
   height: 20px;
   padding: 0;
@@ -728,8 +689,7 @@
   border-radius: 0;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail input, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail select {
   width: 100%;
   min-width: 0;
 }
@@ -737,7 +697,7 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
   white-space: nowrap;
   font-size: 9px;
-  background: #dddddd;
+  background: #ddd;
   border-radius: 3px;
   width: 60px;
   font-weight: bold;
@@ -749,7 +709,7 @@
 
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
   color: #e6e6e6;
-  background: #333333;
+  background: #333;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column {
@@ -763,15 +723,11 @@
   flex-shrink: 0;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature {
   height: auto;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit label,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation label,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature label {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-habit label, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-motivation label, .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-feature label {
   height: 100%;
 }
 
@@ -818,7 +774,7 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #dddddd;
+  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory {
@@ -827,19 +783,16 @@
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
   font-weight: bold;
-  background: #dddddd;
+  background: #ddd;
   padding: 3px 5px;
   border-radius: 3px;
 }
 
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
-  background: #666666;
+  background: #666;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-gimmick textarea,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-value textarea,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-conflict textarea,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-want textarea {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-gimmick textarea, .charsheet .sheet-core .sheet-page-bio .sheet-pc-value textarea, .charsheet .sheet-core .sheet-page-bio .sheet-pc-conflict textarea, .charsheet .sheet-core .sheet-page-bio .sheet-pc-want textarea {
   flex-grow: 1;
   min-height: 39px;
   font-size: 11px;
@@ -855,30 +808,26 @@
   grid-area: features;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls{
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls {
   grid-area: skills;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-checkbox-cog:hover span {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-checkbox-cog:hover span {
   color: white;
   opacity: 1;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .repitem + .repitem,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .repitem + .repitem {
-  margin-top: 5px;
-  padding-top: 5px;
-  border-top: 1px dotted #dddddd;
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .repitem + .repitem, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .repitem + .repitem {
+  margin-top: 2px;
+  padding-top: 2px;
+  border-top: 1px dotted #ddd;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature {
   font-size: 11px;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button {
   background: none;
   border: 0;
   box-shadow: none;
@@ -896,8 +845,7 @@
   background: #4b5553;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
   background: #7e2d40;
   color: white;
   border-radius: 3px;
@@ -906,16 +854,15 @@
   padding: 0 20px;
 }
 
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool, .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
   background: #730d25;
 }
 
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before{
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before {
   content: "(";
 }
 
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after{
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after {
   content: ")";
 }
 
@@ -928,7 +875,7 @@
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source::before {
@@ -946,7 +893,7 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #dddddd;
+  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note {
@@ -955,30 +902,30 @@
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
   font-weight: bold;
-  background: #dddddd;
+  background: #ddd;
   padding: 3px 5px;
   border-radius: 3px;
 }
 
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
-  background: #666666;
+  background: #666;
 }
 
 .charsheet .sheet-container-panel {
-display: flex;
-flex-direction: column;
-min-height: 65px;
-min-width: 0;
-position: relative;
-z-index: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 65px;
+  min-width: 0;
+  position: relative;
+  z-index: 0;
 }
 
 .charsheet .sheet-container-panel::before {
-  border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png") 50 50 50 50 fill stretch;
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 50 50 50 fill stretch;
   border-style: solid;
   border-width: 15px 15px;
   box-sizing: border-box;
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   left: 0;
@@ -989,11 +936,11 @@ z-index: 0;
 }
 
 .sheet-darkmode .charsheet .sheet-container-panel::before {
-  border-image: url("https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png") 50 50 50 50 fill stretch;
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png) 50 50 50 50 fill stretch;
   border-style: solid;
   border-width: 15px 15px;
   box-sizing: border-box;
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   left: 0;
@@ -1003,13 +950,13 @@ z-index: 0;
   z-index: -1;
 }
 
-.sheet-darkmode .charsheet .sheet-container-panel .sheet-container-header{
+.sheet-darkmode .charsheet .sheet-container-panel .sheet-container-header {
   color: #e6e6e6;
 }
 
 .sheet-darkmode .sheetform {
-  background-color: #1f1f1f !important;
-  color: #e6e6e6 !important;
+  background-color: #1f1f1f;
+  color: #e6e6e6;
 }
 
 .charsheet .sheet-container-panel .sheet-container-header {
@@ -1037,7 +984,6 @@ z-index: 0;
 
 .charsheet .sheet-container-panel .sheet-container-body .sheet-container-body-header {
   text-transform: uppercase;
-  display: flex;
   color: #bab8b8;
   font-size: 10px;
   font-weight: bold;
@@ -1062,7 +1008,7 @@ z-index: 0;
 }
 
 .charsheet .sheet-container-panel .sheet-form-inline > .sheet-form-header {
-  background: #dddddd;
+  background: #ddd;
   color: inherit;
   font-size: 9px;
   line-height: 14px;
@@ -1078,18 +1024,19 @@ z-index: 0;
 
 .charsheet .sheet-core .repcontainer {
   flex-grow: 1;
+  min-height: 180px;
 }
 
 .charsheet .sheet-core .repcontrol {
-  border-color: #cccccc;
-  border-top: 1px solid #cccccc;
+  border-color: #ccc;
+  border-top: 1px solid #ccc;
   padding-top: 5px;
   margin-top: 5px;
 }
 
 .charsheet .sheet-core .repcontrol .btn {
   background: none;
-  border-color: #cccccc;
+  border-color: #ccc;
   border-width: 1px;
   box-shadow: none;
   font-size: 9px;
@@ -1102,7 +1049,7 @@ z-index: 0;
 }
 
 .charsheet .sheet-core .repitem:not(:first-of-type) {
-  border-color: #cccccc;
+  border-color: #ccc;
 }
 
 .charsheet .sheet-core .repitem:not(:last-of-type) {
@@ -1127,7 +1074,7 @@ z-index: 0;
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
   background: rgba(126, 45, 64, 0.25);
   border-radius: 6px;
-  content: '';
+  content: "";
   height: 100%;
   position: absolute;
   width: 100%;
@@ -1180,13 +1127,13 @@ z-index: 0;
 
 .charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span {
   border: none;
-  color: #000000;
-  opacity: .5;
+  color: #000;
+  opacity: 0.5;
   top: -2px;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span::before {
-  content: '2';
+  content: "2";
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog:hover span {
@@ -1201,21 +1148,21 @@ z-index: 0;
   align-items: center;
   border-radius: 50%;
   box-sizing: border-box;
-  color: #000000;
+  color: #000;
   display: flex;
-  font-family: 'Pictos';
+  font-family: "Pictos";
   font-size: 13px;
   height: 100%;
   justify-content: center;
   left: 0;
-  opacity: .5;
+  opacity: 0.5;
   position: absolute;
   top: 0;
   width: 100%;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog span::before {
-  content: 'y';
+  content: "y";
 }
 
 .charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-unchecked {
@@ -1223,15 +1170,12 @@ z-index: 0;
   width: 100%;
 }
 
-.charsheet .sheet-core .sheet-field-toggle:not([value]) + *,
-.charsheet .sheet-core .sheet-field-toggle[value=""] + *,
-.charsheet .sheet-core .sheet-field-toggle[value="0"] + *,
-.charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
-  display: none !important;
+.charsheet .sheet-core .sheet-field-toggle:not([value]) + *, .charsheet .sheet-core .sheet-field-toggle[value=""] + *, .charsheet .sheet-core .sheet-field-toggle[value="0"] + *, .charsheet .sheet-core .sheet-field-toggle[value="hide"] + * {
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-field-untoggle[value="1"] + * {
-  display: none !important;
+  display: none;
 }
 
 .charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-checked {
@@ -1252,13 +1196,11 @@ z-index: 0;
   padding: 5px;
 }
 
-.sheet-darkmode .sheet-core .sheet-form .sheet-form-body{
-  background: #333333;
+.sheet-darkmode .sheet-core .sheet-form .sheet-form-body {
+  background: #333;
 }
 
-.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group,
-.charsheet .sheet-core .sheet-form .sheet-form-group + *,
-.charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
+.charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group, .charsheet .sheet-core .sheet-form .sheet-form-group + *, .charsheet .sheet-core .sheet-form .sheet-form-fieldset + * {
   margin-top: 4px;
 }
 
@@ -1270,13 +1212,12 @@ z-index: 0;
   margin-left: 5px;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-form label{
+.sheet-darkmode .charsheet .sheet-core .sheet-form label {
   color: #e6e6e6;
 }
 
 .charsheet .sheet-core .sheet-form label {
   color: rgba(0, 0, 0, 0.5);
-  font-size: inherit;
   font-weight: bold;
   line-height: 16px;
   margin: 0;
@@ -1288,12 +1229,8 @@ z-index: 0;
   text-transform: uppercase;
 }
 
-.charsheet .sheet-core .sheet-form .sheet-form-group > * + * {
-  margin-left: 5px;
-}
-
 .charsheet .sheet-core .sheet-form input {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
   border-left: 0;
   border-radius: 0;
   border-right: 0;
@@ -1301,19 +1238,13 @@ z-index: 0;
   text-overflow: ellipsis;
 }
 
-.sheet-darkmode .sheet-core input,
-.sheet-darkmode .sheet-core select,
-.sheet-darkmode .sheet-core textarea,
-.sheet-darkmode .sheet-core .uneditable-input {
+.sheet-darkmode .sheet-core input, .sheet-darkmode .sheet-core select, .sheet-darkmode .sheet-core textarea, .sheet-darkmode .sheet-core .uneditable-input {
   background-color: #3f3f3f;
   color: #e6e6e6 !important;
   border-color: black;
 }
 
-.charsheet .sheet-core .sheet-form input,
-.charsheet .sheet-core .sheet-form select,
-.charsheet .sheet-core .sheet-form textarea,
-.charsheet .sheet-core .sheet-form .uneditable-input {
+.charsheet .sheet-core .sheet-form input, .charsheet .sheet-core .sheet-form select, .charsheet .sheet-core .sheet-form textarea, .charsheet .sheet-core .sheet-form .uneditable-input {
   box-sizing: border-box;
   color: black;
   font-size: 11px;
@@ -1331,14 +1262,14 @@ z-index: 0;
 
 .charsheet .sheet-core .sheet-form {
   border-radius: 6px;
-  border: 2px solid #555555;
+  border: 2px solid #555;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-header {
-  background: #555555;
+  background: #555;
   color: white;
   font-size: 9px;
   font-weight: bold;
@@ -1361,59 +1292,522 @@ z-index: 0;
   margin-left: 5px;
 }
 
-.charsheet .sheet-core .repcontainer{
-  min-height: 180px;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol {
-  align-items: center;
-  border-bottom: 2px solid transparent;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  z-index: 2;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
-  background: rgba(126, 45, 64, 0.25);
-  border-radius: 6px;
-  content: '';
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn:not(:last-child) {
-  margin-left: 10px;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
-  box-sizing: border-box;
-  height: 18px;
-  line-height: 16px;
-  padding: 0;
-  text-align: center;
-  width: 36px;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn {
-  box-sizing: border-box;
-  height: 18px;
-  line-height: 16px;
-  padding: 0;
-  text-align: center;
-  width: 36px;
-}
-
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature {
+.charsheet .sheet-core .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit, .charsheet .sheet-core .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation, .charsheet .sheet-core .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature {
   height: auto;
 }
 
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit label,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation label,
-.charsheet .sheet-core .sheet-section-pc .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature label {
+.charsheet .sheet-core .sheet-tab-features .sheet-pc-details .sheet-pc-detail-habit label, .charsheet .sheet-core .sheet-tab-features .sheet-pc-details .sheet-pc-detail-motivation label, .charsheet .sheet-core .sheet-tab-features .sheet-pc-details .sheet-pc-detail-feature label {
   height: 100%;
+}
+
+
+.charsheet .sheet-main-footer p {
+  color: #cccccc;
+  font-size: 9px;
+  margin: 3px 0 0;
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes{
+  display: grid;
+  grid-template-columns: 285px 485px;
+  grid-column-gap: 10px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .sheet-container-header input{
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .sheet-container-body textarea{
+  resize: vertical;
+  min-height: 100px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .col1,
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .col2{
+  row-gap: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .col1 .sheet-container-body textarea{
+  min-height: 342px;
+  width: 255px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .col2 .sheet-container-body textarea{
+  min-height: 210px;
+  width: 455px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .col1 .sheet-pc-notes-two .sheet-container-body textarea{
+  min-height: 255px;
+}
+
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-alert-warning {
+  background: #7e2d40;
+  font-size: 9px;
+  text-align: center;
+  margin-bottom: 4px;
+  color: white;
+  border-radius: 3px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-alert-warning {
+  background: #730d25;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header {
+  padding: 0;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input {
+  text-align: center;
+  width: 100%;
+  border: 0;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 8px;
+  font-weight: bold;
+  background: none;
+  text-overflow: ellipsis;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+  background: #e5fffb;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+  background: #4b5553;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-body input {
+  width: 50px;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  text-overflow: ellipsis;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc {
+  grid-area: cc;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc {
+  grid-area: sc;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc {
+  grid-area: gc;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-pp {
+  grid-area: ss;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 {
+  grid-area: other1;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 {
+  grid-area: other2;
+}
+
+.charsheet .sheet-core .sheet-page-inventory > input[type="radio"]:checked ~ .sheet-tab-content {
+  display: grid;
+  grid-template-columns: auto 300px;
+  grid-template-rows: 85px 120px 180px auto;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  grid-template-areas: "inventory supplies"
+  "inventory purse"
+  "inventory encumberance"
+  "inventory general";
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory {
+  grid-area: inventory;
+  display: grid;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-supplies {
+  grid-area: supplies;
+  display: grid;
+  grid-template-rows: repeat(2, 30px);
+  grid-row-gap: 5px;
+  grid-template-areas: "rations"
+  "water";
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-purse {
+  grid-area: purse;
+  display: grid;
+  grid-template-rows: repeat(3, 30px);
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+  grid-template-areas: "cc ss"
+  "sc other1"
+  "gc other2"
+  ". .";
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-encumberance {
+  grid-area: encumberance;
+  display: grid;
+  grid-template-rows: 65px auto;
+  grid-row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-general {
+  grid-area: general;
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem {
+  font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem span:first-of-type {
+  font-weight: bold;
+  background: #dddddd;
+  padding: 3px 5px;
+  margin-right: 3px;
+  border-radius: 3px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-rations {
+  grid-area: rations;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-water {
+  grid-area: water;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer {
+  font-size: 7px;
+  display: flex;
+  text-transform: uppercase;
+  opacity: 1;
+  line-height: 1;
+  margin-top: 0;
+  background: #dddddd;
+  padding: 3px 5px;
+  padding-right: 20px;
+  border-radius: 0 0 4px 4px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer {
+  background: #666666;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer span:first-of-type {
+  flex-grow: 1;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer span:not(:first-of-type) {
+  width: 50px;
+  margin-left: 1px;
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-equipped {
+  background: #7e2d40;
+  color: white;
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-item-equipped {
+  background: #730d25;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-carried {
+  background: #dddddd;
+  color: black;
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+}
+
+.charsheet .sheet-core .sheet-page-inventory [name="attr_equipped"][value="1"] ~ .sheet-pc-item-carried {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+  display: inline-flex !important;
+  background: none;
+  border: 1px solid #dddddd;
+  color: white;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item {
+  font-size: 11px;
+  padding-right: 20px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-header {
+  font-size: 7px;
+  display: flex;
+  text-transform: uppercase;
+  opacity: 1;
+  line-height: 1;
+  margin-top: 0;
+  padding: 0 0 3px;
+  color: #b1b1b1;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-header span:first-of-type {
+  flex-grow: 1;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-header span:not(:first-of-type) {
+  width: 50px;
+  margin-left: 1px;
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-content {
+  display: flex;
+  border-radius: 3px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-content input {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item:hover {
+  background: #f2f2f2;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-item:hover {
+  background: #505050;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name {
+  flex-grow: 1;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-quantity,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-notches,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-weight,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-slots {
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  height: 20px;
+  display: inline-block;
+  flex-grow: 0;
+  width: 50px;
+  text-align: center;
+  margin-left: 1px;
+  display: flex;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container {
+  background: #7e2d40;
+  color: white;
+  font-size: 11px;
+  border-radius: 4px 4px 0 0;
+  padding: 0 5px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container {
+  background: #730d25;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-inventory-container-slots {
+  opacity: .75;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-equipped {
+  background: none;
+  border: 1px solid #dddddd;
+  color: white;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-carried {
+  background: none;
+  border: 1px solid #dddddd;
+  color: white;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="1"] ~ .sheet-pc-item-carried {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+  display: inline-flex !important;
+  background: none;
+  border: 1px solid #dddddd;
+  color: #7e2d40;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+  color: #730d25;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-form-item .sheet-item-columns-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-form-item .sheet-item-columns-2 > .sheet-form-group {
+  margin: 0;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-form-item .sheet-form-body {
+  display: grid;
+  grid-template-columns: auto 115px;
+  grid-column-gap: 10px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-form-item .sheet-toggle-unchecked,
+.charsheet .sheet-core .sheet-page-inventory .sheet-form-item .sheet-toggle-checked {
+  margin-top: 4px;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span {
+  display: block;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  line-height: 20px;
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span{
+  color: black;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-unencumbered {
+  background: #b4cf01;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-immobile, .charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-over {
+  background: #cf4601;
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-encumbered {
+  background: #cfb401;
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-heavily {
+  background: #cf7d01;
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-unencumbered,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-unencumbered,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-unencumbered,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-unencumbered {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="IMMOBILE"] ~ .sheet-pc-immobile {
+  display: block;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="HEAVILY ENCUMBERED"] ~ .sheet-pc-heavily {
+  display: block;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="ENCUMBERED"] ~ .sheet-pc-encumbered {
+  display: block;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-encumberance[value="OVER CARRYING CAPACITY"] ~ .sheet-pc-over {
+  display: block;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-header + .sheet-container-body,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-header + .sheet-container-body {
+    padding-bottom: 0;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 5px 10px 0;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body [type="text"],
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body select ,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body [type="text"],
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body select {
+    border-color: rgba(255, 255, 255, 0);
+    flex-grow: 1;
+    line-height: 13px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    min-width: 0;
+    color: black;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body span,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body span {
+    font-size: 24px;
 }
