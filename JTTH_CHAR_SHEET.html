@@ -292,69 +292,40 @@
                                 </div>
                                 <div class="sheet-container-panel sheet-container-tools">
                                     <div class="sheet-container-header">TOOLS</div>
-                                    <div class="sheet-container-body">
-                                        <div class="top">
-                                            <span class="label">TOOL</span>
-                                            <span class="label">ROLL</span>
-                                        </div>
+									<div class="sheet-container-body">
                                         <fieldset class="repeating_mortaltool">
-                                            <div class="tool">
-                                                <input class="options-flag" type="checkbox" name="attr_options_flag" checked="checked">
-                                                <span>y</span>
-                                                <div class="options">
-                                                    <div class="row">
-                                                        <span>NAME:</span>
-                                                        <input type="text" name="attr_toolname">
-                                                    </div>
-                                                    <div class="row">
-                                                        <span>ROLL</span>
-                                                        <input type="text" name="attr_toolroll">
-                                                    </div>
-                                                    <div class="row">
-                                                        <span>BONUS</span>
-                                                        <input type="number" name="attr_toolbonus" title="@{toolbonus}" value="0"> 
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-tool">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Edit Tool</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <label>Name:</label>
+                                                                <input type="text" name="attr_toolname">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Roll:</label>
+                                                                <input type="text" name="attr_tool_roll" title="@{tool_roll}" value="0">
+                                                                <label>Mods:</label>
+                                                                <input type="text" name="attr_tool_mod" title="@{tool_mod}" value="0">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="display">
-                                                    <button type="roll" name="roll_tool" value="@{toolroll}">
-                                                        <span name="attr_toolname"></span>
-                                                        <input type="text" name="attr_tool_display">
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="sheet-container-panel sheet-container-profession">
-                                    <div class="sheet-container-header">PROFESSIONS</div>
-                                    <div class="sheet-container-body">
-                                        <div class="top">
-                                            <span class="label">PROFESSION</span>
-                                            <span class="label">ROLL</span>
-                                        </div>
-                                        <fieldset class="repeating_mortalprofession">
-                                            <div class="profession">
-                                                <input class="options-flag" type="checkbox" name="attr_options_flag" checked="checked">
-                                                <span>y</span>
-                                                <div class="options">
-                                                    <div class="row">
-                                                        <span>NAME:</span>
-                                                        <input type="text" name="attr_professionname">
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-pc-tool">
+                                                        <button type="roll" name="roll_roll" value="@{wtype}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{mod=@{tool_mod}}} {{r1=[[@{tool_roll} + @{tool_mod}[BONUS]]]}} {{type=Custom}}">
+                                                            <span name="attr_toolname"></span>
+                                                            <span name="attr_tool_roll"></span>
+                                                            <span>+</span>
+                                                            <span name="attr_tool_mod"></span>
+                                                        </button>
                                                     </div>
-                                                    <div class="row">
-                                                        <span>ROLL</span>
-                                                        <input type="text" name="attr_professionroll">
-                                                    </div>
-                                                    <div class="row">
-                                                        <span>BONUS</span>
-                                                        <input type="number" name="attr_professionbonus" title="@{professionbonus}" value="0"> 
-                                                    </div>
-                                                </div>
-                                                <div class="display">
-                                                    <button type="roll" name="roll_profession" value="@{professionroll}">
-                                                        <span name="attr_professionname"></span>
-                                                        <input type="text" name="attr_profession_display">
-                                                    </button>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -362,26 +333,24 @@
                                 </div>
                             </div>
                             <div class="col col2">
-                                <div class="sheet-container-panel sheet-container-vitals">
-                                    <div class="sheet-container-header">VITALS</div>
+                                <div class="sheet-container-panel sheet-panel-hp">
+                                    <div class="sheet-container-header">HEALTH</div>
                                     <div class="sheet-container-body">
-                                        <div class="sheet-container-box hp">
-                                            <div class="top">
-                                                <span>HIT POINT MAXIMUM</span>
-                                                <input type="number" name="attr_hp_max" title="@{hp_max}">
+                                        <div class="sheet-container-box sheet-pc-health">
+                                            <div class="sheet-box-body sheet-health">
+                                                <input type="number" name="attr_hp_max" title="@{hp_max}" placeholder="MAXIMUM">
+                                                <input type="number" name="attr_hp" title="@{hp}" placeholder="CURRENT">
                                             </div>
-                                            <input type="number" name="attr_hp" title="@{hp}">
-                                            <span class="label">CURRENT HIT POINTS</span>
                                         </div>
-                                        <div class="sheet-container-box hp">
-                                            <input type="number" name="attr_hp_temp" title="@{hp_temp}">
-                                            <span class="label">TEMPORARY HIT POINTS</span>
-                                        </div>
-                                        <div>
-                                            <div class="sheet-container-box hp">
+                                        <div class="sheet-container-box sheet-pc-health">
+                                            <div class="sheet-box-body sheet-health-extra">
                                                 <div class="sheet-box">
-                                                    <span>Hit Die</span>
-                                                    <input type="text" name="attr_hit_die" title="@{hit_die}" placeholder="d10">
+                                                    <span>Temp</span>
+                                                    <input type="number" name="attr_hp_temp" title="@{hp_temp}" placeholder="0">
+                                                </div>
+                                                <div class="sheet-box">
+                                                    <span>Dice</span>
+                                                <input type="text" name="attr_hp_die" title="@{hp_die}" placeholder="1d8">
                                                 </div>
                                             </div>
                                         </div>
@@ -477,30 +446,30 @@
                                     <div class="sheet-container-panel sheet-panel-advantage">
                                         <div class="sheet-container-body">
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
+                                                <input type="radio" name="attr_mortaladvantage" value="0" checked="checked">
                                                 <span class="sheet-advantage-label">NONE</span>
                                             </div>
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="ta">
+                                                <input type="radio" name="attr_mortaladvantage" value="1">
                                                 <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
                                             </div>
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="ea">
+                                                <input type="radio" name="attr_mortaladvantage" value="2">
                                                 <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
                                             </div>
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="aa">
+                                                <input type="radio" name="attr_mortaladvantage" value="3">
                                                 <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <span class="label">ATTACK MODIFIERS</span>
-                                        <fieldset class="repeating_attack_mod">
+                                        <fieldset class="repeating_mortalattack_mod">
                                             <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
                                         </fieldset>
                                         <span class="label">DAMAGE MODIFIERS</span>
-                                        <fieldset class="repeating_damage_mod">
+                                        <fieldset class="repeating_mortaldamage_mod">
                                             <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
                                         </fieldset>
                                     </div>
@@ -674,38 +643,20 @@
                                     <div class="sheet-container-header">RESOURCES</div>
                                     <div class="sheet-container-body">
                                         <fieldset class="repeating_mortalresource">
-											<div class="sheet-fieldset-item sheet-fieldset-item-mortal-resource">
-												<div class="sheet-checkbox-cog">
-													<input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-													<span class="sheet-toggle-icon"></span>
-												</div>
-												<input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-												<div class="sheet-toggle-checked">
-													<div class="sheet-form">
-														<div class="sheet-form-header">Edit Resource</div>
-														<div class="sheet-form-body">
-															<div class="sheet-form-group">
-																<label>Name:</label>
-																<input type="text" name="attr_resourcename">
-															</div>
-															<div class="sheet-form-group">
-																<label>Amount:</label>
-																<input type="text" name="attr_resourceamount">
-																<label>Max:</label>
-																<input type="text" name="attr_resourcemax">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="sheet-toggle-unchecked">
-													<div class="sheet-pc-resource">
-														<span name="attr_resourcename"></span>
-														<span name="attr_resourceamount"></span>
-														<span name="attr_resourcemax"></span>
-													</div>
-												</div>
-											</div>
-										</fieldset>
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-item-resource-name">
+                                                        <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource Name">
+                                                    </div>
+                                                    <div class="sheet-item-resource-current">
+                                                        <input class="sheet-resource-current" type="text" name="attr_resource_current" title="@{resource_current}" placeholder="0">
+                                                    </div>
+                                                    <div class="sheet-item-resource-max">
+                                                        <input class="sheet-resource-max" type="text" name="attr_resource_max" title="@{resource_max}" placeholder="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
@@ -943,71 +894,39 @@
                                 <div class="sheet-container-panel sheet-container-tools">
                                     <div class="sheet-container-header">TOOLS</div>
                                     <div class="sheet-container-body">
-                                        <div class="top">
-                                            <span class="label">TOOL</span>
-                                            <span class="label">ROLL</span>
-                                            <span class="label">BONUS</span>
-                                        </div>
                                         <fieldset class="repeating_cultivatortool">
-                                            <div class="tool">
-                                                <input class="options-flag" type="checkbox" name="attr_options_flag" checked="checked">
-                                                <span>y</span>
-                                                <div class="options">
-                                                    <div class="row">
-                                                        <span>NAME:</span>
-                                                        <input type="text" name="attr_toolname">
-                                                    </div>
-                                                    <div class="row">
-                                                        <span>ROLL</span>
-                                                        <input type="text" name="attr_toolroll">
-                                                    </div>
-                                                    <div class="row">
-                                                        <span>BONUS</span>
-                                                        <input type="number" name="attr_toolbonus" title="@{toolbonus}" value="0"> 
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-tool">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Edit Tool</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <label>Name:</label>
+                                                                <input type="text" name="attr_toolname">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Roll:</label>
+                                                                <input type="text" name="attr_tool_roll" title="@{tool_roll}" value="0">
+                                                                <label>Mods:</label>
+                                                                <input type="text" name="attr_tool_mod" title="@{tool_mod}" value="0">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="display">
-                                                    <button type="roll" name="roll_tool" value="@{toolroll}">
-                                                        <span name="attr_toolname"></span>
-                                                        <input type="text" name="attr_toolbonus_display">
-                                                        <input type="hidden" name="attr_toolbonus">
-                                                        <input type="text" name="attr_toolroll">
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <div class="sheet-container-panel sheet-container-profession">
-                                    <div class="sheet-container-header">PROFESSIONS</div>
-                                    <div class="sheet-container-body">
-                                        <div class="top">
-                                            <span class="label">PROFESSION</span>
-                                            <span class="label">ROLL</span>
-                                        </div>
-                                        <fieldset class="repeating_cultivatorprofession">
-                                            <div class="profession">
-                                                <input class="options-flag" type="checkbox" name="attr_options_flag" checked="checked">
-                                                <span>y</span>
-                                                <div class="options">
-                                                    <div class="row">
-                                                        <span>NAME:</span>
-                                                        <input type="text" name="attr_professionname">
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-pc-tool">
+                                                        <button type="roll" name="roll_roll" value="@{wtype}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{mod=@{tool_mod}}} {{r1=[[@{tool_roll} + @{tool_mod}[BONUS]]]}} {{type=Custom}}">
+                                                            <span name="attr_toolname"></span>
+                                                            <span name="attr_tool_roll"></span>
+                                                            <span>+</span>
+                                                            <span name="attr_tool_mod"></span>
+                                                        </button>
                                                     </div>
-                                                    <div class="row">
-                                                        <span>ROLL</span>
-                                                        <input type="text" name="attr_professionroll">
-                                                    </div>
-                                                    <div class="row">
-                                                        <span>BONUS</span>
-                                                        <input type="number" name="attr_professionbonus" title="@{professionbonus}" value="0"> 
-                                                    </div>
-                                                </div>
-                                                <div class="display">
-                                                    <button type="roll" name="roll_profession" value="@{professionroll}">
-                                                        <span name="attr_professionname"></span>
-                                                        <input type="text" name="attr_profession_display">
-                                                    </button>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -1015,34 +934,28 @@
                                 </div>
                             </div>
                             <div class="col col2">
-                                <div class="sheet-container-panel sheet-container-vitals">
-                                    <div class="sheet-container-header">VITALS</div>
+                                <div class="sheet-container-panel sheet-panel-hp">
+                                    <div class="sheet-container-header">HEALTH</div>
                                     <div class="sheet-container-body">
-                                        <div class="sheet-container-box hp">
-                                            <div class="top">
-                                                <span>HIT POINT MAXIMUM</span>
-                                                <input type="number" name="attr_hp_max" title="@{hp_max}">
+                                        <div class="sheet-container-box sheet-pc-health">
+                                            <div class="sheet-box-body sheet-health">
+                                                <input type="number" name="attr_hp_max" title="@{hp_max}" placeholder="MAXIMUM">
+                                                <input type="number" name="attr_hp" title="@{hp}" placeholder="CURRENT">
                                             </div>
-                                            <input type="number" name="attr_hp" title="@{hp}">
-                                            <span class="label">CURRENT HIT POINTS</span>
                                         </div>
-                                        <div class="sheet-container-box hp">
-                                            <input type="number" name="attr_hp_temp" title="@{hp_temp}">
-                                            <span class="label">TEMPORARY HIT POINTS</span>
-                                        </div>
-                                        <div>
-                                            <div class="sheet-container-box hp">
+                                        <div class="sheet-container-box sheet-pc-health">
+                                            <div class="sheet-box-body sheet-health-extra">
                                                 <div class="sheet-box">
-                                                    <span>Hit Die</span>
-                                                    <input type="text" name="attr_hit_die" title="@{hit_die}" placeholder="d10">
+                                                    <span>Temp</span>
+                                                    <input type="number" name="attr_hp_temp" title="@{hp_temp}" placeholder="0">
                                                 </div>
                                                 <div class="sheet-box">
-                                                    <span>Hit Die Bonus</span>
-                                                    <input type="number" name="attr_hit_die_bonus" title="@{hit_die_bonus}" placeholder="5">
+                                                    <span>Regen</span>
+                                                    <input type="number" name="attr_hp_regen" title="@{hp_regen}" placeholder="0">
                                                 </div>
                                                 <div class="sheet-box">
-                                                    <span>Realm Multiplier</span>
-                                                    <input type="number" name="attr_realm_multi" title="@{realm_multi}" placeholder="1">
+                                                    <span>Dice</span>
+                                                <input type="text" name="attr_hp_die" title="@{hp_die}" placeholder="1d8">
                                                 </div>
                                             </div>
                                         </div>
@@ -1146,30 +1059,30 @@
                                     <div class="sheet-container-panel sheet-panel-advantage">
                                         <div class="sheet-container-body">
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="none" checked="checked">
+                                                <input type="radio" name="attr_cultivatoradvantage" value="0" checked="checked">
                                                 <span class="sheet-advantage-label">NONE</span>
                                             </div>
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="ta">
+                                                <input type="radio" name="attr_cultivatoradvantage" value="1">
                                                 <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
                                             </div>
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="ea">
+                                                <input type="radio" name="attr_cultivatoradvantage" value="2">
                                                 <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
                                             </div>
                                             <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_tactical_advantage" value="aa">
+                                                <input type="radio" name="attr_cultivatoradvantage" value="3">
                                                 <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <span class="label">ATTACK MODIFIERS</span>
-                                        <fieldset class="repeating_attack_mod">
+                                        <fieldset class="repeating_cultivatorattack_mod">
                                             <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
                                         </fieldset>
                                         <span class="label">DAMAGE MODIFIERS</span>
-                                        <fieldset class="repeating_damage_mod">
+                                        <fieldset class="repeating_cultivatordamage_mod">
                                             <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
                                         </fieldset>
                                     </div>
@@ -1343,38 +1256,20 @@
                                     <div class="sheet-container-header">RESOURCES</div>
                                     <div class="sheet-container-body">
                                         <fieldset class="repeating_cultivatorresource">
-											<div class="sheet-fieldset-item sheet-fieldset-item-cultivator-resource">
-												<div class="sheet-checkbox-cog">
-													<input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-													<span class="sheet-toggle-icon"></span>
-												</div>
-												<input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-												<div class="sheet-toggle-checked">
-													<div class="sheet-form">
-														<div class="sheet-form-header">Edit Resource</div>
-														<div class="sheet-form-body">
-															<div class="sheet-form-group">
-																<label>Name:</label>
-																<input type="text" name="attr_resourcename">
-															</div>
-															<div class="sheet-form-group">
-																<label>Amount:</label>
-																<input type="text" name="attr_resourceamount">
-																<label>Max:</label>
-																<input type="text" name="attr_resourcemax">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="sheet-toggle-unchecked">
-													<div class="sheet-pc-resource">
-														<span name="attr_resourcename"></span>
-														<span name="attr_resourceamount"></span>
-														<span name="attr_resourcemax"></span>
-													</div>
-												</div>
-											</div>
-										</fieldset>
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-item-resource-name">
+                                                        <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource Name">
+                                                    </div>
+                                                    <div class="sheet-item-resource-current">
+                                                        <input class="sheet-resource-current" type="text" name="attr_resource_current" title="@{resource_current}" placeholder="0">
+                                                    </div>
+                                                    <div class="sheet-item-resource-max">
+                                                        <input class="sheet-resource-max" type="text" name="attr_resource_max" title="@{resource_max}" placeholder="0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
                                     </div>
                                 </div>
                             </div>
@@ -1515,9 +1410,9 @@
                         </div>
                         <div class="sheet-container-well sheet-container-well-memories">
                             <div class="sheet-container-panel sheet-pc-custom-rolls">
-                                <div class="sheet-container-header">Tools & Custom Skills</div>
+                                <div class="sheet-container-header">Custom Skills</div>
                                 <div class="sheet-container-body">
-                                    <fieldset class="repeating_tool">
+                                    <fieldset class="repeating_customskill">
                                         <div class="sheet-fieldset-item sheet-fieldset-item-tool">
                                             <div class="sheet-checkbox-cog">
                                                 <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
@@ -1526,7 +1421,7 @@
                                             <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
                                             <div class="sheet-toggle-checked">
                                                 <div class="sheet-form">
-                                                    <div class="sheet-form-header">Edit Custom Roll</div>
+                                                    <div class="sheet-form-header">Edit Custom Skill</div>
                                                     <div class="sheet-form-body">
                                                         <div class="sheet-form-group">
                                                             <label>Name:</label>
@@ -2125,7 +2020,49 @@
                 <div class="sheet-page sheet-page-options">
                     <input type="radio" name="attr_page" value="options">
                     <span class="sheet-page-label">OPTIONS</span>
-                    <div class="sheet-page-content"></div>
+                    <div class="sheet-page-content">
+                        <div class="sheet-form sheet-form-inline">
+                            <div class="sheet-form-header">Global Tool Modifiers</div>
+                            <div class="sheet-form-body">
+                                <fieldset class="repeating_skillmod">
+                                    <div class="sheet-fieldset-item">
+                                        <div class="sheet-checkbox-cog">
+                                            <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                            <span class="sheet-toggle-icon"></span>
+                                        </div>
+                                        <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
+                                        <div class="sheet-toggle-checked">
+                                            <div class="sheet-form">
+                                                <div class="sheet-form-header">Edit Modifier</div>
+                                                <div class="sheet-form-body">
+                                                    <div class="sheet-form-group">
+                                                        <div class="sheet-form-checkbox">
+                                                            <input type="checkbox" name="attr_global_skill_active_flag" value="1">
+                                                        </div>
+                                                        <input type="text" name="attr_global_skill_name">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Roll:</label>
+                                                        <input type="text" name="attr_global_skill_roll">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sheet-toggle-unchecked">
+                                            <div class="sheet-pc-tool-modifier">
+                                                <div class="sheet-checkbox-image">
+                                                    <input type="checkbox" name="attr_global_skill_active_flag" value="1">
+                                                    <span></span>
+                                                </div>
+                                                <span name="attr_global_skill_name"></span>
+                                                <span name="attr_global_skill_roll"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

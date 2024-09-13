@@ -812,21 +812,29 @@
   grid-area: skills;
 }
 
+.charsheet .sheet-core .sheet-page-mortal .sheet-container-tools .sheet-checkbox-cog:hover span,
+.charsheet .sheet-core .sheet-page-cultivator .sheet-container-tools .sheet-checkbox-cog:hover span,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-checkbox-cog:hover span {
   color: white;
   opacity: 1;
 }
 
+.charsheet .sheet-core .sheet-page-mortal .sheet-container-tools .repitem + .repitem,
+.charsheet .sheet-core .sheet-page-cultivator .sheet-container-tools .repitem + .repitem,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .repitem + .repitem, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .repitem + .repitem {
   margin-top: 2px;
   padding-top: 2px;
   border-top: 1px dotted #ddd;
 }
 
+.charsheet .sheet-core .sheet-page-mortal .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-cultivator .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature {
   font-size: 11px;
 }
 
+.charsheet .sheet-core .sheet-page-mortal .sheet-pc-tool button,
+.charsheet .sheet-core .sheet-page-cultivator .sheet-pc-tool button,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button {
   background: none;
   border: 0;
@@ -846,6 +854,8 @@
   background: #4b5553;
 }
 
+.charsheet .sheet-core .sheet-page-mortal .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-cultivator .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool, .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
   background: #7e2d40;
   color: white;
@@ -855,14 +865,20 @@
   padding: 0 20px;
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-page-mortal .sheet-pc-tool,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-cultivator .sheet-pc-tool,
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool, .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
   background: #730d25;
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-page-mortal .sheet-pc-tool span:nth-of-type(2):before,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-cultivator .sheet-pc-tool span:nth-of-type(2):before,
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:nth-of-type(2):before {
   content: "(";
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-page-mortal .sheet-pc-tool span:last-of-type::after,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-cultivator .sheet-pc-tool span:last-of-type::after,
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool span:last-of-type::after {
   content: ")";
 }
@@ -1212,8 +1228,8 @@
   display: flex;
 }
 
-.charsheet .sheet-core .sheet-form .sheet-form-group > * + * {
-  margin-left: 5px;
+.charsheet .sheet-core .sheet-form .sheet-form-group:last-of-type{
+  flex-direction: column;
 }
 
 .sheet-darkmode .charsheet .sheet-core .sheet-form label {
@@ -1252,7 +1268,7 @@
   box-sizing: border-box;
   color: black;
   font-size: 11px;
-  height: 16px;
+  height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -2006,4 +2022,254 @@
   row-gap: 5px;
   display: flex;
   flex-direction: column;
+}
+
+.sheet-panel-hp .sheet-container-body{
+  column-gap: 5px;
+}
+
+.sheet-panel-hp .sheet-container-body,
+.sheet-panel-hp .sheet-container-body .sheet-pc-health,
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body{
+  flex-direction: column;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box {
+  display: flex;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body input{
+  width: 100%;
+  text-align: center;
+  background: none;
+  border: none;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:first-of-type{
+  line-height: 11px;
+  padding: 0;
+  border-bottom: 1px solid black;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health-extra{
+  row-gap: 2px;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:last-of-type{
+  height: 55px;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box span{
+  width: 100%;
+  align-content: center;
+  text-align: center;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box input{
+  width: 100%;
+  padding: 0;
+  font-size: 9px;
+}
+
+.charsheet .sheet-feature {
+  font-size: 11px;
+  padding-right: 20px;
+}
+
+.charsheet .sheet-feature .sheet-feature-name {
+  font-weight: bold;
+  padding: 0 5px;
+  background: #dddddd;
+  border-radius: 3px;
+  display: inline-block;
+  position: relative;
+  min-width: 100%;
+  text-align: center;
+}
+
+.sheet-darkmode .sheet-feature .sheet-feature-name {
+  background: #444444;
+}
+
+.charsheet .sheet-feature .sheet-feature-desc {
+  display: inline;
+}
+
+.charsheet .sheet-feature .sheet-feature-desc span{
+  white-space: pre-wrap;
+}
+
+.charsheet .sheet-feature .sheet-feature-name input{
+  appearance: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sheet-feature .toggle-feature[value="1"] ~ .sheet-feature-desc {
+  display: none !important;
+}
+
+.sheet-container-resources .sheet-resource-labels{
+  display:  flex;
+  width:  100%;
+}
+
+.sheet-container-resources .sheet-resource-labels .sheet-resource-label {
+  width:  83px;
+  text-align:  center;
+}
+
+.sheet-container-resources .sheet-fieldset-item .sheet-form{
+  flex-direction: row;
+}
+
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-name input{
+  background: none;
+}
+
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-name,
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-current,
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-max,
+.sheet-container-resources .sheet-fieldset-item input {
+  border:  none;
+  box-shadow:  none;
+  font-size:  10px;
+  height:  5mm;
+  margin:  0;
+  padding:  0;
+  width:  100%;
+  text-align: center;
+}
+
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-current input,
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-max input{
+  border-radius: 5px;
+  border-left: 1px dotted;
+  border-right: 1px dotted;
+}
+
+.sheet-container-resources .sheet-resource-label{
+  text-align:  center;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-container-body{
+  row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative{
+  text-align: -webkit-center;
+  background: #eeeeee;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative .sheet-container-bar{
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative button{
+  background: none;
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative .sheet-container-bar span::before{
+  content: "(";
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative .sheet-container-bar span::after{
+  content: ")";
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-defences{
+  font-size: 11px;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-defences .sheet-defence-label,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-defences input{
+  text-align: center;
+  line-height: 12px;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-defences input{
+  width: 100%;
+  padding: 0;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-pc-evasion-group,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-pc-durability-group,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-pc-reduction-group,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-pc-speed-group{
+  display: flex;
+  column-gap: 3px;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-pc-defence-label{
+  font-size: 11px;
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability span{
+  display: inline-grid;
+  width: 73px !important;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability span,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability input{
+  width: 100%;
+  line-height: 11px;
+  padding: 2px;
+  text-align: center;
+  border: none;
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
+}
+
+.sheet-darkmode .sheet-core .sheet-container-combat .sheet-pc-evasion-durability span,
+.sheet-darkmode .sheet-core .sheet-container-combat .sheet-pc-evasion-durability input{
+  border-left: 1px dotted grey;
+  border-right: 1px dotted grey;
+}
+
+.charsheet .sheet-container-attacks .sheet-panel-advantage{
+  min-height: 0px;
+}
+
+.charsheet .sheet-container-attacks .sheet-panel-advantage .sheet-container-body{
+  display: flex;
+  flex-direction: row;
+}
+
+.charsheet .sheet-container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar{
+  width: 25%;
+  align-content: center;
+}
+
+.charsheet .sheet-container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar span{
+  line-height: 15px;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+}
+
+.charsheet .sheet-container-attacks .sheet-panel-advantage .sheet-container-body .sheet-container-bar > input[type="radio"]{
+  height: 30px;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
