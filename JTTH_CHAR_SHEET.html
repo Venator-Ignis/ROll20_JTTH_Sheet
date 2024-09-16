@@ -464,13 +464,90 @@
                                         </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
-                                        <span class="label">ATTACK MODIFIERS</span>
-                                        <fieldset class="repeating_mortalattack_mod">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
+                                        <div class="sheet-container-header">ATTACK MODIFIERS</div>
+                                        <fieldset class="repeating_mortalattackmod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_mortal_global_attack_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_mortal_global_attack_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Roll:</label>
+                                                                    <input type="text" name="attr_mortal_global_attack_roll">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_mortal_global_attack_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_mortal_global_attack_name"></span>
+                                                            <span name="attr_mortal_global_attack_roll"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </fieldset>
-                                        <span class="label">DAMAGE MODIFIERS</span>
-                                        <fieldset class="repeating_mortaldamage_mod">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-bonuses">
+                                        <div class="sheet-container-header">DAMAGE MODIFIERS</div>
+                                        <fieldset class="repeating_mortaldamagemod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_mortal_global_damage_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_mortal_global_damage_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Damage:</label>
+                                                                    <input type="text" name="attr_mortal_global_damage_damage" value="">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Type:</label>
+                                                                    <input type="text" name="attr_mortal_global_damage_type" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-damage-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_mortal_global_damage_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_mortal_global_damage_name"></span>
+                                                            <span name="attr_mortal_global_damage_damage"></span>
+                                                            <span name="attr_mortal_global_damage_type"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </fieldset>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-attacks">
@@ -646,7 +723,7 @@
                                             <div class="sheet-fieldset-item">
                                                 <div class="sheet-form">
                                                     <div class="sheet-item-resource-name">
-                                                        <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource Name">
+                                                        <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource">
                                                     </div>
                                                     <div class="sheet-item-resource-current">
                                                         <input class="sheet-resource-current" type="text" name="attr_resource_current" title="@{resource_current}" placeholder="0">
@@ -1077,13 +1154,90 @@
                                         </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
-                                        <span class="label">ATTACK MODIFIERS</span>
-                                        <fieldset class="repeating_cultivatorattack_mod">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod"></div>
+                                        <div class="sheet-container-header">ATTACK MODIFIERS</div>
+                                        <fieldset class="repeating_cultivatorattackmod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_cultivator_global_attack_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Roll:</label>
+                                                                    <input type="text" name="attr_cultivator_global_attack_roll">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_cultivator_global_attack_name"></span>
+                                                            <span name="attr_cultivator_global_attack_roll"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </fieldset>
-                                        <span class="label">DAMAGE MODIFIERS</span>
-                                        <fieldset class="repeating_cultivatordamage_mod">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod"></div>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-bonuses">
+                                        <div class="sheet-container-header">DAMAGE MODIFIERS</div>
+                                        <fieldset class="repeating_cultivatordamagemod">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_cultivator_global_damage_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Damage:</label>
+                                                                    <input type="text" name="attr_cultivator_global_damage_damage" value="">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Type:</label>
+                                                                    <input type="text" name="attr_cultivator_global_damage_type" value="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-damage-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_cultivator_global_damage_name"></span>
+                                                            <span name="attr_cultivator_global_damage_damage"></span>
+                                                            <span name="attr_cultivator_global_damage_type"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </fieldset>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-attacks">
@@ -1259,7 +1413,7 @@
                                             <div class="sheet-fieldset-item">
                                                 <div class="sheet-form">
                                                     <div class="sheet-item-resource-name">
-                                                        <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource Name">
+                                                        <input class="sheet-resource-name" type="text" name="attr_resource_name" title="@{resource_name}" placeholder="Resource">
                                                     </div>
                                                     <div class="sheet-item-resource-current">
                                                         <input class="sheet-resource-current" type="text" name="attr_resource_current" title="@{resource_current}" placeholder="0">
