@@ -1309,7 +1309,7 @@
   display: flex;
 }
 
-.charsheet .sheet-core .sheet-form .sheet-form-group:last-of-type {
+.charsheet .sheet-core .sheet-container-traits .sheet-form .sheet-form-group:last-of-type {
   flex-direction: column;
 }
 
@@ -2050,6 +2050,46 @@
   top: 0;
   width: 100%;
   z-index: -2;
+}
+
+.sheet-core .sheet-container-attacks .sheet-panel-advantage .sheet-container-bar > input[type="radio"]:checked ~ .sheet-advantage-label{
+  color: white;
+}
+
+.sheet-core .sheet-container-attacks .sheet-panel-advantage .sheet-container-bar > input[type="radio"]:checked ~ .sheet-advantage-label::after{
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.sheet-darkmode .sheet-core .sheet-container-attacks .sheet-panel-advantage .sheet-container-bar > input[type="radio"]:checked ~ .sheet-advantage-label{
+  color: black;
+}
+
+.sheet-darkmode .sheet-core .sheet-container-attacks .sheet-panel-advantage .sheet-container-bar > input[type="radio"]:checked ~ .sheet-advantage-label::after{
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 30px 30px 0;
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
 
 .charsheet .sheet-core .sheet-container-bar.sheet-container-bar-left {
