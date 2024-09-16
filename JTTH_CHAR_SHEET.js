@@ -6,9 +6,34 @@
 
 ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental'].forEach(attr => {
     on(`change:${attr}`, function() {
-        (attr === "power") ? update_weight(): false;
-        (attr === "agility") ? update_initiative(): false;
+        switch (`${attr}`) {
+            case "power":
+                update_weight()
+                update_skills(["", ""]);
+                break;
+            case "agility":
+                update_initiative();
+                update_skills(["", ""]);
+                break;
+            case "vitality":
+                update_skills(["", ""]);
+            case "cultivation":
+                update_skills(["", ""]);
+                break;
+            case "qicontrol":
+                update_skills(["", ""]);
+                break;
+            case "mental":
+                update_skills(["", ""]);
+                break;
+            default:
+                false;
+        }
     });
+});
+
+on("change:initiative_bonus", function(eventInfo){
+    update_initiative();
 });
 
 var update_attr = function(attr) {
@@ -53,7 +78,7 @@ var update_attr = function(attr) {
 };
 
 var update_initiative = function() {
-    var attrs_to_get = ["agility", "initmod"];
+    var attrs_to_get = ["agility", "initiative_bonus"];
     getSectionIDs("repeating_inventory", function(idarray) {
         _.each(idarray, function(currentID, i) {
             attrs_to_get.push("repeating_inventory_" + currentID + "_equipped");
@@ -61,15 +86,16 @@ var update_initiative = function() {
         });
         getAttrs(attrs_to_get, function(v) {
             var update = {};
-            var final_init = parseInt(v["agility"], 10);
-            if (v["initmod"] && !isNaN(parseInt(v["initmod"], 10))) {
-                final_init = final_init + parseInt(v["initmod"], 10);
+            var agility = parseInt(v.agility) || 0;
+            var final_init = parseInt(v["dexterity_mod"], 10);
+            if (v["initiative_bonus"] && !isNaN(parseInt(v["initiative_bonus"], 10))) {
+                final_init = final_init + parseInt(v["initiative_bonus"], 10);
             }
             _.each(idarray, function(currentID) {
-                if (v["repeating_inventory_" + currentID + "_equipped"] && v["repeating_inventory_" + currentID + "_equipped"] === "1" && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf("ability checks") > -1) {
+                if (v["repeating_inventory_" + currentID + "_equipped"] && v["repeating_inventory_" + currentID + "_equipped"] === "1" && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf("initiative") > -1) {
                     var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
                     _.each(mods, function(mod) {
-                        if (mod.indexOf("ability checks") > -1) {
+                        if (mod.indexOf("initiative") > -1) {
                             if (mod.indexOf("-") > -1) {
                                 var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
                                 final_init = new_mod ? final_init - new_mod : final_init;
@@ -84,7 +110,7 @@ var update_initiative = function() {
             if (final_init % 1 != 0) {
                 final_init = parseFloat(final_init.toPrecision(12));
             }
-            update["initiative"] = final_init;
+            update["initiative"] = agility + (parseInt(v.final_init) ? `d6 + ${parseInt(v.final_init)}` : 'd6');
             setAttrs(update, {
                 silent: true
             });
