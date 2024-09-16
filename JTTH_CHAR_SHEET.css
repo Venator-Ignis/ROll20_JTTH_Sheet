@@ -7,6 +7,13 @@
   padding: 0;
 }
 
+.sheet-core .sheet-field-toggle:not([value]) + *,
+.sheet-core .sheet-field-toggle[value=""] + *,
+.sheet-core .sheet-field-toggle[value="0"] + *,
+.sheet-core .sheet-field-toggle[value="hide"] + * {
+  display: none !important;
+}
+
 .sheet-core button[type=roll]:before {
   content: none !important;
 }
@@ -340,7 +347,7 @@
   text-transform: uppercase;
 }
 
-.sheet-core .sheet-container-attribute .sheet-container-body {
+.sheet-core .sheet-container-attribute .sheet-container-footer {
   display: flex;
   font-size: 30px;
   align-items: center;
@@ -348,7 +355,7 @@
   height: 50px;
 }
 
-.sheet-core .sheet-container-attribute .sheet-container-footer {
+.sheet-core .sheet-container-attribute .sheet-container-body {
   padding: 5px 22px 5px;
 }
 
@@ -359,11 +366,10 @@
   font-weight: bold;
   padding: 0;
   text-align: center;
-  width: 100%;
+  width: 60%;
   border-radius: 10%;
-  overflow: hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  height: 50px;
+  font-size: 30px;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer input:hover,
@@ -473,10 +479,8 @@
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-details {
   grid-area: details;
   display: grid;
-  grid-template-columns: repeat(2, 
- 1fr);
-  grid-template-rows: repeat(4, 
- 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   grid-template-areas: "details gimmick" "details value" "details conflict" "details want";
@@ -485,8 +489,7 @@
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-container-well-memories {
   grid-area: memories;
   display: grid;
-  grid-template-columns: repeat(2, 
- 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   grid-template-areas: "skills memories" "skills notes";
@@ -670,10 +673,8 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-container-well-details {
   grid-area: details;
   display: grid;
-  grid-template-columns: repeat(2, 
- 1fr);
-  grid-template-rows: repeat(4, 
- 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   grid-template-areas: "details gimmick" "details value" "details conflict" "details want";
@@ -682,8 +683,7 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-container-well-memories {
   grid-area: memories;
   display: grid;
-  grid-template-columns: repeat(2, 
- 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 5px;
   grid-row-gap: 5px;
   grid-template-areas: "skills memories" "skills notes";
@@ -1163,10 +1163,7 @@
 }
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
-  background: rgba(126, 
- 45, 
- 64, 
- 0.25);
+  background: rgba(126, 45, 64, 0.25);
   border-radius: 6px;
   content: "";
   height: 100%;
@@ -1318,10 +1315,7 @@
 }
 
 .charsheet .sheet-core .sheet-form label {
-  color: rgba(0, 
- 0, 
- 0, 
- 0.5);
+  color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   line-height: 16px;
   margin: 0;
@@ -1568,8 +1562,7 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-supplies {
   grid-area: supplies;
   display: grid;
-  grid-template-rows: repeat(2, 
- 30px);
+  grid-template-rows: repeat(2, 30px);
   grid-row-gap: 5px;
   grid-template-areas: "rations" "water";
 }
@@ -1577,8 +1570,7 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-container-well-inventory-purse {
   grid-area: purse;
   display: grid;
-  grid-template-rows: repeat(3, 
- 30px);
+  grid-template-rows: repeat(3, 30px);
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
@@ -1893,10 +1885,7 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body select,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body [type="text"],
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body select {
-  border-color: rgba(255, 
- 255, 
- 255, 
- 0);
+  border-color: rgba(255, 255, 255, 0);
   flex-grow: 1;
   line-height: 13px;
   margin: 0;
@@ -1931,8 +1920,7 @@
 .charsheet .sheet-core .sheet-tab-inventory .sheet-container-well-inventory-purse {
   grid-area: purse;
   display: grid;
-  grid-template-rows: repeat(3, 
- 30px);
+  grid-template-rows: repeat(3, 30px);
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
@@ -1942,8 +1930,7 @@
 .charsheet .sheet-core .sheet-tab-inventory .sheet-container-well-inventory-supplies {
   grid-area: supplies;
   display: grid;
-  grid-template-rows: repeat(2, 
- 30px);
+  grid-template-rows: repeat(2, 30px);
   grid-row-gap: 5px;
   grid-template-areas: "rations" "water";
 }
@@ -2265,7 +2252,7 @@
 }
 
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:last-of-type {
-  height: 55px;
+  height: 45px;
 }
 
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box span {

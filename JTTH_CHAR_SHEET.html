@@ -73,92 +73,93 @@
                                         <span class="sheet-button-attribute-title">POWER</span>
                                     </button>
                                 </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_power" title="@{power}"></span>
-                                </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_power_base" title="@{power_base}" value="0">
                                     <input type="hidden" name="attr_power" value="0">
+                                    <input type="hidden" name="attr_power_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_power" title="@{power}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_power_dc" title="@{power_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_agility" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Agility}} {{roll1=[[ @{agility}d6[agility] + @{agility_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">AGILITY</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_agility" title="@{agility}"></span>
+                                    <button type="roll" name="roll_agility" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Agility}} {{roll1=[[ @{agility}d6[agility] + @{agility_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">AGILITY</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_agility_base" title="@{agility_base}" value="0">
                                     <input type="hidden" name="attr_agility" value="0">
+                                    <input type="hidden" name="attr_agility_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_agility" title="@{agility}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_agility_dc" title="@{agility_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_vitality" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Vitality}} {{roll1=[[ @{vitality}d6[vitality] + @{vitality_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">VITALITY</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_vitality" title="@{vitality}"></span>
+                                    <button type="roll" name="roll_vitality" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Vitality}} {{roll1=[[ @{vitality}d6[vitality] + @{vitality_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">VITALITY</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_vitality_base" title="@{vitality_base}" value="0">
                                     <input type="hidden" name="attr_vitality" value="0">
+                                    <input type="hidden" name="attr_vitality_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_vitality" title="@{vitality}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_cultivation" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Cultivation}} {{roll1=[[ @{cultivation}d6[cultivation] + @{cultivation_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">CULTIVATION</span>
+                                    <button type="roll" name="roll_cultivation" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Cultivation}} {{roll1=[[ @{cultivation}d6[cultivation] + @{cultivation_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">CULTIVATION</span>
                                 </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_cultivation" title="@{cultivation}"></span>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_cultivation_base" title="@{cultivation_base}" value="0">
                                     <input type="hidden" name="attr_cultivation" value="0">
+                                    <input type="hidden" name="attr_cultivation_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_cultivation" title="@{cultivation}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_qicontrol" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Qicontrol}} {{roll1=[[ @{qicontrol}d6[qicontrol] + @{qicontrol_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">QI CONTROL</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_qicontrol" title="@{qicontrol}"></span>
+                                    <button type="roll" name="roll_qicontrol" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Qicontrol}} {{roll1=[[ @{qicontrol}d6[qicontrol] + @{qicontrol_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">QI CONTROL</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_qicontrol_base" title="@{qicontrol_base}" value="0">
                                     <input type="hidden" name="attr_qicontrol" value="0">
+                                    <input type="hidden" name="attr_qicontrol_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_qicontrol" title="@{qicontrol}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_qicontrol_dc" title="@{qicontrol_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_mental" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Mental}} {{roll1=[[ @{mental}d6[mental] + @{mental_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">MENTAL</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_mental" title="@{mental}"></span>
+                                    <button type="roll" name="roll_mental" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Mental}} {{roll1=[[ @{mental}d6[mental] + @{mental_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">MENTAL</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_mental_base" title="@{mental_base}" value="0">
                                     <input type="hidden" name="attr_mental" value="0">
+                                    <input type="hidden" name="attr_mental_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_mental" title="@{mental}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_mental_dc" title="@{mental_dc}">0</span>
                                 </div>
                             </div>
@@ -751,92 +752,93 @@
                                         <span class="sheet-button-attribute-title">POWER</span>
                                     </button>
                                 </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_power" title="@{power}"></span>
-                                </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_power_base" title="@{power_base}" value="0">
                                     <input type="hidden" name="attr_power" value="0">
+                                    <input type="hidden" name="attr_power_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_power" title="@{power}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_power_dc" title="@{power_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_agility" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Agility}} {{roll1=[[ @{agility}d6[agility] + @{agility_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">AGILITY</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_agility" title="@{agility}"></span>
+                                    <button type="roll" name="roll_agility" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Agility}} {{roll1=[[ @{agility}d6[agility] + @{agility_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">AGILITY</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_agility_base" title="@{agility_base}" value="0">
                                     <input type="hidden" name="attr_agility" value="0">
+                                    <input type="hidden" name="attr_agility_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_agility" title="@{agility}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_agility_dc" title="@{agility_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_vitality" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Vitality}} {{roll1=[[ @{vitality}d6[vitality] + @{vitality_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">VITALITY</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_vitality" title="@{vitality}"></span>
+                                    <button type="roll" name="roll_vitality" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Vitality}} {{roll1=[[ @{vitality}d6[vitality] + @{vitality_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">VITALITY</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_vitality_base" title="@{vitality_base}" value="0">
                                     <input type="hidden" name="attr_vitality" value="0">
+                                    <input type="hidden" name="attr_vitality_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_vitality" title="@{vitality}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_vitality_dc" title="@{vitality_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_cultivation" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Cultivation}} {{roll1=[[ @{cultivation}d6[cultivation] + @{cultivation_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">CULTIVATION</span>
+                                    <button type="roll" name="roll_cultivation" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Cultivation}} {{roll1=[[ @{cultivation}d6[cultivation] + @{cultivation_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">CULTIVATION</span>
                                 </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_cultivation" title="@{cultivation}"></span>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_cultivation_base" title="@{cultivation_base}" value="0">
                                     <input type="hidden" name="attr_cultivation" value="0">
+                                    <input type="hidden" name="attr_cultivation_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_cultivation" title="@{cultivation}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_cultivation_dc" title="@{cultivation_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_qicontrol" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Qicontrol}} {{roll1=[[ @{qicontrol}d6[qicontrol] + @{qicontrol_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">QI CONTROL</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_qicontrol" title="@{qicontrol}"></span>
+                                    <button type="roll" name="roll_qicontrol" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Qicontrol}} {{roll1=[[ @{qicontrol}d6[qicontrol] + @{qicontrol_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">QI CONTROL</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_qicontrol_base" title="@{qicontrol_base}" value="0">
                                     <input type="hidden" name="attr_qicontrol" value="0">
+                                    <input type="hidden" name="attr_qicontrol_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_qicontrol" title="@{qicontrol}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_qicontrol_dc" title="@{qicontrol_dc}">0</span>
                                 </div>
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-
-                                <button type="roll" name="roll_mental" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Mental}} {{roll1=[[ @{mental}d6[mental] + @{mental_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
-                                    <span class="sheet-button-attribute-title">MENTAL</span>
-                                </button>
-                                </div>
-                                <div class="sheet-container-body">
-                                    <span class="finalattr" name="attr_mental" title="@{mental}"></span>
+                                    <button type="roll" name="roll_mental" value="@{w_type}&{template:attribute} @{character_name_output} {{rollname=Mental}} {{roll1=[[ @{mental}d6[mental] + @{mental_bonus}[BONUS] + @{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                        <span class="sheet-button-attribute-title">MENTAL</span>
+                                    </button>
                                 </div>
                                 <div class="sheet-container-footer">
                                     <input class="baseattr" type="number" name="attr_mental_base" title="@{mental_base}" value="0">
                                     <input type="hidden" name="attr_mental" value="0">
+                                    <input type="hidden" name="attr_mental_flag" value="0" class="sheet-field-toggle">
+                                    <span name="attr_mental" title="@{mental}">0</span>
+                                </div>
+                                <div class="sheet-container-body">
                                     <span class="sheet-button-attribute-dc" name="attr_mental_dc" title="@{mental_dc}">0</span>
                                 </div>
                             </div>
@@ -2299,6 +2301,98 @@
     </div>
 
     <script type="text/worker">
-
+        ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental'].forEach(attr => {
+            on(`change:${attr}_base change:${attr}_bonus`, function(){
+                update_attr(`${attr}`);
+            });
+        });
+        
+        ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental'].forEach(attr => {
+            on(`change:${attr}`, function() {
+                (attr === "power") ? update_weight(): false;
+                (attr === "agility") ? update_initiative(): false;
+            });
+        });
+        
+        var update_attr = function(attr) {
+            var update = {};
+            var attr_fields = [attr + "_base", attr + "_bonus"];
+            getSectionIDs("repeating_inventory", function(idarray) {
+                _.each(idarray, function(currentID, i) {
+                    attr_fields.push("repeating_inventory_" + currentID + "_equipped");
+                    attr_fields.push("repeating_inventory_" + currentID + "_itemmodifiers");
+                });
+                getAttrs(attr_fields, function(v) {
+                    var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 10)) ? parseInt(v[attr + "_base"], 10) : 10;
+                    var bonus = v[attr + "_bonus"] && !isNaN(parseInt(v[attr + "_bonus"], 10)) ? parseInt(v[attr + "_bonus"], 10) : 0;
+                    var item_base = 0;
+                    var item_bonus = 0;
+                    _.each(idarray, function(currentID) {
+                        if ((!v["repeating_inventory_" + currentID + "_equipped"] || v["repeating_inventory_" + currentID + "_equipped"] === "1") && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf(attr > -1)) {
+                            var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
+                            _.each(mods, function(mod) {
+                                if (mod.indexOf(attr) > -1) {
+                                    if (mod.indexOf(":") > -1) {
+                                        var new_base = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                        item_base = new_base && new_base > item_base ? new_base : item_base;
+                                    } else if (mod.indexOf("-") > -1) {
+                                        var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                        item_bonus = new_mod ? item_bonus - new_mod : item_bonus;
+                                    } else {
+                                        var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                        item_bonus = new_mod ? item_bonus + new_mod : item_bonus;
+                                    }
+                                };
+                            });
+                        }
+                    });
+        
+                    update[attr + "_flag"] = bonus != 0 || item_bonus > 0 || item_base > base ? 1 : 0;
+                    base = base > item_base ? base : item_base;
+                    update[attr] = base + bonus + item_bonus;
+                    setAttrs(update);
+                });
+            });
+        };
+        
+        var update_initiative = function() {
+            var attrs_to_get = ["agility", "initmod"];
+            getSectionIDs("repeating_inventory", function(idarray) {
+                _.each(idarray, function(currentID, i) {
+                    attrs_to_get.push("repeating_inventory_" + currentID + "_equipped");
+                    attrs_to_get.push("repeating_inventory_" + currentID + "_itemmodifiers");
+                });
+                getAttrs(attrs_to_get, function(v) {
+                    var update = {};
+                    var final_init = parseInt(v["agility"], 10);
+                    if (v["initmod"] && !isNaN(parseInt(v["initmod"], 10))) {
+                        final_init = final_init + parseInt(v["initmod"], 10);
+                    }
+                    _.each(idarray, function(currentID) {
+                        if (v["repeating_inventory_" + currentID + "_equipped"] && v["repeating_inventory_" + currentID + "_equipped"] === "1" && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf("ability checks") > -1) {
+                            var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
+                            _.each(mods, function(mod) {
+                                if (mod.indexOf("ability checks") > -1) {
+                                    if (mod.indexOf("-") > -1) {
+                                        var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                        final_init = new_mod ? final_init - new_mod : final_init;
+                                    } else {
+                                        var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                        final_init = new_mod ? final_init + new_mod : final_init;
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    if (final_init % 1 != 0) {
+                        final_init = parseFloat(final_init.toPrecision(12));
+                    }
+                    update["initiative"] = final_init;
+                    setAttrs(update, {
+                        silent: true
+                    });
+                });
+            });
+        };
     </script>
 </div>
