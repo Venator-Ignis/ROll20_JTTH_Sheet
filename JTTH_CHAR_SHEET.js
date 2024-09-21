@@ -57,13 +57,155 @@ on("change:repeating_inventory:itemmodifiers change:repeating_inventory:equipped
     });
 });
 
+on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod change:use_inventory_slots change:inventory_slots_mod change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier", function() {
+    update_weight();
+});
+
+on("change:acrobatics_flat change:athletics_flat change:charm_flat change:deceit_flat change:disguise_flat change:fine_arts_flat change:forgery_flat change:grapple_flat change:history_flat change:intuition_flat change:intimidation_flat change:investigation_flat change:medicine_flat change:navigation_flat change:perception_flat change:performance_flat change:persuade_flat change:discretion_flat change:stealth_flat change:survival_flat", function(eventinfo) {
+    update_skills(["acrobatics","athletics","charm","deceit","discretion","disguise","fine_arts","forgery","grapple","history","intuition","intimidation","investigation","medicine","navigation","perception","performance","persuade","stealth","survival"]);
+});
+
+on("change:repeating_mortalmove:name change:repeating_mortalmove:attack_flag change:repeating_mortalmove:attack_type change:repeating_mortalmove:attack_range change:repeating_mortalmove:attack_tohit change:repeating_mortalmove:attack_bonus change:repeating_mortalmove:attack_damage change:repeating_mortalmove:attack_damage1attribute change:repeating_mortalmove:attack_damage1bonus change:repeating_mortalmove:attack_damagetype change:repeating_mortalmove:attack_damage2 change:repeating_mortalmove:attack_damage2attribute change:repeating_mortalmove:attack_damage2bonus change:repeating_mortalmove:attack_damagetype2 change:repeating_mortalmove:description", function(eventinfo) {
+    update_mortalmoves();
+});
+
+on("change:repeating_cultivatormove:name change:repeating_cultivatormove:attack_flag change:repeating_cultivatormove:attack_type change:repeating_cultivatormove:attack_range change:repeating_cultivatormove:attack_tohit change:repeating_cultivatormove:attack_bonus change:repeating_cultivatormove:attack_damage change:repeating_cultivatormove:attack_damage1attribute change:repeating_cultivatormove:attack_damage1bonus change:repeating_cultivatormove:attack_damagetype change:repeating_cultivatormove:attack_damage2 change:repeating_cultivatormove:attack_damage2attribute change:repeating_cultivatormove:attack_damage2bonus change:repeating_cultivatormove:attack_damagetype2 change:repeating_cultivatormove:description", function(eventinfo) {
+    update_cultivatormoves();
+});
+
+on('change:mortaladvantage', function(eventInfo) {
+    update_mortalmoves();
+});
+
+on('change:cultivatoradvantage', function(eventInfo) {
+    update_cultivatormoves();
+});
+
+on("change:dtype", function(eventinfo) {
+    if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
+        return;
+    }
+    update_mortalmoves();
+    update_cultivatormoves();
+});
+
+on("change:agility change:power change:vitality change:cultivation change:mental_strength change:appearance change:qi_control", function(eventinfo) {
+    update_mortalmoves();
+    update_cultivatormoves();
+});
+
+on("change:durability-base change:durability-limit change:durability-bonus", function(eventinfo) {
+    update_durability();
+});
+
+on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
+    update_evasion();
+});
+
+on("change:reduction-base change:reduction-armour change:reduction-bonus", function(eventinfo) {
+    update_reduction();
+});
+
 on("remove:repeating_inventory", function(eventinfo) {
     var itemid = eventinfo.sourceAttribute.substring(20, 40);
+
     if (eventinfo.removedInfo && eventinfo.removedInfo["repeating_inventory_" + itemid + "_itemmodifiers"]) {
         check_itemmodifiers(eventinfo.removedInfo["repeating_inventory_" + itemid + "_itemmodifiers"]);
     }
+
     update_weight();
 });
+
+var check_itemmodifiers = function(modifiers, previousValue) {
+    var mods = modifiers.toLowerCase().split(",");
+    if (previousValue) {
+        prevmods = previousValue.toLowerCase().split(",");
+        mods = _.union(mods, prevmods);
+    };
+    _.each(mods, function(mod) {
+        if (mod.indexOf("power") > -1) {
+            update_attr("power");
+        };
+        if (mod.indexOf("agility") > -1) {
+            update_attr("agility");
+        };
+        if (mod.indexOf("vitality") > -1) {
+            update_attr("vitality");
+        };
+        if (mod.indexOf("cultivation") > -1) {
+            update_attr("cultivation");
+        };
+        if (mod.indexOf("qicontrol") > -1) {
+            update_attr("qicontrol");
+        };
+        if (mod.indexOf("mental") > -1) {
+            update_attr("mental");
+        };
+        if (mod.indexOf("skill checks") > -1) {
+            update_all_skill_checks();
+        };
+        if (mod.indexOf("acrobatics") > -1) {
+            update_skills(["acrobatics"]);
+        };
+        if (mod.indexOf("athletics") > -1) {
+            update_skills(["athletics"]);
+        };
+        if (mod.indexOf("charm") > -1) {
+            update_skills(["charm"]);
+        };
+        if (mod.indexOf("deceit") > -1) {
+            update_skills(["deceit"]);
+        };
+        if (mod.indexOf("discretion") > -1) {
+            update_skills(["discretion"]);
+        };
+        if (mod.indexOf("disguise") > -1) {
+            update_skills(["disguise"]);
+        };
+        if (mod.indexOf("fine_arts") > -1) {
+            update_skills(["fine_arts"]);
+        };
+        if (mod.indexOf("forgery") > -1) {
+            update_skills(["forgery"]);
+        };
+        if (mod.indexOf("grapple") > -1) {
+            update_skills(["grapple"]);
+        };
+        if (mod.indexOf("history") > -1) {
+            update_skills(["history"]);
+        };
+        if (mod.indexOf("intuition") > -1) {
+            update_skills(["intuition"]);
+        };
+        if (mod.indexOf("intimidation") > -1) {
+            update_skills(["intimidation"]);
+        };
+        if (mod.indexOf("investigation") > -1) {
+            update_skills(["investigation"]);
+        };
+        if (mod.indexOf("medicine") > -1) {
+            update_skills(["medicine"]);
+        };
+        if (mod.indexOf("navigation") > -1) {
+            update_skills(["navigation"]);
+        };
+        if (mod.indexOf("perception") > -1) {
+            update_skills(["perception"]);
+        };
+        if (mod.indexOf("performance") > -1) {
+            update_skills(["performance"]);
+        };
+        if (mod.indexOf("persuade") > -1) {
+            update_skills(["persuade"]);
+        };
+        if (mod.indexOf("stealth") > -1) {
+            update_skills(["stealth"]);
+        };
+        if (mod.indexOf("survival") > -1) {
+            update_skills(["survival"]);
+        };
+    });
+};
 
 var update_attr = function(attr) {
     var update = {};
@@ -311,25 +453,20 @@ var update_skills = function(skills_array) {
         getAttrs(attrs_to_get, function(v) {
             _.each(skills_array, function(s) {
                 console.log("UPDATING SKILL: " + s);
-                var skill_bonus = 0;
-                if (v[s + "_bonus"]) {
-                    var bonus = v[s + "_bonus"];
-                    console.log(bonus)
-                    skill_bonus = parseInt(v[bonus], 10);
-                    console.log(skill_bonus)
-                }
-
+                var flat = v[s + "_flat"] && !isNaN(parseInt(v[s + "_flat"], 10)) ? parseInt(v[s + "_flat"], 10) : 0;
                 var item_bonus = 0;
+
                 _.each(idarray, function(currentID) {
                     if (v["repeating_inventory_" + currentID + "_equipped"] && v["repeating_inventory_" + currentID + "_equipped"] === "1" && v["repeating_inventory_" + currentID + "_itemmodifiers"] && (v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().replace(/ /g, "_").indexOf(s) > -1 || v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf("skill checks") > -1)) {
                         var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
                         _.each(mods, function(mod) {
                             if (mod.replace(/ /g, "_").indexOf(s) > -1 || mod.indexOf("skill checks") > -1) {
-                                var new_mod = parseInt(mod.replace(/[^0-9]/g, ""), 10);
                                 if (mod.indexOf("-") > -1) {
-                                    item_bonus -= new_mod;
+                                    var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                    item_bonus -= new_mod ? item_bonus + new_mod : item_bonus;
                                 } else {
-                                    item_bonus += new_mod;
+                                    var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
+                                    item_bonus += new_mod ? item_bonus + new_mod : item_bonus;
                                 }
                             };
                         });
@@ -378,14 +515,15 @@ var update_skills = function(skills_array) {
                         break;
                 }
 
-                var total = skill_bonus + item_bonus;
-                update[s + "_bonus"] = total;
-                update[s + "_roll"] = roll;
+                var total = flat + item_bonus;
+                
                 if (total > 0) {
                     update[s] = roll + "d6 + " + total;
                 } else {
                     update[s] = roll + "d6";
                 }
+                update[s + "_bonus"] = total;
+                update[s + "_roll"] = roll;
             });
 
             setAttrs(update, {
@@ -393,104 +531,86 @@ var update_skills = function(skills_array) {
             }, function() {
                 callbacks.forEach(function(callback) {
                     callback();
-                });
+                })
             });
         });
-    });
-};
-
-var check_itemmodifiers = function(modifiers, previousValue) {
-    var mods = modifiers.toLowerCase().split(",");
-    if (previousValue) {
-        prevmods = previousValue.toLowerCase().split(",");
-        mods = _.union(mods, prevmods);
-    };
-    _.each(mods, function(mod) {
-        if (mod.indexOf("power") > -1) {
-            update_attr("power");
-        };
-        if (mod.indexOf("agility") > -1) {
-            update_attr("agility");
-        };
-        if (mod.indexOf("vitality") > -1) {
-            update_attr("vitality");
-        };
-        if (mod.indexOf("cultivation") > -1) {
-            update_attr("cultivation");
-        };
-        if (mod.indexOf("qicontrol") > -1) {
-            update_attr("qicontrol");
-        };
-        if (mod.indexOf("mental") > -1) {
-            update_attr("mental");
-        };
-        if (mod.indexOf("skill checks") > -1) {
-            update_all_skill_checks();
-        };
-        if (mod.indexOf("acrobatics") > -1) {
-            update_skills(["acrobatics"]);
-        };
-        if (mod.indexOf("athletics") > -1) {
-            update_skills(["athletics"]);
-        };
-        if (mod.indexOf("charm") > -1) {
-            update_skills(["charm"]);
-        };
-        if (mod.indexOf("deceit") > -1) {
-            update_skills(["deceit"]);
-        };
-        if (mod.indexOf("discretion") > -1) {
-            update_skills(["discretion"]);
-        };
-        if (mod.indexOf("disguise") > -1) {
-            update_skills(["disguise"]);
-        };
-        if (mod.indexOf("fine_arts") > -1) {
-            update_skills(["fine_arts"]);
-        };
-        if (mod.indexOf("forgery") > -1) {
-            update_skills(["forgery"]);
-        };
-        if (mod.indexOf("grapple") > -1) {
-            update_skills(["grapple"]);
-        };
-        if (mod.indexOf("history") > -1) {
-            update_skills(["history"]);
-        };
-        if (mod.indexOf("intuition") > -1) {
-            update_skills(["intuition"]);
-        };
-        if (mod.indexOf("intimidation") > -1) {
-            update_skills(["intimidation"]);
-        };
-        if (mod.indexOf("investigation") > -1) {
-            update_skills(["investigation"]);
-        };
-        if (mod.indexOf("medicine") > -1) {
-            update_skills(["medicine"]);
-        };
-        if (mod.indexOf("navigation") > -1) {
-            update_skills(["navigation"]);
-        };
-        if (mod.indexOf("perception") > -1) {
-            update_skills(["perception"]);
-        };
-        if (mod.indexOf("performance") > -1) {
-            update_skills(["performance"]);
-        };
-        if (mod.indexOf("persuade") > -1) {
-            update_skills(["persuade"]);
-        };
-        if (mod.indexOf("stealth") > -1) {
-            update_skills(["stealth"]);
-        };
-        if (mod.indexOf("survival") > -1) {
-            update_skills(["survival"]);
-        };
     });
 };
 
 var update_all_ability_checks = function() {
     update_initiative();
     update_skills(["acrobatics","athletics","charm","deceit","discretion","disguise","fine_arts","forgery","grapple","history","intuition","intimidation","investigation","medicine","navigation","perception","performance","persuade","stealth","survival"]);
+};
+
+var update_durability = function(){
+    getAttrs(["durability-base", "durability-limit", "durability-bonus", "power", "agility", "vitality", "cultivation", "qicontrol", "mental"], function(v) {
+        var update = {};
+
+        var base = parseInt(v["durability-base"]) || 0;
+        var limit = parseInt(v["durability-limit"]) || 0;
+        var bonus = parseInt(v["durability-bonus"]) || 0;
+
+        update["durability-full"] = base + bonus;
+
+        setAttrs(update, {
+            silent: true
+        });
+    });
+};
+
+var update_evasion = function() {
+    getAttrs(["evasion-base", "evasion-limit", "evasion-bonus", "agility"], function(v) {
+        var update = {};
+
+        var agility = parseInt(v.agility) || 0;
+        var base = parseInt(v["evasion-base"]) || 0;
+        var limit = parseInt(v["evasion-limit"]) || 0;
+        var bonus = parseInt(v["evasion-bonus"]) || 0;
+
+        if (agility < limit) {
+            update["evasion-full"] = base + agility + bonus;
+        } else {
+            update["evasion-full"] = base + limit + Math.floor((agility - limit) / 2) + bonus;
+        }
+
+        setAttrs(update, {
+            silent: true
+        });
+    });
+};
+
+var update_reduction = function(){
+    getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(v) {
+        var update = {};
+
+        var base = parseInt(v["reduction-base"]) || 0;
+        var armour = parseInt(v["reduction-armour"]) || 0;
+        var bonus = parseInt(v["reduction-bonus"]) || 0;
+
+        update["reduction-full"] = base + armour + bonus;
+
+        setAttrs(update, {
+            silent: true
+        });
+    });
+};
+
+var update_mortalmoves = function() {
+
+};
+
+var update_cultivatormoves = function() {
+
+};
+
+let toInt = function(value) {
+    return (value && !isNaN(value)) ? parseInt(value) : 0;
+};
+
+let clamp = function(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+};
+
+let isDefined = function(value) {
+    return value !== null && typeof(value) !== 'undefined';
 };
