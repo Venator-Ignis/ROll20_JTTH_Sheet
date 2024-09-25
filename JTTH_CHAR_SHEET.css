@@ -2488,6 +2488,51 @@
   min-height: 455px;
 }
 
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  font-size: 11px;
+  padding-right: 18px;
+  padding: 0;
+  width: 100%;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button:hover {
+  background: #e5fffb;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:first-of-type {
+  text-align: left;
+  text-shadow: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 9px;
+  border-radius: 3px;
+  background: gainsboro;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2) {
+  width: 40%;
+  text-align: center;
+  margin-right: 5px;
+  font-weight: bold;
+  border-right: 1px solid gainsboro;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
+  text-align: center;
+  width: 80%;
+}
+
+
 .charsheet .sheet-core .sheet-pc-attack-modifier,
 .charsheet .sheet-core .sheet-pc-attack-damage-modifier {
   align-items: center;
@@ -2573,4 +2618,8 @@
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-form .sheet-attack-desc {
   display:  flex;
+}
+
+.charsheet .sheet-hidden {
+  display: none !important;
 }
