@@ -7,7 +7,8 @@
 
 ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
     on(`change:${attr}`, function() {
-        update_attacks(`${attr}`);
+        update_mortalattacks(`${attr}`);
+        update_cultivatorattacks(`${attr}`);
         update_tool(`${attr}`);
         switch (`${attr}`) {
             case "power":
@@ -74,15 +75,32 @@ on("change:repeating_mortalattack:atkname change:repeating_mortalattack:atkflag 
     }
 
     var attackid = eventinfo.sourceAttribute.substring(23, 43);
-    update_attacks(attackid);
+    update_mortalattacks(attackid);
 });
 
 on("change:repeating_mortaldamagemod remove:repeating_mortaldamagemod", function(eventinfo) {
-    update_globaldamage();
+    update_mortalglobaldamage();
 });
 
 on("change:repeating_mortaltohitmod remove:repeating_mortaltohitmod", function(eventinfo) {
-    update_globalattack();
+    update_mortalglobalattack();
+});
+
+on("change:repeating_cultivatorattack:atkname change:repeating_cultivatorattack:atkflag change:repeating_cultivatorattack:atkattr_base change:repeating_cultivatorattack:atkmod change:repeating_cultivatorattack:dmgflag change:repeating_cultivatorattack:dmgbase change:repeating_cultivatorattack:dmgattr change:repeating_cultivatorattack:dmgmod change:repeating_cultivatorattack:dmgtype change:repeating_cultivatorattack:dmg2flag change:repeating_cultivatorattack:dmg2base change:repeating_cultivatorattack:dmg2attr change:repeating_cultivatorattack:dmg2mod change:repeating_cultivatorattack:dmg2type change:repeating_cultivatorattack:saveflag change:repeating_cultivatorattack:savedc change:repeating_cultivatorattack:saveflat change:repeating_cultivatorattack:saveattr change:repeating_cultivatorattack:atkrange", function(eventinfo) {
+    if (eventinfo.sourceType === "sheetworker") {
+        return;
+    }
+
+    var attackid = eventinfo.sourceAttribute.substring(27, 47);
+    update_cultivatorattacks(attackid);
+});
+
+on("change:repeating_cultivatordamagemod remove:repeating_cultivatordamagemod", function(eventinfo) {
+    update_cultivatorglobaldamage();
+});
+
+on("change:repeating_cultivatortohitmod remove:repeating_cultivatortohitmod", function(eventinfo) {
+    update_cultivatorglobalattack();
 });
 
 on("change:global_damage_mod_flag", function(eventinfo) {
@@ -106,7 +124,8 @@ on("change:dtype", function(eventinfo) {
     if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
         return;
     }
-    update_attacks("all");
+    update_mortalattacks("all");
+    update_cultivatorattacks("all");
 });
 
 on("change:durability-base change:durability-limit change:durability-bonus", function(eventinfo) {
@@ -311,14 +330,14 @@ var update_initiative = function() {
     });
 };
 
-var update_attacks = function(update_id, source) {
+var update_mortalattacks = function(update_id, source) {
     console.log("DOING UPDATE_ATTACKS: " + update_id);
     if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
-        do_update_attack([update_id], source);
+        do_update_mortalattack([update_id], source);
     } else if (["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "all"].indexOf(update_id) > -1) {
         getSectionIDs("repeating_mortalattack", function(idarray) {
             if (update_id === "all") {
-                do_update_attack(idarray);
+                do_update_mortalattack(idarray);
             } else {
                 var attack_attribs = [];
                 _.each(idarray, function(id) {
@@ -335,7 +354,7 @@ var update_attacks = function(update_id, source) {
                         }
                     });
                     if (attr_attack_ids.length > 0) {
-                        do_update_attack(attr_attack_ids);
+                        do_update_mortalattack(attr_attack_ids);
                     }
                 });
             };
@@ -343,7 +362,7 @@ var update_attacks = function(update_id, source) {
     };
 };
 
-var do_update_attack = function(attack_array, source) {
+var do_update_mortalattack = function(attack_array, source) {
     var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "global_damage_mod_roll", "global_damage_mod_type"];
     _.each(attack_array, function(attackid) {
         attack_attribs.push("repeating_mortalattack_" + attackid + "_atkflag");
@@ -529,7 +548,7 @@ var do_update_attack = function(attack_array, source) {
     });
 };
 
-var update_globaldamage = function(callback) {
+var update_mortalglobaldamage = function(callback) {
     getSectionIDs("mortaldamagemod", function(ids) {
         if (ids) {
             var fields = {};
@@ -571,7 +590,7 @@ var update_globaldamage = function(callback) {
                 setAttrs(update, {
                     silent: true
                 }, function() {
-                    update_attacks("all");
+                    update_mortalattacks("all");
                     if (typeof callback == "function") callback();
                 });
             });
@@ -579,7 +598,7 @@ var update_globaldamage = function(callback) {
     });
 };
 
-var update_globalattack = function(callback) {
+var update_mortalglobalattack = function(callback) {
     getSectionIDs("mortaltohitmod", function(ids) {
         if (ids) {
             var fields = {};
@@ -610,6 +629,316 @@ var update_globalattack = function(callback) {
                 });
                 if (update["global_attack_mod"] !== "") {
                     update["global_attack_mod"] = "[[" + update["global_attack_mod"].replace(/\+(?=$)/, '') + "]]";
+                }
+                setAttrs(update, {
+                    silent: true
+                }, function() {
+                    if (typeof callback == "function") callback();
+                });
+            });
+        }
+    });
+};
+
+var update_cultivatorattacks = function(update_id, source) {
+    console.log("DOING UPDATE_ATTACKS: " + update_id);
+    if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
+        do_update_cultivatorattack([update_id], source);
+    } else if (["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "all"].indexOf(update_id) > -1) {
+        getSectionIDs("repeating_cultivatorattack", function(idarray) {
+            if (update_id === "all") {
+                do_update_cultivatorattack(idarray);
+            } else {
+                var attack_attribs = [];
+                _.each(idarray, function(id) {
+                    attack_attribs.push("repeating_attack_" + id + "_atkattr_base");
+                    attack_attribs.push("repeating_attack_" + id + "_dmgattr");
+                    attack_attribs.push("repeating_attack_" + id + "_dmg2attr");
+                    attack_attribs.push("repeating_attack_" + id + "_savedc");
+                });
+                getAttrs(attack_attribs, function(v) {
+                    var attr_attack_ids = [];
+                    _.each(idarray, function(id) {
+                        if ((v["repeating_attack_" + id + "_atkattr_base"] && v["repeating_attack_" + id + "_atkattr_base"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmgattr"] && v["repeating_attack_" + id + "_dmgattr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmg2attr"] && v["repeating_attack_" + id + "_dmg2attr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_savedc"] && v["repeating_attack_" + id + "_savedc"].indexOf(update_id) > -1)) {
+                            attr_attack_ids.push(id);
+                        }
+                    });
+                    if (attr_attack_ids.length > 0) {
+                        do_update_cultivatorattack(attr_attack_ids);
+                    }
+                });
+            };
+        });
+    };
+};
+
+var do_update_cultivatorattack = function(attack_array, source) {
+    var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "cultivator_global_damage_mod_roll", "cultivator_global_damage_mod_type"];
+    _.each(attack_array, function(attackid) {
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkflag");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkname");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkattr_base");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkmod");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgflag");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgbase");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgattr");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgmod");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgtype");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2flag");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2base");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2attr");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2mod");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2type");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveflag");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_savedc");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveeffect");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveflat");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkrange");
+        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_cultivator_global_damage_mod_field");
+    });
+
+    getAttrs(attack_attribs, function(v) {
+        _.each(attack_array, function(attackid) {
+            var callbacks = [];
+            var update = {};
+            var hbonus = "";
+            var hdmg1 = "";
+            var hdmg2 = "";
+            var dmg = "";
+            var dmg2 = "";
+            var rollbase = "";
+            var atkattr_abrev = "";
+            var dmgattr_abrev = "";
+            var dmg2attr_abrev = "";
+            
+            if (!v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] || v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] === "0") {
+                atkattr_base = 0
+            } else {
+                atkattr_base = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].length - 1)], 10);
+                atkattr_abrev = v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].length - 1).toUpperCase();
+            };
+
+            if (!v["repeating_cultivatorattack_" + attackid + "_dmgattr"] || v["repeating_cultivatorattack_" + attackid + "_dmgattr"] === "0") {
+                dmgattr = 0;
+            } else {
+                dmgattr = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_dmgattr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmgattr"].length - 1)], 10);
+                dmgattr_abrev = v["repeating_cultivatorattack_" + attackid + "_dmgattr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmgattr"].length - 1).toUpperCase();
+            };
+
+            if (!v["repeating_cultivatorattack_" + attackid + "_dmg2attr"] || v["repeating_cultivatorattack_" + attackid + "_dmg2attr"] === "0") {
+                dmg2attr = 0;
+            } else {
+                dmg2attr = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].length - 1)], 10);
+                dmg2attr_abrev = v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].length - 1).toUpperCase();
+            };
+
+            var dmgbase = v["repeating_cultivatorattack_" + attackid + "_dmgbase"] && v["repeating_cultivatorattack_" + attackid + "_dmgbase"] != "" ? v["repeating_cultivatorattack_" + attackid + "_dmgbase"] : 0;
+            var dmg2base = v["repeating_cultivatorattack_" + attackid + "_dmg2base"] && v["repeating_cultivatorattack_" + attackid + "_dmg2base"] != "" ? v["repeating_cultivatorattack_" + attackid + "_dmg2base"] : 0;
+            var dmgmod = v["repeating_cultivatorattack_" + attackid + "_dmgmod"] && isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_dmgmod"], 10)) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_dmgmod"], 10) : 0;
+            var dmg2mod = v["repeating_cultivatorattack_" + attackid + "_dmg2mod"] && isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_dmg2mod"], 10)) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_dmg2mod"], 10) : 0;
+            var dmgtype = v["repeating_cultivatorattack_" + attackid + "_dmgtype"] ? v["repeating_cultivatorattack_" + attackid + "_dmgtype"] + " " : "";
+            var dmg2type = v["repeating_cultivatorattack_" + attackid + "_dmg2type"] ? v["repeating_cultivatorattack_" + attackid + "_dmg2type"] + " " : "";
+            var atkmod = v["repeating_cultivatorattack_" + attackid + "_atkmod"] && v["repeating_cultivatorattack_" + attackid + "_atkmod"] != "" ? parseInt(v["repeating_cultivatorattack_" + attackid + "_atkmod"], 10) : 0;
+
+            var cultivator_globaldamage = `[[${v.cultivator_global_damage_mod_roll && v.cultivator_global_damage_mod_roll !== "" ? v.cultivator_global_damage_mod_roll : "0"}]]`;
+            var globalDamageType = v["cultivator_global_damage_mod_type"] || "";
+            var gbdmg = " + " + cultivator_globaldamage + "[" + globalDamageType + "]"
+            
+            if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
+                bonus_mod = atkattr_base + atkmod;
+                plus_minus = bonus_mod > -1 ? "+" : "";
+                bonus = plus_minus + bonus_mod;
+            } else if (v["repeating_cultivatorattack_" + attackid + "_saveflag"] && v["repeating_cultivatorattack_" + attackid + "_saveflag"] != 0) {
+                if (v["repeating_cultivatorattack_" + attackid + "_savedc"] && v["repeating_cultivatorattack_" + attackid + "_savedc"] === "(@{saveflat})") {
+                    var tempdc = isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_saveflat"])) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_saveflat"]) : "0";
+                } else {
+                    var savedcattr = v["repeating_cultivatorattack_" + attackid + "_savedc"].replace(/^[^{]*{/, "").replace(/\_.*$/, "");
+                    var safe_attr = v[savedcattr] ? parseInt(v[savedcattr], 10) : 0;
+                    var tempdc = safe_attr;
+                };
+                bonus = "DC" + tempdc;
+            } else {
+                bonus = "-";
+            }
+            if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
+                if (dmgbase === 0 && (dmgattr + dmgmod === 0)) {
+                    dmg = 0;
+                }
+                if (dmgbase != 0) {
+                    dmg = dmgbase;
+                }
+                if (dmgbase != 0 && (dmgattr + dmgmod != 0)) {
+                    dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
+                }
+                if (dmgattr + dmgmod != 0) {
+                    dmg = dmg + (dmgattr + dmgmod);
+                }
+                dmg = dmg + " " + dmgtype;
+            } else {
+                dmg = "";
+            };
+            if (v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0) {
+                if (dmg2base === 0 && (dmg2attr + dmg2mod === 0)) {
+                    dmg2 = 0;
+                }
+                if (dmg2base != 0) {
+                    dmg2 = dmg2base;
+                }
+                if (dmg2base != 0 && (dmg2attr + dmg2mod != 0)) {
+                    dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
+                }
+                if (dmg2attr + dmg2mod != 0) {
+                    dmg2 = dmg2 + (dmg2attr + dmg2mod);
+                }
+                dmg2 = dmg2 + " " + dmg2type;
+            } else {
+                dmg2 = "";
+            };
+            dmgspacer = v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0 && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0 ? "+ " : "";
+            r2 = v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0 ? "{{r2=[[" : "{{r2=[[";
+            if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
+                if (atkmod != 0) {
+                    hbonus = atkmod + "[MOD]" + hbonus
+                };
+                if (atkattr_base != 0) {
+                    hbonus = atkattr_base + "[" + atkattr_abrev + "]" + hbonus
+                };
+            } else {
+                hbonus = "";
+            }
+            if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
+                if (dmgmod != 0) {
+                    hdmg1 = " + " + dmgmod + "[MOD]" + hdmg1
+                };
+                if (dmgattr != 0) {
+                    hdmg1 = " + " + dmgattr + "[" + dmgattr_abrev + "]" + hdmg1
+                };
+                hdmg1 = dmgbase + hdmg1;
+            } else {
+                hdmg1 = "0";
+            }
+            if (v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0) {
+                if (dmg2mod != 0) {
+                    hdmg2 = " + " + dmg2mod + "[MOD]" + hdmg2
+                };
+                if (dmg2attr != 0) {
+                    hdmg2 = " + " + dmg2attr + "[" + dmg2attr_abrev + "]" + hdmg2
+                };
+                hdmg2 = dmg2base + hdmg2;
+            } else {
+                hdmg2 = "0";
+            }
+
+            if (v.dtype === "full") {
+                pickbase = "full";
+                rollbase = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}}  {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
+            } else if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
+                pickbase = "pick";
+                rollbase = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} @{charname_output}";
+            } else if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
+                pickbase = "dmg";
+                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_cultivator_global_damage_mod_type}}} @{charname_output}"
+            } else {
+                pickbase = "empty";
+                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}"
+            }
+            update["repeating_cultivatorattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_cultivator_global_damage_mod_type}}} @{charname_output}";
+            update["repeating_cultivatorattack_" + attackid + "_atkbonus"] = bonus;
+            update["repeating_cultivatorattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
+            update["repeating_cultivatorattack_" + attackid + "_rollbase"] = rollbase;
+            
+            setAttrs(update, {
+                silent: true
+            }, function() {
+                callbacks.forEach(function(callback) {
+                    callback();
+                })
+            });
+        });
+    });
+};
+
+var update_cultivatorglobaldamage = function(callback) {
+    getSectionIDs("cultivatordamagemod", function(ids) {
+        if (ids) {
+            var fields = {};
+            var attr_name_list = [];
+            ids.forEach(function(id) {
+                fields[id] = {};
+                attr_name_list.push(`repeating_cultivatordamagemod_${id}_cultivator_global_damage_active_flag`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_name`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_damage`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_type`);
+            });
+
+            getAttrs(attr_name_list, function(attrs) {
+                var regex = /^repeating_cultivatordamagemod_(.+)_cultivator_global_damage_(active_flag|name|damage|type)$/;
+                _.each(attrs, function(obj, name) {
+                    var r = regex.exec(name);
+                    if (r) {
+                        fields[r[1]][r[2]] = obj;
+                    };
+                });
+
+                var update = {
+                    cultivator_global_damage_mod_roll: "",
+                    cultivator_global_damage_mod_type: ""
+                };
+
+                console.log("GLOBALDAMAGE");
+                _.each(fields, function(element) {
+                    if (element.active_flag != "0") {
+                        if (element.name && element.name !== "") {
+                            update["cultivator_global_damage_mod_roll"] += element.damage + '[' + element.name + ']' + "+";
+                        }
+                        if (element.type && element.type !== "") {
+                            update["cultivator_global_damage_mod_type"] += element.type + "/";
+                        }
+                    }
+                });
+
+                update["cultivator_global_damage_mod_roll"] = update["cultivator_global_damage_mod_roll"].replace(/\+(?=$)/, '');
+                update["cultivator_global_damage_mod_type"] = update["cultivator_global_damage_mod_type"].replace(/\/(?=$)/, '');
+
+                setAttrs(update, {
+                    silent: true
+                }, function() {
+                    update_cultivatorattacks("all");
+                    if (typeof callback == "function") callback();
+                });
+            });
+        }
+    });
+};
+
+var update_cultivatorglobalattack = function(callback) {
+    getSectionIDs("cultivatortohitmod", function(ids) {
+        if (ids) {
+            var fields = {};
+            var attr_name_list = [];
+            ids.forEach(function(id) {
+                fields[id] = {};
+                attr_name_list.push(`repeating_cultivatortohitmod_${id}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${id}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${id}_cultivator_global_attack_name`);
+            });
+            getAttrs(attr_name_list, function(attrs) {
+                var regex = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name)$/;
+                _.each(attrs, function(obj, name) {
+                    var r = regex.exec(name);
+                    if (r) {
+                        fields[r[1]][r[2]] = obj;
+                    }
+                });
+
+                var update = {
+                    cultivator_global_attack_mod: ""
+                };
+                console.log("GLOBALATTACK");
+                _.each(fields, function(element) {
+                    if (element.active_flag != "0") {
+                        if (element.roll && element.roll !== "") {
+                            update["cultivator_global_attack_mod"] += element.roll + "[" + element.name + "]" + "+";
+                        }
+                    }
+                });
+                if (update["cultivator_global_attack_mod"] !== "") {
+                    update["cultivator_global_attack_mod"] = "[[" + update["cultivator_global_attack_mod"].replace(/\+(?=$)/, '') + "]]";
                 }
                 setAttrs(update, {
                     silent: true

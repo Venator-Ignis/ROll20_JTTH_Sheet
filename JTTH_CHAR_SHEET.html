@@ -1143,62 +1143,41 @@
                                     </div>
                                 </div>
                                 <div class="sheet-container-attacks">
-                                    <div class="sheet-container-panel sheet-panel-advantage">
-                                        <div class="sheet-container-body">
-                                            <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_cultivatoradvantage" value="0" checked="checked">
-                                                <span class="sheet-advantage-label">NONE</span>
-                                            </div>
-                                            <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_cultivatoradvantage" value="1">
-                                                <span class="sheet-advantage-label">TACTICAL ADVANTAGE</span>
-                                            </div>
-                                            <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_cultivatoradvantage" value="2">
-                                                <span class="sheet-advantage-label">EXTREME ADVANTAGE</span>
-                                            </div>
-                                            <div class="sheet-container-bar">
-                                                <input type="radio" name="attr_cultivatoradvantage" value="3">
-                                                <span class="sheet-advantage-label">ABSOLUTE ADVANTAGE</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <div class="sheet-container-header">ATTACK MODIFIERS</div>
-                                        <fieldset class="repeating_cultivatorattackmod">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-attack-mod">
-                                                <div class="sheet-fieldset-item">
-                                                    <div class="sheet-checkbox-cog">
-                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                        <span class="sheet-toggle-icon"></span>
-                                                    </div>
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-                                                    <div class="sheet-toggle-checked">
-                                                        <div class="sheet-form">
-                                                            <div class="sheet-form-header">Edit Modifier</div>
-                                                            <div class="sheet-form-body">
-                                                                <div class="sheet-form-group">
-                                                                    <label class="sheet-form-checkbox">
-                                                                        <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
-                                                                    </label>
-                                                                    <input type="text" name="attr_cultivator_global_attack_name">
-                                                                </div>
-                                                                <div class="sheet-form-group">
-                                                                    <label>Roll:</label>
-                                                                    <input type="text" name="attr_cultivator_global_attack_roll">
-                                                                </div>
+                                        <input class="sheet-hidden" type="checkbox" name="attr_cultivator_global_attack_mod_flag" title="@{cultivator_global_attack_mod_flag}" value="1">
+                                        <fieldset class="repeating_cultivatortohitmod">
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Edit Modifier</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
+                                                                </label>
+                                                                <input type="text" name="attr_cultivator_global_attack_name">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Roll:</label>
+                                                                <input type="text" name="attr_cultivator_global_attack_roll">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="sheet-toggle-unchecked">
-                                                        <div class="sheet-pc-attack-modifier">
-                                                            <div class="sheet-checkbox-image">
-                                                                <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
-                                                                <span></span>
-                                                            </div>
-                                                            <span name="attr_cultivator_global_attack_name"></span>
-                                                            <span name="attr_cultivator_global_attack_roll"></span>
+                                                </div>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-pc-attack-modifier">
+                                                        <div class="sheet-checkbox-image">
+                                                            <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
+                                                            <span></span>
                                                         </div>
+                                                        <span name="attr_cultivator_global_attack_name"></span>
+                                                        <span name="attr_cultivator_global_attack_roll"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1206,45 +1185,44 @@
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <div class="sheet-container-header">DAMAGE MODIFIERS</div>
+                                        <input class="sheet-hidden" type="checkbox" name="attr_cultivator_global_damage_mod_flag" title="@{cultivator_global_damage_mod_flag}" value="1">
                                         <fieldset class="repeating_cultivatordamagemod">
-                                            <div class="sheet-fieldset-item sheet-fieldset-item-damage-mod">
-                                                <div class="sheet-fieldset-item">
-                                                    <div class="sheet-checkbox-cog">
-                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                        <span class="sheet-toggle-icon"></span>
-                                                    </div>
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-                                                    <div class="sheet-toggle-checked">
-                                                        <div class="sheet-form">
-                                                            <div class="sheet-form-header">Edit Modifier</div>
-                                                            <div class="sheet-form-body">
-                                                                <div class="sheet-form-group">
-                                                                    <label class="sheet-form-checkbox">
-                                                                        <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
-                                                                    </label>
-                                                                    <input type="text" name="attr_cultivator_global_damage_name">
-                                                                </div>
-                                                                <div class="sheet-form-group">
-                                                                    <label>Damage:</label>
-                                                                    <input type="text" name="attr_cultivator_global_damage_damage" value="">
-                                                                </div>
-                                                                <div class="sheet-form-group">
-                                                                    <label>Type:</label>
-                                                                    <input type="text" name="attr_cultivator_global_damage_type" value="">
-                                                                </div>
+                                            <div class="sheet-fieldset-item">
+                                                <div class="sheet-checkbox-cog">
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                    <span class="sheet-toggle-icon"></span>
+                                                </div>
+                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                <div class="sheet-toggle-checked">
+                                                    <div class="sheet-form">
+                                                        <div class="sheet-form-header">Edit Modifier</div>
+                                                        <div class="sheet-form-body">
+                                                            <div class="sheet-form-group">
+                                                                <label class="sheet-form-checkbox">
+                                                                    <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
+                                                                </label>
+                                                                <input type="text" name="attr_cultivator_global_damage_name">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Damage:</label>
+                                                                <input type="text" name="attr_cultivator_global_damage_damage" value="">
+                                                            </div>
+                                                            <div class="sheet-form-group">
+                                                                <label>Type:</label>
+                                                                <input type="text" name="attr_cultivator_global_damage_type" value="">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="sheet-toggle-unchecked">
-                                                        <div class="sheet-pc-attack-damage-modifier">
-                                                            <div class="sheet-checkbox-image">
-                                                                <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
-                                                                <span></span>
-                                                            </div>
-                                                            <span name="attr_cultivator_global_damage_name"></span>
-                                                            <span name="attr_cultivator_global_damage_damage"></span>
-                                                            <span name="attr_cultivator_global_damage_type"></span>
+                                                </div>
+                                                <div class="sheet-toggle-unchecked">
+                                                    <div class="sheet-pc-attack-damage-modifier">
+                                                        <div class="sheet-checkbox-image">
+                                                            <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
+                                                            <span></span>
                                                         </div>
+                                                        <span name="attr_cultivator_global_damage_name"></span>
+                                                        <span name="attr_cultivator_global_damage_damage"></span>
+                                                        <span name="attr_cultivator_global_damage_type"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1253,122 +1231,152 @@
                                     <div class="sheet-container-panel sheet-panel-attacks">
                                         <div class="sheet-container-header">ATTACKS</div>
                                         <div class="sheet-container-body">
-                                            <fieldset class="repeating_cultivatormove">
-                                                <div class="sheet-fieldset-item sheet-fieldset-item-move">
+                                            <fieldset class="repeating_cultivatorattack">
+                                                <div class="sheet-fieldset-item">
                                                     <div class="sheet-checkbox-cog">
-                                                        <input type="checkbox" name="attr_options-flag" checked="checked" value="on">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
                                                         <span class="sheet-toggle-icon"></span>
                                                     </div>
                                                     <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
                                                     <div class="sheet-toggle-checked">
                                                         <div class="sheet-form">
-                                                            <div class="sheet-form-header">Edit Move</div>
+                                                            <div class="sheet-form-header">Edit Attack</div>
                                                             <div class="sheet-form-body">
                                                                 <div class="sheet-form-group">
                                                                     <label>Name:</label>
-                                                                    <input type="text" name="attr_name">
+                                                                    <input type="text" name="attr_atkname">
+                                                                </div>
+                                                                <div class="sheet-form-group">
                                                                     <label class="sheet-form-checkbox">
-                                                                        <input type="checkbox" name="attr_attack_flag" value="on">
-                                                                        <span>Attack</span>
+                                                                        <input type="checkbox" name="attr_atkflag" value="{{attack=1}}" checked="checked">
+                                                                        <span>Attack:</span>
                                                                     </label>
                                                                 </div>
-                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
-                                                                <div class="sheet-form-group sheet-toggle-checked">
-                                                                    <div class="sheet-form-fieldset">
-                                                                        <div class="sheet-form-fieldset-header">Attack</div>
-                                                                        <div class="sheet-form-fieldset-body">
-                                                                            <input type="hidden" name="attr_damage_flag">
-                                                                            <input type="hidden" name="attr_full_damage">
-                                                                            <div class="sheet-form-group">
-                                                                                <label>Type:</label>
-                                                                                <select name="attr_attack_type">
-                                                                                    <option value="Melee">Melee</option>
-                                                                                    <option value="Ranged">Ranged</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="sheet-form-group">
-                                                                                <label>Range/Reach:</label>
-                                                                                <input type="text" name="attr_attack_range">
-                                                                            </div>
-                                                                            <div class="sheet-form-group">
-                                                                                <label>To Hit:</label>
-                                                                                <select name="attr_attack_tohit">
-                                                                                    <option value="@{power}">Power</option>
-                                                                                    <option value="@{agility}">Agility</option>
-                                                                                    <option value="@{vitality}">Vitality</option>
-                                                                                    <option value="@{cultivation}">Cultivation</option>
-                                                                                    <option value="@{qi_control}">Qi Control</option>
-                                                                                    <option value="@{mental_strength}">Mental Strength</option>
-                                                                                </select>
-                                                                                <label>Bonus:</label>
-                                                                                <input type="text" name="attr_attack_bonus">
-                                                                            </div>
-                                                                            <div class="sheet-form-group">
-                                                                                <label>Damage 1:</label>
-                                                                                <input type="text" name="attr_attack_damage">
-                                                                                <select name="attr_attack_damage1attribute">
-                                                                                    <option value="none">None</option>
-                                                                                    <option value="@{power}">Power</option>
-                                                                                    <option value="@{agility}">Agility</option>
-                                                                                    <option value="@{vitality}">Vitality</option>
-                                                                                    <option value="@{cultivation}">Cultivation</option>
-                                                                                    <option value="@{qi_control}">Qi Control</option>
-                                                                                    <option value="@{mental_strength}">Mental Strength</option>
-                                                                                </select>
-                                                                                <label>Bonus:</label>
-                                                                                <input type="text" name="attr_attack_damage1bonus">
-                                                                                <label>Type:</label>
-                                                                                <input type="text" name="attr_attack_damagetype">
-                                                                            </div>
-                                                                            <div class="sheet-form-group">
-                                                                                <label>Damage 2:</label>
-                                                                                <input type="text" name="attr_attack_damage2">
-                                                                                <select name="attr_attack_damage2attribute">
-                                                                                    <option value="none">None</option>
-                                                                                    <option value="@{power}">Power</option>
-                                                                                    <option value="@{agility}">Agility</option>
-                                                                                    <option value="@{vitality}">Vitality</option>
-                                                                                    <option value="@{cultivation}">Cultivation</option>
-                                                                                    <option value="@{qi_control}">Qi Control</option>
-                                                                                    <option value="@{mental_strength}">Mental Strength</option>
-                                                                                </select>
-                                                                                <label>Bonus:</label>
-                                                                                <input type="text" name="attr_attack_damage2bonus">
-                                                                                <label>Type:</label>
-                                                                                <input type="text" name="attr_attack_damagetype2">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                <div class="sheet-form-group">
+                                                                    <select name="attr_atkattr_base">
+                                                                        <option value="@{power}" selected="selected">PWR</option>
+                                                                        <option value="@{agility}">AGI</option>
+                                                                        <option value="@{vitality}">VIT</option>
+                                                                        <option value="@{cultivation}">CUL</option>
+                                                                        <option value="@{qicontrol}">QIC</option>
+                                                                        <option value="@{mental}">MTL</option>
+                                                                        <option value="0">-</option>
+                                                                    </select>
+                                                                    <span>+</span>
+                                                                    <input type="text" name="attr_atkmod" placeholder="0">
                                                                 </div>
                                                                 <div class="sheet-form-group">
+                                                                    <label>Range:</label>
+                                                                    <input type="text" name="attr_atkrange">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" checked="checked">
+                                                                        <span>Damage 1</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Dmg</label>
+                                                                    <input type="text" name="attr_dmgbase">
+                                                                    <span>+</span>
+                                                                    <select name="attr_dmgattr">
+                                                                        <option value="@{power}" selected="selected">PWR</option>
+                                                                        <option value="@{agility}">AGI</option>
+                                                                        <option value="@{vitality}">VIT</option>
+                                                                        <option value="@{cultivation}">CUL</option>
+                                                                        <option value="@{qicontrol}">QIC</option>
+                                                                        <option value="@{mental}">MTL</option>
+                                                                        <option value="0">-</option>
+                                                                    </select>
+                                                                    <span>+</span>
+                                                                    <label>Mod</label>
+                                                                    <input type="text" name="attr_dmgmod">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Type:</label>
+                                                                    <input type="text" name="attr_dmgtype">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}">
+                                                                        <span>Damage 2</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Dmg</label>
+                                                                    <input type="text" name="attr_dmg2base">
+                                                                    <span>+</span>
+                                                                    <select name="attr_dmg2attr">
+                                                                        <option value="@{power}">PWR</option>
+                                                                        <option value="@{agility}">AGI</option>
+                                                                        <option value="@{vitality}">VIT</option>
+                                                                        <option value="@{cultivation}">CUL</option>
+                                                                        <option value="@{qicontrol}">QIC</option>
+                                                                        <option value="@{mental}">MTL</option>
+                                                                        <option value="0" selected="selected">-</option>
+                                                                    </select>
+                                                                    <span>+</span>
+                                                                    <label>Mod</label>
+                                                                    <input type="text" name="attr_dmg2mod">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Type:</label>
+                                                                    <input type="text" name="attr_dmg2type">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_saveflag" value="{{save=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][SAVE]]]}}">
+                                                                        <span>Attribute Check</span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <select name="attr_saveattr">
+                                                                        <option value="Power" selected="selected">PWR</option>
+                                                                        <option value="Agility">AGI</option>
+                                                                        <option value="Vitality">VIT</option>
+                                                                        <option value="Cultivation">CUL</option>
+                                                                        <option value="Qi Control">QIC</option>
+                                                                        <option value="Mental">MTL</option>
+                                                                    </select>
+                                                                    <label>vs DC:</label>
+                                                                    <select name="attr_savedc">
+                                                                        <option value="(@{power_dc})">PWR</option>
+                                                                        <option value="(@{agility_dc})">AGI</option>
+                                                                        <option value="(@{vitality_dc})">VIT</option>
+                                                                        <option value="(@{cultivation_dc})">CUL</option>
+                                                                        <option value="(@{qicontrol_dc})">QIC</option>
+                                                                        <option value="(@{mental_dc})">MTL</option>
+                                                                        <option value="(@{saveflat})">FLAT</option>
+                                                                    </select>
+                                                                    <input type="hidden" name="attr_savedc">
+                                                                    <input type="text" name="attr_saveflat" value="10">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Pass Effect:</label>
+                                                                    <input type="text" name="attr_saveeffect">
+                                                                </div>
+                                                                <div class="sheet-form-group sheet-form-group-column">
                                                                     <label>Description:</label>
-                                                                </div>
-                                                                <div class="sheet-form-group">
-                                                                    <textarea name="attr_description"></textarea>
+                                                                    <textarea name="attr_atk_desc"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="sheet-toggle-unchecked">
-                                                        <div class="sheet-move">
-                                                            <button type="roll" name="roll_move" value="@{rollbase}" class="sheet-fieldset-item-move-checked-roll sheet-btn-text">
-                                                                <div class="sheet-fieldset-item-move-checked-name">
-                                                                    <span name="attr_name"></span>
-                                                                </div>
-                                                                <input type="checkbox" name="attr_attack_flag" value="on" class="sheet-toggle" hidden>
-                                                                <div class="sheet-toggle-checked">
-                                                                    <div class="sheet-fieldset-item-move-checked-attack">
-                                                                        <span name="attr_attack_hitdamage"></span>
-                                                                    </div>
-                                                                </div>
-                                                            </button>
-                                                            <input type="hidden" name="attr_rollbase">
-                                                            <button type="roll" name="roll_dmg" value="@{full_damage}" class="sheet-btn-text">
-                                                                Roll Damage
+                                                        <div class="sheet-pc-attack">
+                                                            <input type="text" name="attr_atkbonus" class="sheet-hidden" value="">
+                                                            <input type="text" name="attr_atkdmgtype" class="sheet-hidden" value="">
+                                                            <button type="roll" name="roll_attack" value="@{rollbase}" class="sheet-attack-button">
+                                                                <span name="attr_atkname"></span>
+                                                                <span name="attr_atkbonus"></span>
+                                                                <span name="attr_atkdmgtype"></span>
                                                             </button>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <input type="hidden" name="attr_rollbase">
+                                                <input type="hidden" name="attr_rollbase_dmg">
+                                                <button type="roll" name="roll_attack_dmg" value="@{rollbase_dmg}" class="sheet-hidden"></button>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -2534,8 +2542,10 @@
         <input type="hidden" name="stealth_roll" value="0">
         <input type="hidden" name="survival_roll" value="0">
 
-        <input type="hidden" name="attr_mortal_global_damage_mod_type" value="none">
-        <input type="hidden" name="attr_mortal_global_attack_mod" value="0">
+        <input type="hidden" name="attr_global_damage_mod_type" value="none">
+        <input type="hidden" name="attr_global_attack_mod" value="0">
+        <input type="hidden" name="attr_cultivator_global_damage_mod_type" value="none">
+        <input type="hidden" name="attr_cultivator_global_attack_mod" value="0">
     </div>
 
     <div class="sheet-rolltemplates">
@@ -3370,7 +3380,8 @@
 
         ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
             on(`change:${attr}`, function() {
-                update_attacks(`${attr}`);
+                update_mortalattacks(`${attr}`);
+                update_cultivatorattacks(`${attr}`);
                 update_tool(`${attr}`);
                 switch (`${attr}`) {
                     case "power":
@@ -3437,15 +3448,32 @@
             }
 
             var attackid = eventinfo.sourceAttribute.substring(23, 43);
-            update_attacks(attackid);
+            update_mortalattacks(attackid);
         });
 
         on("change:repeating_mortaldamagemod remove:repeating_mortaldamagemod", function(eventinfo) {
-            update_globaldamage();
+            update_mortalglobaldamage();
         });
 
         on("change:repeating_mortaltohitmod remove:repeating_mortaltohitmod", function(eventinfo) {
-            update_globalattack();
+            update_mortalglobalattack();
+        });
+
+        on("change:repeating_cultivatorattack:atkname change:repeating_cultivatorattack:atkflag change:repeating_cultivatorattack:atkattr_base change:repeating_cultivatorattack:atkmod change:repeating_cultivatorattack:dmgflag change:repeating_cultivatorattack:dmgbase change:repeating_cultivatorattack:dmgattr change:repeating_cultivatorattack:dmgmod change:repeating_cultivatorattack:dmgtype change:repeating_cultivatorattack:dmg2flag change:repeating_cultivatorattack:dmg2base change:repeating_cultivatorattack:dmg2attr change:repeating_cultivatorattack:dmg2mod change:repeating_cultivatorattack:dmg2type change:repeating_cultivatorattack:saveflag change:repeating_cultivatorattack:savedc change:repeating_cultivatorattack:saveflat change:repeating_cultivatorattack:saveattr change:repeating_cultivatorattack:atkrange", function(eventinfo) {
+            if (eventinfo.sourceType === "sheetworker") {
+                return;
+            }
+
+            var attackid = eventinfo.sourceAttribute.substring(27, 47);
+            update_cultivatorattacks(attackid);
+        });
+
+        on("change:repeating_cultivatordamagemod remove:repeating_cultivatordamagemod", function(eventinfo) {
+            update_cultivatorglobaldamage();
+        });
+
+        on("change:repeating_cultivatortohitmod remove:repeating_cultivatortohitmod", function(eventinfo) {
+            update_cultivatorglobalattack();
         });
 
         on("change:global_damage_mod_flag", function(eventinfo) {
@@ -3469,7 +3497,8 @@
             if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
                 return;
             }
-            update_attacks("all");
+            update_mortalattacks("all");
+            update_cultivatorattacks("all");
         });
 
         on("change:durability-base change:durability-limit change:durability-bonus", function(eventinfo) {
@@ -3674,14 +3703,14 @@
             });
         };
 
-        var update_attacks = function(update_id, source) {
+        var update_mortalattacks = function(update_id, source) {
             console.log("DOING UPDATE_ATTACKS: " + update_id);
             if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
-                do_update_attack([update_id], source);
+                do_update_mortalattack([update_id], source);
             } else if (["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "all"].indexOf(update_id) > -1) {
                 getSectionIDs("repeating_mortalattack", function(idarray) {
                     if (update_id === "all") {
-                        do_update_attack(idarray);
+                        do_update_mortalattack(idarray);
                     } else {
                         var attack_attribs = [];
                         _.each(idarray, function(id) {
@@ -3698,7 +3727,7 @@
                                 }
                             });
                             if (attr_attack_ids.length > 0) {
-                                do_update_attack(attr_attack_ids);
+                                do_update_mortalattack(attr_attack_ids);
                             }
                         });
                     };
@@ -3706,7 +3735,7 @@
             };
         };
 
-        var do_update_attack = function(attack_array, source) {
+        var do_update_mortalattack = function(attack_array, source) {
             var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "global_damage_mod_roll", "global_damage_mod_type"];
             _.each(attack_array, function(attackid) {
                 attack_attribs.push("repeating_mortalattack_" + attackid + "_atkflag");
@@ -3892,7 +3921,7 @@
             });
         };
 
-        var update_globaldamage = function(callback) {
+        var update_mortalglobaldamage = function(callback) {
             getSectionIDs("mortaldamagemod", function(ids) {
                 if (ids) {
                     var fields = {};
@@ -3934,7 +3963,7 @@
                         setAttrs(update, {
                             silent: true
                         }, function() {
-                            update_attacks("all");
+                            update_mortalattacks("all");
                             if (typeof callback == "function") callback();
                         });
                     });
@@ -3942,7 +3971,7 @@
             });
         };
 
-        var update_globalattack = function(callback) {
+        var update_mortalglobalattack = function(callback) {
             getSectionIDs("mortaltohitmod", function(ids) {
                 if (ids) {
                     var fields = {};
@@ -3973,6 +4002,316 @@
                         });
                         if (update["global_attack_mod"] !== "") {
                             update["global_attack_mod"] = "[[" + update["global_attack_mod"].replace(/\+(?=$)/, '') + "]]";
+                        }
+                        setAttrs(update, {
+                            silent: true
+                        }, function() {
+                            if (typeof callback == "function") callback();
+                        });
+                    });
+                }
+            });
+        };
+
+        var update_cultivatorattacks = function(update_id, source) {
+            console.log("DOING UPDATE_ATTACKS: " + update_id);
+            if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
+                do_update_cultivatorattack([update_id], source);
+            } else if (["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "all"].indexOf(update_id) > -1) {
+                getSectionIDs("repeating_cultivatorattack", function(idarray) {
+                    if (update_id === "all") {
+                        do_update_cultivatorattack(idarray);
+                    } else {
+                        var attack_attribs = [];
+                        _.each(idarray, function(id) {
+                            attack_attribs.push("repeating_attack_" + id + "_atkattr_base");
+                            attack_attribs.push("repeating_attack_" + id + "_dmgattr");
+                            attack_attribs.push("repeating_attack_" + id + "_dmg2attr");
+                            attack_attribs.push("repeating_attack_" + id + "_savedc");
+                        });
+                        getAttrs(attack_attribs, function(v) {
+                            var attr_attack_ids = [];
+                            _.each(idarray, function(id) {
+                                if ((v["repeating_attack_" + id + "_atkattr_base"] && v["repeating_attack_" + id + "_atkattr_base"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmgattr"] && v["repeating_attack_" + id + "_dmgattr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmg2attr"] && v["repeating_attack_" + id + "_dmg2attr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_savedc"] && v["repeating_attack_" + id + "_savedc"].indexOf(update_id) > -1)) {
+                                    attr_attack_ids.push(id);
+                                }
+                            });
+                            if (attr_attack_ids.length > 0) {
+                                do_update_cultivatorattack(attr_attack_ids);
+                            }
+                        });
+                    };
+                });
+            };
+        };
+
+        var do_update_cultivatorattack = function(attack_array, source) {
+            var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "cultivator_global_damage_mod_roll", "cultivator_global_damage_mod_type"];
+            _.each(attack_array, function(attackid) {
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkflag");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkname");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkattr_base");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkmod");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgflag");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgbase");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgattr");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgmod");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgtype");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2flag");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2base");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2attr");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2mod");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2type");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveflag");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_savedc");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveeffect");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveflat");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkrange");
+                attack_attribs.push("repeating_cultivatorattack_" + attackid + "_cultivator_global_damage_mod_field");
+            });
+
+            getAttrs(attack_attribs, function(v) {
+                _.each(attack_array, function(attackid) {
+                    var callbacks = [];
+                    var update = {};
+                    var hbonus = "";
+                    var hdmg1 = "";
+                    var hdmg2 = "";
+                    var dmg = "";
+                    var dmg2 = "";
+                    var rollbase = "";
+                    var atkattr_abrev = "";
+                    var dmgattr_abrev = "";
+                    var dmg2attr_abrev = "";
+                    
+                    if (!v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] || v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] === "0") {
+                        atkattr_base = 0
+                    } else {
+                        atkattr_base = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].length - 1)], 10);
+                        atkattr_abrev = v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].length - 1).toUpperCase();
+                    };
+
+                    if (!v["repeating_cultivatorattack_" + attackid + "_dmgattr"] || v["repeating_cultivatorattack_" + attackid + "_dmgattr"] === "0") {
+                        dmgattr = 0;
+                    } else {
+                        dmgattr = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_dmgattr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmgattr"].length - 1)], 10);
+                        dmgattr_abrev = v["repeating_cultivatorattack_" + attackid + "_dmgattr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmgattr"].length - 1).toUpperCase();
+                    };
+
+                    if (!v["repeating_cultivatorattack_" + attackid + "_dmg2attr"] || v["repeating_cultivatorattack_" + attackid + "_dmg2attr"] === "0") {
+                        dmg2attr = 0;
+                    } else {
+                        dmg2attr = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].length - 1)], 10);
+                        dmg2attr_abrev = v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].length - 1).toUpperCase();
+                    };
+
+                    var dmgbase = v["repeating_cultivatorattack_" + attackid + "_dmgbase"] && v["repeating_cultivatorattack_" + attackid + "_dmgbase"] != "" ? v["repeating_cultivatorattack_" + attackid + "_dmgbase"] : 0;
+                    var dmg2base = v["repeating_cultivatorattack_" + attackid + "_dmg2base"] && v["repeating_cultivatorattack_" + attackid + "_dmg2base"] != "" ? v["repeating_cultivatorattack_" + attackid + "_dmg2base"] : 0;
+                    var dmgmod = v["repeating_cultivatorattack_" + attackid + "_dmgmod"] && isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_dmgmod"], 10)) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_dmgmod"], 10) : 0;
+                    var dmg2mod = v["repeating_cultivatorattack_" + attackid + "_dmg2mod"] && isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_dmg2mod"], 10)) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_dmg2mod"], 10) : 0;
+                    var dmgtype = v["repeating_cultivatorattack_" + attackid + "_dmgtype"] ? v["repeating_cultivatorattack_" + attackid + "_dmgtype"] + " " : "";
+                    var dmg2type = v["repeating_cultivatorattack_" + attackid + "_dmg2type"] ? v["repeating_cultivatorattack_" + attackid + "_dmg2type"] + " " : "";
+                    var atkmod = v["repeating_cultivatorattack_" + attackid + "_atkmod"] && v["repeating_cultivatorattack_" + attackid + "_atkmod"] != "" ? parseInt(v["repeating_cultivatorattack_" + attackid + "_atkmod"], 10) : 0;
+
+                    var cultivator_globaldamage = `[[${v.cultivator_global_damage_mod_roll && v.cultivator_global_damage_mod_roll !== "" ? v.cultivator_global_damage_mod_roll : "0"}]]`;
+                    var globalDamageType = v["cultivator_global_damage_mod_type"] || "";
+                    var gbdmg = " + " + cultivator_globaldamage + "[" + globalDamageType + "]"
+                    
+                    if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
+                        bonus_mod = atkattr_base + atkmod;
+                        plus_minus = bonus_mod > -1 ? "+" : "";
+                        bonus = plus_minus + bonus_mod;
+                    } else if (v["repeating_cultivatorattack_" + attackid + "_saveflag"] && v["repeating_cultivatorattack_" + attackid + "_saveflag"] != 0) {
+                        if (v["repeating_cultivatorattack_" + attackid + "_savedc"] && v["repeating_cultivatorattack_" + attackid + "_savedc"] === "(@{saveflat})") {
+                            var tempdc = isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_saveflat"])) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_saveflat"]) : "0";
+                        } else {
+                            var savedcattr = v["repeating_cultivatorattack_" + attackid + "_savedc"].replace(/^[^{]*{/, "").replace(/\_.*$/, "");
+                            var safe_attr = v[savedcattr] ? parseInt(v[savedcattr], 10) : 0;
+                            var tempdc = safe_attr;
+                        };
+                        bonus = "DC" + tempdc;
+                    } else {
+                        bonus = "-";
+                    }
+                    if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
+                        if (dmgbase === 0 && (dmgattr + dmgmod === 0)) {
+                            dmg = 0;
+                        }
+                        if (dmgbase != 0) {
+                            dmg = dmgbase;
+                        }
+                        if (dmgbase != 0 && (dmgattr + dmgmod != 0)) {
+                            dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
+                        }
+                        if (dmgattr + dmgmod != 0) {
+                            dmg = dmg + (dmgattr + dmgmod);
+                        }
+                        dmg = dmg + " " + dmgtype;
+                    } else {
+                        dmg = "";
+                    };
+                    if (v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0) {
+                        if (dmg2base === 0 && (dmg2attr + dmg2mod === 0)) {
+                            dmg2 = 0;
+                        }
+                        if (dmg2base != 0) {
+                            dmg2 = dmg2base;
+                        }
+                        if (dmg2base != 0 && (dmg2attr + dmg2mod != 0)) {
+                            dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
+                        }
+                        if (dmg2attr + dmg2mod != 0) {
+                            dmg2 = dmg2 + (dmg2attr + dmg2mod);
+                        }
+                        dmg2 = dmg2 + " " + dmg2type;
+                    } else {
+                        dmg2 = "";
+                    };
+                    dmgspacer = v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0 && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0 ? "+ " : "";
+                    r2 = v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0 ? "{{r2=[[" : "{{r2=[[";
+                    if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
+                        if (atkmod != 0) {
+                            hbonus = atkmod + "[MOD]" + hbonus
+                        };
+                        if (atkattr_base != 0) {
+                            hbonus = atkattr_base + "[" + atkattr_abrev + "]" + hbonus
+                        };
+                    } else {
+                        hbonus = "";
+                    }
+                    if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
+                        if (dmgmod != 0) {
+                            hdmg1 = " + " + dmgmod + "[MOD]" + hdmg1
+                        };
+                        if (dmgattr != 0) {
+                            hdmg1 = " + " + dmgattr + "[" + dmgattr_abrev + "]" + hdmg1
+                        };
+                        hdmg1 = dmgbase + hdmg1;
+                    } else {
+                        hdmg1 = "0";
+                    }
+                    if (v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0) {
+                        if (dmg2mod != 0) {
+                            hdmg2 = " + " + dmg2mod + "[MOD]" + hdmg2
+                        };
+                        if (dmg2attr != 0) {
+                            hdmg2 = " + " + dmg2attr + "[" + dmg2attr_abrev + "]" + hdmg2
+                        };
+                        hdmg2 = dmg2base + hdmg2;
+                    } else {
+                        hdmg2 = "0";
+                    }
+
+                    if (v.dtype === "full") {
+                        pickbase = "full";
+                        rollbase = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}}  {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
+                    } else if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
+                        pickbase = "pick";
+                        rollbase = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} @{charname_output}";
+                    } else if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
+                        pickbase = "dmg";
+                        rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}"
+                    } else {
+                        pickbase = "empty";
+                        rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}"
+                    }
+                    update["repeating_cultivatorattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
+                    update["repeating_cultivatorattack_" + attackid + "_atkbonus"] = bonus;
+                    update["repeating_cultivatorattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
+                    update["repeating_cultivatorattack_" + attackid + "_rollbase"] = rollbase;
+                    
+                    setAttrs(update, {
+                        silent: true
+                    }, function() {
+                        callbacks.forEach(function(callback) {
+                            callback();
+                        })
+                    });
+                });
+            });
+        };
+
+        var update_cultivatorglobaldamage = function(callback) {
+            getSectionIDs("cultivatordamagemod", function(ids) {
+                if (ids) {
+                    var fields = {};
+                    var attr_name_list = [];
+                    ids.forEach(function(id) {
+                        fields[id] = {};
+                        attr_name_list.push(`repeating_cultivatordamagemod_${id}_cultivator_global_damage_active_flag`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_name`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_damage`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_type`);
+                    });
+
+                    getAttrs(attr_name_list, function(attrs) {
+                        var regex = /^repeating_cultivatordamagemod_(.+)_cultivator_global_damage_(active_flag|name|damage|type)$/;
+                        _.each(attrs, function(obj, name) {
+                            var r = regex.exec(name);
+                            if (r) {
+                                fields[r[1]][r[2]] = obj;
+                            };
+                        });
+
+                        var update = {
+                            cultivator_global_damage_mod_roll: "",
+                            cultivator_global_damage_mod_type: ""
+                        };
+
+                        console.log("GLOBALDAMAGE");
+                        _.each(fields, function(element) {
+                            if (element.active_flag != "0") {
+                                if (element.name && element.name !== "") {
+                                    update["cultivator_global_damage_mod_roll"] += element.damage + '[' + element.name + ']' + "+";
+                                }
+                                if (element.type && element.type !== "") {
+                                    update["cultivator_global_damage_mod_type"] += element.type + "/";
+                                }
+                            }
+                        });
+
+                        update["cultivator_global_damage_mod_roll"] = update["cultivator_global_damage_mod_roll"].replace(/\+(?=$)/, '');
+                        update["cultivator_global_damage_mod_type"] = update["cultivator_global_damage_mod_type"].replace(/\/(?=$)/, '');
+
+                        setAttrs(update, {
+                            silent: true
+                        }, function() {
+                            update_cultivatorattacks("all");
+                            if (typeof callback == "function") callback();
+                        });
+                    });
+                }
+            });
+        };
+
+        var update_cultivatorglobalattack = function(callback) {
+            getSectionIDs("cultivatortohitmod", function(ids) {
+                if (ids) {
+                    var fields = {};
+                    var attr_name_list = [];
+                    ids.forEach(function(id) {
+                        fields[id] = {};
+                        attr_name_list.push(`repeating_cultivatortohitmod_${id}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${id}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${id}_cultivator_global_attack_name`);
+                    });
+                    getAttrs(attr_name_list, function(attrs) {
+                        var regex = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name)$/;
+                        _.each(attrs, function(obj, name) {
+                            var r = regex.exec(name);
+                            if (r) {
+                                fields[r[1]][r[2]] = obj;
+                            }
+                        });
+
+                        var update = {
+                            cultivator_global_attack_mod: ""
+                        };
+                        console.log("GLOBALATTACK");
+                        _.each(fields, function(element) {
+                            if (element.active_flag != "0") {
+                                if (element.roll && element.roll !== "") {
+                                    update["cultivator_global_attack_mod"] += element.roll + "[" + element.name + "]" + "+";
+                                }
+                            }
+                        });
+                        if (update["cultivator_global_attack_mod"] !== "") {
+                            update["cultivator_global_attack_mod"] = "[[" + update["cultivator_global_attack_mod"].replace(/\+(?=$)/, '') + "]]";
                         }
                         setAttrs(update, {
                             silent: true
@@ -4260,7 +4599,7 @@
                 } else {
                     update["evasion-full"] = base + limit + Math.floor((agility - limit) / 2) + bonus;
                 }
-                
+
                 setAttrs(update, {
                     silent: true
                 });
@@ -4290,7 +4629,7 @@
         let clamp = function(value, min, max) {
             return Math.min(Math.max(value, min), max);
         };
-        
+
         let isDefined = function(value) {
             return value !== null && typeof(value) !== 'undefined';
         };        
