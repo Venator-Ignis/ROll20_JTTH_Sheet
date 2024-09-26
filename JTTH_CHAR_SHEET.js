@@ -1,3 +1,4 @@
+
 ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
     on(`change:${attr}_base change:${attr}_bonus`, function(){
         update_attr(`${attr}`);
@@ -343,7 +344,7 @@ var update_attacks = function(update_id, source) {
 };
 
 var do_update_attack = function(attack_array, source) {
-    var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "global_damage_mod_roll"];
+    var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "global_damage_mod_roll", "global_damage_mod_type"];
     _.each(attack_array, function(attackid) {
         attack_attribs.push("repeating_mortalattack_" + attackid + "_atkflag");
         attack_attribs.push("repeating_mortalattack_" + attackid + "_atkname");
@@ -385,21 +386,21 @@ var do_update_attack = function(attack_array, source) {
                 atkattr_base = 0
             } else {
                 atkattr_base = parseInt(v[v["repeating_mortalattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_mortalattack_" + attackid + "_atkattr_base"].length - 1)], 10);
-                atkattr_abrev = v["repeating_mortalattack_" + attackid + "_atkattr_base"].substring(2, text.length-1).toUpperCase();
+                atkattr_abrev = v["repeating_mortalattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_mortalattack_" + attackid + "_atkattr_base"].length - 1).toUpperCase();
             };
 
             if (!v["repeating_mortalattack_" + attackid + "_dmgattr"] || v["repeating_mortalattack_" + attackid + "_dmgattr"] === "0") {
                 dmgattr = 0;
             } else {
                 dmgattr = parseInt(v[v["repeating_mortalattack_" + attackid + "_dmgattr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmgattr"].length - 1)], 10);
-                dmgattr_abrev = v["repeating_mortalattack_" + attackid + "_dmgattr"].toUpperCase();
+                dmgattr_abrev = v["repeating_mortalattack_" + attackid + "_dmgattr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmgattr"].length - 1).toUpperCase();
             };
 
             if (!v["repeating_mortalattack_" + attackid + "_dmg2attr"] || v["repeating_mortalattack_" + attackid + "_dmg2attr"] === "0") {
                 dmg2attr = 0;
             } else {
                 dmg2attr = parseInt(v[v["repeating_mortalattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmg2attr"].length - 1)], 10);
-                dmg2attr_abrev = v["repeating_mortalattack_" + attackid + "_dmg2attr"].toUpperCase();
+                dmg2attr_abrev = v["repeating_mortalattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmg2attr"].length - 1).toUpperCase();
             };
 
             var dmgbase = v["repeating_mortalattack_" + attackid + "_dmgbase"] && v["repeating_mortalattack_" + attackid + "_dmgbase"] != "" ? v["repeating_mortalattack_" + attackid + "_dmgbase"] : 0;
@@ -409,6 +410,10 @@ var do_update_attack = function(attack_array, source) {
             var dmgtype = v["repeating_mortalattack_" + attackid + "_dmgtype"] ? v["repeating_mortalattack_" + attackid + "_dmgtype"] + " " : "";
             var dmg2type = v["repeating_mortalattack_" + attackid + "_dmg2type"] ? v["repeating_mortalattack_" + attackid + "_dmg2type"] + " " : "";
             var atkmod = v["repeating_mortalattack_" + attackid + "_atkmod"] && v["repeating_mortalattack_" + attackid + "_atkmod"] != "" ? parseInt(v["repeating_mortalattack_" + attackid + "_atkmod"], 10) : 0;
+
+            var mortal_globaldamage = `[[${v.global_damage_mod_roll && v.global_damage_mod_roll !== "" ? v.global_damage_mod_roll : "0"}]]`;
+            var globalDamageType = v["global_damage_mod_type"] || "";
+            var gbdmg = " + " + mortal_globaldamage + "[" + globalDamageType + "]"
             
             if (v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0) {
                 bonus_mod = atkattr_base + atkmod;
@@ -494,21 +499,21 @@ var do_update_attack = function(attack_array, source) {
             } else {
                 hdmg2 = "0";
             }
-            var mortal_globaldamage = `[[${v.global_damage_mod_roll && v.global_damage_mod_roll !== "" ? v.global_damage_mod_roll : "0"}]]`;
+
             if (v.dtype === "full") {
                 pickbase = "full";
-                rollbase = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} {{globaldamage=" + mortal_globaldamage + "}} {{globaldamagetype=@{global_damage_mod_type}}} @{charname_output}";
+                rollbase = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}}  {{globaldamagetype=@{global_damage_mod_type}}} @{charname_output}";
             } else if (v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0) {
                 pickbase = "pick";
                 rollbase = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_mortalattack_attack_dmg)}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} @{charname_output}";
             } else if (v["repeating_mortalattack_" + attackid + "_dmgflag"] && v["repeating_mortalattack_" + attackid + "_dmgflag"] != 0) {
                 pickbase = "dmg";
-                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamage=" + mortal_globaldamage + "}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}"
+                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}"
             } else {
                 pickbase = "empty";
                 rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}"
             }
-            update["repeating_mortalattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamage=" + mortal_globaldamage + "}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
+            update["repeating_mortalattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
             update["repeating_mortalattack_" + attackid + "_atkbonus"] = bonus;
             update["repeating_mortalattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
             update["repeating_mortalattack_" + attackid + "_rollbase"] = rollbase;
@@ -561,7 +566,7 @@ var update_globaldamage = function(callback) {
                 });
 
                 update["global_damage_mod_roll"] = update["global_damage_mod_roll"].replace(/\+(?=$)/, '');
-                update["global_damage_mod_type"] = update["global_damage_mod_type"].replace(/\+(?=$)/, '');
+                update["global_damage_mod_type"] = update["global_damage_mod_type"].replace(/\/(?=$)/, '');
 
                 setAttrs(update, {
                     silent: true
@@ -925,4 +930,4 @@ let clamp = function(value, min, max) {
 
 let isDefined = function(value) {
     return value !== null && typeof(value) !== 'undefined';
-};
+};        
