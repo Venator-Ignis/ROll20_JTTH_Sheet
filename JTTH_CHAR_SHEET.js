@@ -1,6 +1,5 @@
-
 ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
-    on(`change:${attr}_base change:${attr}_bonus`, function(){
+    on(`change:${attr}_base change:${attr}_bonus`, function() {
         update_attr(`${attr}`);
     });
 });
@@ -13,25 +12,20 @@
         switch (`${attr}`) {
             case "power":
                 update_weight()
-                update_skills(["athletics", "grapple", "intimidation","survival"]);
+                update_skills(["athletics", "grapple", "intimidation", "survival"]);
                 break;
             case "agility":
                 update_initiative();
-                update_skills([,"acrobatics","discretion","stealth","fine_arts","forgery","navigation","performance"]);
-                break;
-            case "vitality":
-                update_skills(["", ""]);
-            case "cultivation":
-                update_skills(["", ""]);
+                update_skills([, "acrobatics", "discretion", "stealth", "fine_arts", "forgery", "navigation", "performance"]);
                 break;
             case "qicontrol":
-                update_skills(["history","medicine"]);
+                update_skills(["history", "medicine"]);
                 break;
             case "mental":
-                update_skills(["charm","deceit","disguise","persuade","fine_arts","forgery","navigation","history","medicine","intuition","investigation","perception","survival"]);
+                update_skills(["charm", "deceit", "disguise", "persuade", "fine_arts", "forgery", "navigation", "history", "medicine", "intuition", "investigation", "perception", "survival"]);
                 break;
             case "appearance":
-                update_skills(["charm","deceit","disguise","persuade","intimidation","performance"]);
+                update_skills(["charm", "deceit", "disguise", "persuade", "intimidation", "performance"]);
                 break;
             default:
                 false;
@@ -39,11 +33,11 @@
     });
 });
 
-on("change:initiative_bonus", function(eventInfo){
+on("change:initiative_bonus", function(eventInfo) {
     update_initiative();
 });
 
-on('change:mortal-level', function(eventInfo){
+on('change:mortal-level', function(eventInfo) {
     ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
         update_attr(`${attr}`);
     });
@@ -66,7 +60,7 @@ on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped
 });
 
 on("change:acrobatics_flat change:athletics_flat change:charm_flat change:deceit_flat change:disguise_flat change:fine_arts_flat change:forgery_flat change:grapple_flat change:history_flat change:intuition_flat change:intimidation_flat change:investigation_flat change:medicine_flat change:navigation_flat change:perception_flat change:performance_flat change:persuade_flat change:discretion_flat change:stealth_flat change:survival_flat", function(eventinfo) {
-    update_skills(["acrobatics","athletics","charm","deceit","discretion","disguise","fine_arts","forgery","grapple","history","intuition","intimidation","investigation","medicine","navigation","perception","performance","persuade","stealth","survival"]);
+    update_skills(["acrobatics", "athletics", "charm", "deceit", "discretion", "disguise", "fine_arts", "forgery", "grapple", "history", "intuition", "intimidation", "investigation", "medicine", "navigation", "perception", "performance", "persuade", "stealth", "survival"]);
 });
 
 on("change:repeating_mortalattack:atkname change:repeating_mortalattack:atkflag change:repeating_mortalattack:atkattr_base change:repeating_mortalattack:atkmod change:repeating_mortalattack:dmgflag change:repeating_mortalattack:dmgbase change:repeating_mortalattack:dmgattr change:repeating_mortalattack:dmgmod change:repeating_mortalattack:dmgtype change:repeating_mortalattack:dmg2flag change:repeating_mortalattack:dmg2base change:repeating_mortalattack:dmg2attr change:repeating_mortalattack:dmg2mod change:repeating_mortalattack:dmg2type change:repeating_mortalattack:saveflag change:repeating_mortalattack:savedc change:repeating_mortalattack:saveflat change:repeating_mortalattack:saveattr change:repeating_mortalattack:atkrange", function(eventinfo) {
@@ -400,7 +394,7 @@ var do_update_mortalattack = function(attack_array, source) {
             var atkattr_abrev = "";
             var dmgattr_abrev = "";
             var dmg2attr_abrev = "";
-            
+
             if (!v["repeating_mortalattack_" + attackid + "_atkattr_base"] || v["repeating_mortalattack_" + attackid + "_atkattr_base"] === "0") {
                 atkattr_base = 0
             } else {
@@ -433,7 +427,7 @@ var do_update_mortalattack = function(attack_array, source) {
             var mortal_globaldamage = `[[${v.global_damage_mod_roll && v.global_damage_mod_roll !== "" ? v.global_damage_mod_roll : "0"}]]`;
             var globalDamageType = v["global_damage_mod_type"] || "";
             var gbdmg = " + " + mortal_globaldamage + "[" + globalDamageType + "]"
-            
+
             if (v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0) {
                 bonus_mod = atkattr_base + atkmod;
                 plus_minus = bonus_mod > -1 ? "+" : "";
@@ -536,7 +530,7 @@ var do_update_mortalattack = function(attack_array, source) {
             update["repeating_mortalattack_" + attackid + "_atkbonus"] = bonus;
             update["repeating_mortalattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
             update["repeating_mortalattack_" + attackid + "_rollbase"] = rollbase;
-            
+
             setAttrs(update, {
                 silent: true
             }, function() {
@@ -710,7 +704,7 @@ var do_update_cultivatorattack = function(attack_array, source) {
             var atkattr_abrev = "";
             var dmgattr_abrev = "";
             var dmg2attr_abrev = "";
-            
+
             if (!v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] || v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] === "0") {
                 atkattr_base = 0
             } else {
@@ -743,7 +737,7 @@ var do_update_cultivatorattack = function(attack_array, source) {
             var cultivator_globaldamage = `[[${v.cultivator_global_damage_mod_roll && v.cultivator_global_damage_mod_roll !== "" ? v.cultivator_global_damage_mod_roll : "0"}]]`;
             var globalDamageType = v["cultivator_global_damage_mod_type"] || "";
             var gbdmg = " + " + cultivator_globaldamage + "[" + globalDamageType + "]"
-            
+
             if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
                 bonus_mod = atkattr_base + atkmod;
                 plus_minus = bonus_mod > -1 ? "+" : "";
@@ -837,16 +831,16 @@ var do_update_cultivatorattack = function(attack_array, source) {
                 rollbase = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} @{charname_output}";
             } else if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
                 pickbase = "dmg";
-                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_cultivator_global_damage_mod_type}}} @{charname_output}"
+                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}"
             } else {
                 pickbase = "empty";
                 rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}"
             }
-            update["repeating_cultivatorattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_cultivator_global_damage_mod_type}}} @{charname_output}";
+            update["repeating_cultivatorattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
             update["repeating_cultivatorattack_" + attackid + "_atkbonus"] = bonus;
             update["repeating_cultivatorattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
             update["repeating_cultivatorattack_" + attackid + "_rollbase"] = rollbase;
-            
+
             setAttrs(update, {
                 silent: true
             }, function() {
@@ -1045,7 +1039,7 @@ var update_weight = function() {
             }
 
             size_slots += slots_modifier;
-            
+
             var str_base = parseInt(v.power);
             var str = str_base;
             var weight_maximum = str * 30;
@@ -1128,7 +1122,7 @@ var update_skills = function(skills_array) {
                 });
 
                 var roll = 0;
-                switch(s) {
+                switch (s) {
                     case "acrobatics":
                     case "discretion":
                     case "stealth":
@@ -1170,7 +1164,7 @@ var update_skills = function(skills_array) {
                 }
 
                 var total = flat + item_bonus;
-                
+
                 if (total > 0) {
                     update[s] = roll + "d6 + " + total;
                 } else {
@@ -1193,10 +1187,10 @@ var update_skills = function(skills_array) {
 
 var update_all_ability_checks = function() {
     update_initiative();
-    update_skills(["acrobatics","athletics","charm","deceit","discretion","disguise","fine_arts","forgery","grapple","history","intuition","intimidation","investigation","medicine","navigation","perception","performance","persuade","stealth","survival"]);
+    update_skills(["acrobatics", "athletics", "charm", "deceit", "discretion", "disguise", "fine_arts", "forgery", "grapple", "history", "intuition", "intimidation", "investigation", "medicine", "navigation", "perception", "performance", "persuade", "stealth", "survival"]);
 };
 
-var update_durability = function(){
+var update_durability = function() {
     getAttrs(["durability-base", "durability-limit", "durability-bonus", "power", "agility", "vitality", "cultivation", "qicontrol", "mental"], function(v) {
         var update = {};
 
@@ -1233,7 +1227,7 @@ var update_evasion = function() {
     });
 };
 
-var update_reduction = function(){
+var update_reduction = function() {
     getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(v) {
         var update = {};
 
@@ -1259,4 +1253,4 @@ let clamp = function(value, min, max) {
 
 let isDefined = function(value) {
     return value !== null && typeof(value) !== 'undefined';
-};        
+};
