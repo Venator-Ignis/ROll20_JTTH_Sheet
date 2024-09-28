@@ -1,1256 +1,650 @@
-['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
-    on(`change:${attr}_base change:${attr}_bonus`, function() {
-        update_attr(`${attr}`);
-    });
+"power agility vitality cultivation qicontrol mental appearance".split(" ").forEach(c => {
+  on(`change:${c}_base change:${c}_bonus change:${c}_dc_bonus`, function() {
+    update_attr(`${c}`);
+  });
 });
-
-['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
-    on(`change:${attr}`, function() {
-        update_mortalattacks(`${attr}`);
-        update_cultivatorattacks(`${attr}`);
-        update_tool(`${attr}`);
-        switch (`${attr}`) {
-            case "power":
-                update_weight()
-                update_skills(["athletics", "grapple", "intimidation", "survival"]);
-                break;
-            case "agility":
-                update_initiative();
-                update_skills([, "acrobatics", "discretion", "stealth", "fine_arts", "forgery", "navigation", "performance"]);
-                break;
-            case "qicontrol":
-                update_skills(["history", "medicine"]);
-                break;
-            case "mental":
-                update_skills(["charm", "deceit", "disguise", "persuade", "fine_arts", "forgery", "navigation", "history", "medicine", "intuition", "investigation", "perception", "survival"]);
-                break;
-            case "appearance":
-                update_skills(["charm", "deceit", "disguise", "persuade", "intimidation", "performance"]);
-                break;
-            default:
-                false;
-        }
-    });
-});
-
-on("change:initiative_bonus", function(eventInfo) {
-    update_initiative();
-});
-
-on('change:mortal-level', function(eventInfo) {
-    ['power', 'agility', 'vitality', 'cultivation', 'qicontrol', 'mental', 'appearance'].forEach(attr => {
-        update_attr(`${attr}`);
-    });
-});
-
-on("change:repeating_inventory:itemmodifiers change:repeating_inventory:equipped change:repeating_inventory:carried", function(eventinfo) {
-    if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
-        return;
+"power agility vitality cultivation qicontrol mental appearance".split(" ").forEach(c => {
+  on(`change:${c}`, function() {
+    update_mortalattacks(`${c}`);
+    update_cultivatorattacks(`${c}`);
+    switch(`${c}`) {
+      case "power":
+        update_weight();
+        update_skills(["athletics", "grapple", "intimidation", "survival"]);
+        break;
+      case "agility":
+        update_initiative();
+        update_evasion();
+        update_skills("acrobatics discretion stealth fine_arts forgery navigation performance".split(" "));
+        break;
+      case "vitality":
+        update_durability();
+        break;
+      case "qicontrol":
+        update_skills(["history", "medicine"]);
+        break;
+      case "mental":
+        update_skills("charm deceit disguise persuade fine_arts forgery navigation history medicine intuition investigation perception survival".split(" "));
+        break;
+      case "appearance":
+        update_skills("charm deceit disguise persuade intimidation performance".split(" "));
+        break;
+      default:
+        !1;
     }
-    var itemid = eventinfo.sourceAttribute.substring(20, 40);
-    getAttrs(["repeating_inventory_" + itemid + "_itemmodifiers"], function(v) {
-        if (v["repeating_inventory_" + itemid + "_itemmodifiers"]) {
-            check_itemmodifiers(v["repeating_inventory_" + itemid + "_itemmodifiers"], eventinfo.previousValue);
-        };
+  });
+});
+"acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" ").forEach(c => {
+  on(`change:${c}_flat`, function(d) {
+    "sheetworker" !== d.sourceType && update_skills([`${c}`]);
+  });
+});
+on("change:initiative_bonus", function() {
+  update_initiative();
+});
+on("change:mortal-level", function() {
+  "power agility vitality cultivation qicontrol mental appearance".split(" ").forEach(c => {
+    update_attr(`${c}`);
+  });
+});
+on("change:repeating_inventory:itemmodifiers change:repeating_inventory:equipped change:repeating_inventory:carried", function(c) {
+  if (!c.sourceType || "sheetworker" !== c.sourceType) {
+    var d = c.sourceAttribute.substring(20, 40);
+    getAttrs(["repeating_inventory_" + d + "_itemmodifiers"], function(a) {
+      a["repeating_inventory_" + d + "_itemmodifiers"] && check_itemmodifiers(a["repeating_inventory_" + d + "_itemmodifiers"], c.previousValue);
     });
+  }
 });
-
-on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod change:use_inventory_slots change:inventory_slots_mod change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier", function() {
-    update_weight();
+on("change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:encumberance_setting change:size change:carrying_capacity_mod change:use_inventory_slots change:inventory_slots_mod change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier", 
+function() {
+  update_weight();
 });
-
-on("change:acrobatics_flat change:athletics_flat change:charm_flat change:deceit_flat change:disguise_flat change:fine_arts_flat change:forgery_flat change:grapple_flat change:history_flat change:intuition_flat change:intimidation_flat change:investigation_flat change:medicine_flat change:navigation_flat change:perception_flat change:performance_flat change:persuade_flat change:discretion_flat change:stealth_flat change:survival_flat", function(eventinfo) {
-    update_skills(["acrobatics", "athletics", "charm", "deceit", "discretion", "disguise", "fine_arts", "forgery", "grapple", "history", "intuition", "intimidation", "investigation", "medicine", "navigation", "perception", "performance", "persuade", "stealth", "survival"]);
+on("change:repeating_mortalattack:atkname change:repeating_mortalattack:atkflag change:repeating_mortalattack:atkattr_base change:repeating_mortalattack:atkmod change:repeating_mortalattack:dmgflag change:repeating_mortalattack:dmgbase change:repeating_mortalattack:dmgattr change:repeating_mortalattack:dmgmod change:repeating_mortalattack:dmgtype change:repeating_mortalattack:dmg2flag change:repeating_mortalattack:dmg2base change:repeating_mortalattack:dmg2attr change:repeating_mortalattack:dmg2mod change:repeating_mortalattack:dmg2type change:repeating_mortalattack:dmg3flag change:repeating_mortalattack:dmg3base change:repeating_mortalattack:dmg3attr change:repeating_mortalattack:dmg3mod change:repeating_mortalattack:dmg3type change:repeating_mortalattack:saveflag change:repeating_mortalattack:savedc change:repeating_mortalattack:saveflat change:repeating_mortalattack:saveattr change:repeating_mortalattack:atkrange", 
+function(c) {
+  "sheetworker" !== c.sourceType && (c = c.sourceAttribute.substring(23, 43), update_mortalattacks(c));
 });
-
-on("change:repeating_mortalattack:atkname change:repeating_mortalattack:atkflag change:repeating_mortalattack:atkattr_base change:repeating_mortalattack:atkmod change:repeating_mortalattack:dmgflag change:repeating_mortalattack:dmgbase change:repeating_mortalattack:dmgattr change:repeating_mortalattack:dmgmod change:repeating_mortalattack:dmgtype change:repeating_mortalattack:dmg2flag change:repeating_mortalattack:dmg2base change:repeating_mortalattack:dmg2attr change:repeating_mortalattack:dmg2mod change:repeating_mortalattack:dmg2type change:repeating_mortalattack:saveflag change:repeating_mortalattack:savedc change:repeating_mortalattack:saveflat change:repeating_mortalattack:saveattr change:repeating_mortalattack:atkrange", function(eventinfo) {
-    if (eventinfo.sourceType === "sheetworker") {
-        return;
+on("change:repeating_mortaldamagemod remove:repeating_mortaldamagemod", function() {
+  update_mortalglobaldamage();
+});
+on("change:repeating_mortaltohitmod remove:repeating_mortaltohitmod", function() {
+  update_mortalglobalattack();
+});
+on("change:repeating_cultivatorattack:atkname change:repeating_cultivatorattack:atkflag change:repeating_cultivatorattack:atkattr_base change:repeating_cultivatorattack:atkmod change:repeating_cultivatorattack:dmgflag change:repeating_cultivatorattack:dmgbase change:repeating_cultivatorattack:dmgattr change:repeating_cultivatorattack:dmgmod change:repeating_cultivatorattack:dmgtype change:repeating_cultivatorattack:dmg2flag change:repeating_cultivatorattack:dmg2base change:repeating_cultivatorattack:dmg2attr change:repeating_cultivatorattack:dmg2mod change:repeating_cultivatorattack:dmg2type change:repeating_cultivatorattack:dmg3flag change:repeating_cultivatorattack:dmg3base change:repeating_cultivatorattack:dmg3attr change:repeating_cultivatorattack:dmg3mod change:repeating_cultivatorattack:dmg3type change:repeating_cultivatorattack:saveflag change:repeating_cultivatorattack:savedc change:repeating_cultivatorattack:saveflat change:repeating_cultivatorattack:saveattr change:repeating_cultivatorattack:atkrange", 
+function(c) {
+  "sheetworker" !== c.sourceType && (c = c.sourceAttribute.substring(27, 47), update_cultivatorattacks(c));
+});
+on("change:repeating_cultivatordamagemod remove:repeating_cultivatordamagemod", function() {
+  update_cultivatorglobaldamage();
+});
+on("change:repeating_cultivatortohitmod remove:repeating_cultivatortohitmod", function() {
+  update_cultivatorglobalattack();
+});
+on("change:global_damage_mod_flag", function(c) {
+  getSectionIDs("mortaldamagemod", function(d) {
+    var a = {};
+    "1" === c.newValue ? d && 0 !== d.length || (d = generateRowID(), a[`repeating_mortaldamagemod_${d}_global_damage_active_flag`] = "1") : _.each(d, function(b) {
+      a[`repeating_mortaldamagemod_${b}_global_damage_active_flag`] = "0";
+    });
+    setAttrs(a);
+  });
+});
+on("change:global_dc_bonus change:global_attribute_bonus", function(c) {
+  "power agility vitality cultivation qicontrol mental".split(" ").forEach(d => {
+    update_attr(`${d}`);
+  });
+});
+on("change:dtype", function(c) {
+  c.sourceType && "sheetworker" === c.sourceType || (update_mortalattacks("all"), update_cultivatorattacks("all"));
+});
+on("change:durability-base change:durability-limit change:durability-bonus", function() {
+  update_durability();
+});
+on("change:evasion-base change:evasion-limit change:evasion-bonus", function() {
+  update_evasion();
+});
+on("change:reduction-base change:reduction-armour change:reduction-bonus", function() {
+  update_reduction();
+});
+on("remove:repeating_inventory", function(c) {
+  var d = c.sourceAttribute.substring(20, 40);
+  c.removedInfo && c.removedInfo["repeating_inventory_" + d + "_itemmodifiers"] && check_itemmodifiers(c.removedInfo["repeating_inventory_" + d + "_itemmodifiers"]);
+  update_weight();
+});
+var check_itemmodifiers = function(c, d) {
+  c = c.toLowerCase().split(",");
+  d && (prevmods = d.toLowerCase().split(","), c = _.union(c, prevmods));
+  _.each(c, function(a) {
+    -1 < a.indexOf("power") && update_attr("power");
+    -1 < a.indexOf("agility") && update_attr("agility");
+    -1 < a.indexOf("vitality") && update_attr("vitality");
+    -1 < a.indexOf("cultivation") && update_attr("cultivation");
+    -1 < a.indexOf("qicontrol") && update_attr("qicontrol");
+    -1 < a.indexOf("mental") && update_attr("mental");
+    -1 < a.indexOf("skill checks") && update_all_skill_checks();
+    -1 < a.indexOf("acrobatics") && update_skills(["acrobatics"]);
+    -1 < a.indexOf("athletics") && update_skills(["athletics"]);
+    -1 < a.indexOf("charm") && update_skills(["charm"]);
+    -1 < a.indexOf("deceit") && update_skills(["deceit"]);
+    -1 < a.indexOf("discretion") && update_skills(["discretion"]);
+    -1 < a.indexOf("disguise") && update_skills(["disguise"]);
+    -1 < a.indexOf("fine_arts") && update_skills(["fine_arts"]);
+    -1 < a.indexOf("forgery") && update_skills(["forgery"]);
+    -1 < a.indexOf("grapple") && update_skills(["grapple"]);
+    -1 < a.indexOf("history") && update_skills(["history"]);
+    -1 < a.indexOf("intuition") && update_skills(["intuition"]);
+    -1 < a.indexOf("intimidation") && update_skills(["intimidation"]);
+    -1 < a.indexOf("investigation") && update_skills(["investigation"]);
+    -1 < a.indexOf("medicine") && update_skills(["medicine"]);
+    -1 < a.indexOf("navigation") && update_skills(["navigation"]);
+    -1 < a.indexOf("perception") && update_skills(["perception"]);
+    -1 < a.indexOf("performance") && update_skills(["performance"]);
+    -1 < a.indexOf("persuade") && update_skills(["persuade"]);
+    -1 < a.indexOf("stealth") && update_skills(["stealth"]);
+    -1 < a.indexOf("survival") && update_skills(["survival"]);
+  });
+}, update_attr = function(c) {
+  var d = {}, a = [c + "_base", c + "_bonus", c + "_dc_bonus", "global_dc_bonus", "mortal-level", "global_attribute_bonus"];
+  getSectionIDs("repeating_inventory", function(b) {
+    _.each(b, function(g) {
+      a.push("repeating_inventory_" + g + "_equipped");
+      a.push("repeating_inventory_" + g + "_itemmodifiers");
+    });
+    getAttrs(a, function(g) {
+      var f = g[c + "_base"] && !isNaN(parseInt(g[c + "_base"], 10)) ? parseInt(g[c + "_base"], 10) : 10, h = g[c + "_bonus"] && !isNaN(parseInt(g[c + "_bonus"], 10)) ? parseInt(g[c + "_bonus"], 10) : 0, k = g.global_attribute_bonus && !isNaN(parseInt(g.global_attribute_bonus, 10)) ? parseInt(g.global_attribute_bonus, 10) : 0, l = g.global_dc_bonus && !isNaN(parseInt(g.global_dc_bonus, 10)) ? parseInt(g.global_dc_bonus, 10) : 0, m = g[c + "_dc_bonus"] && !isNaN(parseInt(g[c + "_dc_bonus"], 10)) ? 
+      parseInt(g[c + "_dc_bonus"], 10) : 0, n = g["mortal-level"] && !isNaN(parseInt(g["mortal-level"], 10)) ? parseInt(g["mortal-level"], 10) : 0, p = 0, u = 0;
+      _.each(b, function(q) {
+        g["repeating_inventory_" + q + "_equipped"] && "1" !== g["repeating_inventory_" + q + "_equipped"] || !g["repeating_inventory_" + q + "_itemmodifiers"] || !g["repeating_inventory_" + q + "_itemmodifiers"].toLowerCase().indexOf(-1 < c) || (q = g["repeating_inventory_" + q + "_itemmodifiers"].toLowerCase().split(","), _.each(q, function(r) {
+          -1 < r.indexOf(c) && (-1 < r.indexOf(":") ? p = (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) && r > p ? r : p : u = -1 < r.indexOf("-") ? (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) ? u - r : u : (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) ? u + r : u);
+        }));
+      });
+      d[c + "_flag"] = 0 != h || 0 != k || 0 < u || p > f ? 1 : 0;
+      finalattr = (f > p ? f : p) + h + u + k;
+      d[c + "_dc"] = Math.floor(finalattr * (3.5 + Math.floor(n / 7))) + l + m;
+      d[c] = finalattr;
+      setAttrs(d);
+    });
+  });
+}, update_initiative = function() {
+  var c = ["agility", "initiative_bonus"];
+  getSectionIDs("repeating_inventory", function(d) {
+    _.each(d, function(a) {
+      c.push("repeating_inventory_" + a + "_equipped");
+      c.push("repeating_inventory_" + a + "_itemmodifiers");
+    });
+    getAttrs(c, function(a) {
+      var b = {}, g = parseInt(a.agility) || 0, f = parseInt(a.dexterity_mod, 10);
+      a.initiative_bonus && !isNaN(parseInt(a.initiative_bonus, 10)) && (f += parseInt(a.initiative_bonus, 10));
+      _.each(d, function(h) {
+        a["repeating_inventory_" + h + "_equipped"] && "1" === a["repeating_inventory_" + h + "_equipped"] && a["repeating_inventory_" + h + "_itemmodifiers"] && -1 < a["repeating_inventory_" + h + "_itemmodifiers"].toLowerCase().indexOf("initiative") && (h = a["repeating_inventory_" + h + "_itemmodifiers"].toLowerCase().split(","), _.each(h, function(k) {
+          -1 < k.indexOf("initiative") && (f = -1 < k.indexOf("-") ? (k = isNaN(parseInt(k.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(k.replace(/[^0-9]/g, ""), 10)) ? f - k : f : (k = isNaN(parseInt(k.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(k.replace(/[^0-9]/g, ""), 10)) ? f + k : f);
+        }));
+      });
+      0 != f % 1 && (f = parseFloat(f.toPrecision(12)));
+      b.initiative = g + (parseInt(a.final_init) ? `d6+${parseInt(a.final_init)}` : "d6");
+      setAttrs(b, {silent:!0});
+    });
+  });
+}, update_mortalattacks = function(c, d) {
+  console.log("DOING MORTAL_UPDATE_ATTACKS: " + c);
+  "-" === c.substring(0, 1) && 20 === c.length ? do_update_mortalattack([c], d) : -1 < "power agility vitality cultivation qicontrol mental all".split(" ").indexOf(c) && getSectionIDs("repeating_mortalattack", function(a) {
+    if ("all" === c) {
+      do_update_mortalattack(a);
+    } else {
+      var b = [];
+      _.each(a, function(g) {
+        b.push("repeating_attack_" + g + "_atkattr_base");
+        b.push("repeating_attack_" + g + "_dmgattr");
+        b.push("repeating_attack_" + g + "_dmg2attr");
+        b.push("repeating_attack_" + g + "_dmg3attr");
+        b.push("repeating_attack_" + g + "_savedc");
+      });
+      getAttrs(b, function(g) {
+        var f = [];
+        _.each(a, function(h) {
+          (g["repeating_attack_" + h + "_atkattr_base"] && -1 < g["repeating_attack_" + h + "_atkattr_base"].indexOf(c) || g["repeating_attack_" + h + "_dmgattr"] && -1 < g["repeating_attack_" + h + "_dmgattr"].indexOf(c) || g["repeating_attack_" + h + "_dmg2attr"] && -1 < g["repeating_attack_" + h + "_dmg2attr"].indexOf(c) || g["repeating_attack_" + h + "_dmg3attr"] && -1 < g["repeating_attack_" + h + "_dmg3attr"].indexOf(c) || g["repeating_attack_" + h + "_savedc"] && -1 < g["repeating_attack_" + 
+          h + "_savedc"].indexOf(c)) && f.push(h);
+        });
+        0 < f.length && do_update_mortalattack(f);
+      });
     }
-
-    var attackid = eventinfo.sourceAttribute.substring(23, 43);
-    update_mortalattacks(attackid);
-});
-
-on("change:repeating_mortaldamagemod remove:repeating_mortaldamagemod", function(eventinfo) {
-    update_mortalglobaldamage();
-});
-
-on("change:repeating_mortaltohitmod remove:repeating_mortaltohitmod", function(eventinfo) {
-    update_mortalglobalattack();
-});
-
-on("change:repeating_cultivatorattack:atkname change:repeating_cultivatorattack:atkflag change:repeating_cultivatorattack:atkattr_base change:repeating_cultivatorattack:atkmod change:repeating_cultivatorattack:dmgflag change:repeating_cultivatorattack:dmgbase change:repeating_cultivatorattack:dmgattr change:repeating_cultivatorattack:dmgmod change:repeating_cultivatorattack:dmgtype change:repeating_cultivatorattack:dmg2flag change:repeating_cultivatorattack:dmg2base change:repeating_cultivatorattack:dmg2attr change:repeating_cultivatorattack:dmg2mod change:repeating_cultivatorattack:dmg2type change:repeating_cultivatorattack:saveflag change:repeating_cultivatorattack:savedc change:repeating_cultivatorattack:saveflat change:repeating_cultivatorattack:saveattr change:repeating_cultivatorattack:atkrange", function(eventinfo) {
-    if (eventinfo.sourceType === "sheetworker") {
-        return;
-    }
-
-    var attackid = eventinfo.sourceAttribute.substring(27, 47);
-    update_cultivatorattacks(attackid);
-});
-
-on("change:repeating_cultivatordamagemod remove:repeating_cultivatordamagemod", function(eventinfo) {
-    update_cultivatorglobaldamage();
-});
-
-on("change:repeating_cultivatortohitmod remove:repeating_cultivatortohitmod", function(eventinfo) {
-    update_cultivatorglobalattack();
-});
-
-on("change:global_damage_mod_flag", function(eventinfo) {
-    getSectionIDs("mortaldamagemod", function(ids) {
-        var update = {};
-        if (eventinfo.newValue === "1") {
-            if (!ids || ids.length === 0) {
-                var rowid = generateRowID();
-                update[`repeating_mortaldamagemod_${rowid}_global_damage_active_flag`] = "1";
-            }
+  });
+}, do_update_mortalattack = function(c) {
+  var d = "level dtype power agility vitality cultivation qicontrol mental global_damage_mod_roll global_damage_mod_type".split(" ");
+  _.each(c, function(a) {
+    d.push("repeating_mortalattack_" + a + "_atkflag");
+    d.push("repeating_mortalattack_" + a + "_atkname");
+    d.push("repeating_mortalattack_" + a + "_atkattr_base");
+    d.push("repeating_mortalattack_" + a + "_atkmod");
+    d.push("repeating_mortalattack_" + a + "_dmgflag");
+    d.push("repeating_mortalattack_" + a + "_dmgbase");
+    d.push("repeating_mortalattack_" + a + "_dmgattr");
+    d.push("repeating_mortalattack_" + a + "_dmgmod");
+    d.push("repeating_mortalattack_" + a + "_dmgtype");
+    d.push("repeating_mortalattack_" + a + "_dmg2flag");
+    d.push("repeating_mortalattack_" + a + "_dmg2base");
+    d.push("repeating_mortalattack_" + a + "_dmg2attr");
+    d.push("repeating_mortalattack_" + a + "_dmg2mod");
+    d.push("repeating_mortalattack_" + a + "_dmg2type");
+    d.push("repeating_mortalattack_" + a + "_dmg3flag");
+    d.push("repeating_mortalattack_" + a + "_dmg3base");
+    d.push("repeating_mortalattack_" + a + "_dmg3attr");
+    d.push("repeating_mortalattack_" + a + "_dmg3mod");
+    d.push("repeating_mortalattack_" + a + "_dmg3type");
+    d.push("repeating_mortalattack_" + a + "_saveflag");
+    d.push("repeating_mortalattack_" + a + "_savedc");
+    d.push("repeating_mortalattack_" + a + "_saveeffect");
+    d.push("repeating_mortalattack_" + a + "_saveflat");
+    d.push("repeating_mortalattack_" + a + "_atkrange");
+    d.push("repeating_mortalattack_" + a + "_global_damage_mod_field");
+  });
+  getAttrs(d, function(a) {
+    _.each(c, function(b) {
+      var g = [], f = {}, h = "", k = "", l = "", m = "", n = "", p = "", u = p = "", q = "", r = "", v = "", t = "";
+      a["repeating_mortalattack_" + b + "_atkattr_base"] && "0" !== a["repeating_mortalattack_" + b + "_atkattr_base"] ? (atkattr_base = parseInt(a[a["repeating_mortalattack_" + b + "_atkattr_base"].substring(2, a["repeating_mortalattack_" + b + "_atkattr_base"].length - 1)], 10), p = a["repeating_mortalattack_" + b + "_atkattr_base"].substring(2, a["repeating_mortalattack_" + b + "_atkattr_base"].length - 1).toUpperCase()) : atkattr_base = 0;
+      a["repeating_mortalattack_" + b + "_dmgattr"] && "0" !== a["repeating_mortalattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1)], 10), u = a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
+      a["repeating_mortalattack_" + b + "_dmg2attr"] && "0" !== a["repeating_mortalattack_" + b + "_dmg2attr"] ? (dmg2attr = parseInt(a[a["repeating_mortalattack_" + b + "_dmg2attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg2attr"].length - 1)], 10), q = a["repeating_mortalattack_" + b + "_dmg2attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg2attr"].length - 1).toUpperCase()) : dmg2attr = 0;
+      a["repeating_mortalattack_" + b + "_dmg3attr"] && "0" !== a["repeating_mortalattack_" + b + "_dmg3attr"] ? (dmg3attr = parseInt(a[a["repeating_mortalattack_" + b + "_dmg3attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg3attr"].length - 1)], 10), r = a["repeating_mortalattack_" + b + "_dmg3attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg3attr"].length - 1).toUpperCase()) : dmg3attr = 0;
+      var A = a["repeating_mortalattack_" + b + "_dmgbase"] && "" != a["repeating_mortalattack_" + b + "_dmgbase"] ? a["repeating_mortalattack_" + b + "_dmgbase"] : 0, B = a["repeating_mortalattack_" + b + "_dmg2base"] && "" != a["repeating_mortalattack_" + b + "_dmg2base"] ? a["repeating_mortalattack_" + b + "_dmg2base"] : 0, C = a["repeating_mortalattack_" + b + "_dmg3base"] && "" != a["repeating_mortalattack_" + b + "_dmg3base"] ? a["repeating_mortalattack_" + b + "_dmg3base"] : 0, x = a["repeating_mortalattack_" + 
+      b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_mortalattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_mortalattack_" + b + "_dmg3mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_mortalattack_" + 
+      b + "_dmg3mod"], 10) : 0, E = a["repeating_mortalattack_" + b + "_dmgtype"] ? a["repeating_mortalattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_mortalattack_" + b + "_dmg2type"] ? a["repeating_mortalattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_mortalattack_" + b + "_dmg3type"] ? a["repeating_mortalattack_" + b + "_dmg3type"] + " " : "", H = a["repeating_mortalattack_" + b + "_atkmod"] && "" != a["repeating_mortalattack_" + b + "_atkmod"] ? parseInt(a["repeating_mortalattack_" + 
+      b + "_atkmod"], 10) : 0, w = "+" + `[[${a.global_damage_mod_roll && "" !== a.global_damage_mod_roll ? a.global_damage_mod_roll : "0"}]]` + "[" + (a.global_damage_mod_type || "") + "]";
+      if (a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"]) {
+        bonus_mod = atkattr_base + H, plus_minus = -1 < bonus_mod ? "+" : "", bonus = plus_minus + bonus_mod;
+      } else if (a["repeating_mortalattack_" + b + "_saveflag"] && 0 != a["repeating_mortalattack_" + b + "_saveflag"]) {
+        if (a["repeating_mortalattack_" + b + "_savedc"] && "(@{saveflat})" === a["repeating_mortalattack_" + b + "_savedc"]) {
+          var D = !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_saveflat"])) ? parseInt(a["repeating_mortalattack_" + b + "_saveflat"]) : "0";
         } else {
-            _.each(ids, function(rowid) {
-                update[`repeating_mortaldamagemod_${rowid}_global_damage_active_flag`] = "0";
-            });
+          D = a["repeating_mortalattack_" + b + "_savedc"].replace(/^[^{]*{/, "").replace(/_.*$/, ""), D = a[D] ? parseInt(a[D], 10) : 0;
         }
-        setAttrs(update);
+        bonus = "DC" + D;
+      } else {
+        bonus = "-";
+      }
+      a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 === A && 0 === dmgattr + x && (m = 0), 0 != A && (m = A), 0 != A && 0 != dmgattr + x && (m = 0 < dmgattr + x ? m + "+" : m), 0 != dmgattr + x && (m += dmgattr + x), m = m + " " + E) : m = "";
+      a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? (0 === B && 0 === dmg2attr + y && (n = 0), 0 != B && (n = B), 0 != B && 0 != dmg2attr + y && (n = 0 < dmg2attr + y ? n + "+" : n), 0 != dmg2attr + y && (n += dmg2attr + y), n = n + " " + F) : n = "";
+      a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? (0 === C && 0 === dmg3attr + z && (v = 0), 0 != C && (v = C), 0 != C && 0 != dmg3attr + z && (n = 0 < dmg3attr + z ? v + "+" : v), 0 != dmg3attr + z && (v += dmg3attr + z), v = v + " " + G) : v = "";
+      dmgspacer1 = a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] && a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? "+ " : "";
+      dmgspacer2 = a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] && a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? "+ " : "";
+      r2 = "{{r2=[[";
+      a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (0 != H && (h = H + "[MOD]" + h), 0 != atkattr_base && (h = atkattr_base + "[" + p + "]" + h)) : h = "";
+      a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + u + "]" + k), k = A + k) : k = "0";
+      a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? (0 != y && (l = "+" + y + "[MOD]" + l), 0 != dmg2attr && (l = "+" + dmg2attr + "[" + q + "]" + l), l = B + l) : l = "0";
+      a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? (0 != z && (t = "+" + z + "[MOD]" + t), 0 != dmg3attr && (t = "+" + dmg3attr + "[" + r + "]" + t), t = C + t) : t = "0";
+      "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}}  {{globaldamagetype=@{global_damage_mod_type}}} @{charname_output}") : 
+      a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_mortalattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} @{charname_output}") : a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (pickbase = "dmg", 
+      p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
+      f["repeating_mortalattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
+      f["repeating_mortalattack_" + b + "_atkbonus"] = bonus;
+      f["repeating_mortalattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + v + " ";
+      f["repeating_mortalattack_" + b + "_rollbase"] = p;
+      setAttrs(f, {silent:!0}, function() {
+        g.forEach(function(I) {
+          I();
+        });
+      });
     });
-});
-
-on("change:dtype", function(eventinfo) {
-    if (eventinfo.sourceType && eventinfo.sourceType === "sheetworker") {
-        return;
+  });
+}, update_mortalglobaldamage = function(c) {
+  getSectionIDs("mortaldamagemod", function(d) {
+    if (d) {
+      var a = {}, b = [];
+      d.forEach(function(g) {
+        a[g] = {};
+        b.push(`repeating_mortaldamagemod_${g}_global_damage_active_flag`, `repeating_mortaldamagemod_${g}_global_damage_name`, `repeating_mortaldamagemod_${g}_global_damage_damage`, `repeating_mortaldamagemod_${g}_global_damage_type`);
+      });
+      getAttrs(b, function(g) {
+        var f = /^repeating_mortaldamagemod_(.+)_global_damage_(active_flag|name|damage|type)$/;
+        _.each(g, function(k, l) {
+          (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+        });
+        var h = {global_damage_mod_roll:"", global_damage_mod_type:""};
+        console.log("MORTAL GLOBALDAMAGE");
+        _.each(a, function(k) {
+          "0" != k.active_flag && (k.name && "" !== k.name && (h.global_damage_mod_roll += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (h.global_damage_mod_type += k.type + "/"));
+        });
+        h.global_damage_mod_roll = h.global_damage_mod_roll.replace(/\+(?=$)/, "");
+        h.global_damage_mod_type = h.global_damage_mod_type.replace(/\/(?=$)/, "");
+        setAttrs(h, {silent:!0}, function() {
+          update_mortalattacks("all");
+          "function" == typeof c && c();
+        });
+      });
     }
-    update_mortalattacks("all");
-    update_cultivatorattacks("all");
-});
-
-on("change:durability-base change:durability-limit change:durability-bonus", function(eventinfo) {
-    update_durability();
-});
-
-on("change:evasion-base change:evasion-limit change:evasion-bonus", function(eventinfo) {
-    update_evasion();
-});
-
-on("change:reduction-base change:reduction-armour change:reduction-bonus", function(eventinfo) {
-    update_reduction();
-});
-
-on("remove:repeating_inventory", function(eventinfo) {
-    var itemid = eventinfo.sourceAttribute.substring(20, 40);
-
-    if (eventinfo.removedInfo && eventinfo.removedInfo["repeating_inventory_" + itemid + "_itemmodifiers"]) {
-        check_itemmodifiers(eventinfo.removedInfo["repeating_inventory_" + itemid + "_itemmodifiers"]);
+  });
+}, update_mortalglobalattack = function(c) {
+  getSectionIDs("mortaltohitmod", function(d) {
+    if (d) {
+      var a = {}, b = [];
+      d.forEach(function(g) {
+        a[g] = {};
+        b.push(`repeating_mortaltohitmod_${g}_global_attack_active_flag`, `repeating_mortaltohitmod_${g}_global_attack_roll`, `repeating_mortaltohitmod_${g}_global_attack_name`);
+      });
+      getAttrs(b, function(g) {
+        var f = /^repeating_mortaltohitmod_(.+)_global_attack_(active_flag|roll|name)$/;
+        _.each(g, function(k, l) {
+          (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+        });
+        var h = {global_attack_mod:""};
+        console.log("MORTAL GLOBALATTACK");
+        _.each(a, function(k) {
+          "0" != k.active_flag && k.roll && "" !== k.roll && (h.global_attack_mod += k.roll + "[" + k.name + "]+");
+        });
+        "" !== h.global_attack_mod && (h.global_attack_mod = "[[" + h.global_attack_mod.replace(/\+(?=$)/, "") + "]]");
+        setAttrs(h, {silent:!0}, function() {
+          "function" == typeof c && c();
+        });
+      });
     }
-
-    update_weight();
-});
-
-var check_itemmodifiers = function(modifiers, previousValue) {
-    var mods = modifiers.toLowerCase().split(",");
-    if (previousValue) {
-        prevmods = previousValue.toLowerCase().split(",");
-        mods = _.union(mods, prevmods);
-    };
-    _.each(mods, function(mod) {
-        if (mod.indexOf("power") > -1) {
-            update_attr("power");
-        };
-        if (mod.indexOf("agility") > -1) {
-            update_attr("agility");
-        };
-        if (mod.indexOf("vitality") > -1) {
-            update_attr("vitality");
-        };
-        if (mod.indexOf("cultivation") > -1) {
-            update_attr("cultivation");
-        };
-        if (mod.indexOf("qicontrol") > -1) {
-            update_attr("qicontrol");
-        };
-        if (mod.indexOf("mental") > -1) {
-            update_attr("mental");
-        };
-        if (mod.indexOf("skill checks") > -1) {
-            update_all_skill_checks();
-        };
-        if (mod.indexOf("acrobatics") > -1) {
-            update_skills(["acrobatics"]);
-        };
-        if (mod.indexOf("athletics") > -1) {
-            update_skills(["athletics"]);
-        };
-        if (mod.indexOf("charm") > -1) {
-            update_skills(["charm"]);
-        };
-        if (mod.indexOf("deceit") > -1) {
-            update_skills(["deceit"]);
-        };
-        if (mod.indexOf("discretion") > -1) {
-            update_skills(["discretion"]);
-        };
-        if (mod.indexOf("disguise") > -1) {
-            update_skills(["disguise"]);
-        };
-        if (mod.indexOf("fine_arts") > -1) {
-            update_skills(["fine_arts"]);
-        };
-        if (mod.indexOf("forgery") > -1) {
-            update_skills(["forgery"]);
-        };
-        if (mod.indexOf("grapple") > -1) {
-            update_skills(["grapple"]);
-        };
-        if (mod.indexOf("history") > -1) {
-            update_skills(["history"]);
-        };
-        if (mod.indexOf("intuition") > -1) {
-            update_skills(["intuition"]);
-        };
-        if (mod.indexOf("intimidation") > -1) {
-            update_skills(["intimidation"]);
-        };
-        if (mod.indexOf("investigation") > -1) {
-            update_skills(["investigation"]);
-        };
-        if (mod.indexOf("medicine") > -1) {
-            update_skills(["medicine"]);
-        };
-        if (mod.indexOf("navigation") > -1) {
-            update_skills(["navigation"]);
-        };
-        if (mod.indexOf("perception") > -1) {
-            update_skills(["perception"]);
-        };
-        if (mod.indexOf("performance") > -1) {
-            update_skills(["performance"]);
-        };
-        if (mod.indexOf("persuade") > -1) {
-            update_skills(["persuade"]);
-        };
-        if (mod.indexOf("stealth") > -1) {
-            update_skills(["stealth"]);
-        };
-        if (mod.indexOf("survival") > -1) {
-            update_skills(["survival"]);
-        };
-    });
-};
-
-var update_attr = function(attr) {
-    var update = {};
-    var attr_fields = [attr + "_base", attr + "_bonus", attr + "_dc_bonus", "global_dc_mod", "mortal-level"];
-    getSectionIDs("repeating_inventory", function(idarray) {
-        _.each(idarray, function(currentID, i) {
-            attr_fields.push("repeating_inventory_" + currentID + "_equipped");
-            attr_fields.push("repeating_inventory_" + currentID + "_itemmodifiers");
+  });
+}, update_cultivatorattacks = function(c, d) {
+  console.log("DOING CULTIVATOR_UPDATE_ATTACKS: " + c);
+  "-" === c.substring(0, 1) && 20 === c.length ? do_update_cultivatorattack([c], d) : -1 < "power agility vitality cultivation qicontrol mental all".split(" ").indexOf(c) && getSectionIDs("repeating_cultivatorattack", function(a) {
+    if ("all" === c) {
+      do_update_cultivatorattack(a);
+    } else {
+      var b = [];
+      _.each(a, function(g) {
+        b.push("repeating_attack_" + g + "_atkattr_base");
+        b.push("repeating_attack_" + g + "_dmgattr");
+        b.push("repeating_attack_" + g + "_dmg2attr");
+        b.push("repeating_attack_" + g + "_savedc");
+      });
+      getAttrs(b, function(g) {
+        var f = [];
+        _.each(a, function(h) {
+          (g["repeating_attack_" + h + "_atkattr_base"] && -1 < g["repeating_attack_" + h + "_atkattr_base"].indexOf(c) || g["repeating_attack_" + h + "_dmgattr"] && -1 < g["repeating_attack_" + h + "_dmgattr"].indexOf(c) || g["repeating_attack_" + h + "_dmg2attr"] && -1 < g["repeating_attack_" + h + "_dmg2attr"].indexOf(c) || g["repeating_attack_" + h + "_savedc"] && -1 < g["repeating_attack_" + h + "_savedc"].indexOf(c)) && f.push(h);
         });
-        getAttrs(attr_fields, function(v) {
-            var base = v[attr + "_base"] && !isNaN(parseInt(v[attr + "_base"], 10)) ? parseInt(v[attr + "_base"], 10) : 10;
-            var bonus = v[attr + "_bonus"] && !isNaN(parseInt(v[attr + "_bonus"], 10)) ? parseInt(v[attr + "_bonus"], 10) : 0;
-            var global_dc_mod = v["global_dc_bonus"] && !isNaN(parseInt(v["global_dc_bonus"], 10)) ? parseInt(v["global_dc_bonus"], 10) : 0;
-            var attr_dc_bonus = v[attr + "_dc_bonus"] && !isNaN(parseInt(v[attr + "_dc_bonus"], 10)) ? parseInt(v[attr + "_dc_bonus"], 10) : 0;
-            var level = v["mortal-level"] && !isNaN(parseInt(v["mortal-level"], 10)) ? parseInt(v["mortal-level"], 10) : 0;
-            var item_base = 0;
-            var item_bonus = 0;
-            _.each(idarray, function(currentID) {
-                if ((!v["repeating_inventory_" + currentID + "_equipped"] || v["repeating_inventory_" + currentID + "_equipped"] === "1") && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf(attr > -1)) {
-                    var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
-                    _.each(mods, function(mod) {
-                        if (mod.indexOf(attr) > -1) {
-                            if (mod.indexOf(":") > -1) {
-                                var new_base = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                item_base = new_base && new_base > item_base ? new_base : item_base;
-                            } else if (mod.indexOf("-") > -1) {
-                                var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                item_bonus = new_mod ? item_bonus - new_mod : item_bonus;
-                            } else {
-                                var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                item_bonus = new_mod ? item_bonus + new_mod : item_bonus;
-                            }
-                        };
-                    });
-                }
-            });
-
-            update[attr + "_flag"] = bonus != 0 || item_bonus > 0 || item_base > base ? 1 : 0;
-            base = base > item_base ? base : item_base;
-            finalattr = base + bonus + item_bonus;
-
-            var finaldc = Math.floor(finalattr * (3.5 + Math.floor(level / 7))) + global_dc_mod + attr_dc_bonus;
-            update[attr + "_dc"] = finaldc;
-            update[attr] = finalattr
-            setAttrs(update);
-        });
-    });
-};
-
-var update_initiative = function() {
-    var attrs_to_get = ["agility", "initiative_bonus"];
-    getSectionIDs("repeating_inventory", function(idarray) {
-        _.each(idarray, function(currentID, i) {
-            attrs_to_get.push("repeating_inventory_" + currentID + "_equipped");
-            attrs_to_get.push("repeating_inventory_" + currentID + "_itemmodifiers");
-        });
-        getAttrs(attrs_to_get, function(v) {
-            var update = {};
-            var agility = parseInt(v.agility) || 0;
-            var final_init = parseInt(v["dexterity_mod"], 10);
-            if (v["initiative_bonus"] && !isNaN(parseInt(v["initiative_bonus"], 10))) {
-                final_init = final_init + parseInt(v["initiative_bonus"], 10);
-            }
-            _.each(idarray, function(currentID) {
-                if (v["repeating_inventory_" + currentID + "_equipped"] && v["repeating_inventory_" + currentID + "_equipped"] === "1" && v["repeating_inventory_" + currentID + "_itemmodifiers"] && v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf("initiative") > -1) {
-                    var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
-                    _.each(mods, function(mod) {
-                        if (mod.indexOf("initiative") > -1) {
-                            if (mod.indexOf("-") > -1) {
-                                var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                final_init = new_mod ? final_init - new_mod : final_init;
-                            } else {
-                                var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                final_init = new_mod ? final_init + new_mod : final_init;
-                            }
-                        }
-                    });
-                }
-            });
-            if (final_init % 1 != 0) {
-                final_init = parseFloat(final_init.toPrecision(12));
-            }
-            update["initiative"] = agility + (parseInt(v.final_init) ? `d6 + ${parseInt(v.final_init)}` : 'd6');
-            setAttrs(update, {
-                silent: true
-            });
-        });
-    });
-};
-
-var update_mortalattacks = function(update_id, source) {
-    console.log("DOING UPDATE_ATTACKS: " + update_id);
-    if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
-        do_update_mortalattack([update_id], source);
-    } else if (["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "all"].indexOf(update_id) > -1) {
-        getSectionIDs("repeating_mortalattack", function(idarray) {
-            if (update_id === "all") {
-                do_update_mortalattack(idarray);
-            } else {
-                var attack_attribs = [];
-                _.each(idarray, function(id) {
-                    attack_attribs.push("repeating_attack_" + id + "_atkattr_base");
-                    attack_attribs.push("repeating_attack_" + id + "_dmgattr");
-                    attack_attribs.push("repeating_attack_" + id + "_dmg2attr");
-                    attack_attribs.push("repeating_attack_" + id + "_savedc");
-                });
-                getAttrs(attack_attribs, function(v) {
-                    var attr_attack_ids = [];
-                    _.each(idarray, function(id) {
-                        if ((v["repeating_attack_" + id + "_atkattr_base"] && v["repeating_attack_" + id + "_atkattr_base"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmgattr"] && v["repeating_attack_" + id + "_dmgattr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmg2attr"] && v["repeating_attack_" + id + "_dmg2attr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_savedc"] && v["repeating_attack_" + id + "_savedc"].indexOf(update_id) > -1)) {
-                            attr_attack_ids.push(id);
-                        }
-                    });
-                    if (attr_attack_ids.length > 0) {
-                        do_update_mortalattack(attr_attack_ids);
-                    }
-                });
-            };
-        });
-    };
-};
-
-var do_update_mortalattack = function(attack_array, source) {
-    var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "global_damage_mod_roll", "global_damage_mod_type"];
-    _.each(attack_array, function(attackid) {
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_atkflag");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_atkname");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_atkattr_base");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_atkmod");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmgflag");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmgbase");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmgattr");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmgmod");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmgtype");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmg2flag");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmg2base");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmg2attr");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmg2mod");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_dmg2type");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_saveflag");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_savedc");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_saveeffect");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_saveflat");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_atkrange");
-        attack_attribs.push("repeating_mortalattack_" + attackid + "_global_damage_mod_field");
-    });
-
-    getAttrs(attack_attribs, function(v) {
-        _.each(attack_array, function(attackid) {
-            var callbacks = [];
-            var update = {};
-            var hbonus = "";
-            var hdmg1 = "";
-            var hdmg2 = "";
-            var dmg = "";
-            var dmg2 = "";
-            var rollbase = "";
-            var atkattr_abrev = "";
-            var dmgattr_abrev = "";
-            var dmg2attr_abrev = "";
-
-            if (!v["repeating_mortalattack_" + attackid + "_atkattr_base"] || v["repeating_mortalattack_" + attackid + "_atkattr_base"] === "0") {
-                atkattr_base = 0
-            } else {
-                atkattr_base = parseInt(v[v["repeating_mortalattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_mortalattack_" + attackid + "_atkattr_base"].length - 1)], 10);
-                atkattr_abrev = v["repeating_mortalattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_mortalattack_" + attackid + "_atkattr_base"].length - 1).toUpperCase();
-            };
-
-            if (!v["repeating_mortalattack_" + attackid + "_dmgattr"] || v["repeating_mortalattack_" + attackid + "_dmgattr"] === "0") {
-                dmgattr = 0;
-            } else {
-                dmgattr = parseInt(v[v["repeating_mortalattack_" + attackid + "_dmgattr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmgattr"].length - 1)], 10);
-                dmgattr_abrev = v["repeating_mortalattack_" + attackid + "_dmgattr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmgattr"].length - 1).toUpperCase();
-            };
-
-            if (!v["repeating_mortalattack_" + attackid + "_dmg2attr"] || v["repeating_mortalattack_" + attackid + "_dmg2attr"] === "0") {
-                dmg2attr = 0;
-            } else {
-                dmg2attr = parseInt(v[v["repeating_mortalattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmg2attr"].length - 1)], 10);
-                dmg2attr_abrev = v["repeating_mortalattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_mortalattack_" + attackid + "_dmg2attr"].length - 1).toUpperCase();
-            };
-
-            var dmgbase = v["repeating_mortalattack_" + attackid + "_dmgbase"] && v["repeating_mortalattack_" + attackid + "_dmgbase"] != "" ? v["repeating_mortalattack_" + attackid + "_dmgbase"] : 0;
-            var dmg2base = v["repeating_mortalattack_" + attackid + "_dmg2base"] && v["repeating_mortalattack_" + attackid + "_dmg2base"] != "" ? v["repeating_mortalattack_" + attackid + "_dmg2base"] : 0;
-            var dmgmod = v["repeating_mortalattack_" + attackid + "_dmgmod"] && isNaN(parseInt(v["repeating_mortalattack_" + attackid + "_dmgmod"], 10)) === false ? parseInt(v["repeating_mortalattack_" + attackid + "_dmgmod"], 10) : 0;
-            var dmg2mod = v["repeating_mortalattack_" + attackid + "_dmg2mod"] && isNaN(parseInt(v["repeating_mortalattack_" + attackid + "_dmg2mod"], 10)) === false ? parseInt(v["repeating_mortalattack_" + attackid + "_dmg2mod"], 10) : 0;
-            var dmgtype = v["repeating_mortalattack_" + attackid + "_dmgtype"] ? v["repeating_mortalattack_" + attackid + "_dmgtype"] + " " : "";
-            var dmg2type = v["repeating_mortalattack_" + attackid + "_dmg2type"] ? v["repeating_mortalattack_" + attackid + "_dmg2type"] + " " : "";
-            var atkmod = v["repeating_mortalattack_" + attackid + "_atkmod"] && v["repeating_mortalattack_" + attackid + "_atkmod"] != "" ? parseInt(v["repeating_mortalattack_" + attackid + "_atkmod"], 10) : 0;
-
-            var mortal_globaldamage = `[[${v.global_damage_mod_roll && v.global_damage_mod_roll !== "" ? v.global_damage_mod_roll : "0"}]]`;
-            var globalDamageType = v["global_damage_mod_type"] || "";
-            var gbdmg = " + " + mortal_globaldamage + "[" + globalDamageType + "]"
-
-            if (v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0) {
-                bonus_mod = atkattr_base + atkmod;
-                plus_minus = bonus_mod > -1 ? "+" : "";
-                bonus = plus_minus + bonus_mod;
-            } else if (v["repeating_mortalattack_" + attackid + "_saveflag"] && v["repeating_mortalattack_" + attackid + "_saveflag"] != 0) {
-                if (v["repeating_mortalattack_" + attackid + "_savedc"] && v["repeating_mortalattack_" + attackid + "_savedc"] === "(@{saveflat})") {
-                    var tempdc = isNaN(parseInt(v["repeating_mortalattack_" + attackid + "_saveflat"])) === false ? parseInt(v["repeating_mortalattack_" + attackid + "_saveflat"]) : "0";
-                } else {
-                    var savedcattr = v["repeating_mortalattack_" + attackid + "_savedc"].replace(/^[^{]*{/, "").replace(/\_.*$/, "");
-                    var safe_attr = v[savedcattr] ? parseInt(v[savedcattr], 10) : 0;
-                    var tempdc = safe_attr;
-                };
-                bonus = "DC" + tempdc;
-            } else {
-                bonus = "-";
-            }
-            if (v["repeating_mortalattack_" + attackid + "_dmgflag"] && v["repeating_mortalattack_" + attackid + "_dmgflag"] != 0) {
-                if (dmgbase === 0 && (dmgattr + dmgmod === 0)) {
-                    dmg = 0;
-                }
-                if (dmgbase != 0) {
-                    dmg = dmgbase;
-                }
-                if (dmgbase != 0 && (dmgattr + dmgmod != 0)) {
-                    dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
-                }
-                if (dmgattr + dmgmod != 0) {
-                    dmg = dmg + (dmgattr + dmgmod);
-                }
-                dmg = dmg + " " + dmgtype;
-            } else {
-                dmg = "";
-            };
-            if (v["repeating_mortalattack_" + attackid + "_dmg2flag"] && v["repeating_mortalattack_" + attackid + "_dmg2flag"] != 0) {
-                if (dmg2base === 0 && (dmg2attr + dmg2mod === 0)) {
-                    dmg2 = 0;
-                }
-                if (dmg2base != 0) {
-                    dmg2 = dmg2base;
-                }
-                if (dmg2base != 0 && (dmg2attr + dmg2mod != 0)) {
-                    dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
-                }
-                if (dmg2attr + dmg2mod != 0) {
-                    dmg2 = dmg2 + (dmg2attr + dmg2mod);
-                }
-                dmg2 = dmg2 + " " + dmg2type;
-            } else {
-                dmg2 = "";
-            };
-            dmgspacer = v["repeating_mortalattack_" + attackid + "_dmgflag"] && v["repeating_mortalattack_" + attackid + "_dmgflag"] != 0 && v["repeating_mortalattack_" + attackid + "_dmg2flag"] && v["repeating_mortalattack_" + attackid + "_dmg2flag"] != 0 ? "+ " : "";
-            r2 = v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0 ? "{{r2=[[" : "{{r2=[[";
-            if (v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0) {
-                if (atkmod != 0) {
-                    hbonus = atkmod + "[MOD]" + hbonus
-                };
-                if (atkattr_base != 0) {
-                    hbonus = atkattr_base + "[" + atkattr_abrev + "]" + hbonus
-                };
-            } else {
-                hbonus = "";
-            }
-            if (v["repeating_mortalattack_" + attackid + "_dmgflag"] && v["repeating_mortalattack_" + attackid + "_dmgflag"] != 0) {
-                if (dmgmod != 0) {
-                    hdmg1 = " + " + dmgmod + "[MOD]" + hdmg1
-                };
-                if (dmgattr != 0) {
-                    hdmg1 = " + " + dmgattr + "[" + dmgattr_abrev + "]" + hdmg1
-                };
-                hdmg1 = dmgbase + hdmg1;
-            } else {
-                hdmg1 = "0";
-            }
-            if (v["repeating_mortalattack_" + attackid + "_dmg2flag"] && v["repeating_mortalattack_" + attackid + "_dmg2flag"] != 0) {
-                if (dmg2mod != 0) {
-                    hdmg2 = " + " + dmg2mod + "[MOD]" + hdmg2
-                };
-                if (dmg2attr != 0) {
-                    hdmg2 = " + " + dmg2attr + "[" + dmg2attr_abrev + "]" + hdmg2
-                };
-                hdmg2 = dmg2base + hdmg2;
-            } else {
-                hdmg2 = "0";
-            }
-
-            if (v.dtype === "full") {
-                pickbase = "full";
-                rollbase = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}}  {{globaldamagetype=@{global_damage_mod_type}}} @{charname_output}";
-            } else if (v["repeating_mortalattack_" + attackid + "_atkflag"] && v["repeating_mortalattack_" + attackid + "_atkflag"] != 0) {
-                pickbase = "pick";
-                rollbase = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_mortalattack_attack_dmg)}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} @{charname_output}";
-            } else if (v["repeating_mortalattack_" + attackid + "_dmgflag"] && v["repeating_mortalattack_" + attackid + "_dmgflag"] != 0) {
-                pickbase = "dmg";
-                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}"
-            } else {
-                pickbase = "empty";
-                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}"
-            }
-            update["repeating_mortalattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
-            update["repeating_mortalattack_" + attackid + "_atkbonus"] = bonus;
-            update["repeating_mortalattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
-            update["repeating_mortalattack_" + attackid + "_rollbase"] = rollbase;
-
-            setAttrs(update, {
-                silent: true
-            }, function() {
-                callbacks.forEach(function(callback) {
-                    callback();
-                })
-            });
-        });
-    });
-};
-
-var update_mortalglobaldamage = function(callback) {
-    getSectionIDs("mortaldamagemod", function(ids) {
-        if (ids) {
-            var fields = {};
-            var attr_name_list = [];
-            ids.forEach(function(id) {
-                fields[id] = {};
-                attr_name_list.push(`repeating_mortaldamagemod_${id}_global_damage_active_flag`, `repeating_mortaldamagemod_${id}_global_damage_name`, `repeating_mortaldamagemod_${id}_global_damage_damage`, `repeating_mortaldamagemod_${id}_global_damage_type`);
-            });
-
-            getAttrs(attr_name_list, function(attrs) {
-                var regex = /^repeating_mortaldamagemod_(.+)_global_damage_(active_flag|name|damage|type)$/;
-                _.each(attrs, function(obj, name) {
-                    var r = regex.exec(name);
-                    if (r) {
-                        fields[r[1]][r[2]] = obj;
-                    };
-                });
-
-                var update = {
-                    global_damage_mod_roll: "",
-                    global_damage_mod_type: ""
-                };
-
-                console.log("GLOBALDAMAGE");
-                _.each(fields, function(element) {
-                    if (element.active_flag != "0") {
-                        if (element.name && element.name !== "") {
-                            update["global_damage_mod_roll"] += element.damage + '[' + element.name + ']' + "+";
-                        }
-                        if (element.type && element.type !== "") {
-                            update["global_damage_mod_type"] += element.type + "/";
-                        }
-                    }
-                });
-
-                update["global_damage_mod_roll"] = update["global_damage_mod_roll"].replace(/\+(?=$)/, '');
-                update["global_damage_mod_type"] = update["global_damage_mod_type"].replace(/\/(?=$)/, '');
-
-                setAttrs(update, {
-                    silent: true
-                }, function() {
-                    update_mortalattacks("all");
-                    if (typeof callback == "function") callback();
-                });
-            });
-        }
-    });
-};
-
-var update_mortalglobalattack = function(callback) {
-    getSectionIDs("mortaltohitmod", function(ids) {
-        if (ids) {
-            var fields = {};
-            var attr_name_list = [];
-            ids.forEach(function(id) {
-                fields[id] = {};
-                attr_name_list.push(`repeating_mortaltohitmod_${id}_global_attack_active_flag`, `repeating_mortaltohitmod_${id}_global_attack_roll`, `repeating_mortaltohitmod_${id}_global_attack_name`);
-            });
-            getAttrs(attr_name_list, function(attrs) {
-                var regex = /^repeating_mortaltohitmod_(.+)_global_attack_(active_flag|roll|name)$/;
-                _.each(attrs, function(obj, name) {
-                    var r = regex.exec(name);
-                    if (r) {
-                        fields[r[1]][r[2]] = obj;
-                    }
-                });
-
-                var update = {
-                    global_attack_mod: ""
-                };
-                console.log("GLOBALATTACK");
-                _.each(fields, function(element) {
-                    if (element.active_flag != "0") {
-                        if (element.roll && element.roll !== "") {
-                            update["global_attack_mod"] += element.roll + "[" + element.name + "]" + "+";
-                        }
-                    }
-                });
-                if (update["global_attack_mod"] !== "") {
-                    update["global_attack_mod"] = "[[" + update["global_attack_mod"].replace(/\+(?=$)/, '') + "]]";
-                }
-                setAttrs(update, {
-                    silent: true
-                }, function() {
-                    if (typeof callback == "function") callback();
-                });
-            });
-        }
-    });
-};
-
-var update_cultivatorattacks = function(update_id, source) {
-    console.log("DOING UPDATE_ATTACKS: " + update_id);
-    if (update_id.substring(0, 1) === "-" && update_id.length === 20) {
-        do_update_cultivatorattack([update_id], source);
-    } else if (["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "all"].indexOf(update_id) > -1) {
-        getSectionIDs("repeating_cultivatorattack", function(idarray) {
-            if (update_id === "all") {
-                do_update_cultivatorattack(idarray);
-            } else {
-                var attack_attribs = [];
-                _.each(idarray, function(id) {
-                    attack_attribs.push("repeating_attack_" + id + "_atkattr_base");
-                    attack_attribs.push("repeating_attack_" + id + "_dmgattr");
-                    attack_attribs.push("repeating_attack_" + id + "_dmg2attr");
-                    attack_attribs.push("repeating_attack_" + id + "_savedc");
-                });
-                getAttrs(attack_attribs, function(v) {
-                    var attr_attack_ids = [];
-                    _.each(idarray, function(id) {
-                        if ((v["repeating_attack_" + id + "_atkattr_base"] && v["repeating_attack_" + id + "_atkattr_base"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmgattr"] && v["repeating_attack_" + id + "_dmgattr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_dmg2attr"] && v["repeating_attack_" + id + "_dmg2attr"].indexOf(update_id) > -1) || (v["repeating_attack_" + id + "_savedc"] && v["repeating_attack_" + id + "_savedc"].indexOf(update_id) > -1)) {
-                            attr_attack_ids.push(id);
-                        }
-                    });
-                    if (attr_attack_ids.length > 0) {
-                        do_update_cultivatorattack(attr_attack_ids);
-                    }
-                });
-            };
-        });
-    };
-};
-
-var do_update_cultivatorattack = function(attack_array, source) {
-    var attack_attribs = ["level", "dtype", "power", "agility", "vitality", "cultivation", "qicontrol", "mental", "cultivator_global_damage_mod_roll", "cultivator_global_damage_mod_type"];
-    _.each(attack_array, function(attackid) {
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkflag");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkname");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkattr_base");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkmod");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgflag");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgbase");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgattr");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgmod");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmgtype");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2flag");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2base");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2attr");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2mod");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_dmg2type");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveflag");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_savedc");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveeffect");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_saveflat");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_atkrange");
-        attack_attribs.push("repeating_cultivatorattack_" + attackid + "_cultivator_global_damage_mod_field");
-    });
-
-    getAttrs(attack_attribs, function(v) {
-        _.each(attack_array, function(attackid) {
-            var callbacks = [];
-            var update = {};
-            var hbonus = "";
-            var hdmg1 = "";
-            var hdmg2 = "";
-            var dmg = "";
-            var dmg2 = "";
-            var rollbase = "";
-            var atkattr_abrev = "";
-            var dmgattr_abrev = "";
-            var dmg2attr_abrev = "";
-
-            if (!v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] || v["repeating_cultivatorattack_" + attackid + "_atkattr_base"] === "0") {
-                atkattr_base = 0
-            } else {
-                atkattr_base = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].length - 1)], 10);
-                atkattr_abrev = v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].substring(2, v["repeating_cultivatorattack_" + attackid + "_atkattr_base"].length - 1).toUpperCase();
-            };
-
-            if (!v["repeating_cultivatorattack_" + attackid + "_dmgattr"] || v["repeating_cultivatorattack_" + attackid + "_dmgattr"] === "0") {
-                dmgattr = 0;
-            } else {
-                dmgattr = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_dmgattr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmgattr"].length - 1)], 10);
-                dmgattr_abrev = v["repeating_cultivatorattack_" + attackid + "_dmgattr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmgattr"].length - 1).toUpperCase();
-            };
-
-            if (!v["repeating_cultivatorattack_" + attackid + "_dmg2attr"] || v["repeating_cultivatorattack_" + attackid + "_dmg2attr"] === "0") {
-                dmg2attr = 0;
-            } else {
-                dmg2attr = parseInt(v[v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].length - 1)], 10);
-                dmg2attr_abrev = v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].substring(2, v["repeating_cultivatorattack_" + attackid + "_dmg2attr"].length - 1).toUpperCase();
-            };
-
-            var dmgbase = v["repeating_cultivatorattack_" + attackid + "_dmgbase"] && v["repeating_cultivatorattack_" + attackid + "_dmgbase"] != "" ? v["repeating_cultivatorattack_" + attackid + "_dmgbase"] : 0;
-            var dmg2base = v["repeating_cultivatorattack_" + attackid + "_dmg2base"] && v["repeating_cultivatorattack_" + attackid + "_dmg2base"] != "" ? v["repeating_cultivatorattack_" + attackid + "_dmg2base"] : 0;
-            var dmgmod = v["repeating_cultivatorattack_" + attackid + "_dmgmod"] && isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_dmgmod"], 10)) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_dmgmod"], 10) : 0;
-            var dmg2mod = v["repeating_cultivatorattack_" + attackid + "_dmg2mod"] && isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_dmg2mod"], 10)) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_dmg2mod"], 10) : 0;
-            var dmgtype = v["repeating_cultivatorattack_" + attackid + "_dmgtype"] ? v["repeating_cultivatorattack_" + attackid + "_dmgtype"] + " " : "";
-            var dmg2type = v["repeating_cultivatorattack_" + attackid + "_dmg2type"] ? v["repeating_cultivatorattack_" + attackid + "_dmg2type"] + " " : "";
-            var atkmod = v["repeating_cultivatorattack_" + attackid + "_atkmod"] && v["repeating_cultivatorattack_" + attackid + "_atkmod"] != "" ? parseInt(v["repeating_cultivatorattack_" + attackid + "_atkmod"], 10) : 0;
-
-            var cultivator_globaldamage = `[[${v.cultivator_global_damage_mod_roll && v.cultivator_global_damage_mod_roll !== "" ? v.cultivator_global_damage_mod_roll : "0"}]]`;
-            var globalDamageType = v["cultivator_global_damage_mod_type"] || "";
-            var gbdmg = " + " + cultivator_globaldamage + "[" + globalDamageType + "]"
-
-            if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
-                bonus_mod = atkattr_base + atkmod;
-                plus_minus = bonus_mod > -1 ? "+" : "";
-                bonus = plus_minus + bonus_mod;
-            } else if (v["repeating_cultivatorattack_" + attackid + "_saveflag"] && v["repeating_cultivatorattack_" + attackid + "_saveflag"] != 0) {
-                if (v["repeating_cultivatorattack_" + attackid + "_savedc"] && v["repeating_cultivatorattack_" + attackid + "_savedc"] === "(@{saveflat})") {
-                    var tempdc = isNaN(parseInt(v["repeating_cultivatorattack_" + attackid + "_saveflat"])) === false ? parseInt(v["repeating_cultivatorattack_" + attackid + "_saveflat"]) : "0";
-                } else {
-                    var savedcattr = v["repeating_cultivatorattack_" + attackid + "_savedc"].replace(/^[^{]*{/, "").replace(/\_.*$/, "");
-                    var safe_attr = v[savedcattr] ? parseInt(v[savedcattr], 10) : 0;
-                    var tempdc = safe_attr;
-                };
-                bonus = "DC" + tempdc;
-            } else {
-                bonus = "-";
-            }
-            if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
-                if (dmgbase === 0 && (dmgattr + dmgmod === 0)) {
-                    dmg = 0;
-                }
-                if (dmgbase != 0) {
-                    dmg = dmgbase;
-                }
-                if (dmgbase != 0 && (dmgattr + dmgmod != 0)) {
-                    dmg = dmgattr + dmgmod > 0 ? dmg + "+" : dmg;
-                }
-                if (dmgattr + dmgmod != 0) {
-                    dmg = dmg + (dmgattr + dmgmod);
-                }
-                dmg = dmg + " " + dmgtype;
-            } else {
-                dmg = "";
-            };
-            if (v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0) {
-                if (dmg2base === 0 && (dmg2attr + dmg2mod === 0)) {
-                    dmg2 = 0;
-                }
-                if (dmg2base != 0) {
-                    dmg2 = dmg2base;
-                }
-                if (dmg2base != 0 && (dmg2attr + dmg2mod != 0)) {
-                    dmg2 = dmg2attr + dmg2mod > 0 ? dmg2 + "+" : dmg2;
-                }
-                if (dmg2attr + dmg2mod != 0) {
-                    dmg2 = dmg2 + (dmg2attr + dmg2mod);
-                }
-                dmg2 = dmg2 + " " + dmg2type;
-            } else {
-                dmg2 = "";
-            };
-            dmgspacer = v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0 && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0 ? "+ " : "";
-            r2 = v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0 ? "{{r2=[[" : "{{r2=[[";
-            if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
-                if (atkmod != 0) {
-                    hbonus = atkmod + "[MOD]" + hbonus
-                };
-                if (atkattr_base != 0) {
-                    hbonus = atkattr_base + "[" + atkattr_abrev + "]" + hbonus
-                };
-            } else {
-                hbonus = "";
-            }
-            if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
-                if (dmgmod != 0) {
-                    hdmg1 = " + " + dmgmod + "[MOD]" + hdmg1
-                };
-                if (dmgattr != 0) {
-                    hdmg1 = " + " + dmgattr + "[" + dmgattr_abrev + "]" + hdmg1
-                };
-                hdmg1 = dmgbase + hdmg1;
-            } else {
-                hdmg1 = "0";
-            }
-            if (v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] && v["repeating_cultivatorattack_" + attackid + "_dmg2flag"] != 0) {
-                if (dmg2mod != 0) {
-                    hdmg2 = " + " + dmg2mod + "[MOD]" + hdmg2
-                };
-                if (dmg2attr != 0) {
-                    hdmg2 = " + " + dmg2attr + "[" + dmg2attr_abrev + "]" + hdmg2
-                };
-                hdmg2 = dmg2base + hdmg2;
-            } else {
-                hdmg2 = "0";
-            }
-
-            if (v.dtype === "full") {
-                pickbase = "full";
-                rollbase = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}}  {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
-            } else if (v["repeating_cultivatorattack_" + attackid + "_atkflag"] && v["repeating_cultivatorattack_" + attackid + "_atkflag"] != 0) {
-                pickbase = "pick";
-                rollbase = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + hbonus + "]]}} " + r2 + hbonus + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} @{charname_output}";
-            } else if (v["repeating_cultivatorattack_" + attackid + "_dmgflag"] && v["repeating_cultivatorattack_" + attackid + "_dmgflag"] != 0) {
-                pickbase = "dmg";
-                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}"
-            } else {
-                pickbase = "empty";
-                rollbase = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}"
-            }
-            update["repeating_cultivatorattack_" + attackid + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + hdmg1 + gbdmg + "]]}} {{dmg1type=" + dmgtype + "}} @{dmg2flag} {{dmg2=[[" + hdmg2 + gbdmg + "]]}} {{dmg2type=" + dmg2type + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
-            update["repeating_cultivatorattack_" + attackid + "_atkbonus"] = bonus;
-            update["repeating_cultivatorattack_" + attackid + "_atkdmgtype"] = dmg + dmgspacer + dmg2 + " ";
-            update["repeating_cultivatorattack_" + attackid + "_rollbase"] = rollbase;
-
-            setAttrs(update, {
-                silent: true
-            }, function() {
-                callbacks.forEach(function(callback) {
-                    callback();
-                })
-            });
-        });
-    });
-};
-
-var update_cultivatorglobaldamage = function(callback) {
-    getSectionIDs("cultivatordamagemod", function(ids) {
-        if (ids) {
-            var fields = {};
-            var attr_name_list = [];
-            ids.forEach(function(id) {
-                fields[id] = {};
-                attr_name_list.push(`repeating_cultivatordamagemod_${id}_cultivator_global_damage_active_flag`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_name`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_damage`, `repeating_cultivatordamagemod_${id}_cultivator_global_damage_type`);
-            });
-
-            getAttrs(attr_name_list, function(attrs) {
-                var regex = /^repeating_cultivatordamagemod_(.+)_cultivator_global_damage_(active_flag|name|damage|type)$/;
-                _.each(attrs, function(obj, name) {
-                    var r = regex.exec(name);
-                    if (r) {
-                        fields[r[1]][r[2]] = obj;
-                    };
-                });
-
-                var update = {
-                    cultivator_global_damage_mod_roll: "",
-                    cultivator_global_damage_mod_type: ""
-                };
-
-                console.log("GLOBALDAMAGE");
-                _.each(fields, function(element) {
-                    if (element.active_flag != "0") {
-                        if (element.name && element.name !== "") {
-                            update["cultivator_global_damage_mod_roll"] += element.damage + '[' + element.name + ']' + "+";
-                        }
-                        if (element.type && element.type !== "") {
-                            update["cultivator_global_damage_mod_type"] += element.type + "/";
-                        }
-                    }
-                });
-
-                update["cultivator_global_damage_mod_roll"] = update["cultivator_global_damage_mod_roll"].replace(/\+(?=$)/, '');
-                update["cultivator_global_damage_mod_type"] = update["cultivator_global_damage_mod_type"].replace(/\/(?=$)/, '');
-
-                setAttrs(update, {
-                    silent: true
-                }, function() {
-                    update_cultivatorattacks("all");
-                    if (typeof callback == "function") callback();
-                });
-            });
-        }
-    });
-};
-
-var update_cultivatorglobalattack = function(callback) {
-    getSectionIDs("cultivatortohitmod", function(ids) {
-        if (ids) {
-            var fields = {};
-            var attr_name_list = [];
-            ids.forEach(function(id) {
-                fields[id] = {};
-                attr_name_list.push(`repeating_cultivatortohitmod_${id}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${id}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${id}_cultivator_global_attack_name`);
-            });
-            getAttrs(attr_name_list, function(attrs) {
-                var regex = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name)$/;
-                _.each(attrs, function(obj, name) {
-                    var r = regex.exec(name);
-                    if (r) {
-                        fields[r[1]][r[2]] = obj;
-                    }
-                });
-
-                var update = {
-                    cultivator_global_attack_mod: ""
-                };
-                console.log("GLOBALATTACK");
-                _.each(fields, function(element) {
-                    if (element.active_flag != "0") {
-                        if (element.roll && element.roll !== "") {
-                            update["cultivator_global_attack_mod"] += element.roll + "[" + element.name + "]" + "+";
-                        }
-                    }
-                });
-                if (update["cultivator_global_attack_mod"] !== "") {
-                    update["cultivator_global_attack_mod"] = "[[" + update["cultivator_global_attack_mod"].replace(/\+(?=$)/, '') + "]]";
-                }
-                setAttrs(update, {
-                    silent: true
-                }, function() {
-                    if (typeof callback == "function") callback();
-                });
-            });
-        }
-    });
-};
-
-var update_weight = function() {
-    var update = {};
-    var wtotal = 0;
-    var stotal = 0;
-    var weight_attrs = ["power", "carrying_capacity_mod", "inventory_slots_mod", "itemweightfixed", "itemslotsfixed"];
-    getSectionIDs("repeating_inventory", function(idarray) {
-        _.each(idarray, function(currentID, i) {
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemweight");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemcount");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemsize");
-            weight_attrs.push("repeating_inventory_" + currentID + "_equipped");
-            weight_attrs.push("repeating_inventory_" + currentID + "_carried");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemweightfixed");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemslotsfixed");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer_slots");
-            weight_attrs.push("repeating_inventory_" + currentID + "_itemcontainer_slots_modifier");
-        });
-        getAttrs(weight_attrs, function(v) {
-            var slots_modifier = 0;
-            var containerslots = 0;
-
-            _.each(idarray, function(currentID, i) {
-                if (v["repeating_inventory_" + currentID + "_equipped"] == 1 || v["repeating_inventory_" + currentID + "_carried"] == 1) {
-                    if (v["repeating_inventory_" + currentID + "_itemcontainer"] == 1) {
-                        // GET SLOTS MODIFIER IF EQUIPPED
-                        if (v["repeating_inventory_" + currentID + "_equipped"] == 1) {
-                            var slotsID = "repeating_inventory_" + currentID + "_itemcontainer_slots";
-                            containerslots = parseInt(v[slotsID], 0);
-                            var field_id = "repeating_inventory_" + currentID + "_itemcontainer_slots_modifier";
-                            if (v[field_id]) {
-                                if (["+", "-"].indexOf(v[field_id]) > -1) {
-                                    var operator = v[field_id].substring(0, 1);
-                                    var value = v[field_id].substring(1);
-                                    if (isNaN(parseInt(value, 0)) === false) {
-                                        if (operator == "+") {
-                                            slots_modifier += parseInt(value, 0);
-                                        } else if (operator == "-") {
-                                            slots_modifier -= parseInt(value, 0);
-                                        }
-                                    }
-                                } else {
-                                    if (isNaN(parseInt(v[field_id], 0)) === false) {
-                                        slots_modifier += parseInt(v[field_id], 0);
-                                    }
-                                }
-                            }
-                        }
-                    } else {
-                        // UPDATE WEIGHT
-                        if (v["repeating_inventory_" + currentID + "_itemweight"] && isNaN(parseInt(v["repeating_inventory_" + currentID + "_itemweight"], 0)) === false) {
-                            if (v["repeating_inventory_" + currentID + "_itemweightfixed"] == 1) {
-                                wtotal += parseFloat(v["repeating_inventory_" + currentID + "_itemweight"]);
-                            } else {
-                                count = v["repeating_inventory_" + currentID + "_itemcount"] && isNaN(parseFloat(v["repeating_inventory_" + currentID + "_itemcount"])) === false ? parseFloat(v["repeating_inventory_" + currentID + "_itemcount"]) : 1;
-                                wtotal = wtotal + (parseFloat(v["repeating_inventory_" + currentID + "_itemweight"]) * count);
-                            }
-                        }
-                        // UPDATE SLOTS
-                        if (v["repeating_inventory_" + currentID + "_itemsize"] && isNaN(parseInt(v["repeating_inventory_" + currentID + "_itemsize"], 0)) === false) {
-                            if (v["repeating_inventory_" + currentID + "_itemslotsfixed"] == 1) {
-                                stotal += parseFloat(v["repeating_inventory_" + currentID + "_itemsize"]);
-                            } else {
-                                count = v["repeating_inventory_" + currentID + "_itemcount"] && isNaN(parseFloat(v["repeating_inventory_" + currentID + "_itemcount"])) === false ? parseFloat(v["repeating_inventory_" + currentID + "_itemcount"]) : 1;
-                                stotal = stotal + (parseFloat(v["repeating_inventory_" + currentID + "_itemsize"]) * count);
-                            }
-                        }
-                    }
-                }
-            });
-
-            wtotal = Math.round(wtotal * 100) / 100;
-            stotal = Math.round(stotal * 100) / 100;
-
-            update["weighttotal"] = wtotal;
-            update["slotstotal"] = stotal;
-
-            var size_slots = 18;
-            size_slots += parseInt(v.power) + parseInt(containerslots);
-
-            if (v.inventory_slots_mod) {
-                var operator = v.inventory_slots_mod.substring(0, 1);
-                var value = v.inventory_slots_mod.substring(1);
-                if (["*", "x", "+", "-"].indexOf(operator) > -1 && isNaN(parseInt(value, 0)) === false) {
-                    if (operator == "*" || operator == "x") {
-                        size_slots *= parseInt(value, 0);
-                    } else if (operator == "+") {
-                        size_slots += parseInt(value, 0);
-                    } else if (operator == "-") {
-                        size_slots -= parseInt(value, 0);
-                    }
-                }
-            }
-
-            size_slots += slots_modifier;
-
-            var str_base = parseInt(v.power);
-            var str = str_base;
-            var weight_maximum = str * 30;
-            var weight_mod = weight_maximum;
-
-            if (v.carrying_capacity_mod) {
-                var operator = v.carrying_capacity_mod.substring(0, 1);
-                var value = parseInt(v.carrying_capacity_mod.substring(1), 10);
-                if (["*", "x", "+", "-", "/"].indexOf(operator) > -1 && !isNaN(value)) {
-                    if (operator == "*" || operator == "x") {
-                        weight_mod *= value;
-                    } else if (operator == "+") {
-                        weight_mod += value;
-                    } else if (operator == "-") {
-                        weight_mod -= value;
-                    } else if (operator == "/") {
-                        weight_mod /= value;
-                    }
-                }
-            }
-
-            update["weightmaximum"] = weight_mod;
-            update["slotsmaximum"] = size_slots;
-
-            if (stotal > size_slots) {
-                update["encumberance"] = "OVER CARRYING CAPACITY";
-            } else if (wtotal > str * 30) {
-                update["encumberance"] = "IMMOBILE";
-            } else if (wtotal > str * 22) {
-                update["encumberance"] = "HEAVILY ENCUMBERED";
-            } else if (wtotal > str * 15) {
-                update["encumberance"] = "ENCUMBERED";
-            } else {
-                update["encumberance"] = " ";
-            }
-
-            setAttrs(update, {
-                silent: true
-            });
-        });
-    });
-};
-
-var update_skills = function(skills_array) {
-    var attrs_to_get = ["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "appearance"];
-    var update = {};
-    var callbacks = [];
-
-    _.each(skills_array, function(s) {
-        attrs_to_get.push(s + "_bonus");
-    });
-
-    getSectionIDs("repeating_inventory", function(idarray) {
-        _.each(idarray, function(currentID, i) {
-            attrs_to_get.push("repeating_inventory_" + currentID + "_equipped");
-            attrs_to_get.push("repeating_inventory_" + currentID + "_itemmodifiers");
-        });
-
-        getAttrs(attrs_to_get, function(v) {
-            _.each(skills_array, function(s) {
-                console.log("UPDATING SKILL: " + s);
-                var flat = v[s + "_flat"] && !isNaN(parseInt(v[s + "_flat"], 10)) ? parseInt(v[s + "_flat"], 10) : 0;
-                var item_bonus = 0;
-
-                _.each(idarray, function(currentID) {
-                    if (v["repeating_inventory_" + currentID + "_equipped"] && v["repeating_inventory_" + currentID + "_equipped"] === "1" && v["repeating_inventory_" + currentID + "_itemmodifiers"] && (v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().replace(/ /g, "_").indexOf(s) > -1 || v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().indexOf("skill checks") > -1)) {
-                        var mods = v["repeating_inventory_" + currentID + "_itemmodifiers"].toLowerCase().split(",");
-                        _.each(mods, function(mod) {
-                            if (mod.replace(/ /g, "_").indexOf(s) > -1 || mod.indexOf("skill checks") > -1) {
-                                if (mod.indexOf("-") > -1) {
-                                    var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                    item_bonus -= new_mod ? item_bonus + new_mod : item_bonus;
-                                } else {
-                                    var new_mod = !isNaN(parseInt(mod.replace(/[^0-9]/g, ""), 10)) ? parseInt(mod.replace(/[^0-9]/g, ""), 10) : false;
-                                    item_bonus += new_mod ? item_bonus + new_mod : item_bonus;
-                                }
-                            };
-                        });
-                    };
-                });
-
-                var roll = 0;
-                switch (s) {
-                    case "acrobatics":
-                    case "discretion":
-                    case "stealth":
-                        roll = parseInt(v.agility, 10);
-                        break;
-                    case "athletics":
-                    case "grapple":
-                        roll = parseInt(v.power, 10);
-                        break;
-                    case "charm":
-                    case "deceit":
-                    case "disguise":
-                    case "persuade":
-                        roll = parseInt(v.mental, 10) + parseInt(v.appearance, 10);
-                        break;
-                    case "fine_arts":
-                    case "forgery":
-                    case "navigation":
-                        roll = Math.floor(parseInt(v.agility, 10) / 2) + Math.floor(parseInt(v.mental, 10) / 2);
-                        break;
-                    case "history":
-                    case "medicine":
-                        roll = Math.floor(parseInt(v.qicontrol, 10) / 2) + Math.floor(parseInt(v.mental, 10) / 2);
-                        break;
-                    case "intuition":
-                    case "investigation":
-                    case "perception":
-                        roll = parseInt(v.mental, 10);
-                        break;
-                    case "intimidation":
-                        roll = parseInt(v.power, 10) + parseInt(v.appearance, 10);
-                        break;
-                    case "performance":
-                        roll = parseInt(v.agility, 10) + parseInt(v.appearance, 10);
-                        break;
-                    case "survival":
-                        roll = Math.floor(parseInt(v.power, 10) / 2) + Math.floor(parseInt(v.mental, 10) / 2);
-                        break;
-                }
-
-                var total = flat + item_bonus;
-
-                if (total > 0) {
-                    update[s] = roll + "d6 + " + total;
-                } else {
-                    update[s] = roll + "d6";
-                }
-                update[s + "_bonus"] = total;
-                update[s + "_roll"] = roll;
-            });
-
-            setAttrs(update, {
-                silent: true
-            }, function() {
-                callbacks.forEach(function(callback) {
-                    callback();
-                })
-            });
-        });
-    });
-};
-
-var update_all_ability_checks = function() {
-    update_initiative();
-    update_skills(["acrobatics", "athletics", "charm", "deceit", "discretion", "disguise", "fine_arts", "forgery", "grapple", "history", "intuition", "intimidation", "investigation", "medicine", "navigation", "perception", "performance", "persuade", "stealth", "survival"]);
-};
-
-var update_durability = function() {
-    getAttrs(["durability-base", "durability-limit", "durability-bonus", "power", "agility", "vitality", "cultivation", "qicontrol", "mental"], function(v) {
-        var update = {};
-
-        var base = parseInt(v["durability-base"]) || 0;
-        var limit = parseInt(v["durability-limit"]) || 0;
-        var bonus = parseInt(v["durability-bonus"]) || 0;
-
-        update["durability-full"] = base + bonus;
-
-        setAttrs(update, {
-            silent: true
-        });
-    });
-};
-
-var update_evasion = function() {
-    getAttrs(["evasion-base", "evasion-limit", "evasion-bonus", "agility"], function(v) {
-        var update = {};
-
-        var agility = parseInt(v.agility) || 0;
-        var base = parseInt(v["evasion-base"]) || 0;
-        var limit = parseInt(v["evasion-limit"]) || 0;
-        var bonus = parseInt(v["evasion-bonus"]) || 0;
-
-        if (agility < limit) {
-            update["evasion-full"] = base + agility + bonus;
+        0 < f.length && do_update_cultivatorattack(f);
+      });
+    }
+  });
+}, do_update_cultivatorattack = function(c) {
+  var d = "level dtype power agility vitality cultivation qicontrol mental cultivator_global_damage_mod_roll cultivator_global_damage_mod_type".split(" ");
+  _.each(c, function(a) {
+    d.push("repeating_cultivatorattack_" + a + "_atkflag");
+    d.push("repeating_cultivatorattack_" + a + "_atkname");
+    d.push("repeating_cultivatorattack_" + a + "_atkattr_base");
+    d.push("repeating_cultivatorattack_" + a + "_atkmod");
+    d.push("repeating_cultivatorattack_" + a + "_dmgflag");
+    d.push("repeating_cultivatorattack_" + a + "_dmgbase");
+    d.push("repeating_cultivatorattack_" + a + "_dmgattr");
+    d.push("repeating_cultivatorattack_" + a + "_dmgmod");
+    d.push("repeating_cultivatorattack_" + a + "_dmgtype");
+    d.push("repeating_cultivatorattack_" + a + "_dmg2flag");
+    d.push("repeating_cultivatorattack_" + a + "_dmg2base");
+    d.push("repeating_cultivatorattack_" + a + "_dmg2attr");
+    d.push("repeating_cultivatorattack_" + a + "_dmg2mod");
+    d.push("repeating_cultivatorattack_" + a + "_dmg2type");
+    d.push("repeating_cultivatorattack_" + a + "_dmg3flag");
+    d.push("repeating_cultivatorattack_" + a + "_dmg3base");
+    d.push("repeating_cultivatorattack_" + a + "_dmg3attr");
+    d.push("repeating_cultivatorattack_" + a + "_dmg3mod");
+    d.push("repeating_cultivatorattack_" + a + "_dmg3type");
+    d.push("repeating_cultivatorattack_" + a + "_saveflag");
+    d.push("repeating_cultivatorattack_" + a + "_savedc");
+    d.push("repeating_cultivatorattack_" + a + "_saveeffect");
+    d.push("repeating_cultivatorattack_" + a + "_saveflat");
+    d.push("repeating_cultivatorattack_" + a + "_atkrange");
+    d.push("repeating_cultivatorattack_" + a + "_cultivator_global_damage_mod_field");
+  });
+  getAttrs(d, function(a) {
+    _.each(c, function(b) {
+      var g = [], f = {}, h = "", k = "", l = "", m = "", n = "", p = "", u = p = "", q = "", r = "", v = "", t = "";
+      a["repeating_cultivatorattack_" + b + "_atkattr_base"] && "0" !== a["repeating_cultivatorattack_" + b + "_atkattr_base"] ? (atkattr_base = parseInt(a[a["repeating_cultivatorattack_" + b + "_atkattr_base"].substring(2, a["repeating_cultivatorattack_" + b + "_atkattr_base"].length - 1)], 10), p = a["repeating_cultivatorattack_" + b + "_atkattr_base"].substring(2, a["repeating_cultivatorattack_" + b + "_atkattr_base"].length - 1).toUpperCase()) : atkattr_base = 0;
+      a["repeating_cultivatorattack_" + b + "_dmgattr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1)], 10), u = a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
+      a["repeating_cultivatorattack_" + b + "_dmg2attr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmg2attr"] ? (dmg2attr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmg2attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg2attr"].length - 1)], 10), q = a["repeating_cultivatorattack_" + b + "_dmg2attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg2attr"].length - 1).toUpperCase()) : dmg2attr = 0;
+      a["repeating_cultivatorattack_" + b + "_dmg3attr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmg3attr"] ? (dmg3attr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmg3attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg3attr"].length - 1)], 10), r = a["repeating_cultivatorattack_" + b + "_dmg3attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg3attr"].length - 1).toUpperCase()) : dmg3attr = 0;
+      var A = a["repeating_cultivatorattack_" + b + "_dmgbase"] && "" != a["repeating_cultivatorattack_" + b + "_dmgbase"] ? a["repeating_cultivatorattack_" + b + "_dmgbase"] : 0, B = a["repeating_cultivatorattack_" + b + "_dmg2base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg2base"] ? a["repeating_cultivatorattack_" + b + "_dmg2base"] : 0, C = a["repeating_cultivatorattack_" + b + "_dmg3base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg3base"] ? a["repeating_cultivatorattack_" + 
+      b + "_dmg3base"] : 0, x = a["repeating_cultivatorattack_" + b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_cultivatorattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_cultivatorattack_" + b + "_dmg3mod"] && !1 === 
+      isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10) : 0, E = a["repeating_cultivatorattack_" + b + "_dmgtype"] ? a["repeating_cultivatorattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_cultivatorattack_" + b + "_dmg2type"] ? a["repeating_cultivatorattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_cultivatorattack_" + b + "_dmg3type"] ? a["repeating_cultivatorattack_" + b + "_dmg3type"] + " " : 
+      "", H = a["repeating_cultivatorattack_" + b + "_atkmod"] && "" != a["repeating_cultivatorattack_" + b + "_atkmod"] ? parseInt(a["repeating_cultivatorattack_" + b + "_atkmod"], 10) : 0, w = "+" + `[[${a.cultivator_global_damage_mod_roll && "" !== a.cultivator_global_damage_mod_roll ? a.cultivator_global_damage_mod_roll : "0"}]]` + "[" + (a.cultivator_global_damage_mod_type || "") + "]";
+      if (a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"]) {
+        bonus_mod = atkattr_base + H, plus_minus = -1 < bonus_mod ? "+" : "", bonus = plus_minus + bonus_mod;
+      } else if (a["repeating_cultivatorattack_" + b + "_saveflag"] && 0 != a["repeating_cultivatorattack_" + b + "_saveflag"]) {
+        if (a["repeating_cultivatorattack_" + b + "_savedc"] && "(@{saveflat})" === a["repeating_cultivatorattack_" + b + "_savedc"]) {
+          var D = !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_saveflat"])) ? parseInt(a["repeating_cultivatorattack_" + b + "_saveflat"]) : "0";
         } else {
-            update["evasion-full"] = base + limit + Math.floor((agility - limit) / 2) + bonus;
+          D = a["repeating_cultivatorattack_" + b + "_savedc"].replace(/^[^{]*{/, "").replace(/_.*$/, ""), D = a[D] ? parseInt(a[D], 10) : 0;
         }
-
-        setAttrs(update, {
-            silent: true
+        bonus = "DC" + D;
+      } else {
+        bonus = "-";
+      }
+      a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 === A && 0 === dmgattr + x && (m = 0), 0 != A && (m = A), 0 != A && 0 != dmgattr + x && (m = 0 < dmgattr + x ? m + "+" : m), 0 != dmgattr + x && (m += dmgattr + x), m = m + " " + E) : m = "";
+      a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? (0 === B && 0 === dmg2attr + y && (n = 0), 0 != B && (n = B), 0 != B && 0 != dmg2attr + y && (n = 0 < dmg2attr + y ? n + "+" : n), 0 != dmg2attr + y && (n += dmg2attr + y), n = n + " " + F) : n = "";
+      a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? (0 === C && 0 === dmg3attr + z && (v = 0), 0 != C && (v = C), 0 != C && 0 != dmg3attr + z && (n = 0 < dmg3attr + z ? v + "+" : v), 0 != dmg3attr + z && (v += dmg3attr + z), v = v + " " + G) : v = "";
+      dmgspacer1 = a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] && a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? "+ " : "";
+      dmgspacer2 = a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] && a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? "+ " : "";
+      r2 = "{{r2=[[";
+      a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (0 != H && (h = H + "[MOD]" + h), 0 != atkattr_base && (h = atkattr_base + "[" + p + "]" + h)) : h = "";
+      a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + u + "]" + k), k = A + k) : k = "0";
+      a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? (0 != y && (l = "+" + y + "[MOD]" + l), 0 != dmg2attr && (l = "+" + dmg2attr + "[" + q + "]" + l), l = B + l) : l = "0";
+      a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? (0 != z && (t = "+" + z + "[MOD]" + t), 0 != dmg3attr && (t = "+" + dmg3attr + "[" + r + "]" + t), t = C + t) : t = "0";
+      "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}}  {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : 
+      a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} @{charname_output}") : a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? 
+      (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
+      f["repeating_cultivatorattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
+      f["repeating_cultivatorattack_" + b + "_atkbonus"] = bonus;
+      f["repeating_cultivatorattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + v + " ";
+      f["repeating_cultivatorattack_" + b + "_rollbase"] = p;
+      setAttrs(f, {silent:!0}, function() {
+        g.forEach(function(I) {
+          I();
         });
+      });
     });
-};
-
-var update_reduction = function() {
-    getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(v) {
-        var update = {};
-
-        var base = parseInt(v["reduction-base"]) || 0;
-        var armour = parseInt(v["reduction-armour"]) || 0;
-        var bonus = parseInt(v["reduction-bonus"]) || 0;
-
-        update["reduction-full"] = base + armour + bonus;
-
-        setAttrs(update, {
-            silent: true
+  });
+}, update_cultivatorglobaldamage = function(c) {
+  getSectionIDs("cultivatordamagemod", function(d) {
+    if (d) {
+      var a = {}, b = [];
+      d.forEach(function(g) {
+        a[g] = {};
+        b.push(`repeating_cultivatordamagemod_${g}_cultivator_global_damage_active_flag`, `repeating_cultivatordamagemod_${g}_cultivator_global_damage_name`, `repeating_cultivatordamagemod_${g}_cultivator_global_damage_damage`, `repeating_cultivatordamagemod_${g}_cultivator_global_damage_type`);
+      });
+      getAttrs(b, function(g) {
+        var f = /^repeating_cultivatordamagemod_(.+)_cultivator_global_damage_(active_flag|name|damage|type)$/;
+        _.each(g, function(k, l) {
+          (l = f.exec(l)) && (a[l[1]][l[2]] = k);
         });
+        var h = {cultivator_global_damage_mod_roll:"", cultivator_global_damage_mod_type:""};
+        console.log("CULTIVATOR GLOBALDAMAGE");
+        _.each(a, function(k) {
+          "0" != k.active_flag && (k.name && "" !== k.name && (h.cultivator_global_damage_mod_roll += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (h.cultivator_global_damage_mod_type += k.type + "/"));
+        });
+        h.cultivator_global_damage_mod_roll = h.cultivator_global_damage_mod_roll.replace(/\+(?=$)/, "");
+        h.cultivator_global_damage_mod_type = h.cultivator_global_damage_mod_type.replace(/\/(?=$)/, "");
+        setAttrs(h, {silent:!0}, function() {
+          update_cultivatorattacks("all");
+          "function" == typeof c && c();
+        });
+      });
+    }
+  });
+}, update_cultivatorglobalattack = function(c) {
+  getSectionIDs("cultivatortohitmod", function(d) {
+    if (d) {
+      var a = {}, b = [];
+      d.forEach(function(g) {
+        a[g] = {};
+        b.push(`repeating_cultivatortohitmod_${g}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_name`);
+      });
+      getAttrs(b, function(g) {
+        var f = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name)$/;
+        _.each(g, function(k, l) {
+          (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+        });
+        var h = {cultivator_global_attack_mod:""};
+        console.log("CULTIVATOR GLOBALATTACK");
+        _.each(a, function(k) {
+          "0" != k.active_flag && k.roll && "" !== k.roll && (h.cultivator_global_attack_mod += k.roll + "[" + k.name + "]+");
+        });
+        "" !== h.cultivator_global_attack_mod && (h.cultivator_global_attack_mod = "[[" + h.cultivator_global_attack_mod.replace(/\+(?=$)/, "") + "]]");
+        setAttrs(h, {silent:!0}, function() {
+          "function" == typeof c && c();
+        });
+      });
+    }
+  });
+}, update_weight = function() {
+  console.log("UPDATING WEIGHT");
+  var c = {}, d = 0, a = 0, b = ["power", "carrying_capacity_mod", "inventory_slots_mod", "itemweightfixed", "itemslotsfixed"];
+  getSectionIDs("repeating_inventory", function(g) {
+    _.each(g, function(f) {
+      b.push("repeating_inventory_" + f + "_itemweight");
+      b.push("repeating_inventory_" + f + "_itemcount");
+      b.push("repeating_inventory_" + f + "_itemsize");
+      b.push("repeating_inventory_" + f + "_equipped");
+      b.push("repeating_inventory_" + f + "_carried");
+      b.push("repeating_inventory_" + f + "_itemcontainer");
+      b.push("repeating_inventory_" + f + "_itemweightfixed");
+      b.push("repeating_inventory_" + f + "_itemslotsfixed");
+      b.push("repeating_inventory_" + f + "_itemcontainer_slots");
+      b.push("repeating_inventory_" + f + "_itemcontainer_slots_modifier");
     });
+    getAttrs(b, function(f) {
+      var h = 0, k = 0;
+      _.each(g, function(q) {
+        if (1 == f["repeating_inventory_" + q + "_equipped"] || 1 == f["repeating_inventory_" + q + "_carried"]) {
+          if (1 == f["repeating_inventory_" + q + "_itemcontainer"]) {
+            if (1 == f["repeating_inventory_" + q + "_equipped"]) {
+              k = parseInt(f["repeating_inventory_" + q + "_itemcontainer_slots"], 0);
+              var r = "repeating_inventory_" + q + "_itemcontainer_slots_modifier";
+              f[r] && (-1 < ["+", "-"].indexOf(f[r]) ? (q = f[r].substring(0, 1), r = f[r].substring(1), !1 === isNaN(parseInt(r, 0)) && ("+" == q ? h += parseInt(r, 0) : "-" == q && (h -= parseInt(r, 0)))) : !1 === isNaN(parseInt(f[r], 0)) && (h += parseInt(f[r], 0)));
+            }
+          } else {
+            f["repeating_inventory_" + q + "_itemweight"] && !1 === isNaN(parseInt(f["repeating_inventory_" + q + "_itemweight"], 0)) && (1 == f["repeating_inventory_" + q + "_itemweightfixed"] ? d += parseFloat(f["repeating_inventory_" + q + "_itemweight"]) : (count = f["repeating_inventory_" + q + "_itemcount"] && !1 === isNaN(parseFloat(f["repeating_inventory_" + q + "_itemcount"])) ? parseFloat(f["repeating_inventory_" + q + "_itemcount"]) : 1, d += parseFloat(f["repeating_inventory_" + q + "_itemweight"]) * 
+            count)), f["repeating_inventory_" + q + "_itemsize"] && !1 === isNaN(parseInt(f["repeating_inventory_" + q + "_itemsize"], 0)) && (1 == f["repeating_inventory_" + q + "_itemslotsfixed"] ? a += parseFloat(f["repeating_inventory_" + q + "_itemsize"]) : (count = f["repeating_inventory_" + q + "_itemcount"] && !1 === isNaN(parseFloat(f["repeating_inventory_" + q + "_itemcount"])) ? parseFloat(f["repeating_inventory_" + q + "_itemcount"]) : 1, a += parseFloat(f["repeating_inventory_" + q + 
+            "_itemsize"]) * count));
+          }
+        }
+      });
+      d = Math.round(100 * d) / 100;
+      a = Math.round(100 * a) / 100;
+      c.weighttotal = d;
+      c.slotstotal = a;
+      var l = 18 + (parseInt(f.power) + parseInt(k));
+      if (f.inventory_slots_mod) {
+        var m = f.inventory_slots_mod.substring(0, 1), n = f.inventory_slots_mod.substring(1);
+        -1 < ["*", "x", "+", "-"].indexOf(m) && !1 === isNaN(parseInt(n, 0)) && ("*" == m || "x" == m ? l *= parseInt(n, 0) : "+" == m ? l += parseInt(n, 0) : "-" == m && (l -= parseInt(n, 0)));
+      }
+      l += h;
+      var p = parseInt(f.power), u = 30 * p;
+      f.carrying_capacity_mod && (m = f.carrying_capacity_mod.substring(0, 1), n = parseInt(f.carrying_capacity_mod.substring(1), 10), -1 < ["*", "x", "+", "-", "/"].indexOf(m) && !isNaN(n) && ("*" == m || "x" == m ? u *= n : "+" == m ? u += n : "-" == m ? u -= n : "/" == m && (u /= n)));
+      c.weightmaximum = u;
+      c.slotsmaximum = l;
+      c.encumberance = a > l ? "OVER CARRYING CAPACITY" : d > 30 * p ? "IMMOBILE" : d > 22 * p ? "HEAVILY ENCUMBERED" : d > 15 * p ? "ENCUMBERED" : " ";
+      setAttrs(c, {silent:!0});
+    });
+  });
+}, update_skills = function(c) {
+  var d = "power agility vitality cultivation qicontrol mental appearance".split(" "), a = {}, b = [];
+  _.each(c, function(g) {
+    d.push(g + "_bonus");
+    d.push(g + "_flat");
+  });
+  getSectionIDs("repeating_inventory", function(g) {
+    _.each(g, function(f) {
+      d.push("repeating_inventory_" + f + "_equipped");
+      d.push("repeating_inventory_" + f + "_itemmodifiers");
+    });
+    getAttrs(d, function(f) {
+      _.each(c, function(h) {
+        console.log("UPDATING SKILL: " + h);
+        var k = f[h + "_flat"] && !isNaN(parseInt(f[h + "_flat"], 10)) ? parseInt(f[h + "_flat"], 10) : 0, l = 0;
+        _.each(g, function(n) {
+          f["repeating_inventory_" + n + "_equipped"] && "1" === f["repeating_inventory_" + n + "_equipped"] && f["repeating_inventory_" + n + "_itemmodifiers"] && (-1 < f["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().replace(/ /g, "_").indexOf(h) || -1 < f["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().indexOf("skill checks")) && (n = f["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().split(","), _.each(n, function(p) {
+            if (-1 < p.replace(/ /g, "_").indexOf(h) || -1 < p.indexOf("skill checks")) {
+              -1 < p.indexOf("-") ? (p = isNaN(parseInt(p.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(p.replace(/[^0-9]/g, ""), 10), l -= p ? l + p : l) : (p = isNaN(parseInt(p.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(p.replace(/[^0-9]/g, ""), 10), l += p ? l + p : l);
+            }
+          }));
+        });
+        var m = 0;
+        switch(h) {
+          case "acrobatics":
+          case "discretion":
+          case "stealth":
+            m = parseInt(f.agility, 10);
+            break;
+          case "athletics":
+          case "grapple":
+            m = parseInt(f.power, 10);
+            break;
+          case "charm":
+          case "deceit":
+          case "disguise":
+          case "persuade":
+            m = parseInt(f.mental, 10) + parseInt(f.appearance, 10);
+            break;
+          case "fine_arts":
+          case "forgery":
+          case "navigation":
+            m = Math.floor(parseInt(f.agility, 10) / 2) + Math.floor(parseInt(f.mental, 10) / 2);
+            break;
+          case "history":
+          case "medicine":
+            m = Math.floor(parseInt(f.qicontrol, 10) / 2) + Math.floor(parseInt(f.mental, 10) / 2);
+            break;
+          case "intuition":
+          case "investigation":
+          case "perception":
+            m = parseInt(f.mental, 10);
+            break;
+          case "intimidation":
+            m = parseInt(f.power, 10) + parseInt(f.appearance, 10);
+            break;
+          case "performance":
+            m = parseInt(f.agility, 10) + parseInt(f.appearance, 10);
+            break;
+          case "survival":
+            m = Math.floor(parseInt(f.power, 10) / 2) + Math.floor(parseInt(f.mental, 10) / 2);
+        }
+        k += l;
+        a[h] = 0 < k ? m + "d6+" + k : m + "d6";
+        a[h + "_bonus"] = k;
+        a[h + "_roll"] = m;
+      });
+      setAttrs(a, {silent:!0}, function() {
+        b.forEach(function(h) {
+          h();
+        });
+      });
+    });
+  });
+}, update_all_ability_checks = function() {
+  update_initiative();
+  update_skills("acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" "));
+}, update_durability = function() {
+  console.log("UPDATING DURABILITY");
+  getAttrs(["durability-base", "durability-limit", "durability-bonus", "vitality"], function(c) {
+    var d = {}, a = parseInt(c["durability-base"]) || 0, b = parseInt(c.vitality);
+    parseInt(c["durability-limit"]);
+    c = parseInt(c["durability-bonus"]) || 0;
+    e = 10 * Math.floor(b / 50);
+    d["durability-full"] = a + c + e;
+    setAttrs(d, {silent:!0});
+  });
+}, update_evasion = function() {
+  console.log("UPDATING EVASION");
+  getAttrs(["evasion-base", "evasion-limit", "evasion-bonus", "agility"], function(c) {
+    var d = {}, a = parseInt(c.agility) || 0, b = parseInt(c["evasion-base"]) || 0, g = parseInt(c["evasion-limit"]) || 0;
+    c = parseInt(c["evasion-bonus"]) || 0;
+    d["evasion-full"] = a < g ? b + a + c : b + g + Math.floor((a - g) / 2) + c;
+    setAttrs(d, {silent:!0});
+  });
+}, update_reduction = function() {
+  console.log("UPDATING REDUCTION");
+  getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(c) {
+    var d = {}, a = parseInt(c["reduction-base"]) || 0, b = parseInt(c["reduction-armour"]) || 0;
+    c = parseInt(c["reduction-bonus"]) || 0;
+    d["reduction-full"] = a + b + c;
+    setAttrs(d, {silent:!0});
+  });
 };
-
-let toInt = function(value) {
-    return (value && !isNaN(value)) ? parseInt(value) : 0;
-};
-
-let clamp = function(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-};
-
-let isDefined = function(value) {
-    return value !== null && typeof(value) !== 'undefined';
+let toInt = function(c) {
+  return c && !isNaN(c) ? parseInt(c) : 0;
+}, clamp = function(c, d, a) {
+  return Math.min(Math.max(c, d), a);
+}, isDefined = function(c) {
+  return null !== c && "undefined" !== typeof c;
 };
