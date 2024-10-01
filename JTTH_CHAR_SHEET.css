@@ -2584,6 +2584,9 @@
   display: none !important;
 }
 
+.charsheet .sheet-core .sheet-page-content .sheet-container-attacks .sheet-panel-bonuses .sheet-fieldset-item .sheet-form .sheet-form-group .sheet-form-checkbox{
+  display: none;
+}
 
 .sheet-rolltemplate-atk,
 .sheet-rolltemplate-dmg,
@@ -2659,7 +2662,8 @@
   margin-top: 8px;
 }
 
-.sheet-rolltemplate-simple .sheet-template-label {
+.sheet-rolltemplate-simple .sheet-template-label,
+.sheet-rolltemplate-simple .sheet-template-charname {
   text-align: center;
 }
 

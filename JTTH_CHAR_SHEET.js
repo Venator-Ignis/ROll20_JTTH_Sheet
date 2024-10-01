@@ -1,3 +1,4 @@
+
 "power agility vitality cultivation qicontrol mental appearance".split(" ").forEach(c => {
   on(`change:${c}_base change:${c}_bonus change:${c}_dc_bonus`, function() {
     update_attr(`${c}`);
@@ -209,7 +210,7 @@ var check_itemmodifiers = function(c, d) {
     }
   });
 }, do_update_mortalattack = function(c) {
-  var d = "level dtype power agility vitality cultivation qicontrol mental global_damage_mod_roll global_damage_mod_type".split(" ");
+  var d = "level dtype power agility vitality cultivation qicontrol mental mortal_global_damage_mod_roll mortal_global_damage_mod_type".split(" ");
   _.each(c, function(a) {
     d.push("repeating_mortalattack_" + a + "_atkflag");
     d.push("repeating_mortalattack_" + a + "_atkname");
@@ -247,7 +248,7 @@ var check_itemmodifiers = function(c, d) {
       var A = a["repeating_mortalattack_" + b + "_dmgbase"] && "" != a["repeating_mortalattack_" + b + "_dmgbase"] ? a["repeating_mortalattack_" + b + "_dmgbase"] : 0, B = a["repeating_mortalattack_" + b + "_dmg2base"] && "" != a["repeating_mortalattack_" + b + "_dmg2base"] ? a["repeating_mortalattack_" + b + "_dmg2base"] : 0, C = a["repeating_mortalattack_" + b + "_dmg3base"] && "" != a["repeating_mortalattack_" + b + "_dmg3base"] ? a["repeating_mortalattack_" + b + "_dmg3base"] : 0, x = a["repeating_mortalattack_" + 
       b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_mortalattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_mortalattack_" + b + "_dmg3mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_mortalattack_" + 
       b + "_dmg3mod"], 10) : 0, E = a["repeating_mortalattack_" + b + "_dmgtype"] ? a["repeating_mortalattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_mortalattack_" + b + "_dmg2type"] ? a["repeating_mortalattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_mortalattack_" + b + "_dmg3type"] ? a["repeating_mortalattack_" + b + "_dmg3type"] + " " : "", H = a["repeating_mortalattack_" + b + "_atkmod"] && "" != a["repeating_mortalattack_" + b + "_atkmod"] ? parseInt(a["repeating_mortalattack_" + 
-      b + "_atkmod"], 10) : 0, w = "+" + `[[${a.global_damage_mod_roll && "" !== a.global_damage_mod_roll ? a.global_damage_mod_roll : "0"}]]` + "[" + (a.global_damage_mod_type || "") + "]";
+      b + "_atkmod"], 10) : 0, w = "+" + `[[${a.global_damage_mod_roll && "" !== a.global_damage_mod_roll ? a.global_damage_mod_roll : "0"}]]` + "[" + (a.mortal_global_damage_mod_type || "") + "]";
       if (a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"]) {
         bonus_mod = atkattr_base + H, plus_minus = -1 < bonus_mod ? "+" : "", bonus = plus_minus + bonus_mod;
       } else if (a["repeating_mortalattack_" + b + "_saveflag"] && 0 != a["repeating_mortalattack_" + b + "_saveflag"]) {
@@ -270,7 +271,7 @@ var check_itemmodifiers = function(c, d) {
       a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + u + "]" + k), k = A + k) : k = "0";
       a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? (0 != y && (l = "+" + y + "[MOD]" + l), 0 != dmg2attr && (l = "+" + dmg2attr + "[" + q + "]" + l), l = B + l) : l = "0";
       a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? (0 != z && (t = "+" + z + "[MOD]" + t), 0 != dmg3attr && (t = "+" + dmg3attr + "[" + r + "]" + t), t = C + t) : t = "0";
-      "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}}  {{globaldamagetype=@{global_damage_mod_type}}} @{charname_output}") : 
+      "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}}  {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : 
       a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_mortalattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} @{charname_output}") : a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (pickbase = "dmg", 
       p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
       f["repeating_mortalattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
@@ -297,13 +298,13 @@ var check_itemmodifiers = function(c, d) {
         _.each(g, function(k, l) {
           (l = f.exec(l)) && (a[l[1]][l[2]] = k);
         });
-        var h = {global_damage_mod_roll:"", global_damage_mod_type:""};
+        var h = {mortal_global_damage_mod_roll:"", mortal_global_damage_mod_type:""};
         console.log("MORTAL GLOBALDAMAGE");
         _.each(a, function(k) {
-          "0" != k.active_flag && (k.name && "" !== k.name && (h.global_damage_mod_roll += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (h.global_damage_mod_type += k.type + "/"));
+          "0" != k.active_flag && (k.name && "" !== k.name && (h.global_damage_mod_roll += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (h.mortal_global_damage_mod_type += k.type + "/"));
         });
-        h.global_damage_mod_roll = h.global_damage_mod_roll.replace(/\+(?=$)/, "");
-        h.global_damage_mod_type = h.global_damage_mod_type.replace(/\/(?=$)/, "");
+        h.mortal_global_damage_mod_roll = h.mortal_global_damage_mod_roll.replace(/\+(?=$)/, "");
+        h.mortal_global_damage_mod_type = h.mortal_global_damage_mod_type.replace(/\/(?=$)/, "");
         setAttrs(h, {silent:!0}, function() {
           update_mortalattacks("all");
           "function" == typeof c && c();
