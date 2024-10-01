@@ -85,7 +85,7 @@
                             </div>
                             <div class="sheet-container-attribute">
                                 <div class="sheet-container-header">
-                                    <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{1=[[@{agility}d6[agility]+@{agility_check_bonus}[BONUS]+@{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
+                                    <button type="roll" name="roll_agility" value="@{wtype}&{template:simple} @{charname_output} {{rname=Agility}} {{r1=[[@{agility}d6[agility]+@{agility_check_bonus}[BONUS]+@{global_attribute_bonus}[GLOBAL]]]}}" class="sheet-button-attribute">
                                         <span class="sheet-button-attribute-title">AGILITY</span>
                                     </button>
                                 </div>
@@ -320,7 +320,7 @@
                                                 </div>
                                                 <div class="sheet-toggle-unchecked">
                                                     <div class="sheet-pc-tool">
-                                                        <button type="roll" name="roll_roll" value="@{wtype}&{template:tool} @{charname_output} {{rname=@{toolname}}} {{mod=@{tool_mod}}} {{r1=[[@{tool_roll}+@{tool_mod}[BONUS]]]}} {{type=Custom}}">
+                                                        <button type="roll" name="roll_roll" value="@{wtype}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{mod=@{tool_mod}}} {{r1=[[@{tool_roll}+@{tool_mod}[BONUS]]]}} {{type=Custom}}">
                                                             <span name="attr_toolname"></span>
                                                             <span name="attr_tool_roll"></span>
                                                             <span>+</span>
@@ -362,7 +362,7 @@
                                     <div class="sheet-container-body">
                                         <div class="sheet-container-box sheet-pc-initiative">
                                             <div class="sheet-container-bar">
-                                                <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{charname_output} {{rname=Initiative}} {{r1=[[@{agility}d6[AGI]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE<span name="attr_initiative" title="@{initiative}"></span></button>
+                                                <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{charname_output} {{rname=Initiative}} {{r1=[[@{agility}d6[INIT]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE<span name="attr_initiative" title="@{initiative}"></span></button>
                                             </div>
                                         </div>
                                         <div class="sheet-container-box sheet-pc-defences">
@@ -1020,7 +1020,7 @@
                                                 </div>
                                                 <div class="sheet-toggle-unchecked">
                                                     <div class="sheet-pc-tool">
-                                                        <button type="roll" name="roll_roll" value="@{wtype}&{template:tool} @{charname_output} {{rname=@{toolname}}} {{mod=@{tool_mod}}} {{r1=[[@{tool_roll}+@{tool_mod}[BONUS]]]}} {{type=Custom}}">
+                                                        <button type="roll" name="roll_roll" value="@{wtype}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{r1=[[@{tool_roll}+@{tool_mod}[BONUS]]]}} {{type=Custom}}">
                                                             <span name="attr_toolname"></span>
                                                             <span name="attr_tool_roll"></span>
                                                             <span>+</span>
@@ -1066,7 +1066,7 @@
                                     <div class="sheet-container-body">
                                         <div class="sheet-container-box sheet-pc-initiative">
                                             <div class="sheet-container-bar">
-                                                <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{charname_output} {{rname=Initiative}} {{r1=[[@{agility}d6[AGI]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE<span name="attr_initiative" title="@{initiative}"></span></button>
+                                                <button type="roll" name="roll_init" value="@{wtype}&{template:simple} @{charname_output} {{rname=Initiative}} {{r1=[[@{agility}d6[INIT]+@{initiative_bonus} &{tracker}]]}} {{type=Initiative}}">INITIATIVE<span name="attr_initiative" title="@{initiative}"></span></button>
                                             </div>
                                         </div>
                                         <div class="sheet-container-box sheet-pc-defences">
@@ -1778,7 +1778,7 @@
                                             </div>
                                             <div class="sheet-toggle-unchecked">
                                                 <div class="sheet-pc-feature">
-                                                    <button type="roll" name="roll_output" value="@{wtype}&{template:features} @{charname_output} {{name=@{name}}} {{source=@{source}}} {{source_type=@{source_type}}} {{description=@{description}}}">
+                                                    <button type="roll" name="roll_output" value="@{wtype}&{template:features} @{charname_output} {{name=@{name}}} {{source=@{source}: @{source_type}}} {{description=@{description}}}">
                                                         <div class="sheet-pc-feature-name">
                                                             <span name="attr_name"></span>
                                                         </div>
@@ -2101,6 +2101,24 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="sheet-form-group">
+                                                                    <label>Equipped Slot</label>
+                                                                    <select name="attr_equippedslot">
+                                                                        <option value="" selected="selected"></option>
+                                                                        <option value="Weapon">Weapon</option>
+                                                                        <option value="Body">Body</option>
+                                                                        <option value="Head">Head</option>
+                                                                        <option value="Hands">Hands</option>
+                                                                        <option value="Feet">Feet</option>
+                                                                        <option value="Back">Back</option>
+                                                                        <option value="Accessory">Accessory</option>
+                                                                        <option value="Flying Treasure">Flying Treasure</option>
+                                                                        <option value="Spatial Treasure">Spatial Treasure</option>
+                                                                        <option value="Offensive Treasure">Offensive Treasure</option>
+                                                                        <option value="Defensive Treasure">Defensive Treasure</option>
+                                                                        <option value="Life-Saving Treasure">Life-Saving Treasure</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="sheet-form-group">
                                                                     <label>Properties:</label>
                                                                     <input type="text" name="attr_itemproperties">
                                                                 </div>
@@ -2178,6 +2196,7 @@
                                                                 <input type="hidden" name="attr_carried" value="1" class="sheet-field-toggle">
                                                                 <span class="sheet-pc-item-carried"><strong>C</strong></span>
                                                                 <span name="attr_itemname"></span>
+                                                                <span name="attr_equippedslot"></span>
                                                             </span>
                                                             <span class="sheet-pc-item-quantity">
                                                                 <input type="text" name="attr_itemcount">
@@ -2231,292 +2250,253 @@
                     <input type="radio" name="attr_page" value="options">
                     <span class="sheet-page-label">OPTIONS</span>
                     <div class="sheet-page-content">
-                        <div class="sheet-form sheet-form-inline tool-mod">
-                            <div class="sheet-form-header">Tool Modifiers</div>
-                            <div class="sheet-form-body">
-                                <fieldset class="repeating_skillmod">
-                                    <div class="sheet-fieldset-item">
-                                        <div class="sheet-checkbox-cog">
-                                            <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                            <span class="sheet-toggle-icon"></span>
+                        <div class="sheet-options">
+                            <div class="sheet-container-panel sheet-pc-option-general">
+                                <div class="sheet-container-header">GENERAL OPTIONS</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-form-group">
+                                                <label>Whisper Rolls to GM:</label>
+                                                <select name="attr_wtype" title="@{wtype}">
+                                                    <option value="">Never Whisper Rolls</option>
+                                                    <option value="@{whispertoggle}">Whisper Toggle</option>
+                                                    <option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }">Query Whisper</option>
+                                                    <option value="/w gm ">Always Whisper Rolls</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Auto Damage Roll:</label>
+                                                <select name="attr_dtype" title="@{dtype}">
+                                                    <option value="pick">Don't Auto Roll Damage</option>
+                                                    <option value="full">Auto Roll Damage</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Add Character Name to Templates:</label>
+                                                <select name="attr_charname_output" title="@{charname_output}">
+                                                    <option value="{{charname=@{character_name}}}">On</option>
+                                                    <option value="charname=@{character_name}" selected="selected">Off</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Carrying Capacity Modifier:</label>
+                                                <input type="number" name="attr_carrying_capacity_mod" placeholder="*2/+2/-2" title="@{carrying_capacity_mod}">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Initiative Bonus:</label>
+                                                <input type="number" name="attr_initiative_bonus" title="@{initiative_bonus}">
+                                            </div>
                                         </div>
-                                        <input type="checkbox" name="attr_options-flag" checked="checked" class="sheet-toggle" hidden>
-                                        <div class="sheet-toggle-checked">
-                                            <div class="sheet-form">
-                                                <div class="sheet-form-header">Edit Modifier</div>
-                                                <div class="sheet-form-body">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-option-skills">
+                                <div class="sheet-container-header">SKILL OPTIONS</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-form-group">
+                                                <label>Acrobatics</label>
+                                                <input type="number" name="attr_acrobatics_flat" title="@{acrobatics_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Athletics</label>
+                                                <input type="number" name="attr_athletics_flat" title="@{athletics_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Charm</label>
+                                                <input type="number" name="attr_charm_flat" title="@{charm_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Deceit</label>
+                                                <input type="number" name="attr_deceit_flat" title="@{deceit_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Discretion</label>
+                                                <input type="number" name="attr_discretion_flat" title="@{discretion_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Disguise</label>
+                                                <input type="number" name="attr_disguise_flat" title="@{disguise_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Fine Arts</label>
+                                                <input type="number" name="attr_fine_arts_flat" title="@{fine_arts_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Forgery</label>
+                                                <input type="number" name="attr_forgery_flat" title="@{forgery_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Grapple</label>
+                                                <input type="number" name="attr_grapple_flat" title="@{grapple_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>History</label>
+                                                <input type="number" name="attr_history_flat" title="@{history_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Intuition</label>
+                                                <input type="number" name="attr_intuition_flat" title="@{intuition_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Intimidation</label>
+                                                <input type="number" name="attr_intimidation_flat" title="@{intimidation_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Investigation</label>
+                                                <input type="number" name="attr_investigation_flat" title="@{investigation_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Medicine</label>
+                                                <input type="number" name="attr_medicine_flat" title="@{medicine_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Navigation</label>
+                                                <input type="number" name="attr_navigation_flat" title="@{navigation_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Perception</label>
+                                                <input type="number" name="attr_perception_flat" title="@{perception_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Performance</label>
+                                                <input type="number" name="attr_performance_flat" title="@{performance_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Persuade</label>
+                                                <input type="number" name="attr_persuade_flat" title="@{persuade_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Stealth</label>
+                                                <input type="number" name="attr_stealth_flat" title="@{stealth_flat}" value="0">
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Survival</label>
+                                                <input type="number" name="attr_survival_flat" title="@{survival_flat}" value="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sheet-container-panel sheet-pc-option-attributes">
+                                <div class="sheet-container-header">ATTRIBUTE OPTIONS</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-attribute-options">
+                                                <div>
+                                                    <div class="sheet-container-header">ATTRIBUTE BONUS</div>
                                                     <div class="sheet-form-group">
-                                                        <div class="sheet-form-checkbox">
-                                                            <input type="checkbox" name="attr_global_skill_active_flag" value="1">
-                                                        </div>
-                                                        <input type="text" name="attr_global_skill_name">
+                                                        <label>Power:</label>
+                                                        <input type="number" name="attr_power_bonus" title="@{power_bonus}" value="0">
                                                     </div>
                                                     <div class="sheet-form-group">
-                                                        <label>Bonus:</label>
-                                                        <input type="text" name="attr_global_skill_roll">
+                                                        <label>Agility:</label>
+                                                        <input type="number" name="attr_agility_bonus" title="@{agility_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Vitality:</label>
+                                                        <input type="number" name="attr_vitality_bonus" title="@{vitality_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Cultivation:</label>
+                                                        <input type="number" name="attr_cultivation_bonus" title="@{cultivation_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Qi Control:</label>
+                                                        <input type="number" name="attr_qicontrol_bonus" title="@{qi_control_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Mental Strength:</label>
+                                                        <input type="number" name="attr_mental_bonus" title="@{mental_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Appearance:</label>
+                                                        <input type="number" name="attr_appearance" title="@{appearance}" value="0">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="sheet-container-header">ATTRIBUTE CHECK BONUS</div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Power:</label>
+                                                        <input type="number" name="attr_power_check_bonus" title="@{power_check_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Agility:</label>
+                                                        <input type="number" name="attr_agility_check_bonus" title="@{agility_check_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Vitality:</label>
+                                                        <input type="number" name="attr_vitality_check_bonus" title="@{vitality_check_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Cultivation:</label>
+                                                        <input type="number" name="attr_cultivation_check_bonus" title="@{cultivation_check_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Qi Control:</label>
+                                                        <input type="number" name="attr_qicontrol_check_bonus" title="@{qicontrol_check_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Mental Strength:</label>
+                                                        <input type="number" name="attr_mental_check_bonus" title="@{mental_check_bonus}" value="0">
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="sheet-container-header">ATTRIBUTE DC BONUS</div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Power:</label>
+                                                        <input type="number" name="attr_power_dc_bonus" title="@{power_dc_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Agility:</label>
+                                                        <input type="number" name="attr_agility_dc_bonus" title="@{agility_dc_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Vitality:</label>
+                                                        <input type="number" name="attr_vitality_dc_bonus" title="@{vitality_dc_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Cultivation:</label>
+                                                        <input type="number" name="attr_cultivation_dc_bonus" title="@{cultivation_dc_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Qi Control:</label>
+                                                        <input type="number" name="attr_qi_control_dc_bonus" title="@{qi_control_dc_bonus}" value="0">
+                                                    </div>
+                                                    <div class="sheet-form-group">
+                                                        <label>Mental Strength:</label>
+                                                        <input type="number" name="attr_mental_strength_bonus" dc_title="@{mental_strength_dc_bonus}" value="0">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="sheet-toggle-unchecked">
-                                            <div class="sheet-pc-tool-modifier">
-                                                <div class="sheet-checkbox-image">
-                                                    <input type="checkbox" name="attr_global_skill_active_flag" value="1">
-                                                    <span></span>
-                                                </div>
-                                                <span name="attr_global_skill_name"></span>
-                                                <span name="attr_global_skill_roll"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </div>
-                        <div class="sheet-container-panel sheet-pc-option-general">
-                            <div class="sheet-container-header">GENERAL OPTIONS</div>
-                            <div class="sheet-container-body">
-                                <div class="sheet-form sheet-form-borderless">
-                                    <div class="sheet-form-body">
-                                        <div class="sheet-form-group">
-                                            <label>Whisper Rolls to GM:</label>
-                                            <select name="attr_wtype" title="@{wtype}">
-                                                <option value="">Never Whisper Rolls</option>
-                                                <option value="@{whispertoggle}">Whisper Toggle</option>
-                                                <option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }">Query Whisper</option>
-                                                <option value="/w gm ">Always Whisper Rolls</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Auto Damage Roll:</label>
-                                            <select name="attr_dtype" title="@{dtype}">
-                                                <option value="pick">Don't Auto Roll Damage</option>
-                                                <option value="full">Auto Roll Damage & Crit</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Add Character Name to Templates:</label>
-                                            <select name="attr_charname_output" title="@{charname_output}">
-                                                <option value="{{charname=@{character_name}}}">On</option>
-                                                <option value="charname=@{character_name}" selected="selected">Off</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Carrying Capacity Modifier:</label>
-                                            <input type="number" name="attr_carrying_capacity_mod" placeholder="*2/+2/-2" title="@{carrying_capacity_mod}">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Initiative Bonus:</label>
-                                            <input type="number" name="attr_initiative_bonus" title="@{initiative_bonus}">
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sheet-container-panel sheet-pc-option-skills">
-                            <div class="sheet-container-header">SKILL OPTIONS</div>
-                            <div class="sheet-container-body">
-                                <div class="sheet-form sheet-form-borderless">
-                                    <div class="sheet-form-body">
-                                        <div class="sheet-form-group">
-                                            <label>Acrobatics</label>
-                                            <input type="number" name="attr_acrobatics_flat" title="@{acrobatics_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Athletics</label>
-                                            <input type="number" name="attr_athletics_flat" title="@{athletics_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Charm</label>
-                                            <input type="number" name="attr_charm_flat" title="@{charm_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Deceit</label>
-                                            <input type="number" name="attr_deceit_flat" title="@{deceit_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Discretion</label>
-                                            <input type="number" name="attr_discretion_flat" title="@{discretion_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Disguise</label>
-                                            <input type="number" name="attr_disguise_flat" title="@{disguise_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Fine Arts</label>
-                                            <input type="number" name="attr_fine_arts_flat" title="@{fine_arts_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Forgery</label>
-                                            <input type="number" name="attr_forgery_flat" title="@{forgery_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Grapple</label>
-                                            <input type="number" name="attr_grapple_flat" title="@{grapple_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>History</label>
-                                            <input type="number" name="attr_history_flat" title="@{history_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Intuition</label>
-                                            <input type="number" name="attr_intuition_flat" title="@{intuition_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Intimidation</label>
-                                            <input type="number" name="attr_intimidation_flat" title="@{intimidation_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Investigation</label>
-                                            <input type="number" name="attr_investigation_flat" title="@{investigation_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Medicine</label>
-                                            <input type="number" name="attr_medicine_flat" title="@{medicine_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Navigation</label>
-                                            <input type="number" name="attr_navigation_flat" title="@{navigation_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Perception</label>
-                                            <input type="number" name="attr_perception_flat" title="@{perception_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Performance</label>
-                                            <input type="number" name="attr_performance_flat" title="@{performance_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Persuade</label>
-                                            <input type="number" name="attr_persuade_flat" title="@{persuade_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Stealth</label>
-                                            <input type="number" name="attr_stealth_flat" title="@{stealth_flat}" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Survival</label>
-                                            <input type="number" name="attr_survival_flat" title="@{survival_flat}" value="0">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sheet-container-panel sheet-pc-option-attributes">
-                            <div class="sheet-container-header">ATTRIBUTE OPTIONS</div>
-                            <div class="sheet-container-body">
-                                <div class="sheet-form sheet-form-borderless">
-                                    <div class="sheet-form-body">
-                                        <div class="sheet-attribute-options">
-                                            <div>
-                                                <div class="sheet-container-header">ATTRIBUTE BONUS</div>
-                                                <div class="sheet-form-group">
-                                                    <label>Power:</label>
-                                                    <input type="number" name="attr_power_bonus" title="@{power_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Agility:</label>
-                                                    <input type="number" name="attr_agility_bonus" title="@{agility_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Vitality:</label>
-                                                    <input type="number" name="attr_vitality_bonus" title="@{vitality_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Cultivation:</label>
-                                                    <input type="number" name="attr_cultivation_bonus" title="@{cultivation_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Qi Control:</label>
-                                                    <input type="number" name="attr_qicontrol_bonus" title="@{qi_control_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Mental Strength:</label>
-                                                    <input type="number" name="attr_mental_bonus" title="@{mental_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Appearance:</label>
-                                                    <input type="number" name="attr_appearance" title="@{appearance}" value="0">
-                                                </div>
+                            <div class="sheet-container-panel sheet-pc-option-global">
+                                <div class="sheet-container-header">GLOBAL MODIFIERS</div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-form-group">
+                                                <label>Global Attribute Modifier:</label>
+                                                <input type="number" name="attr_global_attribute_bonus" title="@{global_attribute_bonus}" placeholder="0" value="0">
                                             </div>
-                                            <div>
-                                                <div class="sheet-container-header">ATTRIBUTE CHECK BONUS</div>
-                                                <div class="sheet-form-group">
-                                                    <label>Power:</label>
-                                                    <input type="number" name="attr_power_check_bonus" title="@{power_check_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Agility:</label>
-                                                    <input type="number" name="attr_agility_check_bonus" title="@{agility_check_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Vitality:</label>
-                                                    <input type="number" name="attr_vitality_check_bonus" title="@{vitality_check_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Cultivation:</label>
-                                                    <input type="number" name="attr_cultivation_check_bonus" title="@{cultivation_check_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Qi Control:</label>
-                                                    <input type="number" name="attr_qicontrol_check_bonus" title="@{qicontrol_check_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Mental Strength:</label>
-                                                    <input type="number" name="attr_mental_check_bonus" title="@{mental_check_bonus}" value="0">
-                                                </div>
+                                            <div class="sheet-form-group">
+                                                <label>Global Attribute Check Modifier:</label>
+                                                <input type="number" name="attr_global_attribute_check_bonus" title="@{global_attribute_check_bonus}" placeholder="0" value="0">
                                             </div>
-                                            <div>
-                                                <div class="sheet-container-header">ATTRIBUTE DC BONUS</div>
-                                                <div class="sheet-form-group">
-                                                    <label>Power:</label>
-                                                    <input type="number" name="attr_power_dc_bonus" title="@{power_dc_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Agility:</label>
-                                                    <input type="number" name="attr_agility_dc_bonus" title="@{agility_dc_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Vitality:</label>
-                                                    <input type="number" name="attr_vitality_dc_bonus" title="@{vitality_dc_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Cultivation:</label>
-                                                    <input type="number" name="attr_cultivation_dc_bonus" title="@{cultivation_dc_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Qi Control:</label>
-                                                    <input type="number" name="attr_qi_control_dc_bonus" title="@{qi_control_dc_bonus}" value="0">
-                                                </div>
-                                                <div class="sheet-form-group">
-                                                    <label>Mental Strength:</label>
-                                                    <input type="number" name="attr_mental_strength_bonus" dc_title="@{mental_strength_dc_bonus}" value="0">
-                                                </div>
+                                            <div class="sheet-form-group">
+                                                <label>Global DC Modifier:</label>
+                                                <input type="number" name="attr_global_dc_bonus" title="@{global_dc_bonus}" placeholder="0" value="0">
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sheet-container-panel sheet-pc-option-global">
-                            <div class="sheet-container-header">GLOBAL MODIFIERS</div>
-                            <div class="sheet-container-body">
-                                <div class="sheet-form sheet-form-borderless">
-                                    <div class="sheet-form-body">
-                                        <div class="sheet-form-group">
-                                            <label>Global Attribute Modifier:</label>
-                                            <input type="number" name="attr_global_attribute_bonus" title="@{global_attribute_bonus}" placeholder="0" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Global Attribute Check Modifier:</label>
-                                            <input type="number" name="attr_global_attribute_check_bonus" title="@{global_attribute_check_bonus}" placeholder="0" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Global DC Modifier:</label>
-                                            <input type="number" name="attr_global_dc_bonus" title="@{global_dc_bonus}" placeholder="0" value="0">
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Global Skill Modifier:</label>
-                                            <input type="number" name="attr_global_skill_bonus" title="@{global_skill_bonus}" placeholder="0" value="0">
+                                            <div class="sheet-form-group">
+                                                <label>Global Skill Modifier:</label>
+                                                <input type="number" name="attr_global_skill_bonus" title="@{global_skill_bonus}" placeholder="0" value="0">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2532,13 +2512,35 @@
     </div>
 
     <div class="sheet-variables">
-        <input type="hidden" name="attr_initiative_bonus" value="0">
-        
+        <input type="hidden" name="attr_power_base" value="0">
+        <input type="hidden" name="attr_power_bonus" value="0">
+        <input type="hidden" name="attr_power_flag" value="0">
+        <input type="hidden" name="attr_power_dc" value="0">
         <input type="hidden" name="attr_power" value="0">
+        <input type="hidden" name="attr_agility_base" value="0">
+        <input type="hidden" name="attr_agility_bonus" value="0">
+        <input type="hidden" name="attr_agility_flag" value="0">
+        <input type="hidden" name="attr_agility_dc" value="0">
         <input type="hidden" name="attr_agility" value="0">
+        <input type="hidden" name="attr_vitality_base" value="0">
+        <input type="hidden" name="attr_vitality_bonus" value="0">
+        <input type="hidden" name="attr_vitality_flag" value="0">
+        <input type="hidden" name="attr_vitality_dc" value="0">
         <input type="hidden" name="attr_vitality" value="0">
+        <input type="hidden" name="attr_cultivation_base" value="0">
+        <input type="hidden" name="attr_cultivation_bonus" value="0">
+        <input type="hidden" name="attr_cultivation_flag" value="0">
+        <input type="hidden" name="attr_cultivation_dc" value="0">
         <input type="hidden" name="attr_cultivation" value="0">
+        <input type="hidden" name="attr_qicontrol_base" value="0">
+        <input type="hidden" name="attr_qicontrol_bonus" value="0">
+        <input type="hidden" name="attr_qicontrol_flag" value="0">
+        <input type="hidden" name="attr_qicontrol_dc" value="0">
         <input type="hidden" name="attr_qicontrol" value="0">
+        <input type="hidden" name="attr_mental_base" value="0">
+        <input type="hidden" name="attr_mental_bonus" value="0">
+        <input type="hidden" name="attr_mental_flag" value="0">
+        <input type="hidden" name="attr_mental_dc" value="0">
         <input type="hidden" name="attr_mental" value="0">
         <input type="hidden" name="attr_appearance" value="0">
 
@@ -2546,68 +2548,49 @@
         <input type="hidden" name="attr_global_attribute_bonus" value="0">
         <input type="hidden" name="attr_global_dc_bonus" value="0">
 
+        <input type="hidden" name="attr_initiative" value="0">
+        <input type="hidden" name="attr_initiative_bonus" value="0">
+
         <input type="hidden" name="acrobatics_bonus" value="0">
-        <input type="hidden" name="athletics_bonus" value="0">
-        <input type="hidden" name="charm_bonus" value="0">
-        <input type="hidden" name="deceit_bonus" value="0">
-        <input type="hidden" name="discretion_bonus" value="0">
-        <input type="hidden" name="disguise_bonus" value="0">
-        <input type="hidden" name="fine_arts_bonus" value="0">
-        <input type="hidden" name="forgery_bonus" value="0">
-        <input type="hidden" name="grapple_bonus" value="0">
-        <input type="hidden" name="history_bonus" value="0">
-        <input type="hidden" name="intuition_bonus" value="0">
-        <input type="hidden" name="intimidation_bonus" value="0">
-        <input type="hidden" name="investigation_bonus" value="0">
-        <input type="hidden" name="medicine_bonus" value="0">
-        <input type="hidden" name="navigation_bonus" value="0">
-        <input type="hidden" name="perception_bonus" value="0">
-        <input type="hidden" name="performance_bonus" value="0">
-        <input type="hidden" name="persuade_bonus" value="0">
-        <input type="hidden" name="stealth_bonus" value="0">
-        <input type="hidden" name="survival_bonus" value="0">
-
         <input type="hidden" name="acrobatics_roll" value="0">
+        <input type="hidden" name="athletics_bonus" value="0">
         <input type="hidden" name="athletics_roll" value="0">
+        <input type="hidden" name="charm_bonus" value="0">
         <input type="hidden" name="charm_roll" value="0">
+        <input type="hidden" name="deceit_bonus" value="0">
         <input type="hidden" name="deceit_roll" value="0">
+        <input type="hidden" name="discretion_bonus" value="0">
         <input type="hidden" name="discretion_roll" value="0">
+        <input type="hidden" name="disguise_bonus" value="0">
         <input type="hidden" name="disguise_roll" value="0">
+        <input type="hidden" name="fine_arts_bonus" value="0">
         <input type="hidden" name="fine_arts_roll" value="0">
+        <input type="hidden" name="forgery_bonus" value="0">
         <input type="hidden" name="forgery_roll" value="0">
+        <input type="hidden" name="grapple_bonus" value="0">
         <input type="hidden" name="grapple_roll" value="0">
+        <input type="hidden" name="history_bonus" value="0">
         <input type="hidden" name="history_roll" value="0">
+        <input type="hidden" name="intuition_bonus" value="0">
         <input type="hidden" name="intuition_roll" value="0">
+        <input type="hidden" name="intimidation_bonus" value="0">
         <input type="hidden" name="intimidation_roll" value="0">
+        <input type="hidden" name="investigation_bonus" value="0">
         <input type="hidden" name="investigation_roll" value="0">
+        <input type="hidden" name="medicine_bonus" value="0">
         <input type="hidden" name="medicine_roll" value="0">
+        <input type="hidden" name="navigation_bonus" value="0">
         <input type="hidden" name="navigation_roll" value="0">
+        <input type="hidden" name="perception_bonus" value="0">
         <input type="hidden" name="perception_roll" value="0">
+        <input type="hidden" name="performance_bonus" value="0">
         <input type="hidden" name="performance_roll" value="0">
+        <input type="hidden" name="persuade_bonus" value="0">
         <input type="hidden" name="persuade_roll" value="0">
+        <input type="hidden" name="stealth_bonus" value="0">
         <input type="hidden" name="stealth_roll" value="0">
+        <input type="hidden" name="survival_bonus" value="0">
         <input type="hidden" name="survival_roll" value="0">
-
-        <input type="hidden" name="acrobatics" value="0d0">
-        <input type="hidden" name="athletics" value="0d0">
-        <input type="hidden" name="charm" value="0d0">
-        <input type="hidden" name="deceit" value="0d0">
-        <input type="hidden" name="discretion" value="0d0">
-        <input type="hidden" name="disguise" value="0d0">
-        <input type="hidden" name="fine_arts" value="0d0">
-        <input type="hidden" name="forgery" value="0d0">
-        <input type="hidden" name="grapple" value="0d0">
-        <input type="hidden" name="history" value="0d0">
-        <input type="hidden" name="intuition" value="0d0">
-        <input type="hidden" name="intimidation" value="0d0">
-        <input type="hidden" name="investigation" value="0d0">
-        <input type="hidden" name="medicine" value="0d0">
-        <input type="hidden" name="navigation" value="0d0">
-        <input type="hidden" name="perception" value="0d0">
-        <input type="hidden" name="performance" value="0d0">
-        <input type="hidden" name="persuade" value="0d0">
-        <input type="hidden" name="stealth" value="0d0">
-        <input type="hidden" name="survival" value="0d0">
 
         <input type="hidden" name="attr_mortal_global_damage_mod_type" value="none">
         <input type="hidden" name="attr_mortal_global_attack_mod" value="0">
@@ -2775,24 +2758,14 @@
                 </div>
                 {{#source}}
                 <div class="template-row subheader">
-                    <span class="italics">{{source}}</span>
+                    <span class="italics">{{#charname}}{{charname}} {{/charname}}{{source}}</span>
                 </div>
                 {{/source}}
-                {{#source_type}}
-                <div class="template-row subheader">
-                    <span class="italics">{{source_type}}</span>
-                </div>
-                {{/source_type}}
                 {{#description}}
-                <div class="template-row">
-                    <span class="desc">{{description}}</span>
-                </div>
+                    <div class="template-row">
+                        <span class="desc">{{description}}</span>
+                    </div>
                 {{/description}}
-                {{#charname}}
-                <div class="template-charname">
-                    <span>{{charname}}</span>
-                </div>
-                {{/charname}}
             </div>
         </rolltemplate>
 
@@ -2822,7 +2795,7 @@
                     </div>
                 </div>
                 <div class="template-label">
-                    <span>{{rname}}</span>
+                    <span>{{rname}} {{mod}}</span>
                 </div>
                 {{#charname}}
                 <div class="template-charname">

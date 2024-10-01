@@ -955,6 +955,7 @@
   line-height: 1.3;
   margin-top: 5px;
   font-size: 9px;
+  color: black;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
@@ -1724,6 +1725,18 @@
   flex-grow: 1;
 }
 
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type{
+  color: grey;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type::before{
+  content: "(";
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type::after{
+  content: ")";
+}
+
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-quantity,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-notches,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-weight,
@@ -1902,6 +1915,30 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body input,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body span {
   font-size: 24px;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-options{
+  display: grid !important;
+  grid-template-areas: "skills attributes general" "skills attributes global" "skills attributes ." ". attributes .";
+  grid-template-rows: auto auto auto 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-general{
+ grid-area: general;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-skills{
+ grid-area: skills;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-attributes{
+ grid-area: attributes;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-global{
+ grid-area: global;
 }
 
 .charsheet .sheet-core .sheet-tab-inventory .sheet-container-well-inventory-encumberance {
@@ -2400,7 +2437,7 @@
 }
 
 .charsheet .col1 .sheet-container-tools{
-  min-height: 423px;
+  min-height: 389px;
 }
 
 .charsheet .sheet-page-cultivator .col1 .sheet-container-tools{
@@ -2409,7 +2446,7 @@
 
 .charsheet .col3 .sheet-container-traits,
 .charsheet .col3 .sheet-container-resources{
-  min-height: 427.5px;
+  min-height: 410.5px;
 }
 
 .charsheet .sheet-page-cultivator .col3 .sheet-container-traits,
@@ -2501,12 +2538,6 @@
   content: ")";
 }
 
-.charsheet .sheet-core .sheet-pages .sheet-page-options {
-  display: grid;
-  grid-template-areas: '';
-}
-
-
 .charsheet .sheet-core .sheet-panel-attacks .sheet-move {
   min-height:  5mm;
   position:  relative;
@@ -2558,7 +2589,6 @@
 .sheet-rolltemplate-dmg,
 .sheet-rolltemplate-atkdmg,
 .sheet-rolltemplate-simple,
-.sheet-rolltemplate-tool,
 .sheet-rolltemplate-features,
 .sheet-rolltemplate-attribute{
   width: 264px;
@@ -2569,7 +2599,6 @@
 .sheet-rolltemplate-dmg .sheet-template-container,
 .sheet-rolltemplate-atkdmg .sheet-template-container,
 .sheet-rolltemplate-simple .sheet-template-container,
-.sheet-rolltemplate-tool .sheet-template-container,
 .sheet-rolltemplate-features .sheet-template-container,
 .sheet-rolltemplate-attribute .sheet-template-container{
   width: 100%;
@@ -2578,6 +2607,28 @@
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: white;
+}
+
+.sheet-rolltemplate-features .sheet-template-container .sheet-template-row{
+  text-align: center;
+}
+
+.sheet-rolltemplate-features .sheet-template-container .sheet-header span{
+  font-size: 16px;
+  background-color: transparent;
+  border: 0px;
+  padding: 0px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-features .sheet-template-container .sheet-subheader span{
+  padding: 0px;
+  border: 0px;
+  background-color: transparent;
+  font-size: 12px;
+  color: #A0A0A0;
+  font-weight: normal;
 }
 
 .sheet-rolltemplate-atk span,
@@ -2595,12 +2646,10 @@
 }
 
 .sheet-rolltemplate-simple .sheet-template-solo {
-  width: 100%;
+  width: 100% !important;
 }
 
 .sheet-rolltemplate-atk .sheet-template-add,
-.sheet-rolltemplate-simple .sheet-template-add,
-.sheet-rolltemplate-tool .sheet-template-add,
 .sheet-rolltemplate-atkdmg .sheet-template-add,
 .sheet-rolltemplate-simple .sheet-template-solo {
   width: calc(50% - 5px);
@@ -2610,9 +2659,11 @@
   margin-top: 8px;
 }
 
+.sheet-rolltemplate-simple .sheet-template-label {
+  text-align: center;
+}
+
 .sheet-rolltemplate-atk .sheet-template-add span,
-.sheet-rolltemplate-simple .sheet-template-add span,
-.sheet-rolltemplate-tool .sheet-template-add span,
 .sheet-rolltemplate-atkdmg .sheet-template-add span,
 .sheet-rolltemplate-simple .sheet-template-solo span{
   font-size: 16px;
@@ -2624,8 +2675,6 @@
 }
 
 .sheet-rolltemplate-atk .sheet-template-addspacer,
-.sheet-rolltemplate-simple .sheet-template-addspacer,
-.sheet-rolltemplate-tool .sheet-template-addspacer,
 .sheet-rolltemplate-atkdmg .sheet-template-addspacer{
   width: 0px;
   border: 1px solid black;
@@ -2732,9 +2781,6 @@
 .sheet-rolltemplate-simple .inlinerollresult.fullfail,
 .sheet-rolltemplate-simple .inlinerollresult.importantroll,
 .sheet-rolltemplate-simple .inlinerollresult.fullcrit,
-.sheet-rolltemplate-tool .inlinerollresult.fullfail,
-.sheet-rolltemplate-tool .inlinerollresult.importantroll,
-.sheet-rolltemplate-tool .inlinerollresult.fullcrit,
 .sheet-rolltemplate-feature .inlinerollresult.fullfail,
 .sheet-rolltemplate-feature .inlinerollresult.importantroll,
 .sheet-rolltemplate-feature .inlinerollresult.fullcrit,
