@@ -1276,7 +1276,7 @@
 
 .charsheet .sheet-core .sheet-toggle ~ .sheet-toggle-unchecked {
   display: block;
-  width: 100%;
+  width: calc(100% - 10px);
 }
 
 .charsheet .sheet-core .sheet-toggle:checked ~ .sheet-toggle-checked {
@@ -2454,6 +2454,22 @@
   min-height: 437.5px;
 }
 
+.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll{
+  position: absolute;
+  top: -3px;
+  right: 13px;
+  width: 100px;
+  height: 18px;
+  z-index: 2;
+  border: none;
+  background: none;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll:hover{
+  background: #94a5a3;
+  opacity: 0.4;
+}
+
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button {
   background: none;
   border: none;
@@ -2792,4 +2808,17 @@
 .sheet-rolltemplate-attribute .inlinerollresult.importantroll,
 .sheet-rolltemplate-attribute .inlinerollresult.fullcrit{
   border: none;
+}
+
+.charsheet .sheet-feature button{
+  position: absolute;
+  top: -3px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-family: pictos;
+  font-size: 20px;
 }
