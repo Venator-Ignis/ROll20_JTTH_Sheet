@@ -1430,7 +1430,7 @@
                                                 </div>
                                                 <input type="hidden" name="attr_rollbase">
                                                 <input type="hidden" name="attr_rollbase_dmg">
-                                                <button type="roll" name="roll_attack_dmg" value="@{rollbase_dmg}" class="sheet-hidden"></button>
+                                                <button type="roll" name="roll_attack_dmg" value="@{rollbase_dmg}" class="dmgroll"></button>
                                             </fieldset>
                                         </div>
                                     </div>
@@ -2158,7 +2158,7 @@
                                                                             <option value="stash">Stash</option>
                                                                             <option value="property">Property</option>
                                                                             <option value="vehicle">Vehicle</option>
-                                                                            <option value="worn">Worn</option>
+                                                                            <option value="spacial">Spacial Treasure</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="sheet-form-group">
@@ -2609,6 +2609,9 @@
         <input type="hidden" name="attr_global_eff_attack">
         <input type="hidden" name="attr_global_acc_attack">
         <input type="hidden" name="attr_global_attack_mod">
+        <input type="hidden" name="attr_cultivator_global_eff_attack">
+        <input type="hidden" name="attr_cultivator_global_acc_attack">
+        <input type="hidden" name="attr_cultivator_global_attack_mod">
         <input type="hidden" name="attr_mortal_global_damage_mod_type">
         <input type="hidden" name="attr_cultivator_global_damage_mod_type">
         <input type="hidden" name="attr_cultivator_global_attack_mod">
@@ -3253,10 +3256,7 @@
                 a["repeating_cultivatorattack_" + b + "_dmgattr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1)], 10), u = a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
                 a["repeating_cultivatorattack_" + b + "_dmg2attr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmg2attr"] ? (dmg2attr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmg2attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg2attr"].length - 1)], 10), q = a["repeating_cultivatorattack_" + b + "_dmg2attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg2attr"].length - 1).toUpperCase()) : dmg2attr = 0;
                 a["repeating_cultivatorattack_" + b + "_dmg3attr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmg3attr"] ? (dmg3attr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmg3attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg3attr"].length - 1)], 10), r = a["repeating_cultivatorattack_" + b + "_dmg3attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg3attr"].length - 1).toUpperCase()) : dmg3attr = 0;
-                var A = a["repeating_cultivatorattack_" + b + "_dmgbase"] && "" != a["repeating_cultivatorattack_" + b + "_dmgbase"] ? a["repeating_cultivatorattack_" + b + "_dmgbase"] : 0, B = a["repeating_cultivatorattack_" + b + "_dmg2base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg2base"] ? a["repeating_cultivatorattack_" + b + "_dmg2base"] : 0, C = a["repeating_cultivatorattack_" + b + "_dmg3base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg3base"] ? a["repeating_cultivatorattack_" + 
-                b + "_dmg3base"] : 0, x = a["repeating_cultivatorattack_" + b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_cultivatorattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_cultivatorattack_" + b + "_dmg3mod"] && !1 === 
-                isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10) : 0, E = a["repeating_cultivatorattack_" + b + "_dmgtype"] ? a["repeating_cultivatorattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_cultivatorattack_" + b + "_dmg2type"] ? a["repeating_cultivatorattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_cultivatorattack_" + b + "_dmg3type"] ? a["repeating_cultivatorattack_" + b + "_dmg3type"] + " " : 
-                "", H = a["repeating_cultivatorattack_" + b + "_atkmod"] && "" != a["repeating_cultivatorattack_" + b + "_atkmod"] ? parseInt(a["repeating_cultivatorattack_" + b + "_atkmod"], 10) : 0, w = "+" + `[[${a.cultivator_global_damage_mod_roll && "" !== a.cultivator_global_damage_mod_roll ? a.cultivator_global_damage_mod_roll : "0"}]]` + "[" + (a.cultivator_global_damage_mod_type || "") + "]";
+                var A = a["repeating_cultivatorattack_" + b + "_dmgbase"] && "" != a["repeating_cultivatorattack_" + b + "_dmgbase"] ? a["repeating_cultivatorattack_" + b + "_dmgbase"] : 0, B = a["repeating_cultivatorattack_" + b + "_dmg2base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg2base"] ? a["repeating_cultivatorattack_" + b + "_dmg2base"] : 0, C = a["repeating_cultivatorattack_" + b + "_dmg3base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg3base"] ? a["repeating_cultivatorattack_" + b + "_dmg3base"] : 0, x = a["repeating_cultivatorattack_" + b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_cultivatorattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_cultivatorattack_" + b + "_dmg3mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10) : 0, E = a["repeating_cultivatorattack_" + b + "_dmgtype"] ? a["repeating_cultivatorattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_cultivatorattack_" + b + "_dmg2type"] ? a["repeating_cultivatorattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_cultivatorattack_" + b + "_dmg3type"] ? a["repeating_cultivatorattack_" + b + "_dmg3type"] + " " : "", H = a["repeating_cultivatorattack_" + b + "_atkmod"] && "" != a["repeating_cultivatorattack_" + b + "_atkmod"] ? parseInt(a["repeating_cultivatorattack_" + b + "_atkmod"], 10) : 0, w = "+" + `[[${a.cultivator_global_damage_mod_roll && "" !== a.cultivator_global_damage_mod_roll ? a.cultivator_global_damage_mod_roll : "0"}]]` + "[" + (a.cultivator_global_damage_mod_type || "") + "]";
                 if (a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"]) {
                   bonus_mod = atkattr_base + H, plus_minus = -1 < bonus_mod ? "+" : "", bonus = plus_minus + bonus_mod;
                 } else if (a["repeating_cultivatorattack_" + b + "_saveflag"] && 0 != a["repeating_cultivatorattack_" + b + "_saveflag"]) {
@@ -3279,9 +3279,8 @@
                 a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + u + "]" + k), k = A + k) : k = "0";
                 a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? (0 != y && (l = "+" + y + "[MOD]" + l), 0 != dmg2attr && (l = "+" + dmg2attr + "[" + q + "]" + l), l = B + l) : l = "0";
                 a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? (0 != z && (t = "+" + z + "[MOD]" + t), 0 != dmg3attr && (t = "+" + dmg3attr + "[" + r + "]" + t), t = C + t) : t = "0";
-                "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}}  {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : 
-                a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} @{charname_output}") : a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? 
-                (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
+                "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} {{globalaccattack=@{cultivator_global_acc_attack}}} {{globaleffattack=@{cultivator_global_eff_attack}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : 
+                a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} {{globalaccattack=@{cultivator_global_acc_attack}}} {{globaleffattack=@{cultivator_global_eff_attack}}} @{charname_output}") : a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
                 f["repeating_cultivatorattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
                 f["repeating_cultivatorattack_" + b + "_atkbonus"] = bonus;
                 f["repeating_cultivatorattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + v + " ";
@@ -3326,19 +3325,32 @@
                 var a = {}, b = [];
                 d.forEach(function(g) {
                   a[g] = {};
-                  b.push(`repeating_cultivatortohitmod_${g}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_name`);
+                  b.push(`repeating_cultivatortohitmod_${g}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_name`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_appliesto`);
                 });
                 getAttrs(b, function(g) {
-                  var f = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name)$/;
+                  var f = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name|appliesto)$/;
                   _.each(g, function(k, l) {
                     (l = f.exec(l)) && (a[l[1]][l[2]] = k);
                   });
-                  var h = {cultivator_global_attack_mod:""};
+                  var h = {cultivator_global_attack_mod:"", cultivator_global_acc_attack:"", cultivator_global_eff_attack:""};
                   console.log("CULTIVATOR GLOBALATTACK");
                   _.each(a, function(k) {
-                    "0" != k.active_flag && k.roll && "" !== k.roll && (h.cultivator_global_attack_mod += k.roll + "[" + k.name + "]+");
+                    if ("0" != k.active_flag && k.roll && "" !== k.roll) {
+                      switch(k.appliesto) {
+                        case "acc":
+                          h.cultivator_global_acc_attack += k.roll + "[" + k.name + "]+";
+                          break;
+                        case "eff":
+                          h.cultivator_global_eff_attack += k.roll + "[" + k.name + "]+";
+                          break;
+                        case "both":
+                          h.cultivator_global_attack_mod += k.roll + "[" + k.name + "]+";
+                      }
+                    }
                   });
                   "" !== h.cultivator_global_attack_mod && (h.cultivator_global_attack_mod = "[[" + h.cultivator_global_attack_mod.replace(/\+(?=$)/, "") + "]]");
+                  "" !== h.cultivator_global_acc_attack && (h.cultivator_global_acc_attack = "[[" + h.cultivator_global_acc_attack.replace(/\+(?=$)/, "") + "]]");
+                  "" !== h.cultivator_global_eff_attack && (h.cultivator_global_eff_attack = "[[" + h.cultivator_global_eff_attack.replace(/\+(?=$)/, "") + "]]");
                   setAttrs(h, {silent:!0}, function() {
                     "function" == typeof c && c();
                   });
