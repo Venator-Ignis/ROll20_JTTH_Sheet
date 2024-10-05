@@ -2885,8 +2885,8 @@
             });
           });
           "acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" ").forEach(c => {
-            on(`change:${c}_flat`, function(d) {
-              "sheetworker" !== d.sourceType && update_skills([`${c}`]);
+            on(`change:${c}_flat`, function(f) {
+              "sheetworker" !== f.sourceType && update_skills([`${c}`]);
             });
           });
           on("change:initiative_bonus", function() {
@@ -2899,9 +2899,9 @@
           });
           on("change:repeating_inventory:itemmodifiers change:repeating_inventory:equipped change:repeating_inventory:carried", function(c) {
             if (!c.sourceType || "sheetworker" !== c.sourceType) {
-              var d = c.sourceAttribute.substring(20, 40);
-              getAttrs(["repeating_inventory_" + d + "_itemmodifiers"], function(a) {
-                a["repeating_inventory_" + d + "_itemmodifiers"] && check_itemmodifiers(a["repeating_inventory_" + d + "_itemmodifiers"], c.previousValue);
+              var f = c.sourceAttribute.substring(20, 40);
+              getAttrs(["repeating_inventory_" + f + "_itemmodifiers"], function(a) {
+                a["repeating_inventory_" + f + "_itemmodifiers"] && check_itemmodifiers(a["repeating_inventory_" + f + "_itemmodifiers"], c.previousValue);
               });
             }
           });
@@ -2930,17 +2930,17 @@
             update_cultivatorglobalattack();
           });
           on("change:global_damage_mod_flag", function(c) {
-            getSectionIDs("mortaldamagemod", function(d) {
+            getSectionIDs("mortaldamagemod", function(f) {
               var a = {};
-              "1" === c.newValue ? d && 0 !== d.length || (d = generateRowID(), a[`repeating_mortaldamagemod_${d}_global_damage_active_flag`] = "1") : _.each(d, function(b) {
+              "1" === c.newValue ? f && 0 !== f.length || (f = generateRowID(), a[`repeating_mortaldamagemod_${f}_global_damage_active_flag`] = "1") : _.each(f, function(b) {
                 a[`repeating_mortaldamagemod_${b}_global_damage_active_flag`] = "0";
               });
               setAttrs(a);
             });
           });
           on("change:global_dc_bonus change:global_attribute_bonus", function(c) {
-            "power agility vitality cultivation qicontrol mental".split(" ").forEach(d => {
-              update_attr(`${d}`);
+            "power agility vitality cultivation qicontrol mental".split(" ").forEach(f => {
+              update_attr(`${f}`);
             });
           });
           on("change:dtype", function(c) {
@@ -2956,13 +2956,13 @@
             update_reduction();
           });
           on("remove:repeating_inventory", function(c) {
-            var d = c.sourceAttribute.substring(20, 40);
-            c.removedInfo && c.removedInfo["repeating_inventory_" + d + "_itemmodifiers"] && check_itemmodifiers(c.removedInfo["repeating_inventory_" + d + "_itemmodifiers"]);
+            var f = c.sourceAttribute.substring(20, 40);
+            c.removedInfo && c.removedInfo["repeating_inventory_" + f + "_itemmodifiers"] && check_itemmodifiers(c.removedInfo["repeating_inventory_" + f + "_itemmodifiers"]);
             update_weight();
           });
-          var check_itemmodifiers = function(c, d) {
+          var check_itemmodifiers = function(c, f) {
             c = c.toLowerCase().split(",");
-            d && (prevmods = d.toLowerCase().split(","), c = _.union(c, prevmods));
+            f && (prevmods = f.toLowerCase().split(","), c = _.union(c, prevmods));
             _.each(c, function(a) {
               -1 < a.indexOf("power") && update_attr("power");
               -1 < a.indexOf("agility") && update_attr("agility");
@@ -2993,106 +2993,118 @@
               -1 < a.indexOf("survival") && update_skills(["survival"]);
             });
           }, update_attr = function(c) {
-            var d = {}, a = [c + "_base", c + "_bonus", c + "_dc_bonus", "global_dc_bonus", "mortal-level", "global_attribute_bonus"];
+            var f = {}, a = [c + "_base", c + "_bonus", c + "_dc_bonus", "global_dc_bonus", "mortal-level", "global_attribute_bonus"];
             getSectionIDs("repeating_inventory", function(b) {
-              _.each(b, function(g) {
-                a.push("repeating_inventory_" + g + "_equipped");
-                a.push("repeating_inventory_" + g + "_itemmodifiers");
+              _.each(b, function(h) {
+                a.push("repeating_inventory_" + h + "_equipped");
+                a.push("repeating_inventory_" + h + "_itemmodifiers");
               });
-              getAttrs(a, function(g) {
-                var f = g[c + "_base"] && !isNaN(parseInt(g[c + "_base"], 10)) ? parseInt(g[c + "_base"], 10) : 10, h = g[c + "_bonus"] && !isNaN(parseInt(g[c + "_bonus"], 10)) ? parseInt(g[c + "_bonus"], 10) : 0, k = g.global_attribute_bonus && !isNaN(parseInt(g.global_attribute_bonus, 10)) ? parseInt(g.global_attribute_bonus, 10) : 0, l = g.global_dc_bonus && !isNaN(parseInt(g.global_dc_bonus, 10)) ? parseInt(g.global_dc_bonus, 10) : 0, m = g[c + "_dc_bonus"] && !isNaN(parseInt(g[c + "_dc_bonus"], 10)) ? parseInt(g[c + "_dc_bonus"], 10) : 0, n = g["mortal-level"] && !isNaN(parseInt(g["mortal-level"], 10)) ? parseInt(g["mortal-level"], 10) : 0, p = 0, u = 0;
+              getAttrs(a, function(h) {
+                var g = h[c + "_base"] && !isNaN(parseInt(h[c + "_base"], 10)) ? parseInt(h[c + "_base"], 10) : 10, d = h[c + "_bonus"] && !isNaN(parseInt(h[c + "_bonus"], 10)) ? parseInt(h[c + "_bonus"], 10) : 0, k = h.global_attribute_bonus && !isNaN(parseInt(h.global_attribute_bonus, 10)) ? parseInt(h.global_attribute_bonus, 10) : 0, l = h.global_dc_bonus && !isNaN(parseInt(h.global_dc_bonus, 10)) ? parseInt(h.global_dc_bonus, 10) : 0, m = h[c + "_dc_bonus"] && !isNaN(parseInt(h[c + "_dc_bonus"], 10)) ? 
+                parseInt(h[c + "_dc_bonus"], 10) : 0, n = h["mortal-level"] && !isNaN(parseInt(h["mortal-level"], 10)) ? parseInt(h["mortal-level"], 10) : 0, p = 0, v = 0;
                 _.each(b, function(q) {
-                  g["repeating_inventory_" + q + "_equipped"] && "1" !== g["repeating_inventory_" + q + "_equipped"] || !g["repeating_inventory_" + q + "_itemmodifiers"] || !g["repeating_inventory_" + q + "_itemmodifiers"].toLowerCase().indexOf(-1 < c) || (q = g["repeating_inventory_" + q + "_itemmodifiers"].toLowerCase().split(","), _.each(q, function(r) {
-                    -1 < r.indexOf(c) && (-1 < r.indexOf(":") ? p = (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) && r > p ? r : p : u = -1 < r.indexOf("-") ? (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) ? u - r : u : (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) ? u + r : u);
+                  h["repeating_inventory_" + q + "_equipped"] && "1" !== h["repeating_inventory_" + q + "_equipped"] || !h["repeating_inventory_" + q + "_itemmodifiers"] || !h["repeating_inventory_" + q + "_itemmodifiers"].toLowerCase().indexOf(-1 < c) || (q = h["repeating_inventory_" + q + "_itemmodifiers"].toLowerCase().split(","), _.each(q, function(r) {
+                    -1 < r.indexOf(c) && (-1 < r.indexOf(":") ? p = (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) && r > p ? r : p : v = -1 < r.indexOf("-") ? (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) ? v - r : v : (r = isNaN(parseInt(r.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(r.replace(/[^0-9]/g, ""), 10)) ? v + r : v);
                   }));
                 });
-                d[c + "_flag"] = 0 != h || 0 != k || 0 < u || p > f ? 1 : 0;
-                finalattr = (f > p ? f : p) + h + u + k;
-                d[c + "_dc"] = Math.floor(finalattr * (3.5 + Math.floor(n / 7))) + l + m;
-                d[c] = finalattr;
-                setAttrs(d);
+                f[c + "_flag"] = 0 != d || 0 != k || 0 < v || p > g ? 1 : 0;
+                finalattr = (g > p ? g : p) + d + v + k;
+                f[c + "_dc"] = Math.floor(finalattr * (3.5 + Math.floor(n / 7))) + l + m;
+                f[c] = finalattr;
+                setAttrs(f);
               });
             });
           }, update_initiative = function() {
             var c = ["agility", "initiative_bonus"];
-            getSectionIDs("repeating_inventory", function(d) {
-              _.each(d, function(a) {
+            getSectionIDs("repeating_inventory", function(f) {
+              _.each(f, function(a) {
                 c.push("repeating_inventory_" + a + "_equipped");
                 c.push("repeating_inventory_" + a + "_itemmodifiers");
               });
               getAttrs(c, function(a) {
-                var b = {}, g = parseInt(a.agility) || 0, f = parseInt(a.dexterity_mod, 10);
-                a.initiative_bonus && !isNaN(parseInt(a.initiative_bonus, 10)) && (f += parseInt(a.initiative_bonus, 10));
-                _.each(d, function(h) {
-                  a["repeating_inventory_" + h + "_equipped"] && "1" === a["repeating_inventory_" + h + "_equipped"] && a["repeating_inventory_" + h + "_itemmodifiers"] && -1 < a["repeating_inventory_" + h + "_itemmodifiers"].toLowerCase().indexOf("initiative") && (h = a["repeating_inventory_" + h + "_itemmodifiers"].toLowerCase().split(","), _.each(h, function(k) {
-                    -1 < k.indexOf("initiative") && (f = -1 < k.indexOf("-") ? (k = isNaN(parseInt(k.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(k.replace(/[^0-9]/g, ""), 10)) ? f - k : f : (k = isNaN(parseInt(k.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(k.replace(/[^0-9]/g, ""), 10)) ? f + k : f);
+                var b = {}, h = parseInt(a.agility) || 0, g = parseInt(a.dexterity_mod, 10);
+                a.initiative_bonus && !isNaN(parseInt(a.initiative_bonus, 10)) && (g += parseInt(a.initiative_bonus, 10));
+                _.each(f, function(d) {
+                  a["repeating_inventory_" + d + "_equipped"] && "1" === a["repeating_inventory_" + d + "_equipped"] && a["repeating_inventory_" + d + "_itemmodifiers"] && -1 < a["repeating_inventory_" + d + "_itemmodifiers"].toLowerCase().indexOf("initiative") && (d = a["repeating_inventory_" + d + "_itemmodifiers"].toLowerCase().split(","), _.each(d, function(k) {
+                    -1 < k.indexOf("initiative") && (g = -1 < k.indexOf("-") ? (k = isNaN(parseInt(k.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(k.replace(/[^0-9]/g, ""), 10)) ? g - k : g : (k = isNaN(parseInt(k.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(k.replace(/[^0-9]/g, ""), 10)) ? g + k : g);
                   }));
                 });
-                0 != f % 1 && (f = parseFloat(f.toPrecision(12)));
-                b.initiative = g + (parseInt(a.final_init) ? `d6+${parseInt(a.final_init)}` : "d6");
+                0 != g % 1 && (g = parseFloat(g.toPrecision(12)));
+                b.initiative = h + (parseInt(a.final_init) ? `d6+${parseInt(a.final_init)}` : "d6");
                 setAttrs(b, {silent:!0});
               });
             });
-          }, update_mortalattacks = function(c, d) {
+          }, update_mortalattacks = function(c, f) {
             console.log("DOING MORTAL_UPDATE_ATTACKS: " + c);
-            "-" === c.substring(0, 1) && 20 === c.length ? do_update_mortalattack([c], d) : -1 < "power agility vitality cultivation qicontrol mental all".split(" ").indexOf(c) && getSectionIDs("repeating_mortalattack", function(a) {
+            "-" === c.substring(0, 1) && 20 === c.length ? do_update_mortalattack([c], f) : -1 < "power agility vitality cultivation qicontrol mental all".split(" ").indexOf(c) && getSectionIDs("repeating_mortalattack", function(a) {
               if ("all" === c) {
                 do_update_mortalattack(a);
               } else {
                 var b = [];
-                _.each(a, function(g) {
-                  b.push("repeating_attack_" + g + "_atkattr_base");
-                  b.push("repeating_attack_" + g + "_dmgattr");
-                  b.push("repeating_attack_" + g + "_dmg2attr");
-                  b.push("repeating_attack_" + g + "_dmg3attr");
-                  b.push("repeating_attack_" + g + "_savedc");
+                _.each(a, function(h) {
+                  b.push("repeating_attack_" + h + "_atkattr_base");
+                  b.push("repeating_attack_" + h + "_dmgattr");
+                  b.push("repeating_attack_" + h + "_dmg2attr");
+                  b.push("repeating_attack_" + h + "_dmg3attr");
+                  b.push("repeating_attack_" + h + "_savedc");
                 });
-                getAttrs(b, function(g) {
-                  var f = [];
-                  _.each(a, function(h) {
-                    (g["repeating_attack_" + h + "_atkattr_base"] && -1 < g["repeating_attack_" + h + "_atkattr_base"].indexOf(c) || g["repeating_attack_" + h + "_dmgattr"] && -1 < g["repeating_attack_" + h + "_dmgattr"].indexOf(c) || g["repeating_attack_" + h + "_dmg2attr"] && -1 < g["repeating_attack_" + h + "_dmg2attr"].indexOf(c) || g["repeating_attack_" + h + "_dmg3attr"] && -1 < g["repeating_attack_" + h + "_dmg3attr"].indexOf(c) || g["repeating_attack_" + h + "_savedc"] && -1 < g["repeating_attack_" + h + "_savedc"].indexOf(c)) && f.push(h);
+                getAttrs(b, function(h) {
+                  var g = [];
+                  _.each(a, function(d) {
+                    (h["repeating_attack_" + d + "_atkattr_base"] && -1 < h["repeating_attack_" + d + "_atkattr_base"].indexOf(c) || h["repeating_attack_" + d + "_dmgattr"] && -1 < h["repeating_attack_" + d + "_dmgattr"].indexOf(c) || h["repeating_attack_" + d + "_dmg2attr"] && -1 < h["repeating_attack_" + d + "_dmg2attr"].indexOf(c) || h["repeating_attack_" + d + "_dmg3attr"] && -1 < h["repeating_attack_" + d + "_dmg3attr"].indexOf(c) || h["repeating_attack_" + d + "_savedc"] && -1 < h["repeating_attack_" + 
+                    d + "_savedc"].indexOf(c)) && g.push(d);
                   });
-                  0 < f.length && do_update_mortalattack(f);
+                  0 < g.length && do_update_mortalattack(g);
                 });
               }
             });
           }, do_update_mortalattack = function(c) {
-            var d = "level dtype power agility vitality cultivation qicontrol mental global_damage_damage mortal_global_damage_mod_type".split(" ");
+            var f = "level dtype power agility vitality cultivation qicontrol mental global_damage_damage mortal_global_damage_mod_type global_damage_percent".split(" ");
             _.each(c, function(a) {
-              d.push("repeating_mortalattack_" + a + "_atkflag");
-              d.push("repeating_mortalattack_" + a + "_atkname");
-              d.push("repeating_mortalattack_" + a + "_atkattr_base");
-              d.push("repeating_mortalattack_" + a + "_atkmod");
-              d.push("repeating_mortalattack_" + a + "_dmgflag");
-              d.push("repeating_mortalattack_" + a + "_dmgbase");
-              d.push("repeating_mortalattack_" + a + "_dmgattr");
-              d.push("repeating_mortalattack_" + a + "_dmgmod");
-              d.push("repeating_mortalattack_" + a + "_dmgtype");
-              d.push("repeating_mortalattack_" + a + "_dmg2flag");
-              d.push("repeating_mortalattack_" + a + "_dmg2base");
-              d.push("repeating_mortalattack_" + a + "_dmg2attr");
-              d.push("repeating_mortalattack_" + a + "_dmg2mod");
-              d.push("repeating_mortalattack_" + a + "_dmg2type");
-              d.push("repeating_mortalattack_" + a + "_dmg3flag");
-              d.push("repeating_mortalattack_" + a + "_dmg3base");
-              d.push("repeating_mortalattack_" + a + "_dmg3attr");
-              d.push("repeating_mortalattack_" + a + "_dmg3mod");
-              d.push("repeating_mortalattack_" + a + "_dmg3type");
-              d.push("repeating_mortalattack_" + a + "_saveflag");
-              d.push("repeating_mortalattack_" + a + "_savedc");
-              d.push("repeating_mortalattack_" + a + "_saveeffect");
-              d.push("repeating_mortalattack_" + a + "_saveflat");
-              d.push("repeating_mortalattack_" + a + "_atkrange");
-              d.push("repeating_mortalattack_" + a + "_global_damage_mod_field");
+              f.push("repeating_mortalattack_" + a + "_atkflag");
+              f.push("repeating_mortalattack_" + a + "_atkname");
+              f.push("repeating_mortalattack_" + a + "_atkattr_base");
+              f.push("repeating_mortalattack_" + a + "_atkmod");
+              f.push("repeating_mortalattack_" + a + "_dmgflag");
+              f.push("repeating_mortalattack_" + a + "_dmgbase");
+              f.push("repeating_mortalattack_" + a + "_dmgattr");
+              f.push("repeating_mortalattack_" + a + "_dmgmod");
+              f.push("repeating_mortalattack_" + a + "_dmgtype");
+              f.push("repeating_mortalattack_" + a + "_dmg2flag");
+              f.push("repeating_mortalattack_" + a + "_dmg2base");
+              f.push("repeating_mortalattack_" + a + "_dmg2attr");
+              f.push("repeating_mortalattack_" + a + "_dmg2mod");
+              f.push("repeating_mortalattack_" + a + "_dmg2type");
+              f.push("repeating_mortalattack_" + a + "_dmg3flag");
+              f.push("repeating_mortalattack_" + a + "_dmg3base");
+              f.push("repeating_mortalattack_" + a + "_dmg3attr");
+              f.push("repeating_mortalattack_" + a + "_dmg3mod");
+              f.push("repeating_mortalattack_" + a + "_dmg3type");
+              f.push("repeating_mortalattack_" + a + "_saveflag");
+              f.push("repeating_mortalattack_" + a + "_savedc");
+              f.push("repeating_mortalattack_" + a + "_saveeffect");
+              f.push("repeating_mortalattack_" + a + "_saveflat");
+              f.push("repeating_mortalattack_" + a + "_atkrange");
+              f.push("repeating_mortalattack_" + a + "_global_damage_mod_field");
             });
-            getAttrs(d, function(a) {
+            getAttrs(f, function(a) {
               _.each(c, function(b) {
-                var g = [], f = {}, h = "", k = "", l = "", m = "", n = "", p = "", u = p = "", q = "", r = "", v = "", t = "";
+                var h = [], g = {}, d = "", k = "", l = "", m = "", n = "", p = "", v = p = "", q = "", r = "", u = "", t = "";
+                console.log("Global Damage Percent: ", a.global_damage_percent);
                 a["repeating_mortalattack_" + b + "_atkattr_base"] && "0" !== a["repeating_mortalattack_" + b + "_atkattr_base"] ? (atkattr_base = parseInt(a[a["repeating_mortalattack_" + b + "_atkattr_base"].substring(2, a["repeating_mortalattack_" + b + "_atkattr_base"].length - 1)], 10), p = a["repeating_mortalattack_" + b + "_atkattr_base"].substring(2, a["repeating_mortalattack_" + b + "_atkattr_base"].length - 1).toUpperCase()) : atkattr_base = 0;
-                a["repeating_mortalattack_" + b + "_dmgattr"] && "0" !== a["repeating_mortalattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1)], 10), u = a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
+                a["repeating_mortalattack_" + b + "_dmgattr"] && "0" !== a["repeating_mortalattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1)], 10), v = a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
+                dmgattr = Math.floor(dmgattr * a.global_damage_percent);
                 a["repeating_mortalattack_" + b + "_dmg2attr"] && "0" !== a["repeating_mortalattack_" + b + "_dmg2attr"] ? (dmg2attr = parseInt(a[a["repeating_mortalattack_" + b + "_dmg2attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg2attr"].length - 1)], 10), q = a["repeating_mortalattack_" + b + "_dmg2attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg2attr"].length - 1).toUpperCase()) : dmg2attr = 0;
+                dmg2attr = Math.floor(dmg2attr * a.global_damage_percent);
                 a["repeating_mortalattack_" + b + "_dmg3attr"] && "0" !== a["repeating_mortalattack_" + b + "_dmg3attr"] ? (dmg3attr = parseInt(a[a["repeating_mortalattack_" + b + "_dmg3attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg3attr"].length - 1)], 10), r = a["repeating_mortalattack_" + b + "_dmg3attr"].substring(2, a["repeating_mortalattack_" + b + "_dmg3attr"].length - 1).toUpperCase()) : dmg3attr = 0;
-                var A = a["repeating_mortalattack_" + b + "_dmgbase"] && "" != a["repeating_mortalattack_" + b + "_dmgbase"] ? a["repeating_mortalattack_" + b + "_dmgbase"] : 0, B = a["repeating_mortalattack_" + b + "_dmg2base"] && "" != a["repeating_mortalattack_" + b + "_dmg2base"] ? a["repeating_mortalattack_" + b + "_dmg2base"] : 0, C = a["repeating_mortalattack_" + b + "_dmg3base"] && "" != a["repeating_mortalattack_" + b + "_dmg3base"] ? a["repeating_mortalattack_" + b + "_dmg3base"] : 0, x = a["repeating_mortalattack_" + b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_mortalattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_mortalattack_" + b + "_dmg3mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmg3mod"], 10) : 0, E = a["repeating_mortalattack_" + b + "_dmgtype"] ? a["repeating_mortalattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_mortalattack_" + b + "_dmg2type"] ? a["repeating_mortalattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_mortalattack_" + b + "_dmg3type"] ? a["repeating_mortalattack_" + b + "_dmg3type"] + " " : "", H = a["repeating_mortalattack_" + b + "_atkmod"] && "" != a["repeating_mortalattack_" + b + "_atkmod"] ? parseInt(a["repeating_mortalattack_" + b + "_atkmod"], 10) : 0, w = "+" + `[[${a.global_damage_damage && "" !== a.global_damage_damage ? a.global_damage_damage : "0"}]]` + "[" + (a.mortal_global_damage_mod_type || "") + "]";
+                dmg3attr = Math.floor(dmg3attr * a.global_damage_percent);
+                var A = a["repeating_mortalattack_" + b + "_dmgbase"] && "" != a["repeating_mortalattack_" + b + "_dmgbase"] ? a["repeating_mortalattack_" + b + "_dmgbase"] : 0, B = a["repeating_mortalattack_" + b + "_dmg2base"] && "" != a["repeating_mortalattack_" + b + "_dmg2base"] ? a["repeating_mortalattack_" + b + "_dmg2base"] : 0, C = a["repeating_mortalattack_" + b + "_dmg3base"] && "" != a["repeating_mortalattack_" + b + "_dmg3base"] ? a["repeating_mortalattack_" + b + "_dmg3base"] : 0, x = a["repeating_mortalattack_" + 
+                b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_mortalattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_mortalattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_mortalattack_" + b + "_dmg3mod"] && !1 === isNaN(parseInt(a["repeating_mortalattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_mortalattack_" + 
+                b + "_dmg3mod"], 10) : 0, E = a["repeating_mortalattack_" + b + "_dmgtype"] ? a["repeating_mortalattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_mortalattack_" + b + "_dmg2type"] ? a["repeating_mortalattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_mortalattack_" + b + "_dmg3type"] ? a["repeating_mortalattack_" + b + "_dmg3type"] + " " : "", H = a["repeating_mortalattack_" + b + "_atkmod"] && "" != a["repeating_mortalattack_" + b + "_atkmod"] ? parseInt(a["repeating_mortalattack_" + 
+                b + "_atkmod"], 10) : 0, w = "+" + `[[${a.global_damage_damage && "" !== a.global_damage_damage ? a.global_damage_damage : "0"}]]` + "[" + (a.mortal_global_damage_mod_type || "") + "]";
+                A = Math.floor(A * a.global_damage_percent);
+                B = Math.floor(B * a.global_damage_percent);
+                C = Math.floor(C * a.global_damage_percent);
                 if (a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"]) {
                   bonus_mod = atkattr_base + H, plus_minus = -1 < bonus_mod ? "+" : "", bonus = plus_minus + bonus_mod;
                 } else if (a["repeating_mortalattack_" + b + "_saveflag"] && 0 != a["repeating_mortalattack_" + b + "_saveflag"]) {
@@ -3106,48 +3118,62 @@
                   bonus = "-";
                 }
                 a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 === A && 0 === dmgattr + x && (m = 0), 0 != A && (m = A), 0 != A && 0 != dmgattr + x && (m = 0 < dmgattr + x ? m + "+" : m), 0 != dmgattr + x && (m += dmgattr + x), m = m + " " + E) : m = "";
+                console.log("Mortal Damage: ", m);
                 a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? (0 === B && 0 === dmg2attr + y && (n = 0), 0 != B && (n = B), 0 != B && 0 != dmg2attr + y && (n = 0 < dmg2attr + y ? n + "+" : n), 0 != dmg2attr + y && (n += dmg2attr + y), n = n + " " + F) : n = "";
-                a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? (0 === C && 0 === dmg3attr + z && (v = 0), 0 != C && (v = C), 0 != C && 0 != dmg3attr + z && (n = 0 < dmg3attr + z ? v + "+" : v), 0 != dmg3attr + z && (v += dmg3attr + z), v = v + " " + G) : v = "";
+                console.log("Mortal Damage 2: ", n);
+                a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? (0 === C && 0 === dmg3attr + z && (u = 0), 0 != C && (u = C), 0 != C && 0 != dmg3attr + z && (n = 0 < dmg3attr + z ? u + "+" : u), 0 != dmg3attr + z && (u += dmg3attr + z), u = u + " " + G) : u = "";
+                console.log("Mortal Damage 3: ", u);
                 dmgspacer1 = a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] && a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? "+ " : "";
                 dmgspacer2 = a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] && a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? "+ " : "";
                 r2 = "{{r2=[[";
-                a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (0 != H && (h = H + "[MOD]" + h), 0 != atkattr_base && (h = atkattr_base + "[" + p + "]" + h)) : h = "";
-                a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + u + "]" + k), k = A + k) : k = "0";
+                a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (0 != H && (d = H + "[MOD]" + d), 0 != atkattr_base && (d = atkattr_base + "[" + p + "]" + d)) : d = "";
+                a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + v + "]" + k), k = A + k) : k = "0";
                 a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? (0 != y && (l = "+" + y + "[MOD]" + l), 0 != dmg2attr && (l = "+" + dmg2attr + "[" + q + "]" + l), l = B + l) : l = "0";
                 a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? (0 != z && (t = "+" + z + "[MOD]" + t), 0 != dmg3attr && (t = "+" + dmg3attr + "[" + r + "]" + t), t = C + t) : t = "0";
-                "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} {{globalaccattack=@{global_acc_attack}}} {{globaleffattack=@{global_eff_attack}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_mortalattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} {{globalaccattack=@{global_acc_attack}}} {{globaleffattack=@{global_eff_attack}}} @{charname_output}") : a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
-                f["repeating_mortalattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
-                f["repeating_mortalattack_" + b + "_atkbonus"] = bonus;
-                f["repeating_mortalattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + v + " ";
-                f["repeating_mortalattack_" + b + "_rollbase"] = p;
-                setAttrs(f, {silent:!0}, function() {
-                  g.forEach(function(I) {
+                "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + d + "]]}} " + r2 + d + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} {{globalaccattack=@{global_acc_attack}}} {{globaleffattack=@{global_eff_attack}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : 
+                a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_mortalattack_attack_dmg)}} {{r1=[[" + d + "]]}} " + r2 + d + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{global_attack_mod}}} {{globalaccattack=@{global_acc_attack}}} {{globaleffattack=@{global_eff_attack}}} @{charname_output}") : a["repeating_mortalattack_" + b + "_dmgflag"] && 
+                0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
+                g["repeating_mortalattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{mortal_global_damage_mod_type}}} @{charname_output}";
+                g["repeating_mortalattack_" + b + "_atkbonus"] = bonus;
+                g["repeating_mortalattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + u + " ";
+                g["repeating_mortalattack_" + b + "_rollbase"] = p;
+                setAttrs(g, {silent:!0}, function() {
+                  h.forEach(function(I) {
                     I();
                   });
                 });
               });
             });
           }, update_mortalglobaldamage = function(c) {
-            getSectionIDs("mortaldamagemod", function(d) {
-              if (d) {
+            getSectionIDs("mortaldamagemod", function(f) {
+              if (f) {
                 var a = {}, b = [];
-                d.forEach(function(g) {
-                  a[g] = {};
-                  b.push(`repeating_mortaldamagemod_${g}_global_damage_active_flag`, `repeating_mortaldamagemod_${g}_global_damage_name`, `repeating_mortaldamagemod_${g}_global_damage_damage`, `repeating_mortaldamagemod_${g}_global_damage_type`);
+                f.forEach(function(h) {
+                  a[h] = {};
+                  b.push(`repeating_mortaldamagemod_${h}_global_damage_active_flag`, `repeating_mortaldamagemod_${h}_global_damage_name`, `repeating_mortaldamagemod_${h}_global_damage_damage`, `repeating_mortaldamagemod_${h}_global_damage_type`);
                 });
-                getAttrs(b, function(g) {
-                  var f = /^repeating_mortaldamagemod_(.+)_global_damage_(active_flag|name|damage|type)$/;
-                  _.each(g, function(k, l) {
-                    (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+                getAttrs(b, function(h) {
+                  var g = /^repeating_mortaldamagemod_(.+)_global_damage_(active_flag|name|damage|type)$/;
+                  _.each(h, function(k, l) {
+                    (l = g.exec(l)) && (a[l[1]][l[2]] = k);
                   });
-                  var h = {global_damage_damage:"", mortal_global_damage_mod_type:""};
+                  var d = {global_damage_damage:"", global_damage_percent:0, mortal_global_damage_mod_type:""};
                   console.log("MORTAL GLOBALDAMAGE");
                   _.each(a, function(k) {
-                    "0" != k.active_flag && (k.name && "" !== k.name && (h.global_damage_damage += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (h.mortal_global_damage_mod_type += k.type + "/"));
+                    if ("0" != k.active_flag && k.name && "" !== k.name) {
+                      if (k.damage.includes("%")) {
+                        var l = parseFloat(k.damage);
+                        isNaN(l) || (d.global_damage_percent += l);
+                      } else {
+                        d.global_damage_damage += k.damage + "[" + k.name + "]+";
+                      }
+                      k.type && "" !== k.type && (d.mortal_global_damage_mod_type += k.type + "/");
+                    }
                   });
-                  h.global_damage_damage = h.global_damage_damage.replace(/\+(?=$)/, "");
-                  h.mortal_global_damage_mod_type = h.mortal_global_damage_mod_type.replace(/\/(?=$)/, "");
-                  setAttrs(h, {silent:!0}, function() {
+                  d.global_damage_damage = d.global_damage_damage.replace(/\+(?=$)/, "");
+                  d.global_damage_percent = parseFloat(d.global_damage_percent) / 100 + 1 || 1;
+                  d.mortal_global_damage_mod_type = d.mortal_global_damage_mod_type.replace(/\/(?=$)/, "");
+                  setAttrs(d, {silent:!0}, function() {
                     update_mortalattacks("all");
                     "function" == typeof c && c();
                   });
@@ -3155,102 +3181,105 @@
               }
             });
           }, update_mortalglobalattack = function(c) {
-            getSectionIDs("mortaltohitmod", function(d) {
-              if (d) {
+            getSectionIDs("mortaltohitmod", function(f) {
+              if (f) {
                 var a = {}, b = [];
-                d.forEach(function(g) {
-                  a[g] = {};
-                  b.push(`repeating_mortaltohitmod_${g}_global_attack_active_flag`, `repeating_mortaltohitmod_${g}_global_attack_roll`, `repeating_mortaltohitmod_${g}_global_attack_name`, `repeating_mortaltohitmod_${g}_global_attack_appliesto`);
+                f.forEach(function(h) {
+                  a[h] = {};
+                  b.push(`repeating_mortaltohitmod_${h}_global_attack_active_flag`, `repeating_mortaltohitmod_${h}_global_attack_roll`, `repeating_mortaltohitmod_${h}_global_attack_name`, `repeating_mortaltohitmod_${h}_global_attack_appliesto`);
                 });
-                getAttrs(b, function(g) {
-                  var f = /^repeating_mortaltohitmod_(.+)_global_attack_(active_flag|roll|name|appliesto)$/;
-                  _.each(g, function(k, l) {
-                    (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+                getAttrs(b, function(h) {
+                  var g = /^repeating_mortaltohitmod_(.+)_global_attack_(active_flag|roll|name|appliesto)$/;
+                  _.each(h, function(k, l) {
+                    (l = g.exec(l)) && (a[l[1]][l[2]] = k);
                   });
-                  var h = {global_attack_mod:"", global_acc_attack:"", global_eff_attack:""};
+                  var d = {global_attack_mod:"", global_acc_attack:"", global_eff_attack:""};
                   console.log("MORTAL GLOBALATTACK");
                   _.each(a, function(k) {
                     if ("0" != k.active_flag && k.roll && "" !== k.roll) {
                       switch(k.appliesto) {
                         case "acc":
-                          h.global_acc_attack += k.roll + "[" + k.name + "]+";
+                          d.global_acc_attack += k.roll + "[" + k.name + "]+";
                           break;
                         case "eff":
-                          h.global_eff_attack += k.roll + "[" + k.name + "]+";
+                          d.global_eff_attack += k.roll + "[" + k.name + "]+";
                           break;
                         case "both":
-                          h.global_attack_mod += k.roll + "[" + k.name + "]+";
+                          d.global_attack_mod += k.roll + "[" + k.name + "]+";
                       }
                     }
                   });
-                  "" !== h.global_attack_mod && (h.global_attack_mod = "[[" + h.global_attack_mod.replace(/\+(?=$)/, "") + "]]");
-                  "" !== h.global_acc_attack && (h.global_acc_attack = "[[" + h.global_acc_attack.replace(/\+(?=$)/, "") + "]]");
-                  "" !== h.global_eff_attack && (h.global_eff_attack = "[[" + h.global_eff_attack.replace(/\+(?=$)/, "") + "]]");
-                  setAttrs(h, {silent:!0}, function() {
+                  "" !== d.global_attack_mod && (d.global_attack_mod = "[[" + d.global_attack_mod.replace(/\+(?=$)/, "") + "]]");
+                  "" !== d.global_acc_attack && (d.global_acc_attack = "[[" + d.global_acc_attack.replace(/\+(?=$)/, "") + "]]");
+                  "" !== d.global_eff_attack && (d.global_eff_attack = "[[" + d.global_eff_attack.replace(/\+(?=$)/, "") + "]]");
+                  setAttrs(d, {silent:!0}, function() {
                     "function" == typeof c && c();
                   });
                 });
               }
             });
-          }, update_cultivatorattacks = function(c, d) {
+          }, update_cultivatorattacks = function(c, f) {
             console.log("DOING CULTIVATOR_UPDATE_ATTACKS: " + c);
-            "-" === c.substring(0, 1) && 20 === c.length ? do_update_cultivatorattack([c], d) : -1 < "power agility vitality cultivation qicontrol mental all".split(" ").indexOf(c) && getSectionIDs("repeating_cultivatorattack", function(a) {
+            "-" === c.substring(0, 1) && 20 === c.length ? do_update_cultivatorattack([c], f) : -1 < "power agility vitality cultivation qicontrol mental all".split(" ").indexOf(c) && getSectionIDs("repeating_cultivatorattack", function(a) {
               if ("all" === c) {
                 do_update_cultivatorattack(a);
               } else {
                 var b = [];
-                _.each(a, function(g) {
-                  b.push("repeating_attack_" + g + "_atkattr_base");
-                  b.push("repeating_attack_" + g + "_dmgattr");
-                  b.push("repeating_attack_" + g + "_dmg2attr");
-                  b.push("repeating_attack_" + g + "_savedc");
+                _.each(a, function(h) {
+                  b.push("repeating_attack_" + h + "_atkattr_base");
+                  b.push("repeating_attack_" + h + "_dmgattr");
+                  b.push("repeating_attack_" + h + "_dmg2attr");
+                  b.push("repeating_attack_" + h + "_savedc");
                 });
-                getAttrs(b, function(g) {
-                  var f = [];
-                  _.each(a, function(h) {
-                    (g["repeating_attack_" + h + "_atkattr_base"] && -1 < g["repeating_attack_" + h + "_atkattr_base"].indexOf(c) || g["repeating_attack_" + h + "_dmgattr"] && -1 < g["repeating_attack_" + h + "_dmgattr"].indexOf(c) || g["repeating_attack_" + h + "_dmg2attr"] && -1 < g["repeating_attack_" + h + "_dmg2attr"].indexOf(c) || g["repeating_attack_" + h + "_savedc"] && -1 < g["repeating_attack_" + h + "_savedc"].indexOf(c)) && f.push(h);
+                getAttrs(b, function(h) {
+                  var g = [];
+                  _.each(a, function(d) {
+                    (h["repeating_attack_" + d + "_atkattr_base"] && -1 < h["repeating_attack_" + d + "_atkattr_base"].indexOf(c) || h["repeating_attack_" + d + "_dmgattr"] && -1 < h["repeating_attack_" + d + "_dmgattr"].indexOf(c) || h["repeating_attack_" + d + "_dmg2attr"] && -1 < h["repeating_attack_" + d + "_dmg2attr"].indexOf(c) || h["repeating_attack_" + d + "_savedc"] && -1 < h["repeating_attack_" + d + "_savedc"].indexOf(c)) && g.push(d);
                   });
-                  0 < f.length && do_update_cultivatorattack(f);
+                  0 < g.length && do_update_cultivatorattack(g);
                 });
               }
             });
           }, do_update_cultivatorattack = function(c) {
-            var d = "level dtype power agility vitality cultivation qicontrol mental cultivator_global_damage_damage cultivator_global_damage_mod_type".split(" ");
+            var f = "level dtype power agility vitality cultivation qicontrol mental cultivator_global_damage_damage cultivator_global_damage_mod_type".split(" ");
             _.each(c, function(a) {
-              d.push("repeating_cultivatorattack_" + a + "_atkflag");
-              d.push("repeating_cultivatorattack_" + a + "_atkname");
-              d.push("repeating_cultivatorattack_" + a + "_atkattr_base");
-              d.push("repeating_cultivatorattack_" + a + "_atkmod");
-              d.push("repeating_cultivatorattack_" + a + "_dmgflag");
-              d.push("repeating_cultivatorattack_" + a + "_dmgbase");
-              d.push("repeating_cultivatorattack_" + a + "_dmgattr");
-              d.push("repeating_cultivatorattack_" + a + "_dmgmod");
-              d.push("repeating_cultivatorattack_" + a + "_dmgtype");
-              d.push("repeating_cultivatorattack_" + a + "_dmg2flag");
-              d.push("repeating_cultivatorattack_" + a + "_dmg2base");
-              d.push("repeating_cultivatorattack_" + a + "_dmg2attr");
-              d.push("repeating_cultivatorattack_" + a + "_dmg2mod");
-              d.push("repeating_cultivatorattack_" + a + "_dmg2type");
-              d.push("repeating_cultivatorattack_" + a + "_dmg3flag");
-              d.push("repeating_cultivatorattack_" + a + "_dmg3base");
-              d.push("repeating_cultivatorattack_" + a + "_dmg3attr");
-              d.push("repeating_cultivatorattack_" + a + "_dmg3mod");
-              d.push("repeating_cultivatorattack_" + a + "_dmg3type");
-              d.push("repeating_cultivatorattack_" + a + "_saveflag");
-              d.push("repeating_cultivatorattack_" + a + "_savedc");
-              d.push("repeating_cultivatorattack_" + a + "_saveeffect");
-              d.push("repeating_cultivatorattack_" + a + "_saveflat");
-              d.push("repeating_cultivatorattack_" + a + "_atkrange");
-              d.push("repeating_cultivatorattack_" + a + "_cultivator_global_damage_mod_field");
+              f.push("repeating_cultivatorattack_" + a + "_atkflag");
+              f.push("repeating_cultivatorattack_" + a + "_atkname");
+              f.push("repeating_cultivatorattack_" + a + "_atkattr_base");
+              f.push("repeating_cultivatorattack_" + a + "_atkmod");
+              f.push("repeating_cultivatorattack_" + a + "_dmgflag");
+              f.push("repeating_cultivatorattack_" + a + "_dmgbase");
+              f.push("repeating_cultivatorattack_" + a + "_dmgattr");
+              f.push("repeating_cultivatorattack_" + a + "_dmgmod");
+              f.push("repeating_cultivatorattack_" + a + "_dmgtype");
+              f.push("repeating_cultivatorattack_" + a + "_dmg2flag");
+              f.push("repeating_cultivatorattack_" + a + "_dmg2base");
+              f.push("repeating_cultivatorattack_" + a + "_dmg2attr");
+              f.push("repeating_cultivatorattack_" + a + "_dmg2mod");
+              f.push("repeating_cultivatorattack_" + a + "_dmg2type");
+              f.push("repeating_cultivatorattack_" + a + "_dmg3flag");
+              f.push("repeating_cultivatorattack_" + a + "_dmg3base");
+              f.push("repeating_cultivatorattack_" + a + "_dmg3attr");
+              f.push("repeating_cultivatorattack_" + a + "_dmg3mod");
+              f.push("repeating_cultivatorattack_" + a + "_dmg3type");
+              f.push("repeating_cultivatorattack_" + a + "_saveflag");
+              f.push("repeating_cultivatorattack_" + a + "_savedc");
+              f.push("repeating_cultivatorattack_" + a + "_saveeffect");
+              f.push("repeating_cultivatorattack_" + a + "_saveflat");
+              f.push("repeating_cultivatorattack_" + a + "_atkrange");
+              f.push("repeating_cultivatorattack_" + a + "_cultivator_global_damage_mod_field");
             });
-            getAttrs(d, function(a) {
+            getAttrs(f, function(a) {
               _.each(c, function(b) {
-                var g = [], f = {}, h = "", k = "", l = "", m = "", n = "", p = "", u = p = "", q = "", r = "", v = "", t = "";
+                var h = [], g = {}, d = "", k = "", l = "", m = "", n = "", p = "", v = p = "", q = "", r = "", u = "", t = "";
                 a["repeating_cultivatorattack_" + b + "_atkattr_base"] && "0" !== a["repeating_cultivatorattack_" + b + "_atkattr_base"] ? (atkattr_base = parseInt(a[a["repeating_cultivatorattack_" + b + "_atkattr_base"].substring(2, a["repeating_cultivatorattack_" + b + "_atkattr_base"].length - 1)], 10), p = a["repeating_cultivatorattack_" + b + "_atkattr_base"].substring(2, a["repeating_cultivatorattack_" + b + "_atkattr_base"].length - 1).toUpperCase()) : atkattr_base = 0;
-                a["repeating_cultivatorattack_" + b + "_dmgattr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1)], 10), u = a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
+                a["repeating_cultivatorattack_" + b + "_dmgattr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1)], 10), v = a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
                 a["repeating_cultivatorattack_" + b + "_dmg2attr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmg2attr"] ? (dmg2attr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmg2attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg2attr"].length - 1)], 10), q = a["repeating_cultivatorattack_" + b + "_dmg2attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg2attr"].length - 1).toUpperCase()) : dmg2attr = 0;
                 a["repeating_cultivatorattack_" + b + "_dmg3attr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmg3attr"] ? (dmg3attr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmg3attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg3attr"].length - 1)], 10), r = a["repeating_cultivatorattack_" + b + "_dmg3attr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmg3attr"].length - 1).toUpperCase()) : dmg3attr = 0;
-                var A = a["repeating_cultivatorattack_" + b + "_dmgbase"] && "" != a["repeating_cultivatorattack_" + b + "_dmgbase"] ? a["repeating_cultivatorattack_" + b + "_dmgbase"] : 0, B = a["repeating_cultivatorattack_" + b + "_dmg2base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg2base"] ? a["repeating_cultivatorattack_" + b + "_dmg2base"] : 0, C = a["repeating_cultivatorattack_" + b + "_dmg3base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg3base"] ? a["repeating_cultivatorattack_" + b + "_dmg3base"] : 0, x = a["repeating_cultivatorattack_" + b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_cultivatorattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_cultivatorattack_" + b + "_dmg3mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10) : 0, E = a["repeating_cultivatorattack_" + b + "_dmgtype"] ? a["repeating_cultivatorattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_cultivatorattack_" + b + "_dmg2type"] ? a["repeating_cultivatorattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_cultivatorattack_" + b + "_dmg3type"] ? a["repeating_cultivatorattack_" + b + "_dmg3type"] + " " : "", H = a["repeating_cultivatorattack_" + b + "_atkmod"] && "" != a["repeating_cultivatorattack_" + b + "_atkmod"] ? parseInt(a["repeating_cultivatorattack_" + b + "_atkmod"], 10) : 0, w = "+" + `[[${a.cultivator_global_damage_damage && "" !== a.cultivator_global_damage_damage ? a.cultivator_global_damage_damage : "0"}]]` + "[" + (a.cultivator_global_damage_mod_type || "") + "]";
+                var A = a["repeating_cultivatorattack_" + b + "_dmgbase"] && "" != a["repeating_cultivatorattack_" + b + "_dmgbase"] ? a["repeating_cultivatorattack_" + b + "_dmgbase"] : 0, B = a["repeating_cultivatorattack_" + b + "_dmg2base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg2base"] ? a["repeating_cultivatorattack_" + b + "_dmg2base"] : 0, C = a["repeating_cultivatorattack_" + b + "_dmg3base"] && "" != a["repeating_cultivatorattack_" + b + "_dmg3base"] ? a["repeating_cultivatorattack_" + 
+                b + "_dmg3base"] : 0, x = a["repeating_cultivatorattack_" + b + "_dmgmod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmgmod"], 10) : 0, y = a["repeating_cultivatorattack_" + b + "_dmg2mod"] && !1 === isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg2mod"], 10) : 0, z = a["repeating_cultivatorattack_" + b + "_dmg3mod"] && !1 === 
+                isNaN(parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10)) ? parseInt(a["repeating_cultivatorattack_" + b + "_dmg3mod"], 10) : 0, E = a["repeating_cultivatorattack_" + b + "_dmgtype"] ? a["repeating_cultivatorattack_" + b + "_dmgtype"] + " " : "", F = a["repeating_cultivatorattack_" + b + "_dmg2type"] ? a["repeating_cultivatorattack_" + b + "_dmg2type"] + " " : "", G = a["repeating_cultivatorattack_" + b + "_dmg3type"] ? a["repeating_cultivatorattack_" + b + "_dmg3type"] + " " : 
+                "", H = a["repeating_cultivatorattack_" + b + "_atkmod"] && "" != a["repeating_cultivatorattack_" + b + "_atkmod"] ? parseInt(a["repeating_cultivatorattack_" + b + "_atkmod"], 10) : 0, w = "+" + `[[${a.cultivator_global_damage_damage && "" !== a.cultivator_global_damage_damage ? a.cultivator_global_damage_damage : "0"}]]` + "[" + (a.cultivator_global_damage_mod_type || "") + "]";
                 if (a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"]) {
                   bonus_mod = atkattr_base + H, plus_minus = -1 < bonus_mod ? "+" : "", bonus = plus_minus + bonus_mod;
                 } else if (a["repeating_cultivatorattack_" + b + "_saveflag"] && 0 != a["repeating_cultivatorattack_" + b + "_saveflag"]) {
@@ -3265,47 +3294,50 @@
                 }
                 a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 === A && 0 === dmgattr + x && (m = 0), 0 != A && (m = A), 0 != A && 0 != dmgattr + x && (m = 0 < dmgattr + x ? m + "+" : m), 0 != dmgattr + x && (m += dmgattr + x), m = m + " " + E) : m = "";
                 a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? (0 === B && 0 === dmg2attr + y && (n = 0), 0 != B && (n = B), 0 != B && 0 != dmg2attr + y && (n = 0 < dmg2attr + y ? n + "+" : n), 0 != dmg2attr + y && (n += dmg2attr + y), n = n + " " + F) : n = "";
-                a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? (0 === C && 0 === dmg3attr + z && (v = 0), 0 != C && (v = C), 0 != C && 0 != dmg3attr + z && (n = 0 < dmg3attr + z ? v + "+" : v), 0 != dmg3attr + z && (v += dmg3attr + z), v = v + " " + G) : v = "";
+                a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? (0 === C && 0 === dmg3attr + z && (u = 0), 0 != C && (u = C), 0 != C && 0 != dmg3attr + z && (n = 0 < dmg3attr + z ? u + "+" : u), 0 != dmg3attr + z && (u += dmg3attr + z), u = u + " " + G) : u = "";
                 dmgspacer1 = a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] && a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? "+ " : "";
                 dmgspacer2 = a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] && a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? "+ " : "";
                 r2 = "{{r2=[[";
-                a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (0 != H && (h = H + "[MOD]" + h), 0 != atkattr_base && (h = atkattr_base + "[" + p + "]" + h)) : h = "";
-                a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + u + "]" + k), k = A + k) : k = "0";
+                a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (0 != H && (d = H + "[MOD]" + d), 0 != atkattr_base && (d = atkattr_base + "[" + p + "]" + d)) : d = "";
+                a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 != x && (k = "+" + x + "[MOD]" + k), 0 != dmgattr && (k = "+" + dmgattr + "[" + v + "]" + k), k = A + k) : k = "0";
                 a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? (0 != y && (l = "+" + y + "[MOD]" + l), 0 != dmg2attr && (l = "+" + dmg2attr + "[" + q + "]" + l), l = B + l) : l = "0";
                 a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? (0 != z && (t = "+" + z + "[MOD]" + t), 0 != dmg3attr && (t = "+" + dmg3attr + "[" + r + "]" + t), t = C + t) : t = "0";
-                "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} {{globalaccattack=@{cultivator_global_acc_attack}}} {{globaleffattack=@{cultivator_global_eff_attack}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + h + "]]}} " + r2 + h + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} {{globalaccattack=@{cultivator_global_acc_attack}}} {{globaleffattack=@{cultivator_global_eff_attack}}} @{charname_output}") : a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
-                f["repeating_cultivatorattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
-                f["repeating_cultivatorattack_" + b + "_atkbonus"] = bonus;
-                f["repeating_cultivatorattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + v + " ";
-                f["repeating_cultivatorattack_" + b + "_rollbase"] = p;
-                setAttrs(f, {silent:!0}, function() {
-                  g.forEach(function(I) {
+                "full" === a.dtype ? (pickbase = "full", p = "@{wtype}&{template:atkdmg} {{mod=@{atkbonus}}} {{rname=@{atkname}}} {{r1=[[" + d + "]]}} " + r2 + d + "]]}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} {{globalaccattack=@{cultivator_global_acc_attack}}} {{globaleffattack=@{cultivator_global_eff_attack}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : 
+                a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (pickbase = "pick", p = "@{wtype}&{template:atk} {{mod=@{atkbonus}}} {{rname=[@{atkname}](~repeating_cultivatorattack_attack_dmg)}} {{r1=[[" + d + "]]}} " + r2 + d + "]]}} {{range=@{atkrange}}} {{desc=@{atk_desc}}} {{globalattack=@{cultivator_global_attack_mod}}} {{globalaccattack=@{cultivator_global_acc_attack}}} {{globaleffattack=@{cultivator_global_eff_attack}}} @{charname_output}") : 
+                a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (pickbase = "dmg", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}") : 
+                (pickbase = "empty", p = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{saveflag} {{desc=@{atk_desc}}} @{charname_output}");
+                g["repeating_cultivatorattack_" + b + "_rollbase_dmg"] = "@{wtype}&{template:dmg} {{rname=@{atkname}}} @{atkflag} {{range=@{atkrange}}} @{dmgflag} {{dmg1=[[" + k + w + "]]}} {{dmg1type=" + E + "}} @{dmg2flag} {{dmg2=[[" + l + w + "]]}} {{dmg2type=" + F + "}} @{dmg3flag} {{dmg3=[[" + t + w + "]]}} {{dmg3type=" + G + "}} @{saveflag} {{desc=@{atk_desc}}} {{globaldamagetype=@{cultivator_global_damage_mod_type}}} @{charname_output}";
+                g["repeating_cultivatorattack_" + b + "_atkbonus"] = bonus;
+                g["repeating_cultivatorattack_" + b + "_atkdmgtype"] = m + dmgspacer1 + n + dmgspacer2 + u + " ";
+                g["repeating_cultivatorattack_" + b + "_rollbase"] = p;
+                setAttrs(g, {silent:!0}, function() {
+                  h.forEach(function(I) {
                     I();
                   });
                 });
               });
             });
           }, update_cultivatorglobaldamage = function(c) {
-            getSectionIDs("cultivatordamagemod", function(d) {
-              if (d) {
+            getSectionIDs("cultivatordamagemod", function(f) {
+              if (f) {
                 var a = {}, b = [];
-                d.forEach(function(g) {
-                  a[g] = {};
-                  b.push(`repeating_cultivatordamagemod_${g}_cultivator_global_damage_active_flag`, `repeating_cultivatordamagemod_${g}_cultivator_global_damage_name`, `repeating_cultivatordamagemod_${g}_cultivator_global_damage_damage`, `repeating_cultivatordamagemod_${g}_cultivator_global_damage_type`);
+                f.forEach(function(h) {
+                  a[h] = {};
+                  b.push(`repeating_cultivatordamagemod_${h}_cultivator_global_damage_active_flag`, `repeating_cultivatordamagemod_${h}_cultivator_global_damage_name`, `repeating_cultivatordamagemod_${h}_cultivator_global_damage_damage`, `repeating_cultivatordamagemod_${h}_cultivator_global_damage_type`);
                 });
-                getAttrs(b, function(g) {
-                  var f = /^repeating_cultivatordamagemod_(.+)_cultivator_global_damage_(active_flag|name|damage|type)$/;
-                  _.each(g, function(k, l) {
-                    (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+                getAttrs(b, function(h) {
+                  var g = /^repeating_cultivatordamagemod_(.+)_cultivator_global_damage_(active_flag|name|damage|type)$/;
+                  _.each(h, function(k, l) {
+                    (l = g.exec(l)) && (a[l[1]][l[2]] = k);
                   });
-                  var h = {cultivator_global_damage_damage:"", cultivator_global_damage_mod_type:""};
+                  var d = {cultivator_global_damage_damage:"", cultivator_global_damage_mod_type:""};
                   console.log("CULTIVATOR GLOBALDAMAGE");
                   _.each(a, function(k) {
-                    "0" != k.active_flag && (k.name && "" !== k.name && (h.cultivator_global_damage_damage += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (h.cultivator_global_damage_mod_type += k.type + "/"));
+                    "0" != k.active_flag && (k.name && "" !== k.name && (d.cultivator_global_damage_damage += k.damage + "[" + k.name + "]+"), k.type && "" !== k.type && (d.cultivator_global_damage_mod_type += k.type + "/"));
                   });
-                  h.cultivator_global_damage_damage = h.cultivator_global_damage_damage.replace(/\+(?=$)/, "");
-                  h.cultivator_global_damage_mod_type = h.cultivator_global_damage_mod_type.replace(/\/(?=$)/, "");
-                  setAttrs(h, {silent:!0}, function() {
+                  d.cultivator_global_damage_damage = d.cultivator_global_damage_damage.replace(/\+(?=$)/, "");
+                  d.cultivator_global_damage_mod_type = d.cultivator_global_damage_mod_type.replace(/\/(?=$)/, "");
+                  setAttrs(d, {silent:!0}, function() {
                     update_cultivatorattacks("all");
                     "function" == typeof c && c();
                   });
@@ -3313,38 +3345,38 @@
               }
             });
           }, update_cultivatorglobalattack = function(c) {
-            getSectionIDs("cultivatortohitmod", function(d) {
-              if (d) {
+            getSectionIDs("cultivatortohitmod", function(f) {
+              if (f) {
                 var a = {}, b = [];
-                d.forEach(function(g) {
-                  a[g] = {};
-                  b.push(`repeating_cultivatortohitmod_${g}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_name`, `repeating_cultivatortohitmod_${g}_cultivator_global_attack_appliesto`);
+                f.forEach(function(h) {
+                  a[h] = {};
+                  b.push(`repeating_cultivatortohitmod_${h}_cultivator_global_attack_active_flag`, `repeating_cultivatortohitmod_${h}_cultivator_global_attack_roll`, `repeating_cultivatortohitmod_${h}_cultivator_global_attack_name`, `repeating_cultivatortohitmod_${h}_cultivator_global_attack_appliesto`);
                 });
-                getAttrs(b, function(g) {
-                  var f = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name|appliesto)$/;
-                  _.each(g, function(k, l) {
-                    (l = f.exec(l)) && (a[l[1]][l[2]] = k);
+                getAttrs(b, function(h) {
+                  var g = /^repeating_cultivatortohitmod_(.+)_cultivator_global_attack_(active_flag|roll|name|appliesto)$/;
+                  _.each(h, function(k, l) {
+                    (l = g.exec(l)) && (a[l[1]][l[2]] = k);
                   });
-                  var h = {cultivator_global_attack_mod:"", cultivator_global_acc_attack:"", cultivator_global_eff_attack:""};
+                  var d = {cultivator_global_attack_mod:"", cultivator_global_acc_attack:"", cultivator_global_eff_attack:""};
                   console.log("CULTIVATOR GLOBALATTACK");
                   _.each(a, function(k) {
                     if ("0" != k.active_flag && k.roll && "" !== k.roll) {
                       switch(k.appliesto) {
                         case "acc":
-                          h.cultivator_global_acc_attack += k.roll + "[" + k.name + "]+";
+                          d.cultivator_global_acc_attack += k.roll + "[" + k.name + "]+";
                           break;
                         case "eff":
-                          h.cultivator_global_eff_attack += k.roll + "[" + k.name + "]+";
+                          d.cultivator_global_eff_attack += k.roll + "[" + k.name + "]+";
                           break;
                         case "both":
-                          h.cultivator_global_attack_mod += k.roll + "[" + k.name + "]+";
+                          d.cultivator_global_attack_mod += k.roll + "[" + k.name + "]+";
                       }
                     }
                   });
-                  "" !== h.cultivator_global_attack_mod && (h.cultivator_global_attack_mod = "[[" + h.cultivator_global_attack_mod.replace(/\+(?=$)/, "") + "]]");
-                  "" !== h.cultivator_global_acc_attack && (h.cultivator_global_acc_attack = "[[" + h.cultivator_global_acc_attack.replace(/\+(?=$)/, "") + "]]");
-                  "" !== h.cultivator_global_eff_attack && (h.cultivator_global_eff_attack = "[[" + h.cultivator_global_eff_attack.replace(/\+(?=$)/, "") + "]]");
-                  setAttrs(h, {silent:!0}, function() {
+                  "" !== d.cultivator_global_attack_mod && (d.cultivator_global_attack_mod = "[[" + d.cultivator_global_attack_mod.replace(/\+(?=$)/, "") + "]]");
+                  "" !== d.cultivator_global_acc_attack && (d.cultivator_global_acc_attack = "[[" + d.cultivator_global_acc_attack.replace(/\+(?=$)/, "") + "]]");
+                  "" !== d.cultivator_global_eff_attack && (d.cultivator_global_eff_attack = "[[" + d.cultivator_global_eff_attack.replace(/\+(?=$)/, "") + "]]");
+                  setAttrs(d, {silent:!0}, function() {
                     "function" == typeof c && c();
                   });
                 });
@@ -3352,123 +3384,125 @@
             });
           }, update_weight = function() {
             console.log("UPDATING WEIGHT");
-            var c = {}, d = 0, a = 0, b = ["power", "carrying_capacity_mod", "inventory_slots_mod", "itemweightfixed", "itemslotsfixed"];
-            getSectionIDs("repeating_inventory", function(g) {
-              _.each(g, function(f) {
-                b.push("repeating_inventory_" + f + "_itemweight");
-                b.push("repeating_inventory_" + f + "_itemcount");
-                b.push("repeating_inventory_" + f + "_itemsize");
-                b.push("repeating_inventory_" + f + "_equipped");
-                b.push("repeating_inventory_" + f + "_carried");
-                b.push("repeating_inventory_" + f + "_itemcontainer");
-                b.push("repeating_inventory_" + f + "_itemweightfixed");
-                b.push("repeating_inventory_" + f + "_itemslotsfixed");
-                b.push("repeating_inventory_" + f + "_itemcontainer_slots");
-                b.push("repeating_inventory_" + f + "_itemcontainer_slots_modifier");
+            var c = {}, f = 0, a = 0, b = ["power", "carrying_capacity_mod", "inventory_slots_mod", "itemweightfixed", "itemslotsfixed"];
+            getSectionIDs("repeating_inventory", function(h) {
+              _.each(h, function(g) {
+                b.push("repeating_inventory_" + g + "_itemweight");
+                b.push("repeating_inventory_" + g + "_itemcount");
+                b.push("repeating_inventory_" + g + "_itemsize");
+                b.push("repeating_inventory_" + g + "_equipped");
+                b.push("repeating_inventory_" + g + "_carried");
+                b.push("repeating_inventory_" + g + "_itemcontainer");
+                b.push("repeating_inventory_" + g + "_itemweightfixed");
+                b.push("repeating_inventory_" + g + "_itemslotsfixed");
+                b.push("repeating_inventory_" + g + "_itemcontainer_slots");
+                b.push("repeating_inventory_" + g + "_itemcontainer_slots_modifier");
               });
-              getAttrs(b, function(f) {
-                var h = 0, k = 0;
-                _.each(g, function(q) {
-                  if (1 == f["repeating_inventory_" + q + "_equipped"] || 1 == f["repeating_inventory_" + q + "_carried"]) {
-                    if (1 == f["repeating_inventory_" + q + "_itemcontainer"]) {
-                      if (1 == f["repeating_inventory_" + q + "_equipped"]) {
-                        k = parseInt(f["repeating_inventory_" + q + "_itemcontainer_slots"], 0);
+              getAttrs(b, function(g) {
+                var d = 0, k = 0;
+                _.each(h, function(q) {
+                  if (1 == g["repeating_inventory_" + q + "_equipped"] || 1 == g["repeating_inventory_" + q + "_carried"]) {
+                    if (1 == g["repeating_inventory_" + q + "_itemcontainer"]) {
+                      if (1 == g["repeating_inventory_" + q + "_equipped"]) {
+                        k = parseInt(g["repeating_inventory_" + q + "_itemcontainer_slots"], 0);
                         var r = "repeating_inventory_" + q + "_itemcontainer_slots_modifier";
-                        f[r] && (-1 < ["+", "-"].indexOf(f[r]) ? (q = f[r].substring(0, 1), r = f[r].substring(1), !1 === isNaN(parseInt(r, 0)) && ("+" == q ? h += parseInt(r, 0) : "-" == q && (h -= parseInt(r, 0)))) : !1 === isNaN(parseInt(f[r], 0)) && (h += parseInt(f[r], 0)));
+                        g[r] && (-1 < ["+", "-"].indexOf(g[r]) ? (q = g[r].substring(0, 1), r = g[r].substring(1), !1 === isNaN(parseInt(r, 0)) && ("+" == q ? d += parseInt(r, 0) : "-" == q && (d -= parseInt(r, 0)))) : !1 === isNaN(parseInt(g[r], 0)) && (d += parseInt(g[r], 0)));
                       }
                     } else {
-                      f["repeating_inventory_" + q + "_itemweight"] && !1 === isNaN(parseInt(f["repeating_inventory_" + q + "_itemweight"], 0)) && (1 == f["repeating_inventory_" + q + "_itemweightfixed"] ? d += parseFloat(f["repeating_inventory_" + q + "_itemweight"]) : (count = f["repeating_inventory_" + q + "_itemcount"] && !1 === isNaN(parseFloat(f["repeating_inventory_" + q + "_itemcount"])) ? parseFloat(f["repeating_inventory_" + q + "_itemcount"]) : 1, d += parseFloat(f["repeating_inventory_" + q + "_itemweight"]) * count)), f["repeating_inventory_" + q + "_itemsize"] && !1 === isNaN(parseInt(f["repeating_inventory_" + q + "_itemsize"], 0)) && (1 == f["repeating_inventory_" + q + "_itemslotsfixed"] ? a += parseFloat(f["repeating_inventory_" + q + "_itemsize"]) : (count = f["repeating_inventory_" + q + "_itemcount"] && !1 === isNaN(parseFloat(f["repeating_inventory_" + q + "_itemcount"])) ? parseFloat(f["repeating_inventory_" + q + "_itemcount"]) : 1, a += parseFloat(f["repeating_inventory_" + q + "_itemsize"]) * count));
+                      g["repeating_inventory_" + q + "_itemweight"] && !1 === isNaN(parseInt(g["repeating_inventory_" + q + "_itemweight"], 0)) && (1 == g["repeating_inventory_" + q + "_itemweightfixed"] ? f += parseFloat(g["repeating_inventory_" + q + "_itemweight"]) : (count = g["repeating_inventory_" + q + "_itemcount"] && !1 === isNaN(parseFloat(g["repeating_inventory_" + q + "_itemcount"])) ? parseFloat(g["repeating_inventory_" + q + "_itemcount"]) : 1, f += parseFloat(g["repeating_inventory_" + q + "_itemweight"]) * 
+                      count)), g["repeating_inventory_" + q + "_itemsize"] && !1 === isNaN(parseInt(g["repeating_inventory_" + q + "_itemsize"], 0)) && (1 == g["repeating_inventory_" + q + "_itemslotsfixed"] ? a += parseFloat(g["repeating_inventory_" + q + "_itemsize"]) : (count = g["repeating_inventory_" + q + "_itemcount"] && !1 === isNaN(parseFloat(g["repeating_inventory_" + q + "_itemcount"])) ? parseFloat(g["repeating_inventory_" + q + "_itemcount"]) : 1, a += parseFloat(g["repeating_inventory_" + q + 
+                      "_itemsize"]) * count));
                     }
                   }
                 });
-                d = Math.round(100 * d) / 100;
+                f = Math.round(100 * f) / 100;
                 a = Math.round(100 * a) / 100;
-                c.weighttotal = d;
+                c.weighttotal = f;
                 c.slotstotal = a;
-                var l = 18 + (parseInt(k));
-                if (f.inventory_slots_mod) {
-                  var m = f.inventory_slots_mod.substring(0, 1), n = f.inventory_slots_mod.substring(1);
+                var l = 18 + parseInt(k);
+                if (g.inventory_slots_mod) {
+                  var m = g.inventory_slots_mod.substring(0, 1), n = g.inventory_slots_mod.substring(1);
                   -1 < ["*", "x", "+", "-"].indexOf(m) && !1 === isNaN(parseInt(n, 0)) && ("*" == m || "x" == m ? l *= parseInt(n, 0) : "+" == m ? l += parseInt(n, 0) : "-" == m && (l -= parseInt(n, 0)));
                 }
-                l += h;
-                var p = parseInt(f.power), u = 30 * p;
-                f.carrying_capacity_mod && (m = f.carrying_capacity_mod.substring(0, 1), n = parseInt(f.carrying_capacity_mod.substring(1), 10), -1 < ["*", "x", "+", "-", "/"].indexOf(m) && !isNaN(n) && ("*" == m || "x" == m ? u *= n : "+" == m ? u += n : "-" == m ? u -= n : "/" == m && (u /= n)));
-                c.weightmaximum = u;
+                l += d;
+                var p = parseInt(g.power), v = 30 * p;
+                g.carrying_capacity_mod && (m = g.carrying_capacity_mod.substring(0, 1), n = parseInt(g.carrying_capacity_mod.substring(1), 10), -1 < ["*", "x", "+", "-", "/"].indexOf(m) && !isNaN(n) && ("*" == m || "x" == m ? v *= n : "+" == m ? v += n : "-" == m ? v -= n : "/" == m && (v /= n)));
+                c.weightmaximum = v;
                 c.slotsmaximum = l;
-                c.encumberance = a > l ? "OVER CARRYING CAPACITY" : d > 30 * p ? "IMMOBILE" : d > 22 * p ? "HEAVILY ENCUMBERED" : d > 15 * p ? "ENCUMBERED" : " ";
+                c.encumberance = a > l ? "OVER CARRYING CAPACITY" : f > 30 * p ? "IMMOBILE" : f > 22 * p ? "HEAVILY ENCUMBERED" : f > 15 * p ? "ENCUMBERED" : " ";
                 setAttrs(c, {silent:!0});
               });
             });
           }, update_skills = function(c) {
-            var d = "power agility vitality cultivation qicontrol mental appearance".split(" "), a = {}, b = [];
-            _.each(c, function(g) {
-              d.push(g + "_bonus");
-              d.push(g + "_flat");
+            var f = "power agility vitality cultivation qicontrol mental appearance".split(" "), a = {}, b = [];
+            _.each(c, function(h) {
+              f.push(h + "_bonus");
+              f.push(h + "_flat");
             });
-            getSectionIDs("repeating_inventory", function(g) {
-              _.each(g, function(f) {
-                d.push("repeating_inventory_" + f + "_equipped");
-                d.push("repeating_inventory_" + f + "_itemmodifiers");
+            getSectionIDs("repeating_inventory", function(h) {
+              _.each(h, function(g) {
+                f.push("repeating_inventory_" + g + "_equipped");
+                f.push("repeating_inventory_" + g + "_itemmodifiers");
               });
-              getAttrs(d, function(f) {
-                _.each(c, function(h) {
-                  console.log("UPDATING SKILL: " + h);
-                  var k = f[h + "_flat"] && !isNaN(parseInt(f[h + "_flat"], 10)) ? parseInt(f[h + "_flat"], 10) : 0, l = 0;
-                  _.each(g, function(n) {
-                    f["repeating_inventory_" + n + "_equipped"] && "1" === f["repeating_inventory_" + n + "_equipped"] && f["repeating_inventory_" + n + "_itemmodifiers"] && (-1 < f["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().replace(/ /g, "_").indexOf(h) || -1 < f["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().indexOf("skill checks")) && (n = f["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().split(","), _.each(n, function(p) {
-                      if (-1 < p.replace(/ /g, "_").indexOf(h) || -1 < p.indexOf("skill checks")) {
+              getAttrs(f, function(g) {
+                _.each(c, function(d) {
+                  console.log("UPDATING SKILL: " + d);
+                  var k = g[d + "_flat"] && !isNaN(parseInt(g[d + "_flat"], 10)) ? parseInt(g[d + "_flat"], 10) : 0, l = 0;
+                  _.each(h, function(n) {
+                    g["repeating_inventory_" + n + "_equipped"] && "1" === g["repeating_inventory_" + n + "_equipped"] && g["repeating_inventory_" + n + "_itemmodifiers"] && (-1 < g["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().replace(/ /g, "_").indexOf(d) || -1 < g["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().indexOf("skill checks")) && (n = g["repeating_inventory_" + n + "_itemmodifiers"].toLowerCase().split(","), _.each(n, function(p) {
+                      if (-1 < p.replace(/ /g, "_").indexOf(d) || -1 < p.indexOf("skill checks")) {
                         -1 < p.indexOf("-") ? (p = isNaN(parseInt(p.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(p.replace(/[^0-9]/g, ""), 10), l -= p ? l + p : l) : (p = isNaN(parseInt(p.replace(/[^0-9]/g, ""), 10)) ? !1 : parseInt(p.replace(/[^0-9]/g, ""), 10), l += p ? l + p : l);
                       }
                     }));
                   });
                   var m = 0;
-                  switch(h) {
+                  switch(d) {
                     case "acrobatics":
                     case "discretion":
                     case "stealth":
-                      m = parseInt(f.agility, 10);
+                      m = parseInt(g.agility, 10);
                       break;
                     case "athletics":
                     case "grapple":
-                      m = parseInt(f.power, 10);
+                      m = parseInt(g.power, 10);
                       break;
                     case "charm":
                     case "deceit":
                     case "disguise":
                     case "persuade":
-                      m = parseInt(f.mental, 10) + parseInt(f.appearance, 10);
+                      m = parseInt(g.mental, 10) + parseInt(g.appearance, 10);
                       break;
                     case "fine_arts":
                     case "forgery":
                     case "navigation":
-                      m = Math.floor(parseInt(f.agility, 10) / 2) + Math.floor(parseInt(f.mental, 10) / 2);
+                      m = Math.floor(parseInt(g.agility, 10) / 2) + Math.floor(parseInt(g.mental, 10) / 2);
                       break;
                     case "history":
                     case "medicine":
-                      m = Math.floor(parseInt(f.qicontrol, 10) / 2) + Math.floor(parseInt(f.mental, 10) / 2);
+                      m = Math.floor(parseInt(g.qicontrol, 10) / 2) + Math.floor(parseInt(g.mental, 10) / 2);
                       break;
                     case "intuition":
                     case "investigation":
                     case "perception":
-                      m = parseInt(f.mental, 10);
+                      m = parseInt(g.mental, 10);
                       break;
                     case "intimidation":
-                      m = parseInt(f.power, 10) + parseInt(f.appearance, 10);
+                      m = parseInt(g.power, 10) + parseInt(g.appearance, 10);
                       break;
                     case "performance":
-                      m = parseInt(f.agility, 10) + parseInt(f.appearance, 10);
+                      m = parseInt(g.agility, 10) + parseInt(g.appearance, 10);
                       break;
                     case "survival":
-                      m = Math.floor(parseInt(f.power, 10) / 2) + Math.floor(parseInt(f.mental, 10) / 2);
+                      m = Math.floor(parseInt(g.power, 10) / 2) + Math.floor(parseInt(g.mental, 10) / 2);
                   }
                   k += l;
-                  a[h] = 0 < k ? m + "d6+" + k : m + "d6";
-                  a[h + "_bonus"] = k;
-                  a[h + "_roll"] = m;
+                  a[d] = 0 < k ? m + "d6+" + k : m + "d6";
+                  a[d + "_bonus"] = k;
+                  a[d + "_roll"] = m;
                 });
                 setAttrs(a, {silent:!0}, function() {
-                  b.forEach(function(h) {
-                    h();
+                  b.forEach(function(d) {
+                    d();
                   });
                 });
               });
@@ -3479,34 +3513,34 @@
           }, update_durability = function() {
             console.log("UPDATING DURABILITY");
             getAttrs(["durability-base", "durability-limit", "durability-bonus", "vitality"], function(c) {
-              var d = {}, a = parseInt(c["durability-base"]) || 0, b = parseInt(c.vitality);
+              var f = {}, a = parseInt(c["durability-base"]) || 0, b = parseInt(c.vitality);
               parseInt(c["durability-limit"]);
               c = parseInt(c["durability-bonus"]) || 0;
               e = 10 * Math.floor(b / 50);
-              d["durability-full"] = a + c + e;
-              setAttrs(d, {silent:!0});
+              f["durability-full"] = a + c + e;
+              setAttrs(f, {silent:!0});
             });
           }, update_evasion = function() {
             console.log("UPDATING EVASION");
             getAttrs(["evasion-base", "evasion-limit", "evasion-bonus", "agility"], function(c) {
-              var d = {}, a = parseInt(c.agility) || 0, b = parseInt(c["evasion-base"]) || 0, g = parseInt(c["evasion-limit"]) || 0;
+              var f = {}, a = parseInt(c.agility) || 0, b = parseInt(c["evasion-base"]) || 0, h = parseInt(c["evasion-limit"]) || 0;
               c = parseInt(c["evasion-bonus"]) || 0;
-              d["evasion-full"] = a < g ? b + a + c : b + g + Math.floor((a - g) / 2) + c;
-              setAttrs(d, {silent:!0});
+              f["evasion-full"] = a < h ? b + a + c : b + h + Math.floor((a - h) / 2) + c;
+              setAttrs(f, {silent:!0});
             });
           }, update_reduction = function() {
             console.log("UPDATING REDUCTION");
             getAttrs(["reduction-base", "reduction-armour", "reduction-bonus"], function(c) {
-              var d = {}, a = parseInt(c["reduction-base"]) || 0, b = parseInt(c["reduction-armour"]) || 0;
+              var f = {}, a = parseInt(c["reduction-base"]) || 0, b = parseInt(c["reduction-armour"]) || 0;
               c = parseInt(c["reduction-bonus"]) || 0;
-              d["reduction-full"] = a + b + c;
-              setAttrs(d, {silent:!0});
+              f["reduction-full"] = a + b + c;
+              setAttrs(f, {silent:!0});
             });
           };
           let toInt = function(c) {
             return c && !isNaN(c) ? parseInt(c) : 0;
-          }, clamp = function(c, d, a) {
-            return Math.min(Math.max(c, d), a);
+          }, clamp = function(c, f, a) {
+            return Math.min(Math.max(c, f), a);
           }, isDefined = function(c) {
             return null !== c && "undefined" !== typeof c;
           };
