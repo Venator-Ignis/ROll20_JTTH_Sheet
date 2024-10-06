@@ -644,7 +644,7 @@
                                                                 </div>
                                                                 <div class="sheet-form-group">
                                                                     <label class="sheet-form-checkbox">
-                                                                        <input type="checkbox" name="attr_saveflag" value="{{save=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][SAVE]]]}}">
+                                                                        <input type="checkbox" name="attr_saveflag" value="{{saveflag=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]]]]}}">
                                                                         <span>Attribute Check</span>
                                                                     </label>
                                                                 </div>
@@ -747,6 +747,11 @@
                                 <div class="sheet-container-panel sheet-container-resources">
                                     <div class="sheet-container-header">RESOURCES</div>
                                     <div class="sheet-container-body">
+                                        <div class="sheet-resource-labels">
+                                            <div class="sheet-resource-label resource-name">NAME</div>
+                                            <div class="sheet-resource-label resource-current">CURRENT</div>
+                                            <div class="sheet-resource-label resource-max">MAX</div>
+                                        </div>
                                         <fieldset class="repeating_mortalresource">
                                             <div class="sheet-fieldset-item">
                                                 <div class="sheet-form">
@@ -1379,7 +1384,7 @@
                                                                 </div>
                                                                 <div class="sheet-form-group">
                                                                     <label class="sheet-form-checkbox">
-                                                                        <input type="checkbox" name="attr_saveflag" value="{{save=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][SAVE]]]}}">
+                                                                        <input type="checkbox" name="attr_saveflag" value="{{saveflag=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][@{saveattr}]]]}}">
                                                                         <span>Attribute Check</span>
                                                                     </label>
                                                                 </div>
@@ -1481,6 +1486,11 @@
                                 <div class="sheet-container-panel sheet-container-resources">
                                     <div class="sheet-container-header">RESOURCES</div>
                                     <div class="sheet-container-body">
+                                        <div class="sheet-resource-labels">
+                                            <div class="sheet-resource-label resource-name">NAME</div>
+                                            <div class="sheet-resource-label resource-current">CURRENT</div>
+                                            <div class="sheet-resource-label resource-max">MAX</div>
+                                        </div>
                                         <fieldset class="repeating_cultivatorresource">
                                             <div class="sheet-fieldset-item">
                                                 <div class="sheet-form">
@@ -2730,7 +2740,7 @@
 
         <rolltemplate class="sheet-rolltemplate-dmg">
             <div class="template-container">
-                <div class="template-container damagetemplate">
+                <div class="damagetemplate">
                     <div class="template-result">
                         {{#dmgflag}}
                         <div class="template-damage-block">
@@ -2753,18 +2763,15 @@
                     </div>
                 </div>
                 {{#saveflag}}
-                <div class="template-container save">
+                <div class="save">
                     <div class="template-savedc">
-                        <span>DC {{savedc}}</span>
+                        <span>{{saveattr}} Check DC: {{savedc}}</span>
                     </div>
                     {{#savedesc}}
                     <div class="template-sublabel">
                         <span>{{savedesc}}</span>
                     </div>
                     {{/savedesc}}
-                    <div class="template-label">
-                        <span>{{saveattr}} Save</span>
-                    </div>
                 </div>
                 {{/saveflag}}
             </div>

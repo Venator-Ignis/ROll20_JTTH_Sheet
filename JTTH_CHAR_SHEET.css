@@ -2310,11 +2310,17 @@
 .sheet-container-resources .sheet-resource-labels {
   display: flex;
   width: 100%;
+  height: 12px;
 }
 
 .sheet-container-resources .sheet-resource-labels .sheet-resource-label {
-  width: 83px;
+  width: 33%;
   text-align: center;
+  font-size: 10px;
+}
+
+.sheet-container-resources .sheet-container-body {
+  padding-top: 0px !important;
 }
 
 .sheet-container-resources .sheet-fieldset-item .sheet-form {
@@ -2781,12 +2787,18 @@
   padding: 0px;
 }
 
+.sheet-rolltemplate-dmg .sheet-save .sheet-template-savedc span,
 .sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-template-result .sheet-template-damage-block .sheet-damage span,
 .sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-template-result .sheet-template-damage-block .sheet-damage span {
   padding: 0px;
   border: 0px;
   background-color: transparent;
   font-size: 12px;
+}
+
+.sheet-rolltemplate-dmg .sheet-save {
+  border-top: 1px solid;
+  text-align: center;
 }
 
 .sheet-rolltemplate-atk .inlinerollresult.fullfail,
