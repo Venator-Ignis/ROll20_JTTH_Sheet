@@ -24,14 +24,14 @@
         update_skills(["history", "medicine"]);
         break;
       case "mental":
-        update_skills("charm deceit disguise persuade fine_arts forgery navigation history medicine intuition investigation perception survival".split(" "));
+        update_skills("seduce deceit disguise persuade fine_arts forgery navigation history medicine intuition investigation perception survival".split(" "));
         break;
       case "appearance":
-        update_skills("charm deceit disguise persuade intimidation performance".split(" "));
+        update_skills("seduce deceit disguise persuade intimidation performance".split(" "));
     }
   });
 });
-"acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" ").forEach(c => {
+"acrobatics athletics seduce deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" ").forEach(c => {
   on(`change:${c}_flat`, function(f) {
     "sheetworker" !== f.sourceType && update_skills([`${c}`]);
   });
@@ -120,7 +120,7 @@ var check_itemmodifiers = function(c, f) {
     -1 < a.indexOf("skill checks") && update_all_skill_checks();
     -1 < a.indexOf("acrobatics") && update_skills(["acrobatics"]);
     -1 < a.indexOf("athletics") && update_skills(["athletics"]);
-    -1 < a.indexOf("charm") && update_skills(["charm"]);
+    -1 < a.indexOf("seduce") && update_skills(["seduce"]);
     -1 < a.indexOf("deceit") && update_skills(["deceit"]);
     -1 < a.indexOf("discretion") && update_skills(["discretion"]);
     -1 < a.indexOf("disguise") && update_skills(["disguise"]);
@@ -613,7 +613,7 @@ var check_itemmodifiers = function(c, f) {
           case "grapple":
             m = parseInt(g.power, 10);
             break;
-          case "charm":
+          case "seduce":
           case "deceit":
           case "disguise":
           case "persuade":
@@ -656,16 +656,15 @@ var check_itemmodifiers = function(c, f) {
   });
 }, update_all_ability_checks = function() {
   update_initiative();
-  update_skills("acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" "));
+  update_skills("acrobatics athletics seduce deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" "));
 }, update_durability = function() {
   console.log("UPDATING DURABILITY");
-  getAttrs(["durability-base", "durability-limit", "durability-bonus", "vitality"], function(c) {
-    var f = {}, a = parseInt(c["durability-base"]) || 0, b = parseInt(c.vitality);
-    parseInt(c["durability-limit"]);
-    c = parseInt(c["durability-bonus"]) || 0;
-    e = 10 * Math.floor(b / 50);
-    f["durability-full"] = a + c + e;
-    setAttrs(f, {silent:!0});
+  getAttrs(["durability-base", "durability-limit", "durability-bonus", "vitality"], function(a) {
+    var d = {}, e = parseInt(a["durability-base"]) || 0, b = parseInt(a.vitality) || 0, c = parseInt(a["durability-limit"]) || 0;
+    a = parseInt(a["durability-bonus"]) || 0;
+    b = 10 * Math.floor(b / 50) + a;
+    d["durability-full"] = b < c ? e + b : e + c + Math.floor((b - c) / 2);
+    setAttrs(d, {silent:!0});
   });
 }, update_evasion = function() {
   console.log("UPDATING EVASION");

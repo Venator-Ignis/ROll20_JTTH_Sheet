@@ -12,7 +12,6 @@
             </label>
         </div>
     </div>
-
     <div class="sheet-section-main">
         <div class="sheet-main-header">
             <div class="sheet-header-avatar">
@@ -179,12 +178,6 @@
                                             </button>
                                         </div>
                                         <div class="sheet-skill">
-                                            <button type="roll" name="roll_charm" value="@{wtype}&{template:simple} @{charname_output} {{rname=Charm}} {{r1=[[@{charm_roll}d6+@{charm_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
-                                                <span>Charm</span>
-                                                <span name="attr_charm">0d6</span>
-                                            </button>
-                                        </div>
-                                        <div class="sheet-skill">
                                             <button type="roll" name="roll_deceit" value="@{wtype}&{template:simple} @{charname_output} {{rname=Deceit}} {{r1=[[@{deceit_roll}d6+@{deceit_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
                                                 <span>Deceit</span>
                                                 <span name="attr_deceit">0d6</span>
@@ -272,6 +265,12 @@
                                             <button type="roll" name="roll_persuade" value="@{wtype}&{template:simple} @{charname_output} {{rname=Persuade}} {{r1=[[@{persuade_roll}d6+@{persuade_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
                                                 <span>Persuade</span>
                                                 <span name="attr_persuade">0d6</span>
+                                            </button>
+                                        </div>
+                                        <div class="sheet-skill">
+                                            <button type="roll" name="roll_seduce" value="@{wtype}&{template:simple} @{charname_output} {{rname=Seduce}} {{r1=[[@{seduce_roll}d6+@{seduce_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
+                                                <span>Seduce</span>
+                                                <span name="attr_seduce">0d6</span>
                                             </button>
                                         </div>
                                         <div class="sheet-skill">
@@ -430,95 +429,99 @@
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <div class="sheet-container-header">ATTACK MODIFIERS</div>
                                         <input class="sheet-hidden" type="checkbox" name="attr_global_attack_mod_flag" title="@{global_attack_mod_flag}" value="1">
-                                        <fieldset class="repeating_mortaltohitmod">
-                                            <div class="sheet-fieldset-item">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Modifier</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <label class="sheet-form-checkbox">
-                                                                    <input type="checkbox" name="attr_global_attack_active_flag" value="1">
-                                                                </label>
-                                                                <input type="text" name="attr_global_attack_name">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Roll:</label>
-                                                                <input type="text" name="attr_global_attack_roll">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Applied To:</label>
-                                                                <select name="attr_global_attack_appliesto">
-                                                                    <option value="both" selected>Both</option>
-                                                                    <option value="acc">Accuracy</option>
-                                                                    <option value="eff">Effectiveness</option>
-                                                                </select>
+                                        <div class="sheet-container-body">
+                                            <fieldset class="repeating_mortaltohitmod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_global_attack_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_global_attack_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Roll:</label>
+                                                                    <input type="text" name="attr_global_attack_roll">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Applied To:</label>
+                                                                    <select name="attr_global_attack_appliesto">
+                                                                        <option value="both" selected>Both</option>
+                                                                        <option value="acc">Accuracy</option>
+                                                                        <option value="eff">Effectiveness</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-pc-attack-modifier">
-                                                        <div class="sheet-checkbox-image">
-                                                            <input type="checkbox" name="attr_global_attack_active_flag" value="1">
-                                                            <span></span>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_global_attack_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_global_attack_name"></span>
+                                                            <span name="attr_global_attack_roll"></span>
                                                         </div>
-                                                        <span name="attr_global_attack_name"></span>
-                                                        <span name="attr_global_attack_roll"></span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </fieldset>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <div class="sheet-container-header">DAMAGE MODIFIERS</div>
                                         <input class="sheet-hidden" type="checkbox" name="attr_global_damage_mod_flag" title="@{global_damage_mod_flag}" value="1">
-                                        <fieldset class="repeating_mortaldamagemod">
-                                            <div class="sheet-fieldset-item">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Modifier</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <label class="sheet-form-checkbox">
-                                                                    <input type="checkbox" name="attr_global_damage_active_flag" value="1">
-                                                                </label>
-                                                                <input type="text" name="attr_global_damage_name">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Damage:</label>
-                                                                <input type="text" name="attr_global_damage_damage" value="">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Type:</label>
-                                                                <input type="text" name="attr_global_damage_type" value="">
+                                        <div class="sheet-container-body">
+                                            <fieldset class="repeating_mortaldamagemod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_global_damage_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_global_damage_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Damage:</label>
+                                                                    <input type="text" name="attr_global_damage_damage" value="">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Type:</label>
+                                                                    <input type="text" name="attr_global_damage_type" value="">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-pc-attack-damage-modifier">
-                                                        <div class="sheet-checkbox-image">
-                                                            <input type="checkbox" name="attr_global_damage_active_flag" value="1">
-                                                            <span></span>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-damage-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_global_damage_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_global_damage_name"></span>
+                                                            <span name="attr_global_damage_damage"></span>
+                                                            <span name="attr_global_damage_type"></span>
                                                         </div>
-                                                        <span name="attr_global_damage_name"></span>
-                                                        <span name="attr_global_damage_damage"></span>
-                                                        <span name="attr_global_damage_type"></span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </fieldset>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-attacks">
                                         <div class="sheet-container-header">ATTACKS</div>
@@ -893,12 +896,6 @@
                                             </button>
                                         </div>
                                         <div class="sheet-skill">
-                                            <button type="roll" name="roll_charm" value="@{wtype}&{template:simple} @{charname_output} {{rname=Charm}} {{r1=[[@{charm_roll}d6+@{charm_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
-                                                <span>Charm</span>
-                                                <span name="attr_charm">0d6</span>
-                                            </button>
-                                        </div>
-                                        <div class="sheet-skill">
                                             <button type="roll" name="roll_deceit" value="@{wtype}&{template:simple} @{charname_output} {{rname=Deceit}} {{r1=[[@{deceit_roll}d6+@{deceit_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
                                                 <span>Deceit</span>
                                                 <span name="attr_deceit">0d6</span>
@@ -986,6 +983,12 @@
                                             <button type="roll" name="roll_persuade" value="@{wtype}&{template:simple} @{charname_output} {{rname=Persuade}} {{r1=[[@{persuade_roll}d6+@{persuade_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
                                                 <span>Persuade</span>
                                                 <span name="attr_persuade">0d6</span>
+                                            </button>
+                                        </div>
+                                        <div class="sheet-skill">
+                                            <button type="roll" name="roll_seduce" value="@{wtype}&{template:simple} @{charname_output} {{rname=Seduce}} {{r1=[[@{seduce_roll}d6+@{seduce_bonus}[BONUS]+@{global_skill_bonus}[GLOBAL]]]}}">
+                                                <span>Seduce</span>
+                                                <span name="attr_seduce">0d6</span>
                                             </button>
                                         </div>
                                         <div class="sheet-skill">
@@ -1102,7 +1105,7 @@
                                                 </div>
                                                 <div class="sheet-pc-evasion-limit">
                                                     <input class="sheet-evasion-limit" type="number" name="attr_evasion-limit" title="@{evasion-limit}" placeholder="0" value="10">
-                                                    <div class="sheet-pc-defence-label">LIMIT</div>
+                                                    <div class="sheet-pc-defence-label">SOFT CAP</div>
                                                 </div>
                                                 <div class="sheet-pc-evasion-bonus">
                                                     <input class="sheet-evasion-bonus" type="number" name="attr_evasion-bonus" title="@{evasion-bonus}" placeholder="0">
@@ -1120,7 +1123,7 @@
                                                 </div>
                                                 <div class="sheet-pc-durability-limit">
                                                     <input class="sheet-durability-limit" type="number" name="attr_durability-limit" title="@{durability-limit}" placeholder="0" value="10">
-                                                    <div class="sheet-pc-defence-label">LIMIT</div>
+                                                    <div class="sheet-pc-defence-label">SOFT CAP</div>
                                                 </div>
                                                 <div class="sheet-pc-durability-bonus">
                                                     <input class="sheet-durability-bonus" type="number" name="attr_durability-bonus" title="@{durability-bonus}" placeholder="0">
@@ -1170,95 +1173,99 @@
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <div class="sheet-container-header">ATTACK MODIFIERS</div>
                                         <input class="sheet-hidden" type="checkbox" name="attr_cultivator_global_attack_mod_flag" title="@{cultivator_global_attack_mod_flag}" value="1">
-                                        <fieldset class="repeating_cultivatortohitmod">
-                                            <div class="sheet-fieldset-item">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Modifier</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <label class="sheet-form-checkbox">
-                                                                    <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
-                                                                </label>
-                                                                <input type="text" name="attr_cultivator_global_attack_name">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Roll:</label>
-                                                                <input type="text" name="attr_cultivator_global_attack_roll">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Applied To:</label>
-                                                                <select name="attr_cultivator_global_attack_appliesto">
-                                                                    <option value="both" selected>Both</option>
-                                                                    <option value="acc">Accuracy</option>
-                                                                    <option value="eff">Effectiveness</option>
-                                                                </select>
+                                        <div class="sheet-container-body">
+                                            <fieldset class="repeating_cultivatortohitmod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_cultivator_global_attack_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Roll:</label>
+                                                                    <input type="text" name="attr_cultivator_global_attack_roll">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Applied To:</label>
+                                                                    <select name="attr_cultivator_global_attack_appliesto">
+                                                                        <option value="both" selected>Both</option>
+                                                                        <option value="acc">Accuracy</option>
+                                                                        <option value="eff">Effectiveness</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-pc-attack-modifier">
-                                                        <div class="sheet-checkbox-image">
-                                                            <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
-                                                            <span></span>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_cultivator_global_attack_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_cultivator_global_attack_name"></span>
+                                                            <span name="attr_cultivator_global_attack_roll"></span>
                                                         </div>
-                                                        <span name="attr_cultivator_global_attack_name"></span>
-                                                        <span name="attr_cultivator_global_attack_roll"></span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </fieldset>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-bonuses">
                                         <div class="sheet-container-header">DAMAGE MODIFIERS</div>
                                         <input class="sheet-hidden" type="checkbox" name="attr_cultivator_global_damage_mod_flag" title="@{cultivator_global_damage_mod_flag}" value="1">
-                                        <fieldset class="repeating_cultivatordamagemod">
-                                            <div class="sheet-fieldset-item">
-                                                <div class="sheet-checkbox-cog">
-                                                    <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
-                                                    <span class="sheet-toggle-icon"></span>
-                                                </div>
-                                                <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
-                                                <div class="sheet-toggle-checked">
-                                                    <div class="sheet-form">
-                                                        <div class="sheet-form-header">Edit Modifier</div>
-                                                        <div class="sheet-form-body">
-                                                            <div class="sheet-form-group">
-                                                                <label class="sheet-form-checkbox">
-                                                                    <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
-                                                                </label>
-                                                                <input type="text" name="attr_cultivator_global_damage_name">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Damage:</label>
-                                                                <input type="text" name="attr_cultivator_global_damage_damage" value="">
-                                                            </div>
-                                                            <div class="sheet-form-group">
-                                                                <label>Type:</label>
-                                                                <input type="text" name="attr_cultivator_global_damage_type" value="">
+                                        <div class="sheet-container-body">
+                                            <fieldset class="repeating_cultivatordamagemod">
+                                                <div class="sheet-fieldset-item">
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input type="checkbox" name="attr_options-flag" checked="checked"><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input type="checkbox" name="attr_options-flag" checked="checked" hidden class="sheet-toggle">
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-form">
+                                                            <div class="sheet-form-header">Edit Modifier</div>
+                                                            <div class="sheet-form-body">
+                                                                <div class="sheet-form-group">
+                                                                    <label class="sheet-form-checkbox">
+                                                                        <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
+                                                                    </label>
+                                                                    <input type="text" name="attr_cultivator_global_damage_name">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Damage:</label>
+                                                                    <input type="text" name="attr_cultivator_global_damage_damage" value="">
+                                                                </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Type:</label>
+                                                                    <input type="text" name="attr_cultivator_global_damage_type" value="">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="sheet-toggle-unchecked">
-                                                    <div class="sheet-pc-attack-damage-modifier">
-                                                        <div class="sheet-checkbox-image">
-                                                            <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
-                                                            <span></span>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-pc-attack-damage-modifier">
+                                                            <div class="sheet-checkbox-image">
+                                                                <input type="checkbox" name="attr_cultivator_global_damage_active_flag" value="1">
+                                                                <span></span>
+                                                            </div>
+                                                            <span name="attr_cultivator_global_damage_name"></span>
+                                                            <span name="attr_cultivator_global_damage_damage"></span>
+                                                            <span name="attr_cultivator_global_damage_type"></span>
                                                         </div>
-                                                        <span name="attr_cultivator_global_damage_name"></span>
-                                                        <span name="attr_cultivator_global_damage_damage"></span>
-                                                        <span name="attr_cultivator_global_damage_type"></span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </fieldset>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                     <div class="sheet-container-panel sheet-panel-attacks">
                                         <div class="sheet-container-header">ATTACKS</div>
@@ -1477,6 +1484,7 @@
                                                         <div class="sheet-feature-desc">
                                                             <span name="attr_desc"></span>
                                                         </div>
+                                                        <button type="roll" name="roll_trait" value="@{wtype}&{template:features} @{charname_output} {{name=@{name}}} {{description=@{desc}}}" class="output btn">w</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1606,10 +1614,11 @@
                                         <label>Raised By</label>
                                         <select name="attr_character_raised_by" title="@{character_raised_by}">
                                             <option value=""></option>
-                                            <option value="natural_parents">Natural parent(s)</option>
-                                            <option value="close_family">Close family</option>
-                                            <option value="adopted">Adopted parent(s)</option>
-                                            <option value="institution">An institution</option>
+                                            <option value="natural_parents">Natural Parent(s)</option>
+                                            <option value="close_family">Close Family</option>
+                                            <option value="adopted">Adopted Parent(s)</option>
+                                            <option value="institution">An Institution</option>
+                                            <option value="streets">The Streets</option>
                                             <option value="yourself">Yourself</option>
                                         </select>
                                     </div>
@@ -1858,7 +1867,7 @@
                                 </div>
                                 <div class="sheet-container-panel sheet-pc-notes-four">
                                     <div class="sheet-container-header">
-                                        <input type="text" name="attr_notes_four_header" placeholder="Treasure" value="Treasure">
+                                        <input type="text" name="attr_notes_four_header" placeholder="Treasures" value="Treasures">
                                     </div>
                                     <div class="sheet-container-body">
                                         <textarea name="attr_pc_notes_four"></textarea>
@@ -2329,8 +2338,8 @@
                                                 <input type="number" name="attr_athletics_flat" title="@{athletics_flat}" value="0">
                                             </div>
                                             <div class="sheet-form-group">
-                                                <label>Charm</label>
-                                                <input type="number" name="attr_charm_flat" title="@{charm_flat}" value="0">
+                                                <label>Seduce</label>
+                                                <input type="number" name="attr_seduce_flat" title="@{seduce_flat}" value="0">
                                             </div>
                                             <div class="sheet-form-group">
                                                 <label>Deceit</label>
@@ -2534,7 +2543,6 @@
             <p>Venator Ignis's JTTH Character Sheet</p>
         </div>
     </div>
-
     <div class="sheet-variables">
         <input type="hidden" name="attr_power_base" value="0">
         <input type="hidden" name="attr_power_bonus" value="0">
@@ -2567,20 +2575,17 @@
         <input type="hidden" name="attr_mental_dc" value="0">
         <input type="hidden" name="attr_mental" value="0">
         <input type="hidden" name="attr_appearance" value="0">
-
         <input type="hidden" name="attr_global_skill_bonus" value="0">
         <input type="hidden" name="attr_global_attribute_bonus" value="0">
         <input type="hidden" name="attr_global_dc_bonus" value="0">
-
         <input type="hidden" name="attr_initiative" value="0">
         <input type="hidden" name="attr_initiative_bonus" value="0">
-
         <input type="hidden" name="acrobatics_bonus" value="0">
         <input type="hidden" name="acrobatics_roll" value="0">
         <input type="hidden" name="athletics_bonus" value="0">
         <input type="hidden" name="athletics_roll" value="0">
-        <input type="hidden" name="charm_bonus" value="0">
-        <input type="hidden" name="charm_roll" value="0">
+        <input type="hidden" name="seduce_bonus" value="0">
+        <input type="hidden" name="seduce_roll" value="0">
         <input type="hidden" name="deceit_bonus" value="0">
         <input type="hidden" name="deceit_roll" value="0">
         <input type="hidden" name="discretion_bonus" value="0">
@@ -2615,7 +2620,6 @@
         <input type="hidden" name="stealth_roll" value="0">
         <input type="hidden" name="survival_bonus" value="0">
         <input type="hidden" name="survival_roll" value="0">
-
         <input type="hidden" name="attr_global_eff_attack">
         <input type="hidden" name="attr_global_acc_attack">
         <input type="hidden" name="attr_global_attack_mod">
@@ -2626,7 +2630,6 @@
         <input type="hidden" name="attr_cultivator_global_damage_mod_type">
         <input type="hidden" name="attr_cultivator_global_attack_mod">
     </div>
-
     <div class="sheet-rolltemplates">
         <rolltemplate class="sheet-rolltemplate-atk">
             <div class="template-container">
@@ -2663,7 +2666,6 @@
                 {{/desc}}
             </div>
         </rolltemplate>
-        
         <rolltemplate class="sheet-rolltemplate-atkdmg">
             <div class="template-container">
                 <div class="template-result">
@@ -2737,7 +2739,6 @@
                 {{/desc}}
             </div>
         </rolltemplate>
-
         <rolltemplate class="sheet-rolltemplate-dmg">
             <div class="template-container">
                 <div class="damagetemplate">
@@ -2776,7 +2777,6 @@
                 {{/saveflag}}
             </div>
         </rolltemplate>
-        
         <rolltemplate class="sheet-rolltemplate-features">
             <div class="template-container">
                 <div class="template-row header">
@@ -2794,7 +2794,6 @@
                 {{/description}}
             </div>
         </rolltemplate>
-
         <rolltemplate class="sheet-rolltemplate-tool">
             <div class="template-container">
                 <div class="template-result">
@@ -2812,7 +2811,6 @@
                 {{/charname}}
             </div>
         </rolltemplate>
-
         <rolltemplate class="sheet-rolltemplate-simple">
             <div class="template-container">
                 <div class="template-result">
@@ -2830,7 +2828,6 @@
                 {{/charname}}
             </div>
         </rolltemplate>
-                
         <rolltemplate class="sheet-rolltemplate-simple-add">
             <div class="template-container">
                 <div class="template-result">
@@ -2853,7 +2850,6 @@
             </div>
         </rolltemplate>
     </div>
-
     <script type="text/worker">
         "power agility vitality cultivation qicontrol mental appearance".split(" ").forEach(c => {
             on(`change:${c}_base change:${c}_bonus change:${c}_dc_bonus`, function() {
@@ -2881,14 +2877,14 @@
                   update_skills(["history", "medicine"]);
                   break;
                 case "mental":
-                  update_skills("charm deceit disguise persuade fine_arts forgery navigation history medicine intuition investigation perception survival".split(" "));
+                  update_skills("seduce deceit disguise persuade fine_arts forgery navigation history medicine intuition investigation perception survival".split(" "));
                   break;
                 case "appearance":
-                  update_skills("charm deceit disguise persuade intimidation performance".split(" "));
+                  update_skills("seduce deceit disguise persuade intimidation performance".split(" "));
               }
             });
           });
-          "acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" ").forEach(c => {
+          "acrobatics athletics seduce deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" ").forEach(c => {
             on(`change:${c}_flat`, function(f) {
               "sheetworker" !== f.sourceType && update_skills([`${c}`]);
             });
@@ -2977,7 +2973,7 @@
               -1 < a.indexOf("skill checks") && update_all_skill_checks();
               -1 < a.indexOf("acrobatics") && update_skills(["acrobatics"]);
               -1 < a.indexOf("athletics") && update_skills(["athletics"]);
-              -1 < a.indexOf("charm") && update_skills(["charm"]);
+              -1 < a.indexOf("seduce") && update_skills(["seduce"]);
               -1 < a.indexOf("deceit") && update_skills(["deceit"]);
               -1 < a.indexOf("discretion") && update_skills(["discretion"]);
               -1 < a.indexOf("disguise") && update_skills(["disguise"]);
@@ -3470,7 +3466,7 @@
                     case "grapple":
                       m = parseInt(g.power, 10);
                       break;
-                    case "charm":
+                    case "seduce":
                     case "deceit":
                     case "disguise":
                     case "persuade":
@@ -3513,16 +3509,15 @@
             });
           }, update_all_ability_checks = function() {
             update_initiative();
-            update_skills("acrobatics athletics charm deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" "));
+            update_skills("acrobatics athletics seduce deceit discretion disguise fine_arts forgery grapple history intuition intimidation investigation medicine navigation perception performance persuade stealth survival".split(" "));
           }, update_durability = function() {
             console.log("UPDATING DURABILITY");
-            getAttrs(["durability-base", "durability-limit", "durability-bonus", "vitality"], function(c) {
-              var f = {}, a = parseInt(c["durability-base"]) || 0, b = parseInt(c.vitality);
-              parseInt(c["durability-limit"]);
-              c = parseInt(c["durability-bonus"]) || 0;
-              e = 10 * Math.floor(b / 50);
-              f["durability-full"] = a + c + e;
-              setAttrs(f, {silent:!0});
+            getAttrs(["durability-base", "durability-limit", "durability-bonus", "vitality"], function(a) {
+              var d = {}, e = parseInt(a["durability-base"]) || 0, b = parseInt(a.vitality) || 0, c = parseInt(a["durability-limit"]) || 0;
+              a = parseInt(a["durability-bonus"]) || 0;
+              b = 10 * Math.floor(b / 50) + a;
+              d["durability-full"] = b < c ? e + b : e + c + Math.floor((b - c) / 2);
+              setAttrs(d, {silent:!0});
             });
           }, update_evasion = function() {
             console.log("UPDATING EVASION");

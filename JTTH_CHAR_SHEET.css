@@ -2251,6 +2251,8 @@
 
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:last-of-type {
   height: 45px;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box span {
@@ -2262,7 +2264,7 @@
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body .sheet-box input {
   width: 100%;
   padding: 0;
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .charsheet .sheet-feature {
@@ -2443,21 +2445,21 @@
 }
 
 .charsheet .col1 .sheet-container-tools{
-  min-height: 389px;
+  min-height: 413px;
 }
 
 .charsheet .sheet-page-cultivator .col1 .sheet-container-tools{
-  min-height: 443px;
+  min-height: 467px;
 }
 
 .charsheet .col3 .sheet-container-traits,
 .charsheet .col3 .sheet-container-resources{
-  min-height: 410.5px;
+  min-height: 423px;
 }
 
 .charsheet .sheet-page-cultivator .col3 .sheet-container-traits,
 .charsheet .sheet-page-cultivator .col3 .sheet-container-resources{
-  min-height: 437.5px;
+  min-height: 449px;
 }
 
 .charsheet .sheet-main-body .sheet-panel-attacks .dmgroll{
