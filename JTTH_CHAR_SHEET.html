@@ -454,9 +454,9 @@
                                                                 <div class="sheet-form-group">
                                                                     <label>Applied To:</label>
                                                                     <select name="attr_global_attack_appliesto">
-                                                                        <option value="both" selected>Both</option>
-                                                                        <option value="acc">Accuracy</option>
-                                                                        <option value="eff">Effectiveness</option>
+                                                                        <option value="Both" selected>Both</option>
+                                                                        <option value="Accuracy">Accuracy</option>
+                                                                        <option value="Effectiveness">Effectiveness</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -1199,9 +1199,9 @@
                                                                 <div class="sheet-form-group">
                                                                     <label>Applied To:</label>
                                                                     <select name="attr_cultivator_global_attack_appliesto">
-                                                                        <option value="both" selected>Both</option>
-                                                                        <option value="acc">Accuracy</option>
-                                                                        <option value="eff">Effectiveness</option>
+                                                                        <option value="Both" selected>Both</option>
+                                                                        <option value="Accuracy">Accuracy</option>
+                                                                        <option value="Effectiveness">Effectiveness</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -3190,13 +3190,13 @@
                   _.each(a, function(k) {
                     if ("0" != k.active_flag && k.roll && "" !== k.roll) {
                       switch(k.appliesto) {
-                        case "acc":
+                        case "Accuracy":
                           d.global_acc_attack += k.roll + "[" + k.name + "]+";
                           break;
-                        case "eff":
+                        case "Effectiveness":
                           d.global_eff_attack += k.roll + "[" + k.name + "]+";
                           break;
-                        case "both":
+                        case "Both":
                           d.global_attack_mod += k.roll + "[" + k.name + "]+";
                       }
                     }
@@ -3365,13 +3365,13 @@
                   _.each(a, function(k) {
                     if ("0" != k.active_flag && k.roll && "" !== k.roll) {
                       switch(k.appliesto) {
-                        case "acc":
+                        case "Accuracy":
                           d.cultivator_global_acc_attack += k.roll + "[" + k.name + "]+";
                           break;
-                        case "eff":
+                        case "Effectiveness":
                           d.cultivator_global_eff_attack += k.roll + "[" + k.name + "]+";
                           break;
-                        case "both":
+                        case "Both":
                           d.cultivator_global_attack_mod += k.roll + "[" + k.name + "]+";
                       }
                     }
