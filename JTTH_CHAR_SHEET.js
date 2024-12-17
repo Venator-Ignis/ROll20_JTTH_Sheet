@@ -1,3 +1,23 @@
+on("sheet:opened", function() {
+  var c = "acrobatics_bonus acrobatics_roll agility agility_base agility_bonus agility_dc agility_flag appearance athletics_bonus athletics_roll cultivation cultivation_base cultivation_bonus cultivation_dc cultivation_flag cultivator_global_acc_attack cultivator_global_attack_mod cultivator_global_damage_damage cultivator_global_damage_mod_type cultivator_global_eff_attack deceit_bonus deceit_roll discretion_bonus discretion_roll disguise_bonus disguise_roll fine_arts_bonus fine_arts_roll forgery_bonus forgery_roll global_acc_attack global_attack_mod global_attribute_bonus global_damage_damage global_dc_bonus global_eff_attack global_skill_bonus grapple_bonus grapple_roll history_bonus history_roll initiative initiative_bonus intimidation_bonus intimidation_roll intuition_bonus intuition_roll investigation_bonus investigation_roll medicine_bonus medicine_roll mental mental_base mental_bonus mental_dc mental_flag mortal_global_damage_mod_type navigation_bonus navigation_roll perception_bonus perception_roll performance_bonus performance_roll persuade_bonus persuade_roll power power_base power_bonus power_dc power_flag qicontrol qicontrol_base qicontrol_bonus qicontrol_dc qicontrol_flag seduce_bonus seduce_roll stealth_bonus stealth_roll survival_bonus survival_roll vitality vitality_base vitality_bonus vitality_dc vitality_flag".split(" ");
+  getAttrs(c, function(e) {
+    var a = {};
+    _.each(c, function(b) {
+      e[b] && e[b] !== "" || (a[b] = 0);
+    });
+    Object.keys(a).length > 0 && setAttrs(a);
+  });
+});
+on("sheet:opened", function() {
+  var c = "cultivator_global_acc_attack cultivator_global_attack_mod cultivator_global_eff_attack global_acc_attack global_attack_mod global_eff_attack".split(" ");
+  getAttrs(c, function(e) {
+    var a = {};
+    _.each(c, function(b) {
+      e[b] && e[b] !== "" || (a[b] = "");
+    });
+    Object.keys(a).length > 0 && setAttrs(a);
+  });
+});
 "power agility vitality cultivation qicontrol mental appearance".split(" ").forEach(c => {
   on(`change:${c}_base change:${c}_bonus change:${c}_dc_bonus`, function() {
     update_attr(`${c}`);
@@ -238,6 +258,7 @@ var check_itemmodifiers = function(c, e) {
   getAttrs(e, function(a) {
     _.each(c, function(b) {
       var g = [], f = {}, d = "", h = "", k = "", l = "", m = "", n = "", u = n = "", p = "", q = "", r = "", t = "";
+      a.global_damage_percent = a.global_damage_percent || 1;
       a["repeating_mortalattack_" + b + "_atkattr_base"] && "0" !== a["repeating_mortalattack_" + b + "_atkattr_base"] ? (atkattr_base = parseInt(a[a["repeating_mortalattack_" + b + "_atkattr_base"].substring(2, a["repeating_mortalattack_" + b + "_atkattr_base"].length - 1)], 0), n = a["repeating_mortalattack_" + b + "_atkattr_base"].substring(2, a["repeating_mortalattack_" + b + "_atkattr_base"].length - 1).toUpperCase()) : atkattr_base = 0;
       a["repeating_mortalattack_" + b + "_dmgattr"] && "0" !== a["repeating_mortalattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1)], 0), u = a["repeating_mortalattack_" + b + "_dmgattr"].substring(2, a["repeating_mortalattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
       dmgattr = Math.floor(dmgattr * a.global_damage_percent);
@@ -263,7 +284,7 @@ var check_itemmodifiers = function(c, e) {
       dmgspacer1 = a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] && a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? "+ " : "";
       dmgspacer2 = a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] && a["repeating_mortalattack_" + b + "_dmg3flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg3flag"] ? "+ " : "";
       r2 = "{{r2=[[";
-      a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (0 != A && (d = A + "[MOD]" + d), 0 != atkattr_base && (d = atkattr_base + "[" + n + "]" + d)) : d = "";
+      a["repeating_mortalattack_" + b + "_atkflag"] && 0 != a["repeating_mortalattack_" + b + "_atkflag"] ? (0 != A && (d = "+" + A + "[MOD]" + d), 0 != atkattr_base && (d = atkattr_base + "[" + n + "]" + d)) : d = "";
       A = d !== "" ? Math.floor(parseFloat(d) * 0.75) : "";
       a["repeating_mortalattack_" + b + "_dmgflag"] && 0 != a["repeating_mortalattack_" + b + "_dmgflag"] ? (0 != x && (h = "+" + Math.floor(x * a.global_damage_percent) + "[MOD]" + h), 0 != dmgattr && (h = "+" + dmgattr + "[" + u + "]" + h), h = C + h) : h = "0";
       a["repeating_mortalattack_" + b + "_dmg2flag"] && 0 != a["repeating_mortalattack_" + b + "_dmg2flag"] ? (0 != y && (k = "+" + Math.floor(y * a.global_damage_percent) + "[MOD]" + k), 0 != dmg2attr && (k = "+" + dmg2attr + "[" + p + "]" + k), k = D + k) : k = "0";
@@ -335,7 +356,7 @@ var check_itemmodifiers = function(c, e) {
         var d = {global_attack_mod:"", global_acc_attack:"", global_eff_attack:""};
         console.log("MORTAL GLOBALATTACK");
         _.each(a, function(h) {
-          if ("0" != h.active_flag && h.roll && "" !== h.roll) {
+          if ("0" != h.active_flag && h.roll && "0" != h.roll && "" !== h.roll) {
             switch(h.appliesto) {
               case "acc":
                 d.global_acc_attack += h.roll + "[" + h.name + "]+";
@@ -348,6 +369,9 @@ var check_itemmodifiers = function(c, e) {
             }
           }
         });
+        "" === d.global_attack_mod && (d.global_attack_mod = "");
+        "" === d.global_acc_attack && (d.global_acc_attack = "");
+        "" === d.global_eff_attack && (d.global_eff_attack = "");
         "" !== d.global_attack_mod && (d.global_attack_mod = "[[" + d.global_attack_mod.replace(/\+(?=$)/, "") + "]]");
         "" !== d.global_acc_attack && (d.global_acc_attack = "[[" + d.global_acc_attack.replace(/\+(?=$)/, "") + "]]");
         "" !== d.global_eff_attack && (d.global_eff_attack = "[[" + d.global_eff_attack.replace(/\+(?=$)/, "") + "]]");
@@ -412,7 +436,7 @@ var check_itemmodifiers = function(c, e) {
   });
   getAttrs(e, function(a) {
     _.each(c, function(b) {
-      var g = [], f = {}, d = "", h = "", k = "", l = "", m = "", n = "", u = "", n = "", p = "", q = "", r = "", t = "";
+      var g = [], f = {}, d = "", h = "", k = "", l = "", m = "", n = "", u = "", p = n = "", q = "", r = "", t = "";
       a["repeating_cultivatorattack_" + b + "_atkattr_base"] && "0" !== a["repeating_cultivatorattack_" + b + "_atkattr_base"] ? (atkattr_base = parseInt(a[a["repeating_cultivatorattack_" + b + "_atkattr_base"].substring(2, a["repeating_cultivatorattack_" + b + "_atkattr_base"].length - 1)], 0), n = a["repeating_cultivatorattack_" + b + "_atkattr_base"].substring(2, a["repeating_cultivatorattack_" + b + "_atkattr_base"].length - 1).toUpperCase()) : atkattr_base = 0;
       a["repeating_cultivatorattack_" + b + "_dmgattr"] && "0" !== a["repeating_cultivatorattack_" + b + "_dmgattr"] ? (dmgattr = parseInt(a[a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1)], 0), u = a["repeating_cultivatorattack_" + b + "_dmgattr"].substring(2, a["repeating_cultivatorattack_" + b + "_dmgattr"].length - 1).toUpperCase()) : dmgattr = 0;
       dmgattr = Math.floor(dmgattr * a.cultivator_global_damage_percent);
@@ -439,7 +463,7 @@ var check_itemmodifiers = function(c, e) {
       dmgspacer1 = a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] && a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? "+ " : "";
       dmgspacer2 = a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] && a["repeating_cultivatorattack_" + b + "_dmg3flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg3flag"] ? "+ " : "";
       r2 = "{{r2=[[";
-      a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (0 != A && (d = A + "[MOD]" + d), 0 != atkattr_base && (d = atkattr_base + "[" + n + "]" + d)) : d = "";
+      a["repeating_cultivatorattack_" + b + "_atkflag"] && 0 != a["repeating_cultivatorattack_" + b + "_atkflag"] ? (0 != A && (d = "+" + A + "[MOD]" + d), 0 != atkattr_base && (d = atkattr_base + "[" + n + "]" + d)) : d = "";
       A = d !== "" ? Math.floor(parseFloat(d) * 0.75) : "";
       a["repeating_cultivatorattack_" + b + "_dmgflag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmgflag"] ? (0 != x && (h = "+" + Math.floor(x * a.cultivator_global_damage_percent) + "[MOD]" + h), 0 != dmgattr && (h = "+" + dmgattr + "[" + u + "]" + h), h = C + h) : h = "0";
       a["repeating_cultivatorattack_" + b + "_dmg2flag"] && 0 != a["repeating_cultivatorattack_" + b + "_dmg2flag"] ? (0 != y && (k = "+" + Math.floor(y * a.cultivator_global_damage_percent) + "[MOD]" + k), 0 != dmg2attr && (k = "+" + dmg2attr + "[" + p + "]" + k), k = D + k) : k = "0";
@@ -511,7 +535,7 @@ var check_itemmodifiers = function(c, e) {
         var d = {cultivator_global_attack_mod:"", cultivator_global_acc_attack:"", cultivator_global_eff_attack:""};
         console.log("CULTIVATOR GLOBALATTACK");
         _.each(a, function(h) {
-          if ("0" != h.active_flag && h.roll && "" !== h.roll) {
+          if ("0" != h.active_flag && h.roll && "0" != h.roll && "" !== h.roll) {
             switch(h.appliesto) {
               case "acc":
                 d.cultivator_global_acc_attack += h.roll + "[" + h.name + "]+";
@@ -524,6 +548,9 @@ var check_itemmodifiers = function(c, e) {
             }
           }
         });
+        "" === d.cultivator_global_attack_mod && (d.cultivator_global_attack_mod = "");
+        "" === d.cultivator_global_acc_attack && (d.cultivator_global_acc_attack = "");
+        "" === d.cultivator_global_eff_attack && (d.cultivator_global_eff_attack = "");
         "" !== d.cultivator_global_attack_mod && (d.cultivator_global_attack_mod = "[[" + d.cultivator_global_attack_mod.replace(/\+(?=$)/, "") + "]]");
         "" !== d.cultivator_global_acc_attack && (d.cultivator_global_acc_attack = "[[" + d.cultivator_global_acc_attack.replace(/\+(?=$)/, "") + "]]");
         "" !== d.cultivator_global_eff_attack && (d.cultivator_global_eff_attack = "[[" + d.cultivator_global_eff_attack.replace(/\+(?=$)/, "") + "]]");

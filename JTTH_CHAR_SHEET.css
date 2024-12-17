@@ -2540,6 +2540,10 @@
   background: #e5fffb;
 }
 
+.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button:hover {
+  background: #94a5a3;
+}
+
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span {
   overflow: hidden;
   text-overflow: ellipsis;
