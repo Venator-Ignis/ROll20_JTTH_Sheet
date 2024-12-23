@@ -2114,22 +2114,16 @@
                                                                         <span>Fixed (Ignore quantity)</span>
                                                                     </label>
                                                                 </div>
-                                                                <div class="sheet-form-group sheet-item-columns-2">
-                                                                    <div class="sheet-form-group">
-                                                                        <label>Notches:</label>
-                                                                        <input type="number" name="attr_itemnotches" value="0">
-                                                                    </div>
-                                                                    <div class="sheet-form-group">
-                                                                        <label>Quality:</label>
-                                                                        <select name="attr_itemquality">
-                                                                            <option value="" selected="selected"></option>
-                                                                            <option value="pristine">Pristine</option>
-                                                                            <option value="worn">Worn</option>
-                                                                            <option value="wellworn">Well-worn</option>
-                                                                            <option value="scarred">Scarred</option>
-                                                                            <option value="broken">Broken</option>
-                                                                        </select>
-                                                                    </div>
+                                                                <div class="sheet-form-group">
+                                                                    <label>Quality:</label>
+                                                                    <select name="attr_itemquality">
+                                                                        <option value="" selected="selected"></option>
+                                                                        <option value="Pristine">Pristine</option>
+                                                                        <option value="Worn">Worn</option>
+                                                                        <option value="Well-worn">Well-worn</option>
+                                                                        <option value="Scarred">Scarred</option>
+                                                                        <option value="Broken">Broken</option>
+                                                                    </select>
                                                                 </div>
                                                                 <div class="sheet-form-group">
                                                                     <label>Equipped Slot</label>
@@ -2218,7 +2212,6 @@
                                                             <span>Quantity</span>
                                                             <span>Weight</span>
                                                             <span>Slots</span>
-                                                            <span>Notches</span>
                                                         </div>
                                                         <div class="sheet-pc-item-content">
                                                             <span class="sheet-pc-item-name">
@@ -2226,20 +2219,18 @@
                                                                 <span class="sheet-pc-item-equipped"><strong>E</strong></span>
                                                                 <input type="hidden" name="attr_carried" value="1" class="sheet-field-toggle">
                                                                 <span class="sheet-pc-item-carried"><strong>C</strong></span>
+                                                                <span name="attr_itemquality"></span>
                                                                 <span name="attr_itemname"></span>
                                                                 <span name="attr_equippedslot"></span>
                                                             </span>
                                                             <span class="sheet-pc-item-quantity">
-                                                                <input type="text" name="attr_itemcount">
+                                                                <input type="text" name="attr_itemcount" value="0">
                                                             </span>
                                                             <span class="sheet-pc-item-weight">
-                                                                <input type="text" name="attr_itemweight">
+                                                                <input type="text" name="attr_itemweight" value="0">
                                                             </span>
                                                             <span class="sheet-pc-item-slots">
-                                                                <input type="text" name="attr_itemsize">
-                                                            </span>
-                                                            <span class="sheet-pc-item-notches">
-                                                                <input type="text" name="attr_itemnotches">
+                                                                <input type="text" name="attr_itemsize" value="0">
                                                             </span>
                                                         </div>
                                                     </div>
@@ -2266,7 +2257,6 @@
                                                         <span>Quantity</span>
                                                         <span>Weight</span>
                                                         <span>Slots</span>
-                                                        <span>Notches</span>
                                                     </div>
                                                 </div>
                                             </div>

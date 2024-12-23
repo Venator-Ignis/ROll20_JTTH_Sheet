@@ -1011,6 +1011,10 @@
   border-radius: 3px;
 }
 
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:last-of-type{
+  white-space: pre-wrap;
+}
+
 .sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
   background: #666;
 }
@@ -1723,7 +1727,7 @@
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-header span:not(:first-of-type) {
-  width: 50px;
+  width: 52px;
   margin-left: 1px;
   text-align: center;
 }
@@ -1751,8 +1755,7 @@
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name {
   flex-grow: 1;
-  width: 230px;
-  max-width: 230px;
+  max-width: 286px;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type{
@@ -2061,10 +2064,6 @@
 .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-inventory-container-footer span:nth-of-type(4),
 .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(4),
 .charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="0"] ~ .repcontainer .sheet-pc-item .sheet-pc-item-slots {
-  display: none;
-}
-
-.charsheet .sheet-core .sheet-pc-inventory .sheet-toggle-slots[value="1"] ~ .repcontainer .sheet-pc-item-header span:nth-of-type(3) {
   display: none;
 }
 
