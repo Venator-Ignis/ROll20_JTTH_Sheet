@@ -1,5 +1,173 @@
+/* ============================================================
+   JTTH THEME VARIABLES
+   Shared palette tokens used by the colour section.
+   ============================================================ */
+.charsheet,
+.sheet-rolltemplate-atk,
+.sheet-rolltemplate-dmg,
+.sheet-rolltemplate-atkdmg,
+.sheet-rolltemplate-simple,
+.sheet-rolltemplate-simple-add,
+.sheet-rolltemplate-tool,
+.sheet-rolltemplate-features,
+.sheet-rolltemplate-attribute {
+  --jtth-page: #f3ead7;
+  --jtth-panel: #f8f1e3;
+  --jtth-surface: #fff8eb;
+  --jtth-surface-muted: #f6ecd8;
+  --jtth-input: #fffaf0;
+  --jtth-input-focus: #fffdf7;
+  --jtth-input-border: #c8b58d;
+  --jtth-brass: #b9a77f;
+  --jtth-brass-soft: #eadbc0;
+  --jtth-brass-border: #ccb990;
+  --jtth-brass-deep: #9f8d64;
+  --jtth-cinnabar: #8f4638;
+  --jtth-cinnabar-deep: #6f241e;
+  --jtth-jade: #2f4f49;
+  --jtth-jade-deep: #243d38;
+  --jtth-jade-hover: #38695f;
+  --jtth-jade-bright: #2a695d;
+  --jtth-ink: #261f1a;
+  --jtth-ink-strong: #000;
+  --jtth-muted: #6a5c48;
+  --jtth-paper-highlight: #fff8eb;
+  --jtth-row: #fff8eb;
+  --jtth-row-label: #eadbc0;
+  --jtth-row-border: #ccb990;
+  --jtth-tab-shadow: #b9a77f;
+  --jtth-warning: #8f4638;
+  --jtth-ui-hover: #e5fffb;
+  --jtth-ui-hover-border: #dbfff9;
+  --jtth-ui-neutral: #ddd;
+  --jtth-ui-neutral-muted: #8a8a8a;
+  --jtth-ui-line: #b7b7b7;
+  --jtth-ui-control: #555;
+  --jtth-ui-control-muted: #909090;
+  --jtth-ui-deep: #333;
+  --jtth-ui-deeper: #202020;
+  --jtth-ui-mid: #444;
+  --jtth-ui-soft: #eee;
+  --jtth-ui-soft-alt: #f2f2f2;
+  --jtth-ui-dot: #ccc;
+  --jtth-ui-dim: #b1b1b1;
+  --jtth-ui-light-border: lightgrey;
+  --jtth-ui-grey-text: grey;
+  --jtth-action-hover: #f2e7d1;
+  --jtth-action-accent: #9b3f32;
+  --jtth-focus-ring: rgba(143, 70, 56, .2);
+  --jtth-focus-ring-warm: rgba(155, 63, 50, .18);
+  --jtth-focus-ring-dark: rgba(166, 90, 69, .28);
+  --jtth-danger-wash: rgba(126, 45, 64, 0.25);
+  --jtth-muted-black: rgba(0, 0, 0, 0.5);
+  --jtth-transparent-white: rgba(255, 255, 255, 0);
+  --jtth-template-overlay: rgba(255, 248, 235, .12);
+  --jtth-template-overlay-border: rgba(255, 248, 235, .25);
+  --jtth-ap-wood: #b4cf01;
+  --jtth-ap-fire: #cf4601;
+  --jtth-ap-earth: #cfb401;
+  --jtth-ap-metal: #cf7d01;
+  --jtth-info-bg: #203a69;
+  --jtth-info-border: #101f3c;
+  --jtth-success-bg: #1f6b43;
+  --jtth-success-border: #0f4026;
+  --jtth-warn-bg: #9c6123;
+  --jtth-warn-border: #663a10;
+  --jtth-error-bg: #8a2632;
+  --jtth-error-border: #55111a;
+  --jtth-form-surface: #fbf8f3;
+  --jtth-form-border: #decfbd;
+  --jtth-dark-form-surface: #25211e;
+  --jtth-dark-form-border: #51433c;
+  --jtth-bar-border: #272727;
+  --jtth-muted-rule: #777;
+  --jtth-option-label: #2f2720;
+  --jtth-danger: #730d25;
+  --jtth-avatar-hover: #94a5a3;
+}
+
+.sheet-darkmode .charsheet,
+.sheet-darkmode .sheet-core {
+  --jtth-page: #161817;
+  --jtth-panel: #25231f;
+  --jtth-surface: #25231f;
+  --jtth-surface-muted: #302d26;
+  --jtth-input: #1c1f1d;
+  --jtth-input-focus: #242723;
+  --jtth-input-border: #4c4638;
+  --jtth-brass: #5a5140;
+  --jtth-brass-soft: #d0a66f;
+  --jtth-brass-border: #5a5140;
+  --jtth-brass-deep: #7a6c50;
+  --jtth-cinnabar: #a65a45;
+  --jtth-cinnabar-deep: #6d332d;
+  --jtth-jade: #203b37;
+  --jtth-jade-deep: #132724;
+  --jtth-jade-hover: #2d514b;
+  --jtth-jade-bright: #d0a66f;
+  --jtth-ink: #f4ead7;
+  --jtth-ink-strong: #141514;
+  --jtth-muted: #c9bda6;
+  --jtth-paper-highlight: #f4ead7;
+  --jtth-row: #211f1b;
+  --jtth-row-label: #3a3428;
+  --jtth-row-border: #51483a;
+  --jtth-tab-shadow: #363126;
+  --jtth-warning: #6d332d;
+  --jtth-ui-hover: #677270;
+  --jtth-ui-hover-border: #5e6e6c;
+  --jtth-ui-neutral: #333;
+  --jtth-ui-neutral-muted: #e6e6e6;
+  --jtth-ui-line: #444;
+  --jtth-ui-control: #555;
+  --jtth-ui-control-muted: #ccc;
+  --jtth-ui-deep: #333;
+  --jtth-ui-deeper: #202020;
+  --jtth-ui-mid: #444;
+  --jtth-ui-soft: #3f3f3f;
+  --jtth-ui-soft-alt: #505050;
+  --jtth-ui-dot: #555;
+  --jtth-ui-dim: #bab8b8;
+  --jtth-ui-light-border: #333;
+  --jtth-ui-grey-text: grey;
+  --jtth-action-hover: #4b5553;
+  --jtth-action-accent: #9b3f32;
+  --jtth-focus-ring: rgba(143, 70, 56, .2);
+  --jtth-focus-ring-warm: rgba(155, 63, 50, .18);
+  --jtth-focus-ring-dark: rgba(166, 90, 69, .28);
+  --jtth-danger-wash: rgba(126, 45, 64, 0.25);
+  --jtth-muted-black: rgba(0, 0, 0, 0.5);
+  --jtth-transparent-white: rgba(255, 255, 255, 0);
+  --jtth-template-overlay: rgba(255, 248, 235, .12);
+  --jtth-template-overlay-border: rgba(255, 248, 235, .25);
+  --jtth-ap-wood: #b4cf01;
+  --jtth-ap-fire: #cf4601;
+  --jtth-ap-earth: #cfb401;
+  --jtth-ap-metal: #cf7d01;
+  --jtth-info-bg: #203a69;
+  --jtth-info-border: #101f3c;
+  --jtth-success-bg: #1f6b43;
+  --jtth-success-border: #0f4026;
+  --jtth-warn-bg: #9c6123;
+  --jtth-warn-border: #663a10;
+  --jtth-error-bg: #8a2632;
+  --jtth-error-border: #55111a;
+  --jtth-form-surface: #fbf8f3;
+  --jtth-form-border: #decfbd;
+  --jtth-dark-form-surface: #25211e;
+  --jtth-dark-form-border: #51433c;
+  --jtth-bar-border: #272727;
+  --jtth-muted-rule: #777;
+  --jtth-option-label: #2f2720;
+  --jtth-danger: #730d25;
+  --jtth-avatar-hover: #94a5a3;
+}
+
+/* ============================================================
+   STRUCTURE
+   Layout, sizing, spacing, typography rhythm, and state mechanics.
+   ============================================================ */
 .sheet-core {
-  color: black;
   font-size: 13px;
   line-height: 15px;
   margin: 0;
@@ -15,11 +183,6 @@
 .sheet-core input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-.sheet-darkmode .sheet-core {
-  background-color: #1f1f1f;
-  color: white;
 }
 
 .sheet-core .sheet-section-main {
@@ -61,7 +224,6 @@
 
 .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
   margin-left: 2px;
-  background: none;
   border: none;
   border-bottom: solid 1px;
   font-weight: 600;
@@ -142,29 +304,15 @@
 .sheet-pages .sheet-page > input[type="radio"] {
   height: 30px;
   margin: 0;
-  opacity: 0;
   position: absolute;
   top: 0;
   width: 20%;
   z-index: 1;
 }
 
-.sheet-pages .sheet-page > input[type="radio"]:hover ~ .sheet-page-label {
-  background: #e5fffb;
-  border-bottom-color: #dbfff9;
-}
-
-.sheet-darkmode .sheet-pages .sheet-page > input[type="radio"]:hover ~ .sheet-page-label {
-  background: #677270;
-  border-bottom-color: #5e6e6c;
-}
-
 .sheet-pages .sheet-page > .sheet-page-label {
   align-items: center;
-  background: #ddd;
   border-radius: 6px 6px 0 0;
-  border: 2px solid #ddd;
-  color: #8a8a8a;
   display: flex;
   font-size: 11px;
   font-variant: small-caps;
@@ -176,34 +324,6 @@
   text-transform: uppercase;
   top: 0;
   width: 20%;
-  border-left-color: white;
-  border-top-color: white;
-  border-right-color: white;
-  border-bottom-color: lightgrey;
-}
-
-.sheet-darkmode .sheet-pages .sheet-page > .sheet-page-label {
-  background: #333;
-  border: 2px solid #444;
-  color: #e6e6e6;
-  border-left-color: black;
-  border-top-color: black;
-  border-right-color: black;
-  border-bottom-color: #333;
-}
-
-.sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label {
-  background: white;
-  border-color: #575757;
-  border-bottom-color: white;
-  color: black;
-}
-
-.sheet-darkmode .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label {
-  background: #444;
-  border-color: black;
-  border-bottom-color: #333;
-  color: #e6e6e6;
 }
 
 .sheet-pages .sheet-page > input[type="radio"]:checked {
@@ -233,38 +353,36 @@
 }
 
 .sheet-darkmode .sheet-core .sheet-pages .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
-  background-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png);
-  width: 134px;
+  width: 135px;
   border: 0;
   margin: 0;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
   border-radius: 5px;
   position: relative;
   padding-bottom: 10px;
-  height: 90px;
+  height: 110px;
   text-align: center;
 }
 
 .sheet-core .sheet-pages .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
-  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png);
-  width: 134px;
+  width: 135px;
   border: 0;
   margin: 0;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
   border-radius: 5px;
   position: relative;
   padding-bottom: 10px;
-  height: 90px;
+  height: 110px;
   text-align: center;
 }
 
 .sheet-core .sheet-section-roll {
   margin: 0 auto;
-  width: 800px;
+  width: 200px;
   display: flex;
   justify-content: flex-end;
   margin-bottom: -18px;
@@ -273,11 +391,11 @@
 
 .sheet-core .sheet-section-roll-whisper label {
   position: relative;
+  width: fit-content;
 }
 
 .sheet-core .sheet-section-roll-whisper label:first-of-type span {
   border-radius: 4px 0 0 4px;
-  border-left: 1px solid #b7b7b7;
 }
 
 .sheet-core .sheet-section-roll-whisper label:last-of-type span {
@@ -285,12 +403,9 @@
 }
 
 .sheet-core .sheet-section-roll-whisper label span {
-  background: #ddd;
   padding: 1px 5px;
   font-weight: bold;
-  border: 1px solid #b7b7b7;
   border-left: 0;
-  color: #909090;
 }
 
 .sheet-core .sheet-section-roll-whisper label input {
@@ -299,17 +414,6 @@
   top: 0;
   height: 100%;
   width: 100%;
-  opacity: 0;
-}
-
-.sheet-core .sheet-section-roll-whisper label input:checked ~ span {
-  background: #555;
-  color: white;
-  border-color: #555;
-}
-
-.sheet-core .sheet-section-roll-whisper label input:not(:checked):hover ~ span {
-  color: black;
 }
 
 .sheet-core .sheet-roll-toggle[value*="whispertoggle"] + .sheet-section-roll-whisper {
@@ -317,14 +421,11 @@
 }
 
 .sheet-core .sheet-section-roll-whisper {
-  margin-left: 3px;
   display: flex;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-header button {
-  background: none;
   border: 0;
-  box-shadow: none;
   font-size: 8px;
   font-weight: bold;
   text-transform: uppercase;
@@ -337,8 +438,7 @@
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-body {
-  padding: 5px 22px 5px;
-  background: transparent !important;
+  /* padding: 5px 22px 5px; */
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer input,
@@ -351,9 +451,7 @@
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer input {
-  background: none;
   border: 0;
-  box-shadow: none;
   font-weight: bold;
   padding: 0;
   text-align: center;
@@ -363,24 +461,12 @@
   font-size: 30px;
 }
 
-.sheet-core .sheet-container-attribute .sheet-container-footer input:hover,
-.sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
-  background: #e5fffb;
-}
-
-.sheet-darkmode .sheet-core .sheet-container-attribute .sheet-container-footer input:hover,
-.sheet-darkmode .sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
-  background: #3f3f3f;
-}
-
 .sheet-core .sheet-container-attribute .sheet-container-footer input:hover ~ span,
 .sheet-core .sheet-container-attribute .sheet-container-footer input:focus ~ span {
   display: none;
 }
 
 .sheet-darkmode .sheet-core .sheet-container-attribute .sheet-container-footer span {
-  color: white;
-  background: #353535;
   margin-left: 25px;
 }
 
@@ -388,7 +474,6 @@
   display: block;
   margin-top: -18px;
   text-align: center;
-  background: white;
   background-clip: content-box;
   border-radius: 10%;
   position: relative;
@@ -405,11 +490,6 @@
 
 .sheet-core .sheet-button-attribute-title {
   font-size: 10px;
-}
-
-.sheet-darkmode .sheet-core .sheet-button-attribute-title,
-.sheet-darkmode .sheet-core .sheet-detail-value {
-  color: white;
 }
 
 .sheet-pages .sheet-page .sheet-page-content .sheet-container-columns {
@@ -431,16 +511,11 @@
 }
 
 .charsheet .sheet-core .sheet-container-skills .sheet-skill button {
-  background: none;
   border: none;
   width: 100%;
   text-align: left;
   padding: 0;
   margin: 0;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-container-skills .sheet-skill button span{
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-container-skills .sheet-skill button > :last-child::before {
@@ -449,16 +524,11 @@
 
 .charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
   border-radius: 5px;
-  background: #ddd;
   float: right;
   max-width: 89px;
   overflow: auto;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-
-.sheet-darkmode .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
-  background: #444;
 }
 
 .charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child::after {
@@ -554,7 +624,6 @@
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
   white-space: nowrap;
   font-size: 9px;
-  background: #ddd;
   border-radius: 3px;
   width: 60px;
   font-weight: bold;
@@ -562,11 +631,6 @@
   flex-grow: 1;
   flex-shrink: 0;
   text-align: center;
-}
-
-.sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
-  color: #e6e6e6;
-  background: #333;
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column {
@@ -635,7 +699,6 @@
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory {
@@ -644,13 +707,8 @@
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
   font-weight: bold;
-  background: #ddd;
   padding: 3px 5px;
   border-radius: 3px;
-}
-
-.sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
-  background: #666;
 }
 
 .charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-gimmick textarea,
@@ -747,7 +805,6 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
   white-space: nowrap;
   font-size: 9px;
-  background: #ddd;
   border-radius: 3px;
   width: 60px;
   font-weight: bold;
@@ -755,11 +812,6 @@
   flex-grow: 1;
   flex-shrink: 0;
   text-align: center;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
-  color: #e6e6e6;
-  background: #333;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail-column {
@@ -828,7 +880,6 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory {
@@ -837,13 +888,8 @@
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
   font-weight: bold;
-  background: #ddd;
   padding: 3px 5px;
   border-radius: 3px;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
-  background: #666;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-gimmick textarea,
@@ -869,21 +915,12 @@
   grid-area: skills;
 }
 
-.charsheet .sheet-core .sheet-page-character .sheet-container-tools .sheet-checkbox-cog:hover span,
-.charsheet .sheet-core .sheet-page-character .sheet-container-tools .sheet-checkbox-cog:hover span,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span,
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-checkbox-cog:hover span {
-  color: white;
-  opacity: 1;
-}
-
 .charsheet .sheet-core .sheet-page-character .sheet-container-tools .repitem + .repitem,
 .charsheet .sheet-core .sheet-page-character .sheet-container-tools .repitem + .repitem,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .repitem + .repitem,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .repitem + .repitem {
   margin-top: 2px;
   padding-top: 2px;
-  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
@@ -897,43 +934,22 @@
 .charsheet .sheet-core .sheet-page-character .sheet-pc-tool button,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button {
-  background: none;
   border: 0;
-  box-shadow: none;
   width: 100%;
-  text-shadow: none;
   padding: 0;
   margin: 0;
-  color: white;
   text-overflow: ellipsis;
   overflow: hidden;
-}
-
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button:hover {
-  background: #e5fffb;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button:hover {
-  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
-  background: #2f4f49;
-  color: white;
   border-radius: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0 20px;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
-.sheet-darkmode .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
-  background: #243d38;
 }
 
 .sheet-darkmode .charsheet .sheet-core .sheet-page-character .sheet-pc-tool span:nth-of-type(2):before,
@@ -954,23 +970,10 @@
   line-height: 1.3;
   margin-top: 5px;
   font-size: 9px;
-  color: black;
 }
 
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details span:last-of-type{
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details span:last-of-type {
   white-space: pre-wrap;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details span:last-of-type{
-  color: white;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
-  color: white;
-}
-
-.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
-  opacity: 0.5;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source::before {
@@ -988,7 +991,6 @@
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note {
@@ -997,13 +999,8 @@
 
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
   font-weight: bold;
-  background: #ddd;
   padding: 3px 5px;
   border-radius: 3px;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
-  background: #666;
 }
 
 .charsheet .sheet-container-panel {
@@ -1016,7 +1013,6 @@
 }
 
 .charsheet .sheet-container-panel::before {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 50 50 50 fill stretch;
   border-style: solid;
   border-width: 15px 15px;
   box-sizing: border-box;
@@ -1031,7 +1027,6 @@
 }
 
 .sheet-darkmode .charsheet .sheet-container-panel::before {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png) 50 50 50 50 fill stretch;
   border-style: solid;
   border-width: 15px 15px;
   box-sizing: border-box;
@@ -1045,18 +1040,7 @@
   z-index: -1;
 }
 
-.sheet-darkmode .charsheet .sheet-container-panel .sheet-container-header {
-  color: #e6e6e6;
-}
-
-.sheet-darkmode .sheetform {
-  background-color: #1f1f1f;
-  color: #e6e6e6;
-}
-
 .charsheet .sheet-container-panel .sheet-container-header {
-  border-bottom: 2px solid #202020;
-  color: #202020;
   font-size: 10px;
   font-weight: bold;
   line-height: 14px;
@@ -1079,7 +1063,6 @@
 
 .charsheet .sheet-container-panel .sheet-container-body .sheet-container-body-header {
   text-transform: uppercase;
-  color: #bab8b8;
   font-size: 10px;
   font-weight: bold;
   line-height: 10px;
@@ -1103,8 +1086,6 @@
 }
 
 .charsheet .sheet-container-panel .sheet-form-inline > .sheet-form-header {
-  background: #ddd;
-  color: inherit;
   font-size: 9px;
   line-height: 14px;
 }
@@ -1119,49 +1100,32 @@
 
 .charsheet .sheet-core .repcontainer {
   flex-grow: 1;
-  min-height: 180px;
+  min-height: 25px;
 }
 
 .charsheet .sheet-core .sheet-skill-tech-content .repcontainer {
   min-height: 369px;
 }
 
-.charsheet .sheet-core .sheet-container-combat .repcontainer{
+.charsheet .sheet-core .sheet-container-combat .repcontainer {
   min-height: 70px;
 }
 
 .charsheet .sheet-core .sheet-page-character .col2 .sheet-container-attacks .sheet-panel-bonuses .repcontainer,
-.charsheet .sheet-core .sheet-page-character .col2 .sheet-container-attacks .sheet-panel-bonuses .repcontainer{
+.charsheet .sheet-core .sheet-page-character .col2 .sheet-container-attacks .sheet-panel-bonuses .repcontainer {
   min-height: 46px;
 }
 
 .charsheet .sheet-core .repcontrol {
-  border-color: #ccc;
-  border-top: 1px solid #ccc;
   padding-top: 5px;
   margin-top: 5px;
 }
 
-.sheet-darkmode .charsheet .sheet-core .repcontrol .btn{
-  color: white;
-}
-
 .charsheet .sheet-core .repcontrol .btn {
-  background: none;
-  border-color: #ccc;
   border-width: 1px;
-  box-shadow: none;
   font-size: 9px;
   font-weight: bold;
   padding: 0 5px;
-}
-
-.charsheet .sheet-core .repcontrol .btn:hover {
-  background: #e5fffb;
-}
-
-.charsheet .sheet-core .repitem:not(:first-of-type) {
-  border-color: #ccc;
 }
 
 .charsheet .sheet-core .repitem:not(:last-of-type) {
@@ -1170,7 +1134,6 @@
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol {
   align-items: center;
-  border-bottom: 2px solid transparent;
   display: flex;
   flex-direction: row-reverse;
   justify-content: center;
@@ -1178,7 +1141,6 @@
 }
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
-  background: rgba(126, 45, 64, 0.25);
   border-radius: 6px;
   content: "";
   height: 100%;
@@ -1198,10 +1160,6 @@
 
 .charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol .btn:not(:last-child) {
   margin-left: 10px;
-}
-
-.charsheet .sheet-core .repcontainer.editmode .repitem .sheet-fieldset-item {
-  opacity: 0.25;
 }
 
 .charsheet .sheet-core .sheet-fieldset-item {
@@ -1226,7 +1184,6 @@
 .charsheet .sheet-core .sheet-checkbox-cog input {
   height: 100%;
   margin: 0;
-  opacity: 0;
   position: relative;
   width: 100%;
   z-index: 1;
@@ -1234,8 +1191,6 @@
 
 .charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span {
   border: none;
-  color: #000;
-  opacity: 0.5;
   top: -2px;
 }
 
@@ -1243,33 +1198,19 @@
   content: "2";
 }
 
-.charsheet .sheet-core .sheet-checkbox-cog:hover span {
-  color: black;
-}
-
-.charsheet .sheet-core .sheet-checkbox-cog:hover input:checked ~ span {
-  opacity: 1;
-}
-
 .charsheet .sheet-core .sheet-checkbox-cog span {
   align-items: center;
   border-radius: 50%;
   box-sizing: border-box;
-  color: #000;
   display: flex;
   font-family: "Pictos";
   font-size: 13px;
   height: 100%;
   justify-content: center;
   left: 0;
-  opacity: 0.5;
   position: absolute;
   top: 0;
   width: 100%;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-checkbox-cog span {
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog span::before {
@@ -1306,13 +1247,8 @@
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-body {
-  background: white;
   flex-grow: 1;
   padding: 5px;
-}
-
-.sheet-darkmode .sheet-core .sheet-form .sheet-form-body {
-  background: #333;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-toggle + .sheet-form-group,
@@ -1325,7 +1261,7 @@
   display: flex;
 }
 
-.charsheet .sheet-core .sheet-skill-tech-content .sheet-form .sheet-form-group{
+.charsheet .sheet-core .sheet-skill-tech-content .sheet-form .sheet-form-group {
   flex-direction: column;
 }
 
@@ -1333,12 +1269,7 @@
   flex-direction: column;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-form label {
-  color: #e6e6e6;
-}
-
 .charsheet .sheet-core .sheet-form label {
-  color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
   line-height: 16px;
   margin: 0;
@@ -1351,7 +1282,6 @@
 }
 
 .charsheet .sheet-core .sheet-form input {
-  border-bottom: 1px solid #ddd;
   border-left: 0;
   border-radius: 0;
   border-right: 0;
@@ -1359,21 +1289,11 @@
   text-overflow: ellipsis;
 }
 
-.sheet-darkmode .sheet-core input,
-.sheet-darkmode .sheet-core select,
-.sheet-darkmode .sheet-core textarea,
-.sheet-darkmode .sheet-core .uneditable-input {
-  background-color: #3f3f3f;
-  color: #e6e6e6;
-  border-color: black;
-}
-
 .charsheet .sheet-core .sheet-form input,
 .charsheet .sheet-core .sheet-form select,
 .charsheet .sheet-core .sheet-form textarea,
 .charsheet .sheet-core .sheet-form .uneditable-input {
   box-sizing: border-box;
-  color: black;
   font-size: 11px;
   height: 100%;
   margin: 0;
@@ -1387,21 +1307,14 @@
   resize: vertical;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-form textarea{
-  color: white;
-}
-
 .charsheet .sheet-core .sheet-form {
   border-radius: 6px;
-  border: 2px solid #555;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
 .charsheet .sheet-core .sheet-form .sheet-form-header {
-  background: #555;
-  color: white;
   font-size: 9px;
   font-weight: bold;
   line-height: 13px;
@@ -1436,7 +1349,6 @@
 }
 
 .charsheet .sheet-main-footer p {
-  color: #ccc;
   font-size: 9px;
   margin: 3px 0 0;
   text-align: center;
@@ -1450,11 +1362,9 @@
 
 .charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .sheet-container-header input {
   width: 100%;
-  background: none;
   border: none;
   text-align: center;
   font-weight: bold;
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .sheet-container-body textarea {
@@ -1480,16 +1390,10 @@
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-alert-warning {
-  background: #2f4f49;
   font-size: 9px;
   text-align: center;
   margin-bottom: 4px;
-  color: white;
   border-radius: 3px;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-alert-warning {
-  background: #243d38;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header,
@@ -1499,7 +1403,6 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header {
   padding: 0;
-  background: none;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input,
@@ -1515,26 +1418,7 @@
   padding-right: 0;
   font-size: 8px;
   font-weight: bold;
-  background: none;
   text-overflow: ellipsis;
-}
-
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
-  background: #e5fffb;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
-  background: #4b5553;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-body input,
@@ -1617,13 +1501,8 @@
   font-size: 11px;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem span:first-of-type {
-  background: #666;
-}
-
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem span:first-of-type {
   font-weight: bold;
-  background: #ddd;
   padding: 3px 5px;
   margin-right: 3px;
   border-radius: 3px;
@@ -1641,17 +1520,11 @@
   font-size: 7px;
   display: flex;
   text-transform: uppercase;
-  opacity: 1;
   line-height: 1;
   margin-top: 0;
-  background: #ddd;
   padding: 3px 5px;
   padding-right: 20px;
   border-radius: 0 0 4px 4px;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer {
-  background: #666;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer span:first-of-type {
@@ -1665,8 +1538,6 @@
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-equipped {
-  background: #2f4f49;
-  color: white;
   height: 14px;
   width: 14px;
   display: inline-flex;
@@ -1675,13 +1546,7 @@
   border-radius: 100%;
 }
 
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-item-equipped {
-  background: #243d38;
-}
-
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-carried {
-  background: #ddd;
-  color: black;
   height: 14px;
   width: 14px;
   display: inline-flex;
@@ -1696,9 +1561,6 @@
 
 .charsheet .sheet-core .sheet-page-inventory [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
   display: inline-flex;
-  background: none;
-  border: 1px solid #ddd;
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item {
@@ -1710,11 +1572,9 @@
   font-size: 7px;
   display: flex;
   text-transform: uppercase;
-  opacity: 1;
   line-height: 1;
   margin-top: 0;
   padding: 0 0 3px;
-  color: #b1b1b1;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-header span:first-of-type {
@@ -1740,29 +1600,17 @@
   padding: 0;
 }
 
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item:hover {
-  background: #f2f2f2;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-item:hover {
-  background: #505050;
-}
-
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name {
   flex-grow: 1;
   width: 230px;
   max-width: 230px;
 }
 
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type{
-  color: grey;
-}
-
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type::before{
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type::before {
   content: "(";
 }
 
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type::after{
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type::after {
   content: ")";
 }
 
@@ -1770,7 +1618,6 @@
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-notches,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-weight,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-slots {
-  border: 1px solid #ccc;
   border-radius: 3px;
   height: 20px;
   flex-grow: 0;
@@ -1781,31 +1628,9 @@
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container {
-  background: #2f4f49;
-  color: white;
   font-size: 11px;
   border-radius: 4px 4px 0 0;
   padding: 0 5px;
-}
-
-.sheet-darkmode .243d38-core .sheet-page-inventory .sheet-pc-inventory-container {
-  background: #730d25;
-}
-
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-inventory-container-slots {
-  opacity: 0.75;
-}
-
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-equipped {
-  background: none;
-  border: 1px solid #ddd;
-  color: white;
-}
-
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-carried {
-  background: none;
-  border: 1px solid #ddd;
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="1"] ~ .sheet-pc-item-carried {
@@ -1814,13 +1639,6 @@
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
   display: inline-flex;
-  background: none;
-  border: 1px solid #ddd;
-  color: #2f4f49;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
-  color: #243d38;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-form-item .sheet-item-columns-2 {
@@ -1851,31 +1669,19 @@
   font-size: 9px;
   font-weight: bold;
   text-transform: uppercase;
-  color: white;
   line-height: 20px;
-}
-
-.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span {
-  color: black;
-}
-
-.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-unencumbered {
-  background: #b4cf01;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-immobile,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-over {
-  background: #cf4601;
   display: none;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-encumbered {
-  background: #cfb401;
   display: none;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-heavily {
-  background: #cf7d01;
   display: none;
 }
 
@@ -1917,18 +1723,10 @@
   padding: 5px 10px 0;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body [type="text"],
-.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body select,
-.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body [type="text"],
-.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body select {
-  color: white;
-}
-
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body [type="text"],
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body select,
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body [type="text"],
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body select {
-  border-color: rgba(255, 255, 255, 0);
   flex-grow: 1;
   line-height: 13px;
   margin: 0;
@@ -1936,7 +1734,6 @@
   text-align: center;
   width: 100%;
   min-width: 0;
-  color: black;
 }
 
 .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body input,
@@ -1946,7 +1743,7 @@
   font-size: 24px;
 }
 
-.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-options{
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-options {
   display: grid !important;
   grid-template-areas: "skills attributes general" "skills attributes global" "skills attributes ." ". attributes .";
   grid-template-rows: auto auto auto 1fr;
@@ -1954,20 +1751,20 @@
   grid-row-gap: 5px;
 }
 
-.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-general{
- grid-area: general;
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-general {
+  grid-area: general;
 }
 
-.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-skills{
- grid-area: skills;
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-skills {
+  grid-area: skills;
 }
 
-.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-attributes{
- grid-area: attributes;
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-attributes {
+  grid-area: attributes;
 }
 
-.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-global{
- grid-area: global;
+.charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-pc-option-global {
+  grid-area: global;
 }
 
 .charsheet .sheet-core .sheet-tab-inventory .sheet-container-well-inventory-encumberance {
@@ -2005,7 +1802,6 @@
 .charsheet .sheet-core .sheet-pc-inventory-other .repitem + .repitem {
   margin-top: 5px;
   padding-top: 5px;
-  border-top: 1px dotted #ddd;
 }
 
 .charsheet .sheet-core .sheet-pc-inventory-other {
@@ -2022,7 +1818,6 @@
 .charsheet .sheet-core .sheet-pc-slots .sheet-container-body span,
 .charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
   align-items: center;
-  color: #ddd;
   display: flex;
   font-size: 24px;
   justify-content: center;
@@ -2031,12 +1826,6 @@
 .charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
 .charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
   width: 100%;
-  color: black;
-}
-
-.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
-.sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-pc-slots .sheet-container-footer,
@@ -2075,9 +1864,7 @@
 }
 
 .charsheet .sheet-core .sheet-container-bar::after {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png) 103 103 103 103 fill stretch;
   border-style: solid;
-  border-color: transparent;
   border-width: 30px 30px 0;
   box-sizing: border-box;
   content: "";
@@ -2091,9 +1878,7 @@
 }
 
 .sheet-darkmode .sheet-core .sheet-container-bar::after {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-bar-border.png) 103 103 103 103 fill stretch;
   border-style: solid;
-  border-color: transparent;
   border-width: 30px 30px 0;
   box-sizing: border-box;
   content: "";
@@ -2130,8 +1915,7 @@
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-header::after {
-  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png);
-  background-size: 100% 100%;
+  background-size: 100% 100% !important;
   content: "";
   display: inline-block;
   height: 30px;
@@ -2157,7 +1941,6 @@
 .charsheet .sheet-core .sheet-checkbox-image [type=checkbox] {
   height: 100%;
   left: 0;
-  opacity: 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -2174,9 +1957,7 @@
 .charsheet .sheet-core .sheet-checkbox-image span {
   overflow: hidden;
   padding: 2px;
-  background: white;
   border-radius: 100%;
-  border: 1px solid #272727;
   display: block;
   height: 7px;
   left: 0;
@@ -2191,33 +1972,17 @@
   height: 100%;
   width: 100%;
   border-radius: 100%;
-  background: #353535;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after{
-  background: #fff;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-checkbox-image span {
-  background-color: #1f1f1f;
 }
 
 .charsheet .sheet-core .sheet-container-bar,
 .charsheet .sheet-core .sheet-container-header {
-  color: #202020;
   font-size: 11px;
   font-weight: bold;
   text-align: center;
   border-radius: 8px 8px 0 0;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-bar,
-.sheet-darkmode .sheet-core .sheet-container-header {
-  color: #e6e6e6;
-}
-
 .charsheet .sheet-core .sheet-container-header {
-  border-bottom: 2px solid #202020;
   line-height: 14px;
   margin-left: 2px;
   margin-right: 2px;
@@ -2234,7 +1999,6 @@
 
 .charsheet .sheet-core .sheet-well-attributes .sheet-container-header {
   border: none;
-  background: none !important;
 }
 
 .charsheet .sheet-core .sheet-page-character .sheet-page-content .sheet-container-panel,
@@ -2272,16 +2036,12 @@
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body input {
   width: 100%;
   text-align: center;
-  background: none;
   border: none;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
 }
 
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:first-of-type {
   line-height: 11px;
   padding: 0;
-  border-bottom: 1px solid black;
 }
 
 .sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health-extra {
@@ -2314,16 +2074,11 @@
 .charsheet .sheet-feature .sheet-feature-name {
   font-weight: bold;
   padding: 0 5px;
-  background: #ddd;
   border-radius: 3px;
   display: inline-block;
   position: relative;
   min-width: 100%;
   text-align: center;
-}
-
-.sheet-darkmode .sheet-feature .sheet-feature-name {
-  background: #444;
 }
 
 .charsheet .sheet-feature .sheet-feature-desc {
@@ -2338,7 +2093,6 @@
   appearance: none;
   width: 100%;
   height: 100%;
-  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -2368,25 +2122,11 @@
   flex-direction: row;
 }
 
-.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-name input {
-  background: none;
-}
-
-.sheet-darkmode .sheet-container-resources .sheet-fieldset-item input {
-  color: white;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-form input,
-.sheet-darkmode .charsheet .sheet-core .sheet-form select {
-  color: white;
-}
-
 .sheet-container-resources .sheet-fieldset-item .sheet-item-resource-name,
 .sheet-container-resources .sheet-fieldset-item .sheet-item-resource-current,
 .sheet-container-resources .sheet-fieldset-item .sheet-item-resource-max,
 .sheet-container-resources .sheet-fieldset-item input {
   border: none;
-  box-shadow: none;
   font-size: 10px;
   height: 5mm;
   margin: 0;
@@ -2412,23 +2152,13 @@
 
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative {
   text-align: -webkit-center;
-  background: #eee;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative {
-  background: #3f3f3f;
 }
 
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative .sheet-container-bar {
   width: 100%;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative button {
-  color: white;
-}
-
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative button {
-  background: none;
   border: none;
   height: 100%;
   width: 100%;
@@ -2482,54 +2212,40 @@
   padding: 2px;
   text-align: center;
   border: none;
-  border-left: 1px dotted black;
-  border-right: 1px dotted black;
 }
 
-.sheet-darkmode .sheet-core .sheet-container-combat .sheet-pc-evasion-durability span,
-.sheet-darkmode .sheet-core .sheet-container-combat .sheet-pc-evasion-durability input {
-  border-left: 1px dotted grey;
-  border-right: 1px dotted grey;
-}
-
-.charsheet .col1 .sheet-container-tools{
+.charsheet .col1 .sheet-container-tools {
   min-height: 413px;
 }
 
-.charsheet .sheet-page-character .col1 .sheet-container-tools{
+.charsheet .sheet-page-character .col1 .sheet-container-tools {
   min-height: 467px;
 }
 
 .charsheet .col3 .sheet-container-traits,
-.charsheet .col3 .sheet-container-resources{
+.charsheet .col3 .sheet-container-resources {
   min-height: 423px;
 }
 
 .charsheet .sheet-page-character .col3 .sheet-container-traits,
-.charsheet .sheet-page-character .col3 .sheet-container-resources{
+.charsheet .sheet-page-character .col3 .sheet-container-resources {
   min-height: 449px;
 }
 
-.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll{
+.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll {
   position: absolute;
   top: 2px;
   right: 13px;
-  width: 100px;
+  width: 90px;
   height: 18px;
   z-index: 2;
   border: none;
-  background: none;
-}
-
-.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll:hover{
-  background: #94a5a3;
-  opacity: 0.4;
 }
 
 .charsheet .sheet-core .sheet-pc-attack-modifier,
 .charsheet .sheet-core .sheet-pc-attack-damage-modifier {
   align-items: center;
-  display: flex; 
+  display: flex;
 }
 
 .charsheet .sheet-core .sheet-pc-attack-modifier .sheet-checkbox-image,
@@ -2552,7 +2268,6 @@
 .charsheet .sheet-core .sheet-pc-attack-modifier > span + span,
 .charsheet .sheet-core .sheet-pc-attack-damage-modifier > span + span {
   margin-left: 5px;
-  opacity: .5;
 }
 
 .charsheet .sheet-core .sheet-pc-attack-modifier > span + span::before,
@@ -2572,9 +2287,7 @@
 }
 
 .charsheet .sheet-move button {
-  background:  none;
   border:  none;
-  box-shadow:  none;
   display:  flex;
   font-size:  11px;
   margin:  0 !important;
@@ -2588,13 +2301,12 @@
   margin-right:  5px;
   overflow:  hidden;
   text-overflow:  ellipsis;
-  width:  25%
+  width:  25%;
 }
 
 .charsheet .sheet-move button span:first-of-type {
   border-radius:  3px;
   font-weight:  bold;
-  text-shadow:  none;
   text-transform:  uppercase;
 }
 
@@ -2611,7 +2323,7 @@
   display: none !important;
 }
 
-.charsheet .sheet-core .sheet-page-content .sheet-container-attacks .sheet-panel-bonuses .sheet-fieldset-item .sheet-form .sheet-form-group .sheet-form-checkbox{
+.charsheet .sheet-core .sheet-page-content .sheet-container-attacks .sheet-panel-bonuses .sheet-fieldset-item .sheet-form .sheet-form-group .sheet-form-checkbox {
   display: none;
 }
 
@@ -2641,21 +2353,25 @@
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-slot {
-  background: #fbf8f3;
-  border: 1px solid #decfbd;
-  border-left: 3px solid #8f4638;
   border-radius: 6px;
   padding: 6px;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-slot {
-  background: #25211e;
-  border-color: #51433c;
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-damage-visible-3:not([value="1"]) + .sheet-damage-gate-3,
 .charsheet .sheet-core .sheet-panel-attacks .sheet-damage-visible-4:not([value="1"]) + .sheet-damage-gate-4 {
   display: none;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-damage-slot-2,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-damage-gate-3,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-damage-gate-4 {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-stack:has(.sheet-damage-slot-1 input[name="attr_dmgflag"]:checked) > .sheet-damage-slot-2,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-stack:has(.sheet-damage-slot-2 input[name="attr_dmg2flag"]:checked) > .sheet-damage-gate-3,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-stack:has(.sheet-damage-slot-3 input[name="attr_dmg3flag"]:checked) .sheet-damage-gate-4 {
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-header {
@@ -2674,7 +2390,6 @@
 }
 
 .charsheet .sheet-core .sheet-panel-attacks .sheet-attack-intent-toggle {
-  color: #2f4f49;
   font-size: 10px;
   font-weight: 700;
 }
@@ -2698,27 +2413,22 @@
   width: 100%;
 }
 
-.charsheet .sheet-feature button{
+.charsheet .sheet-feature button {
   position: absolute;
   top: -3px;
   right: 10px;
   width: 18px;
   height: 18px;
   z-index: 2;
-  background: none;
   border: none;
   font-family: pictos;
   font-size: 20px;
 }
 
-.sheet-darkmode .charsheet .sheet-feature button{
-  color: white;
-}
-
-
 /* ------------------------------------------------------------
    Combined Mortal / Cultivator / Beast character page
    ------------------------------------------------------------ */
+
 .sheet-pages .sheet-page-character > input.sheet-page-radio-character,
 .sheet-pages .sheet-page-character > .sheet-page-label {
   margin-left: 0%;
@@ -2781,7 +2491,6 @@
   min-height: 449px;
 }
 
-
 /* ===============================
    Shared Character Page: Realm + Combat Refactor
    =============================== */
@@ -2790,7 +2499,6 @@
   width: 100%;
   height: 25px;
   margin-left: 2px;
-  background: none;
   border: none;
   border-bottom: solid 1px;
   border-radius: 0;
@@ -2823,7 +2531,7 @@
 .sheet-container-beast-parts .sheet-beast-part-labels,
 .sheet-container-beast-parts .sheet-beast-part-row {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, .75fr) minmax(0, .75fr);
   column-gap: 3px;
   width: 100%;
 }
@@ -2833,23 +2541,21 @@
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  opacity: 0.7;
 }
 
 .sheet-container-beast-parts .sheet-fieldset-item {
   padding: 0 2px;
 }
 
-.sheet-container-beast-parts input {
+.sheet-container-beast-parts input,
+.sheet-container-beast-parts select {
   border: none;
-  border-bottom: 1px dotted #777;
-  box-shadow: none;
   font-size: 10px;
-  height: 18px;
+  height: 18px !important;
   margin: 0;
   padding: 0 2px;
   text-align: center;
-  width: 100%;
+  width: 100% !important;
 }
 
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-defences {
@@ -2857,7 +2563,6 @@
 }
 
 .sheet-pc-defences .sheet-defence-list-header {
-  background: #eee;
   border-radius: 3px;
   font-size: 10px;
   font-weight: bold;
@@ -2866,13 +2571,8 @@
   text-align: center;
 }
 
-.sheet-darkmode .sheet-pc-defences .sheet-defence-list-header {
-  background: #3f3f3f;
-}
-
 .sheet-pc-defences .repitem + .repitem,
 .sheet-defense-stat .repitem + .repitem {
-  border-top: 1px dotted #ddd;
   margin-top: 3px;
   padding-top: 3px;
 }
@@ -2902,10 +2602,6 @@
   font-weight: bold;
 }
 
-.sheet-defense-entry .sheet-defense-damage-type {
-  opacity: 0.9;
-}
-
 .sheet-defense-scale-output {
   border-radius: 3px;
   display: none;
@@ -2914,30 +2610,6 @@
   padding: 0 4px;
   text-transform: uppercase;
   white-space: nowrap;
-}
-
-.sheet-defense-scale-state[value="hyper_resistance"] ~ .sheet-defense-entry {
-  background: #203a69;
-  border-left: 4px solid #101f3c;
-  color: white;
-}
-
-.sheet-defense-scale-state[value="resistance"] ~ .sheet-defense-entry {
-  background: #1f6b43;
-  border-left: 4px solid #0f4026;
-  color: white;
-}
-
-.sheet-defense-scale-state[value="weakness"] ~ .sheet-defense-entry {
-  background: #9c6123;
-  border-left: 4px solid #663a10;
-  color: white;
-}
-
-.sheet-defense-scale-state[value="hyper_weakness"] ~ .sheet-defense-entry {
-  background: #8a2632;
-  border-left: 4px solid #55111a;
-  color: white;
 }
 
 .sheet-defense-scale-state[value="hyper_resistance"] ~ .sheet-defense-entry .sheet-defense-scale-output-hr,
@@ -2967,15 +2639,10 @@
 
 .sheet-defense-stat-summary {
   align-items: center;
-  background: #eee;
   border-radius: 4px;
   display: flex;
   min-height: 24px;
   overflow: hidden;
-}
-
-.sheet-darkmode .sheet-defense-stat-summary {
-  background: #3f3f3f;
 }
 
 .sheet-defense-stat-total {
@@ -2998,7 +2665,6 @@
 
 .sheet-defense-source-entry {
   align-items: center;
-  background: #f4f4f4;
   border-radius: 3px;
   display: grid;
   font-size: 10px;
@@ -3007,10 +2673,6 @@
   min-height: 18px;
   overflow: hidden;
   padding: 1px 4px;
-}
-
-.sheet-darkmode .sheet-defense-source-entry {
-  background: #333;
 }
 
 .sheet-defense-source-entry span:first-child {
@@ -3033,7 +2695,6 @@
 }
 
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat .sheet-form input {
-  border-bottom: 1px solid #ddd;
   height: 18px;
   text-align: left;
   width: 100% !important;
@@ -3069,7 +2730,6 @@
   height: 24px;
   left: 0;
   margin: 0;
-  opacity: 0;
   position: absolute;
   top: 0;
   width: 100%;
@@ -3090,7 +2750,6 @@
   font-size: 9px;
   font-weight: bold;
   line-height: 1;
-  opacity: 0.75;
   position: absolute;
   right: 6px;
   top: 50%;
@@ -3153,7 +2812,6 @@
   width: 100%;
 }
 
-
 /* ===============================
    Fix: Section title collapse hit-area for EVA / DUR / DR
    ===============================
@@ -3162,6 +2820,7 @@
    the invisible section-toggle width and makes the clickable title area too
    small to use. This restores the full-title hit area for these sections.
 */
+
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat.sheet-section-collapsible > input.sheet-section-collapse-toggle,
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat.sheet-section-collapsible > .sheet-section-collapse-toggle {
   cursor: pointer !important;
@@ -3169,7 +2828,6 @@
   height: 24px !important;
   left: 0 !important;
   margin: 0 !important;
-  opacity: 0 !important;
   padding: 0 !important;
   position: absolute !important;
   top: 0 !important;
@@ -3185,7 +2843,6 @@
 .charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat.sheet-section-collapsible > .sheet-section-collapse-toggle:checked ~ .sheet-section-collapsible-content {
   display: none !important;
 }
-
 
 /* ===============================
    Locked Preset Defence Rows + Action Points
@@ -3203,10 +2860,6 @@
   margin-bottom: 3px;
   margin-right: 15px;
   margin-left: 5px;
-}
-
-.sheet-defense-source-entry-locked {
-  opacity: 0.95;
 }
 
 .sheet-defense-source-entry-locked span:first-child::after {
@@ -3236,15 +2889,10 @@
 }
 
 .sheet-ap-primary-box {
-  background: #eee;
   border-radius: 4px;
   min-width: 0;
   overflow: hidden;
   text-align: center;
-}
-
-.sheet-darkmode .sheet-ap-primary-box {
-  background: #3f3f3f;
 }
 
 .sheet-ap-primary-box label {
@@ -3259,9 +2907,7 @@
 
 .sheet-ap-primary-box input,
 .sheet-ap-primary-box span {
-  background: transparent;
   border: 0;
-  box-shadow: none;
   display: block;
   font-size: 16px;
   font-weight: bold;
@@ -3271,16 +2917,6 @@
   padding: 0;
   text-align: center;
   width: 100% !important;
-}
-
-.sheet-ap-primary-box input:hover,
-.sheet-ap-primary-box input:focus {
-  background: #e5fffb;
-}
-
-.sheet-darkmode .sheet-ap-primary-box input:hover,
-.sheet-darkmode .sheet-ap-primary-box input:focus {
-  background: #4b5553;
 }
 
 /* ================================
@@ -3294,7 +2930,6 @@
 .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab {
   height: 24px;
   margin: 0;
-  opacity: 0;
   position: absolute;
   top: 0;
   width: 50%;
@@ -3317,14 +2952,7 @@
 
 .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label {
   align-items: center;
-  background: #ddd;
-  border: 2px solid #ddd;
-  border-bottom-color: lightgrey;
-  border-left-color: white;
   border-radius: 6px 6px 0 0;
-  border-right-color: white;
-  border-top-color: white;
-  color: #8a8a8a;
   display: flex;
   font-size: 11px;
   font-variant: small-caps;
@@ -3332,32 +2960,6 @@
   justify-content: center;
   text-transform: uppercase;
   width: 50%;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label {
-  background: #333;
-  border-color: #444;
-  border-bottom-color: #333;
-  border-left-color: black;
-  border-right-color: black;
-  border-top-color: black;
-  color: #e6e6e6;
-}
-
-.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-skills:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-skills,
-.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-techniques:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-techniques {
-  background: white;
-  border-color: #575757;
-  border-bottom-color: white;
-  color: black;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-skills:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-skills,
-.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-techniques:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-techniques {
-  background: #444;
-  border-color: black;
-  border-bottom-color: #333;
-  color: #e6e6e6;
 }
 
 .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-content {
@@ -3372,7 +2974,6 @@
   display: block;
 }
 
-
 /* ================================
    TECHNIQUES
    ================================ */
@@ -3383,9 +2984,7 @@
 }
 
 .charsheet .sheet-core .sheet-technique-name {
-  background: #2f4f49;
   border-radius: 3px;
-  color: white;
   font-weight: bold;
   overflow: hidden;
   padding: 0 20px;
@@ -3394,24 +2993,18 @@
   text-overflow: ellipsis;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-technique-name {
-  background: #243d38;
-}
-
 .charsheet .sheet-core .sheet-technique-name .toggle-checkbox {
   appearance: none;
   cursor: pointer;
   height: 100%;
   left: 0;
   margin: 0;
-  opacity: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
 
 .charsheet .sheet-core .sheet-technique-summary {
-  background: #eee;
   border-radius: 3px;
   display: grid;
   font-size: 9px;
@@ -3419,11 +3012,6 @@
   grid-template-columns: 1fr 1fr;
   margin-top: 3px;
   padding: 3px;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-technique-summary {
-  background: #333;
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-technique-summary span {
@@ -3460,10 +3048,6 @@
 
 .charsheet .sheet-core .sheet-technique .toggle-technique[value="1"] ~ .sheet-technique-desc {
   display: none;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-technique-desc {
-  color: white;
 }
 
 .charsheet .sheet-core .sheet-fieldset-item-technique .sheet-form textarea {
@@ -3525,26 +3109,15 @@
 
 .charsheet .sheet-core .sheet-technique .output.btn,
 .charsheet .sheet-core .sheet-technique .sheet-technique-output {
-  background: none;
   border: none;
-  box-shadow: none;
-  color: white;
   font-family: pictos;
   margin: 0;
   padding: 0;
   position: absolute;
   right: 5px;
   text-align: center;
-  text-shadow: none;
   top: 1px;
   z-index: 5;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-technique .output.btn,
-.sheet-darkmode .charsheet .sheet-core .sheet-technique .sheet-technique-output {
-  background: #444;
-  border-color: #111;
-  color: #e6e6e6;
 }
 
 .charsheet .sheet-core .sheet-technique-summary {
@@ -3555,7 +3128,6 @@
 }
 
 .charsheet .sheet-core .sheet-technique-desc {
-  border: 1px dotted #ccc;
   border-radius: 3px;
   font-size: 8px;
   height: 60px;
@@ -3578,15 +3150,10 @@
   white-space: pre-wrap;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-technique-desc {
-  border-color: #555;
-}
-
-
-
 /* ============================================================
    OPTIONS PAGE - CLEAN EXPANDED LAYOUT
    ============================================================ */
+
 .charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-options-expanded {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3596,85 +3163,80 @@
   grid-column-gap: 6px;
   grid-row-gap: 6px;
 }
-.charsheet .sheet-core .sheet-page-options .sheet-pc-option-general { grid-area: general; }
-.charsheet .sheet-core .sheet-page-options .sheet-pc-option-rolls { grid-area: rolls; }
-.charsheet .sheet-core .sheet-page-options .sheet-pc-option-global { grid-area: global; }
-.charsheet .sheet-core .sheet-page-options .sheet-pc-option-attributes { grid-area: attributes; }
-.charsheet .sheet-core .sheet-page-options .sheet-pc-option-skills { grid-area: skills; }
-.charsheet .sheet-core .sheet-option-attribute-grid { display: grid; grid-template-columns: minmax(75px, 0.2fr) repeat(3, minmax(44px, .65fr)); gap: 2px 5px; align-items: center; }
-.charsheet .sheet-core .sheet-option-head { color: #6f241e; font-size: 8px; font-weight: bold; line-height: 12px; text-transform: uppercase; }
-.charsheet .sheet-core .sheet-option-skill-grid { display: grid; grid-template-columns: repeat(4, minmax(90px, 1fr)); gap: 2px 5px; }
+
+.charsheet .sheet-core .sheet-page-options .sheet-pc-option-general {
+  grid-area: general;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-pc-option-rolls {
+  grid-area: rolls;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-pc-option-global {
+  grid-area: global;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-pc-option-attributes {
+  grid-area: attributes;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-pc-option-skills {
+  grid-area: skills;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-grid {
+  display: grid;
+  grid-template-columns: minmax(75px, 0.2fr) repeat(3, minmax(44px, .65fr));
+  gap: 2px 5px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-option-head {
+  font-size: 8px;
+  font-weight: bold;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-option-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  gap: 2px 5px;
+}
+
 .charsheet .sheet-core .sheet-page-options .sheet-form-group input,
-.charsheet .sheet-core .sheet-page-options .sheet-form-group select { min-width: 0; }
+.charsheet .sheet-core .sheet-page-options .sheet-form-group select {
+  min-width: 0;
+}
 
 /* ============================================================
    COMBAT PANELS
    ============================================================ */
-.charsheet .sheet-core .sheet-page-character .col2 .sheet-container-attacks .sheet-panel-bonuses .repcontainer { min-height: 46px; }
 
-/* JTTH unified eastern fantasy theme */
-.charsheet .sheet-core {
-  color: #261f1a;
-}
-
-.charsheet .sheet-core .sheet-container-panel {
-  background: #f8f1e3;
-  border-color: #b9a77f;
-  box-shadow: none;
+.charsheet .sheet-core .sheet-page-character .col2 .sheet-container-attacks .sheet-panel-bonuses .repcontainer {
+  min-height: 46px;
 }
 
 .charsheet .sheet-core .sheet-container-header {
-  background: #2f4f49;
-  border-color: #243d38;
-  color: #f8f1e3;
   font-weight: 800;
   letter-spacing: 0;
 }
 
-.charsheet .sheet-core input,
-.charsheet .sheet-core select,
-.charsheet .sheet-core textarea {
-  background: #fffaf0;
-  border-color: #c8b58d;
-  color: #261f1a;
-}
-
-.charsheet .sheet-core input:focus,
-.charsheet .sheet-core select:focus,
-.charsheet .sheet-core textarea:focus {
-  box-shadow: 0 0 0 1px rgba(155, 63, 50, .18);
-}
-
-.charsheet .sheet-core .sheet-attack-damage-slot {
-  background: #fff8eb;
-  border-color: #ccb990;
-  border-left-color: #9b3f32;
-}
-
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button {
   align-items: center;
-  background: #fff8eb;
-  border-left: 2px solid #243d38;
   border-radius: 3px;
-  box-shadow: none;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(56px, .55fr) minmax(0, 1.35fr);
+  grid-template-columns: minmax(0, 1fr) minmax(80px, .55fr) minmax(0, 0.7fr);
   gap: 4px;
   min-height: 20px;
   padding: 2px 4px;
   width: 100%;
 }
 
-.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button:hover {
-  background: #f2e7d1;
-  border-color: #9b3f32;
-}
-
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span,
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:first-of-type,
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2),
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
-  color: #261f1a;
   font-size: 9px;
   line-height: 11px;
   overflow: hidden;
@@ -3684,34 +3246,7 @@
 }
 
 .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:first-of-type {
-  color: #2a695d;
   font-weight: 800;
-}
-
-.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2) {
-  color: #2f4f49;
-}
-
-.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
-  color: #6a5c48;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-container-panel,
-.sheet-darkmode .charsheet .sheet-core .sheet-attack-damage-slot,
-.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button {
-  background: #25231f;
-  border-color: #5a5140;
-}
-
-.sheet-darkmode .charsheet .sheet-core .sheet-container-header {
-  background: #203b37;
-  color: #f4ead7;
-}
-
-.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span,
-.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2),
-.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
-  color: #f4ead7;
 }
 
 .sheet-rolltemplate-atk,
@@ -3734,11 +3269,7 @@
 .sheet-rolltemplate-tool .sheet-template-container,
 .sheet-rolltemplate-features .sheet-template-container,
 .sheet-rolltemplate-attribute .sheet-template-container {
-  background: #fff8eb;
-  border: 1px solid #b9a77f;
   border-radius: 4px;
-  box-shadow: none;
-  color: #261f1a;
 }
 
 .sheet-rolltemplate-atk .sheet-template-result,
@@ -3746,8 +3277,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-result,
 .sheet-rolltemplate-simple .sheet-template-result,
 .sheet-rolltemplate-tool .sheet-template-result {
-  background: #2f4f49;
-  color: #fff8eb;
   gap: 4px;
   padding: 5px;
 }
@@ -3757,8 +3286,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-add,
 .sheet-rolltemplate-simple .sheet-template-solo,
 .sheet-rolltemplate-tool .sheet-template-solo {
-  background: rgba(255, 248, 235, .12);
-  border: 1px solid rgba(255, 248, 235, .25);
   border-radius: 3px;
   min-height: 21px;
   padding: 3px;
@@ -3769,7 +3296,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-add span,
 .sheet-rolltemplate-simple .sheet-template-solo span,
 .sheet-rolltemplate-tool .sheet-template-solo span {
-  color: #fff8eb;
   font-size: 12px;
   line-height: 15px;
 }
@@ -3779,9 +3305,6 @@
 .sheet-rolltemplate-simple .sheet-template-label,
 .sheet-rolltemplate-simple-add .sheet-template-label,
 .sheet-rolltemplate-tool .sheet-template-label {
-  background: #eadbc0;
-  border-top: 1px solid #b9a77f;
-  color: #2a695d;
   font-size: 10px;
   padding: 4px 6px;
   text-transform: uppercase;
@@ -3789,14 +3312,11 @@
 
 .sheet-rolltemplate-atkdmg .sheet-damagetemplate,
 .sheet-rolltemplate-dmg .sheet-damagetemplate {
-  background: #fff8eb;
-  border-top: 1px solid #b9a77f;
   padding: 4px;
 }
 
 .sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-template-result,
 .sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-template-result {
-  background: transparent;
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -3805,15 +3325,12 @@
 
 .sheet-rolltemplate-atkdmg .sheet-template-damage-block,
 .sheet-rolltemplate-dmg .sheet-template-damage-block {
-  background: #f6ecd8;
-  border: 1px solid #ccb990;
   border-radius: 3px;
   padding: 3px;
 }
 
 .sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-damage,
 .sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-damage {
-  color: #2a695d;
   font-size: 12px;
   line-height: 15px;
 }
@@ -3828,7 +3345,6 @@
 .sheet-rolltemplate-simple .sheet-template-charname,
 .sheet-rolltemplate-simple-add .sheet-template-charname,
 .sheet-rolltemplate-tool .sheet-template-charname {
-  color: #6a5c48;
   font-size: 8px;
   font-weight: 700;
 }
@@ -3836,9 +3352,6 @@
 .sheet-rolltemplate-atkdmg .sheet-save,
 .sheet-rolltemplate-dmg .sheet-save,
 .sheet-rolltemplate-atkdmg .sheet-template-container.sheet-save {
-  background: #eadbc0;
-  border-top: 1px solid #b9a77f;
-  color: #2a695d;
   font-size: 9px;
   padding: 5px;
 }
@@ -3846,8 +3359,6 @@
 .sheet-rolltemplate-features .sheet-template-row.header,
 .sheet-rolltemplate-features .sheet-template-row.sheet-header,
 .sheet-rolltemplate-features .sheet-header {
-  background: #2f4f49;
-  color: #fff8eb;
   font-size: 11px;
   padding: 6px;
 }
@@ -3855,8 +3366,6 @@
 .sheet-rolltemplate-features .sheet-template-row.subheader,
 .sheet-rolltemplate-features .sheet-template-row.sheet-subheader,
 .sheet-rolltemplate-features .sheet-subheader {
-  background: #eadbc0;
-  color: #2a695d;
   font-size: 9px;
 }
 
@@ -3868,9 +3377,7 @@
 .sheet-rolltemplate-tool .inlinerollresult,
 .sheet-rolltemplate-features .inlinerollresult,
 .sheet-rolltemplate-attribute .inlinerollresult {
-  background: transparent !important;
   border: none !important;
-  color: inherit !important;
   font-weight: inherit !important;
   padding: 0 !important;
 }
@@ -3878,7 +3385,6 @@
 .charsheet .sheet-core .sheet-page-options .sheet-option-attribute-grid label,
 .charsheet .sheet-core .sheet-page-options .sheet-option-skill-grid label {
   margin: 0;
-  color: #2f2720;
   font-size: 9px;
   font-weight: bold;
   line-height: 16px;
@@ -3903,7 +3409,6 @@
   text-align: center;
 }
 
-/* JTTH rolltemplate overhaul */
 .sheet-rolltemplate-atk,
 .sheet-rolltemplate-dmg,
 .sheet-rolltemplate-atkdmg,
@@ -3924,11 +3429,7 @@
 .sheet-rolltemplate-tool .sheet-template-container,
 .sheet-rolltemplate-features .sheet-template-container,
 .sheet-rolltemplate-attribute .sheet-template-container {
-  background: #fff8eb;
-  border: 1px solid #b9a77f;
   border-radius: 5px;
-  box-shadow: none;
-  color: #261f1a;
   overflow: hidden;
 }
 
@@ -3938,9 +3439,7 @@
 .sheet-rolltemplate-simple .sheet-template-label,
 .sheet-rolltemplate-simple-add .sheet-template-label,
 .sheet-rolltemplate-tool .sheet-template-label {
-  background: #2f4f49;
   border: 0;
-  color: #fff8eb;
   font-size: 11px;
   font-weight: 800;
   line-height: 14px;
@@ -3949,20 +3448,10 @@
   text-transform: uppercase;
 }
 
-.sheet-rolltemplate-atk .sheet-template-label span,
-.sheet-rolltemplate-atkdmg .sheet-template-label span,
-.sheet-rolltemplate-dmg .sheet-template-label span,
-.sheet-rolltemplate-simple .sheet-template-label span,
-.sheet-rolltemplate-simple-add .sheet-template-label span,
-.sheet-rolltemplate-tool .sheet-template-label span {
-  color: #fff8eb;
-}
-
 .sheet-rolltemplate-atk .sheet-template-label span span,
 .sheet-rolltemplate-atkdmg .sheet-template-label span span,
 .sheet-rolltemplate-simple-add .sheet-template-label span span,
 .sheet-rolltemplate-tool .sheet-template-label span span {
-  color: #eadbc0;
   font-size: 9px;
   font-weight: 700;
 }
@@ -3972,9 +3461,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-result,
 .sheet-rolltemplate-simple .sheet-template-result,
 .sheet-rolltemplate-tool .sheet-template-result {
-  background: #f6ecd8;
-  border-top: 1px solid #b9a77f;
-  color: #261f1a;
   display: grid;
   gap: 4px;
   grid-template-columns: 1fr auto 1fr;
@@ -3991,8 +3477,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-add,
 .sheet-rolltemplate-simple .sheet-template-solo,
 .sheet-rolltemplate-tool .sheet-template-solo {
-  background: #fff8eb;
-  border: 1px solid #ccb990;
   border-radius: 4px;
   min-height: 24px;
   padding: 3px 4px;
@@ -4004,7 +3488,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-add em,
 .sheet-rolltemplate-simple .sheet-template-solo em,
 .sheet-rolltemplate-tool .sheet-template-solo em {
-  color: #6a5c48;
   display: block;
   font-size: 7px;
   font-style: normal;
@@ -4018,7 +3501,6 @@
 .sheet-rolltemplate-simple-add .sheet-template-add span,
 .sheet-rolltemplate-simple .sheet-template-solo span,
 .sheet-rolltemplate-tool .sheet-template-solo span {
-  color: #2a695d;
   font-size: 12px;
   font-weight: 900;
   line-height: 15px;
@@ -4028,7 +3510,6 @@
 .sheet-rolltemplate-atkdmg .sheet-template-addspacer,
 .sheet-rolltemplate-simple-add .sheet-template-addspacer {
   align-items: center;
-  color: #6a5c48;
   display: flex;
   font-size: 7px;
   font-weight: 800;
@@ -4050,8 +3531,6 @@
 .sheet-rolltemplate-simple .sheet-template-charname,
 .sheet-rolltemplate-simple-add .sheet-template-charname,
 .sheet-rolltemplate-tool .sheet-template-charname {
-  background: #eadbc0;
-  color: #6a5c48;
   font-size: 8px;
   font-weight: 700;
   padding: 3px 6px;
@@ -4060,14 +3539,11 @@
 
 .sheet-rolltemplate-atkdmg .sheet-damagetemplate,
 .sheet-rolltemplate-dmg .sheet-damagetemplate {
-  background: #fff8eb;
-  border-top: 1px solid #b9a77f;
   padding: 5px;
 }
 
 .sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-template-result,
 .sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-template-result {
-  background: transparent;
   border: 0;
   display: grid;
   gap: 4px;
@@ -4077,8 +3553,6 @@
 
 .sheet-rolltemplate-atkdmg .sheet-template-damage-block,
 .sheet-rolltemplate-dmg .sheet-template-damage-block {
-  background: #f6ecd8;
-  border: 1px solid #ccb990;
   border-radius: 4px;
   padding: 4px 3px;
   text-align: center;
@@ -4086,7 +3560,6 @@
 
 .sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-damage,
 .sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-damage {
-  color: #2a695d;
   display: block;
   font-size: 13px;
   font-weight: 900;
@@ -4095,7 +3568,6 @@
 
 .sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-sublabel,
 .sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-sublabel {
-  color: #6a5c48;
   display: block;
   font-size: 8px;
   font-weight: 800;
@@ -4106,9 +3578,6 @@
 .sheet-rolltemplate-atkdmg .sheet-save,
 .sheet-rolltemplate-dmg .sheet-save,
 .sheet-rolltemplate-atkdmg .sheet-template-container.sheet-save {
-  background: #eadbc0;
-  border-top: 1px solid #b9a77f;
-  color: #2a695d;
   font-size: 9px;
   font-weight: 800;
   padding: 5px;
@@ -4118,9 +3587,6 @@
 .sheet-rolltemplate-atk .sheet-template-desc,
 .sheet-rolltemplate-atkdmg .sheet-template-desc,
 .sheet-rolltemplate-features .sheet-template-row:not(.sheet-header):not(.header):not(.sheet-subheader):not(.subheader) {
-  background: #fff8eb;
-  border-top: 1px solid #eadbc0;
-  color: #261f1a;
   font-size: 10px;
   line-height: 1.35;
   padding: 6px 7px;
@@ -4130,8 +3596,6 @@
 .sheet-rolltemplate-features .sheet-template-row.header,
 .sheet-rolltemplate-features .sheet-template-row.sheet-header,
 .sheet-rolltemplate-features .sheet-header {
-  background: #2f4f49;
-  color: #fff8eb;
   font-size: 11px;
   font-weight: 800;
   padding: 6px;
@@ -4142,10 +3606,1810 @@
 .sheet-rolltemplate-features .sheet-template-row.subheader,
 .sheet-rolltemplate-features .sheet-template-row.sheet-subheader,
 .sheet-rolltemplate-features .sheet-subheader {
-  background: #eadbc0;
-  color: #2a695d;
   font-size: 9px;
   font-weight: 800;
   padding: 4px 6px;
   text-align: center;
+}
+
+.charsheet .sheet-core {
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.charsheet .sheet-core *,
+.charsheet .sheet-core *::before,
+.charsheet .sheet-core *::after {
+  box-sizing: border-box;
+}
+
+.charsheet .sheet-core .sheet-section-main,
+.charsheet .sheet-core .sheet-pages,
+.charsheet .sheet-core .sheet-pages .sheet-page {
+  max-width: 800px;
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header {
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details {
+  gap: 3px 8px;
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail {
+  align-items: center;
+  min-width: 0;
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-label {
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 12px;
+  padding-right: 3px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
+  height: 22px;
+  margin-left: 0;
+  padding: 1px 4px;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page > .sheet-page-label,
+.charsheet .sheet-core .sheet-container-header,
+.charsheet .sheet-core .sheet-form-header {
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page > .sheet-page-label {
+  min-height: 24px;
+  padding-top: 4px;
+}
+
+.charsheet .sheet-core .sheet-container-panel,
+.charsheet .sheet-core .sheet-container-bar,
+.charsheet .sheet-core .sheet-form .sheet-form-body,
+.charsheet .sheet-core .sheet-attack-damage-slot,
+.charsheet .sheet-core .sheet-technique-summary,
+.charsheet .sheet-core .sheet-defense-stat-summary,
+.charsheet .sheet-core .sheet-defense-source-entry,
+.charsheet .sheet-core .sheet-ap-primary-box {
+  border-radius: 5px;
+}
+
+.charsheet .sheet-core .sheet-container-header {
+  min-height: 23px;
+  padding: 4px 6px;
+}
+
+.charsheet .sheet-core .sheet-container-body,
+.charsheet .sheet-core .sheet-form .sheet-form-body {
+  padding: 5px;
+}
+
+.charsheet .sheet-core input,
+.charsheet .sheet-core select,
+.charsheet .sheet-core textarea,
+.charsheet .sheet-core .uneditable-input {
+  min-height: 18px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.charsheet .sheet-core textarea {
+  line-height: 1.35;
+}
+
+.charsheet .sheet-core .repcontrol {
+  padding-top: 4px;
+}
+
+.charsheet .sheet-core .repcontrol .btn {
+  border-radius: 3px;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 14px;
+  padding: 1px 5px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-pc-tool,
+.charsheet .sheet-core .sheet-pc-feature .sheet-pc-feature-name,
+.charsheet .sheet-core .sheet-pc-memory,
+.charsheet .sheet-core .sheet-pc-note,
+.charsheet .sheet-core .sheet-pc-otheritem,
+.charsheet .sheet-core .sheet-pc-item,
+.charsheet .sheet-core .sheet-feature .sheet-feature-name,
+.charsheet .sheet-core .sheet-technique-name {
+  border-radius: 3px;
+}
+
+.charsheet .sheet-core .sheet-pc-feature,
+.charsheet .sheet-core .sheet-technique,
+.charsheet .sheet-core .sheet-pc-item,
+.charsheet .sheet-core .sheet-pc-otheritem,
+.charsheet .sheet-core .sheet-pc-memory,
+.charsheet .sheet-core .sheet-pc-note {
+  overflow: hidden;
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header {
+  border-radius: 5px;
+  padding: 7px;
+}
+
+/* ============================================================
+   COLOUR
+   Theme surfaces, borders, text colours, shadows, and image skins.
+   ============================================================ */
+.sheet-core .sheet-container-attribute .sheet-container-body {
+  background: transparent !important;
+}
+
+.sheet-core {
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .sheet-core {
+  background-color: var(--jtth-page);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
+  background: none;
+}
+
+.sheet-pages .sheet-page > input[type="radio"] {
+  opacity: 0;
+}
+
+.sheet-pages .sheet-page > input[type="radio"]:hover ~ .sheet-page-label {
+  background: var(--jtth-ui-hover);
+  border-bottom-color: var(--jtth-ui-hover-border);
+}
+
+.sheet-darkmode .sheet-pages .sheet-page > input[type="radio"]:hover ~ .sheet-page-label {
+  background: var(--jtth-ui-hover);
+  border-bottom-color: var(--jtth-ui-hover-border);
+}
+
+.sheet-pages .sheet-page > .sheet-page-label {
+  background: var(--jtth-ui-neutral);
+  border: 2px solid var(--jtth-ui-neutral);
+  color: var(--jtth-ui-neutral-muted);
+  border-left-color: var(--jtth-paper-highlight);
+  border-top-color: var(--jtth-paper-highlight);
+  border-right-color: var(--jtth-paper-highlight);
+  border-bottom-color: var(--jtth-ui-light-border);
+}
+
+.sheet-darkmode .sheet-pages .sheet-page > .sheet-page-label {
+  background: var(--jtth-ui-neutral);
+  border: 2px solid var(--jtth-ui-mid);
+  color: var(--jtth-ui-neutral-muted);
+  border-left-color: var(--jtth-ink-strong);
+  border-top-color: var(--jtth-ink-strong);
+  border-right-color: var(--jtth-ink-strong);
+  border-bottom-color: var(--jtth-ui-neutral);
+}
+
+.sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label {
+  background: var(--jtth-paper-highlight);
+  border-color: var(--jtth-brass-deep);
+  border-bottom-color: var(--jtth-paper-highlight);
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label {
+  background: var(--jtth-ui-mid);
+  border-color: var(--jtth-ink-strong);
+  border-bottom-color: var(--jtth-ui-neutral);
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.sheet-darkmode .sheet-core .sheet-pages .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
+  background-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png);
+}
+
+.sheet-core .sheet-pages .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
+  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png);
+}
+
+.sheet-core .sheet-section-roll-whisper label:first-of-type span {
+  border-left: 1px solid var(--jtth-ui-line);
+}
+
+.sheet-core .sheet-section-roll-whisper label span {
+  background: var(--jtth-ui-neutral);
+  border: 1px solid var(--jtth-ui-line);
+  color: var(--jtth-ui-control-muted);
+}
+
+.sheet-core .sheet-section-roll-whisper label input {
+  opacity: 0;
+}
+
+.sheet-core .sheet-section-roll-whisper label input:checked ~ span {
+  background: var(--jtth-ui-control);
+  color: var(--jtth-paper-highlight);
+  border-color: var(--jtth-ui-control);
+}
+
+.sheet-core .sheet-section-roll-whisper label input:not(:checked):hover ~ span {
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-header button {
+  background: none;
+  box-shadow: none;
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer input {
+  background: none;
+  box-shadow: none;
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer input:hover,
+.sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
+  background: var(--jtth-ui-hover);
+}
+
+.sheet-darkmode .sheet-core .sheet-container-attribute .sheet-container-footer input:hover,
+.sheet-darkmode .sheet-core .sheet-container-attribute .sheet-container-footer input:focus {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .sheet-core .sheet-container-attribute .sheet-container-footer span {
+  color: var(--jtth-paper-highlight);
+  background: var(--jtth-ui-deep);
+}
+
+.sheet-core .sheet-container-attribute .sheet-container-footer span {
+  background: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .sheet-core .sheet-button-attribute-title,
+.sheet-darkmode .sheet-core .sheet-detail-value {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button {
+  background: none;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills .sheet-skill button span {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
+  background: var(--jtth-ui-mid);
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+  color: var(--jtth-ui-neutral-muted);
+  background: var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-pages .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+  background: var(--jtth-brass-deep);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-details .sheet-pc-detail label {
+  color: var(--jtth-ui-neutral-muted);
+  background: var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-memories .sheet-pc-memory span:first-of-type {
+  background: var(--jtth-brass-deep);
+}
+
+.charsheet .sheet-core .sheet-page-character .sheet-container-tools .sheet-checkbox-cog:hover span,
+.charsheet .sheet-core .sheet-page-character .sheet-container-tools .sheet-checkbox-cog:hover span,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-checkbox-cog:hover span,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-checkbox-cog:hover span {
+  color: var(--jtth-paper-highlight);
+  opacity: 1;
+}
+
+.charsheet .sheet-core .sheet-page-character .sheet-container-tools .repitem + .repitem,
+.charsheet .sheet-core .sheet-page-character .sheet-container-tools .repitem + .repitem,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .repitem + .repitem,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool button,
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool button,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button {
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button:hover {
+  background: var(--jtth-ui-hover);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature button:hover {
+  background: var(--jtth-action-hover);
+}
+
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+  background: var(--jtth-jade);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-name {
+  background: var(--jtth-jade-deep);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details {
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-details span:last-of-type {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-features .sheet-pc-feature .sheet-pc-feature-source {
+  opacity: 0.5;
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-bio .sheet-pc-notes .sheet-pc-note span:first-of-type {
+  background: var(--jtth-brass-deep);
+}
+
+.charsheet .sheet-container-panel::before {
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 50 50 50 fill stretch;
+}
+
+.sheet-darkmode .charsheet .sheet-container-panel::before {
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png) 50 50 50 50 fill stretch;
+}
+
+.sheet-darkmode .charsheet .sheet-container-panel .sheet-container-header {
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.sheet-darkmode .sheetform {
+  background-color: var(--jtth-page);
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.charsheet .sheet-container-panel .sheet-container-header {
+  border-bottom: 2px solid var(--jtth-ui-deeper);
+  color: var(--jtth-ui-deeper);
+}
+
+.charsheet .sheet-container-panel .sheet-container-body .sheet-container-body-header {
+  color: var(--jtth-ui-dim);
+}
+
+.charsheet .sheet-container-panel .sheet-form-inline > .sheet-form-header {
+  background: var(--jtth-ui-neutral);
+  color: inherit;
+}
+
+.charsheet .sheet-core .repcontrol {
+  border-color: var(--jtth-ui-dot);
+  border-top: 1px solid var(--jtth-ui-dot);
+}
+
+.sheet-darkmode .charsheet .sheet-core .repcontrol .btn {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .repcontrol .btn {
+  background: none;
+  border-color: var(--jtth-ui-dot);
+  box-shadow: none;
+}
+
+.charsheet .sheet-core .repcontrol .btn:hover {
+  background: var(--jtth-ui-hover);
+}
+
+.charsheet .sheet-core .repitem:not(:first-of-type) {
+  border-color: var(--jtth-ui-dot);
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol {
+  border-bottom: 2px solid transparent;
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .itemcontrol::before {
+  background: var(--jtth-danger-wash);
+}
+
+.charsheet .sheet-core .repcontainer.editmode .repitem .sheet-fieldset-item {
+  opacity: 0.25;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog input {
+  opacity: 0;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog input:checked ~ span {
+  color: var(--jtth-ink-strong);
+  opacity: 0.5;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog:hover span {
+  color: var(--jtth-ink-strong);
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog:hover input:checked ~ span {
+  opacity: 1;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog span {
+  color: var(--jtth-ink-strong);
+  opacity: 0.5;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-checkbox-cog span {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-body {
+  background: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .sheet-core .sheet-form .sheet-form-body {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-form label {
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.charsheet .sheet-core .sheet-form label {
+  color: var(--jtth-muted-black);
+}
+
+.charsheet .sheet-core .sheet-form input {
+  border-bottom: 1px solid var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core input,
+.sheet-darkmode .sheet-core select,
+.sheet-darkmode .sheet-core textarea,
+.sheet-darkmode .sheet-core .uneditable-input {
+  background-color: var(--jtth-ui-soft);
+  color: var(--jtth-ui-neutral-muted);
+  border-color: var(--jtth-ink-strong);
+}
+
+.charsheet .sheet-core .sheet-form input,
+.charsheet .sheet-core .sheet-form select,
+.charsheet .sheet-core .sheet-form textarea,
+.charsheet .sheet-core .sheet-form .uneditable-input {
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-form textarea {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-form {
+  border: 2px solid var(--jtth-ui-control);
+}
+
+.charsheet .sheet-core .sheet-form .sheet-form-header {
+  background: var(--jtth-ui-control);
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-main-footer p {
+  color: var(--jtth-ui-dot);
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-pc-notes .sheet-container-header input {
+  background: none;
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-alert-warning {
+  background: var(--jtth-jade);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-alert-warning {
+  background: var(--jtth-jade-deep);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header {
+  background: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input {
+  background: none;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+  background: var(--jtth-ui-hover);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-cc .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-sc .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-gc .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-ss .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-other1 .sheet-container-header input:hover,
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-purse-other2 .sheet-container-header input:hover {
+  background: var(--jtth-action-hover);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem span:first-of-type {
+  background: var(--jtth-brass-deep);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-otheritem span:first-of-type {
+  background: var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer {
+  opacity: 1;
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container-footer {
+  background: var(--jtth-brass-deep);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-equipped {
+  background: var(--jtth-jade);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-item-equipped {
+  background: var(--jtth-jade-deep);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item-carried {
+  background: var(--jtth-ui-neutral);
+  color: var(--jtth-ink-strong);
+}
+
+.charsheet .sheet-core .sheet-page-inventory [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+  background: none;
+  border: 1px solid var(--jtth-ui-neutral);
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-header {
+  opacity: 1;
+  color: var(--jtth-ui-dim);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item:hover {
+  background: var(--jtth-ui-soft-alt);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-item:hover {
+  background: var(--jtth-ui-soft-alt);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-name span:last-of-type {
+  color: var(--jtth-ui-grey-text);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-quantity,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-notches,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-weight,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-item .sheet-pc-item-slots {
+  border: 1px solid var(--jtth-ui-dot);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container {
+  background: var(--jtth-jade);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container {
+  background: var(--jtth-danger);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-inventory-container-slots {
+  opacity: 0.75;
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-equipped {
+  background: none;
+  border: 1px solid var(--jtth-ui-neutral);
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container .sheet-pc-item-carried {
+  background: none;
+  border: 1px solid var(--jtth-ui-neutral);
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+  background: none;
+  border: 1px solid var(--jtth-ui-neutral);
+  color: var(--jtth-jade);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-inventory-container [name="attr_equipped"][value="0"] ~ [name="attr_carried"][value="0"] + .sheet-pc-item-carried {
+  color: var(--jtth-jade-deep);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span {
+  color: var(--jtth-ink-strong);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-unencumbered {
+  background: var(--jtth-ap-wood);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-immobile,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-over {
+  background: var(--jtth-ap-fire);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-encumbered {
+  background: var(--jtth-ap-earth);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-carrying-status span.sheet-pc-heavily {
+  background: var(--jtth-ap-metal);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body [type="text"],
+.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body select,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body [type="text"],
+.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body select {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body [type="text"],
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-slots .sheet-container-body select,
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body [type="text"],
+.charsheet .sheet-core .sheet-page-inventory .sheet-pc-weight .sheet-container-body select {
+  border-color: var(--jtth-transparent-white);
+  color: var(--jtth-ink-strong);
+}
+
+.charsheet .sheet-core .sheet-pc-inventory-other .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span,
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span {
+  color: var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
+.charsheet .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .sheet-core .sheet-pc-slots .sheet-container-body span:nth-of-type(2),
+.sheet-darkmode .sheet-core .sheet-pc-weight .sheet-container-body span:nth-of-type(2) {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-container-bar::after {
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-color: transparent;
+}
+
+.sheet-darkmode .sheet-core .sheet-container-bar::after {
+  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-color: transparent;
+}
+
+.charsheet .sheet-core .sheet-container-bar .sheet-container-header::after {
+  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png);
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox] {
+  opacity: 0;
+}
+
+.charsheet .sheet-core .sheet-checkbox-image span {
+  background: var(--jtth-paper-highlight);
+  border: 1px solid var(--jtth-bar-border);
+}
+
+.charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after {
+  background: var(--jtth-ui-deep);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after {
+  background: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-checkbox-image span {
+  background-color: var(--jtth-page);
+}
+
+.charsheet .sheet-core .sheet-container-bar,
+.charsheet .sheet-core .sheet-container-header {
+  color: var(--jtth-ui-deeper);
+}
+
+.sheet-darkmode .sheet-core .sheet-container-bar,
+.sheet-darkmode .sheet-core .sheet-container-header {
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.charsheet .sheet-core .sheet-container-header {
+  border-bottom: 2px solid var(--jtth-ui-deeper);
+}
+
+.charsheet .sheet-core .sheet-well-attributes .sheet-container-header {
+  background: none !important;
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-box-body input {
+  background: none;
+  border-left: 1px solid var(--jtth-ink-strong);
+  border-right: 1px solid var(--jtth-ink-strong);
+}
+
+.sheet-panel-hp .sheet-container-body .sheet-pc-health .sheet-health input:first-of-type {
+  border-bottom: 1px solid var(--jtth-ink-strong);
+}
+
+.charsheet .sheet-feature .sheet-feature-name {
+  background: var(--jtth-ui-neutral);
+}
+
+.sheet-darkmode .sheet-feature .sheet-feature-name {
+  background: var(--jtth-ui-mid);
+}
+
+.charsheet .sheet-feature .sheet-feature-name input {
+  opacity: 0;
+}
+
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-name input {
+  background: none;
+}
+
+.sheet-darkmode .sheet-container-resources .sheet-fieldset-item input {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-form input,
+.sheet-darkmode .charsheet .sheet-core .sheet-form select {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-name,
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-current,
+.sheet-container-resources .sheet-fieldset-item .sheet-item-resource-max,
+.sheet-container-resources .sheet-fieldset-item input {
+  box-shadow: none;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative button {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-initiative button {
+  background: none;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability span,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability input {
+  border-left: 1px dotted var(--jtth-ink-strong);
+  border-right: 1px dotted var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .sheet-core .sheet-container-combat .sheet-pc-evasion-durability span,
+.sheet-darkmode .sheet-core .sheet-container-combat .sheet-pc-evasion-durability input {
+  border-left: 1px dotted var(--jtth-ui-grey-text);
+  border-right: 1px dotted var(--jtth-ui-grey-text);
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll {
+  background: none;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .dmgroll:hover {
+  background: var(--jtth-avatar-hover);
+  opacity: 0.4;
+}
+
+.charsheet .sheet-core .sheet-pc-attack-modifier > span + span,
+.charsheet .sheet-core .sheet-pc-attack-damage-modifier > span + span {
+  opacity: .5;
+}
+
+.charsheet .sheet-move button {
+  background:  none;
+  box-shadow:  none;
+}
+
+.charsheet .sheet-move button span:first-of-type {
+  text-shadow:  none;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-slot {
+  background: var(--jtth-form-surface);
+  border: 1px solid var(--jtth-form-border);
+  border-left: 3px solid var(--jtth-cinnabar);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-panel-attacks .sheet-attack-damage-slot {
+  background: var(--jtth-dark-form-surface);
+  border-color: var(--jtth-dark-form-border);
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .sheet-attack-intent-toggle {
+  color: var(--jtth-jade);
+}
+
+.charsheet .sheet-feature button {
+  background: none;
+}
+
+.sheet-darkmode .charsheet .sheet-feature button {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value select {
+  background: none;
+}
+
+.sheet-container-beast-parts .sheet-beast-part-label {
+  opacity: 0.7;
+}
+
+.sheet-container-beast-parts input,
+.sheet-container-beast-parts select {
+  border-bottom: 1px dotted var(--jtth-muted-rule);
+  box-shadow: none;
+}
+
+.sheet-pc-defences .sheet-defence-list-header {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .sheet-pc-defences .sheet-defence-list-header {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-pc-defences .repitem + .repitem,
+.sheet-defense-stat .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-ui-neutral);
+}
+
+.sheet-defense-entry .sheet-defense-damage-type {
+  opacity: 0.9;
+}
+
+.sheet-defense-scale-state[value="hyper_resistance"] ~ .sheet-defense-entry {
+  background: var(--jtth-info-bg);
+  border-left: 4px solid var(--jtth-info-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-defense-scale-state[value="resistance"] ~ .sheet-defense-entry {
+  background: var(--jtth-success-bg);
+  border-left: 4px solid var(--jtth-success-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-defense-scale-state[value="weakness"] ~ .sheet-defense-entry {
+  background: var(--jtth-warn-bg);
+  border-left: 4px solid var(--jtth-warn-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-defense-scale-state[value="hyper_weakness"] ~ .sheet-defense-entry {
+  background: var(--jtth-error-bg);
+  border-left: 4px solid var(--jtth-error-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-defense-stat-summary {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .sheet-defense-stat-summary {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-defense-source-entry {
+  background: var(--jtth-surface-muted);
+}
+
+.sheet-darkmode .sheet-defense-source-entry {
+  background: var(--jtth-ui-neutral);
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat .sheet-form input {
+  border-bottom: 1px solid var(--jtth-ui-neutral);
+}
+
+.sheet-section-collapsible > .sheet-section-collapse-toggle {
+  opacity: 0;
+}
+
+.sheet-section-collapsible > .sheet-collapsible-title::after,
+.sheet-section-collapsible > .sheet-defense-stat-summary.sheet-collapsible-title::after {
+  opacity: 0.75;
+}
+
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat.sheet-section-collapsible > input.sheet-section-collapse-toggle,
+.charsheet .sheet-core .sheet-container-combat .sheet-pc-evasion-durability .sheet-defense-stat.sheet-section-collapsible > .sheet-section-collapse-toggle {
+  opacity: 0 !important;
+}
+
+.sheet-defense-source-entry-locked {
+  opacity: 0.95;
+}
+
+.sheet-ap-primary-box {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .sheet-ap-primary-box {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-ap-primary-box input,
+.sheet-ap-primary-box span {
+  background: transparent;
+  box-shadow: none;
+}
+
+.sheet-ap-primary-box input:hover,
+.sheet-ap-primary-box input:focus {
+  background: var(--jtth-ui-hover);
+}
+
+.sheet-darkmode .sheet-ap-primary-box input:hover,
+.sheet-darkmode .sheet-ap-primary-box input:focus {
+  background: var(--jtth-action-hover);
+}
+
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab {
+  opacity: 0;
+}
+
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label {
+  background: var(--jtth-ui-neutral);
+  border: 2px solid var(--jtth-ui-neutral);
+  border-bottom-color: var(--jtth-ui-light-border);
+  border-left-color: var(--jtth-paper-highlight);
+  border-right-color: var(--jtth-paper-highlight);
+  border-top-color: var(--jtth-paper-highlight);
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label {
+  background: var(--jtth-ui-neutral);
+  border-color: var(--jtth-ui-mid);
+  border-bottom-color: var(--jtth-ui-neutral);
+  border-left-color: var(--jtth-ink-strong);
+  border-right-color: var(--jtth-ink-strong);
+  border-top-color: var(--jtth-ink-strong);
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-skills:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-skills,
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-techniques:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-techniques {
+  background: var(--jtth-paper-highlight);
+  border-color: var(--jtth-brass-deep);
+  border-bottom-color: var(--jtth-paper-highlight);
+  color: var(--jtth-ink-strong);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-skills:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-skills,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-techniques:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-techniques {
+  background: var(--jtth-ui-mid);
+  border-color: var(--jtth-ink-strong);
+  border-bottom-color: var(--jtth-ui-neutral);
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.charsheet .sheet-core .sheet-technique-name {
+  background: var(--jtth-jade);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-name {
+  background: var(--jtth-jade-deep);
+}
+
+.charsheet .sheet-core .sheet-technique-name .toggle-checkbox {
+  opacity: 0;
+}
+
+.charsheet .sheet-core .sheet-technique-summary {
+  background: var(--jtth-ui-soft);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-summary {
+  background: var(--jtth-ui-neutral);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-desc {
+  color: var(--jtth-paper-highlight);
+}
+
+.charsheet .sheet-core .sheet-technique .output.btn,
+.charsheet .sheet-core .sheet-technique .sheet-technique-output {
+  background: none;
+  box-shadow: none;
+  color: var(--jtth-paper-highlight);
+  text-shadow: none;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-technique .output.btn,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique .sheet-technique-output {
+  background: var(--jtth-ui-mid);
+  border-color: var(--jtth-ink-strong);
+  color: var(--jtth-ui-neutral-muted);
+}
+
+.charsheet .sheet-core .sheet-technique-desc {
+  border: 1px dotted var(--jtth-ui-dot);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-desc {
+  border-color: var(--jtth-ui-control);
+}
+
+.charsheet .sheet-core .sheet-option-head {
+  color: var(--jtth-cinnabar-deep);
+}
+
+.charsheet .sheet-core {
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-container-panel {
+  background: var(--jtth-panel);
+  border-color: var(--jtth-brass);
+  box-shadow: none;
+}
+
+.charsheet .sheet-core .sheet-container-header {
+  background: var(--jtth-jade);
+  border-color: var(--jtth-jade-deep);
+  color: var(--jtth-panel);
+}
+
+.charsheet .sheet-core input,
+.charsheet .sheet-core select,
+.charsheet .sheet-core textarea {
+  background: var(--jtth-input);
+  border-color: var(--jtth-input-border);
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core input:focus,
+.charsheet .sheet-core select:focus,
+.charsheet .sheet-core textarea:focus {
+  box-shadow: 0 0 0 1px var(--jtth-focus-ring-warm);
+}
+
+.charsheet .sheet-core .sheet-attack-damage-slot {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass-border);
+  border-left-color: var(--jtth-action-accent);
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button {
+  background: var(--jtth-surface);
+  border-left: 2px solid var(--jtth-jade-deep);
+  box-shadow: none;
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button:hover {
+  background: var(--jtth-action-hover);
+  border-color: var(--jtth-action-accent);
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span,
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:first-of-type,
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2),
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:first-of-type {
+  color: var(--jtth-jade-bright);
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2) {
+  color: var(--jtth-jade);
+}
+
+.charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
+  color: var(--jtth-muted);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-panel,
+.sheet-darkmode .charsheet .sheet-core .sheet-attack-damage-slot,
+.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass-border);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-header {
+  background: var(--jtth-jade);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span,
+.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:nth-of-type(2),
+.sheet-darkmode .charsheet .sheet-main-body .sheet-panel-attacks .sheet-pc-attack button span:last-of-type {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-rolltemplate-atk .sheet-template-container,
+.sheet-rolltemplate-dmg .sheet-template-container,
+.sheet-rolltemplate-atkdmg .sheet-template-container,
+.sheet-rolltemplate-simple .sheet-template-container,
+.sheet-rolltemplate-simple-add .sheet-template-container,
+.sheet-rolltemplate-tool .sheet-template-container,
+.sheet-rolltemplate-features .sheet-template-container,
+.sheet-rolltemplate-attribute .sheet-template-container {
+  background: var(--jtth-surface);
+  border: 1px solid var(--jtth-brass);
+  box-shadow: none;
+  color: var(--jtth-ink);
+}
+
+.sheet-rolltemplate-atk .sheet-template-result,
+.sheet-rolltemplate-atkdmg .sheet-template-result,
+.sheet-rolltemplate-simple-add .sheet-template-result,
+.sheet-rolltemplate-simple .sheet-template-result,
+.sheet-rolltemplate-tool .sheet-template-result {
+  background: var(--jtth-jade);
+  color: var(--jtth-surface);
+}
+
+.sheet-rolltemplate-atk .sheet-template-add,
+.sheet-rolltemplate-atkdmg .sheet-template-add,
+.sheet-rolltemplate-simple-add .sheet-template-add,
+.sheet-rolltemplate-simple .sheet-template-solo,
+.sheet-rolltemplate-tool .sheet-template-solo {
+  background: var(--jtth-template-overlay);
+  border: 1px solid var(--jtth-template-overlay-border);
+}
+
+.sheet-rolltemplate-atk .sheet-template-add span,
+.sheet-rolltemplate-atkdmg .sheet-template-add span,
+.sheet-rolltemplate-simple-add .sheet-template-add span,
+.sheet-rolltemplate-simple .sheet-template-solo span,
+.sheet-rolltemplate-tool .sheet-template-solo span {
+  color: var(--jtth-surface);
+}
+
+.sheet-rolltemplate-atk .sheet-template-label,
+.sheet-rolltemplate-atkdmg .sheet-template-label,
+.sheet-rolltemplate-simple .sheet-template-label,
+.sheet-rolltemplate-simple-add .sheet-template-label,
+.sheet-rolltemplate-tool .sheet-template-label {
+  background: var(--jtth-brass-soft);
+  border-top: 1px solid var(--jtth-brass);
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-damagetemplate,
+.sheet-rolltemplate-dmg .sheet-damagetemplate {
+  background: var(--jtth-surface);
+  border-top: 1px solid var(--jtth-brass);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-template-result,
+.sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-template-result {
+  background: transparent;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block,
+.sheet-rolltemplate-dmg .sheet-template-damage-block {
+  background: var(--jtth-surface-muted);
+  border: 1px solid var(--jtth-brass-border);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-damage,
+.sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-damage {
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-sublabel,
+.sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-sublabel,
+.sheet-rolltemplate-atk .sheet-template-sublabel,
+.sheet-rolltemplate-atkdmg .sheet-template-sublabel,
+.sheet-rolltemplate-dmg .sheet-template-sublabel,
+.sheet-rolltemplate-atk .sheet-template-charname,
+.sheet-rolltemplate-atkdmg .sheet-template-charname,
+.sheet-rolltemplate-simple .sheet-template-charname,
+.sheet-rolltemplate-simple-add .sheet-template-charname,
+.sheet-rolltemplate-tool .sheet-template-charname {
+  color: var(--jtth-muted);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-save,
+.sheet-rolltemplate-dmg .sheet-save,
+.sheet-rolltemplate-atkdmg .sheet-template-container.sheet-save {
+  background: var(--jtth-brass-soft);
+  border-top: 1px solid var(--jtth-brass);
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-features .sheet-template-row.header,
+.sheet-rolltemplate-features .sheet-template-row.sheet-header,
+.sheet-rolltemplate-features .sheet-header {
+  background: var(--jtth-jade);
+  color: var(--jtth-surface);
+}
+
+.sheet-rolltemplate-features .sheet-template-row.subheader,
+.sheet-rolltemplate-features .sheet-template-row.sheet-subheader,
+.sheet-rolltemplate-features .sheet-subheader {
+  background: var(--jtth-brass-soft);
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-atk .inlinerollresult,
+.sheet-rolltemplate-dmg .inlinerollresult,
+.sheet-rolltemplate-atkdmg .inlinerollresult,
+.sheet-rolltemplate-simple .inlinerollresult,
+.sheet-rolltemplate-simple-add .inlinerollresult,
+.sheet-rolltemplate-tool .inlinerollresult,
+.sheet-rolltemplate-features .inlinerollresult,
+.sheet-rolltemplate-attribute .inlinerollresult {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-option-attribute-grid label,
+.charsheet .sheet-core .sheet-page-options .sheet-option-skill-grid label {
+  color: var(--jtth-option-label);
+}
+
+.sheet-rolltemplate-atk .sheet-template-container,
+.sheet-rolltemplate-dmg .sheet-template-container,
+.sheet-rolltemplate-atkdmg .sheet-template-container,
+.sheet-rolltemplate-simple .sheet-template-container,
+.sheet-rolltemplate-simple-add .sheet-template-container,
+.sheet-rolltemplate-tool .sheet-template-container,
+.sheet-rolltemplate-features .sheet-template-container,
+.sheet-rolltemplate-attribute .sheet-template-container {
+  background: var(--jtth-surface);
+  border: 1px solid var(--jtth-brass);
+  box-shadow: none;
+  color: var(--jtth-ink);
+}
+
+.sheet-rolltemplate-atk .sheet-template-label,
+.sheet-rolltemplate-atkdmg .sheet-template-label,
+.sheet-rolltemplate-dmg .sheet-template-label,
+.sheet-rolltemplate-simple .sheet-template-label,
+.sheet-rolltemplate-simple-add .sheet-template-label,
+.sheet-rolltemplate-tool .sheet-template-label {
+  background: var(--jtth-jade);
+  color: var(--jtth-surface);
+}
+
+.sheet-rolltemplate-atk .sheet-template-label span,
+.sheet-rolltemplate-atkdmg .sheet-template-label span,
+.sheet-rolltemplate-dmg .sheet-template-label span,
+.sheet-rolltemplate-simple .sheet-template-label span,
+.sheet-rolltemplate-simple-add .sheet-template-label span,
+.sheet-rolltemplate-tool .sheet-template-label span {
+  color: var(--jtth-surface);
+}
+
+.sheet-rolltemplate-atk .sheet-template-label span span,
+.sheet-rolltemplate-atkdmg .sheet-template-label span span,
+.sheet-rolltemplate-simple-add .sheet-template-label span span,
+.sheet-rolltemplate-tool .sheet-template-label span span {
+  color: var(--jtth-brass-soft);
+}
+
+.sheet-rolltemplate-atk .sheet-template-result,
+.sheet-rolltemplate-atkdmg .sheet-template-result,
+.sheet-rolltemplate-simple-add .sheet-template-result,
+.sheet-rolltemplate-simple .sheet-template-result,
+.sheet-rolltemplate-tool .sheet-template-result {
+  background: var(--jtth-surface-muted);
+  border-top: 1px solid var(--jtth-brass);
+  color: var(--jtth-ink);
+}
+
+.sheet-rolltemplate-atk .sheet-template-add,
+.sheet-rolltemplate-atkdmg .sheet-template-add,
+.sheet-rolltemplate-simple-add .sheet-template-add,
+.sheet-rolltemplate-simple .sheet-template-solo,
+.sheet-rolltemplate-tool .sheet-template-solo {
+  background: var(--jtth-surface);
+  border: 1px solid var(--jtth-brass-border);
+}
+
+.sheet-rolltemplate-atk .sheet-template-add em,
+.sheet-rolltemplate-atkdmg .sheet-template-add em,
+.sheet-rolltemplate-simple-add .sheet-template-add em,
+.sheet-rolltemplate-simple .sheet-template-solo em,
+.sheet-rolltemplate-tool .sheet-template-solo em {
+  color: var(--jtth-muted);
+}
+
+.sheet-rolltemplate-atk .sheet-template-add span,
+.sheet-rolltemplate-atkdmg .sheet-template-add span,
+.sheet-rolltemplate-simple-add .sheet-template-add span,
+.sheet-rolltemplate-simple .sheet-template-solo span,
+.sheet-rolltemplate-tool .sheet-template-solo span {
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-atk .sheet-template-addspacer,
+.sheet-rolltemplate-atkdmg .sheet-template-addspacer,
+.sheet-rolltemplate-simple-add .sheet-template-addspacer {
+  color: var(--jtth-muted);
+}
+
+.sheet-rolltemplate-atk .sheet-template-sublabel,
+.sheet-rolltemplate-atkdmg .sheet-template-sublabel,
+.sheet-rolltemplate-dmg .sheet-template-sublabel,
+.sheet-rolltemplate-atk .sheet-template-charname,
+.sheet-rolltemplate-atkdmg .sheet-template-charname,
+.sheet-rolltemplate-simple .sheet-template-charname,
+.sheet-rolltemplate-simple-add .sheet-template-charname,
+.sheet-rolltemplate-tool .sheet-template-charname {
+  background: var(--jtth-brass-soft);
+  color: var(--jtth-muted);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-damagetemplate,
+.sheet-rolltemplate-dmg .sheet-damagetemplate {
+  background: var(--jtth-surface);
+  border-top: 1px solid var(--jtth-brass);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-template-result,
+.sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-template-result {
+  background: transparent;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block,
+.sheet-rolltemplate-dmg .sheet-template-damage-block {
+  background: var(--jtth-surface-muted);
+  border: 1px solid var(--jtth-brass-border);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-damage,
+.sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-damage {
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-sublabel,
+.sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-sublabel {
+  color: var(--jtth-muted);
+}
+
+.sheet-rolltemplate-atkdmg .sheet-save,
+.sheet-rolltemplate-dmg .sheet-save,
+.sheet-rolltemplate-atkdmg .sheet-template-container.sheet-save {
+  background: var(--jtth-brass-soft);
+  border-top: 1px solid var(--jtth-brass);
+  color: var(--jtth-jade-bright);
+}
+
+.sheet-rolltemplate-atk .sheet-template-desc,
+.sheet-rolltemplate-atkdmg .sheet-template-desc,
+.sheet-rolltemplate-features .sheet-template-row:not(.sheet-header):not(.header):not(.sheet-subheader):not(.subheader) {
+  background: var(--jtth-surface);
+  border-top: 1px solid var(--jtth-brass-soft);
+  color: var(--jtth-ink);
+}
+
+.sheet-rolltemplate-features .sheet-template-row.header,
+.sheet-rolltemplate-features .sheet-template-row.sheet-header,
+.sheet-rolltemplate-features .sheet-header {
+  background: var(--jtth-jade);
+  color: var(--jtth-surface);
+}
+
+.sheet-rolltemplate-features .sheet-template-row.subheader,
+.sheet-rolltemplate-features .sheet-template-row.sheet-subheader,
+.sheet-rolltemplate-features .sheet-subheader {
+  background: var(--jtth-brass-soft);
+  color: var(--jtth-jade-bright);
+}
+
+.charsheet .sheet-core {
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header {
+  background: var(--jtth-surface);
+  border: 1px solid var(--jtth-brass);
+  border-left: 4px solid var(--jtth-cinnabar);
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-label {
+  color: var(--jtth-cinnabar-deep);
+}
+
+.charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
+  border-bottom-color: var(--jtth-brass-deep);
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page > .sheet-page-label,
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label {
+  background: var(--jtth-brass-soft);
+  border-color: var(--jtth-input-border);
+  border-bottom-color: var(--jtth-brass);
+  border-left-color: var(--jtth-surface);
+  border-right-color: var(--jtth-surface);
+  border-top-color: var(--jtth-surface);
+  color: var(--jtth-muted);
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page > input[type="radio"]:hover ~ .sheet-page-label,
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label:hover {
+  background: var(--jtth-surface-muted);
+  color: var(--jtth-jade);
+}
+
+.charsheet .sheet-core .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label,
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-skills:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-skills,
+.charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-techniques:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-techniques {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass);
+  border-bottom-color: var(--jtth-surface);
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-container-panel,
+.charsheet .sheet-core .sheet-container-bar,
+.charsheet .sheet-core .sheet-form .sheet-form-body,
+.charsheet .sheet-core .sheet-defense-stat-summary,
+.charsheet .sheet-core .sheet-defense-source-entry,
+.charsheet .sheet-core .sheet-ap-primary-box,
+.charsheet .sheet-core .sheet-technique-summary {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass);
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-container-panel::before,
+.charsheet .sheet-core .sheet-container-bar::after {
+  opacity: .95;
+}
+
+.charsheet .sheet-core .sheet-container-header,
+.charsheet .sheet-core .sheet-form-header {
+  background: var(--jtth-jade);
+  border-color: var(--jtth-jade-deep);
+  color: var(--jtth-surface);
+}
+
+.charsheet .sheet-core input,
+.charsheet .sheet-core select,
+.charsheet .sheet-core textarea,
+.charsheet .sheet-core .uneditable-input {
+  background: var(--jtth-input);
+  border-color: var(--jtth-input-border);
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core input:hover,
+.charsheet .sheet-core select:hover,
+.charsheet .sheet-core textarea:hover {
+  border-color: var(--jtth-brass-deep);
+}
+
+.charsheet .sheet-core input:focus,
+.charsheet .sheet-core select:focus,
+.charsheet .sheet-core textarea:focus {
+  background: var(--jtth-input-focus);
+  border-color: var(--jtth-cinnabar);
+  box-shadow: 0 0 0 1px var(--jtth-focus-ring);
+}
+
+.charsheet .sheet-core .repcontrol .btn,
+.charsheet .sheet-core .sheet-pc-tool,
+.charsheet .sheet-core .sheet-pc-feature .sheet-pc-feature-name,
+.charsheet .sheet-core .sheet-feature .sheet-feature-name,
+.charsheet .sheet-core .sheet-technique-name,
+.charsheet .sheet-core .sheet-pc-item-equipped {
+  background: var(--jtth-jade);
+  border-color: var(--jtth-jade-deep);
+  color: var(--jtth-surface);
+}
+
+.charsheet .sheet-core .repcontrol .btn:hover,
+.charsheet .sheet-core .sheet-pc-tool:hover,
+.charsheet .sheet-core .sheet-technique-name:hover,
+.charsheet .sheet-core .sheet-pc-feature button:hover {
+  background: var(--jtth-jade-hover);
+}
+
+.charsheet .sheet-core .sheet-pc-memory span:first-of-type,
+.charsheet .sheet-core .sheet-pc-note span:first-of-type,
+.charsheet .sheet-core .sheet-pc-otheritem span:first-of-type,
+.charsheet .sheet-core .sheet-pc-inventory-container-footer,
+.charsheet .sheet-core .sheet-pc-defences .sheet-defence-list-header {
+  background: var(--jtth-brass-soft);
+  color: var(--jtth-muted);
+}
+
+.charsheet .sheet-core .sheet-pc-item,
+.charsheet .sheet-core .sheet-pc-otheritem,
+.charsheet .sheet-core .sheet-pc-memory,
+.charsheet .sheet-core .sheet-pc-note,
+.charsheet .sheet-core .sheet-attack-damage-slot,
+.charsheet .sheet-core .sheet-technique-desc,
+.charsheet .sheet-core .sheet-pc-inventory-container {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass-border);
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-pc-item:hover,
+.charsheet .sheet-core .sheet-defense-source-entry:hover {
+  background: var(--jtth-surface-muted);
+}
+
+.charsheet .sheet-core .sheet-alert-warning,
+.charsheet .sheet-core .sheet-page-inventory .sheet-alert-warning {
+  background: var(--jtth-cinnabar);
+  border-color: var(--jtth-cinnabar-deep);
+  color: var(--jtth-surface);
+}
+
+.charsheet .sheet-core .sheet-detail-value,
+.charsheet .sheet-core .sheet-button-attribute-title,
+.charsheet .sheet-core .sheet-technique-desc,
+.charsheet .sheet-core .sheet-pc-feature-details,
+.charsheet .sheet-core .sheet-pc-feature-source,
+.charsheet .sheet-core .sheet-option-attribute-grid label,
+.charsheet .sheet-core .sheet-option-skill-grid label {
+  color: var(--jtth-ink);
+}
+
+.charsheet .sheet-core .sheet-option-head {
+  color: var(--jtth-cinnabar);
+}
+
+.sheet-darkmode .charsheet .sheet-core,
+.sheet-darkmode .sheet-core {
+  background: var(--jtth-page);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-section-main .sheet-main-header {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass-border);
+  border-left-color: var(--jtth-cinnabar);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-label {
+  color: var(--jtth-brass-soft);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-section-main .sheet-main-header .sheet-header-details .sheet-detail .sheet-detail-value input {
+  border-bottom-color: var(--jtth-brass-deep);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-pages .sheet-page > .sheet-page-label,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass-border);
+  border-bottom-color: var(--jtth-tab-shadow);
+  border-left-color: var(--jtth-ink-strong);
+  border-right-color: var(--jtth-ink-strong);
+  border-top-color: var(--jtth-ink-strong);
+  color: var(--jtth-muted);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-pages .sheet-page > input[type="radio"]:hover ~ .sheet-page-label,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-label:hover {
+  background: var(--jtth-surface-muted);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-pages .sheet-page > input[type="radio"]:checked ~ .sheet-page-label,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-skills:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-skills,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills-techniques .sheet-skill-tech-tab-techniques:checked ~ .sheet-skill-tech-header .sheet-skill-tech-label-techniques {
+  background: var(--jtth-surface-muted);
+  border-color: var(--jtth-brass-border);
+  border-bottom-color: var(--jtth-surface-muted);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-panel,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-bar,
+.sheet-darkmode .charsheet .sheet-core .sheet-form .sheet-form-body,
+.sheet-darkmode .charsheet .sheet-core .sheet-defense-stat-summary,
+.sheet-darkmode .charsheet .sheet-core .sheet-defense-source-entry,
+.sheet-darkmode .charsheet .sheet-core .sheet-ap-primary-box,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-summary,
+.sheet-darkmode .charsheet .sheet-core .sheet-attack-damage-slot {
+  background: var(--jtth-surface);
+  border-color: var(--jtth-brass-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-container-header,
+.sheet-darkmode .charsheet .sheet-core .sheet-form-header {
+  background: var(--jtth-jade);
+  border-color: var(--jtth-jade-deep);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core input,
+.sheet-darkmode .charsheet .sheet-core select,
+.sheet-darkmode .charsheet .sheet-core textarea,
+.sheet-darkmode .charsheet .sheet-core .uneditable-input {
+  background: var(--jtth-input);
+  border-color: var(--jtth-input-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core input:hover,
+.sheet-darkmode .charsheet .sheet-core select:hover,
+.sheet-darkmode .charsheet .sheet-core textarea:hover {
+  border-color: var(--jtth-brass-deep);
+}
+
+.sheet-darkmode .charsheet .sheet-core input:focus,
+.sheet-darkmode .charsheet .sheet-core select:focus,
+.sheet-darkmode .charsheet .sheet-core textarea:focus {
+  background: var(--jtth-input-focus);
+  border-color: var(--jtth-cinnabar);
+  box-shadow: 0 0 0 1px var(--jtth-focus-ring-dark);
+}
+
+.sheet-darkmode .charsheet .sheet-core .repcontrol .btn,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-tool,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-feature .sheet-pc-feature-name,
+.sheet-darkmode .charsheet .sheet-core .sheet-feature .sheet-feature-name,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-name,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-item-equipped {
+  background: var(--jtth-jade);
+  border-color: var(--jtth-jade-deep);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .repcontrol .btn:hover,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-tool:hover,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-name:hover,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-feature button:hover {
+  background: var(--jtth-jade-hover);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-memory span:first-of-type,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-note span:first-of-type,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-otheritem span:first-of-type,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-inventory-container-footer,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-defences .sheet-defence-list-header {
+  background: var(--jtth-row-label);
+  color: var(--jtth-brass-soft);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-item,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-otheritem,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-memory,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-note,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-desc,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-inventory-container {
+  background: var(--jtth-row);
+  border-color: var(--jtth-row-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-item:hover,
+.sheet-darkmode .charsheet .sheet-core .sheet-defense-source-entry:hover {
+  background: var(--jtth-surface-muted);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-alert-warning,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-inventory .sheet-alert-warning {
+  background: var(--jtth-warning);
+  border-color: var(--jtth-cinnabar);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-detail-value,
+.sheet-darkmode .charsheet .sheet-core .sheet-button-attribute-title,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique-desc,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-feature-details,
+.sheet-darkmode .charsheet .sheet-core .sheet-pc-feature-source,
+.sheet-darkmode .charsheet .sheet-core .sheet-option-attribute-grid label,
+.sheet-darkmode .charsheet .sheet-core .sheet-option-skill-grid label,
+.sheet-darkmode .charsheet .sheet-core .sheet-container-skills .sheet-skill button span,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique .output.btn,
+.sheet-darkmode .charsheet .sheet-core .sheet-technique .sheet-technique-output {
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-option-head {
+  color: var(--jtth-brass-soft);
 }
