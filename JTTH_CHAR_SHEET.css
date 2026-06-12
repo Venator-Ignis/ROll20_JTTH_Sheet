@@ -1100,7 +1100,7 @@
 
 .charsheet .sheet-core .repcontainer {
   flex-grow: 1;
-  min-height: 25px;
+  min-height: 130px;
 }
 
 .charsheet .sheet-core .sheet-skill-tech-content .repcontainer {
@@ -2476,7 +2476,7 @@
 
 .sheet-ctype[value="m"] ~ .sheet-main-body .sheet-page-character .col3 .sheet-container-traits,
 .sheet-ctype[value="m"] ~ .sheet-main-body .sheet-page-character .col3 .sheet-container-resources {
-  min-height: 423px;
+  min-height: 426px;
 }
 
 .sheet-ctype[value="c"] ~ .sheet-main-body .sheet-page-character .col1 .sheet-container-tools,
@@ -2869,6 +2869,10 @@
 .sheet-panel-action-points {
   margin-bottom: 5px;
   position: relative;
+}
+
+.sheet-panel-bonuses {
+  margin-bottom: 5px;
 }
 
 .sheet-panel-action-points > .sheet-section-collapse-toggle {
@@ -5412,4 +5416,275 @@
 
 .sheet-darkmode .charsheet .sheet-core .sheet-option-head {
   color: var(--jtth-brass-soft);
+}
+
+/* ============================================================
+   COMPACT ROLL TEMPLATES
+   Dense chat output for repeated rolls and multi-attack bursts.
+   ============================================================ */
+.sheet-rolltemplate-atk,
+.sheet-rolltemplate-dmg,
+.sheet-rolltemplate-atkdmg,
+.sheet-rolltemplate-simple,
+.sheet-rolltemplate-simple-add,
+.sheet-rolltemplate-tool,
+.sheet-rolltemplate-features,
+.sheet-rolltemplate-attribute {
+  box-sizing: border-box;
+  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-size: 10px;
+  line-height: 1.15;
+  width: 214px;
+}
+
+.sheet-rolltemplate-atk *,
+.sheet-rolltemplate-dmg *,
+.sheet-rolltemplate-atkdmg *,
+.sheet-rolltemplate-simple *,
+.sheet-rolltemplate-simple-add *,
+.sheet-rolltemplate-tool *,
+.sheet-rolltemplate-features *,
+.sheet-rolltemplate-attribute * {
+  box-sizing: border-box;
+}
+
+.sheet-rolltemplate-atk .sheet-template-container,
+.sheet-rolltemplate-dmg .sheet-template-container,
+.sheet-rolltemplate-atkdmg .sheet-template-container,
+.sheet-rolltemplate-simple .sheet-template-container,
+.sheet-rolltemplate-simple-add .sheet-template-container,
+.sheet-rolltemplate-tool .sheet-template-container,
+.sheet-rolltemplate-features .sheet-template-container,
+.sheet-rolltemplate-attribute .sheet-template-container {
+  border-radius: 3px;
+  margin: 0 0 2px;
+  overflow: hidden;
+}
+
+.sheet-rolltemplate-atk .sheet-template-label,
+.sheet-rolltemplate-atkdmg .sheet-template-label,
+.sheet-rolltemplate-dmg .sheet-template-label,
+.sheet-rolltemplate-simple .sheet-template-label,
+.sheet-rolltemplate-simple-add .sheet-template-label,
+.sheet-rolltemplate-tool .sheet-template-label,
+.sheet-rolltemplate-features .sheet-template-row.header,
+.sheet-rolltemplate-features .sheet-template-row.sheet-header,
+.sheet-rolltemplate-features .sheet-header {
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 11px;
+  overflow: hidden;
+  padding: 3px 5px;
+  text-align: left;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sheet-rolltemplate-atk .sheet-template-label span,
+.sheet-rolltemplate-atkdmg .sheet-template-label span,
+.sheet-rolltemplate-dmg .sheet-template-label span,
+.sheet-rolltemplate-simple .sheet-template-label span,
+.sheet-rolltemplate-simple-add .sheet-template-label span,
+.sheet-rolltemplate-tool .sheet-template-label span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-rolltemplate-atk .sheet-template-label span span,
+.sheet-rolltemplate-atkdmg .sheet-template-label span span,
+.sheet-rolltemplate-simple-add .sheet-template-label span span,
+.sheet-rolltemplate-tool .sheet-template-label span span {
+  display: inline;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.sheet-rolltemplate-atk .sheet-template-sublabel,
+.sheet-rolltemplate-atkdmg .sheet-template-sublabel,
+.sheet-rolltemplate-dmg .sheet-template-sublabel,
+.sheet-rolltemplate-atk .sheet-template-charname,
+.sheet-rolltemplate-atkdmg .sheet-template-charname,
+.sheet-rolltemplate-simple .sheet-template-charname,
+.sheet-rolltemplate-simple-add .sheet-template-charname,
+.sheet-rolltemplate-tool .sheet-template-charname,
+.sheet-rolltemplate-features .sheet-template-row.subheader,
+.sheet-rolltemplate-features .sheet-template-row.sheet-subheader,
+.sheet-rolltemplate-features .sheet-subheader {
+  font-size: 7px;
+  font-weight: 700;
+  line-height: 9px;
+  overflow: hidden;
+  padding: 2px 5px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-rolltemplate-atk .sheet-template-result,
+.sheet-rolltemplate-atkdmg .sheet-template-result,
+.sheet-rolltemplate-simple-add .sheet-template-result,
+.sheet-rolltemplate-simple .sheet-template-result,
+.sheet-rolltemplate-tool .sheet-template-result {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: 1fr 8px 1fr;
+  padding: 3px;
+}
+
+.sheet-rolltemplate-simple .sheet-template-result,
+.sheet-rolltemplate-tool .sheet-template-result {
+  grid-template-columns: 1fr;
+}
+
+.sheet-rolltemplate-atk .sheet-template-add,
+.sheet-rolltemplate-atkdmg .sheet-template-add,
+.sheet-rolltemplate-simple-add .sheet-template-add,
+.sheet-rolltemplate-simple .sheet-template-solo,
+.sheet-rolltemplate-tool .sheet-template-solo {
+  align-items: baseline;
+  border-radius: 2px;
+  display: flex;
+  gap: 4px;
+  justify-content: space-between;
+  min-height: 0;
+  padding: 2px 3px;
+  text-align: left;
+}
+
+.sheet-rolltemplate-atk .sheet-template-add em,
+.sheet-rolltemplate-atkdmg .sheet-template-add em,
+.sheet-rolltemplate-simple-add .sheet-template-add em,
+.sheet-rolltemplate-simple .sheet-template-solo em,
+.sheet-rolltemplate-tool .sheet-template-solo em {
+  display: inline;
+  flex: 0 0 auto;
+  font-size: 7px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 9px;
+  text-transform: uppercase;
+}
+
+.sheet-rolltemplate-atk .sheet-template-add span,
+.sheet-rolltemplate-atkdmg .sheet-template-add span,
+.sheet-rolltemplate-simple-add .sheet-template-add span,
+.sheet-rolltemplate-simple .sheet-template-solo span,
+.sheet-rolltemplate-tool .sheet-template-solo span {
+  flex: 1 1 auto;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 12px;
+  min-width: 0;
+  text-align: right;
+}
+
+.sheet-rolltemplate-atk .sheet-template-addspacer,
+.sheet-rolltemplate-atkdmg .sheet-template-addspacer,
+.sheet-rolltemplate-simple-add .sheet-template-addspacer {
+  align-items: center;
+  display: flex;
+  font-size: 7px;
+  justify-content: center;
+  width: 8px;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-damagetemplate,
+.sheet-rolltemplate-dmg .sheet-damagetemplate {
+  padding: 3px;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-damagetemplate .sheet-template-result,
+.sheet-rolltemplate-dmg .sheet-damagetemplate .sheet-template-result {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(auto-fit, minmax(38px, 1fr));
+  padding: 0;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block,
+.sheet-rolltemplate-dmg .sheet-template-damage-block {
+  border-radius: 2px;
+  padding: 2px 2px 1px;
+  text-align: center;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-damage,
+.sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-damage {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 12px;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-damage-block .sheet-sublabel,
+.sheet-rolltemplate-dmg .sheet-template-damage-block .sheet-sublabel {
+  display: block;
+  font-size: 7px;
+  font-weight: 800;
+  line-height: 8px;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-save,
+.sheet-rolltemplate-dmg .sheet-save,
+.sheet-rolltemplate-atkdmg .sheet-template-container.sheet-save,
+.sheet-rolltemplate-dmg .sheet-template-container.sheet-save {
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.sheet-rolltemplate-atkdmg .sheet-template-savedc,
+.sheet-rolltemplate-dmg .sheet-template-savedc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-rolltemplate-atk .sheet-template-desc,
+.sheet-rolltemplate-atkdmg .sheet-template-desc,
+.sheet-rolltemplate-features .sheet-template-row:not(.sheet-header):not(.header):not(.sheet-subheader):not(.subheader) {
+  font-size: 9px;
+  line-height: 1.2;
+  max-height: 96px;
+  overflow-y: auto;
+  padding: 4px 5px;
+  white-space: pre-wrap;
+}
+
+.sheet-rolltemplate-features .sheet-template-row.header,
+.sheet-rolltemplate-features .sheet-template-row.sheet-header,
+.sheet-rolltemplate-features .sheet-header {
+  text-align: left;
+}
+
+.sheet-rolltemplate-features .sheet-template-row.subheader,
+.sheet-rolltemplate-features .sheet-template-row.sheet-subheader,
+.sheet-rolltemplate-features .sheet-subheader {
+  padding: 2px 5px;
+}
+
+.sheet-rolltemplate-atk .inlinerollresult,
+.sheet-rolltemplate-dmg .inlinerollresult,
+.sheet-rolltemplate-atkdmg .inlinerollresult,
+.sheet-rolltemplate-simple .inlinerollresult,
+.sheet-rolltemplate-simple-add .inlinerollresult,
+.sheet-rolltemplate-tool .inlinerollresult,
+.sheet-rolltemplate-features .inlinerollresult,
+.sheet-rolltemplate-attribute .inlinerollresult {
+  border: none !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  padding: 0 !important;
 }
