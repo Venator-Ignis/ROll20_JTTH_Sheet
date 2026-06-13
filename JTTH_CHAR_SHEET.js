@@ -526,7 +526,43 @@ var jtth_damage_expr = function(row, prefix, intent_share, mod_totals) {
     var manual = 1 + mod_totals.manual_bonus;
     var pill = 1 + mod_totals.pill_bonus;
     var flat = mod_totals.flat;
-    return "[[floor((((" + dice + ") * " + tech + ") + (((" + attr + ") + (" + local_flat + ") + " + flat + ") * " + tech + " * " + manual + ")) * " + pill + ") + " + intent_share + "]]";
+    var is_zero_term = function(value) {
+        var text = String(value || "").replace(/\s+/g, "").toLowerCase();
+        if (!text || text === "0" || text === "+0" || text === "-0") { return true; }
+        if (/^[+-]?0+d\d+$/.test(text)) { return true; }
+        return text.indexOf("@{") === -1 && text.indexOf("[[") === -1 && text.indexOf("d") === -1 && jtth_flat_number(text) === 0;
+    };
+    var add_term = function(terms, value) {
+        var text = String(value || "").trim();
+        if (is_zero_term(text)) { return; }
+        if (text.charAt(0) === "-") {
+            terms.push({ sign: "-", value: text.substring(1) });
+        } else {
+            terms.push({ sign: "+", value: text.charAt(0) === "+" ? text.substring(1) : text });
+        }
+    };
+    var join_terms = function(terms) {
+        var output = "";
+        _.each(terms, function(term) {
+            if (!output) {
+                output = term.sign === "-" ? "-" + term.value : term.value;
+            } else {
+                output += term.sign === "-" ? " - " + term.value : " + " + term.value;
+            }
+        });
+        return output || "0";
+    };
+    var stat_terms = [];
+    var core_terms = [];
+    add_term(stat_terms, attr);
+    add_term(stat_terms, local_flat);
+    add_term(stat_terms, flat);
+    if (!is_zero_term(dice)) { core_terms.push("((" + dice + ") * " + tech + ")"); }
+    if (stat_terms.length) { core_terms.push("((" + join_terms(stat_terms) + ") * " + tech + " * " + manual + ")"); }
+    var core = core_terms.length ? core_terms.join(" + ") : "0";
+    if (pill !== 1) { core = "((" + core + ") * " + pill + ")"; }
+    if (intent_share) { core += intent_share < 0 ? " - " + Math.abs(intent_share) : " + " + intent_share; }
+    return "[[floor(" + core + ")]]";
 };
 
 var jtth_static_damage_value = function(value) {
