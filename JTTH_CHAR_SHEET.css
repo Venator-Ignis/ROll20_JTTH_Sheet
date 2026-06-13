@@ -440,8 +440,7 @@
   /* padding: 5px 22px 5px; */
 }
 
-.sheet-core .sheet-container-attribute .sheet-container-footer input,
-.sheet-core .sheet-container-attribute .sheet-container-footer span {
+.sheet-core .sheet-container-attribute .sheet-container-footer input {
   padding: 0px 25px 0px 26.5px;
 }
 
@@ -478,9 +477,10 @@
   position: relative;
   font-weight: bold;
   height: 50px;
-  width: 60%;
+  width: 67%;
   line-height: 50px;
   top: -32px;
+  margin-left: 22px;
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer span:hover {
@@ -1934,11 +1934,11 @@
   padding: 2px;
   border-radius: 100%;
   display: block;
-  height: 13px;
+  height: 12px;
   left: 0;
   position: absolute;
   top: 0;
-  width: 13px;
+  width: 12px;
 }
 
 .charsheet .sheet-core .sheet-checkbox-image [type=checkbox]:checked ~ span::after {
@@ -3852,7 +3852,7 @@
 }
 
 .sheet-core .sheet-container-attribute .sheet-container-footer span {
-  background: var(--jtth-paper-highlight);
+  background: white;
 }
 
 .sheet-darkmode .sheet-core .sheet-button-attribute-title,
