@@ -3137,8 +3137,9 @@
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-areas:
-    "general rolls global global"
-    "attributes attributes skills skills";
+    "general general rolls global"
+    "health health attributes attributes"
+    "health health skills skills";
   grid-column-gap: 6px;
   grid-row-gap: 6px;
 }
@@ -3153,6 +3154,10 @@
 
 .charsheet .sheet-core .sheet-page-options .sheet-pc-option-global {
   grid-area: global;
+}
+
+.charsheet .sheet-core .sheet-page-options .sheet-pc-option-health {
+  grid-area: health;
 }
 
 .charsheet .sheet-core .sheet-page-options .sheet-pc-option-attributes {
@@ -3179,8 +3184,341 @@
 
 .charsheet .sheet-core .sheet-option-skill-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
   gap: 2px 5px;
+}
+
+.charsheet .sheet-core .sheet-health-options,
+.charsheet .sheet-core .sheet-profession-summary-grid,
+.charsheet .sheet-core .sheet-profession-note-grid {
+  display: grid;
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-health-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-health-entry-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-health-readouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-health-mod-head,
+.charsheet .sheet-core .sheet-health-mod-row {
+  display: grid;
+  grid-template-columns: 24px minmax(110px, 1fr) 58px 76px;
+  gap: 5px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-health-mod-head {
+  color: var(--jtth-text-muted, #6d6256);
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-health-options label,
+.charsheet .sheet-core .sheet-health-entry-row label,
+.charsheet .sheet-core .sheet-profession-summary-grid label,
+.charsheet .sheet-core .sheet-profession-note-grid label,
+.charsheet .sheet-core .sheet-form-checkline {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  min-width: 0;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 12px;
+}
+
+.charsheet .sheet-core .sheet-form-checkline {
+  grid-template-columns: minmax(0, 1fr) 16px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-health-options input,
+.charsheet .sheet-core .sheet-health-options select,
+.charsheet .sheet-core .sheet-health-entry-row input,
+.charsheet .sheet-core .sheet-profession-summary-grid input,
+.charsheet .sheet-core .sheet-profession-summary-grid select,
+.charsheet .sheet-core .sheet-profession-note-grid textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+.charsheet .sheet-core .sheet-health-options input,
+.charsheet .sheet-core .sheet-health-options select,
+.charsheet .sheet-core .sheet-health-options button,
+.charsheet .sheet-core .sheet-health-entry-row input,
+.charsheet .sheet-core .sheet-profession-summary-grid input,
+.charsheet .sheet-core .sheet-profession-summary-grid select {
+  height: 18px;
+  padding: 0 3px;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-health-roll-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3px;
+}
+
+.charsheet .sheet-core .sheet-health-roll-buttons button {
+  border-radius: 3px;
+  font-weight: 800;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-health-vitality-source {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) minmax(110px, 1fr) 54px;
+  gap: 5px;
+  align-items: center;
+  border: 1px solid var(--jtth-border, #b9aa92);
+  background: var(--jtth-panel-soft, #efe7d8);
+  padding: 3px 5px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.charsheet .sheet-core .sheet-health-vitality-source input {
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-health-total-readouts {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+}
+
+.charsheet .sheet-core .sheet-health-bonus-collapse,
+.charsheet .sheet-core .sheet-profession-collapse {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-health-bonus-header,
+.charsheet .sheet-core .sheet-profession-collapse-header {
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  position: relative;
+}
+
+.charsheet .sheet-core .sheet-health-bonus-header::after,
+.charsheet .sheet-core .sheet-profession-collapse-header::after {
+  float: right;
+  font-size: 8px;
+  font-weight: 800;
+  opacity: .7;
+}
+
+.charsheet .sheet-core .sheet-health-bonus-collapse:not(:checked) + .sheet-health-bonus-header + .sheet-health-bonus-body,
+.charsheet .sheet-core .sheet-profession-collapse:not(:checked) + .sheet-profession-collapse-header + .sheet-container-body {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-health-bonus-body {
+  display: grid;
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-checks label {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  align-items: center;
+  gap: 3px;
+  margin: 0;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 14px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-header {
+  display: none;
+  gap: 4px;
+  margin: 0 0 5px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-array[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-carving[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-doctor[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-forging[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-fulu[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-weaving[value="1"] ~ .sheet-notes-tab-header {
+  display: flex;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-header label {
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  color: var(--jtth-ink, #382d23);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 18px;
+  min-width: 72px;
+  padding: 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-base:checked ~ .sheet-notes-tab-header label:first-child,
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-profession:checked ~ .sheet-notes-tab-header label:last-child {
+  background: var(--jtth-accent, #7f3f2e);
+  border-color: var(--jtth-accent, #7f3f2e);
+  color: #fff7ea;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-base-content,
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content {
+  display: none !important;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-base:checked ~ .sheet-notes-base-content {
+  display: grid !important;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-profession:checked ~ .sheet-notes-profession-content {
+  display: grid !important;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="0"] ~ .sheet-profession-flag-array[value="0"] ~ .sheet-profession-flag-carving[value="0"] ~ .sheet-profession-flag-doctor[value="0"] ~ .sheet-profession-flag-forging[value="0"] ~ .sheet-profession-flag-fulu[value="0"] ~ .sheet-profession-flag-weaving[value="0"] ~ .sheet-notes-base-content {
+  display: grid !important;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="0"] ~ .sheet-profession-flag-array[value="0"] ~ .sheet-profession-flag-carving[value="0"] ~ .sheet-profession-flag-doctor[value="0"] ~ .sheet-profession-flag-forging[value="0"] ~ .sheet-profession-flag-fulu[value="0"] ~ .sheet-profession-flag-weaving[value="0"] ~ .sheet-notes-profession-content {
+  display: none !important;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content {
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-summary-grid {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(220px, 1.4fr);
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-note-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.charsheet .sheet-core .sheet-profession-body {
+  display: grid;
+  gap: 7px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  border-top: 1px solid var(--jtth-border, #b9aa92);
+  padding: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-fields,
+.charsheet .sheet-core .sheet-profession-repeater {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-fields {
+  background: var(--jtth-panel-soft, #efe7d8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-summary-grid label,
+.charsheet .sheet-core .sheet-profession-fields label {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  min-width: 0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-summary-grid input,
+.charsheet .sheet-core .sheet-profession-fields input,
+.charsheet .sheet-core .sheet-profession-fields select,
+.charsheet .sheet-core .sheet-profession-repeater input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 18px;
+  padding: 0 3px;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-note-grid {
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-note-grid label {
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-note-grid textarea {
+  min-height: 92px;
+  margin-top: 3px;
+  resize: vertical;
+}
+
+.charsheet .sheet-core .sheet-profession-panel fieldset {
+  border: 1px solid var(--jtth-border, #b9aa92);
+  background: var(--jtth-paper, #f7f0e3);
+  border-radius: 3px;
+  margin: 0;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-panel .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-panel {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="1"] ~ .sheet-notes-profession-content .sheet-profession-alchemy,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-array[value="1"] ~ .sheet-notes-profession-content .sheet-profession-array,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-carving[value="1"] ~ .sheet-notes-profession-content .sheet-profession-carving,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-doctor[value="1"] ~ .sheet-notes-profession-content .sheet-profession-doctor,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-forging[value="1"] ~ .sheet-notes-profession-content .sheet-profession-forging,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-fulu[value="1"] ~ .sheet-notes-profession-content .sheet-profession-fulu,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-weaving[value="1"] ~ .sheet-notes-profession-content .sheet-profession-weaving {
+  display: block;
 }
 
 .charsheet .sheet-core .sheet-page-options .sheet-form-group input,

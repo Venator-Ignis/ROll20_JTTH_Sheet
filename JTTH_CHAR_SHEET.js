@@ -49,6 +49,94 @@ var jtth_repeating_sum = function(section, value_attr, callback) {
     });
 };
 
+var JTTH_HP_REALM_BONUSES = {
+    "Qi Gathering": { "Early": 1, "Mid": 2, "Late": 3, "Peak": 4 },
+    "Foundation": { "Early": 7, "Mid": 9, "Late": 11, "Peak": 13 },
+    "Core Formation": { "Early": 22, "Mid": 28, "Late": 34, "Peak": 40 },
+    "Martial Soul": { "Early": 85, "Mid": 115, "Late": 145, "Peak": 175 },
+    "God Ascendance": { "Early": 400, "Mid": 550, "Late": 700, "Peak": 850 }
+};
+
+var JTTH_HP_REALM_ORDER = [
+    { major: "Qi Gathering", minor: "Early" },
+    { major: "Qi Gathering", minor: "Mid" },
+    { major: "Qi Gathering", minor: "Late" },
+    { major: "Qi Gathering", minor: "Peak" },
+    { major: "Foundation", minor: "Early" },
+    { major: "Foundation", minor: "Mid" },
+    { major: "Foundation", minor: "Late" },
+    { major: "Foundation", minor: "Peak" },
+    { major: "Core Formation", minor: "Early" },
+    { major: "Core Formation", minor: "Mid" },
+    { major: "Core Formation", minor: "Late" },
+    { major: "Core Formation", minor: "Peak" },
+    { major: "Martial Soul", minor: "Early" },
+    { major: "Martial Soul", minor: "Mid" },
+    { major: "Martial Soul", minor: "Late" },
+    { major: "Martial Soul", minor: "Peak" },
+    { major: "God Ascendance", minor: "Early" },
+    { major: "God Ascendance", minor: "Mid" },
+    { major: "God Ascendance", minor: "Late" },
+    { major: "God Ascendance", minor: "Peak" }
+];
+
+var jtth_hp_realm_bonus = function(major, minor) {
+    return JTTH_HP_REALM_BONUSES[major] && JTTH_HP_REALM_BONUSES[major][minor] ? JTTH_HP_REALM_BONUSES[major][minor] : 0;
+};
+
+var jtth_hp_realm_label = function(major, minor) {
+    if (!major || major === "Mortal") { return "Mortal"; }
+    return (minor && minor !== "-" ? minor + " " : "") + major;
+};
+
+var jtth_hp_next_realm = function(major, minor) {
+    var current_index = -1;
+    _.each(JTTH_HP_REALM_ORDER, function(realm, index) {
+        if (realm.major === major && realm.minor === minor) { current_index = index; }
+    });
+    return current_index >= 0 && current_index + 1 < JTTH_HP_REALM_ORDER.length ? JTTH_HP_REALM_ORDER[current_index + 1] : null;
+};
+
+var jtth_hp_percent_value = function(value) {
+    var amount = jtth_float(value);
+    if (Math.abs(amount) > 1) { amount = amount / 100; }
+    return amount;
+};
+
+var jtth_hp_dice_parts = function(value) {
+    var text = String(value || "").replace(/\s+/g, "");
+    var match = text.match(/(\d*)d(\d+)/i);
+    var matches = text.match(/[+-]\d+(?:\.\d+)?/g);
+    var flat = 0;
+    _.each(matches || [], function(part) { flat += jtth_float(part); });
+    if (!match) { return { count: 0, sides: 0, flat: jtth_float(text) }; }
+    return { count: match[1] ? jtth_int(match[1]) : 1, sides: jtth_int(match[2]), flat: flat };
+};
+
+var jtth_hp_dice_flat = function(value) {
+    return jtth_hp_dice_parts(value).flat;
+};
+
+var jtth_hp_signed_flat = function(value) {
+    if (!value) { return ""; }
+    return value > 0 ? "+" + jtth_clean_number(value) : jtth_clean_number(value);
+};
+
+var jtth_hp_roll_expr = function(hp_die, multiplier, include_flat) {
+    var dice = jtth_hp_dice_parts(hp_die);
+    var count = dice.count * Math.max(0, multiplier);
+    var expr = count && dice.sides ? jtth_clean_number(count) + "d" + jtth_clean_number(dice.sides) : "0";
+    if (include_flat) { expr += jtth_hp_signed_flat(dice.flat); }
+    return expr;
+};
+
+var jtth_hp_average = function(hp_die, multiplier, include_flat) {
+    var dice = jtth_hp_dice_parts(hp_die);
+    var total = dice.count * Math.max(0, multiplier) * ((dice.sides + 1) / 2);
+    if (include_flat) { total += dice.flat; }
+    return Math.floor(total);
+};
+
 /* ================================
 ATTRIBUTE TOTALS
 ================================ */
@@ -346,9 +434,83 @@ var jtth_apply_inventory_modifier = function(base, modifier) {
     return amount ? base + amount : base;
 };
 
+var update_health = function(callback) {
+    getSectionIDs("repeating_hpmod", function(hpmod_ids) {
+        var fields = [
+            "hp_auto_flag", "hp_die", "hp_rolled", "hp_bloodline_bonus", "major_realm", "minor_realm",
+            "vitality", "vitality_base", "vitality_bonus", "global_attribute_bonus"
+        ];
+        _.each(hpmod_ids, function(id) {
+            fields.push("repeating_hpmod_" + id + "_hp_mod_active");
+            fields.push("repeating_hpmod_" + id + "_hp_mod_value");
+            fields.push("repeating_hpmod_" + id + "_hp_mod_type");
+        });
+        getAttrs(fields, function(attrs) {
+            var major = attrs.major_realm || "";
+            var minor = attrs.minor_realm || "";
+            var realm_bonus = jtth_hp_realm_bonus(major, minor);
+            var next_realm = jtth_hp_next_realm(major, minor);
+            var next_realm_bonus = next_realm ? jtth_hp_realm_bonus(next_realm.major, next_realm.minor) : realm_bonus;
+            var next_gain_bonus = Math.max(0, next_realm_bonus - realm_bonus);
+            var current_roll_expr = jtth_hp_roll_expr(attrs.hp_die, realm_bonus, false);
+            var next_roll_expr = jtth_hp_roll_expr(attrs.hp_die, next_gain_bonus, false);
+            var vitality = jtth_stat_value("vitality", attrs);
+            var bloodline_total = jtth_float(attrs.hp_bloodline_bonus) * realm_bonus;
+            var vitality_total = vitality * realm_bonus;
+            var flat_total = 0;
+            var vitality_percent = Math.floor(vitality / 50) * 0.05;
+            var mod_percent_total = 0;
+
+            _.each(hpmod_ids, function(id) {
+                var prefix = "repeating_hpmod_" + id + "_";
+                if (attrs[prefix + "hp_mod_active"] === "0") { return; }
+                var value = jtth_float(attrs[prefix + "hp_mod_value"]);
+                if ((attrs[prefix + "hp_mod_type"] || "flat") === "percent") {
+                    mod_percent_total += jtth_hp_percent_value(value);
+                } else {
+                    flat_total += value;
+                }
+            });
+
+            var dice_flat = jtth_hp_dice_flat(attrs.hp_die);
+            var base_total = jtth_float(attrs.hp_rolled) + dice_flat + bloodline_total + vitality_total + flat_total;
+            var percent_total = vitality_percent + mod_percent_total;
+            var auto_total = Math.floor(base_total * (1 + percent_total));
+            var current_label = jtth_hp_realm_label(major, minor);
+            var next_label = next_realm ? jtth_hp_realm_label(next_realm.major, next_realm.minor) : "Maximum Realm";
+            var updates = {
+                hp_dice_flat: jtth_clean_number(dice_flat),
+                hp_realm_bonus: jtth_clean_number(realm_bonus),
+                hp_bloodline_total: jtth_clean_number(bloodline_total),
+                hp_vitality_total: jtth_clean_number(vitality_total),
+                hp_vitality_percent: jtth_clean_number(vitality_percent * 100) + "%",
+                hp_mod_flat_total: jtth_clean_number(flat_total),
+                hp_mod_percent_total: jtth_clean_number(mod_percent_total * 100) + "%",
+                hp_auto_total: jtth_clean_number(auto_total),
+                hp_roll_current_macro: "&{template:simple} @{charname_output} {{rname=Current Realm HP}} {{mod=" + current_label + "}} {{r1=[[" + current_roll_expr + "]]}}",
+                hp_roll_next_macro: "&{template:features} @{charname_output} {{name=Realm Health Gain}} {{source=" + current_label + " to " + next_label + "}} {{description=Current Realm: " + current_label + " &#10; Current Health: @{hp_rolled} &#10; Next Realm: " + next_label + " &#10; Gained Health: [[" + next_roll_expr + "]] &#10; Total New Rolled Health: [[@{hp_rolled}+" + next_roll_expr + "]]}}"
+            };
+            if (attrs.hp_auto_flag === "1") {
+                updates.hp_max = jtth_clean_number(auto_total);
+            }
+            setAttrs(updates, { silent: true }, function() {
+                update_beast_parts();
+                if (callback) { callback(); }
+            });
+        });
+    });
+};
+
+var set_hp_average = function() {
+    getAttrs(["hp_die", "major_realm", "minor_realm"], function(attrs) {
+        var average = jtth_hp_average(attrs.hp_die, jtth_hp_realm_bonus(attrs.major_realm || "", attrs.minor_realm || ""), false);
+        setAttrs({ hp_rolled: jtth_clean_number(average) }, { silent: true }, function() { update_health(); });
+    });
+};
+
 var update_weight = function() {
     getSectionIDs("repeating_inventory", function(inventory_ids) {
-        var fields = ["power", "carrying_capacity_mod", "inventory_slots_mod", "use_inventory_slots"];
+        var fields = ["power", "carrying_capacity_mod", "inventory_slots_mod", "use_inventory_slots", "inventory_equipped_weight_only"];
         _.each(inventory_ids, function(id) {
             fields.push("repeating_inventory_" + id + "_itemweight");
             fields.push("repeating_inventory_" + id + "_itemcount");
@@ -371,7 +533,11 @@ var update_weight = function() {
                 var prefix = "repeating_inventory_" + id + "_";
                 var equipped = attrs[prefix + "equipped"] === "1";
                 var carried = attrs[prefix + "carried"] === "1";
-                if (!equipped && !carried) { return; }
+                if (attrs.inventory_equipped_weight_only === "1") {
+                    if (!equipped) { return; }
+                } else if (!equipped && !carried) {
+                    return;
+                }
 
                 if (attrs[prefix + "itemcontainer"] === "1") {
                     if (equipped) {
@@ -685,7 +851,7 @@ var update_attacks = function() {
     });
 };
 
-var update_dependents = function() { update_skills(); update_initiative(); update_dcs(); update_defence_totals(); update_weight(); update_attacks(); update_beast_parts(); };
+var update_dependents = function() { update_skills(); update_initiative(); update_dcs(); update_defence_totals(); update_health(); update_weight(); update_attacks(); update_beast_parts(); };
 var update_all_calculations = function() { update_attributes(function() { update_dependents(); }); };
 
 /* ================================
@@ -706,7 +872,9 @@ on("change:repeating_evasionsource:evasion_value remove:repeating_evasionsource"
 on("change:repeating_durabilitysource:durability_value remove:repeating_durabilitysource", function() { update_durability(); });
 on("change:repeating_reductionsource:reduction_value remove:repeating_reductionsource", function() { update_reduction(); });
 on("change:hp_max change:repeating_beastparts:part_name change:repeating_beastparts:part_quality remove:repeating_beastparts", function() { update_beast_parts(); });
+on("change:hp_auto_flag change:hp_die change:hp_rolled change:hp_bloodline_bonus change:major_realm change:minor_realm change:vitality change:vitality_base change:vitality_bonus change:global_attribute_bonus change:repeating_hpmod:hp_mod_active change:repeating_hpmod:hp_mod_value change:repeating_hpmod:hp_mod_type remove:repeating_hpmod", function() { update_health(); });
+on("clicked:hp_average", function() { set_hp_average(); });
 on("change:repeating_inventory:equipped change:repeating_inventory:itemmodifiers remove:repeating_inventory", function() { update_all_calculations(); });
-on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:use_inventory_slots change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier remove:repeating_inventory", function() { update_weight(); });
+on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:use_inventory_slots change:inventory_equipped_weight_only change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier remove:repeating_inventory", function() { update_weight(); });
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
 on("change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { update_attacks(); });
