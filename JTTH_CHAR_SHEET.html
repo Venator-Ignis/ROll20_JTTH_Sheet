@@ -215,8 +215,7 @@
                                         name="attr_skill_tech_tab" type="radio" value="techniques" />
                                     <div class="sheet-skill-tech-header">
                                         <span class="sheet-skill-tech-label sheet-skill-tech-label-skills">SKILLS</span>
-                                        <span
-                                            class="sheet-skill-tech-label sheet-skill-tech-label-techniques">TECHNIQUES</span>
+                                        <span class="sheet-skill-tech-label sheet-skill-tech-label-techniques">TECHNIQUES</span>
                                     </div>
                                     <div class="sheet-container-body sheet-skill-tech-content sheet-skill-list-content">
                                         <div class="sheet-skill">
@@ -433,7 +432,7 @@
                                                         </div>
                                                         <button class="output btn sheet-technique-output"
                                                             name="roll_technique" type="roll"
-                                                            value="@{whispertoggle}&{template:features} @{charname_output} {{name=@{technique_name}}} {{source=@{technique_manual}}} {{description=Damage: @{technique_damage_scale}&#10;Range: @{technique_range}&#10;Cost: @{technique_ap_cost} AP, @{technique_qi_cost} Qi&#10;Tags: @{technique_tags}&#10;RoR Tags: @{technique_ror_tags}&#10;&#10;@{technique_description}}}">w</button>
+                                                            value="@{whispertoggle}&{template:features} @{charname_output} {{name=@{technique_name}}} {{source=@{technique_manual}}} {{highlight=@{technique_description}}} {{description=Damage: @{technique_damage_scale}&#10;Range: @{technique_range}&#10;Cost: @{technique_ap_cost} AP, @{technique_qi_cost} Qi&#10;Tags: @{technique_tags}&#10;RoR Tags: @{technique_ror_tags}}}">w</button>
                                                         <div class="sheet-technique-summary">
                                                             <span class="sheet-technique-manual"
                                                                 name="attr_technique_manual"></span>
@@ -495,9 +494,11 @@
                                                         <button name="roll_roll" type="roll"
                                                             value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{r1=[[@{tool_roll}+@{tool_mod}[BONUS]]]}} {{type=Custom}}">
                                                             <span name="attr_toolname"></span>
+                                                            <span>(</span>
                                                             <span name="attr_tool_roll"></span>
                                                             <span>+</span>
                                                             <span name="attr_tool_mod"></span>
+                                                            <span>)</span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1522,52 +1523,6 @@
                             </div>
                         </div>
                         <div class="sheet-container-well sheet-container-well-memories">
-                            <div class="sheet-container-panel sheet-pc-custom-rolls">
-                                <div class="sheet-container-header">Custom Skills</div>
-                                <div class="sheet-container-body">
-                                    <fieldset class="repeating_customskill">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-tool">
-                                            <div class="sheet-checkbox-cog">
-                                                <input checked="checked" name="attr_options-flag"
-                                                    type="checkbox" /><span></span>
-                                                <span class="sheet-toggle-icon"></span>
-                                            </div>
-                                            <input checked="checked" class="sheet-toggle" hidden=""
-                                                name="attr_options-flag" type="checkbox" />
-                                            <div class="sheet-toggle-checked">
-                                                <div class="sheet-form">
-                                                    <div class="sheet-form-header">Edit Custom Skill</div>
-                                                    <div class="sheet-form-body">
-                                                        <div class="sheet-form-group">
-                                                            <label>Name:</label>
-                                                            <input name="attr_toolname" type="text" />
-                                                        </div>
-                                                        <div class="sheet-form-group">
-                                                            <label>Roll:</label>
-                                                            <input name="attr_tool_roll" title="@{tool_roll}"
-                                                                type="text" value="0" />
-                                                            <label>Mods:</label>
-                                                            <input name="attr_tool_mod" title="@{tool_mod}" type="text"
-                                                                value="0" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="sheet-toggle-unchecked">
-                                                <div class="sheet-pc-tool">
-                                                    <button name="roll_roll" type="roll"
-                                                        value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=@{toolname}}} {{r1=[[@{tool_roll}+@{tool_mod}[BONUS]]]}}">
-                                                        <span name="attr_toolname"></span>
-                                                        <span name="attr_tool_roll"></span>
-                                                        <span>+</span>
-                                                        <span name="attr_tool_mod"></span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                            </div>
                             <div class="sheet-container-panel sheet-pc-memories">
                                 <div class="sheet-container-header">Memories & Events</div>
                                 <div class="sheet-container-body">
@@ -1775,58 +1730,6 @@
                     <input name="attr_page" type="radio" value="inventory" />
                     <span class="sheet-page-label">INVENTORY</span>
                     <div class="sheet-page-content">
-                        <div class="sheet-container-well sheet-container-well-inventory-supplies">
-                            <div class="sheet-container-bar sheet-pc-rations">
-                                <div class="sheet-container-header">Rations</div>
-                                <div class="sheet-container-body">
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_ration_1" title="@{ration_1}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_ration_2" title="@{ration_2}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_ration_3" title="@{ration_3}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_ration_4" title="@{ration_4}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_ration_5" title="@{ration_5}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sheet-container-bar sheet-pc-water">
-                                <div class="sheet-container-header">Waterskin</div>
-                                <div class="sheet-container-body">
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_waterskin_1" title="@{waterskin_1}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_waterskin_2" title="@{waterskin_2}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_waterskin_3" title="@{waterskin_3}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_waterskin_4" title="@{waterskin_4}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                    <div class="sheet-checkbox-image">
-                                        <input name="attr_waterskin_5" title="@{waterskin_5}" type="checkbox" />
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="sheet-container-well sheet-container-well-inventory-purse">
                             <div class="sheet-container-bar sheet-pc-purse-cc">
                                 <div class="sheet-container-header">
@@ -2218,12 +2121,26 @@
                                 <div class="sheet-container-body">
                                     <div class="sheet-form sheet-form-borderless">
                                         <div class="sheet-form-body">
-                                            <div class="sheet-form-group"><label>Character Type:</label><select name="attr_ctype" title="@{{ctype}}"><option selected="selected" value="m">Mortal</option><option value="c">Cultivator</option><option value="b">Beast</option></select></div>
-                                            <div class="sheet-form-group"><label>Mortal Level:</label><input name="attr_mortal-level" title="@{{mortal-level}}" type="number" value="0" /></div>
-                                            <div class="sheet-form-group"><label>Major Realm:</label><select name="attr_major_realm" title="@{{major_realm}}"><option selected="selected" value="Mortal">Mortal</option><option value="Qi Gathering">Qi Gathering</option><option value="Foundation">Foundation</option><option value="Core Formation">Core Formation</option><option value="Martial Soul">Martial Soul</option><option value="God Ascendance">God Ascendance</option></select></div>
-                                            <div class="sheet-form-group"><label>Minor Realm:</label><select name="attr_minor_realm" title="@{{minor_realm}}"><option selected="selected" value="-">-</option><option value="Early">Early</option><option value="Mid">Mid</option><option value="Late">Late</option><option value="Peak">Peak</option></select></div>
-                                            <div class="sheet-form-group"><label>Carrying Capacity Modifier:</label><input name="attr_carrying_capacity_mod" placeholder="*2/+2/-2" title="@{{carrying_capacity_mod}}" type="text" /></div>
-                                            <div class="sheet-form-group"><label>Inventory Slots Modifier:</label><input name="attr_inventory_slots_mod" placeholder="*2/+2/-2" title="@{{inventory_slots_mod}}" type="text" /></div>
+                                            <div class="sheet-form-group">
+                                                <label>Character Type:</label>
+                                                <select name="attr_ctype" title="@{{ctype}}">
+                                                    <option selected="selected" value="m">Mortal</option>
+                                                    <option value="c">Cultivator</option>
+                                                    <option value="b">Beast</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Carrying Capacity Modifier:</label>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <input name="attr_carrying_capacity_mod" placeholder="*2/+2/-2" title="@{{carrying_capacity_mod}}" type="text" />
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Inventory Slots Modifier:</label>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <input name="attr_inventory_slots_mod" placeholder="*2/+2/-2" title="@{{inventory_slots_mod}}" type="text" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -2232,11 +2149,41 @@
                                 <div class="sheet-container-header">ROLL BEHAVIOUR</div>
                                 <div class="sheet-container-body">
                                     <div class="sheet-form sheet-form-borderless"><div class="sheet-form-body">
-                                        <div class="sheet-form-group"><label>Whisper Rolls to GM:</label><select name="attr_wtype" title="@{{wtype}}"><option value="">Never Whisper Rolls</option><option value="@{{whispertoggle}}">Whisper Toggle</option><option value="?{{Whisper?|Public Roll,|Whisper Roll,/w gm }}">Query Whisper</option><option value="/w gm ">Always Whisper Rolls</option></select></div>
-                                        <div class="sheet-form-group"><label>Auto Damage Roll:</label><select name="attr_dtype" title="@{{dtype}}"><option selected="selected" value="pick">Do Not Auto Roll Damage</option><option value="full">Auto Roll Damage</option></select></div>
-                                        <div class="sheet-form-group"><label>Add Character Name to Templates:</label><select name="attr_charname_output" title="@{charname_output}"><option value="{{charname=@{character_name}}}">On</option><option value="charname=@{character_name}" selected="selected">Off</option></select></div>
-                                        <div class="sheet-form-group"><label>Initiative Bonus:</label><input name="attr_initiative_bonus" title="@{{initiative_bonus}}" type="number" value="0" /></div>
-                                    </div></div>
+                                        <div class="sheet-form-group">
+                                            <label>Whisper Rolls to GM:</label>
+                                        </div>
+                                        <div class="sheet-form-group">
+                                            <select name="attr_wtype" title="@{{wtype}}">
+                                                <option value="">Never Whisper Rolls</option>
+                                                <option value="@{{whispertoggle}}">Whisper Toggle</option>
+                                                <option value="?{{Whisper?|Public Roll,|Whisper Roll,/w gm }}">Query Whisper</option>
+                                                <option value="/w gm ">Always Whisper Rolls</option>
+                                            </select>
+                                        </div>
+                                        <div class="sheet-form-group">
+                                            <label>Auto Damage Roll:</label>
+                                        </div>
+                                        <div class="sheet-form-group">
+                                            <select name="attr_dtype" title="@{{dtype}}">
+                                                <option selected="selected" value="pick">Do Not Auto Roll Damage</option>
+                                                <option value="full">Auto Roll Damage</option>
+                                            </select>
+                                        </div>
+                                        <div class="sheet-form-group">
+                                            <label>Add Character Name to Templates:</label>
+                                        </div>
+                                        <div class="sheet-form-group">
+                                            <select name="attr_charname_output" title="@{charname_output}">
+                                                <option value="{{charname=@{character_name}}}">On</option>
+                                                <option value="charname=@{character_name}" selected="selected">Off</option>
+                                            </select>
+                                        </div>
+                                        <div class="sheet-form-group">
+                                            <label>Initiative Bonus:</label>
+                                            <input name="attr_initiative_bonus" title="@{{initiative_bonus}}" type="number" value="0" />
+                                        </div>
+                                    </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-pc-option-global">
@@ -2387,7 +2334,7 @@
         <rolltemplate class="sheet-rolltemplate-atk">
             <div class="template-container">
                 <div class="template-label">
-                    <span>{{rname}}<span> {{mod}}</span></span>
+                    <span>{{rname}}<span> ( {{mod}} )</span></span>
                 </div>
                 {{#range}}
                 <div class="template-sublabel">
@@ -2426,7 +2373,7 @@
         <rolltemplate class="sheet-rolltemplate-atkdmg">
             <div class="template-container">
                 <div class="template-label">
-                    <span>{{rname}}<span> {{mod}}</span></span>
+                    <span>{{rname}}<span> ( {{mod}} )</span></span>
                 </div>
                 {{#range}}
                 <div class="template-sublabel">
@@ -2564,32 +2511,19 @@
                 </div>
                 {{#source}}
                 <div class="template-row subheader">
-                    <span class="italics">{{#charname}}{{charname}} {{/charname}}{{source}}</span>
+                    <span class="italics">{{source}}</span>
                 </div>
                 {{/source}}
+                {{#highlight}}
+                <div class="template-row highlight">
+                    <span class="desc">{{highlight}}</span>
+                </div>
+                {{/highlight}}
                 {{#description}}
                 <div class="template-row">
                     <span class="desc">{{description}}</span>
                 </div>
                 {{/description}}
-            </div>
-        </rolltemplate>
-        <rolltemplate class="sheet-rolltemplate-tool">
-            <div class="template-container">
-                <div class="template-label">
-                    <span>{{rname}}<span> {{mod}}</span></span>
-                </div>
-                <div class="template-result">
-                    <div class="template-solo">
-                        <em>Result</em>
-                        <span>{{r1}}</span>
-                    </div>
-                </div>
-                {{#charname}}
-                <div class="template-charname">
-                    <span>{{charname}}</span>
-                </div>
-                {{/charname}}
             </div>
         </rolltemplate>
         <rolltemplate class="sheet-rolltemplate-simple">
@@ -2601,29 +2535,6 @@
                     <div class="template-solo">
                         <em>Result</em>
                         <span>{{r1}}</span>
-                    </div>
-                </div>
-                {{#charname}}
-                <div class="template-charname">
-                    <span>{{charname}}</span>
-                </div>
-                {{/charname}}
-            </div>
-        </rolltemplate>
-        <rolltemplate class="sheet-rolltemplate-simple-add">
-            <div class="template-container">
-                <div class="template-label">
-                    <span>{{rname}}{{#mod}}<span> {{mod}}</span>{{/mod}}</span>
-                </div>
-                <div class="template-result">
-                    <div class="template-add">
-                        <em>First</em>
-                        <span>{{r1}}</span>
-                    </div>
-                    <div class="template-addspacer"></div>
-                    <div class="template-add">
-                        <em>Second</em>
-                        <span>{{r2}}</span>
                     </div>
                 </div>
                 {{#charname}}
