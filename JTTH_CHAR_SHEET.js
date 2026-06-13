@@ -783,6 +783,76 @@ var jtth_attack_roll = function(row, mod_total) {
     return "[[(" + attr + ") + (" + mod + ") + " + mod_total + "]]";
 };
 
+var apply_default_attack_stat = function(callback) {
+    getSectionIDs("repeating_attack", function(attack_ids) {
+        var fields = ["default_attack_stat"];
+        _.each(attack_ids, function(id) {
+            fields.push("repeating_attack_" + id + "_atk_default_applied");
+            fields.push("repeating_attack_" + id + "_atkattr_base");
+        });
+        getAttrs(fields, function(attrs) {
+            var default_stat = attrs.default_attack_stat || "@{power}";
+            var updates = {};
+            _.each(attack_ids, function(id) {
+                var base = "repeating_attack_" + id + "_";
+                if (attrs[base + "atk_default_applied"] === "1") { return; }
+                if (attrs[base + "atkattr_base"] && attrs[base + "atkattr_base"] !== "@{power}") {
+                    updates[base + "atk_default_applied"] = "1";
+                    return;
+                }
+                updates[base + "atkattr_base"] = default_stat;
+                updates[base + "atk_default_applied"] = "1";
+            });
+            if (_.size(updates)) {
+                setAttrs(updates, { silent: true }, function() {
+                    if (callback) { callback(); }
+                });
+            } else if (callback) {
+                callback();
+            }
+        });
+    });
+};
+
+var add_default_attack = function() {
+    getAttrs(["default_attack_stat"], function(attrs) {
+        var id = generateRowID();
+        var base = "repeating_attack_" + id + "_";
+        var default_stat = attrs.default_attack_stat || "@{power}";
+        var updates = {};
+        updates[base + "row_anchor"] = "1";
+        updates[base + "options-flag"] = "on";
+        updates[base + "atkflag"] = "{{attack=1}}";
+        updates[base + "atkattr_base"] = default_stat;
+        updates[base + "atk_default_applied"] = "1";
+        updates[base + "dmgflag"] = "{{damage=1}} {{dmgflag=1}}";
+        updates[base + "dmgattr"] = default_stat;
+        updates[base + "dmg2attr"] = default_stat;
+        updates[base + "dmg3attr"] = default_stat;
+        updates[base + "dmg4attr"] = default_stat;
+        updates[base + "dmg3_visible"] = "0";
+        updates[base + "dmg4_visible"] = "0";
+        setAttrs(updates, { silent: true }, function() { update_attacks(); });
+    });
+};
+
+var mark_existing_attack_defaults = function() {
+    getSectionIDs("repeating_attack", function(attack_ids) {
+        var fields = [];
+        _.each(attack_ids, function(id) {
+            fields.push("repeating_attack_" + id + "_atk_default_applied");
+        });
+        getAttrs(fields, function(attrs) {
+            var updates = {};
+            _.each(attack_ids, function(id) {
+                var field = "repeating_attack_" + id + "_atk_default_applied";
+                if (attrs[field] !== "1") { updates[field] = "1"; }
+            });
+            if (_.size(updates)) { setAttrs(updates, { silent: true }); }
+        });
+    });
+};
+
 var update_attacks = function() {
     getSectionIDs("repeating_attack", function(attack_ids) {
         getSectionIDs("repeating_damagemod", function(mod_ids) {
@@ -859,7 +929,7 @@ EVENT LISTENERS
 ================================ */
 
 var jtth_attribute_events = ["change:power_base", "change:agility_base", "change:vitality_base", "change:cultivation_base", "change:qicontrol_base", "change:mental_base", "change:power_bonus", "change:agility_bonus", "change:vitality_bonus", "change:cultivation_bonus", "change:qicontrol_bonus", "change:mental_bonus", "change:global_attribute_bonus"];
-on("sheet:opened", function() { update_all_calculations(); });
+on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); });
 on(jtth_attribute_events.join(" "), function() { update_all_calculations(); });
 
 var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:global_skill_bonus", "change:repeating_inventory:equipped", "change:repeating_inventory:itemmodifiers", "remove:repeating_inventory"];
@@ -877,4 +947,5 @@ on("clicked:hp_average", function() { set_hp_average(); });
 on("change:repeating_inventory:equipped change:repeating_inventory:itemmodifiers remove:repeating_inventory", function() { update_all_calculations(); });
 on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:use_inventory_slots change:inventory_equipped_weight_only change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier remove:repeating_inventory", function() { update_weight(); });
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
-on("change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { update_attacks(); });
+on("clicked:add_attack", function() { add_default_attack(); });
+on("change:repeating_attack:row_anchor change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { apply_default_attack_stat(update_attacks); });

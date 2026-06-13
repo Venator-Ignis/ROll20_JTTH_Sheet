@@ -1127,6 +1127,37 @@
   padding: 0 5px;
 }
 
+.charsheet .sheet-core .sheet-panel-attacks .sheet-add-attack-button {
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+  height: 18px;
+  line-height: 14px;
+  margin-top: 5px;
+  padding: 1px 5px;
+  position: relative;
+  text-transform: uppercase;
+  width: 42px;
+  z-index: 3;
+  top: 5px;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .repcontrol .repcontrol_add {
+  visibility: hidden;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .repcontrol {
+  min-height: 23px;
+}
+
+.charsheet .sheet-core .sheet-panel-attacks .repcontrol + .sheet-add-attack-button {
+  margin-top: -23px;
+}
+
 .charsheet .sheet-core .repitem:not(:last-of-type) {
   margin-bottom: 2px;
 }
@@ -4898,6 +4929,7 @@
 }
 
 .charsheet .sheet-core .repcontrol .btn,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-add-attack-button,
 .charsheet .sheet-core .sheet-pc-tool,
 .charsheet .sheet-core .sheet-pc-feature .sheet-pc-feature-name,
 .charsheet .sheet-core .sheet-feature .sheet-feature-name,
@@ -4909,6 +4941,7 @@
 }
 
 .charsheet .sheet-core .repcontrol .btn:hover,
+.charsheet .sheet-core .sheet-panel-attacks .sheet-add-attack-button:hover,
 .charsheet .sheet-core .sheet-pc-tool:hover,
 .charsheet .sheet-core .sheet-technique-name:hover,
 .charsheet .sheet-core .sheet-pc-feature button:hover {
@@ -5053,6 +5086,7 @@
 }
 
 .sheet-darkmode .charsheet .sheet-core .repcontrol .btn,
+.sheet-darkmode .charsheet .sheet-core .sheet-panel-attacks .sheet-add-attack-button,
 .sheet-darkmode .charsheet .sheet-core .sheet-pc-tool,
 .sheet-darkmode .charsheet .sheet-core .sheet-pc-feature .sheet-pc-feature-name,
 .sheet-darkmode .charsheet .sheet-core .sheet-feature .sheet-feature-name,
@@ -5064,6 +5098,7 @@
 }
 
 .sheet-darkmode .charsheet .sheet-core .repcontrol .btn:hover,
+.sheet-darkmode .charsheet .sheet-core .sheet-panel-attacks .sheet-add-attack-button:hover,
 .sheet-darkmode .charsheet .sheet-core .sheet-pc-tool:hover,
 .sheet-darkmode .charsheet .sheet-core .sheet-technique-name:hover,
 .sheet-darkmode .charsheet .sheet-core .sheet-pc-feature button:hover {
