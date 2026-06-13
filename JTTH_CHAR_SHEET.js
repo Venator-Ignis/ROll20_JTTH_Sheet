@@ -49,55 +49,6 @@ var jtth_repeating_sum = function(section, value_attr, callback) {
     });
 };
 
-var JTTH_BULK_REPEATING_DEFAULTS = {
-    technique: { technique_name: "" },
-    tool: { toolname: "" },
-    beastparts: { part_name: "" },
-    defences: { defense_source: "" },
-    evasionsource: { evasion_source: "", evasion_value: "0" },
-    durabilitysource: { durability_source: "", durability_value: "0" },
-    reductionsource: { reduction_source: "", reduction_value: "0" },
-    tohitmod: { global_attack_active_flag: "1", global_attack_name: "", global_attack_roll: "0" },
-    damagemod: { global_damage_active_flag: "1", global_damage_name: "", global_damage_damage: "0" },
-    attack: { atkname: "" },
-    feature: { name: "" },
-    resource: { resource_name: "" },
-    memories: { memory_name: "" },
-    notes: { note_name: "" },
-    traits: { name: "" },
-    alchemybatch: { batch_name: "" },
-    arraypattern: { pattern_name: "" },
-    carvingwork: { work_name: "" },
-    doctorcase: { case_patient: "" },
-    forgingproject: { project_item: "" },
-    fulutalisman: { talisman_name: "" },
-    weavingproject: { project_name: "" },
-    otheritems: { "otheritem-name": "" },
-    inventory: { itemname: "", equipped: "1", carried: "1" },
-    hpmod: { hp_mod_active: "1", hp_mod_source: "", hp_mod_value: "0", hp_mod_type: "flat" }
-};
-
-var jtth_repeating_row_id = function() {
-    return typeof generateRowID === "function" ? generateRowID() : ("row" + Math.random().toString(36).slice(2));
-};
-
-var add_bulk_repeating_rows = function() {
-    getAttrs(["bulk_repeating_section", "bulk_repeating_count"], function(attrs) {
-        var section = attrs.bulk_repeating_section || "attack";
-        var defaults = JTTH_BULK_REPEATING_DEFAULTS[section];
-        if (!defaults) { return; }
-        var count = Math.max(1, Math.min(20, jtth_int(attrs.bulk_repeating_count) || 1));
-        var updates = {};
-        for (var i = 0; i < count; i++) {
-            var row_id = jtth_repeating_row_id();
-            _.each(defaults, function(value, attr_name) {
-                updates["repeating_" + section + "_" + row_id + "_" + attr_name] = value;
-            });
-        }
-        setAttrs(updates, { silent: true }, function() { update_all_calculations(); });
-    });
-};
-
 var JTTH_HP_REALM_BONUSES = {
     "Qi Gathering": { "Early": 1, "Mid": 2, "Late": 3, "Peak": 4 },
     "Foundation": { "Early": 7, "Mid": 9, "Late": 11, "Peak": 13 },
@@ -536,7 +487,7 @@ var update_health = function(callback) {
                 hp_mod_flat_total: jtth_clean_number(flat_total),
                 hp_mod_percent_total: jtth_clean_number(mod_percent_total * 100) + "%",
                 hp_auto_total: jtth_clean_number(auto_total),
-                hp_roll_current_macro: "&{template:simple} @{charname_output} {{rname=Current Realm HP}} {{mod=" + current_label + "}} {{r1=[[" + current_roll_expr + "]]}}",
+                hp_roll_current_macro: "&{template:simple} @{charname_output} {{rname=Current Realm HP}} {{r1=[[" + current_roll_expr + "]]}}",
                 hp_roll_next_macro: "&{template:features} @{charname_output} {{name=Realm Health Gain}} {{source=" + current_label + " to " + next_label + "}} {{description=Current Realm: " + current_label + " &#10; Current Health: @{hp_rolled} &#10; Next Realm: " + next_label + " &#10; Gained Health: [[" + next_roll_expr + "]] &#10; Total New Rolled Health: [[@{hp_rolled}+" + next_roll_expr + "]]}}"
             };
             if (attrs.hp_auto_flag === "1") {
@@ -923,7 +874,6 @@ on("change:repeating_reductionsource:reduction_value remove:repeating_reductions
 on("change:hp_max change:repeating_beastparts:part_name change:repeating_beastparts:part_quality remove:repeating_beastparts", function() { update_beast_parts(); });
 on("change:hp_auto_flag change:hp_die change:hp_rolled change:hp_bloodline_bonus change:major_realm change:minor_realm change:vitality change:vitality_base change:vitality_bonus change:global_attribute_bonus change:repeating_hpmod:hp_mod_active change:repeating_hpmod:hp_mod_value change:repeating_hpmod:hp_mod_type remove:repeating_hpmod", function() { update_health(); });
 on("clicked:hp_average", function() { set_hp_average(); });
-on("clicked:bulk_add_repeating", function() { add_bulk_repeating_rows(); });
 on("change:repeating_inventory:equipped change:repeating_inventory:itemmodifiers remove:repeating_inventory", function() { update_all_calculations(); });
 on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:use_inventory_slots change:inventory_equipped_weight_only change:repeating_inventory:itemcontainer change:repeating_inventory:equipped change:repeating_inventory:carried change:repeating_inventory:itemweight change:repeating_inventory:itemcount change:repeating_inventory:itemweightfixed change:repeating_inventory:itemslotsfixed change:repeating_inventory:itemsize change:repeating_inventory:itemcontainer_slots change:repeating_inventory:itemcontainer_slots_modifier remove:repeating_inventory", function() { update_weight(); });
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });

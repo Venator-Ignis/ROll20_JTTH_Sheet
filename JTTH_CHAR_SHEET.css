@@ -3351,36 +3351,6 @@
   line-height: 14px;
 }
 
-.charsheet .sheet-core .sheet-bulk-repeater-tool {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 44px 68px;
-  gap: 4px;
-  align-items: end;
-  border-top: 1px dotted var(--jtth-border, #b9aa92);
-  margin-top: 5px;
-  padding-top: 5px;
-}
-
-.charsheet .sheet-core .sheet-bulk-repeater-tool > label {
-  grid-column: 1 / -1;
-  margin: 0;
-  font-size: 9px;
-  font-weight: 800;
-  line-height: 12px;
-  text-transform: uppercase;
-}
-
-.charsheet .sheet-core .sheet-bulk-repeater-tool select,
-.charsheet .sheet-core .sheet-bulk-repeater-tool input,
-.charsheet .sheet-core .sheet-bulk-repeater-tool button {
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-  height: 18px;
-  padding: 0 3px;
-  font-size: 9px;
-}
-
 .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab {
   display: none;
 }
