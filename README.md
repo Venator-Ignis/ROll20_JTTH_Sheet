@@ -65,7 +65,9 @@ The sheet uses Roll20 repeating sections for:
 - `repeating_memories`
 - `repeating_notes`
 - `repeating_traits`
-- `repeating_alchemybatch`
+- `repeating_alchemybonus`
+- `repeating_alchemyrecipe`
+- `repeating_alchemyingredient`
 - `repeating_arraypattern`
 - `repeating_carvingwork`
 - `repeating_doctorcase`

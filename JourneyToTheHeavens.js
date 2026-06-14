@@ -1,4 +1,3 @@
-
 /* ================================
 JTTH HELPERS
 ================================ */
@@ -752,16 +751,28 @@ var jtth_signed_text = function(value) {
     return (number > 0 ? "+" : "") + number;
 };
 
-var jtth_attack_display = function(row, attrs, mod_total) {
+var jtth_signed_zero_text = function(value) {
+    var number = jtth_flat_number(value);
+    return (number > 0 ? "+" : "") + number;
+};
+
+var jtth_attack_stat_value = function(value, multiplier) {
+    return Math.floor(jtth_int(value) * multiplier);
+};
+
+var jtth_attack_display = function(row, attrs, acc_mod_total, eff_mod_total) {
     var attr_name = jtth_attr_name_from_ref(row.atkattr_base);
     var attr_value = attr_name ? jtth_int(attrs[attr_name]) : 0;
+    var acc_attr_value = jtth_attack_stat_value(attr_value, 1);
+    var eff_attr_value = jtth_attack_stat_value(attr_value, 0.75);
     var local_mod = jtth_flat_number(row.atkmod);
-    var total = attr_value + local_mod + mod_total;
+    var acc_total = acc_attr_value + local_mod + acc_mod_total;
+    var eff_total = eff_attr_value + local_mod + eff_mod_total;
     var parts = [];
-    if (attr_name) { parts.push(attr_name.substring(0, 3).toUpperCase() + " " + attr_value); }
+    if (attr_name) { parts.push(attr_name.substring(0, 3).toUpperCase() + " " + acc_attr_value + "/" + eff_attr_value); }
     if (local_mod) { parts.push(jtth_signed_text(local_mod)); }
-    if (mod_total) { parts.push(jtth_signed_text(mod_total)); }
-    return (total >= 0 ? "+" : "") + total + (parts.length ? " (" + parts.join(" ") + ")" : "");
+    if (acc_mod_total || eff_mod_total) { parts.push(jtth_signed_zero_text(acc_mod_total) + "/" + jtth_signed_zero_text(eff_mod_total)); }
+    return "ACC " + (acc_total >= 0 ? "+" : "") + acc_total + " / PEN " + (eff_total >= 0 ? "+" : "") + eff_total + (parts.length ? " (" + parts.join(" ") + ")" : "");
 };
 
 var jtth_damage_display = function(row, prefix, type, attrs, mod_totals, intent_share) {
@@ -776,10 +787,13 @@ var jtth_damage_display = function(row, prefix, type, attrs, mod_totals, intent_
     return total + (type ? " " + type : "");
 };
 
-var jtth_attack_roll = function(row, mod_total) {
+var jtth_attack_roll = function(row, mod_total, stat_multiplier) {
     var attr = jtth_macro_text(row.atkattr_base, "0");
     var mod = jtth_number_text(row.atkmod, "0");
-    return "[[(" + attr + ") + (" + mod + ") + " + mod_total + "]]";
+    var multiplier = jtth_float(stat_multiplier);
+    if (!multiplier) { multiplier = 1; }
+    var attr_expr = multiplier === 1 ? "(" + attr + ")" : "floor((" + attr + ") * " + multiplier + ")";
+    return "[[" + attr_expr + " + (" + mod + ") + " + mod_total + "]]";
 };
 
 var apply_default_attack_stat = function(callback) {
@@ -889,8 +903,10 @@ var update_attacks = function() {
                         var dmg3_on = dmg2_on && !!row.dmg3flag;
                         var dmg4_on = dmg3_on && !!row.dmg4flag;
                     var intent_shares = jtth_intent_shares(mod_totals.intent, [row.dmgflag && row.dmgintentflag === "1", dmg2_on && row.dmg2intentflag === "1", dmg3_on && row.dmg3intentflag === "1", dmg4_on && row.dmg4intentflag === "1"]);
-                        var acc_roll = jtth_attack_roll(row, attack_mod_totals.both + attack_mod_totals.acc);
-                        var eff_roll = jtth_attack_roll(row, attack_mod_totals.both + attack_mod_totals.eff);
+                        var acc_mod_total = attack_mod_totals.both + attack_mod_totals.acc;
+                        var eff_mod_total = attack_mod_totals.both + attack_mod_totals.eff;
+                        var acc_roll = jtth_attack_roll(row, acc_mod_total, 1);
+                        var eff_roll = jtth_attack_roll(row, eff_mod_total, 0.75);
                         var damage_bits = (row.dmgflag || "") + " " + (dmg2_on ? row.dmg2flag : "") + " " + (dmg3_on ? row.dmg3flag : "") + " " + (dmg4_on ? row.dmg4flag : "");
                         var save_bits = row.saveflag || "";
                         var desc = jtth_macro_text(row.atk_desc, "");
@@ -898,7 +914,7 @@ var update_attacks = function() {
                         var damage = damage_bits + " {{dmg1=" + jtth_damage_expr(row, "dmg", intent_shares[0], mod_totals) + "}} {{dmg1type=@{dmgtype}}} {{dmg2=" + jtth_damage_expr(row, "dmg2", intent_shares[1], mod_totals) + "}} {{dmg2type=@{dmg2type}}} {{dmg3=" + jtth_damage_expr(row, "dmg3", intent_shares[2], mod_totals) + "}} {{dmg3type=@{dmg3type}}} {{dmg4=" + jtth_damage_expr(row, "dmg4", intent_shares[3], mod_totals) + "}} {{dmg4type=@{dmg4type}}} " + save_bits + " {{desc=" + desc + "}}";
                         updates[base + "rollbase"] = common + (attrs.dtype === "full" ? damage : " {{desc=" + desc + "}}");
                         updates[base + "rollbase_dmg"] = "@{whispertoggle}&{template:dmg} " + damage;
-                    updates[base + "atkbonus"] = jtth_attack_display(row, attrs, attack_mod_totals.both);
+                    updates[base + "atkbonus"] = jtth_attack_display(row, attrs, acc_mod_total, eff_mod_total);
                     var typed_damage = [];
                     var fallback_damage = [];
                     var add_damage_display = function(prefix, type, share) {
@@ -924,11 +940,56 @@ var update_dependents = function() { update_skills(); update_initiative(); updat
 var update_all_calculations = function() { update_attributes(function() { update_dependents(); }); };
 
 /* ================================
+PROFESSION NOTES
+================================ */
+
+var JTTH_ALCHEMY_RANKS = [
+    { rank: "Initiate", stars: [{ star: 1, min: 1, max: 3 }, { star: 2, min: 4, max: 6 }, { star: 3, min: 7, max: 9 }] },
+    { rank: "Novice", stars: [{ star: 1, min: 10, max: 19 }, { star: 2, min: 20, max: 28 }, { star: 3, min: 29, max: 35 }, { star: 4, min: 36, max: 48 }] },
+    { rank: "Adept", stars: [{ star: 1, min: 49, max: 64 }, { star: 2, min: 65, max: 81 }, { star: 3, min: 82, max: 99 }, { star: 4, min: 100, max: 119 }, { star: 5, min: 120, max: 141 }, { star: 6, min: 142, max: 185 }] },
+    { rank: "Master", stars: [{ star: 1, min: 186, max: 215 }, { star: 2, min: 216, max: 254 }, { star: 3, min: 255, max: 294 }, { star: 4, min: 295, max: 344 }, { star: 5, min: 345, max: 399 }, { star: 6, min: 400, max: 461 }, { star: 7, min: 462, max: 529 }, { star: 8, min: 530, max: 591 }] }
+];
+
+var jtth_alchemy_rank_label = function(skill_level) {
+    var level = jtth_int(skill_level);
+    var rank_match = null;
+    if (level <= 0) { return "0 Stars"; }
+    _.each(JTTH_ALCHEMY_RANKS, function(rank) {
+        _.each(rank.stars, function(star) {
+            if (!rank_match && level >= star.min && level <= star.max) {
+                rank_match = rank.rank + " " + star.star + " Star" + (star.star === 1 ? "" : "s");
+            }
+        });
+    });
+    return rank_match || "Unranked";
+};
+
+var update_alchemy = function() {
+    getSectionIDs("repeating_alchemybonus", function(bonus_ids) {
+        var fields = ["profession_alchemy_skill"];
+        _.each(bonus_ids, function(id) {
+            fields.push("repeating_alchemybonus_" + id + "_bonus_value");
+        });
+        getAttrs(fields, function(attrs) {
+            var skill_level = jtth_int(attrs.profession_alchemy_skill);
+            var bonus_total = 0;
+            _.each(bonus_ids, function(id) {
+                bonus_total += jtth_int(attrs["repeating_alchemybonus_" + id + "_bonus_value"]);
+            });
+            setAttrs({
+                profession_alchemy_rank: jtth_alchemy_rank_label(skill_level),
+                profession_alchemy_bonus_total: jtth_clean_number(bonus_total)
+            }, { silent: true });
+        });
+    });
+};
+
+/* ================================
 EVENT LISTENERS
 ================================ */
 
 var jtth_attribute_events = ["change:power_base", "change:agility_base", "change:vitality_base", "change:cultivation_base", "change:qicontrol_base", "change:mental_base", "change:power_bonus", "change:agility_bonus", "change:vitality_bonus", "change:cultivation_bonus", "change:qicontrol_bonus", "change:mental_bonus", "change:global_attribute_bonus"];
-on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); });
+on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); update_alchemy(); });
 on(jtth_attribute_events.join(" "), function() { update_all_calculations(); });
 
 var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:global_skill_bonus", "change:repeating_inventory:equipped", "change:repeating_inventory:itemmodifiers", "remove:repeating_inventory"];
@@ -948,3 +1009,4 @@ on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
 on("clicked:add_attack", function() { add_default_attack(); });
 on("change:repeating_attack:row_anchor change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { apply_default_attack_stat(update_attacks); });
+on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_alchemy(); });
