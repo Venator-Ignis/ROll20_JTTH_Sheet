@@ -1,7 +1,6 @@
 
 /* ================================
 JTTH HELPERS
-Roll20-safe sheet workers only
 ================================ */
 
 var jtth_int = function(value) {

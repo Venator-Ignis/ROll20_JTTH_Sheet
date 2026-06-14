@@ -1,7 +1,6 @@
 /* ============================================================
    JTTH THEME VARIABLES
-   Shared palette tokens used by the colour section.
-   ============================================================ */
+============================================================ */
 .charsheet,
 .sheet-rolltemplate-atk,
 .sheet-rolltemplate-dmg,
@@ -165,7 +164,7 @@
 /* ============================================================
    STRUCTURE
    Layout, sizing, spacing, typography rhythm, and state mechanics.
-   ============================================================ */
+============================================================ */
 .sheet-core {
   font-size: 13px;
   line-height: 15px;
@@ -2509,6 +2508,7 @@
   border-bottom: solid 1px;
   border-radius: 0;
   font-weight: 600;
+  font-size: 11px;
   padding: 0 2px;
 }
 
@@ -2931,7 +2931,7 @@
 
 /* ================================
    SKILLS / TECHNIQUES MINI TABS
-   ================================ */
+================================ */
 
 .charsheet .sheet-core .sheet-container-skills-techniques {
   position: relative;
@@ -2986,7 +2986,7 @@
 
 /* ================================
    TECHNIQUES
-   ================================ */
+================================ */
 
 .charsheet .sheet-core .sheet-technique {
   font-size: 11px;
@@ -3075,7 +3075,7 @@
 
 /* ================================
    TECHNIQUE LAYOUT PATCH
-   ================================ */
+================================ */
 
 .charsheet .sheet-core .sheet-fieldset-item-technique .sheet-form-body {
   display: flex;
@@ -3161,8 +3161,8 @@
 }
 
 /* ============================================================
-   OPTIONS PAGE - CLEAN EXPANDED LAYOUT
-   ============================================================ */
+   OPTIONS PAGE
+============================================================ */
 
 .charsheet .sheet-core .sheet-page-options .sheet-page-content .sheet-options-expanded {
   display: grid !important;
@@ -3558,7 +3558,7 @@
 
 /* ============================================================
    COMBAT PANELS
-   ============================================================ */
+============================================================ */
 
 .charsheet .sheet-core .sheet-page-character .col2 .sheet-container-attacks .sheet-panel-bonuses .repcontainer {
   min-height: 46px;
@@ -3758,7 +3758,8 @@
 /* ============================================================
    COLOUR
    Theme surfaces, borders, text colours, shadows, and image skins.
-   ============================================================ */
+============================================================ */
+
 .sheet-core .sheet-container-attribute .sheet-container-body {
   background: transparent !important;
 }
@@ -3825,11 +3826,11 @@
 }
 
 .sheet-darkmode .sheet-core .sheet-pages .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
-  background-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png);
+  background-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/dark-sheet-box-border.png);
 }
 
 .sheet-core .sheet-pages .sheet-page-content .sheet-well-attributes .sheet-container-attribute {
-  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png);
+  background: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/sheet-box-border.png);
 }
 
 .sheet-core .sheet-section-roll-whisper label:first-of-type span {
@@ -4025,11 +4026,11 @@
 }
 
 .charsheet .sheet-container-panel::before {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-box-border.png) 50 50 50 50 fill stretch;
+  border-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/sheet-box-border.png) 50 50 50 50 fill stretch;
 }
 
 .sheet-darkmode .charsheet .sheet-container-panel::before {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-box-border.png) 50 50 50 50 fill stretch;
+  border-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/dark-sheet-box-border.png) 50 50 50 50 fill stretch;
 }
 
 .sheet-darkmode .charsheet .sheet-container-panel .sheet-container-header {
@@ -4375,17 +4376,17 @@
 }
 
 .charsheet .sheet-core .sheet-container-bar::after {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/sheet-bar-border.png) 103 103 103 103 fill stretch;
   border-color: transparent;
 }
 
 .sheet-darkmode .sheet-core .sheet-container-bar::after {
-  border-image: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/dark-sheet-bar-border.png) 103 103 103 103 fill stretch;
+  border-image: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/dark-sheet-bar-border.png) 103 103 103 103 fill stretch;
   border-color: transparent;
 }
 
 .charsheet .sheet-core .sheet-container-bar .sheet-container-header::after {
-  background: url(https://raw.githubusercontent.com/Venator-Ignis/ROll20_JTTH_Sheet/main/src/sheet-bar-spacer.png);
+  background: url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/rework/Journey%20To%20The%20Heavens/src/sheet-bar-spacer.png);
 }
 
 .charsheet .sheet-core .sheet-checkbox-image [type=checkbox] {
