@@ -943,18 +943,18 @@ var update_all_calculations = function() { update_attributes(function() { update
 PROFESSION NOTES
 ================================ */
 
-var JTTH_ALCHEMY_RANKS = [
+var JTTH_PROFESSION_RANKS = [
     { rank: "Initiate", stars: [{ star: 1, min: 1, max: 3 }, { star: 2, min: 4, max: 6 }, { star: 3, min: 7, max: 9 }] },
     { rank: "Novice", stars: [{ star: 1, min: 10, max: 19 }, { star: 2, min: 20, max: 28 }, { star: 3, min: 29, max: 35 }, { star: 4, min: 36, max: 48 }] },
     { rank: "Adept", stars: [{ star: 1, min: 49, max: 64 }, { star: 2, min: 65, max: 81 }, { star: 3, min: 82, max: 99 }, { star: 4, min: 100, max: 119 }, { star: 5, min: 120, max: 141 }, { star: 6, min: 142, max: 185 }] },
     { rank: "Master", stars: [{ star: 1, min: 186, max: 215 }, { star: 2, min: 216, max: 254 }, { star: 3, min: 255, max: 294 }, { star: 4, min: 295, max: 344 }, { star: 5, min: 345, max: 399 }, { star: 6, min: 400, max: 461 }, { star: 7, min: 462, max: 529 }, { star: 8, min: 530, max: 591 }] }
 ];
 
-var jtth_alchemy_rank_label = function(skill_level) {
+var jtth_profession_rank_label = function(skill_level) {
     var level = jtth_int(skill_level);
     var rank_match = null;
     if (level <= 0) { return "0 Stars"; }
-    _.each(JTTH_ALCHEMY_RANKS, function(rank) {
+    _.each(JTTH_PROFESSION_RANKS, function(rank) {
         _.each(rank.stars, function(star) {
             if (!rank_match && level >= star.min && level <= star.max) {
                 rank_match = rank.rank + " " + star.star + " Star" + (star.star === 1 ? "" : "s");
@@ -964,24 +964,36 @@ var jtth_alchemy_rank_label = function(skill_level) {
     return rank_match || "Unranked";
 };
 
-var update_alchemy = function() {
-    getSectionIDs("repeating_alchemybonus", function(bonus_ids) {
-        var fields = ["profession_alchemy_skill"];
+var update_profession = function(profession) {
+    getSectionIDs("repeating_" + profession + "bonus", function(bonus_ids) {
+        var fields = ["profession_" + profession + "_skill"];
         _.each(bonus_ids, function(id) {
-            fields.push("repeating_alchemybonus_" + id + "_bonus_value");
+            fields.push("repeating_" + profession + "bonus_" + id + "_bonus_value");
         });
         getAttrs(fields, function(attrs) {
-            var skill_level = jtth_int(attrs.profession_alchemy_skill);
+            var skill_level = jtth_int(attrs["profession_" + profession + "_skill"]);
             var bonus_total = 0;
             _.each(bonus_ids, function(id) {
-                bonus_total += jtth_int(attrs["repeating_alchemybonus_" + id + "_bonus_value"]);
+                bonus_total += jtth_int(attrs["repeating_" + profession + "bonus_" + id + "_bonus_value"]);
             });
-            setAttrs({
-                profession_alchemy_rank: jtth_alchemy_rank_label(skill_level),
-                profession_alchemy_bonus_total: jtth_clean_number(bonus_total)
-            }, { silent: true });
+            var updates = {};
+            updates["profession_" + profession + "_rank"] = jtth_profession_rank_label(skill_level);
+            updates["profession_" + profession + "_bonus_total"] = jtth_clean_number(bonus_total);
+            setAttrs(updates, { silent: true });
         });
     });
+};
+
+var update_professions = function() {
+    _.each(["alchemy", "array", "carving", "doctor"], function(profession) {
+        update_profession(profession);
+    });
+};
+
+var reset_profession_stars = function(profession) {
+    var updates = {};
+    updates["profession_" + profession + "_official_stars"] = "1";
+    setAttrs(updates);
 };
 
 /* ================================
@@ -989,7 +1001,7 @@ EVENT LISTENERS
 ================================ */
 
 var jtth_attribute_events = ["change:power_base", "change:agility_base", "change:vitality_base", "change:cultivation_base", "change:qicontrol_base", "change:mental_base", "change:power_bonus", "change:agility_bonus", "change:vitality_bonus", "change:cultivation_bonus", "change:qicontrol_bonus", "change:mental_bonus", "change:global_attribute_bonus"];
-on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); update_alchemy(); });
+on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); update_professions(); });
 on(jtth_attribute_events.join(" "), function() { update_all_calculations(); });
 
 var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:global_skill_bonus", "change:repeating_inventory:equipped", "change:repeating_inventory:itemmodifiers", "remove:repeating_inventory"];
@@ -1009,4 +1021,11 @@ on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
 on("clicked:add_attack", function() { add_default_attack(); });
 on("change:repeating_attack:row_anchor change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { apply_default_attack_stat(update_attacks); });
-on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_alchemy(); });
+on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_profession("alchemy"); });
+on("change:profession_array_skill change:repeating_arraybonus:bonus_value remove:repeating_arraybonus", function() { update_profession("array"); });
+on("change:profession_carving_skill change:repeating_carvingbonus:bonus_value remove:repeating_carvingbonus", function() { update_profession("carving"); });
+on("change:profession_doctor_skill change:repeating_doctorbonus:bonus_value remove:repeating_doctorbonus", function() { update_profession("doctor"); });
+on("change:profession_alchemy_official_rank", function() { reset_profession_stars("alchemy"); });
+on("change:profession_array_official_rank", function() { reset_profession_stars("array"); });
+on("change:profession_carving_official_rank", function() { reset_profession_stars("carving"); });
+on("change:profession_doctor_official_rank", function() { reset_profession_stars("doctor"); });

@@ -94,7 +94,8 @@
                                     </button>
                                 </div>
                                 <div class="sheet-container-footer">
-                                    <input class="baseattr" name="attr_power_base" title="@{power_base}" type="number" value="0" />
+                                    <input class="baseattr" name="attr_power_base" title="@{power_base}" type="number"
+                                        value="0" />
                                     <input name="attr_power" type="hidden" value="0" />
                                     <input class="sheet-field-toggle" name="attr_power_flag" type="hidden" value="0" />
                                     <span name="attr_power" title="@{power}">0</span>
@@ -214,7 +215,8 @@
                                         name="attr_skill_tech_tab" type="radio" value="techniques" />
                                     <div class="sheet-skill-tech-header">
                                         <span class="sheet-skill-tech-label sheet-skill-tech-label-skills">SKILLS</span>
-                                        <span class="sheet-skill-tech-label sheet-skill-tech-label-techniques">TECHNIQUES</span>
+                                        <span
+                                            class="sheet-skill-tech-label sheet-skill-tech-label-techniques">TECHNIQUES</span>
                                     </div>
                                     <div class="sheet-container-body sheet-skill-tech-content sheet-skill-list-content">
                                         <div class="sheet-skill">
@@ -360,10 +362,10 @@
                                     </div>
                                     <div
                                         class="sheet-container-body sheet-skill-tech-content sheet-technique-list-content">
-                                    <fieldset class="repeating_technique">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-technique">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <div class="sheet-checkbox-cog">
+                                        <fieldset class="repeating_technique">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-technique">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <div class="sheet-checkbox-cog">
                                                     <input checked="checked" name="attr_options-flag" type="checkbox"
                                                         value="on" />
                                                     <span class="sheet-toggle-icon"></span>
@@ -461,10 +463,10 @@
                                 <div class="sheet-container-panel sheet-container-tools">
                                     <div class="sheet-container-header">TOOLS & CUSTOM SKILLS</div>
                                     <div class="sheet-container-body">
-                                    <fieldset class="repeating_tool">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-tool">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <div class="sheet-checkbox-cog">
+                                        <fieldset class="repeating_tool">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-tool">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <div class="sheet-checkbox-cog">
                                                     <input checked="checked" name="attr_options-flag"
                                                         type="checkbox" /><span></span>
                                                     <span class="sheet-toggle-icon"></span>
@@ -561,10 +563,12 @@
                                                             <option value="high">High</option>
                                                             <option value="peak">Peak</option>
                                                         </select>
-                                                        <input class="beast-sever-break" name="attr_part_sever" placeholder="0"
-                                                            readonly="readonly" title="@{part_sever}" type="number" />
-                                                        <input class="beast-sever-break" name="attr_part_break" placeholder="0"
-                                                            readonly="readonly" title="@{part_break}" type="number" />
+                                                        <input class="beast-sever-break" name="attr_part_sever"
+                                                            placeholder="0" readonly="readonly" title="@{part_sever}"
+                                                            type="number" />
+                                                        <input class="beast-sever-break" name="attr_part_break"
+                                                            placeholder="0" readonly="readonly" title="@{part_break}"
+                                                            type="number" />
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -912,10 +916,10 @@
                                         <input class="sheet-hidden" name="attr_global_attack_mod_flag"
                                             title="@{global_attack_mod_flag}" type="checkbox" value="1" />
                                         <div class="sheet-container-body">
-                                        <fieldset class="repeating_tohitmod">
-                                            <div class="sheet-fieldset-item">
-                                                <input name="attr_row_anchor" type="hidden" value="1" />
-                                                <div class="sheet-checkbox-cog">
+                                            <fieldset class="repeating_tohitmod">
+                                                <div class="sheet-fieldset-item">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
                                                         <input checked="checked" name="attr_options-flag"
                                                             type="checkbox" /><span></span>
                                                         <span class="sheet-toggle-icon"></span>
@@ -969,10 +973,10 @@
                                         <input class="sheet-hidden" name="attr_global_damage_mod_flag"
                                             title="@{global_damage_mod_flag}" type="checkbox" value="1" />
                                         <div class="sheet-container-body">
-                                        <fieldset class="repeating_damagemod">
-                                            <div class="sheet-fieldset-item">
-                                                <input name="attr_row_anchor" type="hidden" value="1" />
-                                                <div class="sheet-checkbox-cog">
+                                            <fieldset class="repeating_damagemod">
+                                                <div class="sheet-fieldset-item">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
                                                         <input checked="checked" name="attr_options-flag"
                                                             type="checkbox" /><span></span>
                                                         <span class="sheet-toggle-icon"></span>
@@ -993,7 +997,8 @@
                                                                 <div class="sheet-form-group">
                                                                     <label>Type:</label>
                                                                     <select name="attr_global_damage_source">
-                                                                        <option selected="selected" value="intent">Intent</option>
+                                                                        <option selected="selected" value="intent">
+                                                                            Intent</option>
                                                                         <option value="pill">Pill</option>
                                                                         <option value="manual">Manual</option>
                                                                         <option value="other">Other</option>
@@ -1003,12 +1008,14 @@
                                                                     <label>Source:</label>
                                                                     <input name="attr_global_damage_name" type="text" />
                                                                 </div>
-                                                                <div class="sheet-form-group sheet-damage-mod-value-row">
+                                                                <div
+                                                                    class="sheet-form-group sheet-damage-mod-value-row">
                                                                     <label>Value:</label>
                                                                     <input name="attr_global_damage_damage" type="text"
                                                                         value="" />
                                                                     <select name="attr_global_damage_type">
-                                                                        <option selected="selected" value="flat">Flat</option>
+                                                                        <option selected="selected" value="flat">Flat
+                                                                        </option>
                                                                         <option value="percent">Percent</option>
                                                                     </select>
                                                                 </div>
@@ -1080,35 +1087,41 @@
                                                                     <input name="attr_atkrange" type="text" />
                                                                 </div>
                                                                 <div class="sheet-attack-damage-stack">
-                                                                    <div class="sheet-attack-damage-slot sheet-damage-slot-1">
+                                                                    <div
+                                                                        class="sheet-attack-damage-slot sheet-damage-slot-1">
                                                                         <div class="sheet-attack-damage-header">
                                                                             <label class="sheet-form-checkbox">
-                                                                                <input checked="checked" name="attr_dmgflag"
-                                                                                    type="checkbox"
+                                                                                <input checked="checked"
+                                                                                    name="attr_dmgflag" type="checkbox"
                                                                                     value="{{damage=1}} {{dmgflag=1}}" />
                                                                                 <span>Damage 1</span>
                                                                             </label>
-                                                                            <label class="sheet-form-checkbox sheet-attack-intent-toggle">
+                                                                            <label
+                                                                                class="sheet-form-checkbox sheet-attack-intent-toggle">
                                                                                 <input name="attr_dmgintentflag"
                                                                                     type="checkbox" value="1" />
                                                                                 <span>Intent</span>
                                                                             </label>
                                                                         </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
+                                                                        <div
+                                                                            class="sheet-form-group sheet-attack-damage-formula">
                                                                             <label>Dice</label>
                                                                             <input name="attr_dmgbase" type="text" />
                                                                             <label>Tech %</label>
-                                                                            <input name="attr_dmgtech" placeholder="100%"
-                                                                                type="text" />
+                                                                            <input name="attr_dmgtech"
+                                                                                placeholder="100%" type="text" />
                                                                         </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
+                                                                        <div
+                                                                            class="sheet-form-group sheet-attack-damage-formula">
                                                                             <label>Main</label>
                                                                             <select name="attr_dmgattr">
                                                                                 <option value="@{power}">PWR</option>
                                                                                 <option value="@{agility}">AGI</option>
                                                                                 <option value="@{vitality}">VIT</option>
-                                                                                <option value="@{cultivation}">CUL</option>
-                                                                                <option value="@{qicontrol}">QIC</option>
+                                                                                <option value="@{cultivation}">CUL
+                                                                                </option>
+                                                                                <option value="@{qicontrol}">QIC
+                                                                                </option>
                                                                                 <option value="@{mental}">MTL</option>
                                                                                 <option value="0">-</option>
                                                                             </select>
@@ -1120,34 +1133,41 @@
                                                                             <input name="attr_dmgtype" type="text" />
                                                                         </div>
                                                                     </div>
-                                                                    <div class="sheet-attack-damage-slot sheet-damage-slot-2">
+                                                                    <div
+                                                                        class="sheet-attack-damage-slot sheet-damage-slot-2">
                                                                         <div class="sheet-attack-damage-header">
                                                                             <label class="sheet-form-checkbox">
-                                                                                <input name="attr_dmg2flag" type="checkbox"
+                                                                                <input name="attr_dmg2flag"
+                                                                                    type="checkbox"
                                                                                     value="{{damage=1}} {{dmg2flag=1}}" />
                                                                                 <span>Damage 2</span>
                                                                             </label>
-                                                                            <label class="sheet-form-checkbox sheet-attack-intent-toggle">
+                                                                            <label
+                                                                                class="sheet-form-checkbox sheet-attack-intent-toggle">
                                                                                 <input name="attr_dmg2intentflag"
                                                                                     type="checkbox" value="1" />
                                                                                 <span>Intent</span>
                                                                             </label>
                                                                         </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
+                                                                        <div
+                                                                            class="sheet-form-group sheet-attack-damage-formula">
                                                                             <label>Dice</label>
                                                                             <input name="attr_dmg2base" type="text" />
                                                                             <label>Tech %</label>
-                                                                            <input name="attr_dmg2tech" placeholder="100%"
-                                                                                type="text" />
+                                                                            <input name="attr_dmg2tech"
+                                                                                placeholder="100%" type="text" />
                                                                         </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
+                                                                        <div
+                                                                            class="sheet-form-group sheet-attack-damage-formula">
                                                                             <label>Main</label>
                                                                             <select name="attr_dmg2attr">
                                                                                 <option value="@{power}">PWR</option>
                                                                                 <option value="@{agility}">AGI</option>
                                                                                 <option value="@{vitality}">VIT</option>
-                                                                                <option value="@{cultivation}">CUL</option>
-                                                                                <option value="@{qicontrol}">QIC</option>
+                                                                                <option value="@{cultivation}">CUL
+                                                                                </option>
+                                                                                <option value="@{qicontrol}">QIC
+                                                                                </option>
                                                                                 <option value="@{mental}">MTL</option>
                                                                                 <option value="0">-</option>
                                                                             </select>
@@ -1159,89 +1179,124 @@
                                                                             <input name="attr_dmg2type" type="text" />
                                                                         </div>
                                                                     </div>
-                                                                    <input class="sheet-damage-visible-3" name="attr_dmg3_visible" type="hidden" value="0" />
+                                                                    <input class="sheet-damage-visible-3"
+                                                                        name="attr_dmg3_visible" type="hidden"
+                                                                        value="0" />
                                                                     <div class="sheet-damage-gate sheet-damage-gate-3">
-                                                                    <div class="sheet-attack-damage-slot sheet-damage-slot-3">
-                                                                        <div class="sheet-attack-damage-header">
-                                                                            <label class="sheet-form-checkbox">
-                                                                                <input name="attr_dmg3flag" type="checkbox"
-                                                                                    value="{{damage=1}} {{dmg3flag=1}}" />
-                                                                                <span>Damage 3</span>
-                                                                            </label>
-                                                                            <label class="sheet-form-checkbox sheet-attack-intent-toggle">
-                                                                                <input name="attr_dmg3intentflag"
-                                                                                    type="checkbox" value="1" />
-                                                                                <span>Intent</span>
-                                                                            </label>
+                                                                        <div
+                                                                            class="sheet-attack-damage-slot sheet-damage-slot-3">
+                                                                            <div class="sheet-attack-damage-header">
+                                                                                <label class="sheet-form-checkbox">
+                                                                                    <input name="attr_dmg3flag"
+                                                                                        type="checkbox"
+                                                                                        value="{{damage=1}} {{dmg3flag=1}}" />
+                                                                                    <span>Damage 3</span>
+                                                                                </label>
+                                                                                <label
+                                                                                    class="sheet-form-checkbox sheet-attack-intent-toggle">
+                                                                                    <input name="attr_dmg3intentflag"
+                                                                                        type="checkbox" value="1" />
+                                                                                    <span>Intent</span>
+                                                                                </label>
+                                                                            </div>
+                                                                            <div
+                                                                                class="sheet-form-group sheet-attack-damage-formula">
+                                                                                <label>Dice</label>
+                                                                                <input name="attr_dmg3base"
+                                                                                    type="text" />
+                                                                                <label>Tech %</label>
+                                                                                <input name="attr_dmg3tech"
+                                                                                    placeholder="100%" type="text" />
+                                                                            </div>
+                                                                            <div
+                                                                                class="sheet-form-group sheet-attack-damage-formula">
+                                                                                <label>Main</label>
+                                                                                <select name="attr_dmg3attr">
+                                                                                    <option value="@{power}">PWR
+                                                                                    </option>
+                                                                                    <option value="@{agility}">AGI
+                                                                                    </option>
+                                                                                    <option value="@{vitality}">VIT
+                                                                                    </option>
+                                                                                    <option value="@{cultivation}">CUL
+                                                                                    </option>
+                                                                                    <option value="@{qicontrol}">QIC
+                                                                                    </option>
+                                                                                    <option value="@{mental}">MTL
+                                                                                    </option>
+                                                                                    <option value="0">-</option>
+                                                                                </select>
+                                                                                <label>Flat</label>
+                                                                                <input name="attr_dmg3mod"
+                                                                                    type="text" />
+                                                                            </div>
+                                                                            <div class="sheet-form-group">
+                                                                                <label>Type:</label>
+                                                                                <input name="attr_dmg3type"
+                                                                                    type="text" />
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
-                                                                            <label>Dice</label>
-                                                                            <input name="attr_dmg3base" type="text" />
-                                                                            <label>Tech %</label>
-                                                                            <input name="attr_dmg3tech" placeholder="100%"
-                                                                                type="text" />
+                                                                        <input class="sheet-damage-visible-4"
+                                                                            name="attr_dmg4_visible" type="hidden"
+                                                                            value="0" />
+                                                                        <div
+                                                                            class="sheet-damage-gate sheet-damage-gate-4">
+                                                                            <div
+                                                                                class="sheet-attack-damage-slot sheet-damage-slot-4">
+                                                                                <div class="sheet-attack-damage-header">
+                                                                                    <label class="sheet-form-checkbox">
+                                                                                        <input name="attr_dmg4flag"
+                                                                                            type="checkbox"
+                                                                                            value="{{damage=1}} {{dmg4flag=1}}" />
+                                                                                        <span>Damage 4</span>
+                                                                                    </label>
+                                                                                    <label
+                                                                                        class="sheet-form-checkbox sheet-attack-intent-toggle">
+                                                                                        <input
+                                                                                            name="attr_dmg4intentflag"
+                                                                                            type="checkbox" value="1" />
+                                                                                        <span>Intent</span>
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div
+                                                                                    class="sheet-form-group sheet-attack-damage-formula">
+                                                                                    <label>Dice</label>
+                                                                                    <input name="attr_dmg4base"
+                                                                                        type="text" />
+                                                                                    <label>Tech %</label>
+                                                                                    <input name="attr_dmg4tech"
+                                                                                        placeholder="100%"
+                                                                                        type="text" />
+                                                                                </div>
+                                                                                <div
+                                                                                    class="sheet-form-group sheet-attack-damage-formula">
+                                                                                    <label>Main</label>
+                                                                                    <select name="attr_dmg4attr">
+                                                                                        <option value="@{power}">PWR
+                                                                                        </option>
+                                                                                        <option value="@{agility}">AGI
+                                                                                        </option>
+                                                                                        <option value="@{vitality}">VIT
+                                                                                        </option>
+                                                                                        <option value="@{cultivation}">
+                                                                                            CUL</option>
+                                                                                        <option value="@{qicontrol}">QIC
+                                                                                        </option>
+                                                                                        <option value="@{mental}">MTL
+                                                                                        </option>
+                                                                                        <option value="0">-</option>
+                                                                                    </select>
+                                                                                    <label>Flat</label>
+                                                                                    <input name="attr_dmg4mod"
+                                                                                        type="text" />
+                                                                                </div>
+                                                                                <div class="sheet-form-group">
+                                                                                    <label>Type:</label>
+                                                                                    <input name="attr_dmg4type"
+                                                                                        type="text" />
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
-                                                                            <label>Main</label>
-                                                                            <select name="attr_dmg3attr">
-                                                                                <option value="@{power}">PWR</option>
-                                                                                <option value="@{agility}">AGI</option>
-                                                                                <option value="@{vitality}">VIT</option>
-                                                                                <option value="@{cultivation}">CUL</option>
-                                                                                <option value="@{qicontrol}">QIC</option>
-                                                                                <option value="@{mental}">MTL</option>
-                                                                                <option value="0">-</option>
-                                                                            </select>
-                                                                            <label>Flat</label>
-                                                                            <input name="attr_dmg3mod" type="text" />
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Type:</label>
-                                                                            <input name="attr_dmg3type" type="text" />
-                                                                        </div>
-                                                                    </div>
-                                                                    <input class="sheet-damage-visible-4" name="attr_dmg4_visible" type="hidden" value="0" />
-                                                                    <div class="sheet-damage-gate sheet-damage-gate-4">
-                                                                    <div class="sheet-attack-damage-slot sheet-damage-slot-4">
-                                                                        <div class="sheet-attack-damage-header">
-                                                                            <label class="sheet-form-checkbox">
-                                                                                <input name="attr_dmg4flag" type="checkbox"
-                                                                                    value="{{damage=1}} {{dmg4flag=1}}" />
-                                                                                <span>Damage 4</span>
-                                                                            </label>
-                                                                            <label class="sheet-form-checkbox sheet-attack-intent-toggle">
-                                                                                <input name="attr_dmg4intentflag"
-                                                                                    type="checkbox" value="1" />
-                                                                                <span>Intent</span>
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
-                                                                            <label>Dice</label>
-                                                                            <input name="attr_dmg4base" type="text" />
-                                                                            <label>Tech %</label>
-                                                                            <input name="attr_dmg4tech" placeholder="100%"
-                                                                                type="text" />
-                                                                        </div>
-                                                                        <div class="sheet-form-group sheet-attack-damage-formula">
-                                                                            <label>Main</label>
-                                                                            <select name="attr_dmg4attr">
-                                                                                <option value="@{power}">PWR</option>
-                                                                                <option value="@{agility}">AGI</option>
-                                                                                <option value="@{vitality}">VIT</option>
-                                                                                <option value="@{cultivation}">CUL</option>
-                                                                                <option value="@{qicontrol}">QIC</option>
-                                                                                <option value="@{mental}">MTL</option>
-                                                                                <option value="0">-</option>
-                                                                            </select>
-                                                                            <label>Flat</label>
-                                                                            <input name="attr_dmg4mod" type="text" />
-                                                                        </div>
-                                                                        <div class="sheet-form-group">
-                                                                            <label>Type:</label>
-                                                                            <input name="attr_dmg4type" type="text" />
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="sheet-form-group">
@@ -1315,10 +1370,10 @@
                                 <div class="sheet-container-panel sheet-container-traits">
                                     <div class="sheet-container-header">TRAITS</div>
                                     <div class="sheet-container-body">
-                                    <fieldset class="repeating_feature">
-                                        <div class="sheet-fieldset-item sheet-fieldset-item-feature">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <div class="sheet-checkbox-cog">
+                                        <fieldset class="repeating_feature">
+                                            <div class="sheet-fieldset-item sheet-fieldset-item-feature">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <div class="sheet-checkbox-cog">
                                                     <input checked="checked" name="attr_options-flag" type="checkbox"
                                                         value="on" />
                                                     <span class="sheet-toggle-icon"></span>
@@ -1356,11 +1411,11 @@
                                                         <button class="output btn" name="roll_trait" type="roll"
                                                             value="@{whispertoggle}&{template:features} @{charname_output} {{name=@{name}}} {{description=@{desc}}}">w</button>
                                                     </div>
-                                                    </div>
                                                 </div>
-                                            </fieldset>
-                                        </div>
+                                            </div>
+                                        </fieldset>
                                     </div>
+                                </div>
                                 <div class="sheet-container-panel sheet-container-resources">
                                     <div class="sheet-container-header">RESOURCES</div>
                                     <div class="sheet-container-body">
@@ -1693,15 +1748,24 @@
                     <input name="attr_page" type="radio" value="notes" />
                     <span class="sheet-page-label">NOTES</span>
                     <div class="sheet-page-content">
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-alchemy" name="attr_profession_alchemy_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-array" name="attr_profession_array_making_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-carving" name="attr_profession_carving_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-doctor" name="attr_profession_divine_doctor_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-forging" name="attr_profession_forging_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-fulu" name="attr_profession_fulu_pai_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-profession-flag sheet-profession-flag-weaving" name="attr_profession_weaving_flag" type="hidden" value="0" />
-                        <input class="sheet-notes-tab sheet-notes-tab-base" id="sheet-notes-tab-base" name="attr_notes_tab" type="radio" value="base" checked="checked" />
-                        <input class="sheet-notes-tab sheet-notes-tab-profession" id="sheet-notes-tab-profession" name="attr_notes_tab" type="radio" value="profession" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-alchemy"
+                            name="attr_profession_alchemy_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-array"
+                            name="attr_profession_array_making_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-carving"
+                            name="attr_profession_carving_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-doctor"
+                            name="attr_profession_divine_doctor_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-forging"
+                            name="attr_profession_forging_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-fulu"
+                            name="attr_profession_fulu_pai_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-weaving"
+                            name="attr_profession_weaving_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-tab sheet-notes-tab-base" id="sheet-notes-tab-base"
+                            name="attr_notes_tab" type="radio" value="base" checked="checked" />
+                        <input class="sheet-notes-tab sheet-notes-tab-profession" id="sheet-notes-tab-profession"
+                            name="attr_notes_tab" type="radio" value="profession" />
                         <div class="sheet-notes-tab-header">
                             <label for="sheet-notes-tab-base">Base</label>
                             <label for="sheet-notes-tab-profession">Profession</label>
@@ -1710,9 +1774,8 @@
                             <div class="col col1">
                                 <div class="sheet-container-panel sheet-pc-notes-one">
                                     <div class="sheet-container-header">
-                                        <input name="attr_notes_one_header"
-                                            placeholder="Additional Features & Traits" type="text"
-                                            value="Additional Features & Traits" />
+                                        <input name="attr_notes_one_header" placeholder="Additional Features & Traits"
+                                            type="text" value="Additional Features & Traits" />
                                     </div>
                                     <div class="sheet-container-body">
                                         <textarea name="attr_pc_notes_one"></textarea>
@@ -1760,32 +1823,74 @@
                         </div>
                         <div class="sheet-container-well sheet-notes-profession-content">
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-alchemy">
-                                <input class="sheet-profession-collapse" id="sheet-profession-alchemy-open" name="attr_profession_alchemy_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-alchemy-open">ALCHEMY NOTES</label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-alchemy-open"
+                                    name="attr_profession_alchemy_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-alchemy-open">ALCHEMY NOTES</label>
                                 <div class="sheet-container-body sheet-profession-body sheet-alchemy-body">
                                     <div class="sheet-alchemy-rank-strip">
-                                        <label>Star Rating<input name="attr_profession_alchemy_rank" readonly="readonly" title="@{profession_alchemy_rank}" type="text" value="0 Star" /></label>
-                                        <label>Skill Level<input name="attr_profession_alchemy_skill" title="@{profession_alchemy_skill}" type="number" value="0" /></label>
-                                        <label>Bonus Total<input name="attr_profession_alchemy_bonus_total" readonly="readonly" title="@{profession_alchemy_bonus_total}" type="number" value="0" /></label>
-                                        <button name="roll_profession_alchemy_skill" type="roll" value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Alchemy}} {{mod=@{profession_alchemy_skill}d10>5 + @{profession_alchemy_bonus_total}}} {{r1=[[@{profession_alchemy_skill}d10>5 + @{profession_alchemy_bonus_total}[BONUS]]]}}">Roll</button>
+                                        <label>Official Rank
+                                            <div class="sheet-alchemy-official-rank-note">
+                                                <select name="attr_profession_alchemy_official_rank"
+                                                    title="@{profession_alchemy_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_alchemy_official_stars"
+                                                    title="@{profession_alchemy_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_alchemy_rank" readonly="readonly"
+                                                title="@{profession_alchemy_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_alchemy_skill"
+                                                title="@{profession_alchemy_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_alchemy_bonus_total"
+                                                readonly="readonly" title="@{profession_alchemy_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_alchemy_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Alchemy}} {{mod=@{profession_alchemy_skill}d10 + @{profession_alchemy_bonus_total}}} {{r1=[[@{profession_alchemy_skill}d10 + @{profession_alchemy_bonus_total}[BONUS]]]}}">Roll</button>
                                     </div>
-                                    <input class="sheet-alchemy-bonus-collapse" id="sheet-alchemy-bonuses-open" name="attr_profession_alchemy_bonuses_open" type="checkbox" value="1" checked="checked" />
-                                    <label class="sheet-container-header sheet-alchemy-bonus-header" for="sheet-alchemy-bonuses-open">SKILL BONUSES</label>
+                                    <input class="sheet-alchemy-bonus-collapse" id="sheet-alchemy-bonuses-open"
+                                        name="attr_profession_alchemy_bonuses_open" type="checkbox" value="1"
+                                        checked="checked" />
+                                    <label class="sheet-container-header sheet-alchemy-bonus-header"
+                                        for="sheet-alchemy-bonuses-open">SKILL BONUSES</label>
                                     <div class="sheet-alchemy-bonus-body">
                                         <fieldset class="repeating_alchemybonus">
                                             <div class="sheet-alchemy-bonus-row">
                                                 <input name="attr_row_anchor" type="hidden" value="1" />
                                                 <input name="attr_bonus_source" placeholder="Source" type="text" />
-                                                <input name="attr_bonus_value" placeholder="0" type="number" value="0" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
                                             </div>
                                         </fieldset>
                                     </div>
                                     <div class="sheet-alchemy-tools">
-                                        <label>Furnace<input name="attr_profession_alchemy_furnace" title="@{profession_alchemy_furnace}" type="text" /></label>
-                                        <label>Alchemical Flame<input name="attr_profession_alchemy_flame" title="@{profession_alchemy_flame}" type="text" /></label>
-                                        <label class="sheet-alchemy-wide">Furnace Notes<textarea name="attr_profession_alchemy_furnace_notes" title="@{profession_alchemy_furnace_notes}"></textarea></label>
-                                        <label class="sheet-alchemy-wide">Alchemical Flame Notes<textarea name="attr_profession_alchemy_flame_notes" title="@{profession_alchemy_flame_notes}"></textarea></label>
-                                        <label class="sheet-alchemy-notes">Additional Notes<textarea name="attr_profession_alchemy_notes" title="@{profession_alchemy_notes}"></textarea></label>
+                                        <label>Furnace<input name="attr_profession_alchemy_furnace"
+                                                title="@{profession_alchemy_furnace}" type="text" /></label>
+                                        <label>Alchemical Flame<input name="attr_profession_alchemy_flame"
+                                                title="@{profession_alchemy_flame}" type="text" /></label>
+                                        <label class="sheet-alchemy-wide">Furnace Notes<textarea
+                                                name="attr_profession_alchemy_furnace_notes"
+                                                title="@{profession_alchemy_furnace_notes}"></textarea></label>
+                                        <label class="sheet-alchemy-wide">Alchemical Flame Notes<textarea
+                                                name="attr_profession_alchemy_flame_notes"
+                                                title="@{profession_alchemy_flame_notes}"></textarea></label>
+                                        <label class="sheet-alchemy-notes">Additional Notes<textarea
+                                                name="attr_profession_alchemy_notes"
+                                                title="@{profession_alchemy_notes}"></textarea></label>
                                     </div>
                                     <div class="sheet-alchemy-ledgers">
                                         <div class="sheet-alchemy-ledger sheet-alchemy-recipes">
@@ -1794,14 +1899,18 @@
                                                 <div class="sheet-alchemy-recipe-row">
                                                     <input name="attr_row_anchor" type="hidden" value="1" />
                                                     <div class="sheet-checkbox-cog">
-                                                        <input checked="checked" name="attr_options-flag" type="checkbox" /><span></span>
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
                                                         <span class="sheet-toggle-icon"></span>
                                                     </div>
-                                                    <input checked="checked" class="sheet-toggle" hidden="" name="attr_options-flag" type="checkbox" />
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
                                                     <div class="sheet-toggle-checked">
                                                         <div class="sheet-alchemy-card-header">
-                                                            <input name="attr_recipe_name" placeholder="Recipe Name" type="text" />
-                                                            <input name="attr_recipe_difficulty" placeholder="Difficulty" type="text" />
+                                                            <input name="attr_recipe_name" placeholder="Recipe Name"
+                                                                type="text" />
+                                                            <input name="attr_recipe_difficulty"
+                                                                placeholder="Difficulty" type="text" />
                                                         </div>
                                                         <div class="sheet-alchemy-recipe-ingredients">
                                                             <div class="sheet-alchemy-recipe-ingredient-head">
@@ -1811,18 +1920,24 @@
                                                             </div>
                                                             <fieldset class="repeating_alchemyrecipeingredient">
                                                                 <div class="sheet-alchemy-recipe-ingredient">
-                                                                    <input name="attr_row_anchor" type="hidden" value="1" />
-                                                                    <input name="attr_recipe_ingredient_name" placeholder="Name" type="text" />
-                                                                    <input name="attr_recipe_ingredient_amount" placeholder="Amount" type="text" />
-                                                                    <input name="attr_recipe_ingredient_realm" placeholder="Realm" type="text" />
+                                                                    <input name="attr_row_anchor" type="hidden"
+                                                                        value="1" />
+                                                                    <input name="attr_recipe_ingredient_name"
+                                                                        placeholder="Name" type="text" />
+                                                                    <input name="attr_recipe_ingredient_amount"
+                                                                        placeholder="Amount" type="text" />
+                                                                    <input name="attr_recipe_ingredient_realm"
+                                                                        placeholder="Realm" type="text" />
                                                                 </div>
                                                             </fieldset>
                                                         </div>
                                                     </div>
                                                     <div class="sheet-toggle-unchecked">
                                                         <div class="sheet-alchemy-recipe-summary">
-                                                            <span class="sheet-alchemy-recipe-summary-name" name="attr_recipe_name"></span>
-                                                            <span class="sheet-alchemy-recipe-summary-difficulty" name="attr_recipe_difficulty"></span>
+                                                            <span class="sheet-alchemy-recipe-summary-name"
+                                                                name="attr_recipe_name"></span>
+                                                            <span class="sheet-alchemy-recipe-summary-difficulty"
+                                                                name="attr_recipe_difficulty"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1834,24 +1949,34 @@
                                                 <div class="sheet-alchemy-ingredient-row">
                                                     <input name="attr_row_anchor" type="hidden" value="1" />
                                                     <div class="sheet-checkbox-cog">
-                                                        <input checked="checked" name="attr_options-flag" type="checkbox" /><span></span>
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
                                                         <span class="sheet-toggle-icon"></span>
                                                     </div>
-                                                    <input checked="checked" class="sheet-toggle" hidden="" name="attr_options-flag" type="checkbox" />
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
                                                     <div class="sheet-toggle-checked">
                                                         <div class="sheet-alchemy-card-header">
-                                                            <input name="attr_ingredient_name" placeholder="Ingredient Name" type="text" />
-                                                            <input name="attr_ingredient_source" placeholder="Source" type="text" />
+                                                            <input name="attr_ingredient_name"
+                                                                placeholder="Ingredient Name" type="text" />
+                                                            <input name="attr_ingredient_source" placeholder="Source"
+                                                                type="text" />
                                                         </div>
-                                                        <textarea name="attr_ingredient_effect" placeholder="Effect"></textarea>
+                                                        <textarea name="attr_ingredient_effect"
+                                                            placeholder="Effect"></textarea>
                                                     </div>
                                                     <div class="sheet-toggle-unchecked">
                                                         <div class="sheet-alchemy-known-ingredient">
-                                                            <input class="sheet-alchemy-ingredient-effect-toggle" name="attr_toggle_ingredient_effect" type="hidden" value="1" />
+                                                            <input class="sheet-alchemy-ingredient-effect-toggle"
+                                                                name="attr_toggle_ingredient_effect" type="hidden"
+                                                                value="1" />
                                                             <div class="sheet-alchemy-known-ingredient-name">
                                                                 <span name="attr_ingredient_name"></span>
-                                                                <span class="sheet-alchemy-known-ingredient-source" name="attr_ingredient_source"></span>
-                                                                <input class="toggle-checkbox" name="attr_toggle_ingredient_effect" type="checkbox" value="1" />
+                                                                <span class="sheet-alchemy-known-ingredient-source"
+                                                                    name="attr_ingredient_source"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_ingredient_effect" type="checkbox"
+                                                                    value="1" />
                                                             </div>
                                                             <div class="sheet-alchemy-known-ingredient-effect">
                                                                 <span name="attr_ingredient_effect"></span>
@@ -1862,106 +1987,440 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-array">
-                                <input class="sheet-profession-collapse" id="sheet-profession-array-open" name="attr_profession_array_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-array-open">ARRAY MAKING NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body">
-                                    <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_array_rank"><option value="">None</option><option>Initiate</option><option>Novice</option><option>Adept</option><option>Master</option><option>Grandmaster</option></select></label>
-                                        <label>Skill<input name="attr_profession_array_skill" type="number" value="0" /></label>
-                                        <label>Specialty<select name="attr_profession_array_specialty"><option value="">None</option><option>Offensive</option><option>Defensive</option><option>Spatial</option><option>Miscellaneous</option></select></label>
-                                        <label>Core Medium<input name="attr_profession_array_medium" type="text" /></label>
-                                        <label>Anchor Count<input name="attr_profession_array_anchors" type="number" value="0" /></label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-array-open"
+                                    name="attr_profession_array_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-array-open">ARRAY MAKING NOTES</label>
+                                <div class="sheet-container-body sheet-profession-body sheet-array-body">
+                                    <div class="sheet-profession-rank-strip sheet-array-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-array-official-rank-note">
+                                                <select name="attr_profession_array_official_rank"
+                                                    title="@{profession_array_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_array_official_stars"
+                                                    title="@{profession_array_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_array_rank" readonly="readonly"
+                                                title="@{profession_array_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_array_skill"
+                                                title="@{profession_array_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_array_bonus_total"
+                                                readonly="readonly" title="@{profession_array_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_array_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Array Making}} {{mod=@{profession_array_skill}d10 + @{profession_array_bonus_total}}} {{r1=[[@{profession_array_skill}d10 + @{profession_array_bonus_total}[BONUS]]]}}">Roll</button>
+                                    </div>
+                                    <input class="sheet-profession-bonus-collapse sheet-array-bonus-collapse"
+                                        id="sheet-array-bonuses-open" name="attr_profession_array_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-array-bonus-header"
+                                        for="sheet-array-bonuses-open">SKILL BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-array-bonus-body">
+                                        <fieldset class="repeating_arraybonus">
+                                            <div class="sheet-profession-bonus-row sheet-array-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="sheet-profession-fields sheet-array-fields">
+                                        <label>Specialty<select name="attr_profession_array_specialty">
+                                                <option value="">None</option>
+                                                <option>Offensive</option>
+                                                <option>Defensive</option>
+                                                <option>Spatial</option>
+                                                <option>Miscellaneous</option>
+                                            </select></label>
+                                        <label>Array Type<select name="attr_profession_array_type">
+                                                <option value="">None</option>
+                                                <option>Concealment</option>
+                                                <option>Killing</option>
+                                                <option>Protection</option>
+                                                <option>Sealing</option>
+                                                <option>Qi Gathering</option>
+                                                <option>Beast Summoning</option>
+                                                <option>Exorcism</option>
+                                                <option>Other</option>
+                                            </select></label>
+                                        <label>Realm Standard<select name="attr_profession_array_realm">
+                                                <option value="">None</option>
+                                                <option>Qi Gathering</option>
+                                                <option>Foundation</option>
+                                                <option>Core Formation</option>
+                                                <option>Other</option>
+                                            </select></label>
+                                        <label>Quality<select name="attr_profession_array_quality">
+                                                <option value="">None</option>
+                                                <option>Low</option>
+                                                <option>Standard</option>
+                                                <option>High</option>
+                                            </select></label>
+                                        <label>Core Medium<input name="attr_profession_array_medium"
+                                                type="text" /></label>
+                                        <label>Radius / Area<input name="attr_profession_array_radius"
+                                                type="text" /></label>
+                                        <label>Qi Cost / Upkeep<input name="attr_profession_array_qi_cost"
+                                                type="text" /></label>
+                                        <label>Anchor Count<input name="attr_profession_array_anchors" type="number"
+                                                value="0" /></label>
                                     </div>
                                     <div class="sheet-profession-note-grid">
-                                        <label>Formation Theory & Rules<textarea name="attr_profession_array_theory"></textarea></label>
-                                        <label>Materials, Flags, Ink & Anchors<textarea name="attr_profession_array_materials"></textarea></label>
-                                        <label>Active Arrays & Maintenance<textarea name="attr_profession_array_active"></textarea></label>
-                                        <label>Patterns, Counters & Break Points<textarea name="attr_profession_array_notes"></textarea></label>
+                                        <label>Formation Theory & Rules<textarea
+                                                name="attr_profession_array_theory"></textarea></label>
+                                        <label>Materials, Flags, Ink & Anchors<textarea
+                                                name="attr_profession_array_materials"></textarea></label>
+                                        <label>Active Arrays & Maintenance<textarea
+                                                name="attr_profession_array_active"></textarea></label>
+                                        <label>Patterns, Counters & Break Points<textarea
+                                                name="attr_profession_array_notes"></textarea></label>
                                     </div>
-                                    <fieldset class="repeating_arraypattern">
-                                        <div class="sheet-profession-repeater">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_pattern_name" placeholder="Array Pattern" type="text" />
-                                            <input name="attr_pattern_type" placeholder="Type" type="text" />
-                                            <input name="attr_pattern_cost" placeholder="Cost / Materials" type="text" />
+                                    <div class="sheet-profession-ledgers sheet-array-ledgers">
+                                        <div class="sheet-profession-ledger sheet-array-patterns">
+                                            <div class="sheet-profession-ledger-title">FORMATION BLUEPRINTS</div>
+                                            <fieldset class="repeating_arraypattern">
+                                                <div class="sheet-profession-repeater sheet-array-pattern-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_pattern_name" placeholder="Array Pattern"
+                                                        type="text" />
+                                                    <input name="attr_pattern_type" placeholder="Type" type="text" />
+                                                    <input name="attr_pattern_realm" placeholder="Realm" type="text" />
+                                                    <input name="attr_pattern_quality" placeholder="Quality"
+                                                        type="text" />
+                                                    <input name="attr_pattern_radius" placeholder="Radius / Area"
+                                                        type="text" />
+                                                    <input name="attr_pattern_cost" placeholder="Cost / Materials"
+                                                        type="text" />
+                                                    <input name="attr_pattern_notes" placeholder="Operation Notes"
+                                                        type="text" />
+                                                </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
+                                        <div class="sheet-profession-ledger sheet-array-active-ledger">
+                                            <div class="sheet-profession-ledger-title">ACTIVE ARRAYS</div>
+                                            <fieldset class="repeating_arrayactive">
+                                                <div class="sheet-profession-repeater sheet-array-active-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_active_name" placeholder="Name / Location"
+                                                        type="text" />
+                                                    <input name="attr_active_type" placeholder="Type" type="text" />
+                                                    <input name="attr_active_controller" placeholder="Controller"
+                                                        type="text" />
+                                                    <input name="attr_active_qi_supply" placeholder="Qi Supply"
+                                                        type="text" />
+                                                    <input name="attr_active_condition" placeholder="Condition"
+                                                        type="text" />
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-carving">
-                                <input class="sheet-profession-collapse" id="sheet-profession-carving-open" name="attr_profession_carving_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-carving-open">BEAST CARVING NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body">
-                                    <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_carving_rank"><option value="">None</option><option>Initiate</option><option>Novice</option><option>Adept</option><option>Master</option><option>Grandmaster</option></select></label>
-                                        <label>Skill<input name="attr_profession_carving_skill" type="number" value="0" /></label>
-                                        <label>Carving Tools<input name="attr_profession_carving_tools" placeholder="Knives, hooks, saws" type="text" /></label>
-                                        <label>Preservation Method<input name="attr_profession_carving_preservation" placeholder="Salt, qi seal, cold storage" type="text" /></label>
-                                        <label>Target Anatomy<input name="attr_profession_carving_anatomy" placeholder="Core, hide, tendons, organs" type="text" /></label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-carving-open"
+                                    name="attr_profession_carving_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-carving-open">BEAST CARVING NOTES</label>
+                                <div class="sheet-container-body sheet-profession-body sheet-carving-body">
+                                    <div class="sheet-profession-rank-strip sheet-carving-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-carving-official-rank-note">
+                                                <select name="attr_profession_carving_official_rank"
+                                                    title="@{profession_carving_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_carving_official_stars"
+                                                    title="@{profession_carving_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_carving_rank" readonly="readonly"
+                                                title="@{profession_carving_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_carving_skill"
+                                                title="@{profession_carving_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_carving_bonus_total"
+                                                readonly="readonly" title="@{profession_carving_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_carving_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Beast Carving}} {{mod=@{profession_carving_skill}d10 + @{profession_carving_bonus_total}}} {{r1=[[@{profession_carving_skill}d10 + @{profession_carving_bonus_total}[BONUS]]]}}">Roll</button>
+                                    </div>
+                                    <input class="sheet-profession-bonus-collapse sheet-carving-bonus-collapse"
+                                        id="sheet-carving-bonuses-open" name="attr_profession_carving_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-carving-bonus-header"
+                                        for="sheet-carving-bonuses-open">SKILL BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-carving-bonus-body">
+                                        <fieldset class="repeating_carvingbonus">
+                                            <div class="sheet-profession-bonus-row sheet-carving-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="sheet-profession-fields sheet-carving-fields">
+                                        <label>Specialty<select name="attr_profession_carving_specialty">
+                                                <option value="">None</option>
+                                                <option>Anatomy</option>
+                                                <option>Bloodline Extraction</option>
+                                                <option>Hide / Scale Work</option>
+                                                <option>Bone / Horn Work</option>
+                                                <option>Organ Preservation</option>
+                                                <option>Field Dressing</option>
+                                            </select></label>
+                                        <label>Carving Tools<input name="attr_profession_carving_tools"
+                                                placeholder="Knives, hooks, saws" type="text" /></label>
+                                        <label>Preservation Method<input name="attr_profession_carving_preservation"
+                                                placeholder="Salt, qi seal, cold storage" type="text" /></label>
+                                        <label>Target Beast<input name="attr_profession_carving_target_beast"
+                                                type="text" /></label>
+                                        <label>Target Anatomy<input name="attr_profession_carving_anatomy"
+                                                placeholder="Core, hide, tendons, organs" type="text" /></label>
+                                        <label>Material Quality<select name="attr_profession_carving_material_quality">
+                                                <option value="">None</option>
+                                                <option>Average</option>
+                                                <option>High</option>
+                                                <option>Peak</option>
+                                            </select></label>
+                                        <label>Storage Condition<input name="attr_profession_carving_storage"
+                                                type="text" /></label>
                                     </div>
                                     <div class="sheet-profession-note-grid">
-                                        <label>Beast Anatomy & Weak Points<textarea name="attr_profession_carving_anatomy_notes"></textarea></label>
-                                        <label>Harvestable Materials<textarea name="attr_profession_carving_materials"></textarea></label>
-                                        <label>Quality, Contamination & Preservation Notes<textarea name="attr_profession_carving_quality"></textarea></label>
-                                        <label>Butchery Plans, Spoilage & Field Notes<textarea name="attr_profession_carving_notes"></textarea></label>
+                                        <label>Beast Anatomy & Weak Points<textarea
+                                                name="attr_profession_carving_anatomy_notes"></textarea></label>
+                                        <label>Harvestable Materials<textarea
+                                                name="attr_profession_carving_materials"></textarea></label>
+                                        <label>Quality, Contamination & Preservation Notes<textarea
+                                                name="attr_profession_carving_quality"></textarea></label>
+                                        <label>Butchery Plans, Spoilage & Field Notes<textarea
+                                                name="attr_profession_carving_notes"></textarea></label>
                                     </div>
-                                    <fieldset class="repeating_carvingwork">
-                                        <div class="sheet-profession-repeater">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_work_name" placeholder="Beast / Part" type="text" />
-                                            <input name="attr_work_material" placeholder="Material Yield" type="text" />
-                                            <input name="attr_work_effect" placeholder="Quality / Condition" type="text" />
+                                    <div class="sheet-profession-ledgers sheet-carving-ledgers">
+                                        <div class="sheet-profession-ledger sheet-carving-parts">
+                                            <div class="sheet-profession-ledger-title">BEAST PARTS</div>
+                                            <fieldset class="repeating_carvingpart">
+                                                <div class="sheet-profession-repeater sheet-carving-part-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_part_source" placeholder="Beast / Source"
+                                                        type="text" />
+                                                    <input name="attr_part_name" placeholder="Part" type="text" />
+                                                    <input name="attr_part_quality" placeholder="Quality" type="text" />
+                                                    <input name="attr_part_break_threshold" placeholder="Break"
+                                                        type="text" />
+                                                    <input name="attr_part_sever_threshold" placeholder="Sever"
+                                                        type="text" />
+                                                    <input name="attr_part_condition" placeholder="Condition"
+                                                        type="text" />
+                                                    <input name="attr_part_yield" placeholder="Yield / Use"
+                                                        type="text" />
+                                                </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
+                                        <div class="sheet-profession-ledger sheet-carving-work-ledger">
+                                            <div class="sheet-profession-ledger-title">HARVEST WORK</div>
+                                            <fieldset class="repeating_carvingwork">
+                                                <div class="sheet-profession-repeater sheet-carving-work-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_work_name" placeholder="Work Name" type="text" />
+                                                    <input name="attr_work_material" placeholder="Material Yield"
+                                                        type="text" />
+                                                    <input name="attr_work_risk" placeholder="Contamination Risk"
+                                                        type="text" />
+                                                    <input name="attr_work_effect" placeholder="Preservation Status"
+                                                        type="text" />
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-doctor">
-                                <input class="sheet-profession-collapse" id="sheet-profession-doctor-open" name="attr_profession_doctor_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-doctor-open">DIVINE DOCTOR NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body">
-                                    <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_doctor_rank"><option value="">None</option><option>Initiate</option><option>Novice</option><option>Adept</option><option>Master</option><option>Grandmaster</option></select></label>
-                                        <label>Skill<input name="attr_profession_doctor_skill" type="number" value="0" /></label>
-                                        <label>Specialty<input name="attr_profession_doctor_specialty" placeholder="Trauma, poison, meridians..." type="text" /></label>
-                                        <label>Medical Kit<input name="attr_profession_doctor_kit" type="text" /></label>
-                                        <label>Recovery Ward<input name="attr_profession_doctor_ward" type="text" /></label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-doctor-open"
+                                    name="attr_profession_doctor_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-doctor-open">DIVINE DOCTOR NOTES</label>
+                                <div class="sheet-container-body sheet-profession-body sheet-doctor-body">
+                                    <div class="sheet-profession-rank-strip sheet-doctor-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-doctor-official-rank-note">
+                                                <select name="attr_profession_doctor_official_rank"
+                                                    title="@{profession_doctor_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_doctor_official_stars"
+                                                    title="@{profession_doctor_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_doctor_rank" readonly="readonly"
+                                                title="@{profession_doctor_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_doctor_skill"
+                                                title="@{profession_doctor_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_doctor_bonus_total"
+                                                readonly="readonly" title="@{profession_doctor_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_doctor_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Divine Doctor}} {{mod=@{profession_doctor_skill}d10 + @{profession_doctor_bonus_total}}} {{r1=[[@{profession_doctor_skill}d10 + @{profession_doctor_bonus_total}[BONUS]]]}}">Roll</button>
+                                    </div>
+                                    <input class="sheet-profession-bonus-collapse sheet-doctor-bonus-collapse"
+                                        id="sheet-doctor-bonuses-open" name="attr_profession_doctor_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-doctor-bonus-header"
+                                        for="sheet-doctor-bonuses-open">SKILL BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-doctor-bonus-body">
+                                        <fieldset class="repeating_doctorbonus">
+                                            <div class="sheet-profession-bonus-row sheet-doctor-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="sheet-profession-fields sheet-doctor-fields">
+                                        <label>Specialty<select name="attr_profession_doctor_specialty">
+                                                <option value="">None</option>
+                                                <option>Heart Demonology</option>
+                                                <option>Qi Pathway Research</option>
+                                                <option>Surgical Studies</option>
+                                                <option>Anti-Poison</option>
+                                            </select></label>
+                                        <label>Medical Kit<input name="attr_profession_doctor_kit"
+                                                type="text" /></label>
+                                        <label>Recovery Ward<input name="attr_profession_doctor_ward"
+                                                type="text" /></label>
+                                        <label>Current Patient<input name="attr_profession_doctor_current_patient"
+                                                type="text" /></label>
+                                        <label>Primary Condition<input name="attr_profession_doctor_primary_condition"
+                                                type="text" /></label>
+                                        <label>Treatment Status<input name="attr_profession_doctor_treatment_status"
+                                                type="text" /></label>
                                     </div>
                                     <div class="sheet-profession-note-grid">
-                                        <label>Diagnosis Methods<textarea name="attr_profession_doctor_diagnosis"></textarea></label>
-                                        <label>Treatments, Surgery & Acupuncture<textarea name="attr_profession_doctor_treatments"></textarea></label>
-                                        <label>Patients, Conditions & Case Notes<textarea name="attr_profession_doctor_cases"></textarea></label>
-                                        <label>Medicines, Antidotes & Recovery Plans<textarea name="attr_profession_doctor_notes"></textarea></label>
+                                        <label>Diagnosis Methods<textarea
+                                                name="attr_profession_doctor_diagnosis"></textarea></label>
+                                        <label>Treatments, Surgery & Acupuncture<textarea
+                                                name="attr_profession_doctor_treatments"></textarea></label>
+                                        <label>Patients, Conditions & Case Notes<textarea
+                                                name="attr_profession_doctor_cases"></textarea></label>
+                                        <label>Medicines, Antidotes & Recovery Plans<textarea
+                                                name="attr_profession_doctor_notes"></textarea></label>
                                     </div>
-                                    <fieldset class="repeating_doctorcase">
-                                        <div class="sheet-profession-repeater">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_case_patient" placeholder="Patient" type="text" />
-                                            <input name="attr_case_condition" placeholder="Condition" type="text" />
-                                            <input name="attr_case_status" placeholder="Status" type="text" />
+                                    <div class="sheet-profession-ledgers sheet-doctor-ledgers">
+                                        <div class="sheet-profession-ledger sheet-doctor-cases">
+                                            <div class="sheet-profession-ledger-title">PATIENT CASES</div>
+                                            <fieldset class="repeating_doctorcase">
+                                                <div class="sheet-profession-repeater sheet-doctor-case-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_case_patient" placeholder="Patient"
+                                                        type="text" />
+                                                    <input name="attr_case_condition" placeholder="Condition"
+                                                        type="text" />
+                                                    <input name="attr_case_cause" placeholder="Cause" type="text" />
+                                                    <input name="attr_case_severity" placeholder="Severity"
+                                                        type="text" />
+                                                    <input name="attr_case_treatment" placeholder="Treatment"
+                                                        type="text" />
+                                                    <input name="attr_case_status" placeholder="Status" type="text" />
+                                                </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
+                                        <div class="sheet-profession-ledger sheet-doctor-remedies">
+                                            <div class="sheet-profession-ledger-title">REMEDIES & PROCEDURES</div>
+                                            <fieldset class="repeating_doctorremedy">
+                                                <div class="sheet-profession-repeater sheet-doctor-remedy-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_remedy_name" placeholder="Name" type="text" />
+                                                    <input name="attr_remedy_type" placeholder="Type" type="text" />
+                                                    <input name="attr_remedy_condition" placeholder="Target Condition"
+                                                        type="text" />
+                                                    <input name="attr_remedy_requirements"
+                                                        placeholder="Materials / Requirements" type="text" />
+                                                    <input name="attr_remedy_risk" placeholder="Risk" type="text" />
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-forging">
-                                <input class="sheet-profession-collapse" id="sheet-profession-forging-open" name="attr_profession_forging_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-forging-open">FORGING NOTES</label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-forging-open"
+                                    name="attr_profession_forging_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-forging-open">FORGING NOTES</label>
                                 <div class="sheet-container-body sheet-profession-body">
                                     <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_forging_rank"><option value="">None</option><option>Initiate</option><option>Novice</option><option>Adept</option><option>Master</option><option>Grandmaster</option></select></label>
-                                        <label>Skill<input name="attr_profession_forging_skill" type="number" value="0" /></label>
+                                        <label>Rank<select name="attr_profession_forging_rank">
+                                                <option value="">None</option>
+                                                <option>Initiate</option>
+                                                <option>Novice</option>
+                                                <option>Adept</option>
+                                                <option>Master</option>
+                                                <option>Grandmaster</option>
+                                            </select></label>
+                                        <label>Skill<input name="attr_profession_forging_skill" type="number"
+                                                value="0" /></label>
                                         <label>Forge<input name="attr_profession_forging_forge" type="text" /></label>
-                                        <label>Hammer / Tools<input name="attr_profession_forging_tools" type="text" /></label>
-                                        <label>Temper Method<input name="attr_profession_forging_temper" type="text" /></label>
+                                        <label>Hammer / Tools<input name="attr_profession_forging_tools"
+                                                type="text" /></label>
+                                        <label>Temper Method<input name="attr_profession_forging_temper"
+                                                type="text" /></label>
                                     </div>
                                     <div class="sheet-profession-note-grid">
-                                        <label>Ores, Minerals & Beast Parts<textarea name="attr_profession_forging_materials"></textarea></label>
-                                        <label>Blueprints, Weapon Forms & Armour Forms<textarea name="attr_profession_forging_blueprints"></textarea></label>
-                                        <label>Quenching, Tempering & Reinforcement Notes<textarea name="attr_profession_forging_process"></textarea></label>
-                                        <label>Projects, Clients & Defects<textarea name="attr_profession_forging_notes"></textarea></label>
+                                        <label>Ores, Minerals & Beast Parts<textarea
+                                                name="attr_profession_forging_materials"></textarea></label>
+                                        <label>Blueprints, Weapon Forms & Armour Forms<textarea
+                                                name="attr_profession_forging_blueprints"></textarea></label>
+                                        <label>Quenching, Tempering & Reinforcement Notes<textarea
+                                                name="attr_profession_forging_process"></textarea></label>
+                                        <label>Projects, Clients & Defects<textarea
+                                                name="attr_profession_forging_notes"></textarea></label>
                                     </div>
                                     <fieldset class="repeating_forgingproject">
                                         <div class="sheet-profession-repeater">
@@ -1974,21 +2433,36 @@
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-fulu">
-                                <input class="sheet-profession-collapse" id="sheet-profession-fulu-open" name="attr_profession_fulu_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-fulu-open">FULU PAI NOTES</label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-fulu-open"
+                                    name="attr_profession_fulu_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-fulu-open">FULU PAI NOTES</label>
                                 <div class="sheet-container-body sheet-profession-body">
                                     <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_fulu_rank"><option value="">None</option><option>Initiate</option><option>Novice</option><option>Adept</option><option>Master</option><option>Grandmaster</option></select></label>
-                                        <label>Skill<input name="attr_profession_fulu_skill" type="number" value="0" /></label>
+                                        <label>Rank<select name="attr_profession_fulu_rank">
+                                                <option value="">None</option>
+                                                <option>Initiate</option>
+                                                <option>Novice</option>
+                                                <option>Adept</option>
+                                                <option>Master</option>
+                                                <option>Grandmaster</option>
+                                            </select></label>
+                                        <label>Skill<input name="attr_profession_fulu_skill" type="number"
+                                                value="0" /></label>
                                         <label>Brush<input name="attr_profession_fulu_brush" type="text" /></label>
                                         <label>Ink<input name="attr_profession_fulu_ink" type="text" /></label>
-                                        <label>Paper / Medium<input name="attr_profession_fulu_paper" type="text" /></label>
+                                        <label>Paper / Medium<input name="attr_profession_fulu_paper"
+                                                type="text" /></label>
                                     </div>
                                     <div class="sheet-profession-note-grid">
-                                        <label>Talisman Types & Tags<textarea name="attr_profession_fulu_types"></textarea></label>
-                                        <label>Seals, Formulas & Stroke Order<textarea name="attr_profession_fulu_seals"></textarea></label>
-                                        <label>Prepared Talismans & Storage<textarea name="attr_profession_fulu_prepared"></textarea></label>
-                                        <label>Misfires, Activation Rules & Notes<textarea name="attr_profession_fulu_notes"></textarea></label>
+                                        <label>Talisman Types & Tags<textarea
+                                                name="attr_profession_fulu_types"></textarea></label>
+                                        <label>Seals, Formulas & Stroke Order<textarea
+                                                name="attr_profession_fulu_seals"></textarea></label>
+                                        <label>Prepared Talismans & Storage<textarea
+                                                name="attr_profession_fulu_prepared"></textarea></label>
+                                        <label>Misfires, Activation Rules & Notes<textarea
+                                                name="attr_profession_fulu_notes"></textarea></label>
                                     </div>
                                     <fieldset class="repeating_fulutalisman">
                                         <div class="sheet-profession-repeater">
@@ -2001,26 +2475,43 @@
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-weaving">
-                                <input class="sheet-profession-collapse" id="sheet-profession-weaving-open" name="attr_profession_weaving_open" type="checkbox" value="1" checked="checked" />
-                                <label class="sheet-container-header sheet-profession-collapse-header" for="sheet-profession-weaving-open">WEAVING NOTES</label>
+                                <input class="sheet-profession-collapse" id="sheet-profession-weaving-open"
+                                    name="attr_profession_weaving_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-weaving-open">WEAVING NOTES</label>
                                 <div class="sheet-container-body sheet-profession-body">
                                     <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_weaving_rank"><option value="">None</option><option>Initiate</option><option>Novice</option><option>Adept</option><option>Master</option><option>Grandmaster</option></select></label>
-                                        <label>Skill<input name="attr_profession_weaving_skill" type="number" value="0" /></label>
+                                        <label>Rank<select name="attr_profession_weaving_rank">
+                                                <option value="">None</option>
+                                                <option>Initiate</option>
+                                                <option>Novice</option>
+                                                <option>Adept</option>
+                                                <option>Master</option>
+                                                <option>Grandmaster</option>
+                                            </select></label>
+                                        <label>Skill<input name="attr_profession_weaving_skill" type="number"
+                                                value="0" /></label>
                                         <label>Loom<input name="attr_profession_weaving_loom" type="text" /></label>
-                                        <label>Needles / Tools<input name="attr_profession_weaving_tools" type="text" /></label>
-                                        <label>Pattern Focus<input name="attr_profession_weaving_focus" type="text" /></label>
+                                        <label>Needles / Tools<input name="attr_profession_weaving_tools"
+                                                type="text" /></label>
+                                        <label>Pattern Focus<input name="attr_profession_weaving_focus"
+                                                type="text" /></label>
                                     </div>
                                     <div class="sheet-profession-note-grid">
-                                        <label>Threads, Silks, Hides & Dyes<textarea name="attr_profession_weaving_materials"></textarea></label>
-                                        <label>Patterns, Garments & Cloth Arrays<textarea name="attr_profession_weaving_patterns"></textarea></label>
-                                        <label>Enchantments, Repairs & Fitting Notes<textarea name="attr_profession_weaving_enchants"></textarea></label>
-                                        <label>Projects, Clients & Defects<textarea name="attr_profession_weaving_notes"></textarea></label>
+                                        <label>Threads, Silks, Hides & Dyes<textarea
+                                                name="attr_profession_weaving_materials"></textarea></label>
+                                        <label>Patterns, Garments & Cloth Arrays<textarea
+                                                name="attr_profession_weaving_patterns"></textarea></label>
+                                        <label>Enchantments, Repairs & Fitting Notes<textarea
+                                                name="attr_profession_weaving_enchants"></textarea></label>
+                                        <label>Projects, Clients & Defects<textarea
+                                                name="attr_profession_weaving_notes"></textarea></label>
                                     </div>
                                     <fieldset class="repeating_weavingproject">
                                         <div class="sheet-profession-repeater">
                                             <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_project_name" placeholder="Garment / Textile" type="text" />
+                                            <input name="attr_project_name" placeholder="Garment / Textile"
+                                                type="text" />
                                             <input name="attr_project_material" placeholder="Material" type="text" />
                                             <input name="attr_project_property" placeholder="Property" type="text" />
                                         </div>
@@ -2438,29 +2929,39 @@
                                             <div class="sheet-form-group sheet-profession-picker">
                                                 <label>Professions:</label>
                                                 <div class="sheet-profession-checks">
-                                                    <label><input name="attr_profession_alchemy_flag" type="checkbox" value="1" />Alchemy</label>
-                                                    <label><input name="attr_profession_array_making_flag" type="checkbox" value="1" />Array Making</label>
-                                                    <label><input name="attr_profession_carving_flag" type="checkbox" value="1" />Carving</label>
-                                                    <label><input name="attr_profession_divine_doctor_flag" type="checkbox" value="1" />Divine Doctor</label>
-                                                    <label><input name="attr_profession_forging_flag" type="checkbox" value="1" />Forging</label>
-                                                    <label><input name="attr_profession_fulu_pai_flag" type="checkbox" value="1" />Fulu Pai</label>
-                                                    <label><input name="attr_profession_weaving_flag" type="checkbox" value="1" />Weaving</label>
+                                                    <label><input name="attr_profession_alchemy_flag" type="checkbox"
+                                                            value="1" />Alchemy</label>
+                                                    <label><input name="attr_profession_array_making_flag"
+                                                            type="checkbox" value="1" />Array Making</label>
+                                                    <label><input name="attr_profession_carving_flag" type="checkbox"
+                                                            value="1" />Carving</label>
+                                                    <label><input name="attr_profession_divine_doctor_flag"
+                                                            type="checkbox" value="1" />Divine Doctor</label>
+                                                    <label><input name="attr_profession_forging_flag" type="checkbox"
+                                                            value="1" />Forging</label>
+                                                    <label><input name="attr_profession_fulu_pai_flag" type="checkbox"
+                                                            value="1" />Fulu Pai</label>
+                                                    <label><input name="attr_profession_weaving_flag" type="checkbox"
+                                                            value="1" />Weaving</label>
                                                 </div>
                                             </div>
                                             <div class="sheet-form-group">
                                                 <label>Carrying Capacity Modifier:</label>
                                             </div>
                                             <div class="sheet-form-group">
-                                                <input name="attr_carrying_capacity_mod" placeholder="*2/+2/-2" title="@{{carrying_capacity_mod}}" type="text" />
+                                                <input name="attr_carrying_capacity_mod" placeholder="*2/+2/-2"
+                                                    title="@{{carrying_capacity_mod}}" type="text" />
                                             </div>
                                             <div class="sheet-form-group">
                                                 <label>Inventory Slots Modifier:</label>
                                             </div>
                                             <div class="sheet-form-group">
-                                                <input name="attr_inventory_slots_mod" placeholder="*2/+2/-2" title="@{{inventory_slots_mod}}" type="text" />
+                                                <input name="attr_inventory_slots_mod" placeholder="*2/+2/-2"
+                                                    title="@{{inventory_slots_mod}}" type="text" />
                                             </div>
                                             <div class="sheet-form-group sheet-form-checkline">
-                                                <input class="reduce-size" name="attr_inventory_equipped_weight_only" type="checkbox" value="1" />
+                                                <input class="reduce-size" name="attr_inventory_equipped_weight_only"
+                                                    type="checkbox" value="1" />
                                                 <label>Ignore Non-Equipped Weight:</label>
                                             </div>
                                         </div>
@@ -2470,96 +2971,129 @@
                             <div class="sheet-container-panel sheet-pc-option-rolls">
                                 <div class="sheet-container-header">ROLL BEHAVIOUR</div>
                                 <div class="sheet-container-body">
-                                    <div class="sheet-form sheet-form-borderless"><div class="sheet-form-body">
-                                        <div class="sheet-form-group">
-                                            <label>Whisper Rolls to GM:</label>
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-form-group">
+                                                <label>Whisper Rolls to GM:</label>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <select name="attr_wtype" title="@{{wtype}}">
+                                                    <option value="">Never Whisper Rolls</option>
+                                                    <option value="@{{whispertoggle}}">Whisper Toggle</option>
+                                                    <option value="?{{Whisper?|Public Roll,|Whisper Roll,/w gm }}">Query
+                                                        Whisper</option>
+                                                    <option value="/w gm ">Always Whisper Rolls</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Auto Damage Roll:</label>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <select name="attr_dtype" title="@{{dtype}}">
+                                                    <option selected="selected" value="pick">Do Not Auto Roll Damage
+                                                    </option>
+                                                    <option value="full">Auto Roll Damage</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Default Attack Main Stat:</label>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <select name="attr_default_attack_stat" title="@{default_attack_stat}">
+                                                    <option selected="selected" value="@{power}">Power</option>
+                                                    <option value="@{agility}">Agility</option>
+                                                    <option value="@{vitality}">Vitality</option>
+                                                    <option value="@{cultivation}">Cultivation</option>
+                                                    <option value="@{qicontrol}">Qi Control</option>
+                                                    <option value="@{mental}">Mental</option>
+                                                    <option value="0">None</option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Add Character Name to Templates:</label>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <select name="attr_charname_output" title="@{charname_output}">
+                                                    <option value="{{charname=@{character_name}}}">On</option>
+                                                    <option value="charname=@{character_name}" selected="selected">Off
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="sheet-form-group">
+                                                <label>Initiative Bonus:</label>
+                                                <input name="attr_initiative_bonus" title="@{{initiative_bonus}}"
+                                                    type="number" value="0" />
+                                            </div>
                                         </div>
-                                        <div class="sheet-form-group">
-                                            <select name="attr_wtype" title="@{{wtype}}">
-                                                <option value="">Never Whisper Rolls</option>
-                                                <option value="@{{whispertoggle}}">Whisper Toggle</option>
-                                                <option value="?{{Whisper?|Public Roll,|Whisper Roll,/w gm }}">Query Whisper</option>
-                                                <option value="/w gm ">Always Whisper Rolls</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Auto Damage Roll:</label>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <select name="attr_dtype" title="@{{dtype}}">
-                                                <option selected="selected" value="pick">Do Not Auto Roll Damage</option>
-                                                <option value="full">Auto Roll Damage</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Default Attack Main Stat:</label>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <select name="attr_default_attack_stat" title="@{default_attack_stat}">
-                                                <option selected="selected" value="@{power}">Power</option>
-                                                <option value="@{agility}">Agility</option>
-                                                <option value="@{vitality}">Vitality</option>
-                                                <option value="@{cultivation}">Cultivation</option>
-                                                <option value="@{qicontrol}">Qi Control</option>
-                                                <option value="@{mental}">Mental</option>
-                                                <option value="0">None</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Add Character Name to Templates:</label>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <select name="attr_charname_output" title="@{charname_output}">
-                                                <option value="{{charname=@{character_name}}}">On</option>
-                                                <option value="charname=@{character_name}" selected="selected">Off</option>
-                                            </select>
-                                        </div>
-                                        <div class="sheet-form-group">
-                                            <label>Initiative Bonus:</label>
-                                            <input name="attr_initiative_bonus" title="@{{initiative_bonus}}" type="number" value="0" />
-                                        </div>
-                                    </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-pc-option-global">
                                 <div class="sheet-container-header">GLOBAL MODIFIERS</div>
-                                <div class="sheet-container-body"><div class="sheet-form sheet-form-borderless"><div class="sheet-form-body">
-                                    <div class="sheet-form-group"><label>Global Attribute Modifier:</label><input name="attr_global_attribute_bonus" placeholder="0" title="@{{global_attribute_bonus}}" type="number" value="0" /></div>
-                                    <div class="sheet-form-group"><label>Global Attribute Check Modifier:</label><input name="attr_global_attribute_check_bonus" placeholder="0" title="@{{global_attribute_check_bonus}}" type="number" value="0" /></div>
-                                    <div class="sheet-form-group"><label>Global DC Modifier:</label><input name="attr_global_dc_bonus" placeholder="0" title="@{{global_dc_bonus}}" type="number" value="0" /></div>
-                                    <div class="sheet-form-group"><label>Global Skill Modifier:</label><input name="attr_global_skill_bonus" placeholder="0" title="@{{global_skill_bonus}}" type="number" value="0" /></div>
-                                </div></div></div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-form sheet-form-borderless">
+                                        <div class="sheet-form-body">
+                                            <div class="sheet-form-group"><label>Global Attribute
+                                                    Modifier:</label><input name="attr_global_attribute_bonus"
+                                                    placeholder="0" title="@{{global_attribute_bonus}}" type="number"
+                                                    value="0" /></div>
+                                            <div class="sheet-form-group"><label>Global Attribute Check
+                                                    Modifier:</label><input name="attr_global_attribute_check_bonus"
+                                                    placeholder="0" title="@{{global_attribute_check_bonus}}"
+                                                    type="number" value="0" /></div>
+                                            <div class="sheet-form-group"><label>Global DC Modifier:</label><input
+                                                    name="attr_global_dc_bonus" placeholder="0"
+                                                    title="@{{global_dc_bonus}}" type="number" value="0" /></div>
+                                            <div class="sheet-form-group"><label>Global Skill Modifier:</label><input
+                                                    name="attr_global_skill_bonus" placeholder="0"
+                                                    title="@{{global_skill_bonus}}" type="number" value="0" /></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="sheet-container-panel sheet-pc-option-health">
                                 <div class="sheet-container-header">HEALTH CALCULATIONS</div>
                                 <div class="sheet-container-body">
                                     <div class="sheet-health-options">
                                         <div class="sheet-health-main-grid">
-                                            <label class="sheet-form-checkline">Auto Calculate HP<input name="attr_hp_auto_flag" type="checkbox" value="1" /></label>
+                                            <label class="sheet-form-checkline">Auto Calculate HP<input
+                                                    name="attr_hp_auto_flag" type="checkbox" value="1" /></label>
                                             <div class="sheet-health-roll-buttons">
-                                                <button name="roll_hp_current_realm" type="roll" value="@{hp_roll_current_macro}">Current Realm</button>
+                                                <button name="roll_hp_current_realm" type="roll"
+                                                    value="@{hp_roll_current_macro}">Current Realm</button>
                                                 <button name="act_hp_average" type="action">Roll Average</button>
-                                                <button name="roll_hp_next_realm" type="roll" value="@{hp_roll_next_macro}">Next Realm</button>
+                                                <button name="roll_hp_next_realm" type="roll"
+                                                    value="@{hp_roll_next_macro}">Next Realm</button>
                                             </div>
                                         </div>
                                         <div class="sheet-health-entry-row">
-                                            <label>HP Dice<input name="attr_hp_die" placeholder="d80+40" title="@{hp_die}" type="text" /></label>
-                                            <label>Rolled HP<input name="attr_hp_rolled" title="@{hp_rolled}" type="number" value="0" /></label>
-                                            <label>Bloodline HP Bonus<input name="attr_hp_bloodline_bonus" title="@{hp_bloodline_bonus}" type="number" value="0" /></label>
+                                            <label>HP Dice<input name="attr_hp_die" placeholder="d80+40"
+                                                    title="@{hp_die}" type="text" /></label>
+                                            <label>Rolled HP<input name="attr_hp_rolled" title="@{hp_rolled}"
+                                                    type="number" value="0" /></label>
+                                            <label>Bloodline HP Bonus<input name="attr_hp_bloodline_bonus"
+                                                    title="@{hp_bloodline_bonus}" type="number" value="0" /></label>
                                         </div>
                                         <div class="sheet-health-readouts sheet-health-core-readouts">
-                                            <label>Realm Bonus<input name="attr_hp_realm_bonus" readonly="readonly" title="@{hp_realm_bonus}" type="text" value="0" /></label>
-                                            <label>Bloodline HP Bonus<input name="attr_hp_bloodline_total" readonly="readonly" title="@{hp_bloodline_total}" type="text" value="0" /></label>
-                                            <label>Vitality Total<input name="attr_hp_vitality_total" readonly="readonly" title="@{hp_vitality_total}" type="text" value="0" /></label>
+                                            <label>Realm Bonus<input name="attr_hp_realm_bonus" readonly="readonly"
+                                                    title="@{hp_realm_bonus}" type="text" value="0" /></label>
+                                            <label>Bloodline HP Bonus<input name="attr_hp_bloodline_total"
+                                                    readonly="readonly" title="@{hp_bloodline_total}" type="text"
+                                                    value="0" /></label>
+                                            <label>Vitality Total<input name="attr_hp_vitality_total"
+                                                    readonly="readonly" title="@{hp_vitality_total}" type="text"
+                                                    value="0" /></label>
                                         </div>
-                                        <input class="sheet-health-bonus-collapse" id="sheet-health-bonuses-open" name="attr_hp_bonuses_open" type="checkbox" value="1" checked="checked" />
-                                        <label class="sheet-container-header sheet-health-bonus-header" for="sheet-health-bonuses-open">HP BONUSES</label>
+                                        <input class="sheet-health-bonus-collapse" id="sheet-health-bonuses-open"
+                                            name="attr_hp_bonuses_open" type="checkbox" value="1" checked="checked" />
+                                        <label class="sheet-container-header sheet-health-bonus-header"
+                                            for="sheet-health-bonuses-open">HP BONUSES</label>
                                         <div class="sheet-health-bonus-body">
                                             <div class="sheet-health-vitality-source">
                                                 <span>Vitality HP Bonus</span>
                                                 <span>+5% per 50 Vitality</span>
-                                                <input name="attr_hp_vitality_percent" readonly="readonly" title="@{hp_vitality_percent}" type="text" value="0%" />
+                                                <input name="attr_hp_vitality_percent" readonly="readonly"
+                                                    title="@{hp_vitality_percent}" type="text" value="0%" />
                                             </div>
                                             <div class="sheet-health-mods">
                                                 <div class="sheet-health-mod-head">
@@ -2571,9 +3105,12 @@
                                                 <fieldset class="repeating_hpmod">
                                                     <div class="sheet-health-mod-row">
                                                         <input name="attr_row_anchor" type="hidden" value="1" />
-                                                        <input name="attr_hp_mod_active" type="checkbox" value="1" checked="checked" />
-                                                        <input name="attr_hp_mod_source" placeholder="Source" type="text" />
-                                                        <input name="attr_hp_mod_value" placeholder="0" type="text" value="0" />
+                                                        <input name="attr_hp_mod_active" type="checkbox" value="1"
+                                                            checked="checked" />
+                                                        <input name="attr_hp_mod_source" placeholder="Source"
+                                                            type="text" />
+                                                        <input name="attr_hp_mod_value" placeholder="0" type="text"
+                                                            value="0" />
                                                         <select name="attr_hp_mod_type">
                                                             <option value="flat">Flat</option>
                                                             <option value="percent">Percent</option>
@@ -2581,9 +3118,14 @@
                                                     </div>
                                                 </fieldset>
                                                 <div class="sheet-health-readouts sheet-health-total-readouts">
-                                                    <label>Flat Mods<input name="attr_hp_mod_flat_total" readonly="readonly" title="@{hp_mod_flat_total}" type="text" value="0" /></label>
-                                                    <label>Percent Mods<input name="attr_hp_mod_percent_total" readonly="readonly" title="@{hp_mod_percent_total}" type="text" value="0%" /></label>
-                                                    <label>Total HP<input name="attr_hp_auto_total" readonly="readonly" title="@{hp_auto_total}" type="text" value="0" /></label>
+                                                    <label>Flat Mods<input name="attr_hp_mod_flat_total"
+                                                            readonly="readonly" title="@{hp_mod_flat_total}" type="text"
+                                                            value="0" /></label>
+                                                    <label>Percent Mods<input name="attr_hp_mod_percent_total"
+                                                            readonly="readonly" title="@{hp_mod_percent_total}"
+                                                            type="text" value="0%" /></label>
+                                                    <label>Total HP<input name="attr_hp_auto_total" readonly="readonly"
+                                                            title="@{hp_auto_total}" type="text" value="0" /></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -2592,40 +3134,91 @@
                             </div>
                             <div class="sheet-container-panel sheet-pc-option-attributes">
                                 <div class="sheet-container-header">ATTRIBUTE OPTIONS</div>
-                                <div class="sheet-container-body"><div class="sheet-option-attribute-grid sheet-option-matrix">
-                                    <div class="sheet-option-head">Attribute</div><div class="sheet-option-head">Bonus</div><div class="sheet-option-head">Check</div><div class="sheet-option-head">DC</div>
-                                    <label>Power</label><input name="attr_power_bonus" title="@{{power_bonus}}" type="number" value="0" /><input name="attr_power_check_bonus" title="@{{power_check_bonus}}" type="number" value="0" /><input name="attr_power_dc_bonus" title="@{{power_dc_bonus}}" type="number" value="0" />
-                                    <label>Agility</label><input name="attr_agility_bonus" title="@{{agility_bonus}}" type="number" value="0" /><input name="attr_agility_check_bonus" title="@{{agility_check_bonus}}" type="number" value="0" /><input name="attr_agility_dc_bonus" title="@{{agility_dc_bonus}}" type="number" value="0" />
-                                    <label>Vitality</label><input name="attr_vitality_bonus" title="@{{vitality_bonus}}" type="number" value="0" /><input name="attr_vitality_check_bonus" title="@{{vitality_check_bonus}}" type="number" value="0" /><input name="attr_vitality_dc_bonus" title="@{{vitality_dc_bonus}}" type="number" value="0" />
-                                    <label>Cultivation</label><input name="attr_cultivation_bonus" title="@{{cultivation_bonus}}" type="number" value="0" /><input name="attr_cultivation_check_bonus" title="@{{cultivation_check_bonus}}" type="number" value="0" /><input name="attr_cultivation_dc_bonus" title="@{{cultivation_dc_bonus}}" type="number" value="0" />
-                                    <label>Qi Control</label><input name="attr_qicontrol_bonus" title="@{{qicontrol_bonus}}" type="number" value="0" /><input name="attr_qicontrol_check_bonus" title="@{{qicontrol_check_bonus}}" type="number" value="0" /><input name="attr_qicontrol_dc_bonus" title="@{{qicontrol_dc_bonus}}" type="number" value="0" />
-                                    <label>Mental</label><input name="attr_mental_bonus" title="@{{mental_bonus}}" type="number" value="0" /><input name="attr_mental_check_bonus" title="@{{mental_check_bonus}}" type="number" value="0" /><input name="attr_mental_dc_bonus" title="@{{mental_dc_bonus}}" type="number" value="0" />
-                                </div></div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-option-attribute-grid sheet-option-matrix">
+                                        <div class="sheet-option-head">Attribute</div>
+                                        <div class="sheet-option-head">Bonus</div>
+                                        <div class="sheet-option-head">Check</div>
+                                        <div class="sheet-option-head">DC</div>
+                                        <label>Power</label><input name="attr_power_bonus" title="@{{power_bonus}}"
+                                            type="number" value="0" /><input name="attr_power_check_bonus"
+                                            title="@{{power_check_bonus}}" type="number" value="0" /><input
+                                            name="attr_power_dc_bonus" title="@{{power_dc_bonus}}" type="number"
+                                            value="0" />
+                                        <label>Agility</label><input name="attr_agility_bonus"
+                                            title="@{{agility_bonus}}" type="number" value="0" /><input
+                                            name="attr_agility_check_bonus" title="@{{agility_check_bonus}}"
+                                            type="number" value="0" /><input name="attr_agility_dc_bonus"
+                                            title="@{{agility_dc_bonus}}" type="number" value="0" />
+                                        <label>Vitality</label><input name="attr_vitality_bonus"
+                                            title="@{{vitality_bonus}}" type="number" value="0" /><input
+                                            name="attr_vitality_check_bonus" title="@{{vitality_check_bonus}}"
+                                            type="number" value="0" /><input name="attr_vitality_dc_bonus"
+                                            title="@{{vitality_dc_bonus}}" type="number" value="0" />
+                                        <label>Cultivation</label><input name="attr_cultivation_bonus"
+                                            title="@{{cultivation_bonus}}" type="number" value="0" /><input
+                                            name="attr_cultivation_check_bonus" title="@{{cultivation_check_bonus}}"
+                                            type="number" value="0" /><input name="attr_cultivation_dc_bonus"
+                                            title="@{{cultivation_dc_bonus}}" type="number" value="0" />
+                                        <label>Qi Control</label><input name="attr_qicontrol_bonus"
+                                            title="@{{qicontrol_bonus}}" type="number" value="0" /><input
+                                            name="attr_qicontrol_check_bonus" title="@{{qicontrol_check_bonus}}"
+                                            type="number" value="0" /><input name="attr_qicontrol_dc_bonus"
+                                            title="@{{qicontrol_dc_bonus}}" type="number" value="0" />
+                                        <label>Mental</label><input name="attr_mental_bonus" title="@{{mental_bonus}}"
+                                            type="number" value="0" /><input name="attr_mental_check_bonus"
+                                            title="@{{mental_check_bonus}}" type="number" value="0" /><input
+                                            name="attr_mental_dc_bonus" title="@{{mental_dc_bonus}}" type="number"
+                                            value="0" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="sheet-container-panel sheet-pc-option-skills">
                                 <div class="sheet-container-header">SKILL FLAT BONUSES</div>
-                                <div class="sheet-container-body"><div class="sheet-option-skill-grid">
-                                        <label>Acrobatics<input name="attr_acrobatics_flat" title="@{acrobatics_flat}" type="number" value="0" /></label>
-                                        <label>Athletics<input name="attr_athletics_flat" title="@{athletics_flat}" type="number" value="0" /></label>
-                                        <label>Deceit<input name="attr_deceit_flat" title="@{deceit_flat}" type="number" value="0" /></label>
-                                        <label>Discretion<input name="attr_discretion_flat" title="@{discretion_flat}" type="number" value="0" /></label>
-                                        <label>Disguise<input name="attr_disguise_flat" title="@{disguise_flat}" type="number" value="0" /></label>
-                                        <label>Fine Arts<input name="attr_fine_arts_flat" title="@{fine_arts_flat}" type="number" value="0" /></label>
-                                        <label>Forgery<input name="attr_forgery_flat" title="@{forgery_flat}" type="number" value="0" /></label>
-                                        <label>Grapple<input name="attr_grapple_flat" title="@{grapple_flat}" type="number" value="0" /></label>
-                                        <label>History<input name="attr_history_flat" title="@{history_flat}" type="number" value="0" /></label>
-                                        <label>Intuition<input name="attr_intuition_flat" title="@{intuition_flat}" type="number" value="0" /></label>
-                                        <label>Intimidation<input name="attr_intimidation_flat" title="@{intimidation_flat}" type="number" value="0" /></label>
-                                        <label>Investigation<input name="attr_investigation_flat" title="@{investigation_flat}" type="number" value="0" /></label>
-                                        <label>Medicine<input name="attr_medicine_flat" title="@{medicine_flat}" type="number" value="0" /></label>
-                                        <label>Navigation<input name="attr_navigation_flat" title="@{navigation_flat}" type="number" value="0" /></label>
-                                        <label>Perception<input name="attr_perception_flat" title="@{perception_flat}" type="number" value="0" /></label>
-                                        <label>Performance<input name="attr_performance_flat" title="@{performance_flat}" type="number" value="0" /></label>
-                                        <label>Persuade<input name="attr_persuade_flat" title="@{persuade_flat}" type="number" value="0" /></label>
-                                        <label>Seduce<input name="attr_seduce_flat" title="@{seduce_flat}" type="number" value="0" /></label>
-                                        <label>Stealth<input name="attr_stealth_flat" title="@{stealth_flat}" type="number" value="0" /></label>
-                                        <label>Survival<input name="attr_survival_flat" title="@{survival_flat}" type="number" value="0" /></label>
-                                </div></div>
+                                <div class="sheet-container-body">
+                                    <div class="sheet-option-skill-grid">
+                                        <label>Acrobatics<input name="attr_acrobatics_flat" title="@{acrobatics_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Athletics<input name="attr_athletics_flat" title="@{athletics_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Deceit<input name="attr_deceit_flat" title="@{deceit_flat}" type="number"
+                                                value="0" /></label>
+                                        <label>Discretion<input name="attr_discretion_flat" title="@{discretion_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Disguise<input name="attr_disguise_flat" title="@{disguise_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Fine Arts<input name="attr_fine_arts_flat" title="@{fine_arts_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Forgery<input name="attr_forgery_flat" title="@{forgery_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Grapple<input name="attr_grapple_flat" title="@{grapple_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>History<input name="attr_history_flat" title="@{history_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Intuition<input name="attr_intuition_flat" title="@{intuition_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Intimidation<input name="attr_intimidation_flat"
+                                                title="@{intimidation_flat}" type="number" value="0" /></label>
+                                        <label>Investigation<input name="attr_investigation_flat"
+                                                title="@{investigation_flat}" type="number" value="0" /></label>
+                                        <label>Medicine<input name="attr_medicine_flat" title="@{medicine_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Navigation<input name="attr_navigation_flat" title="@{navigation_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Perception<input name="attr_perception_flat" title="@{perception_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Performance<input name="attr_performance_flat"
+                                                title="@{performance_flat}" type="number" value="0" /></label>
+                                        <label>Persuade<input name="attr_persuade_flat" title="@{persuade_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Seduce<input name="attr_seduce_flat" title="@{seduce_flat}" type="number"
+                                                value="0" /></label>
+                                        <label>Stealth<input name="attr_stealth_flat" title="@{stealth_flat}"
+                                                type="number" value="0" /></label>
+                                        <label>Survival<input name="attr_survival_flat" title="@{survival_flat}"
+                                                type="number" value="0" /></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3887,18 +4480,18 @@ var update_all_calculations = function() { update_attributes(function() { update
 PROFESSION NOTES
 ================================ */
 
-var JTTH_ALCHEMY_RANKS = [
+var JTTH_PROFESSION_RANKS = [
     { rank: "Initiate", stars: [{ star: 1, min: 1, max: 3 }, { star: 2, min: 4, max: 6 }, { star: 3, min: 7, max: 9 }] },
     { rank: "Novice", stars: [{ star: 1, min: 10, max: 19 }, { star: 2, min: 20, max: 28 }, { star: 3, min: 29, max: 35 }, { star: 4, min: 36, max: 48 }] },
     { rank: "Adept", stars: [{ star: 1, min: 49, max: 64 }, { star: 2, min: 65, max: 81 }, { star: 3, min: 82, max: 99 }, { star: 4, min: 100, max: 119 }, { star: 5, min: 120, max: 141 }, { star: 6, min: 142, max: 185 }] },
     { rank: "Master", stars: [{ star: 1, min: 186, max: 215 }, { star: 2, min: 216, max: 254 }, { star: 3, min: 255, max: 294 }, { star: 4, min: 295, max: 344 }, { star: 5, min: 345, max: 399 }, { star: 6, min: 400, max: 461 }, { star: 7, min: 462, max: 529 }, { star: 8, min: 530, max: 591 }] }
 ];
 
-var jtth_alchemy_rank_label = function(skill_level) {
+var jtth_profession_rank_label = function(skill_level) {
     var level = jtth_int(skill_level);
     var rank_match = null;
     if (level <= 0) { return "0 Stars"; }
-    _.each(JTTH_ALCHEMY_RANKS, function(rank) {
+    _.each(JTTH_PROFESSION_RANKS, function(rank) {
         _.each(rank.stars, function(star) {
             if (!rank_match && level >= star.min && level <= star.max) {
                 rank_match = rank.rank + " " + star.star + " Star" + (star.star === 1 ? "" : "s");
@@ -3908,24 +4501,36 @@ var jtth_alchemy_rank_label = function(skill_level) {
     return rank_match || "Unranked";
 };
 
-var update_alchemy = function() {
-    getSectionIDs("repeating_alchemybonus", function(bonus_ids) {
-        var fields = ["profession_alchemy_skill"];
+var update_profession = function(profession) {
+    getSectionIDs("repeating_" + profession + "bonus", function(bonus_ids) {
+        var fields = ["profession_" + profession + "_skill"];
         _.each(bonus_ids, function(id) {
-            fields.push("repeating_alchemybonus_" + id + "_bonus_value");
+            fields.push("repeating_" + profession + "bonus_" + id + "_bonus_value");
         });
         getAttrs(fields, function(attrs) {
-            var skill_level = jtth_int(attrs.profession_alchemy_skill);
+            var skill_level = jtth_int(attrs["profession_" + profession + "_skill"]);
             var bonus_total = 0;
             _.each(bonus_ids, function(id) {
-                bonus_total += jtth_int(attrs["repeating_alchemybonus_" + id + "_bonus_value"]);
+                bonus_total += jtth_int(attrs["repeating_" + profession + "bonus_" + id + "_bonus_value"]);
             });
-            setAttrs({
-                profession_alchemy_rank: jtth_alchemy_rank_label(skill_level),
-                profession_alchemy_bonus_total: jtth_clean_number(bonus_total)
-            }, { silent: true });
+            var updates = {};
+            updates["profession_" + profession + "_rank"] = jtth_profession_rank_label(skill_level);
+            updates["profession_" + profession + "_bonus_total"] = jtth_clean_number(bonus_total);
+            setAttrs(updates, { silent: true });
         });
     });
+};
+
+var update_professions = function() {
+    _.each(["alchemy", "array", "carving", "doctor"], function(profession) {
+        update_profession(profession);
+    });
+};
+
+var reset_profession_stars = function(profession) {
+    var updates = {};
+    updates["profession_" + profession + "_official_stars"] = "1";
+    setAttrs(updates);
 };
 
 /* ================================
@@ -3933,7 +4538,7 @@ EVENT LISTENERS
 ================================ */
 
 var jtth_attribute_events = ["change:power_base", "change:agility_base", "change:vitality_base", "change:cultivation_base", "change:qicontrol_base", "change:mental_base", "change:power_bonus", "change:agility_bonus", "change:vitality_bonus", "change:cultivation_bonus", "change:qicontrol_bonus", "change:mental_bonus", "change:global_attribute_bonus"];
-on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); update_alchemy(); });
+on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); update_professions(); });
 on(jtth_attribute_events.join(" "), function() { update_all_calculations(); });
 
 var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:global_skill_bonus", "change:repeating_inventory:equipped", "change:repeating_inventory:itemmodifiers", "remove:repeating_inventory"];
@@ -3953,6 +4558,13 @@ on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
 on("clicked:add_attack", function() { add_default_attack(); });
 on("change:repeating_attack:row_anchor change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { apply_default_attack_stat(update_attacks); });
-on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_alchemy(); });
+on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_profession("alchemy"); });
+on("change:profession_array_skill change:repeating_arraybonus:bonus_value remove:repeating_arraybonus", function() { update_profession("array"); });
+on("change:profession_carving_skill change:repeating_carvingbonus:bonus_value remove:repeating_carvingbonus", function() { update_profession("carving"); });
+on("change:profession_doctor_skill change:repeating_doctorbonus:bonus_value remove:repeating_doctorbonus", function() { update_profession("doctor"); });
+on("change:profession_alchemy_official_rank", function() { reset_profession_stars("alchemy"); });
+on("change:profession_array_official_rank", function() { reset_profession_stars("array"); });
+on("change:profession_carving_official_rank", function() { reset_profession_stars("carving"); });
+on("change:profession_doctor_official_rank", function() { reset_profession_stars("doctor"); });
     </script>
 </div>

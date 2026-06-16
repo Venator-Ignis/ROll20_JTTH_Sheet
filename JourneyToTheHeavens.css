@@ -357,10 +357,6 @@
   color: var(--jtth-paper-highlight);
 }
 
-.charsheet .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
-  background: var(--jtth-ui-neutral);
-}
-
 .sheet-darkmode .sheet-core .sheet-container-skills .sheet-skill button span:last-child {
   background: var(--jtth-ui-mid);
 }
@@ -5210,9 +5206,20 @@
   gap: 8px;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-official-rank-note,
+.charsheet .sheet-core .sheet-profession-official-rank-note {
+  display: flex;
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-official-rank-note select,
+.charsheet .sheet-core .sheet-profession-official-rank-note select {
+  margin-bottom: 0;
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip,
+.charsheet .sheet-core .sheet-profession-rank-strip {
   display: grid;
-  grid-template-columns: minmax(96px, .8fr) minmax(90px, .65fr) minmax(90px, .65fr) 72px;
+  grid-template-columns: minmax(90px, .8fr) minmax(96px, .9fr) minmax(72px, .6fr) minmax(90px, .7fr) 72px;
   gap: 5px;
   align-items: end;
   background: var(--jtth-panel-soft, #efe7d8);
@@ -5223,6 +5230,7 @@
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip label,
+.charsheet .sheet-core .sheet-profession-rank-strip label,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-tools label,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-notes {
   display: grid;
@@ -5237,7 +5245,11 @@
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip input,
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip select,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip button,
+.charsheet .sheet-core .sheet-profession-rank-strip input,
+.charsheet .sheet-core .sheet-profession-rank-strip select,
+.charsheet .sheet-core .sheet-profession-rank-strip button,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-tools input,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-bonus-row input,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-row input,
@@ -5251,10 +5263,81 @@
   font-size: 9px;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip button {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-rank-strip button,
+.charsheet .sheet-core .sheet-profession-rank-strip button {
   border-radius: 3px;
   font-weight: 800;
   line-height: 18px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-array-body,
+.charsheet .sheet-core .sheet-carving-body,
+.charsheet .sheet-core .sheet-doctor-body {
+  gap: 8px;
+}
+
+.charsheet .sheet-core .sheet-array-rank-strip {
+  border-left-color: var(--jtth-jade-deep, #2f6f5f);
+}
+
+.charsheet .sheet-core .sheet-carving-rank-strip {
+  border-left-color: var(--jtth-cinnabar, #8f4638);
+}
+
+.charsheet .sheet-core .sheet-doctor-rank-strip {
+  border-left-color: var(--jtth-gold, #b58a3b);
+}
+
+.charsheet .sheet-core .sheet-profession-bonus-collapse {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-bonus-header {
+  cursor: pointer;
+  margin: 0;
+}
+
+.charsheet .sheet-core .sheet-profession-bonus-collapse:not(:checked) + .sheet-profession-bonus-header + .sheet-profession-bonus-body {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-bonus-body,
+.charsheet .sheet-core .sheet-profession-ledger {
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-bonus-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px;
+  gap: 5px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-profession-bonus-row input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  padding: 0 4px;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-ledgers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-ledger-title {
+  margin-bottom: 5px;
+  border-bottom: 1px dotted var(--jtth-border, #b9aa92);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 16px;
   text-transform: uppercase;
 }
 
@@ -6246,6 +6329,7 @@
   height: 18px;
   padding: 0 3px;
   font-size: 9px;
+  margin-bottom: 0;
 }
 
 .charsheet .sheet-core .sheet-health-roll-buttons {

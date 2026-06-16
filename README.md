@@ -68,9 +68,15 @@ The sheet uses Roll20 repeating sections for:
 - `repeating_alchemybonus`
 - `repeating_alchemyrecipe`
 - `repeating_alchemyingredient`
+- `repeating_arraybonus`
 - `repeating_arraypattern`
+- `repeating_arrayactive`
+- `repeating_carvingbonus`
+- `repeating_carvingpart`
 - `repeating_carvingwork`
+- `repeating_doctorbonus`
 - `repeating_doctorcase`
+- `repeating_doctorremedy`
 - `repeating_forgingproject`
 - `repeating_fulutalisman`
 - `repeating_weavingproject`
