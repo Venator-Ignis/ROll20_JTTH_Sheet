@@ -3220,6 +3220,402 @@
                                     </div>
                                 </div>
                             </div>
+                            <div
+                                class="sheet-container-panel sheet-pc-option-legacy-attacks sheet-section-collapsible">
+                                <input checked="checked" class="sheet-section-collapse-toggle"
+                                    name="attr_legacy_mortal_attacks_collapsed" type="checkbox" value="1" />
+                                <div class="sheet-container-header sheet-collapsible-title">LEGACY ATTACKS
+                                </div>
+                                <div class="sheet-container-body sheet-section-collapsible-content">
+                                    <fieldset class="repeating_mortalattack">
+                                        <div class="sheet-fieldset-item">
+                                            <input name="attr_row_anchor" type="hidden" value="1" />
+                                            <div class="sheet-checkbox-cog">
+                                                <input checked="checked" name="attr_options-flag"
+                                                    type="checkbox" /><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input checked="checked" class="sheet-toggle" hidden=""
+                                                name="attr_options-flag" type="checkbox" />
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Legacy Attack</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input name="attr_atkname" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input checked="checked" name="attr_atkflag"
+                                                                    type="checkbox" value="{{attack=1}}" />
+                                                                <span>Attack:</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <select name="attr_atkattr_base">
+                                                                <option selected="selected" value="@{power}">PWR
+                                                                </option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <input name="attr_atkmod" placeholder="0" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Range:</label>
+                                                            <input name="attr_atkrange" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input checked="checked" name="attr_dmgflag"
+                                                                    type="checkbox"
+                                                                    value="{{damage=1}} {{dmgflag=1}}" />
+                                                                <span>Damage 1</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Dmg</label>
+                                                            <input name="attr_dmgbase" type="text" />
+                                                            <span>+</span>
+                                                            <select name="attr_dmgattr">
+                                                                <option selected="selected" value="@{power}">PWR
+                                                                </option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <label>Mod</label>
+                                                            <input name="attr_dmgmod" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Type:</label>
+                                                            <input name="attr_dmgtype" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input name="attr_dmg2flag" type="checkbox"
+                                                                    value="{{damage=1}} {{dmg2flag=1}}" />
+                                                                <span>Damage 2</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Dmg</label>
+                                                            <input name="attr_dmg2base" type="text" />
+                                                            <span>+</span>
+                                                            <select name="attr_dmg2attr">
+                                                                <option value="@{power}">PWR</option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option selected="selected" value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <label>Mod</label>
+                                                            <input name="attr_dmg2mod" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Type:</label>
+                                                            <input name="attr_dmg2type" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input name="attr_dmg3flag" type="checkbox"
+                                                                    value="{{damage=1}} {{dmg3flag=1}}" />
+                                                                <span>Damage 3</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Dmg</label>
+                                                            <input name="attr_dmg3base" type="text" />
+                                                            <span>+</span>
+                                                            <select name="attr_dmg3attr">
+                                                                <option value="@{power}">PWR</option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option selected="selected" value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <label>Mod</label>
+                                                            <input name="attr_dmg3mod" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Type:</label>
+                                                            <input name="attr_dmg3type" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input name="attr_saveflag" type="checkbox"
+                                                                    value="{{saveflag=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]]]]}}" />
+                                                                <span>Attribute Check</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <select name="attr_saveattr">
+                                                                <option selected="selected" value="Power">PWR</option>
+                                                                <option value="Agility">AGI</option>
+                                                                <option value="Vitality">VIT</option>
+                                                                <option value="Cultivation">CUL</option>
+                                                                <option value="Qi Control">QIC</option>
+                                                                <option value="Mental">MTL</option>
+                                                            </select>
+                                                            <label>vs DC:</label>
+                                                            <select name="attr_savedc">
+                                                                <option value="(@{power_dc})">PWR</option>
+                                                                <option value="(@{agility_dc})">AGI</option>
+                                                                <option value="(@{vitality_dc})">VIT</option>
+                                                                <option value="(@{cultivation_dc})">CUL</option>
+                                                                <option value="(@{qicontrol_dc})">QIC</option>
+                                                                <option value="(@{mental_dc})">MTL</option>
+                                                                <option value="(@{saveflat})">FLAT</option>
+                                                            </select>
+                                                            <input name="attr_savedc" type="hidden" />
+                                                            <input name="attr_saveflat" type="text" value="10" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Pass Effect:</label>
+                                                            <input name="attr_saveeffect" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group sheet-form-group-column">
+                                                            <label>Description:</label>
+                                                            <textarea name="attr_atk_desc"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-attack">
+                                                    <input class="sheet-hidden" name="attr_atkbonus" type="text"
+                                                        value="" />
+                                                    <input class="sheet-hidden" name="attr_atkdmgtype" type="text"
+                                                        value="" />
+                                                    <button class="sheet-attack-button" name="roll_attack" type="roll"
+                                                        value="@{rollbase}">
+                                                        <span name="attr_atkname"></span>
+                                                        <span name="attr_atkbonus"></span>
+                                                        <span name="attr_atkdmgtype"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input name="attr_rollbase" type="hidden" />
+                                        <input name="attr_rollbase_dmg" type="hidden" />
+                                        <button class="dmgroll" name="roll_attack_dmg" type="roll"
+                                            value="@{rollbase_dmg}"></button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div
+                                class="sheet-container-panel sheet-pc-option-legacy-attacks sheet-section-collapsible">
+                                <input checked="checked" class="sheet-section-collapse-toggle"
+                                    name="attr_legacy_cultivator_attacks_collapsed" type="checkbox" value="1" />
+                                <div class="sheet-container-header sheet-collapsible-title">LEGACY ATTACKS
+                                </div>
+                                <div class="sheet-container-body sheet-section-collapsible-content">
+                                    <fieldset class="repeating_cultivatorattack">
+                                        <div class="sheet-fieldset-item">
+                                            <input name="attr_row_anchor" type="hidden" value="1" />
+                                            <div class="sheet-checkbox-cog">
+                                                <input checked="checked" name="attr_options-flag"
+                                                    type="checkbox" /><span></span>
+                                                <span class="sheet-toggle-icon"></span>
+                                            </div>
+                                            <input checked="checked" class="sheet-toggle" hidden=""
+                                                name="attr_options-flag" type="checkbox" />
+                                            <div class="sheet-toggle-checked">
+                                                <div class="sheet-form">
+                                                    <div class="sheet-form-header">Edit Legacy Attack</div>
+                                                    <div class="sheet-form-body">
+                                                        <div class="sheet-form-group">
+                                                            <label>Name:</label>
+                                                            <input name="attr_atkname" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input checked="checked" name="attr_atkflag"
+                                                                    type="checkbox" value="{{attack=1}}" />
+                                                                <span>Attack:</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <select name="attr_atkattr_base">
+                                                                <option selected="selected" value="@{power}">PWR
+                                                                </option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <input name="attr_atkmod" placeholder="0" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Range:</label>
+                                                            <input name="attr_atkrange" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input checked="checked" name="attr_dmgflag"
+                                                                    type="checkbox"
+                                                                    value="{{damage=1}} {{dmgflag=1}}" />
+                                                                <span>Damage 1</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Dmg</label>
+                                                            <input name="attr_dmgbase" type="text" />
+                                                            <span>+</span>
+                                                            <select name="attr_dmgattr">
+                                                                <option selected="selected" value="@{power}">PWR
+                                                                </option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <label>Mod</label>
+                                                            <input name="attr_dmgmod" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Type:</label>
+                                                            <input name="attr_dmgtype" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input name="attr_dmg2flag" type="checkbox"
+                                                                    value="{{damage=1}} {{dmg2flag=1}}" />
+                                                                <span>Damage 2</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Dmg</label>
+                                                            <input name="attr_dmg2base" type="text" />
+                                                            <span>+</span>
+                                                            <select name="attr_dmg2attr">
+                                                                <option value="@{power}">PWR</option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option selected="selected" value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <label>Mod</label>
+                                                            <input name="attr_dmg2mod" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Type:</label>
+                                                            <input name="attr_dmg2type" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input name="attr_dmg3flag" type="checkbox"
+                                                                    value="{{damage=1}} {{dmg3flag=1}}" />
+                                                                <span>Damage 3</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Dmg</label>
+                                                            <input name="attr_dmg3base" type="text" />
+                                                            <span>+</span>
+                                                            <select name="attr_dmg3attr">
+                                                                <option value="@{power}">PWR</option>
+                                                                <option value="@{agility}">AGI</option>
+                                                                <option value="@{vitality}">VIT</option>
+                                                                <option value="@{cultivation}">CUL</option>
+                                                                <option value="@{qicontrol}">QIC</option>
+                                                                <option value="@{mental}">MTL</option>
+                                                                <option selected="selected" value="0">-</option>
+                                                            </select>
+                                                            <span>+</span>
+                                                            <label>Mod</label>
+                                                            <input name="attr_dmg3mod" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Type:</label>
+                                                            <input name="attr_dmg3type" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label class="sheet-form-checkbox">
+                                                                <input name="attr_saveflag" type="checkbox"
+                                                                    value="{{saveflag=1}} {{saveattr=@{saveattr}}} {{savedesc=@{saveeffect}}} {{savedc=[[[[@{savedc}]][@{saveattr}]]]}}" />
+                                                                <span>Attribute Check</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <select name="attr_saveattr">
+                                                                <option selected="selected" value="Power">PWR</option>
+                                                                <option value="Agility">AGI</option>
+                                                                <option value="Vitality">VIT</option>
+                                                                <option value="Cultivation">CUL</option>
+                                                                <option value="Qi Control">QIC</option>
+                                                                <option value="Mental">MTL</option>
+                                                            </select>
+                                                            <label>vs DC:</label>
+                                                            <select name="attr_savedc">
+                                                                <option value="(@{power_dc})">PWR</option>
+                                                                <option value="(@{agility_dc})">AGI</option>
+                                                                <option value="(@{vitality_dc})">VIT</option>
+                                                                <option value="(@{cultivation_dc})">CUL</option>
+                                                                <option value="(@{qicontrol_dc})">QIC</option>
+                                                                <option value="(@{mental_dc})">MTL</option>
+                                                                <option value="(@{saveflat})">FLAT</option>
+                                                            </select>
+                                                            <input name="attr_savedc" type="hidden" />
+                                                            <input name="attr_saveflat" type="text" value="10" />
+                                                        </div>
+                                                        <div class="sheet-form-group">
+                                                            <label>Pass Effect:</label>
+                                                            <input name="attr_saveeffect" type="text" />
+                                                        </div>
+                                                        <div class="sheet-form-group sheet-form-group-column">
+                                                            <label>Description:</label>
+                                                            <textarea name="attr_atk_desc"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-toggle-unchecked">
+                                                <div class="sheet-pc-attack">
+                                                    <input class="sheet-hidden" name="attr_atkbonus" type="text"
+                                                        value="" />
+                                                    <input class="sheet-hidden" name="attr_atkdmgtype" type="text"
+                                                        value="" />
+                                                    <button class="sheet-attack-button" name="roll_attack" type="roll"
+                                                        value="@{rollbase}">
+                                                        <span name="attr_atkname"></span>
+                                                        <span name="attr_atkbonus"></span>
+                                                        <span name="attr_atkdmgtype"></span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input name="attr_rollbase" type="hidden" />
+                                        <input name="attr_rollbase_dmg" type="hidden" />
+                                        <button class="dmgroll" name="roll_attack_dmg" type="roll"
+                                            value="@{rollbase_dmg}"></button>
+                                    </fieldset>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
