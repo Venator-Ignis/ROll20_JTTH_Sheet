@@ -1866,7 +1866,7 @@
                                         name="attr_profession_alchemy_bonuses_open" type="checkbox" value="1"
                                         checked="checked" />
                                     <label class="sheet-container-header sheet-alchemy-bonus-header"
-                                        for="sheet-alchemy-bonuses-open">SKILL BONUSES</label>
+                                        for="sheet-alchemy-bonuses-open">ALCHEMY BONUSES</label>
                                     <div class="sheet-alchemy-bonus-body">
                                         <fieldset class="repeating_alchemybonus">
                                             <div class="sheet-alchemy-bonus-row">
@@ -2045,96 +2045,6 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <div class="sheet-profession-fields sheet-array-fields">
-                                        <label>Specialty<select name="attr_profession_array_specialty">
-                                                <option value="">None</option>
-                                                <option>Offensive</option>
-                                                <option>Defensive</option>
-                                                <option>Spatial</option>
-                                                <option>Miscellaneous</option>
-                                            </select></label>
-                                        <label>Array Type<select name="attr_profession_array_type">
-                                                <option value="">None</option>
-                                                <option>Concealment</option>
-                                                <option>Killing</option>
-                                                <option>Protection</option>
-                                                <option>Sealing</option>
-                                                <option>Qi Gathering</option>
-                                                <option>Beast Summoning</option>
-                                                <option>Exorcism</option>
-                                                <option>Other</option>
-                                            </select></label>
-                                        <label>Realm Standard<select name="attr_profession_array_realm">
-                                                <option value="">None</option>
-                                                <option>Qi Gathering</option>
-                                                <option>Foundation</option>
-                                                <option>Core Formation</option>
-                                                <option>Other</option>
-                                            </select></label>
-                                        <label>Quality<select name="attr_profession_array_quality">
-                                                <option value="">None</option>
-                                                <option>Low</option>
-                                                <option>Standard</option>
-                                                <option>High</option>
-                                            </select></label>
-                                        <label>Core Medium<input name="attr_profession_array_medium"
-                                                type="text" /></label>
-                                        <label>Radius / Area<input name="attr_profession_array_radius"
-                                                type="text" /></label>
-                                        <label>Qi Cost / Upkeep<input name="attr_profession_array_qi_cost"
-                                                type="text" /></label>
-                                        <label>Anchor Count<input name="attr_profession_array_anchors" type="number"
-                                                value="0" /></label>
-                                    </div>
-                                    <div class="sheet-profession-note-grid">
-                                        <label>Formation Theory & Rules<textarea
-                                                name="attr_profession_array_theory"></textarea></label>
-                                        <label>Materials, Flags, Ink & Anchors<textarea
-                                                name="attr_profession_array_materials"></textarea></label>
-                                        <label>Active Arrays & Maintenance<textarea
-                                                name="attr_profession_array_active"></textarea></label>
-                                        <label>Patterns, Counters & Break Points<textarea
-                                                name="attr_profession_array_notes"></textarea></label>
-                                    </div>
-                                    <div class="sheet-profession-ledgers sheet-array-ledgers">
-                                        <div class="sheet-profession-ledger sheet-array-patterns">
-                                            <div class="sheet-profession-ledger-title">FORMATION BLUEPRINTS</div>
-                                            <fieldset class="repeating_arraypattern">
-                                                <div class="sheet-profession-repeater sheet-array-pattern-row">
-                                                    <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <input name="attr_pattern_name" placeholder="Array Pattern"
-                                                        type="text" />
-                                                    <input name="attr_pattern_type" placeholder="Type" type="text" />
-                                                    <input name="attr_pattern_realm" placeholder="Realm" type="text" />
-                                                    <input name="attr_pattern_quality" placeholder="Quality"
-                                                        type="text" />
-                                                    <input name="attr_pattern_radius" placeholder="Radius / Area"
-                                                        type="text" />
-                                                    <input name="attr_pattern_cost" placeholder="Cost / Materials"
-                                                        type="text" />
-                                                    <input name="attr_pattern_notes" placeholder="Operation Notes"
-                                                        type="text" />
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="sheet-profession-ledger sheet-array-active-ledger">
-                                            <div class="sheet-profession-ledger-title">ACTIVE ARRAYS</div>
-                                            <fieldset class="repeating_arrayactive">
-                                                <div class="sheet-profession-repeater sheet-array-active-row">
-                                                    <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <input name="attr_active_name" placeholder="Name / Location"
-                                                        type="text" />
-                                                    <input name="attr_active_type" placeholder="Type" type="text" />
-                                                    <input name="attr_active_controller" placeholder="Controller"
-                                                        type="text" />
-                                                    <input name="attr_active_qi_supply" placeholder="Qi Supply"
-                                                        type="text" />
-                                                    <input name="attr_active_condition" placeholder="Condition"
-                                                        type="text" />
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-carving">
@@ -2181,7 +2091,7 @@
                                         id="sheet-carving-bonuses-open" name="attr_profession_carving_bonuses_open"
                                         type="checkbox" value="1" checked="checked" />
                                     <label class="sheet-container-header sheet-profession-bonus-header sheet-carving-bonus-header"
-                                        for="sheet-carving-bonuses-open">SKILL BONUSES</label>
+                                        for="sheet-carving-bonuses-open">CARVING BONUSES</label>
                                     <div class="sheet-profession-bonus-body sheet-carving-bonus-body">
                                         <fieldset class="repeating_carvingbonus">
                                             <div class="sheet-profession-bonus-row sheet-carving-bonus-row">
@@ -2192,76 +2102,247 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <div class="sheet-profession-fields sheet-carving-fields">
-                                        <label>Specialty<select name="attr_profession_carving_specialty">
-                                                <option value="">None</option>
-                                                <option>Anatomy</option>
-                                                <option>Bloodline Extraction</option>
-                                                <option>Hide / Scale Work</option>
-                                                <option>Bone / Horn Work</option>
-                                                <option>Organ Preservation</option>
-                                                <option>Field Dressing</option>
-                                            </select></label>
-                                        <label>Carving Tools<input name="attr_profession_carving_tools"
-                                                placeholder="Knives, hooks, saws" type="text" /></label>
-                                        <label>Preservation Method<input name="attr_profession_carving_preservation"
-                                                placeholder="Salt, qi seal, cold storage" type="text" /></label>
-                                        <label>Target Beast<input name="attr_profession_carving_target_beast"
-                                                type="text" /></label>
-                                        <label>Target Anatomy<input name="attr_profession_carving_anatomy"
-                                                placeholder="Core, hide, tendons, organs" type="text" /></label>
-                                        <label>Material Quality<select name="attr_profession_carving_material_quality">
-                                                <option value="">None</option>
-                                                <option>Average</option>
-                                                <option>High</option>
-                                                <option>Peak</option>
-                                            </select></label>
-                                        <label>Storage Condition<input name="attr_profession_carving_storage"
-                                                type="text" /></label>
-                                    </div>
-                                    <div class="sheet-profession-note-grid">
-                                        <label>Beast Anatomy & Weak Points<textarea
-                                                name="attr_profession_carving_anatomy_notes"></textarea></label>
-                                        <label>Harvestable Materials<textarea
-                                                name="attr_profession_carving_materials"></textarea></label>
-                                        <label>Quality, Contamination & Preservation Notes<textarea
-                                                name="attr_profession_carving_quality"></textarea></label>
-                                        <label>Butchery Plans, Spoilage & Field Notes<textarea
-                                                name="attr_profession_carving_notes"></textarea></label>
-                                    </div>
-                                    <div class="sheet-profession-ledgers sheet-carving-ledgers">
-                                        <div class="sheet-profession-ledger sheet-carving-parts">
-                                            <div class="sheet-profession-ledger-title">BEAST PARTS</div>
-                                            <fieldset class="repeating_carvingpart">
-                                                <div class="sheet-profession-repeater sheet-carving-part-row">
+                                    <div class="sheet-carving-ledgers">
+                                        <div class="sheet-profession-ledger sheet-carving-beasts">
+                                            <div class="sheet-profession-ledger-title">BEAST RECORDS</div>
+                                            <fieldset class="repeating_carvingbeast">
+                                                <div class="sheet-carving-row sheet-carving-beast-row">
                                                     <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <input name="attr_part_source" placeholder="Beast / Source"
-                                                        type="text" />
-                                                    <input name="attr_part_name" placeholder="Part" type="text" />
-                                                    <input name="attr_part_quality" placeholder="Quality" type="text" />
-                                                    <input name="attr_part_break_threshold" placeholder="Break"
-                                                        type="text" />
-                                                    <input name="attr_part_sever_threshold" placeholder="Sever"
-                                                        type="text" />
-                                                    <input name="attr_part_condition" placeholder="Condition"
-                                                        type="text" />
-                                                    <input name="attr_part_yield" placeholder="Yield / Use"
-                                                        type="text" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-carving-edit sheet-carving-beast-edit">
+                                                            <div class="sheet-carving-edit-head">
+                                                                <span>Beast / Species</span>
+                                                                <span>Realm</span>
+                                                                <span>Region / Den</span>
+                                                            </div>
+                                                            <input name="attr_beast_name" placeholder="Beast / Species"
+                                                                type="text" />
+                                                            <select name="attr_beast_realm">
+                                                                <option value="">-</option>
+                                                                <option>Mortal</option>
+                                                                <option>Qi Gathering</option>
+                                                                <option>Foundation</option>
+                                                                <option>Core Formation</option>
+                                                                <option>Martial Soul</option>
+                                                                <option>God Ascendance</option>
+                                                            </select>
+                                                            <input name="attr_beast_location" placeholder="Region / Den"
+                                                                type="text" />
+                                                            <div class="sheet-carving-edit-head sheet-carving-full-head">
+                                                                <span>Return Notes</span>
+                                                            </div>
+                                                            <textarea name="attr_beast_notes"
+                                                                placeholder="Return notes, habits, route, warnings"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-carving-known-beast">
+                                                            <input class="sheet-carving-beast-notes-toggle"
+                                                                name="attr_toggle_beast_notes" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-carving-summary-head sheet-carving-beast-summary-head">
+                                                                <span>Beast</span>
+                                                                <span>Realm</span>
+                                                                <span>Location</span>
+                                                                <span>Parts</span>
+                                                            </div>
+                                                            <div class="sheet-carving-summary sheet-carving-beast-summary">
+                                                                <span class="sheet-carving-summary-name"
+                                                                    name="attr_beast_name"></span>
+                                                                <span name="attr_beast_realm"></span>
+                                                                <span name="attr_beast_location"></span>
+                                                                <span name="attr_beast_parts"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_beast_notes" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-carving-known-beast-notes">
+                                                                <div class="sheet-carving-detail-head">
+                                                                    <span>Return Notes</span>
+                                                                </div>
+                                                                <span name="attr_beast_notes"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </fieldset>
                                         </div>
-                                        <div class="sheet-profession-ledger sheet-carving-work-ledger">
-                                            <div class="sheet-profession-ledger-title">HARVEST WORK</div>
-                                            <fieldset class="repeating_carvingwork">
-                                                <div class="sheet-profession-repeater sheet-carving-work-row">
+                                        <div class="sheet-profession-ledger sheet-carving-requests">
+                                            <div class="sheet-profession-ledger-title">HUNT REQUESTS</div>
+                                            <fieldset class="repeating_carvingrequest">
+                                                <div class="sheet-carving-row sheet-carving-request-row">
                                                     <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <input name="attr_work_name" placeholder="Work Name" type="text" />
-                                                    <input name="attr_work_material" placeholder="Material Yield"
-                                                        type="text" />
-                                                    <input name="attr_work_risk" placeholder="Contamination Risk"
-                                                        type="text" />
-                                                    <input name="attr_work_effect" placeholder="Preservation Status"
-                                                        type="text" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-carving-edit sheet-carving-request-edit">
+                                                            <div class="sheet-carving-edit-head">
+                                                                <span>Requested Part</span>
+                                                                <span>Quality</span>
+                                                                <span>Source</span>
+                                                            </div>
+                                                            <input name="attr_request_part" placeholder="Requested Part" type="text" />
+                                                            <select name="attr_request_quality">
+                                                                <option value="">-</option>
+                                                                <option>Average</option>
+                                                                <option>High</option>
+                                                                <option>Peak</option>
+                                                            </select>
+                                                            <input name="attr_request_beast" placeholder="Source" type="text" />
+                                                            <div class="sheet-carving-edit-head sheet-carving-request-subhead">
+                                                                <span>Realm</span>
+                                                                <span>Client / Use</span>
+                                                                <span>Price</span>
+                                                            </div>
+                                                            <select name="attr_request_realm">
+                                                                <option value="">-</option>
+                                                                <option>Mortal</option>
+                                                                <option>Qi Gathering</option>
+                                                                <option>Foundation</option>
+                                                                <option>Core Formation</option>
+                                                                <option>Martial Soul</option>
+                                                                <option>God Ascendance</option>
+                                                            </select>
+                                                            <input name="attr_request_client" placeholder="Client / Use" type="text" />
+                                                            <input name="attr_request_price" placeholder="Price" type="text" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-carving-known-request">
+                                                            <input class="sheet-carving-request-details-toggle"
+                                                                name="attr_toggle_request_details" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-carving-summary-head sheet-carving-request-summary-head">
+                                                                <span>Done</span>
+                                                                <span>Part</span>
+                                                                <span>Quality</span>
+                                                                <span>Source</span>
+                                                                <span>Realm</span>
+                                                            </div>
+                                                            <div class="sheet-carving-summary sheet-carving-request-summary">
+                                                                <input class="sheet-carving-request-complete"
+                                                                    name="attr_request_complete" type="checkbox"
+                                                                    value="1" />
+                                                                <span class="sheet-carving-summary-name" name="attr_request_part"></span>
+                                                                <span name="attr_request_quality"></span>
+                                                                <span name="attr_request_beast"></span>
+                                                                <span name="attr_request_realm"></span>
+                                                                <input class="toggle-checkbox" name="attr_toggle_request_details" type="checkbox" value="1" />
+                                                            </div>
+                                                            <div class="sheet-carving-known-request-details">
+                                                                <div class="sheet-carving-detail-head sheet-carving-request-detail-head">
+                                                                    <span>Client / Use</span>
+                                                                    <span>Price</span>
+                                                                </div>
+                                                                <span name="attr_request_client"></span>
+                                                                <span class="sheet-carving-summary-price" name="attr_request_price"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-profession-ledger sheet-carving-parts">
+                                            <div class="sheet-profession-ledger-title">COLLECTED PARTS</div>
+                                            <fieldset class="repeating_carvingpart">
+                                                <div class="sheet-carving-row sheet-carving-part-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-carving-edit sheet-carving-part-edit">
+                                                            <div class="sheet-carving-edit-head">
+                                                                <span>Part Name</span>
+                                                                <span>Source Beast</span>
+                                                                <span>Realm</span>
+                                                            </div>
+                                                            <input name="attr_part_name" placeholder="Part Name"
+                                                                type="text" />
+                                                            <input name="attr_part_source" placeholder="Source Beast"
+                                                                type="text" />
+                                                            <select name="attr_part_realm">
+                                                                <option value="">-</option>
+                                                                <option>Mortal</option>
+                                                                <option>Qi Gathering</option>
+                                                                <option>Foundation</option>
+                                                                <option>Core Formation</option>
+                                                                <option>Martial Soul</option>
+                                                                <option>God Ascendance</option>
+                                                            </select>
+                                                            <div class="sheet-carving-edit-head">
+                                                                <span>Quality</span>
+                                                                <span>Condition</span>
+                                                                <span>Qty</span>
+                                                            </div>
+                                                            <select name="attr_part_quality">
+                                                                <option value="">-</option>
+                                                                <option>Average</option>
+                                                                <option>High</option>
+                                                                <option>Peak</option>
+                                                            </select>
+                                                            <input name="attr_part_condition" placeholder="Condition"
+                                                                type="text" />
+                                                            <input name="attr_part_quantity" placeholder="Qty"
+                                                                type="number" value="1" />
+                                                            <div class="sheet-carving-edit-head sheet-carving-request-subhead">
+                                                                <span>Sell Price</span>
+                                                                <span>Stored / Sold To</span>
+                                                            </div>
+                                                            <input name="attr_part_sell_price" placeholder="Sell Price"
+                                                                type="text" />
+                                                            <input name="attr_part_storage" placeholder="Stored / Sold To"
+                                                                type="text" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-carving-known-part">
+                                                            <input class="sheet-carving-part-details-toggle"
+                                                                name="attr_toggle_part_details" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-carving-summary-head sheet-carving-part-summary-head">
+                                                                <span>Part</span>
+                                                                <span>Source</span>
+                                                                <span>Quality</span>
+                                                                <span>Qty</span>
+                                                            </div>
+                                                            <div class="sheet-carving-summary sheet-carving-part-summary">
+                                                                <span class="sheet-carving-summary-name" name="attr_part_name"></span>
+                                                                <span name="attr_part_source"></span>
+                                                                <span name="attr_part_quality"></span>
+                                                                <span name="attr_part_quantity"></span>
+                                                                <input class="toggle-checkbox" name="attr_toggle_part_details" type="checkbox" value="1" />
+                                                            </div>
+                                                            <div class="sheet-carving-known-part-details">
+                                                                <div class="sheet-carving-detail-head sheet-carving-part-detail-head">
+                                                                    <span>Realm</span>
+                                                                    <span>Condition</span>
+                                                                    <span>Sell Price</span>
+                                                                    <span>Stored / Sold To</span>
+                                                                </div>
+                                                                <span name="attr_part_realm"></span>
+                                                                <span name="attr_part_condition"></span>
+                                                                <span class="sheet-carving-summary-price" name="attr_part_sell_price"></span>
+                                                                <span name="attr_part_storage"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </fieldset>
                                         </div>
@@ -2323,70 +2404,6 @@
                                             </div>
                                         </fieldset>
                                     </div>
-                                    <div class="sheet-profession-fields sheet-doctor-fields">
-                                        <label>Specialty<select name="attr_profession_doctor_specialty">
-                                                <option value="">None</option>
-                                                <option>Heart Demonology</option>
-                                                <option>Qi Pathway Research</option>
-                                                <option>Surgical Studies</option>
-                                                <option>Anti-Poison</option>
-                                            </select></label>
-                                        <label>Medical Kit<input name="attr_profession_doctor_kit"
-                                                type="text" /></label>
-                                        <label>Recovery Ward<input name="attr_profession_doctor_ward"
-                                                type="text" /></label>
-                                        <label>Current Patient<input name="attr_profession_doctor_current_patient"
-                                                type="text" /></label>
-                                        <label>Primary Condition<input name="attr_profession_doctor_primary_condition"
-                                                type="text" /></label>
-                                        <label>Treatment Status<input name="attr_profession_doctor_treatment_status"
-                                                type="text" /></label>
-                                    </div>
-                                    <div class="sheet-profession-note-grid">
-                                        <label>Diagnosis Methods<textarea
-                                                name="attr_profession_doctor_diagnosis"></textarea></label>
-                                        <label>Treatments, Surgery & Acupuncture<textarea
-                                                name="attr_profession_doctor_treatments"></textarea></label>
-                                        <label>Patients, Conditions & Case Notes<textarea
-                                                name="attr_profession_doctor_cases"></textarea></label>
-                                        <label>Medicines, Antidotes & Recovery Plans<textarea
-                                                name="attr_profession_doctor_notes"></textarea></label>
-                                    </div>
-                                    <div class="sheet-profession-ledgers sheet-doctor-ledgers">
-                                        <div class="sheet-profession-ledger sheet-doctor-cases">
-                                            <div class="sheet-profession-ledger-title">PATIENT CASES</div>
-                                            <fieldset class="repeating_doctorcase">
-                                                <div class="sheet-profession-repeater sheet-doctor-case-row">
-                                                    <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <input name="attr_case_patient" placeholder="Patient"
-                                                        type="text" />
-                                                    <input name="attr_case_condition" placeholder="Condition"
-                                                        type="text" />
-                                                    <input name="attr_case_cause" placeholder="Cause" type="text" />
-                                                    <input name="attr_case_severity" placeholder="Severity"
-                                                        type="text" />
-                                                    <input name="attr_case_treatment" placeholder="Treatment"
-                                                        type="text" />
-                                                    <input name="attr_case_status" placeholder="Status" type="text" />
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="sheet-profession-ledger sheet-doctor-remedies">
-                                            <div class="sheet-profession-ledger-title">REMEDIES & PROCEDURES</div>
-                                            <fieldset class="repeating_doctorremedy">
-                                                <div class="sheet-profession-repeater sheet-doctor-remedy-row">
-                                                    <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <input name="attr_remedy_name" placeholder="Name" type="text" />
-                                                    <input name="attr_remedy_type" placeholder="Type" type="text" />
-                                                    <input name="attr_remedy_condition" placeholder="Target Condition"
-                                                        type="text" />
-                                                    <input name="attr_remedy_requirements"
-                                                        placeholder="Materials / Requirements" type="text" />
-                                                    <input name="attr_remedy_risk" placeholder="Risk" type="text" />
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-forging">
@@ -2394,42 +2411,56 @@
                                     name="attr_profession_forging_open" type="checkbox" value="1" checked="checked" />
                                 <label class="sheet-container-header sheet-profession-collapse-header"
                                     for="sheet-profession-forging-open">FORGING NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body">
-                                    <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_forging_rank">
-                                                <option value="">None</option>
-                                                <option>Initiate</option>
-                                                <option>Novice</option>
-                                                <option>Adept</option>
-                                                <option>Master</option>
-                                                <option>Grandmaster</option>
-                                            </select></label>
-                                        <label>Skill<input name="attr_profession_forging_skill" type="number"
-                                                value="0" /></label>
-                                        <label>Forge<input name="attr_profession_forging_forge" type="text" /></label>
-                                        <label>Hammer / Tools<input name="attr_profession_forging_tools"
-                                                type="text" /></label>
-                                        <label>Temper Method<input name="attr_profession_forging_temper"
-                                                type="text" /></label>
+                                <div class="sheet-container-body sheet-profession-body sheet-forging-body">
+                                    <div class="sheet-profession-rank-strip sheet-forging-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-forging-official-rank-note">
+                                                <select name="attr_profession_forging_official_rank"
+                                                    title="@{profession_forging_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_forging_official_stars"
+                                                    title="@{profession_forging_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_forging_rank" readonly="readonly"
+                                                title="@{profession_forging_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_forging_skill"
+                                                title="@{profession_forging_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_forging_bonus_total"
+                                                readonly="readonly" title="@{profession_forging_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_forging_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Forging}} {{mod=@{profession_forging_skill}d10 + @{profession_forging_bonus_total}}} {{r1=[[@{profession_forging_skill}d10 + @{profession_forging_bonus_total}[BONUS]]]}}">Roll</button>
                                     </div>
-                                    <div class="sheet-profession-note-grid">
-                                        <label>Ores, Minerals & Beast Parts<textarea
-                                                name="attr_profession_forging_materials"></textarea></label>
-                                        <label>Blueprints, Weapon Forms & Armour Forms<textarea
-                                                name="attr_profession_forging_blueprints"></textarea></label>
-                                        <label>Quenching, Tempering & Reinforcement Notes<textarea
-                                                name="attr_profession_forging_process"></textarea></label>
-                                        <label>Projects, Clients & Defects<textarea
-                                                name="attr_profession_forging_notes"></textarea></label>
+                                    <input class="sheet-profession-bonus-collapse sheet-forging-bonus-collapse"
+                                        id="sheet-forging-bonuses-open" name="attr_profession_forging_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-forging-bonus-header"
+                                        for="sheet-forging-bonuses-open">SKILL BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-forging-bonus-body">
+                                        <fieldset class="repeating_forgingbonus">
+                                            <div class="sheet-profession-bonus-row sheet-forging-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
                                     </div>
-                                    <fieldset class="repeating_forgingproject">
-                                        <div class="sheet-profession-repeater">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_project_item" placeholder="Item" type="text" />
-                                            <input name="attr_project_material" placeholder="Material" type="text" />
-                                            <input name="attr_project_stage" placeholder="Stage" type="text" />
-                                        </div>
-                                    </fieldset>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-fulu">
@@ -2437,41 +2468,56 @@
                                     name="attr_profession_fulu_open" type="checkbox" value="1" checked="checked" />
                                 <label class="sheet-container-header sheet-profession-collapse-header"
                                     for="sheet-profession-fulu-open">FULU PAI NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body">
-                                    <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_fulu_rank">
-                                                <option value="">None</option>
-                                                <option>Initiate</option>
-                                                <option>Novice</option>
-                                                <option>Adept</option>
-                                                <option>Master</option>
-                                                <option>Grandmaster</option>
-                                            </select></label>
-                                        <label>Skill<input name="attr_profession_fulu_skill" type="number"
-                                                value="0" /></label>
-                                        <label>Brush<input name="attr_profession_fulu_brush" type="text" /></label>
-                                        <label>Ink<input name="attr_profession_fulu_ink" type="text" /></label>
-                                        <label>Paper / Medium<input name="attr_profession_fulu_paper"
-                                                type="text" /></label>
+                                <div class="sheet-container-body sheet-profession-body sheet-fulu-body">
+                                    <div class="sheet-profession-rank-strip sheet-fulu-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-fulu-official-rank-note">
+                                                <select name="attr_profession_fulu_official_rank"
+                                                    title="@{profession_fulu_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_fulu_official_stars"
+                                                    title="@{profession_fulu_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_fulu_rank" readonly="readonly"
+                                                title="@{profession_fulu_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_fulu_skill"
+                                                title="@{profession_fulu_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_fulu_bonus_total"
+                                                readonly="readonly" title="@{profession_fulu_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_fulu_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Fulu Pai}} {{mod=@{profession_fulu_skill}d10 + @{profession_fulu_bonus_total}}} {{r1=[[@{profession_fulu_skill}d10 + @{profession_fulu_bonus_total}[BONUS]]]}}">Roll</button>
                                     </div>
-                                    <div class="sheet-profession-note-grid">
-                                        <label>Talisman Types & Tags<textarea
-                                                name="attr_profession_fulu_types"></textarea></label>
-                                        <label>Seals, Formulas & Stroke Order<textarea
-                                                name="attr_profession_fulu_seals"></textarea></label>
-                                        <label>Prepared Talismans & Storage<textarea
-                                                name="attr_profession_fulu_prepared"></textarea></label>
-                                        <label>Misfires, Activation Rules & Notes<textarea
-                                                name="attr_profession_fulu_notes"></textarea></label>
+                                    <input class="sheet-profession-bonus-collapse sheet-fulu-bonus-collapse"
+                                        id="sheet-fulu-bonuses-open" name="attr_profession_fulu_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-fulu-bonus-header"
+                                        for="sheet-fulu-bonuses-open">SKILL BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-fulu-bonus-body">
+                                        <fieldset class="repeating_fulubonus">
+                                            <div class="sheet-profession-bonus-row sheet-fulu-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
                                     </div>
-                                    <fieldset class="repeating_fulutalisman">
-                                        <div class="sheet-profession-repeater">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_talisman_name" placeholder="Talisman" type="text" />
-                                            <input name="attr_talisman_type" placeholder="Type" type="text" />
-                                            <input name="attr_talisman_count" placeholder="Count" type="number" />
-                                        </div>
-                                    </fieldset>
                                 </div>
                             </div>
                             <div class="sheet-container-panel sheet-profession-panel sheet-profession-weaving">
@@ -2479,43 +2525,56 @@
                                     name="attr_profession_weaving_open" type="checkbox" value="1" checked="checked" />
                                 <label class="sheet-container-header sheet-profession-collapse-header"
                                     for="sheet-profession-weaving-open">WEAVING NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body">
-                                    <div class="sheet-profession-fields">
-                                        <label>Rank<select name="attr_profession_weaving_rank">
-                                                <option value="">None</option>
-                                                <option>Initiate</option>
-                                                <option>Novice</option>
-                                                <option>Adept</option>
-                                                <option>Master</option>
-                                                <option>Grandmaster</option>
-                                            </select></label>
-                                        <label>Skill<input name="attr_profession_weaving_skill" type="number"
-                                                value="0" /></label>
-                                        <label>Loom<input name="attr_profession_weaving_loom" type="text" /></label>
-                                        <label>Needles / Tools<input name="attr_profession_weaving_tools"
-                                                type="text" /></label>
-                                        <label>Pattern Focus<input name="attr_profession_weaving_focus"
-                                                type="text" /></label>
+                                <div class="sheet-container-body sheet-profession-body sheet-weaving-body">
+                                    <div class="sheet-profession-rank-strip sheet-weaving-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-weaving-official-rank-note">
+                                                <select name="attr_profession_weaving_official_rank"
+                                                    title="@{profession_weaving_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_weaving_official_stars"
+                                                    title="@{profession_weaving_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_weaving_rank" readonly="readonly"
+                                                title="@{profession_weaving_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_weaving_skill"
+                                                title="@{profession_weaving_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_weaving_bonus_total"
+                                                readonly="readonly" title="@{profession_weaving_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_weaving_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Weaving}} {{mod=@{profession_weaving_skill}d10 + @{profession_weaving_bonus_total}}} {{r1=[[@{profession_weaving_skill}d10 + @{profession_weaving_bonus_total}[BONUS]]]}}">Roll</button>
                                     </div>
-                                    <div class="sheet-profession-note-grid">
-                                        <label>Threads, Silks, Hides & Dyes<textarea
-                                                name="attr_profession_weaving_materials"></textarea></label>
-                                        <label>Patterns, Garments & Cloth Arrays<textarea
-                                                name="attr_profession_weaving_patterns"></textarea></label>
-                                        <label>Enchantments, Repairs & Fitting Notes<textarea
-                                                name="attr_profession_weaving_enchants"></textarea></label>
-                                        <label>Projects, Clients & Defects<textarea
-                                                name="attr_profession_weaving_notes"></textarea></label>
+                                    <input class="sheet-profession-bonus-collapse sheet-weaving-bonus-collapse"
+                                        id="sheet-weaving-bonuses-open" name="attr_profession_weaving_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-weaving-bonus-header"
+                                        for="sheet-weaving-bonuses-open">SKILL BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-weaving-bonus-body">
+                                        <fieldset class="repeating_weavingbonus">
+                                            <div class="sheet-profession-bonus-row sheet-weaving-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
                                     </div>
-                                    <fieldset class="repeating_weavingproject">
-                                        <div class="sheet-profession-repeater">
-                                            <input name="attr_row_anchor" type="hidden" value="1" />
-                                            <input name="attr_project_name" placeholder="Garment / Textile"
-                                                type="text" />
-                                            <input name="attr_project_material" placeholder="Material" type="text" />
-                                            <input name="attr_project_property" placeholder="Property" type="text" />
-                                        </div>
-                                    </fieldset>
                                 </div>
                             </div>
                         </div>
@@ -4918,7 +4977,7 @@ var update_profession = function(profession) {
 };
 
 var update_professions = function() {
-    _.each(["alchemy", "array", "carving", "doctor"], function(profession) {
+    _.each(["alchemy", "array", "carving", "doctor", "forging", "fulu", "weaving"], function(profession) {
         update_profession(profession);
     });
 };
@@ -4958,9 +5017,15 @@ on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value re
 on("change:profession_array_skill change:repeating_arraybonus:bonus_value remove:repeating_arraybonus", function() { update_profession("array"); });
 on("change:profession_carving_skill change:repeating_carvingbonus:bonus_value remove:repeating_carvingbonus", function() { update_profession("carving"); });
 on("change:profession_doctor_skill change:repeating_doctorbonus:bonus_value remove:repeating_doctorbonus", function() { update_profession("doctor"); });
+on("change:profession_forging_skill change:repeating_forgingbonus:bonus_value remove:repeating_forgingbonus", function() { update_profession("forging"); });
+on("change:profession_fulu_skill change:repeating_fulubonus:bonus_value remove:repeating_fulubonus", function() { update_profession("fulu"); });
+on("change:profession_weaving_skill change:repeating_weavingbonus:bonus_value remove:repeating_weavingbonus", function() { update_profession("weaving"); });
 on("change:profession_alchemy_official_rank", function() { reset_profession_stars("alchemy"); });
 on("change:profession_array_official_rank", function() { reset_profession_stars("array"); });
 on("change:profession_carving_official_rank", function() { reset_profession_stars("carving"); });
 on("change:profession_doctor_official_rank", function() { reset_profession_stars("doctor"); });
+on("change:profession_forging_official_rank", function() { reset_profession_stars("forging"); });
+on("change:profession_fulu_official_rank", function() { reset_profession_stars("fulu"); });
+on("change:profession_weaving_official_rank", function() { reset_profession_stars("weaving"); });
     </script>
 </div>

@@ -985,7 +985,7 @@ var update_profession = function(profession) {
 };
 
 var update_professions = function() {
-    _.each(["alchemy", "array", "carving", "doctor"], function(profession) {
+    _.each(["alchemy", "array", "carving", "doctor", "forging", "fulu", "weaving"], function(profession) {
         update_profession(profession);
     });
 };
@@ -1025,7 +1025,13 @@ on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value re
 on("change:profession_array_skill change:repeating_arraybonus:bonus_value remove:repeating_arraybonus", function() { update_profession("array"); });
 on("change:profession_carving_skill change:repeating_carvingbonus:bonus_value remove:repeating_carvingbonus", function() { update_profession("carving"); });
 on("change:profession_doctor_skill change:repeating_doctorbonus:bonus_value remove:repeating_doctorbonus", function() { update_profession("doctor"); });
+on("change:profession_forging_skill change:repeating_forgingbonus:bonus_value remove:repeating_forgingbonus", function() { update_profession("forging"); });
+on("change:profession_fulu_skill change:repeating_fulubonus:bonus_value remove:repeating_fulubonus", function() { update_profession("fulu"); });
+on("change:profession_weaving_skill change:repeating_weavingbonus:bonus_value remove:repeating_weavingbonus", function() { update_profession("weaving"); });
 on("change:profession_alchemy_official_rank", function() { reset_profession_stars("alchemy"); });
 on("change:profession_array_official_rank", function() { reset_profession_stars("array"); });
 on("change:profession_carving_official_rank", function() { reset_profession_stars("carving"); });
 on("change:profession_doctor_official_rank", function() { reset_profession_stars("doctor"); });
+on("change:profession_forging_official_rank", function() { reset_profession_stars("forging"); });
+on("change:profession_fulu_official_rank", function() { reset_profession_stars("fulu"); });
+on("change:profession_weaving_official_rank", function() { reset_profession_stars("weaving"); });
