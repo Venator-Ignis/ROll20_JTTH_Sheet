@@ -339,8 +339,34 @@ DEFENCE AND ACTION POINT VALUES
 var JTTH_REALM_DEFENSE_BASES = { "Mortal": 0, "Qi Gathering": 10, "Foundation": 15, "Core Formation": 30, "Martial Soul": 60, "God Ascendance": 120 };
 var JTTH_DURABILITY_SOFT_CAPS = { "Qi Gathering": 30, "Foundation": 45, "Core Formation": 90, "Martial Soul": 180, "God Ascendance": 360 };
 var JTTH_AP_MAJOR_REALM_BASES = { "Mortal": 4, "Qi Gathering": 4, "Foundation": 6, "Core Formation": 8, "Martial Soul": 10, "God Ascendance": 12 };
+var JTTH_QI_REALM_BASES = {
+    "Qi Gathering": { "Early": 10, "Mid": 20, "Late": 30, "Peak": 50 },
+    "Foundation": { "Early": 150, "Mid": 200, "Late": 300, "Peak": 425 },
+    "Core Formation": { "Early": 2000, "Mid": 3500, "Late": 6500, "Peak": 10000 },
+    "Martial Soul": { "Early": 90000, "Mid": 180000, "Late": 250000, "Peak": 400000 }
+};
+var JTTH_QI_DAO_MULTIPLIERS = { elemental: 1.3, generalist: 1.15, martial: 1, body_refiner: 0.75 };
 var jtth_realm_base = function(realm) { return JTTH_REALM_DEFENSE_BASES[realm] || 0; };
 var jtth_ap_major_realm_base = function(realm) { return JTTH_AP_MAJOR_REALM_BASES[realm] || 4; };
+var jtth_qi_realm_base = function(major, minor) {
+    var realm = JTTH_QI_REALM_BASES[major] || {};
+    return realm[minor] || 0;
+};
+var jtth_qi_percent_bonus = function(value) {
+    var text = String(value || "").trim();
+    if (!text) { return 0; }
+    var number = parseFloat(text.replace(/%/g, ""));
+    if (isNaN(number)) { return 0; }
+    if (text.indexOf("%") !== -1 || Math.abs(number) > 1) { return number / 100; }
+    return number;
+};
+var jtth_qi_regen_amount = function(value, max_qi) {
+    var text = String(value || "").trim();
+    if (!text) { return 0; }
+    var number = parseFloat(text.replace(/%/g, ""));
+    if (isNaN(number)) { return 0; }
+    return text.indexOf("%") !== -1 ? max_qi * (number / 100) : number;
+};
 var jtth_durability_soft_cap = function(bonus_total, realm) {
     var cap = JTTH_DURABILITY_SOFT_CAPS[realm];
     if (!cap || bonus_total <= cap) { return bonus_total; }
@@ -406,6 +432,56 @@ var update_action_points = function() {
         var agility_scale = Math.floor(agility / 15);
         var agility_regen_bonus = Math.floor(agility / 150);
         setAttrs({ "ap-base": "4", "ap-major-realm-base": jtth_clean_number(major_realm_base), "ap-agility-scale": jtth_clean_number(agility_scale), "ap-agility-regen-bonus": jtth_clean_number(agility_regen_bonus), "ap-max": jtth_clean_number(major_realm_base * 2), "ap-regen": jtth_clean_number(major_realm_base + agility_regen_bonus) }, { silent: true });
+    });
+};
+
+var update_qi_reserves = function() {
+    getSectionIDs("repeating_qimodifier", function(mod_ids) {
+        var fields = ["major_realm", "minor_realm", "qi_dao_group", "qi_regen_value"];
+        _.each(mod_ids, function(id) {
+            var prefix = "repeating_qimodifier_" + id + "_";
+            fields.push(prefix + "qi_modifier_active");
+            fields.push(prefix + "qi_modifier_type");
+            fields.push(prefix + "qi_modifier_value");
+        });
+        getAttrs(fields, function(attrs) {
+            var realm_base = jtth_qi_realm_base(attrs.major_realm || "Mortal", attrs.minor_realm || "-");
+            var dao_multiplier = JTTH_QI_DAO_MULTIPLIERS[attrs.qi_dao_group || "martial"] || 1;
+            var dao_base = realm_base * dao_multiplier;
+            var percent_total = 1;
+            var flat_total = 0;
+            _.each(mod_ids, function(id) {
+                var prefix = "repeating_qimodifier_" + id + "_";
+                if (attrs[prefix + "qi_modifier_active"] === "0") { return; }
+                var value = attrs[prefix + "qi_modifier_value"];
+                if ((attrs[prefix + "qi_modifier_type"] || "flat") === "percent") {
+                    percent_total += jtth_qi_percent_bonus(value);
+                } else {
+                    flat_total += jtth_float(value);
+                }
+            });
+            var percent_multiplier = percent_total === 0 ? 1 : percent_total;
+            var max_qi = Math.max(0, Math.floor((dao_base * percent_multiplier) + flat_total));
+            setAttrs({
+                "qi-realm-base": jtth_clean_number(realm_base),
+                "qi-dao-base": jtth_clean_number(dao_base),
+                "qi-percent-total": jtth_clean_number(percent_total * 100) + "%",
+                "qi-flat-total": jtth_clean_number(flat_total),
+                "qi-max": jtth_clean_number(max_qi),
+                "qi-deprivation": jtth_clean_number(max_qi * 0.05),
+                "qi-regen-calculated": jtth_clean_number(jtth_qi_regen_amount(attrs.qi_regen_value, max_qi))
+            }, { silent: true });
+        });
+    });
+};
+
+var apply_qi_regen = function() {
+    getAttrs(["qi_current", "qi-max", "qi_regen_value"], function(attrs) {
+        var max_qi = jtth_float(attrs["qi-max"]);
+        var current_qi = jtth_float(attrs.qi_current);
+        var regen = jtth_qi_regen_amount(attrs.qi_regen_value, max_qi);
+        var next_qi = Math.min(max_qi, current_qi + regen);
+        setAttrs({ qi_current: jtth_clean_number(next_qi) }, { silent: true });
     });
 };
 
@@ -577,7 +653,7 @@ var update_weight = function() {
     });
 };
 
-var update_defence_totals = function() { update_evasion(); update_durability(); update_reduction(); update_action_points(); };
+var update_defence_totals = function() { update_evasion(); update_durability(); update_reduction(); update_action_points(); update_qi_reserves(); };
 /* ================================
 ATTACKS AND DAMAGE
 ================================ */
@@ -936,7 +1012,114 @@ var update_attacks = function() {
     });
 };
 
-var update_dependents = function() { update_skills(); update_initiative(); update_dcs(); update_defence_totals(); update_health(); update_weight(); update_attacks(); update_beast_parts(); };
+var jtth_avatar_attr_label = function(ref) {
+    var name = jtth_attr_name_from_ref(ref);
+    var labels = {
+        avatar_power: "PWR",
+        avatar_agility: "AGI",
+        avatar_vitality: "VIT",
+        avatar_cultivation: "CUL",
+        avatar_qi_control: "QIC",
+        avatar_mental: "MTL"
+    };
+    return labels[name] || "";
+};
+
+var jtth_avatar_attack_display = function(row) {
+    var attr = jtth_macro_text(row.atkattr_base, "0");
+    var mod = jtth_number_text(row.atkmod, "0");
+    var label = jtth_avatar_attr_label(row.atkattr_base);
+    return "ACC [[" + attr + " + " + mod + "]] / PEN [[floor((" + attr + ") * 0.75) + " + mod + "]]" + (label ? " (" + label + ")" : "");
+};
+
+var jtth_avatar_damage_display = function(row, prefix, type) {
+    var dice = row[prefix + "base"] || "0";
+    var attr_label = jtth_avatar_attr_label(row[prefix + "attr"]);
+    var flat = jtth_signed_text(row[prefix + "mod"]);
+    var parts = [];
+    if (dice && dice !== "0") { parts.push(dice); }
+    if (attr_label) { parts.push(attr_label); }
+    if (flat) { parts.push(flat); }
+    return (parts.length ? parts.join(" + ") : "0") + (type ? " " + type : "");
+};
+
+var jtth_avatar_row_id_from_event = function(eventInfo) {
+    var source = (eventInfo && eventInfo.sourceAttribute) || "";
+    var match = source.match(/repeating_talismanavatar_([^_]+)_/);
+    return match ? match[1] : "";
+};
+
+var add_avatar_attack = function(eventInfo) {
+    var id = generateRowID();
+    var base = "repeating_talismanavatarattack_" + id + "_";
+    var owner = jtth_avatar_row_id_from_event(eventInfo);
+    var updates = {};
+    updates[base + "row_anchor"] = "1";
+    updates[base + "avatar_attack_owner"] = owner;
+    updates[base + "options-flag"] = "on";
+    updates[base + "atkflag"] = "{{attack=1}}";
+    updates[base + "atkattr_base"] = "@{avatar_power}";
+    updates[base + "dmgflag"] = "{{damage=1}} {{dmgflag=1}}";
+    updates[base + "dmgattr"] = "@{avatar_power}";
+    updates[base + "dmg2attr"] = "@{avatar_power}";
+    updates[base + "dmg3attr"] = "@{avatar_power}";
+    updates[base + "dmg4attr"] = "@{avatar_power}";
+    updates[base + "dmg3_visible"] = "0";
+    updates[base + "dmg4_visible"] = "0";
+    setAttrs(updates, { silent: true }, function() { update_avatar_attacks(); });
+};
+
+var update_avatar_attacks = function() {
+    getSectionIDs("repeating_talismanavatarattack", function(attack_ids) {
+        var fields = ["dtype", "charname_output", "whispertoggle"];
+        _.each(attack_ids, function(id) {
+            var base = "repeating_talismanavatarattack_" + id + "_";
+            _.each(["avatar_attack_owner","atkname","atkflag","atkattr_base","atkmod","atkrange","dmgflag","dmgbase","dmgtech","dmgattr","dmgmod","dmgtype","dmgintentflag","dmg2flag","dmg2base","dmg2tech","dmg2attr","dmg2mod","dmg2type","dmg2intentflag","dmg3flag","dmg3base","dmg3tech","dmg3attr","dmg3mod","dmg3type","dmg3intentflag","dmg4flag","dmg4base","dmg4tech","dmg4attr","dmg4mod","dmg4type","dmg4intentflag","saveflag","saveattr","saveeffect","savedc","atk_desc"], function(attr) {
+                fields.push(base + attr);
+            });
+        });
+        getAttrs(fields, function(attrs) {
+            var updates = {};
+            var mod_totals = { flat: 0, intent: 0, manual_bonus: 0, pill_bonus: 0 };
+            _.each(attack_ids, function(id) {
+                var base = "repeating_talismanavatarattack_" + id + "_";
+                var row = {};
+                _.each(fields, function(field) {
+                    if (field.indexOf(base) === 0) { row[field.replace(base, "")] = attrs[field]; }
+                });
+                var dmg2_on = !!row.dmg2flag;
+                var dmg3_on = dmg2_on && !!row.dmg3flag;
+                var dmg4_on = dmg3_on && !!row.dmg4flag;
+                var acc_roll = jtth_attack_roll(row, 0, 1);
+                var eff_roll = jtth_attack_roll(row, 0, 0.75);
+                var damage_bits = (row.dmgflag || "") + " " + (dmg2_on ? row.dmg2flag : "") + " " + (dmg3_on ? row.dmg3flag : "") + " " + (dmg4_on ? row.dmg4flag : "");
+                var save_bits = row.saveflag || "";
+                var desc = jtth_macro_text(row.atk_desc, "");
+                var common = "@{whispertoggle}&{template:" + (attrs.dtype === "full" ? "atkdmg" : "atk") + "} @{charname_output} {{rname=@{avatar_name}: @{atkname}}} {{mod=@{atkattr_base}+@{atkmod}}} {{r1=" + acc_roll + "}} {{r2=" + eff_roll + "}} {{range=@{atkrange}}} " + (row.atkflag || "") + " ";
+                var damage = damage_bits + " {{dmg1=" + jtth_damage_expr(row, "dmg", 0, mod_totals) + "}} {{dmg1type=@{dmgtype}}} {{dmg2=" + jtth_damage_expr(row, "dmg2", 0, mod_totals) + "}} {{dmg2type=@{dmg2type}}} {{dmg3=" + jtth_damage_expr(row, "dmg3", 0, mod_totals) + "}} {{dmg3type=@{dmg3type}}} {{dmg4=" + jtth_damage_expr(row, "dmg4", 0, mod_totals) + "}} {{dmg4type=@{dmg4type}}} " + save_bits + " {{desc=" + desc + "}}";
+                updates[base + "rollbase"] = common + (attrs.dtype === "full" ? damage : " {{desc=" + desc + "}}");
+                updates[base + "rollbase_dmg"] = "@{whispertoggle}&{template:dmg} " + damage;
+                updates[base + "atkbonus"] = jtth_avatar_attack_display(row);
+                var typed_damage = [];
+                var fallback_damage = [];
+                var add_damage_display = function(prefix, type) {
+                    var display = jtth_avatar_damage_display(row, prefix, type);
+                    if (type) { typed_damage.push(display); } else { fallback_damage.push(display); }
+                };
+                if (row.dmgflag) { add_damage_display("dmg", row.dmgtype); }
+                if (dmg2_on) { add_damage_display("dmg2", row.dmg2type); }
+                if (dmg3_on) { add_damage_display("dmg3", row.dmg3type); }
+                if (dmg4_on) { add_damage_display("dmg4", row.dmg4type); }
+                updates[base + "atkdmgtype"] = (typed_damage.length ? typed_damage : fallback_damage).join(" / ");
+                updates[base + "dmg3_visible"] = dmg2_on ? "1" : "0";
+                updates[base + "dmg4_visible"] = dmg3_on ? "1" : "0";
+            });
+            setAttrs(updates, { silent: true });
+        });
+    });
+};
+
+var update_dependents = function() { update_skills(); update_initiative(); update_dcs(); update_defence_totals(); update_health(); update_weight(); update_attacks(); update_avatar_attacks(); update_beast_parts(); };
 var update_all_calculations = function() { update_attributes(function() { update_dependents(); }); };
 
 /* ================================
@@ -985,7 +1168,7 @@ var update_profession = function(profession) {
 };
 
 var update_professions = function() {
-    _.each(["alchemy", "array", "carving", "doctor", "forging", "fulu", "weaving"], function(profession) {
+    _.each(["alchemy", "array", "carving", "cooking", "doctor", "forging", "fulu", "weaving"], function(profession) {
         update_profession(profession);
     });
 };
@@ -1008,11 +1191,13 @@ var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:
 _.each(JTTH_SKILL_NAMES, function(skill_name) { jtth_skill_events.push("change:" + skill_name + "_flat"); });
 on(jtth_skill_events.join(" "), function() { update_skills(); });
 
-on("change:ctype change:major_realm change:mortal-level change:global_dc_bonus change:power_dc_bonus change:agility_dc_bonus change:vitality_dc_bonus change:cultivation_dc_bonus change:qicontrol_dc_bonus change:mental_dc_bonus change:qi_control_dc_bonus change:mental_strength_bonus", function() { update_dcs(); update_defence_totals(); });
+on("change:ctype change:major_realm change:minor_realm change:mortal-level change:qi_dao_group change:qi_regen_value change:global_dc_bonus change:power_dc_bonus change:agility_dc_bonus change:vitality_dc_bonus change:cultivation_dc_bonus change:qicontrol_dc_bonus change:mental_dc_bonus change:qi_control_dc_bonus change:mental_strength_bonus", function() { update_dcs(); update_defence_totals(); });
 on("change:initiative_bonus", function() { update_initiative(); });
 on("change:repeating_evasionsource:evasion_value remove:repeating_evasionsource", function() { update_evasion(); });
 on("change:repeating_durabilitysource:durability_value remove:repeating_durabilitysource", function() { update_durability(); });
 on("change:repeating_reductionsource:reduction_value remove:repeating_reductionsource", function() { update_reduction(); });
+on("change:repeating_qimodifier:qi_modifier_active change:repeating_qimodifier:qi_modifier_type change:repeating_qimodifier:qi_modifier_value remove:repeating_qimodifier", function() { update_qi_reserves(); });
+on("clicked:qi_regen", function() { apply_qi_regen(); });
 on("change:hp_max change:repeating_beastparts:part_name change:repeating_beastparts:part_quality remove:repeating_beastparts", function() { update_beast_parts(); });
 on("change:hp_auto_flag change:hp_die change:hp_rolled change:hp_bloodline_bonus change:major_realm change:minor_realm change:vitality change:vitality_base change:vitality_bonus change:global_attribute_bonus change:repeating_hpmod:hp_mod_active change:repeating_hpmod:hp_mod_value change:repeating_hpmod:hp_mod_type remove:repeating_hpmod", function() { update_health(); });
 on("clicked:hp_average", function() { set_hp_average(); });
@@ -1021,9 +1206,12 @@ on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
 on("clicked:add_attack", function() { add_default_attack(); });
 on("change:repeating_attack:row_anchor change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { apply_default_attack_stat(update_attacks); });
+on("clicked:repeating_talismanavatar:add_avatar_attack", function(eventInfo) { add_avatar_attack(eventInfo); });
+on("change:dtype change:repeating_talismanavatarattack:row_anchor change:repeating_talismanavatarattack:atkname change:repeating_talismanavatarattack:atkflag change:repeating_talismanavatarattack:atkattr_base change:repeating_talismanavatarattack:atkmod change:repeating_talismanavatarattack:atkrange change:repeating_talismanavatarattack:dmgflag change:repeating_talismanavatarattack:dmgbase change:repeating_talismanavatarattack:dmgtech change:repeating_talismanavatarattack:dmgattr change:repeating_talismanavatarattack:dmgmod change:repeating_talismanavatarattack:dmgtype change:repeating_talismanavatarattack:dmgintentflag change:repeating_talismanavatarattack:dmg2flag change:repeating_talismanavatarattack:dmg2base change:repeating_talismanavatarattack:dmg2tech change:repeating_talismanavatarattack:dmg2attr change:repeating_talismanavatarattack:dmg2mod change:repeating_talismanavatarattack:dmg2type change:repeating_talismanavatarattack:dmg2intentflag change:repeating_talismanavatarattack:dmg3flag change:repeating_talismanavatarattack:dmg3base change:repeating_talismanavatarattack:dmg3tech change:repeating_talismanavatarattack:dmg3attr change:repeating_talismanavatarattack:dmg3mod change:repeating_talismanavatarattack:dmg3type change:repeating_talismanavatarattack:dmg3intentflag change:repeating_talismanavatarattack:dmg4flag change:repeating_talismanavatarattack:dmg4base change:repeating_talismanavatarattack:dmg4tech change:repeating_talismanavatarattack:dmg4attr change:repeating_talismanavatarattack:dmg4mod change:repeating_talismanavatarattack:dmg4type change:repeating_talismanavatarattack:dmg4intentflag change:repeating_talismanavatarattack:saveflag change:repeating_talismanavatarattack:saveattr change:repeating_talismanavatarattack:saveeffect change:repeating_talismanavatarattack:savedc change:repeating_talismanavatarattack:atk_desc remove:repeating_talismanavatarattack", function() { update_avatar_attacks(); });
 on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_profession("alchemy"); });
 on("change:profession_array_skill change:repeating_arraybonus:bonus_value remove:repeating_arraybonus", function() { update_profession("array"); });
 on("change:profession_carving_skill change:repeating_carvingbonus:bonus_value remove:repeating_carvingbonus", function() { update_profession("carving"); });
+on("change:profession_cooking_skill change:repeating_cookingbonus:bonus_value remove:repeating_cookingbonus", function() { update_profession("cooking"); });
 on("change:profession_doctor_skill change:repeating_doctorbonus:bonus_value remove:repeating_doctorbonus", function() { update_profession("doctor"); });
 on("change:profession_forging_skill change:repeating_forgingbonus:bonus_value remove:repeating_forgingbonus", function() { update_profession("forging"); });
 on("change:profession_fulu_skill change:repeating_fulubonus:bonus_value remove:repeating_fulubonus", function() { update_profession("fulu"); });
@@ -1031,6 +1219,7 @@ on("change:profession_weaving_skill change:repeating_weavingbonus:bonus_value re
 on("change:profession_alchemy_official_rank", function() { reset_profession_stars("alchemy"); });
 on("change:profession_array_official_rank", function() { reset_profession_stars("array"); });
 on("change:profession_carving_official_rank", function() { reset_profession_stars("carving"); });
+on("change:profession_cooking_official_rank", function() { reset_profession_stars("cooking"); });
 on("change:profession_doctor_official_rank", function() { reset_profession_stars("doctor"); });
 on("change:profession_forging_official_rank", function() { reset_profession_stars("forging"); });
 on("change:profession_fulu_official_rank", function() { reset_profession_stars("fulu"); });

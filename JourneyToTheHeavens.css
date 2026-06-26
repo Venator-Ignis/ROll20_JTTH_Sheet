@@ -1841,12 +1841,18 @@
   margin-bottom: 0;
 }
 
-.charsheet .sheet-core .sheet-checkbox-cog {
+.charsheet .sheet-core .sheet-qi-modifier-active{
   display: inline-block;
   height: 18px;
   position: absolute;
-  right: 0;
+  left: 0;
   width: 18px;
+}
+
+.charsheet .sheet-core .sheet-checkbox-cog {
+  display: inline-block;
+  position: absolute;
+  right: 0;
 }
 
 .charsheet .sheet-core .sheet-checkbox-cog span {
@@ -2422,6 +2428,20 @@
   position: relative;
 }
 
+.sheet-panel-qi-reserves {
+  margin-bottom: 5px;
+  position: relative;
+}
+
+.sheet-page-character .sheet-panel-qi-reserves.sheet-type-nonmortal {
+  display: none !important;
+}
+
+.sheet-ctype[value="c"] ~ .sheet-main-body .sheet-page-character .sheet-panel-qi-reserves.sheet-type-nonmortal,
+.sheet-ctype[value="b"] ~ .sheet-main-body .sheet-page-character .sheet-panel-qi-reserves.sheet-type-nonmortal {
+  display: block !important;
+}
+
 .sheet-panel-bonuses {
   margin-bottom: 5px;
 }
@@ -2430,7 +2450,38 @@
   height: 20px !important;
 }
 
+.charsheet .sheet-core .sheet-container-attacks > .sheet-section-collapsible > .sheet-section-collapse-toggle {
+  height: 20px !important;
+}
+
+.charsheet .sheet-core .sheet-container-attacks > .sheet-section-collapsible > .sheet-container-header.sheet-collapsible-title {
+  cursor: pointer;
+  padding-right: 18px;
+  position: relative;
+  user-select: none;
+}
+
+.charsheet .sheet-core .sheet-container-attacks > .sheet-section-collapsible > .sheet-section-collapsible-content {
+  margin-top: 3px;
+}
+
+.charsheet .sheet-core .sheet-container-attacks > .sheet-section-collapsible > .sheet-section-collapse-toggle:checked ~ .sheet-section-collapsible-content {
+  display: none !important;
+}
+
+.charsheet .sheet-core .sheet-panel-action-points > .sheet-section-collapse-toggle:checked ~ .sheet-ap-primary-values {
+  display: grid;
+}
+
+.charsheet .sheet-core .sheet-panel-action-points > .sheet-section-collapse-toggle:checked ~ .sheet-section-collapsible-content {
+  display: none !important;
+}
+
 .sheet-panel-action-points .sheet-section-collapsible-content {
+  padding: 4px;
+}
+
+.sheet-panel-qi-reserves .sheet-section-collapsible-content {
   padding: 4px;
 }
 
@@ -2448,6 +2499,218 @@
   min-width: 0;
   overflow: hidden;
   text-align: center;
+}
+
+.sheet-panel-qi-reserves .sheet-qi-primary-values {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sheet-qi-regen-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 125px 25px;
+  gap: 2px;
+  align-items: center;
+  position: relative;
+}
+
+.sheet-qi-regen-control input,
+.sheet-qi-regen-control span,
+.sheet-qi-regen-control button {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  padding: 0 2px;
+  font-size: 9px;
+}
+
+.sheet-qi-regen-control span {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sheet-qi-regen-control button {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  cursor: pointer;
+  height: 20px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  text-shadow: none !important;
+  top: 0;
+  width: 24px;
+  z-index: 2;
+}
+
+.sheet-qi-regen-control::after {
+  align-items: center;
+  border: 1px solid var(--jtth-ink-strong, #2c2a24);
+  box-sizing: border-box;
+  content: "+";
+  display: flex;
+  font-size: 11px;
+  font-weight: 800;
+  height: 20px;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+}
+
+.sheet-qi-settings {
+  margin: 0 5px 4px;
+}
+
+.sheet-qi-settings label {
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 4px;
+  align-items: center;
+  margin: 0;
+  color: var(--jtth-muted);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.sheet-qi-settings select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  font-size: 9px;
+}
+
+.sheet-qi-presets {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3px;
+  margin-right: 5px !important;
+}
+
+.sheet-qi-regen-entry {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
+}
+
+.sheet-qi-bonuses {
+  margin: 5px 5px 0;
+}
+
+.sheet-qi-bonuses > .sheet-section-collapse-toggle {
+  height: 24px !important;
+}
+
+.sheet-qi-bonuses .sheet-defense-stat-summary {
+  justify-content: center;
+  min-height: 22px;
+}
+
+.sheet-qi-bonuses .sheet-defense-stat-label {
+  flex: 0 1 auto;
+  text-align: center;
+}
+
+.sheet-qi-bonuses > .sheet-section-collapsible-content {
+  margin-top: 4px;
+}
+
+.sheet-qi-modifier-row {
+  position: relative;
+  padding-left: 22px;
+}
+
+.sheet-qi-modifier-form {
+  grid-template-columns: minmax(0, 1fr) 84px 70px;
+}
+
+.sheet-qi-modifier-form label {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.sheet-qi-active-toggle {
+  height: 16px;
+  left: 3px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  z-index: 3;
+}
+
+.sheet-qi-active-toggle input {
+  cursor: pointer;
+  height: 100% !important;
+  margin: 0 !important;
+  opacity: 0;
+  position: absolute;
+  width: 100% !important;
+  z-index: 2;
+}
+
+.sheet-qi-active-toggle span {
+  align-items: center;
+  background: var(--jtth-form-surface, #fbf5e8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: var(--jtth-muted);
+  display: flex;
+  font-size: 10px;
+  font-weight: 800;
+  height: 14px;
+  justify-content: center;
+  left: 1px;
+  line-height: 12px;
+  position: absolute;
+  top: 1px;
+  width: 14px;
+}
+
+.sheet-qi-active-toggle input:checked + span::after {
+  content: "x";
+}
+
+.sheet-qi-active-toggle input:checked + span {
+  background: var(--jtth-jade, #315c4f);
+  border-color: var(--jtth-jade-deep, #25483e);
+  color: var(--jtth-paper-highlight, #fff8e8);
+}
+
+.sheet-qi-modifier-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 46px 54px;
+  gap: 4px;
+  width: calc(100% - 16px);
+}
+
+.sheet-qi-modifier-row > .sheet-toggle-unchecked {
+  margin-left: 15px;
+}
+
+.sheet-qi-modifier-row > .sheet-toggle-checked {
+  padding-left: 2px;
+}
+
+.sheet-qi-modifier-summary span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .charsheet .sheet-core .sheet-container-skills-techniques {
@@ -3525,7 +3788,7 @@
 .charsheet .sheet-container-panel {
   display: flex;
   flex-direction: column;
-  min-height: 65px;
+  min-height: 30px;
   min-width: 0;
   position: relative;
   z-index: 0;
@@ -4509,6 +4772,30 @@
   margin-top: 4px;
 }
 
+.sheet-container-beast-parts.sheet-section-collapsible > .sheet-section-collapse-toggle {
+  height: 22px !important;
+  left: 0 !important;
+  margin: 0 !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 5;
+}
+
+.sheet-container-beast-parts .sheet-defense-stat-summary {
+  justify-content: center;
+  min-height: 22px;
+}
+
+.sheet-container-beast-parts .sheet-defense-stat-label {
+  flex: 0 1 auto;
+  text-align: center;
+}
+
+.sheet-container-beast-parts > .sheet-section-collapsible-content {
+  margin-top: 4px;
+}
+
 .sheet-container-beast-parts .sheet-beast-part-labels,
 .sheet-container-beast-parts .sheet-beast-part-row {
   display: grid;
@@ -4919,6 +5206,37 @@
   overflow: hidden;
 }
 
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool button,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0 2px;
+  line-height: 12px;
+  overflow: visible;
+  padding: 2px 0;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool button span:first-of-type,
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button span:first-of-type {
+  flex: 0 0 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.charsheet .sheet-core .sheet-page-character .sheet-pc-tool button span:not(:first-of-type),
+.charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool button span:not(:first-of-type) {
+  flex: 0 1 auto;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
 .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-character .sheet-pc-tool,
 .charsheet .sheet-core .sheet-page-bio .sheet-pc-custom-rolls .sheet-pc-tool,
@@ -5126,6 +5444,7 @@
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="1"] ~ .sheet-notes-tab-header,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-array[value="1"] ~ .sheet-notes-tab-header,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-carving[value="1"] ~ .sheet-notes-tab-header,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-cooking[value="1"] ~ .sheet-notes-tab-header,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-doctor[value="1"] ~ .sheet-notes-tab-header,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-forging[value="1"] ~ .sheet-notes-tab-header,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-fulu[value="1"] ~ .sheet-notes-tab-header,
@@ -5137,17 +5456,18 @@
   display: grid !important;
 }
 
-.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="0"] ~ .sheet-profession-flag-array[value="0"] ~ .sheet-profession-flag-carving[value="0"] ~ .sheet-profession-flag-doctor[value="0"] ~ .sheet-profession-flag-forging[value="0"] ~ .sheet-profession-flag-fulu[value="0"] ~ .sheet-profession-flag-weaving[value="0"] ~ .sheet-notes-base-content {
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="0"] ~ .sheet-profession-flag-array[value="0"] ~ .sheet-profession-flag-carving[value="0"] ~ .sheet-profession-flag-cooking[value="0"] ~ .sheet-profession-flag-doctor[value="0"] ~ .sheet-profession-flag-forging[value="0"] ~ .sheet-profession-flag-fulu[value="0"] ~ .sheet-profession-flag-weaving[value="0"] ~ .sheet-notes-base-content {
   display: grid !important;
 }
 
-.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="0"] ~ .sheet-profession-flag-array[value="0"] ~ .sheet-profession-flag-carving[value="0"] ~ .sheet-profession-flag-doctor[value="0"] ~ .sheet-profession-flag-forging[value="0"] ~ .sheet-profession-flag-fulu[value="0"] ~ .sheet-profession-flag-weaving[value="0"] ~ .sheet-notes-profession-content {
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="0"] ~ .sheet-profession-flag-array[value="0"] ~ .sheet-profession-flag-carving[value="0"] ~ .sheet-profession-flag-cooking[value="0"] ~ .sheet-profession-flag-doctor[value="0"] ~ .sheet-profession-flag-forging[value="0"] ~ .sheet-profession-flag-fulu[value="0"] ~ .sheet-profession-flag-weaving[value="0"] ~ .sheet-notes-profession-content {
   display: none !important;
 }
 
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-alchemy[value="1"] ~ .sheet-notes-profession-content .sheet-profession-alchemy,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-array[value="1"] ~ .sheet-notes-profession-content .sheet-profession-array,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-carving[value="1"] ~ .sheet-notes-profession-content .sheet-profession-carving,
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-cooking[value="1"] ~ .sheet-notes-profession-content .sheet-profession-cooking,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-doctor[value="1"] ~ .sheet-notes-profession-content .sheet-profession-doctor,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-forging[value="1"] ~ .sheet-notes-profession-content .sheet-profession-forging,
 .charsheet .sheet-core .sheet-page-notes .sheet-profession-flag-fulu[value="1"] ~ .sheet-notes-profession-content .sheet-profession-fulu,
@@ -5162,6 +5482,38 @@
 .charsheet .sheet-core .sheet-page-notes .sheet-notes-base-content,
 .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content {
   display: none !important;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-alchemy {
+  order: 1;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-array {
+  order: 2;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-carving {
+  order: 3;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-cooking {
+  order: 4;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-doctor {
+  order: 5;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-forging {
+  order: 6;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-fulu {
+  order: 7;
+}
+
+.charsheet .sheet-core .sheet-page-notes .sheet-profession-weaving {
+  order: 8;
 }
 
 .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content {
@@ -5254,6 +5606,7 @@
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-bonus-row input,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-row input,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row input,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-row input,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-ingredient input {
   box-sizing: border-box;
   width: 100%;
@@ -5276,7 +5629,9 @@
 .charsheet .sheet-core .sheet-doctor-body,
 .charsheet .sheet-core .sheet-forging-body,
 .charsheet .sheet-core .sheet-fulu-body,
-.charsheet .sheet-core .sheet-weaving-body {
+.charsheet .sheet-core .sheet-talisman-body,
+.charsheet .sheet-core .sheet-weaving-body,
+.charsheet .sheet-core .sheet-cooking-body {
   gap: 8px;
 }
 
@@ -5300,8 +5655,16 @@
   border-left-color: var(--jtth-jade-deep, #2f6f5f);
 }
 
+.charsheet .sheet-core .sheet-talisman-rank-strip {
+  border-left-color: var(--jtth-cinnabar, #8f4638);
+}
+
 .charsheet .sheet-core .sheet-weaving-rank-strip {
   border-left-color: var(--jtth-gold, #b58a3b);
+}
+
+.charsheet .sheet-core .sheet-cooking-rank-strip {
+  border-left-color: var(--jtth-jade-deep, #2f6f5f);
 }
 
 .charsheet .sheet-core .sheet-carving-ledgers {
@@ -5418,7 +5781,7 @@
 }
 
 .charsheet .sheet-core .sheet-carving-beast-summary {
-  grid-template-columns: minmax(0, 1fr) 90px minmax(0, .9fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 90px minmax(0, .9fr);
 }
 
 .charsheet .sheet-core .sheet-carving-request-summary {
@@ -5450,7 +5813,7 @@
 }
 
 .charsheet .sheet-core .sheet-carving-beast-summary-head {
-  grid-template-columns: minmax(0, 1fr) 90px minmax(0, .9fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 90px minmax(0, .9fr);
 }
 
 .charsheet .sheet-core .sheet-carving-request-summary-head {
@@ -5533,6 +5896,49 @@
 
 .charsheet .sheet-core .sheet-carving-known-beast-notes span {
   white-space: pre-wrap;
+}
+
+.charsheet .sheet-core .sheet-carving-beast-parts-head {
+  grid-template-columns: minmax(0, 1fr) 86px;
+  margin-top: 6px;
+  padding: 5px 0 0;
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+}
+
+.charsheet .sheet-core .sheet-carving-known-beast-notes .repeating_carvingbeastpart {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.charsheet .sheet-core .sheet-carving-known-beast-notes .repcontainer {
+  display: grid;
+  gap: 3px;
+  min-height: fit-content;
+}
+
+.charsheet .sheet-core .sheet-carving-beast-part {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 86px;
+  gap: 5px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-carving-beast-part input,
+.charsheet .sheet-core .sheet-carving-beast-part select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  margin-bottom: 0;
+  padding: 0 4px;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-carving-known-beast-notes .repeating_carvingbeastpart .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  padding-top: 3px;
 }
 
 .charsheet .sheet-core .sheet-carving-beast-notes-toggle[value="1"] ~ .sheet-carving-known-beast-notes {
@@ -5750,7 +6156,8 @@
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-bonus-body,
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ledger {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ledger,
+.charsheet .sheet-core .sheet-forging-ledgers .sheet-forging-ledger {
   background: var(--jtth-paper, #f7f0e3);
   border: 1px solid var(--jtth-border, #b9aa92);
   border-radius: 3px;
@@ -5797,7 +6204,9 @@
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-wide textarea,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-notes textarea,
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-row textarea,
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row textarea {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-row textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row textarea {
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
@@ -5815,7 +6224,8 @@
   gap: 6px;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ledger-title {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ledger-title,
+.charsheet .sheet-core .sheet-forging-ledgers .sheet-forging-ledger-title {
   margin-bottom: 5px;
   border-bottom: 1px dotted var(--jtth-border, #b9aa92);
   font-size: 9px;
@@ -5825,7 +6235,9 @@
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-row,
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-row,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row {
   display: grid;
   gap: 5px;
   position: relative;
@@ -5837,19 +6249,23 @@
 }
 
 .sheet-darkmode .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-row,
-.sheet-darkmode .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row {
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row {
   background: var(--jtth-dark-form-surface);
   border-color: var(--jtth-dark-form-border);
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-card-header {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-card-header,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-card-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(125px, .35fr);
   gap: 5px;
   align-items: center;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-card-header input:first-child {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-card-header input:first-child,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-card-header input:first-child {
   border-left: 2px solid var(--jtth-jade-deep);
   font-weight: 800;
 }
@@ -5858,8 +6274,14 @@
   width: calc(100% - 16px);
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row .sheet-toggle-unchecked {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row .sheet-toggle-unchecked,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-row .sheet-toggle-unchecked {
   width: calc(100% - 16px);
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-recipe {
+  font-size: 11px;
+  padding-right: 2px;
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-summary {
@@ -5869,6 +6291,7 @@
   gap: 5px;
   min-height: 20px;
   font-size: 11px;
+  position: relative;
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-summary span {
@@ -5896,12 +6319,41 @@
   content: "Difficulty: ";
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-summary .toggle-checkbox {
+  appearance: none;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-description {
+  display: block;
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  margin-top: 3px;
+  padding: 5px 5px 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-description span {
+  white-space: pre-wrap;
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-description-toggle[value="1"] ~ .sheet-alchemy-recipe-description {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient {
   font-size: 11px;
   padding-right: 2px;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-name {
   align-items: center;
   background: var(--jtth-jade);
   border: 1px solid var(--jtth-jade-deep);
@@ -5917,25 +6369,29 @@
   width: 100%;
 }
 
-.sheet-darkmode .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name {
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-name {
   color: var(--jtth-paper-highlight);
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name span {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name span,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-name span {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-source {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-source,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-source {
   color: inherit;
   font-size: 9px;
   opacity: .78;
   text-align: right;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name .toggle-checkbox {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-name .toggle-checkbox,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-name .toggle-checkbox {
   appearance: none;
   cursor: pointer;
   height: 100%;
@@ -5947,16 +6403,19 @@
   width: 100%;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-effect {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-effect,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-effect {
   display: block;
   padding: 4px 5px 2px;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-effect span {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-known-ingredient-effect span,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-known-ingredient-effect span {
   white-space: pre-wrap;
 }
 
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-effect-toggle[value="1"] ~ .sheet-alchemy-known-ingredient-effect {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-effect-toggle[value="1"] ~ .sheet-alchemy-known-ingredient-effect,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-effect-toggle[value="1"] ~ .sheet-alchemy-known-ingredient-effect {
   display: none;
 }
 
@@ -6004,12 +6463,1011 @@
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-recipe-row textarea,
-.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row textarea {
+.charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-ingredient-row textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-alchemy-ingredient-row textarea {
   min-height: 36px;
 }
 
 .charsheet .sheet-core .sheet-profession-alchemy .sheet-alchemy-notes textarea {
   min-height: 190px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools {
+  display: grid;
+  grid-template-columns: 165px 165px minmax(0, 1fr);
+  grid-template-areas:
+    "forge flame notes"
+    "forge-notes flame-notes notes";
+  gap: 6px;
+  align-items: stretch;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools label,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-notes {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  min-width: 0;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools label:nth-of-type(1) {
+  grid-area: forge;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools label:nth-of-type(2) {
+  grid-area: flame;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools label:nth-of-type(3) {
+  grid-area: forge-notes;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools label:nth-of-type(4) {
+  grid-area: flame-notes;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools .sheet-forging-notes {
+  grid-area: notes;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-tools input,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row input,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-original-row input,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-material input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  padding: 0 4px;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-wide textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-notes textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-original-row textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  resize: none;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-wide textarea {
+  min-height: 150px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-notes textarea {
+  min-height: 190px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-ledgers {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-ledger {
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-ledger-title {
+  margin-bottom: 5px;
+  border-bottom: 1px dotted var(--jtth-border, #b9aa92);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-original-row {
+  display: grid;
+  gap: 5px;
+  position: relative;
+  background: var(--jtth-form-surface);
+  border: 1px solid var(--jtth-form-border);
+  border-left: 3px solid var(--jtth-gold);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-forging .sheet-forging-original-row {
+  background: var(--jtth-dark-form-surface);
+  border-color: var(--jtth-dark-form-border);
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-card-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(125px, .35fr);
+  gap: 5px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-card-header input:first-child {
+  border-left: 2px solid var(--jtth-gold);
+  font-weight: 800;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row .sheet-toggle-unchecked,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-original-row .sheet-toggle-unchecked {
+  width: calc(100% - 16px);
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-known-blueprint {
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-summary {
+  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(76px, .35fr);
+  gap: 5px;
+  min-height: 20px;
+  font-size: 11px;
+  position: relative;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-summary span {
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-summary-name {
+  border-left: 2px solid var(--jtth-gold);
+  font-weight: 800;
+  padding-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-summary-difficulty {
+  color: var(--jtth-muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-summary-difficulty::before {
+  content: "Difficulty: ";
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-summary .toggle-checkbox {
+  appearance: none;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-description {
+  display: block;
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  margin-top: 3px;
+  padding: 5px 5px 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-description span {
+  white-space: pre-wrap;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-description-toggle[value="1"] ~ .sheet-forging-blueprint-description {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-materials {
+  display: grid;
+  gap: 3px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-materials .repcontainer {
+  display: grid;
+  gap: 3px;
+  min-height: 50px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .repeating_forgingblueprintmaterial {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-material-head,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-material {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px 74px;
+  gap: 4px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-material-head {
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .repeating_forgingblueprintmaterial .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  padding-top: 3px;
+}
+
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-blueprint-row textarea,
+.charsheet .sheet-core .sheet-profession-forging .sheet-forging-original-row textarea {
+  min-height: 36px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-notes label {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman input,
+.charsheet .sheet-core .sheet-profession-talisman select,
+.charsheet .sheet-core .sheet-profession-talisman textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman select,
+.charsheet .sheet-core .sheet-profession-talisman input {
+  height: 20px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman textarea {
+  height: 24px;
+  min-height: 96px;
+  resize: vertical;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-ledgers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-stock,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-drafts,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatars {
+  grid-column: 1 / -1;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-ledger {
+  display: grid;
+  gap: 4px;
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-ledger-title {
+  margin-bottom: 3px;
+  border-bottom: 1px dotted var(--jtth-border, #b9aa92);
+  color: var(--jtth-muted);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-row,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-block-row,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-draft-row {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  background: var(--jtth-form-surface);
+  border: 1px solid var(--jtth-form-border);
+  border-left: 3px solid var(--jtth-cinnabar);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-block-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-draft-row {
+  background: var(--jtth-dark-form-surface);
+  border-color: var(--jtth-dark-form-border);
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-row .sheet-toggle-unchecked {
+  width: calc(100% - 16px);
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-stock-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(95px, .75fr) minmax(0, 1fr) 118px 108px 54px minmax(0, 1fr) minmax(0, 1fr);
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-type-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-type-grid + textarea {
+  grid-column: 1 / -1;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-core {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-stats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 5px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-vitals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-left: 3px solid var(--jtth-cinnabar);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-core label,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-stats label,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-vitals label {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attacks {
+  display: grid;
+  gap: 4px;
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-subtitle {
+  border-bottom: 1px dotted var(--jtth-border, #b9aa92);
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .repeating_talismanavatarattack {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attacks .repcontrol,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-add-avatar-attack-button {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-attacks {
+  display: grid;
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-attack {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px 48px 74px minmax(0, .8fr) minmax(0, .8fr) 52px;
+  gap: 4px;
+  align-items: start;
+  border: 1px solid var(--jtth-form-border);
+  border-left: 3px solid var(--jtth-cinnabar);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-attack {
+  border-color: var(--jtth-dark-form-border);
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-attack textarea {
+  grid-column: 1 / -1;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-notes-label {
+  grid-column: 1 / -1;
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-attack-head,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-head {
+  display: contents;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-avatar-fixed-attack-head span,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-head span {
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attack-ledger {
+  grid-column: 1 / -1;
+  border-left: 3px solid var(--jtth-cinnabar);
+  padding: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr) 96px 78px 64px 82px minmax(86px, .9fr) minmax(86px, .9fr);
+  gap: 5px;
+  align-items: start;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attack-ledger .repcontainer {
+  display: grid;
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attack-ledger .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  padding-top: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-row {
+  padding: 5px 5px 5px 22px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid label {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  margin: 0;
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid input,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid select,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid input,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid select {
+  height: 22px;
+  padding: 1px 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-grid textarea {
+  resize: vertical;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-notes {
+  grid-column: 1 / -1;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-notes textarea {
+  min-height: 24px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary {
+  display: grid;
+  grid-template-columns: minmax(95px, 1fr) minmax(110px, 1.2fr) 76px 72px 78px 78px 52px;
+  gap: 5px;
+  align-items: center;
+  width: 100%;
+  min-height: 24px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span::before {
+  color: var(--jtth-muted);
+  font-size: 7px;
+  font-weight: 800;
+  line-height: 8px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span:nth-child(1)::before {
+  content: "Avatar";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span:nth-child(2)::before {
+  content: "Attack";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span:nth-child(3)::before {
+  content: "Stat";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span:nth-child(4)::before {
+  content: "Range";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span:nth-child(5)::before {
+  content: "Damage";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary span:nth-child(6)::before {
+  content: "Type";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-attack-summary .sheet-attack-button {
+  height: 24px;
+  min-width: 0;
+  padding: 0 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attack {
+  position: relative;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attacks .sheet-form {
+  margin: 0;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attacks .sheet-form-body {
+  display: grid;
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-attacks .sheet-toggle-unchecked {
+  width: calc(100% - 16px);
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-block-row textarea {
+  min-height: 24px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-block-grid,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-draft-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-draft-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-draft-row textarea {
+  min-height: 24px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-known {
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-summary {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.5fr) minmax(78px, .65fr) minmax(80px, .65fr) 78px;
+  gap: 5px;
+  align-items: center;
+  min-height: 20px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-type-summary,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-block-summary,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-draft-summary,
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-avatar-summary {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr) minmax(92px, .65fr) minmax(92px, .65fr);
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-type-summary {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr) minmax(92px, .65fr);
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-summary span {
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-summary-name {
+  border-left: 2px solid var(--jtth-cinnabar);
+  font-weight: 800;
+  padding-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-summary-qty::before {
+  content: "Qty: ";
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-summary span:not(.sheet-talisman-summary-name) {
+  color: var(--jtth-muted);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-summary .toggle-checkbox {
+  appearance: none;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-detail {
+  display: block;
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  margin-top: 3px;
+  padding: 5px 5px 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-detail span {
+  display: block;
+  white-space: pre-wrap;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-detail > span + span {
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  margin-top: 4px;
+  padding-top: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-detail-grid span:nth-child(-n+3) {
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-talisman .sheet-talisman-detail-toggle[value="1"] ~ .sheet-talisman-detail {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-station {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 5px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 4px;
+  padding: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-station label {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-station input,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-station textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-station textarea {
+  min-height: 42px;
+  resize: vertical;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-wide,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-notes {
+  grid-column: span 1;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ledgers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effects {
+  grid-column: 1 / -1;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ledger {
+  display: grid;
+  gap: 4px;
+  background: var(--jtth-paper, #f7f0e3);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ledger-title {
+  margin-bottom: 3px;
+  border-bottom: 1px dotted var(--jtth-border, #b9aa92);
+  color: var(--jtth-muted);
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-row,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-row,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effect-row {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  background: var(--jtth-form-surface);
+  border: 1px solid var(--jtth-form-border);
+  border-left: 3px solid var(--jtth-jade-deep);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effect-row {
+  background: var(--jtth-dark-form-surface);
+  border-color: var(--jtth-dark-form-border);
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-row .sheet-toggle-unchecked,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-row .sheet-toggle-unchecked {
+  width: calc(100% - 16px);
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-card-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(105px, .35fr);
+  gap: 5px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-card-header input:first-child {
+  border-left: 2px solid var(--jtth-jade-deep);
+  font-weight: 800;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-pantry-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px minmax(0, .75fr);
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-row input,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-row input,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effect-row input,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-row textarea,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-row textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-row textarea,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-row textarea {
+  min-height: 36px;
+  resize: vertical;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-recipe,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient {
+  font-size: 11px;
+  padding-right: 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-summary,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-name {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(75px, .35fr);
+  gap: 5px;
+  align-items: center;
+  min-height: 20px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-summary span,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-name span {
+  box-sizing: border-box;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-summary-name,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-name span:first-child {
+  border-left: 2px solid var(--jtth-jade-deep);
+  font-weight: 800;
+  padding-left: 5px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-summary-grade,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-quality {
+  color: var(--jtth-muted);
+  font-size: 9px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-summary-grade::before {
+  content: "Grade: ";
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-quality::before {
+  content: "Quality: ";
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-summary .toggle-checkbox,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-name .toggle-checkbox {
+  appearance: none;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-effect,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-effect {
+  display: block;
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  margin-top: 3px;
+  padding: 5px 5px 2px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-effect span,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-known-ingredient-effect span {
+  white-space: pre-wrap;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-effect-toggle[value="1"] ~ .sheet-cooking-recipe-effect,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-ingredient-effect-toggle[value="1"] ~ .sheet-cooking-known-ingredient-effect {
+  display: none;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-ingredients {
+  display: grid;
+  gap: 3px;
+  background: var(--jtth-panel-soft, #efe7d8);
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-ingredients .repcontainer {
+  display: grid;
+  gap: 3px;
+  min-height: 50px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .repeating_cookingrecipeingredient {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-ingredient-head,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-ingredient {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 70px minmax(0, .7fr);
+  gap: 4px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-recipe-ingredient-head {
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .repeating_cookingrecipeingredient .repitem + .repitem {
+  border-top: 1px dotted var(--jtth-border, #b9aa92);
+  padding-top: 3px;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effect-head,
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effect-row {
+  grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) 85px minmax(0, 1.5fr);
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-profession-cooking .sheet-cooking-effect-head {
+  display: grid;
+  gap: 5px;
+  color: var(--jtth-muted);
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 10px;
+  text-transform: uppercase;
 }
 
 

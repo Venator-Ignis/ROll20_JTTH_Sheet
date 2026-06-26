@@ -545,33 +545,40 @@
                                             </div>
                                         </div>
                                         <div
-                                            class="sheet-container-box sheet-container-beast-parts sheet-type-beast-only">
-                                            <div class="sheet-beast-part-labels">
-                                                <div class="sheet-beast-part-label">Part Name</div>
-                                                <div class="sheet-beast-part-label">Quality</div>
-                                                <div class="sheet-beast-part-label">Sever</div>
-                                                <div class="sheet-beast-part-label">Break</div>
+                                            class="sheet-container-box sheet-container-beast-parts sheet-type-beast-only sheet-section-collapsible">
+                                            <input checked="checked" class="sheet-section-collapse-toggle"
+                                                name="attr_beast_parts_collapsed" type="checkbox" value="1" />
+                                            <div class="sheet-defense-stat-summary sheet-collapsible-title">
+                                                <span class="sheet-defense-stat-label">PARTS</span>
                                             </div>
-                                            <fieldset class="repeating_beastparts">
-                                                <div class="sheet-fieldset-item sheet-fieldset-item-beast-part">
-                                                    <input name="attr_row_anchor" type="hidden" value="1" />
-                                                    <div class="sheet-beast-part-row">
-                                                        <input name="attr_part_name" placeholder="Part"
-                                                            title="@{part_name}" type="text" />
-                                                        <select name="attr_part_quality" title="@{part_quality}">
-                                                            <option selected="selected" value="average">Average</option>
-                                                            <option value="high">High</option>
-                                                            <option value="peak">Peak</option>
-                                                        </select>
-                                                        <input class="beast-sever-break" name="attr_part_sever"
-                                                            placeholder="0" readonly="readonly" title="@{part_sever}"
-                                                            type="number" />
-                                                        <input class="beast-sever-break" name="attr_part_break"
-                                                            placeholder="0" readonly="readonly" title="@{part_break}"
-                                                            type="number" />
-                                                    </div>
+                                            <div class="sheet-section-collapsible-content">
+                                                <div class="sheet-beast-part-labels">
+                                                    <div class="sheet-beast-part-label">Part Name</div>
+                                                    <div class="sheet-beast-part-label">Quality</div>
+                                                    <div class="sheet-beast-part-label">Sever</div>
+                                                    <div class="sheet-beast-part-label">Break</div>
                                                 </div>
-                                            </fieldset>
+                                                <fieldset class="repeating_beastparts">
+                                                    <div class="sheet-fieldset-item sheet-fieldset-item-beast-part">
+                                                        <input name="attr_row_anchor" type="hidden" value="1" />
+                                                        <div class="sheet-beast-part-row">
+                                                            <input name="attr_part_name" placeholder="Part"
+                                                                title="@{part_name}" type="text" />
+                                                            <select name="attr_part_quality" title="@{part_quality}">
+                                                                <option selected="selected" value="average">Average</option>
+                                                                <option value="high">High</option>
+                                                                <option value="peak">Peak</option>
+                                                            </select>
+                                                            <input class="beast-sever-break" name="attr_part_sever"
+                                                                placeholder="0" readonly="readonly" title="@{part_sever}"
+                                                                type="number" />
+                                                            <input class="beast-sever-break" name="attr_part_break"
+                                                                placeholder="0" readonly="readonly" title="@{part_break}"
+                                                                type="number" />
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -872,24 +879,132 @@
                                     </div>
                                 </div>
                                 <div class="sheet-container-attacks">
-                                    <div class="sheet-container-panel sheet-panel-action-points">
-                                        <div class="sheet-container-header">ACTION POINTS</div>
+                                    <div class="sheet-container-panel sheet-panel-qi-reserves sheet-type-nonmortal">
+                                        <div class="sheet-container-header">QI RESERVES</div>
                                         <div class="sheet-section-collapsible-content">
-                                            <div class="sheet-ap-primary-values">
-                                                <div class="sheet-ap-primary-box">
-                                                    <label>Current AP</label>
-                                                    <input name="attr_ap_current" placeholder="0" title="@{ap_current}"
-                                                        type="number" />
+                                            <div class="sheet-ap-primary-values sheet-qi-primary-values">
+                                                <div class="sheet-ap-primary-box sheet-qi-primary-box">
+                                                    <label>Current Qi</label>
+                                                    <input name="attr_qi_current" placeholder="0"
+                                                        title="@{qi_current}" type="number" value="0" />
                                                 </div>
-                                                <div class="sheet-ap-primary-box">
-                                                    <label>Max AP</label>
-                                                    <span name="attr_ap-max" title="@{ap-max}">8</span>
-                                                </div>
-                                                <div class="sheet-ap-primary-box">
-                                                    <label>AP Regen</label>
-                                                    <span name="attr_ap-regen" title="@{ap-regen}">4</span>
+                                                <div class="sheet-ap-primary-box sheet-qi-primary-box">
+                                                    <label>Max Qi</label>
+                                                    <span name="attr_qi-max" title="@{qi-max}">0</span>
                                                 </div>
                                             </div>
+                                            <div class="sheet-qi-settings">
+                                                <label>Dao Group
+                                                    <select name="attr_qi_dao_group" title="@{qi_dao_group}">
+                                                        <option value="elemental">Elemental Dao (+30%)</option>
+                                                        <option value="generalist">Generalist (+15%)</option>
+                                                        <option selected="selected" value="martial">Martial Dao</option>
+                                                        <option value="body_refiner">Body Refiner (-25%)</option>
+                                                    </select>
+                                                </label>
+                                            </div>
+                                            <div class="sheet-defense-source-presets sheet-qi-presets">
+                                                <div
+                                                    class="sheet-defense-source-entry sheet-defense-source-entry-locked">
+                                                    <span>Dao Adjusted</span>
+                                                    <span name="attr_qi-dao-base" title="@{qi-dao-base}">0</span>
+                                                </div>
+                                                <div
+                                                    class="sheet-defense-source-entry sheet-defense-source-entry-locked">
+                                                    <span>Qi Deprivation 5%</span>
+                                                    <span name="attr_qi-deprivation"
+                                                        title="@{qi-deprivation}">0</span>
+                                                </div>
+                                                <div class="sheet-defense-source-entry sheet-defense-source-entry-locked sheet-qi-regen-entry">
+                                                    <span>Qi Regen</span>
+                                                    <div class="sheet-qi-regen-control">
+                                                        <input name="attr_qi_regen_value" placeholder="0"
+                                                            title="@{qi_regen_value}" type="text" value="0" />
+                                                        <span name="attr_qi-regen-calculated"
+                                                            title="@{qi-regen-calculated}">0</span>
+                                                        <button name="act_qi_regen" title="Apply Qi Regen"
+                                                            type="action"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sheet-qi-bonuses sheet-section-collapsible">
+                                                <input checked="checked" class="sheet-section-collapse-toggle"
+                                                    name="attr_qi_bonuses_collapsed" type="checkbox" value="1" />
+                                                <div class="sheet-defense-stat-summary sheet-collapsible-title">
+                                                    <span class="sheet-defense-stat-label">QI BONUSES</span>
+                                                </div>
+                                                <div class="sheet-section-collapsible-content">
+                                                    <fieldset class="repeating_qimodifier">
+                                                        <div class="sheet-fieldset-item sheet-qi-modifier-row">
+                                                            <input name="attr_row_anchor" type="hidden" value="1" />
+                                                            <div class="sheet-qi-active-toggle">
+                                                                <input checked="checked" class="sheet-qi-modifier-active"
+                                                                    name="attr_qi_modifier_active" title="@{qi_modifier_active}"
+                                                                    type="checkbox" value="1" />
+                                                                <span></span>
+                                                            </div>
+                                                            <div class="sheet-checkbox-cog">
+                                                                <input checked="checked" name="attr_options-flag"
+                                                                    type="checkbox" /><span></span>
+                                                                <span class="sheet-toggle-icon"></span>
+                                                            </div>
+                                                            <input checked="checked" class="sheet-toggle" hidden=""
+                                                                name="attr_options-flag" type="checkbox" />
+                                                            <div class="sheet-toggle-checked">
+                                                                <div class="sheet-form sheet-form-inline">
+                                                                    <div class="sheet-form-header">Qi Reserve Modifier</div>
+                                                                    <div class="sheet-form-body sheet-qi-modifier-form">
+                                                                        <label>Source
+                                                                            <input name="attr_qi_modifier_source"
+                                                                                placeholder="Manual, treasure, core, herb"
+                                                                                type="text" />
+                                                                        </label>
+                                                                        <label>Type
+                                                                            <select name="attr_qi_modifier_type">
+                                                                                <option value="flat">Flat</option>
+                                                                                <option value="percent">Percent</option>
+                                                                            </select>
+                                                                        </label>
+                                                                        <label>Value
+                                                                            <input name="attr_qi_modifier_value"
+                                                                                placeholder="0" type="number" value="0" />
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sheet-toggle-unchecked">
+                                                                <div class="sheet-defense-source-entry sheet-qi-modifier-summary">
+                                                                    <span name="attr_qi_modifier_source"></span>
+                                                                    <span name="attr_qi_modifier_value"></span>
+                                                                    <span name="attr_qi_modifier_type"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sheet-container-panel sheet-panel-action-points sheet-section-collapsible">
+                                        <input checked="checked" class="sheet-section-collapse-toggle"
+                                            name="attr_action_points_collapsed" type="checkbox" value="1" />
+                                        <div class="sheet-container-header sheet-collapsible-title">ACTION POINTS</div>
+                                        <div class="sheet-ap-primary-values">
+                                            <div class="sheet-ap-primary-box">
+                                                <label>Current AP</label>
+                                                <input name="attr_ap_current" placeholder="0" title="@{ap_current}"
+                                                    type="number" />
+                                            </div>
+                                            <div class="sheet-ap-primary-box">
+                                                <label>Max AP</label>
+                                                <span name="attr_ap-max" title="@{ap-max}">8</span>
+                                            </div>
+                                            <div class="sheet-ap-primary-box">
+                                                <label>AP Regen</label>
+                                                <span name="attr_ap-regen" title="@{ap-regen}">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sheet-section-collapsible-content">
                                             <div class="sheet-defense-source-presets sheet-action-point-presets">
                                                 <div
                                                     class="sheet-defense-source-entry sheet-defense-source-entry-locked">
@@ -911,11 +1026,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="sheet-container-panel sheet-panel-bonuses">
-                                        <div class="sheet-container-header">ATTACK MODIFIERS</div>
-                                        <input class="sheet-hidden" name="attr_global_attack_mod_flag"
-                                            title="@{global_attack_mod_flag}" type="checkbox" value="1" />
-                                        <div class="sheet-container-body">
+                                    <div class="sheet-container-panel sheet-panel-bonuses sheet-section-collapsible">
+                                        <input class="sheet-section-collapse-toggle"
+                                            name="attr_attack_modifiers_collapsed" type="checkbox" value="1" />
+                                        <div class="sheet-container-header sheet-collapsible-title">ATTACK MODIFIERS</div>
+                                        <div class="sheet-container-body sheet-section-collapsible-content">
+                                            <input class="sheet-hidden" name="attr_global_attack_mod_flag"
+                                                title="@{global_attack_mod_flag}" type="checkbox" value="1" />
                                             <fieldset class="repeating_tohitmod">
                                                 <div class="sheet-fieldset-item">
                                                     <input name="attr_row_anchor" type="hidden" value="1" />
@@ -968,11 +1085,13 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="sheet-container-panel sheet-panel-bonuses">
-                                        <div class="sheet-container-header">DAMAGE MODIFIERS</div>
-                                        <input class="sheet-hidden" name="attr_global_damage_mod_flag"
-                                            title="@{global_damage_mod_flag}" type="checkbox" value="1" />
-                                        <div class="sheet-container-body">
+                                    <div class="sheet-container-panel sheet-panel-bonuses sheet-section-collapsible">
+                                        <input class="sheet-section-collapse-toggle"
+                                            name="attr_damage_modifiers_collapsed" type="checkbox" value="1" />
+                                        <div class="sheet-container-header sheet-collapsible-title">DAMAGE MODIFIERS</div>
+                                        <div class="sheet-container-body sheet-section-collapsible-content">
+                                            <input class="sheet-hidden" name="attr_global_damage_mod_flag"
+                                                title="@{global_damage_mod_flag}" type="checkbox" value="1" />
                                             <fieldset class="repeating_damagemod">
                                                 <div class="sheet-fieldset-item">
                                                     <input name="attr_row_anchor" type="hidden" value="1" />
@@ -1754,6 +1873,8 @@
                             name="attr_profession_array_making_flag" type="hidden" value="0" />
                         <input class="sheet-notes-profession-flag sheet-profession-flag-carving"
                             name="attr_profession_carving_flag" type="hidden" value="0" />
+                        <input class="sheet-notes-profession-flag sheet-profession-flag-cooking"
+                            name="attr_profession_cooking_flag" type="hidden" value="0" />
                         <input class="sheet-notes-profession-flag sheet-profession-flag-doctor"
                             name="attr_profession_divine_doctor_flag" type="hidden" value="0" />
                         <input class="sheet-notes-profession-flag sheet-profession-flag-forging"
@@ -1931,13 +2052,26 @@
                                                                 </div>
                                                             </fieldset>
                                                         </div>
+                                                        <textarea name="attr_recipe_description"
+                                                            placeholder="Description"></textarea>
                                                     </div>
                                                     <div class="sheet-toggle-unchecked">
-                                                        <div class="sheet-alchemy-recipe-summary">
-                                                            <span class="sheet-alchemy-recipe-summary-name"
-                                                                name="attr_recipe_name"></span>
-                                                            <span class="sheet-alchemy-recipe-summary-difficulty"
-                                                                name="attr_recipe_difficulty"></span>
+                                                        <div class="sheet-alchemy-known-recipe">
+                                                            <input class="sheet-alchemy-recipe-description-toggle"
+                                                                name="attr_toggle_recipe_description" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-alchemy-recipe-summary">
+                                                                <span class="sheet-alchemy-recipe-summary-name"
+                                                                    name="attr_recipe_name"></span>
+                                                                <span class="sheet-alchemy-recipe-summary-difficulty"
+                                                                    name="attr_recipe_difficulty"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_recipe_description" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-alchemy-recipe-description">
+                                                                <span name="attr_recipe_description"></span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2151,23 +2285,37 @@
                                                                 <span>Beast</span>
                                                                 <span>Realm</span>
                                                                 <span>Location</span>
-                                                                <span>Parts</span>
                                                             </div>
                                                             <div class="sheet-carving-summary sheet-carving-beast-summary">
                                                                 <span class="sheet-carving-summary-name"
                                                                     name="attr_beast_name"></span>
                                                                 <span name="attr_beast_realm"></span>
                                                                 <span name="attr_beast_location"></span>
-                                                                <span name="attr_beast_parts"></span>
                                                                 <input class="toggle-checkbox"
                                                                     name="attr_toggle_beast_notes" type="checkbox"
                                                                     value="1" />
                                                             </div>
                                                             <div class="sheet-carving-known-beast-notes">
                                                                 <div class="sheet-carving-detail-head">
-                                                                    <span>Return Notes</span>
+                                                                    <span>Notes</span>
                                                                 </div>
                                                                 <span name="attr_beast_notes"></span>
+                                                                <div class="sheet-carving-detail-head sheet-carving-beast-parts-head">
+                                                                    <span>Part</span>
+                                                                    <span>Quality</span>
+                                                                </div>
+                                                                <fieldset class="repeating_carvingbeastpart">
+                                                                    <div class="sheet-carving-beast-part">
+                                                                        <input name="attr_beast_part_name"
+                                                                            placeholder="Part" type="text" />
+                                                                        <select name="attr_beast_part_quality">
+                                                                            <option value="">-</option>
+                                                                            <option>Average</option>
+                                                                            <option>High</option>
+                                                                            <option>Peak</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </fieldset>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2225,7 +2373,7 @@
                                                                 name="attr_toggle_request_details" type="hidden"
                                                                 value="1" />
                                                             <div class="sheet-carving-summary-head sheet-carving-request-summary-head">
-                                                                <span>Done</span>
+                                                                <span></span>
                                                                 <span>Part</span>
                                                                 <span>Quality</span>
                                                                 <span>Source</span>
@@ -2461,17 +2609,140 @@
                                             </div>
                                         </fieldset>
                                     </div>
+                                    <div class="sheet-forging-tools">
+                                        <label>Forge<input name="attr_profession_forging_forge"
+                                                title="@{profession_forging_forge}" type="text" /></label>
+                                        <label>Divine Flame<input name="attr_profession_forging_flame"
+                                                title="@{profession_forging_flame}" type="text" /></label>
+                                        <label class="sheet-forging-wide">Forge Notes<textarea
+                                                name="attr_profession_forging_forge_notes"
+                                                title="@{profession_forging_forge_notes}"></textarea></label>
+                                        <label class="sheet-forging-wide">Divine Flame Notes<textarea
+                                                name="attr_profession_forging_flame_notes"
+                                                title="@{profession_forging_flame_notes}"></textarea></label>
+                                        <label class="sheet-forging-notes">Additional Notes<textarea
+                                                name="attr_profession_forging_notes"
+                                                title="@{profession_forging_notes}"></textarea></label>
+                                    </div>
+                                    <div class="sheet-forging-ledgers">
+                                        <div class="sheet-forging-ledger sheet-forging-blueprints">
+                                            <div class="sheet-forging-ledger-title">KNOWN BLUEPRINTS</div>
+                                            <fieldset class="repeating_forgingblueprint">
+                                                <div class="sheet-forging-blueprint-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-forging-card-header">
+                                                            <input name="attr_blueprint_name" placeholder="Blueprint Name"
+                                                                type="text" />
+                                                            <input name="attr_blueprint_difficulty"
+                                                                placeholder="Difficulty" type="text" />
+                                                        </div>
+                                                        <div class="sheet-forging-blueprint-materials">
+                                                            <div class="sheet-forging-blueprint-material-head">
+                                                                <span>Material</span>
+                                                                <span>Amount</span>
+                                                                <span>Grade</span>
+                                                            </div>
+                                                            <fieldset class="repeating_forgingblueprintmaterial">
+                                                                <div class="sheet-forging-blueprint-material">
+                                                                    <input name="attr_row_anchor" type="hidden"
+                                                                        value="1" />
+                                                                    <input name="attr_blueprint_material_name"
+                                                                        placeholder="Name" type="text" />
+                                                                    <input name="attr_blueprint_material_amount"
+                                                                        placeholder="Amount" type="text" />
+                                                                    <input name="attr_blueprint_material_grade"
+                                                                        placeholder="Grade" type="text" />
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                        <textarea name="attr_blueprint_description"
+                                                            placeholder="Forging notes, tempering method, intended result"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-forging-known-blueprint">
+                                                            <input class="sheet-forging-blueprint-description-toggle"
+                                                                name="attr_toggle_blueprint_description" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-forging-blueprint-summary">
+                                                                <span class="sheet-forging-blueprint-summary-name"
+                                                                    name="attr_blueprint_name"></span>
+                                                                <span class="sheet-forging-blueprint-summary-difficulty"
+                                                                    name="attr_blueprint_difficulty"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_blueprint_description" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-forging-blueprint-description">
+                                                                <span name="attr_blueprint_description"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-forging-ledger sheet-forging-originals">
+                                            <div class="sheet-forging-ledger-title">ORIGINAL BLUEPRINTS</div>
+                                            <fieldset class="repeating_forgingoriginal">
+                                                <div class="sheet-alchemy-ingredient-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-alchemy-card-header">
+                                                            <input name="attr_original_name"
+                                                                placeholder="Original Blueprint" type="text" />
+                                                            <input name="attr_original_source" placeholder="Source"
+                                                                type="text" />
+                                                        </div>
+                                                        <textarea name="attr_original_effect"
+                                                            placeholder="Design purpose, innovation, or special effect"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-alchemy-known-ingredient">
+                                                            <input class="sheet-alchemy-ingredient-effect-toggle"
+                                                                name="attr_toggle_original_effect" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-alchemy-known-ingredient-name">
+                                                                <span name="attr_original_name"></span>
+                                                                <span class="sheet-alchemy-known-ingredient-source"
+                                                                    name="attr_original_source"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_original_effect" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-alchemy-known-ingredient-effect">
+                                                                <span name="attr_original_effect"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="sheet-container-panel sheet-profession-panel sheet-profession-fulu">
+                            <div class="sheet-container-panel sheet-profession-panel sheet-profession-fulu sheet-profession-talisman">
                                 <input class="sheet-profession-collapse" id="sheet-profession-fulu-open"
                                     name="attr_profession_fulu_open" type="checkbox" value="1" checked="checked" />
                                 <label class="sheet-container-header sheet-profession-collapse-header"
-                                    for="sheet-profession-fulu-open">FULU PAI NOTES</label>
-                                <div class="sheet-container-body sheet-profession-body sheet-fulu-body">
-                                    <div class="sheet-profession-rank-strip sheet-fulu-rank-strip">
+                                    for="sheet-profession-fulu-open">TALISMAN NOTES</label>
+                                <div class="sheet-container-body sheet-profession-body sheet-fulu-body sheet-talisman-body">
+                                    <div class="sheet-profession-rank-strip sheet-fulu-rank-strip sheet-talisman-rank-strip">
                                         <label>Official Rank
-                                            <div class="sheet-profession-official-rank-note sheet-fulu-official-rank-note">
+                                            <div class="sheet-profession-official-rank-note sheet-fulu-official-rank-note sheet-talisman-official-rank-note">
                                                 <select name="attr_profession_fulu_official_rank"
                                                     title="@{profession_fulu_official_rank}">
                                                     <option value="">None</option>
@@ -2501,22 +2772,443 @@
                                                 readonly="readonly" title="@{profession_fulu_bonus_total}"
                                                 type="number" value="0" /></label>
                                         <button name="roll_profession_fulu_skill" type="roll"
-                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Fulu Pai}} {{mod=@{profession_fulu_skill}d10 + @{profession_fulu_bonus_total}}} {{r1=[[@{profession_fulu_skill}d10 + @{profession_fulu_bonus_total}[BONUS]]]}}">Roll</button>
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Talismans}} {{mod=@{profession_fulu_skill}d10 + @{profession_fulu_bonus_total}}} {{r1=[[@{profession_fulu_skill}d10 + @{profession_fulu_bonus_total}[BONUS]]]}}">Roll</button>
                                     </div>
-                                    <input class="sheet-profession-bonus-collapse sheet-fulu-bonus-collapse"
+                                    <input class="sheet-profession-bonus-collapse sheet-fulu-bonus-collapse sheet-talisman-bonus-collapse"
                                         id="sheet-fulu-bonuses-open" name="attr_profession_fulu_bonuses_open"
                                         type="checkbox" value="1" checked="checked" />
-                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-fulu-bonus-header"
-                                        for="sheet-fulu-bonuses-open">SKILL BONUSES</label>
-                                    <div class="sheet-profession-bonus-body sheet-fulu-bonus-body">
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-fulu-bonus-header sheet-talisman-bonus-header"
+                                        for="sheet-fulu-bonuses-open">TALISMAN BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-fulu-bonus-body sheet-talisman-bonus-body">
                                         <fieldset class="repeating_fulubonus">
-                                            <div class="sheet-profession-bonus-row sheet-fulu-bonus-row">
+                                            <div class="sheet-profession-bonus-row sheet-fulu-bonus-row sheet-talisman-bonus-row">
                                                 <input name="attr_row_anchor" type="hidden" value="1" />
                                                 <input name="attr_bonus_source" placeholder="Source" type="text" />
                                                 <input name="attr_bonus_value" placeholder="0" type="number"
                                                     value="0" />
                                             </div>
                                         </fieldset>
+                                    </div>
+                                    <div class="sheet-talisman-notes">
+                                        <label>Materials / Tools<textarea name="attr_profession_talisman_materials"
+                                                title="@{profession_talisman_materials}"
+                                                placeholder="Paper, ink, brush, beast blood, special catalysts"></textarea></label>
+                                        <label>Inscription Rules<textarea name="attr_profession_talisman_rules"
+                                                title="@{profession_talisman_rules}"
+                                                placeholder="Realm limits, activation rules, trigger conditions, failure notes"></textarea></label>
+                                    </div>
+                                    <div class="sheet-talisman-ledgers">
+                                        <div class="sheet-talisman-ledger sheet-talisman-stock">
+                                            <div class="sheet-talisman-ledger-title">PREPARED TALISMANS</div>
+                                            <fieldset class="repeating_talismanstock">
+                                                <div class="sheet-talisman-row sheet-talisman-stock-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-talisman-stock-grid">
+                                                            <input name="attr_talisman_name" placeholder="Talisman"
+                                                                type="text" />
+                                                            <select name="attr_talisman_type">
+                                                                <option value="">Type</option>
+                                                                <option>Protective</option>
+                                                                <option>Harming</option>
+                                                                <option>Invocation</option>
+                                                                <option>Displacement</option>
+                                                                <option>Illusion</option>
+                                                                <option>Restriction</option>
+                                                            </select>
+                                                            <input name="attr_talisman_effect" placeholder="Effect"
+                                                                type="text" />
+                                                            <select name="attr_talisman_realm">
+                                                                <option value="">Realm</option>
+                                                                <option>Qi Gathering</option>
+                                                                <option>Foundation</option>
+                                                                <option>Core Formation</option>
+                                                                <option>Nascent Soul</option>
+                                                                <option>Spirit Severing</option>
+                                                                <option>Dao Seeking</option>
+                                                                <option>Immortal Ascension</option>
+                                                            </select>
+                                                            <select name="attr_talisman_quality">
+                                                                <option value="">Quality</option>
+                                                                <option>Low</option>
+                                                                <option>Standard</option>
+                                                                <option>High</option>
+                                                                <option>High + Special Catalyst</option>
+                                                            </select>
+                                                            <input name="attr_talisman_quantity" placeholder="Qty"
+                                                                type="number" />
+                                                            <input name="attr_talisman_trigger" placeholder="Trigger / Use"
+                                                                type="text" />
+                                                            <input name="attr_talisman_numbers"
+                                                                placeholder="Numbers / Thresholds" type="text" />
+                                                        </div>
+                                                        <textarea name="attr_talisman_notes"
+                                                            placeholder="Activation details, duration, cost, materials, limitations"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-talisman-known">
+                                                            <input class="sheet-talisman-detail-toggle"
+                                                                name="attr_toggle_talisman_notes" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-talisman-summary">
+                                                                <span class="sheet-talisman-summary-name"
+                                                                    name="attr_talisman_name"></span>
+                                                                <span name="attr_talisman_type"></span>
+                                                                <span name="attr_talisman_realm"></span>
+                                                                <span name="attr_talisman_quality"></span>
+                                                                <span class="sheet-talisman-summary-qty"
+                                                                    name="attr_talisman_quantity"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_talisman_notes" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-talisman-detail">
+                                                                <span name="attr_talisman_notes"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-talisman-ledger sheet-talisman-types">
+                                            <div class="sheet-talisman-ledger-title">TYPES, NUMBERS & QUALITIES</div>
+                                            <fieldset class="repeating_talismantype">
+                                                <div class="sheet-talisman-row sheet-talisman-type-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-talisman-type-grid">
+                                                            <select name="attr_type_identifier">
+                                                                <option value="">Identifier</option>
+                                                                <option>Protective</option>
+                                                                <option>Harming</option>
+                                                                <option>Invocation</option>
+                                                                <option>Displacement</option>
+                                                                <option>Illusion</option>
+                                                                <option>Restriction</option>
+                                                            </select>
+                                                            <input name="attr_type_effect" placeholder="Specific Effect"
+                                                                type="text" />
+                                                            <input name="attr_type_realm" placeholder="Realm / Scale"
+                                                                type="text" />
+                                                            <input name="attr_type_quality" placeholder="Quality"
+                                                                type="text" />
+                                                            <input name="attr_type_numbers" placeholder="Numbers"
+                                                                type="text" />
+                                                            <input name="attr_type_requirements" placeholder="Requirements"
+                                                                type="text" />
+                                                        </div>
+                                                        <textarea name="attr_type_notes"
+                                                            placeholder="Reference rules, quality progression, special handling"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-talisman-known">
+                                                            <input class="sheet-talisman-detail-toggle"
+                                                                name="attr_toggle_type_notes" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-talisman-summary sheet-talisman-type-summary">
+                                                                <span class="sheet-talisman-summary-name"
+                                                                    name="attr_type_effect"></span>
+                                                                <span name="attr_type_identifier"></span>
+                                                                <span name="attr_type_realm"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_type_notes" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-talisman-detail">
+                                                                <div class="sheet-talisman-detail-grid">
+                                                                    <span>Quality</span>
+                                                                    <span>Numbers</span>
+                                                                    <span>Requirements</span>
+                                                                    <span name="attr_type_quality"></span>
+                                                                    <span name="attr_type_numbers"></span>
+                                                                    <span name="attr_type_requirements"></span>
+                                                                </div>
+                                                                <span name="attr_type_notes"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-talisman-ledger sheet-talisman-blocks">
+                                            <div class="sheet-talisman-ledger-title">BUILDING BLOCKS</div>
+                                            <fieldset class="repeating_talismanblock">
+                                                <div class="sheet-talisman-row sheet-talisman-block-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-talisman-block-grid">
+                                                            <select name="attr_block_category">
+                                                                <option value="">Category</option>
+                                                                <option>Type Identifier</option>
+                                                                <option>Specific Effect</option>
+                                                                <option>Form / Potency Modifier</option>
+                                                            </select>
+                                                            <input name="attr_block_name" placeholder="Block Name" type="text" />
+                                                            <input name="attr_block_tags" placeholder="Tags" type="text" />
+                                                        </div>
+                                                        <textarea name="attr_block_phrase"
+                                                            placeholder="Inscription phrase"></textarea>
+                                                        <textarea name="attr_block_function"
+                                                            placeholder="Mechanical purpose / when to use it"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-talisman-known">
+                                                            <input class="sheet-talisman-detail-toggle"
+                                                                name="attr_toggle_block_notes" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-talisman-summary sheet-talisman-block-summary">
+                                                                <span class="sheet-talisman-summary-name"
+                                                                    name="attr_block_name"></span>
+                                                                <span name="attr_block_category"></span>
+                                                                <span name="attr_block_tags"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_block_notes" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-talisman-detail">
+                                                                <span name="attr_block_phrase"></span>
+                                                                <span name="attr_block_function"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-talisman-ledger sheet-talisman-drafts">
+                                            <div class="sheet-talisman-ledger-title">INSCRIPTION DRAFTS</div>
+                                            <fieldset class="repeating_talismandraft">
+                                                <div class="sheet-talisman-row sheet-talisman-draft-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-talisman-draft-grid">
+                                                            <input name="attr_draft_name" placeholder="Draft Name" type="text" />
+                                                            <input name="attr_draft_identifier" placeholder="Identifier"
+                                                                type="text" />
+                                                            <input name="attr_draft_effect" placeholder="Specific Effect"
+                                                                type="text" />
+                                                            <input name="attr_draft_modifier" placeholder="Form / Potency"
+                                                                type="text" />
+                                                        </div>
+                                                        <textarea name="attr_draft_full_inscription"
+                                                            placeholder="Full inscription text"></textarea>
+                                                        <textarea name="attr_draft_test_notes"
+                                                            placeholder="Test results, failures, risks, improvements"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-talisman-known">
+                                                            <input class="sheet-talisman-detail-toggle"
+                                                                name="attr_toggle_draft_notes" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-talisman-summary sheet-talisman-draft-summary">
+                                                                <span class="sheet-talisman-summary-name"
+                                                                    name="attr_draft_name"></span>
+                                                                <span name="attr_draft_identifier"></span>
+                                                                <span name="attr_draft_effect"></span>
+                                                                <span name="attr_draft_modifier"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_draft_notes" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-talisman-detail">
+                                                                <span name="attr_draft_full_inscription"></span>
+                                                                <span name="attr_draft_test_notes"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-talisman-ledger sheet-talisman-avatars">
+                                            <div class="sheet-talisman-ledger-title">AVATAR TALISMANS</div>
+                                            <fieldset class="repeating_talismanavatar">
+                                                <div class="sheet-talisman-row sheet-talisman-avatar-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-talisman-avatar-core">
+                                                            <label>Dao / Variant<input name="attr_avatar_dao"
+                                                                    placeholder="Dao / Variant" type="text" /></label>
+                                                            <label>Daoist Name<input name="attr_avatar_name"
+                                                                    placeholder="Daoist Name" type="text" /></label>
+                                                            <label>Response Chance<input name="attr_avatar_response"
+                                                                    placeholder="Response Chance" type="text" /></label>
+                                                            <label>Quality Tier<select name="attr_avatar_quality">
+                                                                    <option value="">Quality Tier</option>
+                                                                    <option>Low</option>
+                                                                    <option>Average</option>
+                                                                    <option>High</option>
+                                                                    <option>High + False Dragon Blood</option>
+                                                                </select></label>
+                                                            <label>Main Stat<select name="attr_avatar_main_stat">
+                                                                    <option value="">Main Stat</option>
+                                                                    <option>Power</option>
+                                                                    <option>Agility</option>
+                                                                    <option>Vitality</option>
+                                                                    <option>Cultivation</option>
+                                                                    <option>Qi Control</option>
+                                                                    <option>Mental</option>
+                                                                </select></label>
+                                                            <label>Cost / Catalyst<input name="attr_avatar_cost"
+                                                                    placeholder="Cost / Catalyst" type="text" /></label>
+                                                        </div>
+                                                        <div class="sheet-talisman-avatar-stats">
+                                                            <label>Power<input name="attr_avatar_power" type="number"
+                                                                    value="0" /></label>
+                                                            <label>Agility<input name="attr_avatar_agility" type="number"
+                                                                    value="0" /></label>
+                                                            <label>Vitality<input name="attr_avatar_vitality" type="number"
+                                                                    value="0" /></label>
+                                                            <label>Cultivation<input name="attr_avatar_cultivation"
+                                                                    type="number" value="0" /></label>
+                                                            <label>Qi Control<input name="attr_avatar_qi_control"
+                                                                    type="number" value="0" /></label>
+                                                            <label>Mental<input name="attr_avatar_mental" type="number"
+                                                                    value="0" /></label>
+                                                        </div>
+                                                        <div class="sheet-talisman-avatar-vitals">
+                                                            <label>HP Current<input name="attr_avatar_hp_current"
+                                                                    type="number" value="0" /></label>
+                                                            <label>HP Max<input name="attr_avatar_hp_max" type="number"
+                                                                    value="0" /></label>
+                                                            <label>Mental Fortitude<input name="attr_avatar_menfort"
+                                                                    type="number" value="0" /></label>
+                                                        </div>
+                                                        <textarea name="attr_avatar_notes"
+                                                            placeholder="Limitations, refusal risks, behavior, combat role"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-talisman-known">
+                                                            <input class="sheet-talisman-detail-toggle"
+                                                                name="attr_toggle_avatar_notes" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-talisman-summary sheet-talisman-avatar-summary">
+                                                                <span class="sheet-talisman-summary-name"
+                                                                    name="attr_avatar_name"></span>
+                                                                <span name="attr_avatar_dao"></span>
+                                                                <span name="attr_avatar_response"></span>
+                                                                <span name="attr_avatar_quality"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_avatar_notes" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-talisman-detail">
+                                                                <span name="attr_avatar_notes"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-talisman-ledger sheet-talisman-avatar-attack-ledger">
+                                            <div class="sheet-talisman-ledger-title">AVATAR ATTACK LIST</div>
+                                            <fieldset class="repeating_talismanattack">
+                                                <div class="sheet-talisman-row sheet-talisman-attack-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-talisman-attack-grid">
+                                                            <label>Avatar
+                                                                <input name="attr_attack_avatar_name"
+                                                                    placeholder="Avatar name" type="text" />
+                                                            </label>
+                                                            <label>Attack
+                                                                <input name="attr_atkname" placeholder="Attack name"
+                                                                    type="text" />
+                                                            </label>
+                                                            <label>Stat
+                                                                <select name="attr_attack_stat_name">
+                                                                    <option>Power</option>
+                                                                    <option>Agility</option>
+                                                                    <option>Vitality</option>
+                                                                    <option>Cultivation</option>
+                                                                    <option>Qi Control</option>
+                                                                    <option>Mental</option>
+                                                                    <option>None</option>
+                                                                </select>
+                                                            </label>
+                                                            <label>Stat Value
+                                                                <input name="attr_atkattr_value" placeholder="0"
+                                                                    type="number" value="0" />
+                                                            </label>
+                                                            <label>Mod
+                                                                <input name="attr_atkmod" placeholder="0" type="number"
+                                                                    value="0" />
+                                                            </label>
+                                                            <label>Range
+                                                                <input name="attr_atkrange" placeholder="Range"
+                                                                    type="text" />
+                                                            </label>
+                                                            <label>Damage
+                                                                <input name="attr_dmgbase" placeholder="0" type="text"
+                                                                    value="0" />
+                                                            </label>
+                                                            <label>Type
+                                                                <input name="attr_dmgtype" placeholder="Type"
+                                                                    type="text" />
+                                                            </label>
+                                                            <label class="sheet-talisman-attack-notes">Notes
+                                                                <textarea name="attr_atk_desc"
+                                                                    placeholder="Attack notes, costs, limits, or special effects"></textarea>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-talisman-attack-summary">
+                                                            <span class="sheet-talisman-summary-name"
+                                                                name="attr_attack_avatar_name"></span>
+                                                            <span name="attr_atkname"></span>
+                                                            <span name="attr_attack_stat_name"></span>
+                                                            <span name="attr_atkrange"></span>
+                                                            <span name="attr_dmgbase"></span>
+                                                            <span name="attr_dmgtype"></span>
+                                                            <button class="sheet-attack-button"
+                                                                name="roll_talisman_avatar_attack" type="roll"
+                                                                value="@{whispertoggle}&{template:atkdmg} @{charname_output} {{rname=@{attack_avatar_name}: @{atkname}}} {{mod=@{atkattr_value}+@{atkmod}}} {{r1=[[@{atkattr_value}+@{atkmod}]]}} {{r2=[[floor(@{atkattr_value} * 0.75)+@{atkmod}]]}} {{range=@{atkrange}}} {{attack=1}} {{damage=1}} {{dmgflag=1}} {{dmg1=[[@{dmgbase}]]}} {{dmg1type=@{dmgtype}}} {{desc=@{atk_desc}}}">Roll</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2577,6 +3269,205 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="sheet-container-panel sheet-profession-panel sheet-profession-cooking">
+                                <input class="sheet-profession-collapse" id="sheet-profession-cooking-open"
+                                    name="attr_profession_cooking_open" type="checkbox" value="1" checked="checked" />
+                                <label class="sheet-container-header sheet-profession-collapse-header"
+                                    for="sheet-profession-cooking-open">COOKING NOTES</label>
+                                <div class="sheet-container-body sheet-profession-body sheet-cooking-body">
+                                    <div class="sheet-profession-rank-strip sheet-cooking-rank-strip">
+                                        <label>Official Rank
+                                            <div class="sheet-profession-official-rank-note sheet-cooking-official-rank-note">
+                                                <select name="attr_profession_cooking_official_rank"
+                                                    title="@{profession_cooking_official_rank}">
+                                                    <option value="">None</option>
+                                                    <option>Initiate</option>
+                                                    <option>Novice</option>
+                                                    <option>Adept</option>
+                                                    <option>Master</option>
+                                                </select>
+                                                <select name="attr_profession_cooking_official_stars"
+                                                    title="@{profession_cooking_official_stars}">
+                                                    <option value="1">1 Star</option>
+                                                    <option value="2">2 Stars</option>
+                                                    <option value="3">3 Stars</option>
+                                                    <option value="4">4 Stars</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="6">6 Stars</option>
+                                                    <option value="7">7 Stars</option>
+                                                    <option value="8">8 Stars</option>
+                                                </select>
+                                            </div>
+                                        </label>
+                                        <label>Skill Level<input name="attr_profession_cooking_rank" readonly="readonly"
+                                                title="@{profession_cooking_rank}" type="text" value="0 Star" /></label>
+                                        <label>Skill<input name="attr_profession_cooking_skill"
+                                                title="@{profession_cooking_skill}" type="number" value="0" /></label>
+                                        <label>Total Flat Bonus<input name="attr_profession_cooking_bonus_total"
+                                                readonly="readonly" title="@{profession_cooking_bonus_total}"
+                                                type="number" value="0" /></label>
+                                        <button name="roll_profession_cooking_skill" type="roll"
+                                            value="@{whispertoggle}&{template:simple} @{charname_output} {{rname=Cooking}} {{mod=@{profession_cooking_skill}d10 + @{profession_cooking_bonus_total}}} {{r1=[[@{profession_cooking_skill}d10 + @{profession_cooking_bonus_total}[BONUS]]]}}">Roll</button>
+                                    </div>
+                                    <input class="sheet-profession-bonus-collapse sheet-cooking-bonus-collapse"
+                                        id="sheet-cooking-bonuses-open" name="attr_profession_cooking_bonuses_open"
+                                        type="checkbox" value="1" checked="checked" />
+                                    <label class="sheet-container-header sheet-profession-bonus-header sheet-cooking-bonus-header"
+                                        for="sheet-cooking-bonuses-open">COOKING BONUSES</label>
+                                    <div class="sheet-profession-bonus-body sheet-cooking-bonus-body">
+                                        <fieldset class="repeating_cookingbonus">
+                                            <div class="sheet-profession-bonus-row sheet-cooking-bonus-row">
+                                                <input name="attr_row_anchor" type="hidden" value="1" />
+                                                <input name="attr_bonus_source" placeholder="Source" type="text" />
+                                                <input name="attr_bonus_value" placeholder="0" type="number"
+                                                    value="0" />
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="sheet-cooking-station">
+                                        <label class="sheet-cooking-wide">Prep Notes<textarea
+                                                name="attr_profession_cooking_prep_notes"
+                                                title="@{profession_cooking_prep_notes}"></textarea></label>
+                                        <label class="sheet-cooking-notes">Additional Notes<textarea
+                                                name="attr_profession_cooking_notes"
+                                                title="@{profession_cooking_notes}"></textarea></label>
+                                    </div>
+                                    <div class="sheet-cooking-ledgers">
+                                        <div class="sheet-cooking-ledger sheet-cooking-recipes">
+                                            <div class="sheet-cooking-ledger-title">KNOWN RECIPES</div>
+                                            <fieldset class="repeating_cookingrecipe">
+                                                <div class="sheet-cooking-recipe-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-cooking-card-header">
+                                                            <input name="attr_recipe_name" placeholder="Dish Name"
+                                                                type="text" />
+                                                            <input name="attr_recipe_grade" placeholder="Grade / Difficulty"
+                                                                type="text" />
+                                                        </div>
+                                                        <div class="sheet-cooking-recipe-ingredients">
+                                                            <div class="sheet-cooking-recipe-ingredient-head">
+                                                                <span>Ingredient</span>
+                                                                <span>Amount</span>
+                                                                <span>Prep</span>
+                                                            </div>
+                                                            <fieldset class="repeating_cookingrecipeingredient">
+                                                                <div class="sheet-cooking-recipe-ingredient">
+                                                                    <input name="attr_row_anchor" type="hidden"
+                                                                        value="1" />
+                                                                    <input name="attr_recipe_ingredient_name"
+                                                                        placeholder="Name" type="text" />
+                                                                    <input name="attr_recipe_ingredient_amount"
+                                                                        placeholder="Amount" type="text" />
+                                                                    <input name="attr_recipe_ingredient_prep"
+                                                                        placeholder="Prep" type="text" />
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                        <textarea name="attr_recipe_effect"
+                                                            placeholder="Meal effect, duration, limits, serving notes"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-cooking-known-recipe">
+                                                            <input class="sheet-cooking-recipe-effect-toggle"
+                                                                name="attr_toggle_recipe_effect" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-cooking-recipe-summary">
+                                                                <span class="sheet-cooking-recipe-summary-name"
+                                                                    name="attr_recipe_name"></span>
+                                                                <span class="sheet-cooking-recipe-summary-grade"
+                                                                    name="attr_recipe_grade"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_recipe_effect" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-cooking-recipe-effect">
+                                                                <span name="attr_recipe_effect"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-cooking-ledger sheet-cooking-pantry">
+                                            <div class="sheet-cooking-ledger-title">PANTRY INGREDIENTS</div>
+                                            <fieldset class="repeating_cookingingredient">
+                                                <div class="sheet-cooking-ingredient-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <div class="sheet-checkbox-cog">
+                                                        <input checked="checked" name="attr_options-flag"
+                                                            type="checkbox" /><span></span>
+                                                        <span class="sheet-toggle-icon"></span>
+                                                    </div>
+                                                    <input checked="checked" class="sheet-toggle" hidden=""
+                                                        name="attr_options-flag" type="checkbox" />
+                                                    <div class="sheet-toggle-checked">
+                                                        <div class="sheet-cooking-card-header">
+                                                            <input name="attr_ingredient_name"
+                                                                placeholder="Ingredient" type="text" />
+                                                            <input name="attr_ingredient_quality" placeholder="Quality"
+                                                                type="text" />
+                                                        </div>
+                                                        <div class="sheet-cooking-pantry-grid">
+                                                            <input name="attr_ingredient_source" placeholder="Source"
+                                                                type="text" />
+                                                            <input name="attr_ingredient_quantity" placeholder="Qty"
+                                                                type="text" />
+                                                            <input name="attr_ingredient_storage" placeholder="Stored"
+                                                                type="text" />
+                                                        </div>
+                                                        <textarea name="attr_ingredient_effect"
+                                                            placeholder="Flavor, qi property, spoilage, compatible dishes"></textarea>
+                                                    </div>
+                                                    <div class="sheet-toggle-unchecked">
+                                                        <div class="sheet-cooking-known-ingredient">
+                                                            <input class="sheet-cooking-ingredient-effect-toggle"
+                                                                name="attr_toggle_ingredient_effect" type="hidden"
+                                                                value="1" />
+                                                            <div class="sheet-cooking-known-ingredient-name">
+                                                                <span name="attr_ingredient_name"></span>
+                                                                <span class="sheet-cooking-known-ingredient-quality"
+                                                                    name="attr_ingredient_quality"></span>
+                                                                <input class="toggle-checkbox"
+                                                                    name="attr_toggle_ingredient_effect" type="checkbox"
+                                                                    value="1" />
+                                                            </div>
+                                                            <div class="sheet-cooking-known-ingredient-effect">
+                                                                <span name="attr_ingredient_effect"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        <div class="sheet-cooking-ledger sheet-cooking-effects">
+                                            <div class="sheet-cooking-ledger-title">MEALS</div>
+                                            <div class="sheet-cooking-effect-head">
+                                                <span>Dish</span>
+                                                <span>Target</span>
+                                                <span>Duration</span>
+                                                <span>Effects / Notes</span>
+                                            </div>
+                                            <fieldset class="repeating_cookingeffect">
+                                                <div class="sheet-cooking-effect-row">
+                                                    <input name="attr_row_anchor" type="hidden" value="1" />
+                                                    <input name="attr_effect_dish" placeholder="Dish" type="text" />
+                                                    <input name="attr_effect_target" placeholder="Target" type="text" />
+                                                    <input name="attr_effect_duration" placeholder="Duration" type="text" />
+                                                    <input name="attr_effect_notes" placeholder="Effects / Notes" type="text" />
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2619,7 +3510,7 @@
                             </div>
                             <div class="sheet-container-bar sheet-pc-purse-other1">
                                 <div class="sheet-container-header">
-                                    <input name="attr_currency1" title="@{currency1}" type="text" value="JADE STONE" />
+                                    <input name="attr_currency1" title="@{currency1}" type="text" value="JADE STAR" />
                                 </div>
                                 <div class="sheet-container-body">
                                     <input name="attr_currency1_value" title="@{currency1_value}" type="number" />
@@ -2994,12 +3885,14 @@
                                                             type="checkbox" value="1" />Array Making</label>
                                                     <label><input name="attr_profession_carving_flag" type="checkbox"
                                                             value="1" />Carving</label>
+                                                    <label><input name="attr_profession_cooking_flag" type="checkbox"
+                                                            value="1" />Cooking</label>
                                                     <label><input name="attr_profession_divine_doctor_flag"
                                                             type="checkbox" value="1" />Divine Doctor</label>
                                                     <label><input name="attr_profession_forging_flag" type="checkbox"
                                                             value="1" />Forging</label>
                                                     <label><input name="attr_profession_fulu_pai_flag" type="checkbox"
-                                                            value="1" />Fulu Pai</label>
+                                                            value="1" />Talismans</label>
                                                     <label><input name="attr_profession_weaving_flag" type="checkbox"
                                                             value="1" />Weaving</label>
                                                 </div>
@@ -4331,8 +5224,34 @@ DEFENCE AND ACTION POINT VALUES
 var JTTH_REALM_DEFENSE_BASES = { "Mortal": 0, "Qi Gathering": 10, "Foundation": 15, "Core Formation": 30, "Martial Soul": 60, "God Ascendance": 120 };
 var JTTH_DURABILITY_SOFT_CAPS = { "Qi Gathering": 30, "Foundation": 45, "Core Formation": 90, "Martial Soul": 180, "God Ascendance": 360 };
 var JTTH_AP_MAJOR_REALM_BASES = { "Mortal": 4, "Qi Gathering": 4, "Foundation": 6, "Core Formation": 8, "Martial Soul": 10, "God Ascendance": 12 };
+var JTTH_QI_REALM_BASES = {
+    "Qi Gathering": { "Early": 10, "Mid": 20, "Late": 30, "Peak": 50 },
+    "Foundation": { "Early": 150, "Mid": 200, "Late": 300, "Peak": 425 },
+    "Core Formation": { "Early": 2000, "Mid": 3500, "Late": 6500, "Peak": 10000 },
+    "Martial Soul": { "Early": 90000, "Mid": 180000, "Late": 250000, "Peak": 400000 }
+};
+var JTTH_QI_DAO_MULTIPLIERS = { elemental: 1.3, generalist: 1.15, martial: 1, body_refiner: 0.75 };
 var jtth_realm_base = function(realm) { return JTTH_REALM_DEFENSE_BASES[realm] || 0; };
 var jtth_ap_major_realm_base = function(realm) { return JTTH_AP_MAJOR_REALM_BASES[realm] || 4; };
+var jtth_qi_realm_base = function(major, minor) {
+    var realm = JTTH_QI_REALM_BASES[major] || {};
+    return realm[minor] || 0;
+};
+var jtth_qi_percent_bonus = function(value) {
+    var text = String(value || "").trim();
+    if (!text) { return 0; }
+    var number = parseFloat(text.replace(/%/g, ""));
+    if (isNaN(number)) { return 0; }
+    if (text.indexOf("%") !== -1 || Math.abs(number) > 1) { return number / 100; }
+    return number;
+};
+var jtth_qi_regen_amount = function(value, max_qi) {
+    var text = String(value || "").trim();
+    if (!text) { return 0; }
+    var number = parseFloat(text.replace(/%/g, ""));
+    if (isNaN(number)) { return 0; }
+    return text.indexOf("%") !== -1 ? max_qi * (number / 100) : number;
+};
 var jtth_durability_soft_cap = function(bonus_total, realm) {
     var cap = JTTH_DURABILITY_SOFT_CAPS[realm];
     if (!cap || bonus_total <= cap) { return bonus_total; }
@@ -4398,6 +5317,56 @@ var update_action_points = function() {
         var agility_scale = Math.floor(agility / 15);
         var agility_regen_bonus = Math.floor(agility / 150);
         setAttrs({ "ap-base": "4", "ap-major-realm-base": jtth_clean_number(major_realm_base), "ap-agility-scale": jtth_clean_number(agility_scale), "ap-agility-regen-bonus": jtth_clean_number(agility_regen_bonus), "ap-max": jtth_clean_number(major_realm_base * 2), "ap-regen": jtth_clean_number(major_realm_base + agility_regen_bonus) }, { silent: true });
+    });
+};
+
+var update_qi_reserves = function() {
+    getSectionIDs("repeating_qimodifier", function(mod_ids) {
+        var fields = ["major_realm", "minor_realm", "qi_dao_group", "qi_regen_value"];
+        _.each(mod_ids, function(id) {
+            var prefix = "repeating_qimodifier_" + id + "_";
+            fields.push(prefix + "qi_modifier_active");
+            fields.push(prefix + "qi_modifier_type");
+            fields.push(prefix + "qi_modifier_value");
+        });
+        getAttrs(fields, function(attrs) {
+            var realm_base = jtth_qi_realm_base(attrs.major_realm || "Mortal", attrs.minor_realm || "-");
+            var dao_multiplier = JTTH_QI_DAO_MULTIPLIERS[attrs.qi_dao_group || "martial"] || 1;
+            var dao_base = realm_base * dao_multiplier;
+            var percent_total = 1;
+            var flat_total = 0;
+            _.each(mod_ids, function(id) {
+                var prefix = "repeating_qimodifier_" + id + "_";
+                if (attrs[prefix + "qi_modifier_active"] === "0") { return; }
+                var value = attrs[prefix + "qi_modifier_value"];
+                if ((attrs[prefix + "qi_modifier_type"] || "flat") === "percent") {
+                    percent_total += jtth_qi_percent_bonus(value);
+                } else {
+                    flat_total += jtth_float(value);
+                }
+            });
+            var percent_multiplier = percent_total === 0 ? 1 : percent_total;
+            var max_qi = Math.max(0, Math.floor((dao_base * percent_multiplier) + flat_total));
+            setAttrs({
+                "qi-realm-base": jtth_clean_number(realm_base),
+                "qi-dao-base": jtth_clean_number(dao_base),
+                "qi-percent-total": jtth_clean_number(percent_total * 100) + "%",
+                "qi-flat-total": jtth_clean_number(flat_total),
+                "qi-max": jtth_clean_number(max_qi),
+                "qi-deprivation": jtth_clean_number(max_qi * 0.05),
+                "qi-regen-calculated": jtth_clean_number(jtth_qi_regen_amount(attrs.qi_regen_value, max_qi))
+            }, { silent: true });
+        });
+    });
+};
+
+var apply_qi_regen = function() {
+    getAttrs(["qi_current", "qi-max", "qi_regen_value"], function(attrs) {
+        var max_qi = jtth_float(attrs["qi-max"]);
+        var current_qi = jtth_float(attrs.qi_current);
+        var regen = jtth_qi_regen_amount(attrs.qi_regen_value, max_qi);
+        var next_qi = Math.min(max_qi, current_qi + regen);
+        setAttrs({ qi_current: jtth_clean_number(next_qi) }, { silent: true });
     });
 };
 
@@ -4569,7 +5538,7 @@ var update_weight = function() {
     });
 };
 
-var update_defence_totals = function() { update_evasion(); update_durability(); update_reduction(); update_action_points(); };
+var update_defence_totals = function() { update_evasion(); update_durability(); update_reduction(); update_action_points(); update_qi_reserves(); };
 /* ================================
 ATTACKS AND DAMAGE
 ================================ */
@@ -4928,7 +5897,114 @@ var update_attacks = function() {
     });
 };
 
-var update_dependents = function() { update_skills(); update_initiative(); update_dcs(); update_defence_totals(); update_health(); update_weight(); update_attacks(); update_beast_parts(); };
+var jtth_avatar_attr_label = function(ref) {
+    var name = jtth_attr_name_from_ref(ref);
+    var labels = {
+        avatar_power: "PWR",
+        avatar_agility: "AGI",
+        avatar_vitality: "VIT",
+        avatar_cultivation: "CUL",
+        avatar_qi_control: "QIC",
+        avatar_mental: "MTL"
+    };
+    return labels[name] || "";
+};
+
+var jtth_avatar_attack_display = function(row) {
+    var attr = jtth_macro_text(row.atkattr_base, "0");
+    var mod = jtth_number_text(row.atkmod, "0");
+    var label = jtth_avatar_attr_label(row.atkattr_base);
+    return "ACC [[" + attr + " + " + mod + "]] / PEN [[floor((" + attr + ") * 0.75) + " + mod + "]]" + (label ? " (" + label + ")" : "");
+};
+
+var jtth_avatar_damage_display = function(row, prefix, type) {
+    var dice = row[prefix + "base"] || "0";
+    var attr_label = jtth_avatar_attr_label(row[prefix + "attr"]);
+    var flat = jtth_signed_text(row[prefix + "mod"]);
+    var parts = [];
+    if (dice && dice !== "0") { parts.push(dice); }
+    if (attr_label) { parts.push(attr_label); }
+    if (flat) { parts.push(flat); }
+    return (parts.length ? parts.join(" + ") : "0") + (type ? " " + type : "");
+};
+
+var jtth_avatar_row_id_from_event = function(eventInfo) {
+    var source = (eventInfo && eventInfo.sourceAttribute) || "";
+    var match = source.match(/repeating_talismanavatar_([^_]+)_/);
+    return match ? match[1] : "";
+};
+
+var add_avatar_attack = function(eventInfo) {
+    var id = generateRowID();
+    var base = "repeating_talismanavatarattack_" + id + "_";
+    var owner = jtth_avatar_row_id_from_event(eventInfo);
+    var updates = {};
+    updates[base + "row_anchor"] = "1";
+    updates[base + "avatar_attack_owner"] = owner;
+    updates[base + "options-flag"] = "on";
+    updates[base + "atkflag"] = "{{attack=1}}";
+    updates[base + "atkattr_base"] = "@{avatar_power}";
+    updates[base + "dmgflag"] = "{{damage=1}} {{dmgflag=1}}";
+    updates[base + "dmgattr"] = "@{avatar_power}";
+    updates[base + "dmg2attr"] = "@{avatar_power}";
+    updates[base + "dmg3attr"] = "@{avatar_power}";
+    updates[base + "dmg4attr"] = "@{avatar_power}";
+    updates[base + "dmg3_visible"] = "0";
+    updates[base + "dmg4_visible"] = "0";
+    setAttrs(updates, { silent: true }, function() { update_avatar_attacks(); });
+};
+
+var update_avatar_attacks = function() {
+    getSectionIDs("repeating_talismanavatarattack", function(attack_ids) {
+        var fields = ["dtype", "charname_output", "whispertoggle"];
+        _.each(attack_ids, function(id) {
+            var base = "repeating_talismanavatarattack_" + id + "_";
+            _.each(["avatar_attack_owner","atkname","atkflag","atkattr_base","atkmod","atkrange","dmgflag","dmgbase","dmgtech","dmgattr","dmgmod","dmgtype","dmgintentflag","dmg2flag","dmg2base","dmg2tech","dmg2attr","dmg2mod","dmg2type","dmg2intentflag","dmg3flag","dmg3base","dmg3tech","dmg3attr","dmg3mod","dmg3type","dmg3intentflag","dmg4flag","dmg4base","dmg4tech","dmg4attr","dmg4mod","dmg4type","dmg4intentflag","saveflag","saveattr","saveeffect","savedc","atk_desc"], function(attr) {
+                fields.push(base + attr);
+            });
+        });
+        getAttrs(fields, function(attrs) {
+            var updates = {};
+            var mod_totals = { flat: 0, intent: 0, manual_bonus: 0, pill_bonus: 0 };
+            _.each(attack_ids, function(id) {
+                var base = "repeating_talismanavatarattack_" + id + "_";
+                var row = {};
+                _.each(fields, function(field) {
+                    if (field.indexOf(base) === 0) { row[field.replace(base, "")] = attrs[field]; }
+                });
+                var dmg2_on = !!row.dmg2flag;
+                var dmg3_on = dmg2_on && !!row.dmg3flag;
+                var dmg4_on = dmg3_on && !!row.dmg4flag;
+                var acc_roll = jtth_attack_roll(row, 0, 1);
+                var eff_roll = jtth_attack_roll(row, 0, 0.75);
+                var damage_bits = (row.dmgflag || "") + " " + (dmg2_on ? row.dmg2flag : "") + " " + (dmg3_on ? row.dmg3flag : "") + " " + (dmg4_on ? row.dmg4flag : "");
+                var save_bits = row.saveflag || "";
+                var desc = jtth_macro_text(row.atk_desc, "");
+                var common = "@{whispertoggle}&{template:" + (attrs.dtype === "full" ? "atkdmg" : "atk") + "} @{charname_output} {{rname=@{avatar_name}: @{atkname}}} {{mod=@{atkattr_base}+@{atkmod}}} {{r1=" + acc_roll + "}} {{r2=" + eff_roll + "}} {{range=@{atkrange}}} " + (row.atkflag || "") + " ";
+                var damage = damage_bits + " {{dmg1=" + jtth_damage_expr(row, "dmg", 0, mod_totals) + "}} {{dmg1type=@{dmgtype}}} {{dmg2=" + jtth_damage_expr(row, "dmg2", 0, mod_totals) + "}} {{dmg2type=@{dmg2type}}} {{dmg3=" + jtth_damage_expr(row, "dmg3", 0, mod_totals) + "}} {{dmg3type=@{dmg3type}}} {{dmg4=" + jtth_damage_expr(row, "dmg4", 0, mod_totals) + "}} {{dmg4type=@{dmg4type}}} " + save_bits + " {{desc=" + desc + "}}";
+                updates[base + "rollbase"] = common + (attrs.dtype === "full" ? damage : " {{desc=" + desc + "}}");
+                updates[base + "rollbase_dmg"] = "@{whispertoggle}&{template:dmg} " + damage;
+                updates[base + "atkbonus"] = jtth_avatar_attack_display(row);
+                var typed_damage = [];
+                var fallback_damage = [];
+                var add_damage_display = function(prefix, type) {
+                    var display = jtth_avatar_damage_display(row, prefix, type);
+                    if (type) { typed_damage.push(display); } else { fallback_damage.push(display); }
+                };
+                if (row.dmgflag) { add_damage_display("dmg", row.dmgtype); }
+                if (dmg2_on) { add_damage_display("dmg2", row.dmg2type); }
+                if (dmg3_on) { add_damage_display("dmg3", row.dmg3type); }
+                if (dmg4_on) { add_damage_display("dmg4", row.dmg4type); }
+                updates[base + "atkdmgtype"] = (typed_damage.length ? typed_damage : fallback_damage).join(" / ");
+                updates[base + "dmg3_visible"] = dmg2_on ? "1" : "0";
+                updates[base + "dmg4_visible"] = dmg3_on ? "1" : "0";
+            });
+            setAttrs(updates, { silent: true });
+        });
+    });
+};
+
+var update_dependents = function() { update_skills(); update_initiative(); update_dcs(); update_defence_totals(); update_health(); update_weight(); update_attacks(); update_avatar_attacks(); update_beast_parts(); };
 var update_all_calculations = function() { update_attributes(function() { update_dependents(); }); };
 
 /* ================================
@@ -4977,7 +6053,7 @@ var update_profession = function(profession) {
 };
 
 var update_professions = function() {
-    _.each(["alchemy", "array", "carving", "doctor", "forging", "fulu", "weaving"], function(profession) {
+    _.each(["alchemy", "array", "carving", "cooking", "doctor", "forging", "fulu", "weaving"], function(profession) {
         update_profession(profession);
     });
 };
@@ -5000,11 +6076,13 @@ var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:
 _.each(JTTH_SKILL_NAMES, function(skill_name) { jtth_skill_events.push("change:" + skill_name + "_flat"); });
 on(jtth_skill_events.join(" "), function() { update_skills(); });
 
-on("change:ctype change:major_realm change:mortal-level change:global_dc_bonus change:power_dc_bonus change:agility_dc_bonus change:vitality_dc_bonus change:cultivation_dc_bonus change:qicontrol_dc_bonus change:mental_dc_bonus change:qi_control_dc_bonus change:mental_strength_bonus", function() { update_dcs(); update_defence_totals(); });
+on("change:ctype change:major_realm change:minor_realm change:mortal-level change:qi_dao_group change:qi_regen_value change:global_dc_bonus change:power_dc_bonus change:agility_dc_bonus change:vitality_dc_bonus change:cultivation_dc_bonus change:qicontrol_dc_bonus change:mental_dc_bonus change:qi_control_dc_bonus change:mental_strength_bonus", function() { update_dcs(); update_defence_totals(); });
 on("change:initiative_bonus", function() { update_initiative(); });
 on("change:repeating_evasionsource:evasion_value remove:repeating_evasionsource", function() { update_evasion(); });
 on("change:repeating_durabilitysource:durability_value remove:repeating_durabilitysource", function() { update_durability(); });
 on("change:repeating_reductionsource:reduction_value remove:repeating_reductionsource", function() { update_reduction(); });
+on("change:repeating_qimodifier:qi_modifier_active change:repeating_qimodifier:qi_modifier_type change:repeating_qimodifier:qi_modifier_value remove:repeating_qimodifier", function() { update_qi_reserves(); });
+on("clicked:qi_regen", function() { apply_qi_regen(); });
 on("change:hp_max change:repeating_beastparts:part_name change:repeating_beastparts:part_quality remove:repeating_beastparts", function() { update_beast_parts(); });
 on("change:hp_auto_flag change:hp_die change:hp_rolled change:hp_bloodline_bonus change:major_realm change:minor_realm change:vitality change:vitality_base change:vitality_bonus change:global_attribute_bonus change:repeating_hpmod:hp_mod_active change:repeating_hpmod:hp_mod_value change:repeating_hpmod:hp_mod_type remove:repeating_hpmod", function() { update_health(); });
 on("clicked:hp_average", function() { set_hp_average(); });
@@ -5013,9 +6091,12 @@ on("change:power change:carrying_capacity_mod change:inventory_slots_mod change:
 on("change:dtype change:repeating_tohitmod:global_attack_active_flag change:repeating_tohitmod:global_attack_roll change:repeating_tohitmod:global_attack_appliesto remove:repeating_tohitmod change:repeating_damagemod:global_damage_active_flag change:repeating_damagemod:global_damage_source change:repeating_damagemod:global_damage_damage change:repeating_damagemod:global_damage_type remove:repeating_damagemod", function() { update_attacks(); });
 on("clicked:add_attack", function() { add_default_attack(); });
 on("change:repeating_attack:row_anchor change:repeating_attack:atkname change:repeating_attack:atkflag change:repeating_attack:atkattr_base change:repeating_attack:atkmod change:repeating_attack:atkrange change:repeating_attack:dmgflag change:repeating_attack:dmgbase change:repeating_attack:dmgtech change:repeating_attack:dmgattr change:repeating_attack:dmgmod change:repeating_attack:dmgtype change:repeating_attack:dmgintentflag change:repeating_attack:dmg2flag change:repeating_attack:dmg2base change:repeating_attack:dmg2tech change:repeating_attack:dmg2attr change:repeating_attack:dmg2mod change:repeating_attack:dmg2type change:repeating_attack:dmg2intentflag change:repeating_attack:dmg3flag change:repeating_attack:dmg3base change:repeating_attack:dmg3tech change:repeating_attack:dmg3attr change:repeating_attack:dmg3mod change:repeating_attack:dmg3type change:repeating_attack:dmg3intentflag change:repeating_attack:dmg4flag change:repeating_attack:dmg4base change:repeating_attack:dmg4tech change:repeating_attack:dmg4attr change:repeating_attack:dmg4mod change:repeating_attack:dmg4type change:repeating_attack:dmg4intentflag change:repeating_attack:saveflag change:repeating_attack:saveattr change:repeating_attack:saveeffect change:repeating_attack:savedc change:repeating_attack:atk_desc remove:repeating_attack", function() { apply_default_attack_stat(update_attacks); });
+on("clicked:repeating_talismanavatar:add_avatar_attack", function(eventInfo) { add_avatar_attack(eventInfo); });
+on("change:dtype change:repeating_talismanavatarattack:row_anchor change:repeating_talismanavatarattack:atkname change:repeating_talismanavatarattack:atkflag change:repeating_talismanavatarattack:atkattr_base change:repeating_talismanavatarattack:atkmod change:repeating_talismanavatarattack:atkrange change:repeating_talismanavatarattack:dmgflag change:repeating_talismanavatarattack:dmgbase change:repeating_talismanavatarattack:dmgtech change:repeating_talismanavatarattack:dmgattr change:repeating_talismanavatarattack:dmgmod change:repeating_talismanavatarattack:dmgtype change:repeating_talismanavatarattack:dmgintentflag change:repeating_talismanavatarattack:dmg2flag change:repeating_talismanavatarattack:dmg2base change:repeating_talismanavatarattack:dmg2tech change:repeating_talismanavatarattack:dmg2attr change:repeating_talismanavatarattack:dmg2mod change:repeating_talismanavatarattack:dmg2type change:repeating_talismanavatarattack:dmg2intentflag change:repeating_talismanavatarattack:dmg3flag change:repeating_talismanavatarattack:dmg3base change:repeating_talismanavatarattack:dmg3tech change:repeating_talismanavatarattack:dmg3attr change:repeating_talismanavatarattack:dmg3mod change:repeating_talismanavatarattack:dmg3type change:repeating_talismanavatarattack:dmg3intentflag change:repeating_talismanavatarattack:dmg4flag change:repeating_talismanavatarattack:dmg4base change:repeating_talismanavatarattack:dmg4tech change:repeating_talismanavatarattack:dmg4attr change:repeating_talismanavatarattack:dmg4mod change:repeating_talismanavatarattack:dmg4type change:repeating_talismanavatarattack:dmg4intentflag change:repeating_talismanavatarattack:saveflag change:repeating_talismanavatarattack:saveattr change:repeating_talismanavatarattack:saveeffect change:repeating_talismanavatarattack:savedc change:repeating_talismanavatarattack:atk_desc remove:repeating_talismanavatarattack", function() { update_avatar_attacks(); });
 on("change:profession_alchemy_skill change:repeating_alchemybonus:bonus_value remove:repeating_alchemybonus", function() { update_profession("alchemy"); });
 on("change:profession_array_skill change:repeating_arraybonus:bonus_value remove:repeating_arraybonus", function() { update_profession("array"); });
 on("change:profession_carving_skill change:repeating_carvingbonus:bonus_value remove:repeating_carvingbonus", function() { update_profession("carving"); });
+on("change:profession_cooking_skill change:repeating_cookingbonus:bonus_value remove:repeating_cookingbonus", function() { update_profession("cooking"); });
 on("change:profession_doctor_skill change:repeating_doctorbonus:bonus_value remove:repeating_doctorbonus", function() { update_profession("doctor"); });
 on("change:profession_forging_skill change:repeating_forgingbonus:bonus_value remove:repeating_forgingbonus", function() { update_profession("forging"); });
 on("change:profession_fulu_skill change:repeating_fulubonus:bonus_value remove:repeating_fulubonus", function() { update_profession("fulu"); });
@@ -5023,6 +6104,7 @@ on("change:profession_weaving_skill change:repeating_weavingbonus:bonus_value re
 on("change:profession_alchemy_official_rank", function() { reset_profession_stars("alchemy"); });
 on("change:profession_array_official_rank", function() { reset_profession_stars("array"); });
 on("change:profession_carving_official_rank", function() { reset_profession_stars("carving"); });
+on("change:profession_cooking_official_rank", function() { reset_profession_stars("cooking"); });
 on("change:profession_doctor_official_rank", function() { reset_profession_stars("doctor"); });
 on("change:profession_forging_official_rank", function() { reset_profession_stars("forging"); });
 on("change:profession_fulu_official_rank", function() { reset_profession_stars("fulu"); });
