@@ -1489,7 +1489,7 @@
                                 <div class="sheet-container-panel sheet-container-traits">
                                     <div class="sheet-container-header">TRAITS</div>
                                     <div class="sheet-container-body">
-                                        <fieldset class="repeating_feature">
+                                        <fieldset class="repeating_cultivatorfeature">
                                             <div class="sheet-fieldset-item sheet-fieldset-item-feature">
                                                 <input name="attr_row_anchor" type="hidden" value="1" />
                                                 <div class="sheet-checkbox-cog">
@@ -1543,7 +1543,7 @@
                                             <div class="sheet-resource-label resource-current">CURRENT</div>
                                             <div class="sheet-resource-label resource-max">MAX</div>
                                         </div>
-                                        <fieldset class="repeating_resource">
+                                        <fieldset class="repeating_cultivatorresource">
                                             <div class="sheet-fieldset-item">
                                                 <input name="attr_row_anchor" type="hidden" value="1" />
                                                 <div class="sheet-form">
@@ -4669,14 +4669,14 @@
     <div class="sheet-rolltemplates">
         <rolltemplate class="sheet-rolltemplate-atk">
             <div class="template-container">
+                {{#charname}}
+                <div class="template-charname">
+                    <span>{{charname}}</span>
+                </div>
+                {{/charname}}
                 <div class="template-label">
-                    <span>{{rname}}<span> ( {{mod}} )</span></span>
+                    <span>{{rname}}{{#range}}<span> ( {{range}} )</span>{{/range}}</span>
                 </div>
-                {{#range}}
-                <div class="template-sublabel">
-                    <span>{{range}}</span>
-                </div>
-                {{/range}}
                 <div class="template-result">
                     <div class="template-add">
                         <em>Accuracy</em>
@@ -4690,17 +4690,10 @@
                             {{globaleffattack}}{{/globaleffattack}}</span>
                     </div>
                 </div>
-                {{#charname}}
-                <div class="template-charname">
-                    <span>{{charname}}</span>
-                </div>
-                {{/charname}}
                 {{#desc}}
                 <div class="template-desc info">
                     <span>
-                        <span class="top"></span>
                         <span class="middle">{{desc}}</span>
-                        <span class="bottom"></span>
                     </span>
                 </div>
                 {{/desc}}
@@ -4708,14 +4701,14 @@
         </rolltemplate>
         <rolltemplate class="sheet-rolltemplate-atkdmg">
             <div class="template-container">
+                {{#charname}}
+                <div class="template-charname">
+                    <span>{{charname}}</span>
+                </div>
+                {{/charname}}
                 <div class="template-label">
-                    <span>{{rname}}<span> ( {{mod}} )</span></span>
+                    <span>{{rname}}{{#range}}<span> ( {{range}} )</span>{{/range}}</span>
                 </div>
-                {{#range}}
-                <div class="template-sublabel">
-                    <span>{{range}}</span>
-                </div>
-                {{/range}}
                 <div class="template-result">
                     <div class="template-add">
                         <em>Accuracy</em>
@@ -4770,17 +4763,11 @@
                 </div>
                 {{/saveflag}}
 
-                {{#charname}}
-                <div class="template-charname">
-                    <span>{{charname}}</span>
-                </div>
-                {{/charname}}
+                
                 {{#desc}}
                 <div class="template-desc info">
                     <span>
-                        <span class="top"></span>
                         <span class="middle">{{desc}}</span>
-                        <span class="bottom"></span>
                     </span>
                 </div>
                 {{/desc}}
@@ -4864,6 +4851,11 @@
         </rolltemplate>
         <rolltemplate class="sheet-rolltemplate-simple">
             <div class="template-container">
+                {{#charname}}
+                <div class="template-charname">
+                    <span>{{charname}}</span>
+                </div>
+                {{/charname}}
                 <div class="template-label">
                     <span>{{rname}} {{mod}}</span>
                 </div>
@@ -4873,11 +4865,6 @@
                         <span>{{r1}}</span>
                     </div>
                 </div>
-                {{#charname}}
-                <div class="template-charname">
-                    <span>{{charname}}</span>
-                </div>
-                {{/charname}}
             </div>
         </rolltemplate>
     </div>
