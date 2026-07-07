@@ -185,6 +185,12 @@
   font-weight: 800;
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-health-vitality-source {
+  background: var(--jtth-row, #332e2a);
+  border-color: var(--jtth-row-border, #57483f);
+  color: var(--jtth-paper-highlight, #f4ead7);
+}
+
 .charsheet .sheet-core .sheet-health-total-readouts {
   margin-top: 5px;
   padding-top: 5px;
@@ -206,11 +212,30 @@
   text-transform: uppercase;
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-health-roll-buttons button,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-header label {
+  background: var(--jtth-jade, #35413f);
+  border-color: var(--jtth-jade-deep, #202a29);
+  color: var(--jtth-paper-highlight, #f4ead7);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-health-roll-buttons button:hover,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-header label:hover {
+  background: var(--jtth-jade-hover, #4b5553);
+}
+
 .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-base:checked ~ .sheet-notes-tab-header label:first-child,
 .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-profession:checked ~ .sheet-notes-tab-header label:last-child {
   background: var(--jtth-accent, #7f3f2e);
   border-color: var(--jtth-accent, #7f3f2e);
   color: #fff7ea;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-base:checked ~ .sheet-notes-tab-header label:first-child,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-tab-profession:checked ~ .sheet-notes-tab-header label:last-child {
+  background: var(--jtth-cinnabar, #9b3f32);
+  border-color: var(--jtth-cinnabar, #9b3f32);
+  color: var(--jtth-paper-highlight, #f4ead7);
 }
 
 .charsheet .sheet-core .sheet-profession-body {
@@ -221,11 +246,22 @@
   padding: 6px;
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-body {
+  background: var(--jtth-surface, #2f2a26);
+  border-color: var(--jtth-border, #5f5046);
+  color: var(--jtth-paper-highlight, #f4ead7);
+}
+
 .charsheet .sheet-core .sheet-profession-fields {
   background: var(--jtth-panel-soft, #efe7d8);
   border: 1px solid var(--jtth-border, #b9aa92);
   border-radius: 3px;
   padding: 5px;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-fields {
+  background: var(--jtth-row, #332e2a);
+  border-color: var(--jtth-row-border, #57483f);
 }
 
 .charsheet .sheet-core .sheet-profession-note-grid label {
@@ -235,12 +271,23 @@
   padding: 5px;
 }
 
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-note-grid label {
+  background: var(--jtth-row, #332e2a);
+  border-color: var(--jtth-row-border, #57483f);
+  color: var(--jtth-paper-highlight, #f4ead7);
+}
+
 .charsheet .sheet-core .sheet-profession-panel fieldset {
   border: 1px solid var(--jtth-border, #b9aa92);
   background: var(--jtth-paper, #f7f0e3);
   border-radius: 3px;
   margin: 0;
   padding: 5px;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-profession-panel fieldset {
+  background: var(--jtth-row, #332e2a);
+  border-color: var(--jtth-row-border, #57483f);
 }
 
 .charsheet .sheet-core .sheet-profession-panel .repitem + .repitem {
@@ -8251,4 +8298,74 @@
   font-size: 9px;
   font-weight: 800;
   line-height: 14px;
+}
+
+
+
+/* Dark Mode - Profession Notes */
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content {
+  background: var(--jtth-page);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-profession-panel {
+  background: var(--jtth-surface) !important;
+  border-color: var(--jtth-brass-border) !important;
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-profession-body,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-profession-fields,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-profession-bonus-body,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-alchemy-bonus-body,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-cooking-bonus-body,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-profession-rank-strip,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-alchemy-rank-strip,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-alchemy-tools label,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-alchemy-notes,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-forging-tools label,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-forging-notes,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-talisman-notes,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-talisman-avatar-stats,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-cooking-station,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-alchemy-recipe-ingredients,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-forging-blueprint-materials,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-cooking-recipe-ingredients,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-request-summary,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-part-summary {
+  background: var(--jtth-row) !important;
+  border-color: var(--jtth-row-border) !important;
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content fieldset,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-alchemy-ledger,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-forging-ledger,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-talisman-ledger,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-cooking-ledger,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-beasts,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-requests,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-parts {
+  background: var(--jtth-surface-muted) !important;
+  border-color: var(--jtth-brass-border) !important;
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-row,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-known-beast-notes,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-known-request-details,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-known-part-details,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-beast-part {
+  background: var(--jtth-dark-form-surface) !important;
+  border-color: var(--jtth-dark-form-border) !important;
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-summary-head,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-detail-head,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-carving-edit-head,
+.sheet-darkmode .charsheet .sheet-core .sheet-page-notes .sheet-notes-profession-content .sheet-profession-ledger-title {
+  color: var(--jtth-brass-soft) !important;
+  border-color: var(--jtth-brass-border) !important;
 }

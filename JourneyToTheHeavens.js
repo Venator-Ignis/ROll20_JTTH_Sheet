@@ -428,10 +428,12 @@ var update_beast_parts = function() {
 var update_action_points = function() {
     getAttrs(["major_realm", "agility", "agility_base", "agility_bonus", "global_attribute_bonus"], function(attrs) {
         var agility = jtth_stat_value("agility", attrs);
-        var major_realm_base = JTTH_AP_MAJOR_REALM_BASES[attrs.major_realm || "Mortal"] || 4;
+        var major_realm = attrs.major_realm || "Mortal";
+        var major_realm_base = JTTH_AP_MAJOR_REALM_BASES[major_realm] || 4;
         var agility_scale = Math.floor(agility / 15);
-        var agility_regen_bonus = Math.floor(agility / 150);
-        setAttrs({ "ap-base": "4", "ap-major-realm-base": jtth_clean_number(major_realm_base), "ap-agility-scale": jtth_clean_number(agility_scale), "ap-agility-regen-bonus": jtth_clean_number(agility_regen_bonus), "ap-max": jtth_clean_number(major_realm_base * 2), "ap-regen": jtth_clean_number(major_realm_base + agility_regen_bonus) }, { silent: true });
+        var agility_ap_bonus = major_realm === "Mortal" ? 0 : Math.min(agility_scale, major_realm_base);
+        var max_ap = major_realm_base + agility_ap_bonus;
+        setAttrs({ "ap-base": "4", "ap-major-realm-base": jtth_clean_number(major_realm_base), "ap-agility-scale": jtth_clean_number(agility_ap_bonus), "ap-agility-regen-bonus": "0", "ap-max": jtth_clean_number(max_ap), "ap-regen": jtth_clean_number(major_realm_base) }, { silent: true });
     });
 };
 
