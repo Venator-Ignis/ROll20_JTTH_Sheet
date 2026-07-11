@@ -79,6 +79,7 @@ var JTTH_HP_REALM_ORDER = [
 ];
 
 var jtth_hp_realm_bonus = function(major, minor) {
+    if (!major || major === "Mortal") { return 1; }
     return JTTH_HP_REALM_BONUSES[major] && JTTH_HP_REALM_BONUSES[major][minor] ? JTTH_HP_REALM_BONUSES[major][minor] : 0;
 };
 
@@ -88,6 +89,7 @@ var jtth_hp_realm_label = function(major, minor) {
 };
 
 var jtth_hp_next_realm = function(major, minor) {
+    if (!major || major === "Mortal") { return JTTH_HP_REALM_ORDER[0]; }
     var current_index = -1;
     _.each(JTTH_HP_REALM_ORDER, function(realm, index) {
         if (realm.major === major && realm.minor === minor) { current_index = index; }
@@ -139,15 +141,17 @@ var jtth_hp_average = function(hp_die, multiplier, include_flat) {
 ATTRIBUTE TOTALS
 ================================ */
 
-var JTTH_ATTRIBUTES = ["power", "agility", "vitality", "cultivation", "qicontrol", "mental"];
+var JTTH_ATTRIBUTES = ["power", "agility", "vitality", "cultivation", "qicontrol", "mental", "appearance"];
 
 var jtth_stat_value = function(attr_name, attrs) {
     var total = jtth_int(attrs[attr_name]);
     var base = jtth_int(attrs[attr_name + "_base"]);
     var bonus = jtth_int(attrs[attr_name + "_bonus"]);
+    var option_base = jtth_int(attrs[attr_name + "_option_base"]);
+    var option_bonus = jtth_int(attrs[attr_name + "_option_bonus"]);
     var global_bonus = jtth_int(attrs.global_attribute_bonus);
     if (total !== 0) { return total; }
-    return base + bonus + global_bonus;
+    return base + option_base + bonus + option_bonus + global_bonus;
 };
 
 var jtth_modifier_value = function(modifier_text) {
@@ -183,6 +187,8 @@ var update_attributes = function(callback) {
         _.each(JTTH_ATTRIBUTES, function(attr) {
             fields.push(attr + "_base");
             fields.push(attr + "_bonus");
+            fields.push(attr + "_option_base");
+            fields.push(attr + "_option_bonus");
         });
         _.each(inventory_ids, function(id) {
             fields.push("repeating_inventory_" + id + "_equipped");
@@ -192,13 +198,49 @@ var update_attributes = function(callback) {
             var updates = {};
             var global_bonus = jtth_int(attrs.global_attribute_bonus);
             _.each(JTTH_ATTRIBUTES, function(attr) {
-                var base = jtth_int(attrs[attr + "_base"]);
+                var base = jtth_int(attrs[attr + "_base"]) + jtth_int(attrs[attr + "_option_base"]);
+                var bonus = jtth_int(attrs[attr + "_bonus"]) + jtth_int(attrs[attr + "_option_bonus"]);
                 var item_mods = jtth_inventory_attribute_mods(attr, inventory_ids, attrs);
-                updates[attr + "_flag"] = (jtth_int(attrs[attr + "_bonus"]) !== 0 || global_bonus !== 0 || item_mods.flat !== 0 || item_mods.floor > base) ? "1" : "0";
-                updates[attr] = Math.max(base, item_mods.floor) + jtth_int(attrs[attr + "_bonus"]) + item_mods.flat + global_bonus;
+                updates[attr + "_flag"] = (bonus !== 0 || global_bonus !== 0 || item_mods.flat !== 0 || item_mods.floor > base) ? "1" : "0";
+                updates[attr] = Math.max(base, item_mods.floor) + bonus + item_mods.flat + global_bonus;
             });
             setAttrs(updates, { silent: true }, function() {
                 if (typeof callback === "function") { callback(); }
+            });
+        });
+    });
+};
+
+var update_attribute_options = function(callback) {
+    var updates = {};
+    var remaining = JTTH_ATTRIBUTES.length;
+    _.each(JTTH_ATTRIBUTES, function(attr) {
+        getSectionIDs("repeating_" + attr + "attributeoption", function(option_ids) {
+            var fields = [];
+            _.each(option_ids, function(id) {
+                var prefix = "repeating_" + attr + "attributeoption_" + id + "_";
+                fields.push(prefix + "attribute_option_target");
+                fields.push(prefix + "attribute_option_value");
+            });
+            getAttrs(fields, function(attrs) {
+                var totals = { base: 0, bonus: 0, check: 0, dc: 0 };
+                _.each(option_ids, function(id) {
+                    var prefix = "repeating_" + attr + "attributeoption_" + id + "_";
+                    var target = attrs[prefix + "attribute_option_target"] || "bonus";
+                    var value = jtth_int(attrs[prefix + "attribute_option_value"]);
+                    if (typeof totals[target] === "undefined") { target = "bonus"; }
+                    totals[target] += value;
+                });
+                updates[attr + "_option_base"] = jtth_clean_number(totals.base);
+                updates[attr + "_option_bonus"] = jtth_clean_number(totals.bonus);
+                updates[attr + "_option_check_bonus"] = jtth_clean_number(totals.check);
+                updates[attr + "_option_dc_bonus"] = jtth_clean_number(totals.dc);
+                remaining -= 1;
+                if (remaining === 0) {
+                    setAttrs(updates, { silent: true }, function() {
+                        if (typeof callback === "function") { callback(); }
+                    });
+                }
             });
         });
     });
@@ -237,9 +279,11 @@ var jtth_skill_value = function(attr_name, attrs) {
     var total = jtth_int(attrs[attr_name]);
     var base = jtth_int(attrs[attr_name + "_base"]);
     var bonus = jtth_int(attrs[attr_name + "_bonus"]);
+    var option_base = jtth_int(attrs[attr_name + "_option_base"]);
+    var option_bonus = jtth_int(attrs[attr_name + "_option_bonus"]);
     var global_bonus = jtth_int(attrs.global_attribute_bonus);
     if (total !== 0) { return total; }
-    if (typeof attrs[attr_name + "_base"] !== "undefined") { return base + bonus + global_bonus; }
+    if (typeof attrs[attr_name + "_base"] !== "undefined") { return base + option_base + bonus + option_bonus + global_bonus; }
     return 0;
 };
 
@@ -278,7 +322,7 @@ var jtth_inventory_skill_bonus = function(skill_name, inventory_ids, attrs) {
 var update_skills = function() {
     getSectionIDs("repeating_inventory", function(inventory_ids) {
         var fields = ["global_attribute_bonus"];
-        _.each(JTTH_SKILL_ATTRIBUTES, function(attr) { fields.push(attr); fields.push(attr + "_base"); fields.push(attr + "_bonus"); });
+        _.each(JTTH_SKILL_ATTRIBUTES, function(attr) { fields.push(attr); fields.push(attr + "_base"); fields.push(attr + "_bonus"); fields.push(attr + "_option_base"); fields.push(attr + "_option_bonus"); });
         _.each(JTTH_SKILL_NAMES, function(skill_name) { fields.push(skill_name + "_flat"); });
         _.each(inventory_ids, function(id) { fields.push("repeating_inventory_" + id + "_equipped"); fields.push("repeating_inventory_" + id + "_itemmodifiers"); });
         getAttrs(fields, function(attrs) {
@@ -315,14 +359,14 @@ var update_initiative = function() {
 
 var update_dcs = function() {
     var fields = ["ctype", "major_realm", "mortal-level", "global_attribute_bonus", "global_dc_bonus", "qi_control_dc_bonus", "mental_strength_bonus"];
-    _.each(JTTH_ATTRIBUTES, function(attr) { fields.push(attr); fields.push(attr + "_base"); fields.push(attr + "_bonus"); fields.push(attr + "_dc_bonus"); });
+    _.each(JTTH_ATTRIBUTES, function(attr) { fields.push(attr); fields.push(attr + "_base"); fields.push(attr + "_bonus"); fields.push(attr + "_option_base"); fields.push(attr + "_option_bonus"); fields.push(attr + "_dc_bonus"); fields.push(attr + "_option_dc_bonus"); });
     getAttrs(fields, function(attrs) {
         var updates = {};
         var level = jtth_dc_level(attrs);
         var scale = 3.2;
         var global_dc_bonus = jtth_int(attrs.global_dc_bonus);
         _.each(JTTH_ATTRIBUTES, function(attr) {
-            var dc_bonus = jtth_int(attrs[attr + "_dc_bonus"]);
+            var dc_bonus = jtth_int(attrs[attr + "_dc_bonus"]) + jtth_int(attrs[attr + "_option_dc_bonus"]);
             if (attr === "qicontrol" && dc_bonus === 0) { dc_bonus = jtth_int(attrs.qi_control_dc_bonus); }
             if (attr === "mental" && dc_bonus === 0) { dc_bonus = jtth_int(attrs.mental_strength_bonus); }
             updates[attr + "_dc"] = jtth_clean_number((jtth_stat_value(attr, attrs) * scale) + dc_bonus + global_dc_bonus);
@@ -336,8 +380,9 @@ var update_dcs = function() {
 DEFENCE AND ACTION POINT VALUES
 ================================ */
 
-var JTTH_REALM_DEFENSE_BASES = { "Mortal": 0, "Qi Gathering": 10, "Foundation": 15, "Core Formation": 30, "Martial Soul": 60, "God Ascendance": 120 };
-var JTTH_DURABILITY_SOFT_CAPS = { "Qi Gathering": 30, "Foundation": 45, "Core Formation": 90, "Martial Soul": 180, "God Ascendance": 360 };
+var JTTH_REALM_EVASION_BASES = { "Mortal": 0, "Qi Gathering": 10, "Foundation": 15, "Core Formation": 30, "Martial Soul": 100, "God Ascendance": 5000 };
+var JTTH_REALM_DURABILITY_BASES = { "Mortal": 0, "Qi Gathering": 10, "Foundation": 15, "Core Formation": 30, "Martial Soul": 100, "God Ascendance": 500 };
+var JTTH_DURABILITY_SOFT_CAPS = { "Qi Gathering": 30, "Foundation": 45, "Core Formation": 90, "Martial Soul": 300, "God Ascendance": 800 };
 var JTTH_AP_MAJOR_REALM_BASES = { "Mortal": 4, "Qi Gathering": 4, "Foundation": 6, "Core Formation": 8, "Martial Soul": 10, "God Ascendance": 12 };
 var JTTH_QI_REALM_BASES = {
     "Qi Gathering": { "Early": 10, "Mid": 20, "Late": 30, "Peak": 50 },
@@ -346,7 +391,8 @@ var JTTH_QI_REALM_BASES = {
     "Martial Soul": { "Early": 90000, "Mid": 180000, "Late": 250000, "Peak": 400000 }
 };
 var JTTH_QI_DAO_MULTIPLIERS = { elemental: 1.3, generalist: 1.15, martial: 1, body_refiner: 0.75 };
-var jtth_realm_base = function(realm) { return JTTH_REALM_DEFENSE_BASES[realm] || 0; };
+var jtth_evasion_realm_base = function(realm) { return JTTH_REALM_EVASION_BASES[realm] || 0; };
+var jtth_durability_realm_base = function(realm) { return JTTH_REALM_DURABILITY_BASES[realm] || 0; };
 var jtth_ap_major_realm_base = function(realm) { return JTTH_AP_MAJOR_REALM_BASES[realm] || 4; };
 var jtth_qi_realm_base = function(major, minor) {
     var realm = JTTH_QI_REALM_BASES[major] || {};
@@ -376,7 +422,7 @@ var jtth_durability_soft_cap = function(bonus_total, realm) {
 var update_evasion = function() {
     jtth_repeating_sum("repeating_evasionsource", "evasion_value", function(evasion_bonus) {
         getAttrs(["major_realm", "agility", "agility_base", "agility_bonus", "global_attribute_bonus"], function(attrs) {
-            var realm_base = jtth_realm_base(attrs.major_realm || "Mortal");
+            var realm_base = jtth_evasion_realm_base(attrs.major_realm || "Mortal");
             var agility_bonus = jtth_stat_value("agility", attrs) * 1.2;
             setAttrs({ "evasion-realm-base": jtth_clean_number(realm_base), "evasion-agility-value": jtth_clean_number(agility_bonus), "evasion-bonus-total": jtth_clean_number(evasion_bonus), "evasion-full": jtth_clean_number(realm_base + agility_bonus + evasion_bonus) }, { silent: true });
         });
@@ -387,7 +433,7 @@ var update_durability = function() {
     jtth_repeating_sum("repeating_durabilitysource", "durability_value", function(durability_bonus) {
         getAttrs(["major_realm", "vitality", "vitality_base", "vitality_bonus", "global_attribute_bonus"], function(attrs) {
             var realm = attrs.major_realm || "Mortal";
-            var realm_base = jtth_realm_base(realm);
+            var realm_base = jtth_durability_realm_base(realm);
             var vitality_bonus = Math.floor(jtth_stat_value("vitality", attrs) / 50) * 10;
             var uncapped_bonus_total = durability_bonus + vitality_bonus;
             var capped_bonus = jtth_durability_soft_cap(uncapped_bonus_total, realm);
@@ -426,14 +472,38 @@ var update_beast_parts = function() {
 };
 
 var update_action_points = function() {
-    getAttrs(["major_realm", "agility", "agility_base", "agility_bonus", "global_attribute_bonus"], function(attrs) {
-        var agility = jtth_stat_value("agility", attrs);
-        var major_realm = attrs.major_realm || "Mortal";
-        var major_realm_base = JTTH_AP_MAJOR_REALM_BASES[major_realm] || 4;
-        var agility_scale = Math.floor(agility / 15);
-        var agility_ap_bonus = major_realm === "Mortal" ? 0 : Math.min(agility_scale, major_realm_base);
-        var max_ap = major_realm_base + agility_ap_bonus;
-        setAttrs({ "ap-base": "4", "ap-major-realm-base": jtth_clean_number(major_realm_base), "ap-agility-scale": jtth_clean_number(agility_ap_bonus), "ap-agility-regen-bonus": "0", "ap-max": jtth_clean_number(max_ap), "ap-regen": jtth_clean_number(major_realm_base) }, { silent: true });
+    getSectionIDs("repeating_apmodifier", function(apmod_ids) {
+        var fields = ["major_realm", "agility", "agility_base", "agility_bonus", "global_attribute_bonus"];
+        _.each(apmod_ids, function(id) {
+            var prefix = "repeating_apmodifier_" + id + "_";
+            fields.push(prefix + "ap_modifier_active");
+            fields.push(prefix + "ap_modifier_type");
+            fields.push(prefix + "ap_modifier_value");
+        });
+        getAttrs(fields, function(attrs) {
+            var agility = jtth_stat_value("agility", attrs);
+            var major_realm = attrs.major_realm || "Mortal";
+            var major_realm_base = JTTH_AP_MAJOR_REALM_BASES[major_realm] || 4;
+            var agility_scale = Math.floor(agility / 15);
+            var agility_ap_bonus = major_realm === "Mortal" ? 0 : Math.min(agility_scale, major_realm_base);
+            var max_bonus = 0;
+            var regen_bonus = 0;
+            _.each(apmod_ids, function(id) {
+                var prefix = "repeating_apmodifier_" + id + "_";
+                if (attrs[prefix + "ap_modifier_active"] === "0") { return; }
+                var value = jtth_float(attrs[prefix + "ap_modifier_value"]);
+                if ((attrs[prefix + "ap_modifier_type"] || "max") === "regen") {
+                    regen_bonus += value;
+                } else {
+                    max_bonus += value;
+                }
+            });
+            var auto_max_ap = major_realm_base + agility_ap_bonus;
+            var auto_regen = major_realm_base;
+            var max_ap = Math.max(0, auto_max_ap + max_bonus);
+            var ap_regen = Math.max(0, auto_regen + regen_bonus);
+            setAttrs({ "ap-base": "4", "ap-major-realm-base": jtth_clean_number(major_realm_base), "ap-agility-scale": jtth_clean_number(agility_ap_bonus), "ap-agility-regen-bonus": "0", "ap-max-bonus": jtth_clean_number(max_bonus), "ap-regen-bonus": jtth_clean_number(regen_bonus), "ap-max": jtth_clean_number(max_ap), "ap-regen": jtth_clean_number(ap_regen) }, { silent: true });
+        });
     });
 };
 
@@ -484,6 +554,16 @@ var apply_qi_regen = function() {
         var regen = jtth_qi_regen_amount(attrs.qi_regen_value, max_qi);
         var next_qi = Math.min(max_qi, current_qi + regen);
         setAttrs({ qi_current: jtth_clean_number(next_qi) }, { silent: true });
+    });
+};
+
+var apply_hp_regen = function() {
+    getAttrs(["hp", "hp_max", "hp_regen"], function(attrs) {
+        var max_hp = jtth_float(attrs.hp_max);
+        var current_hp = jtth_float(attrs.hp);
+        var regen = jtth_float(attrs.hp_regen);
+        var next_hp = max_hp > 0 ? Math.min(max_hp, current_hp + regen) : current_hp + regen;
+        setAttrs({ hp: jtth_clean_number(next_hp) }, { silent: true });
     });
 };
 
@@ -563,8 +643,8 @@ var update_health = function(callback) {
                 hp_mod_flat_total: jtth_clean_number(flat_total),
                 hp_mod_percent_total: jtth_clean_number(mod_percent_total * 100) + "%",
                 hp_auto_total: jtth_clean_number(auto_total),
-                hp_roll_current_macro: "&{template:simple} @{charname_output} {{rname=Current Realm HP}} {{r1=[[" + current_roll_expr + "]]}}",
-                hp_roll_next_macro: "&{template:features} @{charname_output} {{name=Realm Health Gain}} {{source=" + current_label + " to " + next_label + "}} {{description=Current Realm: " + current_label + " &#10; Current Health: @{hp_rolled} &#10; Next Realm: " + next_label + " &#10; Gained Health: [[" + next_roll_expr + "]] &#10; Total New Rolled Health: [[@{hp_rolled}+" + next_roll_expr + "]]}}"
+                hp_roll_current_macro: "@{whispertoggle}&{template:simple} @{charname_output} {{rname=Current Realm HP}} {{r1=[[" + current_roll_expr + "]]}}",
+                hp_roll_next_macro: "@{whispertoggle}&{template:features} @{charname_output} {{name=Realm Health Gain}} {{source=" + current_label + " to " + next_label + "}} {{description=Current Realm: " + current_label + " &#10; Current Health: @{hp_rolled} &#10; Next Realm: " + next_label + " &#10; Gained Health: [[" + next_roll_expr + "]] &#10; Total New Rolled Health: [[@{hp_rolled}+" + next_roll_expr + "]]}}"
             };
             if (attrs.hp_auto_flag === "1") {
                 updates.hp_max = jtth_clean_number(auto_total);
@@ -1185,9 +1265,18 @@ var reset_profession_stars = function(profession) {
 EVENT LISTENERS
 ================================ */
 
-var jtth_attribute_events = ["change:power_base", "change:agility_base", "change:vitality_base", "change:cultivation_base", "change:qicontrol_base", "change:mental_base", "change:power_bonus", "change:agility_bonus", "change:vitality_bonus", "change:cultivation_bonus", "change:qicontrol_bonus", "change:mental_bonus", "change:global_attribute_bonus"];
-on("sheet:opened", function() { mark_existing_attack_defaults(); update_all_calculations(); update_professions(); });
+var jtth_attribute_events = ["change:power_base", "change:agility_base", "change:vitality_base", "change:cultivation_base", "change:qicontrol_base", "change:mental_base", "change:appearance_base", "change:power_bonus", "change:agility_bonus", "change:vitality_bonus", "change:cultivation_bonus", "change:qicontrol_bonus", "change:mental_bonus", "change:appearance_bonus", "change:global_attribute_bonus"];
+on("sheet:opened", function() { mark_existing_attack_defaults(); update_attribute_options(function() { update_all_calculations(); update_professions(); }); });
 on(jtth_attribute_events.join(" "), function() { update_all_calculations(); });
+
+var jtth_attribute_option_events = [];
+_.each(JTTH_ATTRIBUTES, function(attr) {
+    var section = "repeating_" + attr + "attributeoption";
+    jtth_attribute_option_events.push("change:" + section + ":attribute_option_target");
+    jtth_attribute_option_events.push("change:" + section + ":attribute_option_value");
+    jtth_attribute_option_events.push("remove:" + section);
+});
+on(jtth_attribute_option_events.join(" "), function() { update_attribute_options(update_all_calculations); });
 
 var jtth_skill_events = ["change:appearance", "change:appearance_base", "change:global_skill_bonus", "change:repeating_inventory:equipped", "change:repeating_inventory:itemmodifiers", "remove:repeating_inventory"];
 _.each(JTTH_SKILL_NAMES, function(skill_name) { jtth_skill_events.push("change:" + skill_name + "_flat"); });
@@ -1199,7 +1288,9 @@ on("change:repeating_evasionsource:evasion_value remove:repeating_evasionsource"
 on("change:repeating_durabilitysource:durability_value remove:repeating_durabilitysource", function() { update_durability(); });
 on("change:repeating_reductionsource:reduction_value remove:repeating_reductionsource", function() { update_reduction(); });
 on("change:repeating_qimodifier:qi_modifier_active change:repeating_qimodifier:qi_modifier_type change:repeating_qimodifier:qi_modifier_value remove:repeating_qimodifier", function() { update_qi_reserves(); });
+on("change:repeating_apmodifier:ap_modifier_active change:repeating_apmodifier:ap_modifier_type change:repeating_apmodifier:ap_modifier_value remove:repeating_apmodifier", function() { update_action_points(); });
 on("clicked:qi_regen", function() { apply_qi_regen(); });
+on("clicked:hp_regen", function() { apply_hp_regen(); });
 on("change:hp_max change:repeating_beastparts:part_name change:repeating_beastparts:part_quality remove:repeating_beastparts", function() { update_beast_parts(); });
 on("change:hp_auto_flag change:hp_die change:hp_rolled change:hp_bloodline_bonus change:major_realm change:minor_realm change:vitality change:vitality_base change:vitality_bonus change:global_attribute_bonus change:repeating_hpmod:hp_mod_active change:repeating_hpmod:hp_mod_value change:repeating_hpmod:hp_mod_type remove:repeating_hpmod", function() { update_health(); });
 on("clicked:hp_average", function() { set_hp_average(); });

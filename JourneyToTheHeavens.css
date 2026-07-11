@@ -1410,6 +1410,11 @@
   color: var(--jtth-paper-highlight);
 }
 
+.sheet-darkmode .charsheet .sheet-core select option {
+  background: var(--jtth-input);
+  color: var(--jtth-paper-highlight);
+}
+
 .sheet-darkmode .charsheet .sheet-core input:hover,
 .sheet-darkmode .charsheet .sheet-core select:hover,
 .sheet-darkmode .charsheet .sheet-core textarea:hover {
@@ -2674,16 +2679,23 @@
   margin-top: 4px;
 }
 
-.sheet-qi-modifier-row {
+.sheet-ap-bonuses > .sheet-section-collapsible-content {
+  margin-top: 4px;
+}
+
+.sheet-qi-modifier-row,
+.sheet-ap-modifier-row {
   position: relative;
   padding-left: 22px;
 }
 
-.sheet-qi-modifier-form {
+.sheet-qi-modifier-form,
+.sheet-ap-modifier-form {
   grid-template-columns: minmax(0, 1fr) 84px 70px;
 }
 
-.sheet-qi-modifier-form label {
+.sheet-qi-modifier-form label,
+.sheet-ap-modifier-form label {
   display: grid;
   gap: 2px;
   margin: 0;
@@ -2738,22 +2750,26 @@
   color: var(--jtth-paper-highlight, #fff8e8);
 }
 
-.sheet-qi-modifier-summary {
+.sheet-qi-modifier-summary,
+.sheet-ap-modifier-summary {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 46px 54px;
   gap: 4px;
   width: calc(100% - 16px);
 }
 
-.sheet-qi-modifier-row > .sheet-toggle-unchecked {
+.sheet-qi-modifier-row > .sheet-toggle-unchecked,
+.sheet-ap-modifier-row > .sheet-toggle-unchecked {
   margin-left: 15px;
 }
 
-.sheet-qi-modifier-row > .sheet-toggle-checked {
+.sheet-qi-modifier-row > .sheet-toggle-checked,
+.sheet-ap-modifier-row > .sheet-toggle-checked {
   padding-left: 2px;
 }
 
-.sheet-qi-modifier-summary span {
+.sheet-qi-modifier-summary span,
+.sheet-ap-modifier-summary span {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4071,6 +4087,59 @@
   width: 100%;
   padding: 0;
   font-size: 12px;
+}
+
+.sheet-panel-hp .sheet-hp-regen-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px;
+  gap: 2px;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.sheet-panel-hp .sheet-hp-regen-control input,
+.sheet-panel-hp .sheet-hp-regen-control button {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  padding: 0 2px;
+  font-size: 9px;
+}
+
+.sheet-panel-hp .sheet-hp-regen-control button {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: transparent !important;
+  cursor: pointer;
+  opacity: 0;
+  padding: 0;
+  text-shadow: none !important;
+}
+
+.sheet-panel-hp .sheet-hp-regen-control::after {
+  align-items: center;
+  border: 1px solid var(--jtth-ink-strong, #2c2a24);
+  box-sizing: border-box;
+  content: "+";
+  display: flex;
+  font-size: 11px;
+  font-weight: 800;
+  height: 20px;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+}
+
+.sheet-darkmode .sheet-panel-hp .sheet-hp-regen-control::after {
+  border-color: var(--jtth-input-border);
+  color: var(--jtth-paper-highlight);
 }
 
 .sheet-container-resources .sheet-container-body {
@@ -8049,11 +8118,122 @@
   grid-area: attributes;
 }
 
-.charsheet .sheet-core .sheet-option-attribute-grid {
+.charsheet .sheet-core .sheet-option-attribute-fieldsets {
   display: grid;
-  grid-template-columns: minmax(75px, 0.2fr) repeat(3, minmax(44px, .65fr));
-  gap: 2px 5px;
+  gap: 6px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  min-width: 0;
+  padding: 5px;
+  border: 1px solid var(--jtth-border, #b9aa92);
+  border-radius: 3px;
+  background: var(--jtth-paper, #f7f0e3);
+}
+
+.charsheet .sheet-core .sheet-option-attribute-title {
+  border-bottom: 1px solid var(--jtth-border, #b9aa92);
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 14px;
+  min-height: 18px;
+  padding: 2px 18px 2px 4px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset > .sheet-section-collapse-toggle {
+  height: 22px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset > .sheet-section-collapse-toggle:checked + .sheet-option-attribute-title {
+  border-bottom: 0;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-content {
+  display: grid;
+  gap: 5px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-totals {
+  display: grid;
+  grid-template-columns: repeat(4, auto minmax(20px, 1fr));
+  gap: 2px 3px;
   align-items: center;
+  font-size: 8px;
+  line-height: 12px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-totals span:nth-child(even) {
+  min-width: 0;
+  padding: 0 2px;
+  border: 1px solid var(--jtth-border, #b9aa92);
+  background: var(--jtth-input-bg, #fffaf0);
+  text-align: center;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-row-head,
+.charsheet .sheet-core .sheet-option-attribute-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 54px 82px;
+  gap: 4px;
+  align-items: center;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-row-head {
+  font-size: 8px;
+  font-weight: bold;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset fieldset {
+  min-width: 0;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset .repcontainer {
+  min-height: 0;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset .repitem + .repitem {
+  margin-top: 3px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-fieldset .repcontrol {
+  padding-top: 3px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-row input,
+.charsheet .sheet-core .sheet-option-attribute-row select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 20px;
+  margin: 0;
+  padding: 0 2px;
+  font-size: 9px;
+}
+
+.charsheet .sheet-core .sheet-option-attribute-row input[type="number"] {
+  text-align: center;
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-option-attribute-fieldset {
+  background: var(--jtth-row);
+  border-color: var(--jtth-row-border);
+  color: var(--jtth-paper-highlight);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-option-attribute-title {
+  border-color: var(--jtth-row-border);
+}
+
+.sheet-darkmode .charsheet .sheet-core .sheet-option-attribute-totals span:nth-child(even) {
+  background: var(--jtth-input);
+  border-color: var(--jtth-input-border);
+  color: var(--jtth-paper-highlight);
 }
 
 .charsheet .sheet-core .sheet-page-options .sheet-option-attribute-grid label,
